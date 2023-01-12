@@ -1,0 +1,75 @@
+.ui {
+  &.button {
+    border-radius: 0;
+    font-family: var(--brand-font-family);
+
+    &.secondary {
+      background: none;
+      color: rgb(120, 120, 120);
+    }
+  }
+
+  &.dimmer {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  &.menu {
+    font-family: var(--brand-font-family);
+    font-size: var(--body-font-size);
+  }
+
+  &.modal {
+    & > .header {
+      background-color: var(--dialog-header-and-footer-background-color);
+      font-family: var(--brand-font-family);
+    }
+
+    & > .actions {
+      background-color: var(--dialog-header-and-footer-background-color);
+    }
+  }
+
+  &.segment {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.statistic + &.statistic {
+    margin: 0;
+  }
+}
+
+i.icon.teal {
+  color: rgb(255, 255, 255) !important;
+}
+
+.dates-range-input .ui.input {
+  padding-right: 5px;
+  width: 100%;
+}
+
+.small-checkboxes {
+  .ui.checkbox {
+    label {
+      color: var(--small-font-color);
+      font-size: var(--body-font-size);
+    }
+
+    &.checked {
+      label {
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}
+
+.confirm {
+  button.ui.button:first-child:hover {
+    background-color: #27292a !important;
+    color: #fff !important;
+    text-shadow: none !important;
+  }
+}

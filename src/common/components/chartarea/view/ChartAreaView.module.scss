@@ -1,0 +1,16 @@
+.chartArea {
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-bottom: 4px;
+  outline: none;
+
+  .gridLayout {
+    margin-top: 2px;
+
+    .chartPlaceholder {
+      background: none;
+      border: 6px dashed rgb(0, 0, 0);
+      opacity: 0.3;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.triggerListItem {
+  align-items: center !important;
+  display: flex !important;
+
+  .triggerText {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .triggerCountBadge {
+    flex-shrink: 0;
+  }
+}

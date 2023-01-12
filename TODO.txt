@@ -1,0 +1,65 @@
+
+Implement StartFetchDataForChart should not start fetch data if config hints are still shown
+Implement short debounce before starting to fetch chart data
+Implement chart selection that changes data source, cache dimensions/measures for data sources, refresh button in accordion title bar to clear cache
+Implement filters/sortbys in dashboards
+Implement clearing data point selection when measure/dimension/charttype.... is changed
+When alert/goal data source is changed start fetch alert groups and alert defs
+Implement selection color to darken(1)?
+Implement ESC cancel dialogs
+Implement storing data explorer state (eg. gutter offsets) to localstorage, use redux-persist
+
+Implement dialog to create/edit/remove data sources in data explorer (show Add new data source hint text as a link to create new)
+Implement data source refresh interval and apply this to chart data cache
+Implement dialog to create/edit/remove alert/goal data sources
+Implement dialog creating/edit/remove new measure
+Implement dialog to create/edit/remove quick-dimension from measure as histogram
+Implement dialog creating/edit/remove new dimension
+Implement dialog creating/edit/remove new filter as sql expression, filter name, filter type (rows vs. aggregated rows, ie. where vs having)
+Implement dialog creating/edit/remove sort by as sql expression
+Implement logout
+Implement backend service integration
+Implement assigning chart data request uuid on client side when sending request to backend, cancel chart data requests using cached uuids, before sending a new chart data request to backend
+
+Implement constructing SQL WHERE, HAVING and ORDER by expressions for backend query
+Implement data point selection when graph is scrolled
+Implement license management: https://github.com/verhas/License3j
+
+Test Firefox
+Test Safari
+Test Edge
+Test different screen widths
+Test font size variation
+
+RELEASE 2
+==========
+Implement Semantic UI React Reorder list for Dashboard groups/dashboards (Github new project DragDropList)
+Implement Semantic UI React Source/Target list for dashboard => dashboard groups (Github enhance DragDropList)
+Implement multiple tabs on Data Explorer (Possibility to hide tabs from action menu icon toggle)
+Implement vertical scrollbar for horizontal bar chart type
+Chart menu: Apply filter to -> submenu: All charts on page, selected charts, show legend toggle
+In dashboards, drag to header will make filter global. Also when dashboard is changed header is showed for short time
+Implement multiple chart select in dashboard, filter/sortby
+Implement time x-axis categories to show date or not show date depending on timestamp range
+Implement measure range coloring in column/bar and datatable charts (in chart options: plotOptions: { bar: ... }
+Implement filter chart type
+Implement multiple y-axis based on measure units
+Implement Data table support for sparkline columns
+Implement map tooltip text as html table
+Implement map zoom box
+Implement map zoom home
+Implement map drill down dimensions
+Implement map geometry support
+Implement scrolling for heatmap chart
+Implement ROLLUP/CUBE support for data table dimension columns
+Implement Reporting
+Localization
+Implement dark theme
+If measure/dimension/filter/sortBy has expression, show the expression in tooltip on hovering the name
+Implement Login screen
+
+DOCS
+====
+Rectangles on map where width and height type measures are constants: eg. select 50 as width, 70 as height...
+Slogan: Your #1 business intelligence & operations analytics tool. Built for big data and real-time.
+

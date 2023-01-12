@@ -1,0 +1,38 @@
+.listItem {
+  align-items: baseline !important;
+  display: flex !important;
+  font-weight: bold !important;
+  padding-bottom: 0.2rem !important;
+  padding-top: 0.2rem !important;
+
+  .removeIcon {
+    color: rgb(0 0 0);
+    visibility: hidden;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    cursor: default;
+
+    .removeIcon {
+      visibility: visible;
+    }
+  }
+
+  .dimensionName {
+    flex-shrink: 0;
+    font-size: var(--large-font-size);
+    margin-right: 0.4rem;
+  }
+
+  .visualizationType {
+    color: var(--small-font-color);
+    flex-grow: 1;
+    font-size: var(--small-font-size);
+  }
+}

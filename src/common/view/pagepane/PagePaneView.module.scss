@@ -1,0 +1,35 @@
+.pagePane {
+  background-color: white;
+  display: none;
+  height: calc(100vh - 45px);
+  max-width: 400px;
+  position: fixed;
+  top: 45px;
+  z-index: var(--topmost-z-index);
+
+  &.fullScreen {
+    height: 100vh;
+    top: 0;
+  }
+
+  &.left {
+    border-right: 1px solid rgb(200, 200, 200);
+    left: 0;
+  }
+
+  &.right {
+    border-left: 1px solid rgb(200, 200, 200);
+    right: 0;
+  }
+
+  &.visible {
+    display: block;
+  }
+
+  &.permanentlyVisible {
+    display: block;
+    max-width: 800px;
+    position: static;
+    z-index: 0;
+  }
+}

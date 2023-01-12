@@ -1,0 +1,32 @@
+.scrollableChart {
+  height: 100%;
+
+  & > div {
+    min-height: auto !important;
+  }
+
+  .scrollbar {
+    visibility: hidden;
+  }
+
+  &:hover .scrollbar {
+    visibility: visible;
+  }
+
+  &.selectedChart {
+    background-color: var(--transparent-brand-color-1);
+    border: 4px solid var(--brand-color-1);
+  }
+
+  .menu {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    visibility: hidden;
+    z-index: var(--topmost-z-index);
+  }
+
+  &:hover .menu {
+    visibility: visible;
+  }
+}

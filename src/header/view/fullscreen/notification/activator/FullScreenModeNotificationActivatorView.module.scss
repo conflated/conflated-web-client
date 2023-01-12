@@ -1,0 +1,12 @@
+.fullScreenModeNotificationActivator {
+  height: 7px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--topmost-z-index);
+
+  &.hidden {
+    display: none;
+  }
+}

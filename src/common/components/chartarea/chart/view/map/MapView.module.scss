@@ -1,0 +1,39 @@
+.mapHeader {
+  align-items: center;
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+  display: flex;
+  position: absolute;
+  width: 100%;
+  z-index: 900;
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+
+    .title {
+      font-size: var(--large-font-size);
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: var(--small-font-color);
+      font-size: var(--body-font-size);
+    }
+  }
+  .emptyArea {
+    flex-grow: 1;
+  }
+
+  .geometrySelector {
+    flex-shrink: 1;
+    margin-right: 1rem;
+  }
+
+  .actionButtons {
+    flex-shrink: 1;
+  }
+}

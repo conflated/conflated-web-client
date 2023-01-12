@@ -1,0 +1,21 @@
+.selectedDimensionsAndDropZonesSection {
+  background-color: rgb(220 220 220);
+  padding-bottom: 0.4rem;
+  padding-left: 0.4rem;
+  padding-top: 0.4rem;
+
+  .list {
+    margin: 0;
+
+    .dimensionDropZone {
+      border: 1px dashed var(--drop-zone-font-color);
+      color: var(--drop-zone-font-color);
+      margin-right: 0.3rem;
+      padding: 0.3rem;
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

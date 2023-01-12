@@ -1,0 +1,59 @@
+.page {
+  display: flex;
+  height: calc(100vh - 45px);
+
+  .draggableGutter {
+    cursor: ew-resize;
+    flex-basis: 2px;
+    flex-shrink: 0;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .leftPaneActivator {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 45px;
+    width: 4px;
+    z-index: var(--topmost-z-index);
+  }
+
+  .rightPaneActivator {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 45px;
+    width: 4px;
+    z-index: var(--topmost-z-index);
+  }
+
+  .abstractPaneActivatorHint {
+    background-color: rgb(180, 180, 180);
+    border-radius: 75px;
+    height: 150px;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: calc(45px + (100vh - 45px) / 2 - 75px);
+    transition: opacity 1s linear;
+    width: 150px;
+    z-index: var(--topmost-z-index);
+
+    &.visible {
+      opacity: 0.75;
+    }
+  }
+
+  .leftPaneActivatorHint {
+    @extend .abstractPaneActivatorHint;
+
+    left: -100px;
+  }
+
+  .rightPaneActivatorHint {
+    @extend .abstractPaneActivatorHint;
+
+    right: -100px;
+  }
+}

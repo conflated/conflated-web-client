@@ -1,0 +1,34 @@
+.appHeader {
+  align-items: center;
+  background-color: var(--header-background-color);
+  color: var(--header-foreground-color);
+  display: flex;
+  height: 45px;
+  justify-content: center;
+
+  &.hidden {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .appTitle {
+    font-family: var(--brand-logo-font-family);
+    font-size: var(--app-title-font-size);
+    font-weight: var(--brand-logo-font-weight);
+    line-height: 45px;
+    margin-left: 20px;
+    vertical-align: middle;
+  }
+
+  .headerIcon {
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--app-navigation-font-size);
+    height: 1rem;
+    margin-right: 0.3rem;
+    vertical-align: text-bottom;
+    width: 1rem;
+  }
+}

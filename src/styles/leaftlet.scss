@@ -1,0 +1,9 @@
+.leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-tile-container {
+  img {
+    filter: grayscale(100%) hue-rotate(90deg);
+  }
+}

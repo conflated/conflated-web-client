@@ -1,0 +1,34 @@
+.listItem {
+  font-family: var(--brand-font-family) !important;
+  font-size: var(--body-font-size) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  &.selected {
+    color: var(--primary-text-color-on-hover) !important;
+    font-weight: bold !important;
+  }
+
+  &:hover {
+    color: var(--primary-text-color-on-hover) !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+  }
+
+  .listItemIcon {
+    color: var(--small-font-color);
+    display: table-cell;
+    padding-right: 0.28571429em;
+    padding-top: 0;
+    transition: color 0.1s ease;
+    vertical-align: top;
+  }
+
+  .listItemContent {
+    display: table-cell;
+    padding: 0 0 0 0.5em;
+    vertical-align: top;
+    width: 100%;
+  }
+}

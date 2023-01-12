@@ -1,0 +1,15 @@
+export type MeasureVisualizationType =
+  | 'none'
+  | 'column'
+  | 'area'
+  | 'line'
+  | 'radius'
+  | 'color'
+  | 'tooltip'
+  | 'text'
+  | 'x-axis'
+  | 'y-axis'
+  | 'open'
+  | 'high'
+  | 'low'
+  | 'close';

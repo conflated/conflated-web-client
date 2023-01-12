@@ -1,0 +1,17 @@
+import OOReduxUtils from 'oo-redux-utils';
+import AbstractSelectorWithDefaultActionsAction from '../../actions/AbstractSelectorWithDefaultActionsAction';
+import type { SelectorWithDefaultActionsState } from '../SelectorWithDefaultActionsState';
+import type { SelectorWithDefaultActionsStateNamespace } from '../namespace/SelectorWithDefaultActionsStateNamespace';
+
+const initialSelectorWithDefaultActionsState: SelectorWithDefaultActionsState = {
+  isSelectorMaximized: false,
+  isSearchInputShown: false,
+  searchedValue: ''
+};
+
+export default (stateNamespace: SelectorWithDefaultActionsStateNamespace) =>
+  OOReduxUtils.createNamespacedStateReducer<SelectorWithDefaultActionsState, SelectorWithDefaultActionsStateNamespace>(
+    initialSelectorWithDefaultActionsState,
+    [AbstractSelectorWithDefaultActionsAction, undefined],
+    stateNamespace
+  );

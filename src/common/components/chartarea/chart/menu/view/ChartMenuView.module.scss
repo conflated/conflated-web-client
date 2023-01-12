@@ -1,0 +1,29 @@
+.dangerItem {
+  color: red !important;
+}
+
+.menuItemWithKeyboardShortcut {
+  display: flex !important;
+  justify-content: space-between !important;
+  min-width: 11rem !important;
+  width: 100%;
+
+  span {
+    display: inline-block;
+  }
+
+  .keyboardShortcut {
+    color: rgb(150, 150, 150);
+    font-size: 0.75rem;
+  }
+}
+
+.buttonsArea {
+  background: rgba(0, 0, 0, 0.05);
+  display: flex !important;
+  justify-content: center !important;
+
+  button {
+    margin: 0;
+  }
+}

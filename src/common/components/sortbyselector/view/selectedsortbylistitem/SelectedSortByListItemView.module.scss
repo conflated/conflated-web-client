@@ -1,0 +1,47 @@
+.listItem {
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  font-weight: bold !important;
+  padding-bottom: 0.2rem !important;
+  padding-top: 0.2rem !important;
+
+  &:hover {
+    cursor: default !important;
+  }
+
+  &:hover .icon {
+    visibility: visible !important;
+  }
+
+  .sortDirectionSelector {
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 0.4rem;
+    margin-right: 0.3rem;
+    padding: 0.2rem;
+  }
+
+  .aggregationFunctionSelector {
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 0.4rem;
+    margin-right: 0.3rem;
+    padding: 0.2rem;
+  }
+
+  .measureOrDimensionOrTimeSortOptionName {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: var(--large-font-size);
+    text-overflow: ellipsis;
+  }
+
+  .icon {
+    color: rgb(0, 0, 0);
+    visibility: hidden;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

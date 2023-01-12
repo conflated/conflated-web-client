@@ -1,0 +1,26 @@
+.navigation {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  .link {
+    .linkText {
+      color: var(--header-foreground-color);
+      font-family: var(--brand-font-family);
+      font-size: var(--app-navigation-font-size);
+      padding-right: 40px;
+
+      &:hover,
+      &:focus {
+        color: var(--secondary-text-color-on-hover);
+        cursor: pointer;
+      }
+
+      &.selected {
+        color: var(--secondary-text-color-on-hover);
+      }
+    }
+  }
+}

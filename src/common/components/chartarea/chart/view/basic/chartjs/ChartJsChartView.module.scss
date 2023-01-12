@@ -1,0 +1,24 @@
+.chartCanvas {
+  height: 100%;
+}
+
+.chartTitles {
+  left: 15px;
+  position: absolute;
+  top: 6px;
+
+  &.drillDownTitles {
+    left: 35px;
+  }
+
+  .chartTitle {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .chartSubtitle {
+    color: rgb(150, 150, 150);
+    font-size: 13px;
+    line-height: 13px;
+  }
+}

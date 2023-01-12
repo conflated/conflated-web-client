@@ -1,0 +1,50 @@
+.header {
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  border-top: 2px rgb(150, 150, 150) solid;
+  display: none;
+  height: 45px;
+  left: 0;
+  padding: 5px;
+  position: fixed;
+  top: 45px;
+  width: 100%;
+  z-index: var(--topmost-z-index);
+
+  &.visible {
+    display: flex;
+  }
+
+  &.fullScreen {
+    top: 0;
+  }
+
+  .dashboardSelectors {
+    display: flex;
+    flex-direction: column;
+
+    .dashboardSelector {
+      font-size: var(--large-font-size);
+      font-weight: bold;
+    }
+
+    .dashboardGroupSelector {
+      color: var(--small-font-color);
+      font-size: 0.8rem;
+    }
+  }
+
+  .emptySpace {
+    flex-grow: 1;
+  }
+
+  .actionIcon {
+    cursor: pointer;
+    margin-left: 0.7rem;
+
+    &:hover,
+    &:focus {
+      color: var(--brand-color-1);
+    }
+  }
+}

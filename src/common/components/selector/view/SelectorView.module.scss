@@ -1,0 +1,37 @@
+.actionIcon {
+  color: var(--secondary-text-color);
+  line-height: var(--body-font-size);
+  visibility: hidden;
+
+  &:hover {
+    color: var(--secondary-text-color-on-hover);
+  }
+}
+
+.maximizedSelector .actionIcon {
+  visibility: visible;
+}
+
+.title {
+  align-items: center !important;
+  background-color: var(--brand-color-2) !important;
+  color: var(--secondary-text-color) !important;
+  display: flex !important;
+
+  &:hover,
+  &:focus {
+    color: var(--secondary-text-color-on-hover) !important;
+  }
+
+  &:hover .actionIcon {
+    visibility: visible;
+  }
+}
+
+.titleSpan {
+  flex-grow: 1;
+
+  &:hover {
+    color: var(--secondary-text-color-on-hover);
+  }
+}

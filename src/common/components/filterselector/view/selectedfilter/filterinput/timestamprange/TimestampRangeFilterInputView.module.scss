@@ -1,0 +1,15 @@
+.timestampRangeSelector {
+  display: table;
+
+  .labelledDateTimeInput {
+    display: table-row;
+
+    .label {
+      display: table-cell;
+    }
+
+    .dateTimeInput {
+      display: table-cell;
+    }
+  }
+}

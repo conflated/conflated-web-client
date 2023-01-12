@@ -1,0 +1,34 @@
+import React from 'react';
+import { Input, Popup } from 'semantic-ui-react';
+import styles from './DashbaordsSlideShowSlideChangeIntervalInputView.module.scss';
+
+type Props = {
+  changeDashboardsSlideChangeInterval: (value: string) => void;
+  slideChangeIntervalInSecsStr: string;
+};
+
+function DashboardsSlideShowSlideChangeIntervalInputView({
+  changeDashboardsSlideChangeInterval,
+  slideChangeIntervalInSecsStr
+}: Props) {
+  return (
+    <>
+      <Popup
+        inverted
+        trigger={
+          <Input
+            className={styles.slideChangeIntervalInput}
+            value={slideChangeIntervalInSecsStr}
+            onChange={({ currentTarget: { value } }: React.FormEvent<HTMLInputElement>) =>
+              changeDashboardsSlideChangeInterval(value)
+            }
+          />
+        }
+        content="Slide change interval for dashboards slide show"
+      />
+      <span>secs</span>
+    </>
+  );
+}
+
+export default DashboardsSlideShowSlideChangeIntervalInputView;
