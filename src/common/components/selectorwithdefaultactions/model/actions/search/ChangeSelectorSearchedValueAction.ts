@@ -1,5 +1,3 @@
-// @flow
-
 import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDefaultActionsState';
 import AbstractSelectorWithDefaultActionsAction from '../AbstractSelectorWithDefaultActionsAction';
 import type { SelectorWithDefaultActionsStateNamespace } from '../../state/namespace/SelectorWithDefaultActionsStateNamespace';

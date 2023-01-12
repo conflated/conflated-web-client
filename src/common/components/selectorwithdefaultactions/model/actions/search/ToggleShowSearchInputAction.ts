@@ -1,5 +1,3 @@
-// @flow
-
 import HideSelectorSearchInputAction from './HideSelectorSearchInputAction';
 import ShowSelectorSearchInputAction from './ShowSelectorSearchInputAction';
 import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDefaultActionsState';

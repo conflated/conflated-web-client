@@ -1,5 +1,3 @@
-// @flow
-
 import { NamespacedControllerFactory } from 'oo-redux-utils';
 import ToggleShowSearchInputAction from '../model/actions/search/ToggleShowSearchInputAction';
 import ChangeSelectorSearchedValueAction from '../model/actions/search/ChangeSelectorSearchedValueAction';
