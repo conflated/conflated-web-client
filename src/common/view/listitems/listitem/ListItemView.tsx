@@ -15,7 +15,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
 
 const { listItem, listItemContent, listItemIcon, selected } = styles;
 
-export default function ListItemView<T extends { readonly name: string }>({
+const ListItemView = <T extends { readonly name: string }>({
   dragEventDataKey,
   draggable,
   iconClassName,
@@ -23,7 +23,7 @@ export default function ListItemView<T extends { readonly name: string }>({
   item,
   onItemClick,
   selectedItem
-}: ListItemViewProps<T>) {
+}: ListItemViewProps<T>) => {
   const onDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     event.dataTransfer.setData(dragEventDataKey ?? '', event.currentTarget.id);
   };
@@ -44,7 +44,7 @@ export default function ListItemView<T extends { readonly name: string }>({
       </List.Item>
     </div>
   );
-}
+};
 
 ListItemView.defaultProps = {
   dragEventDataKey: '',
@@ -53,3 +53,5 @@ ListItemView.defaultProps = {
   iconName: '',
   selectedItem: null
 };
+
+export default ListItemView;

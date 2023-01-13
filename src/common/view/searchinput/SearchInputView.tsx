@@ -7,7 +7,7 @@ type Props = {
   onChange: (inputValue: string) => void;
 };
 
-export default function SearchInputView({ className, isShown, onChange }: Props) {
+const SearchInputView = ({ className, isShown, onChange }: Props) => {
   if (isShown) {
     return (
       <Input
@@ -23,4 +23,6 @@ export default function SearchInputView({ className, isShown, onChange }: Props)
   }
 
   return null;
-}
+};
+
+export default SearchInputView;
