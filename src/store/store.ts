@@ -1,26 +1,26 @@
 import { createStore, combineReducers } from 'redux';
 import { createNamespacedReducers } from 'oo-redux-utils';
-import headerStateReducer from '../header/model/state/reducer/headerStateReducer';
-import layoutSelectorStateReducer from '../dataexplorerpage/leftpane/layoutselector/model/state/reducer/layoutSelectorStateReducer';
-import dataSourceSelectorStateReducer from '../dataexplorerpage/leftpane/datasourceselector/model/state/reducer/dataSourceSelectorStateReducer';
-import measureSelectorStateReducer from '../dataexplorerpage/leftpane/measureselector/model/state/reducer/measureSelectorStateReducer';
-import dimensionSelectorStateReducer from '../dataexplorerpage/leftpane/dimensionselector/model/state/reducer/dimensionSelectorStateReducer';
-import createChartAreaStateReducer from '../common/components/chartarea/model/state/reducer/createChartAreaStateReducer';
-import dataExplorerSettingsStateReducer from '../dataexplorerpage/settings/state/reducer/dataExplorerSettingsStateReducer';
-import saveAsDashboardOrReportTemplateDialogStateReducer from '../dataexplorerpage/saveasdashboardorreporttemplatedialog/model/state/reducer/saveAsDashboardOrReportTemplateDialogStateReducer';
-import createSortBySelectorStateReducer from '../common/components/sortbyselector/model/state/reducer/createSortBySelectorStateReducer';
-import dashboardsPageStateReducer from '../dashboardspage/model/state/reducer/dashboardsPageStateReducer';
-import createTriggerDataSourceSelectorStateReducer from '../common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/reducer/createTriggerDataSourceSelectorStateReducer';
-import createTriggerGroupSelectorStateReducer from '../common/components/triggerspage/leftpane/triggergroupselector/model/state/reducer/createTriggerGroupSelectorStateReducer';
-import createTriggerSelectorStateReducer from '../common/components/triggerspage/leftpane/triggerselector/model/state/reducer/createTriggerSelectorStateReducer';
-import createPageStateReducer from '../common/components/page/model/state/reducer/createPageStateReducer';
-import createSelectorStateReducer from '../common/components/selector/model/state/reducer/createSelectorStateReducer';
-import selectorStateNamespaces from '../common/components/selector/model/state/namespace/SelectorStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
-import createSelectorWithDefaultActionsStateReducer from '../common/components/selectorwithdefaultactions/model/state/reducer/createSelectorWithDefaultActionsStateReducer';
-import dashboardsPageHeaderStateReducer from '../dashboardspage/header/model/state/reducer/dashboardsPageHeaderStateReducer';
-import createTriggersPageChartAreaStateReducer from '../common/components/triggerspage/chartarea/model/state/reducer/createTriggersPageChartAreaStateReducer';
-import pageStateNamespaces from '../common/components/page/model/state/namespace/PageStateNamespace';
+import headerStateReducer from '../app/header/model/state/reducer/headerStateReducer';
+import layoutSelectorStateReducer from '../app/pages/dataexplorerpage/leftpane/layoutselector/model/state/reducer/layoutSelectorStateReducer';
+import dataSourceSelectorStateReducer from '../app/pages/dataexplorerpage/leftpane/datasourceselector/model/state/reducer/dataSourceSelectorStateReducer';
+import measureSelectorStateReducer from '../app/pages/dataexplorerpage/leftpane/measureselector/model/state/reducer/measureSelectorStateReducer';
+import dimensionSelectorStateReducer from '../app/pages/dataexplorerpage/leftpane/dimensionselector/model/state/reducer/dimensionSelectorStateReducer';
+import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/reducer/createChartAreaStateReducer';
+import dataExplorerSettingsStateReducer from '../app/pages/dataexplorerpage/settings/state/reducer/dataExplorerSettingsStateReducer';
+import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorerpage/saveasdashboardorreporttemplatedialog/model/state/reducer/saveAsDashboardOrReportTemplateDialogStateReducer';
+import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/reducer/createSortBySelectorStateReducer';
+import dashboardsPageStateReducer from '../app/pages/dashboardspage/model/state/reducer/dashboardsPageStateReducer';
+import createTriggerDataSourceSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/reducer/createTriggerDataSourceSelectorStateReducer';
+import createTriggerGroupSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/reducer/createTriggerGroupSelectorStateReducer';
+import createTriggerSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/reducer/createTriggerSelectorStateReducer';
+import createPageStateReducer from '../app/common/components/page/model/state/reducer/createPageStateReducer';
+import createSelectorStateReducer from '../app/common/components/selector/model/state/reducer/createSelectorStateReducer';
+import selectorStateNamespaces from '../app/common/components/selector/model/state/namespace/SelectorStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selectorwithdefaultactions/model/state/reducer/createSelectorWithDefaultActionsStateReducer';
+import dashboardsPageHeaderStateReducer from '../app/pages/dashboardspage/header/model/state/reducer/dashboardsPageHeaderStateReducer';
+import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/reducer/createTriggersPageChartAreaStateReducer';
+import pageStateNamespaces from '../app/common/components/page/model/state/namespace/PageStateNamespace';
 
 const appStateReducer = combineReducers({
   common: combineReducers({

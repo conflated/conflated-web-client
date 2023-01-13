@@ -6,8 +6,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-fresh.css';
 import './styles/index.scss';
 import reportWebVitals from './reportWebVitals';
-import diContainer from './diContainer';
-import AppView from './app/view/AppView';
+import diContainer from './di/diContainer';
+import AppView from './app/AppView';
 
 diContainer.configure().then(() => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

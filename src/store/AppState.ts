@@ -1,23 +1,23 @@
-import type { HeaderState } from '../header/model/state/HeaderState';
-import type { DataSourceSelectorState } from '../dataexplorerpage/leftpane/datasourceselector/model/state/DataSourceSelectorState';
-import type { SaveAsDashboardOrReportTemplateDialogState } from '../dataexplorerpage/saveasdashboardorreporttemplatedialog/model/state/SaveAsDashboardOrReportTemplateDialogState';
-import type { TriggerGroupSelectorState } from '../common/components/triggerspage/leftpane/triggergroupselector/model/state/TriggerGroupSelectorState';
-import type { DashboardsState } from '../dashboardspage/model/state/DashboardsState';
-import type { LayoutSelectorState } from '../dataexplorerpage/leftpane/layoutselector/model/state/LayoutSelectorState';
-import type { MeasureSelectorState } from '../dataexplorerpage/leftpane/measureselector/model/state/MeasureSelectorState';
-import type { DimensionSelectorState } from '../dataexplorerpage/leftpane/dimensionselector/model/state/DimensionSelectorState';
-import type { ChartAreaState } from '../common/components/chartarea/model/state/ChartAreaState';
-import type { SortBySelectorState } from '../common/components/sortbyselector/model/state/SortBySelectorState';
-import type { DataExplorerSettingsState } from '../dataexplorerpage/settings/state/DataExplorerSettingsState';
-import type { TriggerSelectorState } from '../common/components/triggerspage/leftpane/triggerselector/model/state/TriggerSelectorState';
-import type { TriggerDataSourceSelectorState } from '../common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';
-import type { PageState } from '../common/components/page/model/state/PageState';
-import type { SelectorState } from '../common/components/selector/model/state/SelectorState';
-import selectorStateNamespaces from '../common/components/selector/model/state/namespace/SelectorStateNamespace';
-import type { SelectorWithDefaultActionsState } from '../common/components/selectorwithdefaultactions/model/state/SelectorWithDefaultActionsState';
-import selectorWithDefaultActionsStateNamespaces from '../common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
-import type { DashboardsPageHeaderState } from '../dashboardspage/header/model/state/DashboardsPageHeaderState';
-import pageStateNamespaces from '../common/components/page/model/state/namespace/PageStateNamespace';
+import type { HeaderState } from '../app/header/model/state/HeaderState';
+import type { DataSourceSelectorState } from '../app/pages/dataexplorerpage/leftpane/datasourceselector/model/state/DataSourceSelectorState';
+import type { SaveAsDashboardOrReportTemplateDialogState } from '../app/pages/dataexplorerpage/saveasdashboardorreporttemplatedialog/model/state/SaveAsDashboardOrReportTemplateDialogState';
+import type { TriggerGroupSelectorState } from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/TriggerGroupSelectorState';
+import type { DashboardsState } from '../app/pages/dashboardspage/model/state/DashboardsState';
+import type { LayoutSelectorState } from '../app/pages/dataexplorerpage/leftpane/layoutselector/model/state/LayoutSelectorState';
+import type { MeasureSelectorState } from '../app/pages/dataexplorerpage/leftpane/measureselector/model/state/MeasureSelectorState';
+import type { DimensionSelectorState } from '../app/pages/dataexplorerpage/leftpane/dimensionselector/model/state/DimensionSelectorState';
+import type { ChartAreaState } from '../app/common/components/chartarea/model/state/ChartAreaState';
+import type { SortBySelectorState } from '../app/common/components/sortbyselector/model/state/SortBySelectorState';
+import type { DataExplorerSettingsState } from '../app/pages/dataexplorerpage/settings/state/DataExplorerSettingsState';
+import type { TriggerSelectorState } from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/TriggerSelectorState';
+import type { TriggerDataSourceSelectorState } from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';
+import type { PageState } from '../app/common/components/page/model/state/PageState';
+import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
+import selectorStateNamespaces from '../app/common/components/selector/model/state/namespace/SelectorStateNamespace';
+import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithdefaultactions/model/state/SelectorWithDefaultActionsState';
+import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import type { DashboardsPageHeaderState } from '../app/pages/dashboardspage/header/model/state/DashboardsPageHeaderState';
+import pageStateNamespaces from '../app/common/components/page/model/state/namespace/PageStateNamespace';
 
 export type AppState = {
   common: {

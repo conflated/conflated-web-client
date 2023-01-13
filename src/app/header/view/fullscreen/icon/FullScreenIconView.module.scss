@@ -1,0 +1,11 @@
+.fullScreen {
+  padding-right: 10px;
+
+  .fullScreenIcon {
+    background-image: url("../../../../../assets/images/icons/header/full_screen_icon.svg");
+
+    &:hover {
+      background-image: url("../../../../../assets/images/icons/header/onhover/full_screen_icon_on_hover.svg");
+    }
+  }
+}
