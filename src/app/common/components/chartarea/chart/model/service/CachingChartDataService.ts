@@ -1,6 +1,6 @@
-import type { Column } from './types/Column';
+import type { Column } from '../state/types/Column';
 import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
-import type { MinMaxMeasureColumn } from './types/MinMaxMeasureColumn';
+import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import { ChartDataService } from './ChartDataService';
 import HashValueCalculator from '../../../../../model/state/utils/HashValueCalculator';
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
@@ -8,7 +8,7 @@ import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/Sel
 import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
 
 // TODO Encrypt cached data
-export default class CachingChartDataServiceProxyImpl implements ChartDataService {
+export default class CachingChartDataService implements ChartDataService {
   static MAX_NUMBER_OF_CHART_DATAS_STORED = 50;
 
   static CACHED_CHART_DATA_KEYS = 'ChartDataCache-cachedChartDataKeys';
@@ -46,13 +46,13 @@ export default class CachingChartDataServiceProxyImpl implements ChartDataServic
 
     chartDataFetchPromise.then((columnNameToValuesMap: ColumnNameToValuesMap) => {
       let cachedChartDataKeys = [];
-      const cachedChartDataKeysInJson = localStorage.getItem(CachingChartDataServiceProxyImpl.CACHED_CHART_DATA_KEYS);
+      const cachedChartDataKeysInJson = localStorage.getItem(CachingChartDataService.CACHED_CHART_DATA_KEYS);
 
       if (cachedChartDataKeysInJson) {
         cachedChartDataKeys = JSON.parse(cachedChartDataKeysInJson);
       }
 
-      if (cachedChartDataKeys.length > CachingChartDataServiceProxyImpl.MAX_NUMBER_OF_CHART_DATAS_STORED) {
+      if (cachedChartDataKeys.length > CachingChartDataService.MAX_NUMBER_OF_CHART_DATAS_STORED) {
         const firstChartDataKey = cachedChartDataKeys.shift();
         localStorage.removeItem(firstChartDataKey);
       }
@@ -73,10 +73,7 @@ export default class CachingChartDataServiceProxyImpl implements ChartDataServic
       }
 
       cachedChartDataKeys.push(chartDataKey);
-      localStorage.setItem(
-        CachingChartDataServiceProxyImpl.CACHED_CHART_DATA_KEYS,
-        JSON.stringify(cachedChartDataKeys)
-      );
+      localStorage.setItem(CachingChartDataService.CACHED_CHART_DATA_KEYS, JSON.stringify(cachedChartDataKeys));
     });
 
     return chartDataFetchPromise;

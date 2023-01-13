@@ -7,7 +7,7 @@ import type { Chart } from '../../../model/state/Chart';
 
 type Props = { chart: Chart };
 
-export default function AgGridDataTableView({ chart }: Props) {
+const AgGridDataTableView = ({ chart }: Props) => {
   const dimensionColumnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(({ dimension: { name, isString, isTimestamp } }: SelectedDimension): object => {
@@ -60,4 +60,6 @@ export default function AgGridDataTableView({ chart }: Props) {
       />
     </div>
   );
-}
+};
+
+export default AgGridDataTableView;

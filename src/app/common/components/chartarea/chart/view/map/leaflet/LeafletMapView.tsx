@@ -9,7 +9,7 @@ import LeafletMapCircleGeometriesFactory from './factories/LeafletCircleGeometri
 // eslint-disable-next-line react/no-unused-prop-types
 type Props = { chart: Chart; stateNamespace: ChartAreaPageStateNamespace };
 
-export default function LeafletMapView({ chart }: Props): JSX.Element {
+const LeafletMapView = ({ chart }: Props) => {
   let mapBounds;
   const [latitudeValues, longitudeValues] = chart.chartData.getMapLocationData(chart.selectedDimensions);
 
@@ -36,4 +36,6 @@ export default function LeafletMapView({ chart }: Props): JSX.Element {
       </MapContainer>
     </div>
   );
-}
+};
+
+export default LeafletMapView;

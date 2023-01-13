@@ -8,7 +8,7 @@ import type { SelectedFilter } from '../../../../../chart/model/state/selectedfi
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaDispatchingAction from '../../../AbstractChartAreaDispatchingAction';
-import { Column } from '../../../../../chart/model/service/types/Column';
+import { Column } from '../../../../../chart/model/state/types/Column';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;

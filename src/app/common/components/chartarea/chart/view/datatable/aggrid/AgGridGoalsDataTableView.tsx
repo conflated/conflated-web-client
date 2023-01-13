@@ -15,7 +15,7 @@ const columnWidthWeights = {
   'Trigger details': 0.28
 };
 
-export default function AgGridGoalsDataTableView({ chart, height, width }: Props) {
+const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
   let columnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(
@@ -96,4 +96,6 @@ export default function AgGridGoalsDataTableView({ chart, height, width }: Props
       />
     </div>
   );
-}
+};
+
+export default AgGridGoalsDataTableView;

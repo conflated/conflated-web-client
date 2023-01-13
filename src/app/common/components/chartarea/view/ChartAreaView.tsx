@@ -2,17 +2,15 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
 import type { ChartAreaPageStateNamespace } from '../model/state/namespace/ChartAreaPageStateNamespace';
 import Constants from '../../../Constants';
-import ChartAreaControllerFactory from '../controller/ChartAreaControllerFactory';
 import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
+import { ActionDispatchers, controller, State } from '../chartAreaController';
 
 type SizeAwareComponent = {
   size: {
@@ -26,18 +24,7 @@ type OwnProps = SizeAwareComponent & {
   className?: string;
 };
 
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].chartAreaState, {
-    isLayoutLocked: appState.dataExplorerPage.layoutSelectorState.isLayoutLocked,
-    lastDragType: appState.headerState.lastDragType
-  });
-
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new ChartAreaControllerFactory(dispatch, pageStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
+type Props = OwnProps & State & ActionDispatchers;
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ChartAreaView extends React.Component<Props> {
@@ -86,5 +73,8 @@ class ChartAreaView extends React.Component<Props> {
 }
 
 export default sizeMe({ monitorHeight: true, monitorWidth: true })(
-  connect(mapAppStateToComponentProps, createController)(ChartAreaView)
+  connect(
+    (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+    (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  )(ChartAreaView)
 );

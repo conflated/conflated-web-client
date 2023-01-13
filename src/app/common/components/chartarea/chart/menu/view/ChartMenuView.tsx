@@ -1,23 +1,16 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import styles from './ChartMenuView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
-import ChartMenuControllerFactory from '../controller/ChartMenuControllerFactory';
 import type { Chart } from '../../model/state/Chart';
+import { ActionDispatchers, controller } from '../chartMenuController';
 
 // eslint-disable-next-line react/no-unused-prop-types
 type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+type Props = OwnProps & ActionDispatchers;
 
-const mapAppStateToComponentProps = () => ({});
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new ChartMenuControllerFactory(dispatch, pageStateNamespace).createController();
-
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & Controller;
-
-function ChartMenuView({
+const ChartMenuView = ({
   allowChartMenuToBeOpened,
   chart,
   className,
@@ -31,7 +24,7 @@ function ChartMenuView({
   showClearChartConfirmationInChartMenu,
   showDeleteChartConfirmationInChartMenu,
   updateChartExportMenuCloseTimeoutId
-}: Props) {
+}: Props) => {
   const handleEnterMenuExportItem = useCallback(() => {
     if (!chart.isExportMenuOpen) {
       openChartExportMenu(chart);
@@ -151,6 +144,8 @@ function ChartMenuView({
       </Dropdown>
     </div>
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(ChartMenuView);
+export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+  controller.getActionDispatchers(pageStateNamespace)
+)(ChartMenuView);

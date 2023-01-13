@@ -1,8 +1,8 @@
 import moment from 'moment';
 import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
 import { ChartDataService } from './ChartDataService';
-import type { Column } from './types/Column';
-import type { MinMaxMeasureColumn } from './types/MinMaxMeasureColumn';
+import type { Column } from '../state/types/Column';
+import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { SelectedFilterConfiguration } from '../state/selectedfilters/selectedfilter/SelectedFilterConfiguration';
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';

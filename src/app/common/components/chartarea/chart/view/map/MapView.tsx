@@ -11,7 +11,7 @@ type Props = {
   stateNamespace: ChartAreaPageStateNamespace;
 };
 
-export default function MapView({ chart, stateNamespace }: Props): JSX.Element {
+const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
   const zoomIn = () => {
     // TODO: Not implemented?
   };
@@ -48,4 +48,6 @@ export default function MapView({ chart, stateNamespace }: Props): JSX.Element {
       <LeafletMapView chart={chart} stateNamespace={stateNamespace} />
     </>
   );
-}
+};
+
+export default MapView;

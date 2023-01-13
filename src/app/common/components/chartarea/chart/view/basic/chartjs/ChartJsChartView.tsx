@@ -4,27 +4,20 @@ import 'chartjs-chart-box-and-violin-plot';
 import React, { useEffect, useRef, useState } from 'react';
 import { Chart as ChartJsChart } from 'chart.js';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import styles from './ChartJsChartView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
-import ChartControllerFactory from '../../../controller/ChartControllerFactory';
 import ChartJsChartBaseOptionsFactory from './model/factories/ChartJsChartBaseOptionsFactory';
+import { ActionDispatchers, controller } from '../../../chartController';
 
 type OwnProps = {
   chart: Chart;
   pageStateNamespace: ChartAreaPageStateNamespace;
 };
 
-const mapAppStateToComponentProps = () => ({});
+type Props = OwnProps & ActionDispatchers;
 
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new ChartControllerFactory(dispatch, pageStateNamespace).createController();
-
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & Controller;
-
-function ChartJsChartView({ chart, pageStateNamespace, ...actions }: Props): JSX.Element {
+const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
   // eslint-disable-next-line react/prefer-exact-props
   const chartCanvasRef: { current: any } = useRef(null);
   const [chartJsChart, setChartJsChart] = useState<ChartJsChart | null>(null);
@@ -71,6 +64,8 @@ function ChartJsChartView({ chart, pageStateNamespace, ...actions }: Props): JSX
       </div>
     </>
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(ChartJsChartView);
+export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+  controller.getActionDispatchers(pageStateNamespace)
+)(ChartJsChartView);

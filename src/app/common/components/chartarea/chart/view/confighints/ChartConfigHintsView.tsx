@@ -6,7 +6,7 @@ type Props = {
   chart: Chart;
 };
 
-export default function ChartConfigHintsView({ chart }: Props): JSX.Element | null {
+const ChartConfigHintsView = ({ chart }: Props) => {
   const chartConfigHintTitle = chart.getChartConfigHintTitle();
   const chartConfigHintSubtitle = chart.getChartConfigHintSubtitle();
 
@@ -20,4 +20,6 @@ export default function ChartConfigHintsView({ chart }: Props): JSX.Element | nu
   }
 
   return null;
-}
+};
+
+export default ChartConfigHintsView;

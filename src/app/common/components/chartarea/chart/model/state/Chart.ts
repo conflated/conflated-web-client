@@ -26,7 +26,7 @@ import type { SelectedFilter } from './selectedfilters/selectedfilter/SelectedFi
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
 import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
 import type { Layout } from '../../../model/state/types/Layout';
-import type { Column } from '../service/types/Column';
+import type { Column } from './types/Column';
 
 export interface Chart {
   id: string;

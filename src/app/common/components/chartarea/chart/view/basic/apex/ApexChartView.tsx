@@ -2,10 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { default as ApexChart } from 'react-apexcharts';
-import type { Dispatch } from 'oo-redux-utils';
 import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
-import ChartControllerFactory from '../../../controller/ChartControllerFactory';
 import type { Chart } from '../../../model/state/Chart';
 import ApexChartGeneralOptionsFactory from './model/factories/ApexChartGeneralOptionsFactory';
 import ApexChartEventOptionsFactory from './model/factories/ApexChartEventOptionsFactory';
@@ -23,6 +21,7 @@ import ApexChartDataLabelOptionsFactory from './model/factories/ApexChartDataLab
 import ApexChartLegendOptionsFactory from './model/factories/ApexChartLegendOptionsFactory';
 import ApexChartTooltipOptionsFactory from './model/factories/ApexChartTooltipOptionsFactory';
 import ApexChartYAxisOptionsFactory from './model/factories/ApexChartYAxisOptionsFactory';
+import { ActionDispatchers, controller } from '../../../chartController';
 
 type OwnProps = {
   chart: Chart;
@@ -31,15 +30,9 @@ type OwnProps = {
   width: number;
 };
 
-const mapAppStateToComponentProps = () => ({});
+type Props = OwnProps & ActionDispatchers;
 
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new ChartControllerFactory(dispatch, pageStateNamespace).createController();
-
-export type ChartController = ReturnType<typeof createController>;
-type Props = OwnProps & ChartController;
-
-function ApexChartView({ chart, height, width, pageStateNamespace, ...actions }: Props): JSX.Element {
+const ApexChartView = ({ chart, height, width, pageStateNamespace, ...actions }: Props) => {
   const chartOptions = {
     chart: {
       ...ApexChartGeneralOptionsFactory.createGeneralOptions(chart),
@@ -80,6 +73,8 @@ function ApexChartView({ chart, height, width, pageStateNamespace, ...actions }:
       height="100%"
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(ApexChartView);
+export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+  controller.getActionDispatchers(pageStateNamespace)
+)(ApexChartView);

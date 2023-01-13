@@ -36,7 +36,7 @@ import type { LegendPosition } from '../types/LegendPosition';
 import Constants from '../../../../../../Constants';
 import type { GridItem } from '../../../../model/state/types/GridItem';
 import type { Layout } from '../../../../model/state/types/Layout';
-import type { Column } from '../../service/types/Column';
+import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import { ChartController } from '../../../view/basic/apex/ApexChartView';

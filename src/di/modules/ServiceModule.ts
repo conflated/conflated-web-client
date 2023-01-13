@@ -7,7 +7,7 @@ import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dime
 import FakeChartDataServiceImpl from '../../app/common/components/chartarea/chart/model/service/FakeChartDataServiceImpl';
 import FakeDashboardGroupsServiceImpl from '../../app/pages/dashboards/model/service/FakeDashboardGroupsServiceImpl';
 import FakeAlertDataSourceServiceImpl from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeAlertDataSourceServiceImpl';
-import CachingChartDataServiceProxyImpl from '../../app/common/components/chartarea/chart/model/service/CachingChartDataServiceProxyImpl';
+import CachingChartDataService from '../../app/common/components/chartarea/chart/model/service/CachingChartDataService';
 
 export default class ServiceModule extends Module {
   async configure() {
@@ -15,7 +15,7 @@ export default class ServiceModule extends Module {
     this.bind('dataSourceService').toInstance(new FakeDataSourceServiceImpl());
     this.bind('measureService').toInstance(new FakeMeasureServiceImpl());
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());
-    this.bind('chartDataService').toInstance(new CachingChartDataServiceProxyImpl(new FakeChartDataServiceImpl()));
+    this.bind('chartDataService').toInstance(new CachingChartDataService(new FakeChartDataServiceImpl()));
     this.bind('dashboardsService').toInstance(new FakeDashboardGroupsServiceImpl());
     this.bind('alertDataSourceService').toInstance(new FakeAlertDataSourceServiceImpl());
   }

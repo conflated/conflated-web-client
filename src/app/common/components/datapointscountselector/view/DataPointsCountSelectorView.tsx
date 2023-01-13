@@ -1,37 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import NumberInput from 'semantic-ui-react-numberinput';
 import styles from './DataPointsCountSelectorView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
-import DataPointsCountSelectorControllerFactory from '../controller/DataPointsCountSelectorControllerFactory';
 import SelectorView from '../../selector/view/SelectorView';
 import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/namespace/DataPointsCountSelectorPageStateNamespace';
 import Constants from '../../../Constants';
 import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
+import { ActionDispatchers, controller, State } from '../dataPointsCountSelectorController';
+import { AppState } from '../../../../../store/AppState';
 
 type OwnProps = { pageStateNamespace: DataPointsCountSelectorPageStateNamespace };
+type Props = OwnProps & State & ActionDispatchers;
 
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
-  selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart
-});
-
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new DataPointsCountSelectorControllerFactory(dispatch, pageStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
-
-function DataPointsCountSelectorView({
+const DataPointsCountSelectorView = ({
   changeFetchedRowCountForSelectedChart,
   changeXAxisCategoriesShownCountForSelectedChart,
   selectedChart,
   pageStateNamespace
-}: Props) {
+}: Props) => {
   let xAxisCategoriesShownCountInput;
 
   if (selectedChart.supportsDataPointsCount()) {
@@ -77,6 +66,9 @@ function DataPointsCountSelectorView({
       }
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DataPointsCountSelectorView);
+export default connect(
+  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+)(DataPointsCountSelectorView);

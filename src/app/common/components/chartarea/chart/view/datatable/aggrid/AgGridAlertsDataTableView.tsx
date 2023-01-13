@@ -19,7 +19,7 @@ const columnWidthWeights = {
   'Status last modified': 0.12
 };
 
-export default function AgGridAlertsDataTableView({ chart, height, width }: Props) {
+const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
   let columnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(
@@ -101,4 +101,6 @@ export default function AgGridAlertsDataTableView({ chart, height, width }: Prop
       />
     </div>
   );
-}
+};
+
+export default AgGridAlertsDataTableView;
