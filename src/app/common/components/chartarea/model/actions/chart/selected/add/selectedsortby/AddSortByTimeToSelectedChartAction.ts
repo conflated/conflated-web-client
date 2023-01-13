@@ -2,9 +2,9 @@ import type { TimeSortOption } from '../../../../../../chart/model/state/selecte
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { SortDirection } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { Measure } from '../../../../../../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
 
 export default class AddSortByTimeToSelectedChartAction extends AbstractChartAreaAction {

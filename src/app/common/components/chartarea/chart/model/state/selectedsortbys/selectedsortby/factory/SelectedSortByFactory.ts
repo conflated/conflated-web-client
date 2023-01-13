@@ -1,9 +1,9 @@
 import type { DataScopeType } from '../../../../../../../../model/state/types/DataScopeType';
 import type { SelectedSortBy } from '../SelectedSortBy';
-import type { Measure } from '../../../../../../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { SortDirection } from '../types/SortDirection';
 import type { TimeSortOption } from '../types/TimeSortOption';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
 import type { SelectedSortByType } from '../types/SelectedfSortByType';

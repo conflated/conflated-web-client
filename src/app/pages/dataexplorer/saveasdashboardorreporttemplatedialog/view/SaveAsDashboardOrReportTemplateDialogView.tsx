@@ -7,7 +7,7 @@ import { Notification } from 'react-notification';
 import { dashboardGroupField } from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
 import SaveAsDashboardOrReportTemplateDialogControllerFactory from '../controller/SaveAsDashboardOrReportTemplateDialogControllerFactory';
-import type { DashboardGroup } from '../../../dashboardspage/model/state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../../dashboards/model/state/entities/DashboardGroup';
 
 const mapAppStateToComponentProps = (appState: AppState) =>
   OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.saveAsDashboardOrReportTemplateDialogState, {

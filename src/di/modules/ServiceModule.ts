@@ -1,11 +1,11 @@
 import { Module } from 'noicejs';
 import { DispatchUtils } from 'oo-redux-utils';
 import store from '../../store/store';
-import FakeDataSourceServiceImpl from '../../app/pages/dataexplorerpage/leftpane/datasourceselector/model/service/FakeDataSourceServiceImpl';
-import FakeMeasureServiceImpl from '../../app/pages/dataexplorerpage/leftpane/measureselector/model/service/FakeMeasureServiceImpl';
-import FakeDimensionServiceImpl from '../../app/pages/dataexplorerpage/leftpane/dimensionselector/model/service/FakeDimensionServiceImpl';
+import FakeDataSourceServiceImpl from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceServiceImpl';
+import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measureselector/model/service/FakeMeasureServiceImpl';
+import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionServiceImpl';
 import FakeChartDataServiceImpl from '../../app/common/components/chartarea/chart/model/service/FakeChartDataServiceImpl';
-import FakeDashboardGroupsServiceImpl from '../../app/pages/dashboardspage/model/service/FakeDashboardGroupsServiceImpl';
+import FakeDashboardGroupsServiceImpl from '../../app/pages/dashboards/model/service/FakeDashboardGroupsServiceImpl';
 import FakeAlertDataSourceServiceImpl from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeAlertDataSourceServiceImpl';
 import CachingChartDataServiceProxyImpl from '../../app/common/components/chartarea/chart/model/service/CachingChartDataServiceProxyImpl';
 

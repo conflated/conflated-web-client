@@ -1,5 +1,5 @@
 import { DashboardGroupsService } from './DashboardGroupsService';
-import layout1 from '../../../dataexplorerpage/leftpane/layoutselector/model/state/layouts/layout1';
+import layout1 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
 import type { DashboardGroup } from '../state/entities/DashboardGroup';
 import ChartFactory from '../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
 

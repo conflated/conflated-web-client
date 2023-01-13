@@ -12,8 +12,8 @@ import FilterSelectorControllerFactory from '../controller/FilterSelectorControl
 import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
-import type { Dimension } from '../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
-import type { Measure } from '../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/namespace/FilterSelectorPageStateNamespace';
 import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BasicChartImpl from '../BasicChartImpl';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
-import type { Measure } from '../../../../../../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import Utils from '../../../../../../../../model/state/utils/Utils';
 import type { DataSeries } from '../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';

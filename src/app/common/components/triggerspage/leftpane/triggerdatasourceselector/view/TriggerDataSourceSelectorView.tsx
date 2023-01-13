@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import type { Dispatch } from 'oo-redux-utils';
 import OOReduxUtils from 'oo-redux-utils';
-import DataSourceListItem from '../../../../../../pages/dataexplorerpage/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
+import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/namespace/TriggersPageStateNamespace';
 import TriggerDataSourceSelectorControllerFactory from '../controller/TriggerDataSourceSelectorControllerFactory';

@@ -3,7 +3,7 @@ import ExitFullScreenModeAction from '../model/actions/ExitFullScreenModeAction'
 import SwitchToFullScreenModeAction from '../model/actions/SwitchToFullScreenModeAction';
 import ShowFullScreenModeNotificationAction from '../model/actions/ShowFullScreenModeNotificationAction';
 import DismissFullScreenModeNotificationAction from '../model/actions/DismissFullScreenModeNotificationAction';
-import ShowDashboardsPageHeaderAction from '../../pages/dashboardspage/header/model/actions/show/ShowDashboardsPageHeaderAction';
+import ShowDashboardsPageHeaderAction from '../../pages/dashboards/header/model/actions/show/ShowDashboardsPageHeaderAction';
 import SelectPageAction from '../model/actions/SelectPageAction';
 import type { PageStateNamespace } from '../../common/components/page/model/state/namespace/PageStateNamespace';
 

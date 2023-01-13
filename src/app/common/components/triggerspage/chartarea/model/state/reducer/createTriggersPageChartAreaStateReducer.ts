@@ -1,6 +1,6 @@
 import OOReduxUtils from 'oo-redux-utils';
-import initialAlertsPageChartAreaState from '../../../../../../../pages/alertspage/chartarea/model/state/initialAlertsPageChartAreaState';
-import initialGoalsPageChartAreaState from '../../../../../../../pages/goalspage/chartarea/model/state/initialGoalsPageChartAreaState';
+import initialAlertsPageChartAreaState from '../../../../../../../pages/alerts/chartarea/model/state/initialAlertsPageChartAreaState';
+import initialGoalsPageChartAreaState from '../../../../../../../pages/goals/chartarea/model/state/initialGoalsPageChartAreaState';
 import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';
 import type { ChartAreaState } from '../../../../../chartarea/model/state/ChartAreaState';
 import AbstractChartAreaDispatchingAction from '../../../../../chartarea/model/actions/AbstractChartAreaDispatchingAction';

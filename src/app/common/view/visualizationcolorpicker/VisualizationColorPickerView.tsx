@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styles from './VisualizationColorPickerView.module.scss';
-import type { Theme } from '../../../pages/dataexplorerpage/settings/state/entities/Theme';
+import type { Theme } from '../../../pages/dataexplorer/settings/state/entities/Theme';
 
 type Props = {
   changeVisualizationColor: (color: string) => void;

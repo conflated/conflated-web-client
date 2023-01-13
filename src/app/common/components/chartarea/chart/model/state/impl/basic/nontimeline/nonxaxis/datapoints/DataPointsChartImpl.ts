@@ -2,7 +2,7 @@
 import type { DimensionVisualizationType } from '../../../../../selecteddimension/types/DimensionVisualizationType';
 import type { FillType } from '../../../../../types/FillType';
 import type { SelectedDimension } from '../../../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import NonTimelineChartImpl from '../../NonTimelineChartImpl';
 import type { LegendPosition } from '../../../../../types/LegendPosition';
 

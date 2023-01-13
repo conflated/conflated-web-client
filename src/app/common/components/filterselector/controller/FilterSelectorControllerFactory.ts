@@ -3,9 +3,9 @@ import AddMeasureFilterToSelectedChartAction from '../../chartarea/model/actions
 import RemoveSelectedFilterFromSelectedChartAction from '../../chartarea/model/actions/chart/selected/remove/RemoveSelectedFilterFromSelectedChartAction';
 import ChangeSelectedFilterAggregationFunctionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterAggregationFunctionForSelectedChartAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
-import type { Dimension } from '../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { FilterSelectorPageStateNamespace } from '../model/state/namespace/FilterSelectorPageStateNamespace';
-import type { Measure } from '../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';

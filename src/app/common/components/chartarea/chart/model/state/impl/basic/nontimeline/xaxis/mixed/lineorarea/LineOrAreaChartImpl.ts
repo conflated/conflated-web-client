@@ -1,7 +1,7 @@
 import type { SelectedMeasure } from '../../../../../../selectedmeasure/SelectedMeasure';
-import type { Dimension } from '../../../../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { DimensionVisualizationType } from '../../../../../../selecteddimension/types/DimensionVisualizationType';
-import type { Measure } from '../../../../../../../../../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import MixedChartImpl from '../MixedChartImpl';
 
 export default class LineOrAreaChartImpl extends MixedChartImpl {

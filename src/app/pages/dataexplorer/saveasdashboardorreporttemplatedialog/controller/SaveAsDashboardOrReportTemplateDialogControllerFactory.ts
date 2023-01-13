@@ -1,14 +1,14 @@
 import { ControllerFactory } from 'oo-redux-utils';
-import StartFetchDashboardGroupsAction from '../../../dashboardspage/model/actions/fetchdata/StartFetchDashboardGroupsAction';
+import StartFetchDashboardGroupsAction from '../../../dashboards/model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import CloseSaveAsDashboardOrReportTemplateDialogAction from '../model/actions/CloseSaveAsDashboardOrReportTemplateDialogAction';
 import HideSavedSuccessfullyNotificationAction from '../model/actions/HideSavedSuccessfullyNotificationAction';
 import diContainer from '../../../../../di/diContainer';
-import type { DashboardGroup } from '../../../dashboardspage/model/state/entities/DashboardGroup';
-import AddDashboardGroupAction from '../../../dashboardspage/model/actions/add/AddDashboardGroupAction';
-import AddDashboardToDashboardGroupAction from '../../../dashboardspage/model/actions/add/AddDashboardToDashboardGroupAction';
+import type { DashboardGroup } from '../../../dashboards/model/state/entities/DashboardGroup';
+import AddDashboardGroupAction from '../../../dashboards/model/actions/add/AddDashboardGroupAction';
+import AddDashboardToDashboardGroupAction from '../../../dashboards/model/actions/add/AddDashboardToDashboardGroupAction';
 import Utils from '../../../../common/model/state/utils/Utils';
 import ShowSavedSuccessfullyNotificationAction from '../model/actions/ShowSavedSuccessfullyNotificationAction';
-import type { Dashboard } from '../../../dashboardspage/model/state/entities/Dashboard';
+import type { Dashboard } from '../../../dashboards/model/state/entities/Dashboard';
 
 export default class SaveAsDashboardOrReportTemplateDialogControllerFactory extends ControllerFactory {
   closeDialog() {

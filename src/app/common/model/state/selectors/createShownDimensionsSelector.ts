@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import FilterUtils from '../utils/FilterUtils';
 import type { AppState } from '../../../../../store/AppState';
-import type { Dimension } from '../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Chart } from '../../../components/chartarea/chart/model/state/Chart';
 
 export default function createShownDimensionsSelector(checkIfTimeLineChart: boolean) {

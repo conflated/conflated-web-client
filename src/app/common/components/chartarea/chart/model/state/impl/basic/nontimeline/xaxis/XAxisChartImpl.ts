@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import moment from 'moment';
 import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
-import type { Dimension } from '../../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
-import type { Measure } from '../../../../../../../../../../pages/dataexplorerpage/leftpane/measureselector/model/state/entities/Measure';
+import type { Dimension } from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Measure } from '../../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import NonTimelineChartImpl from '../NonTimelineChartImpl';
 
 export default class XAxisChartImpl extends NonTimelineChartImpl {

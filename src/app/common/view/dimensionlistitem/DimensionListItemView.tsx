@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ListItemViewProps } from '../listitems/listitem/ListItemView';
-import type { Dimension } from '../../../pages/dataexplorerpage/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import ListItemView from '../listitems/listitem/ListItemView';
 
 const DimensionListItemView = (props: ListItemViewProps<Dimension>) => (

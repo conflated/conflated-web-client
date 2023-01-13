@@ -6,7 +6,7 @@ import type { Chart } from '../../Chart';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import type { ChartAreaPageStateNamespace } from '../../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import LeafletMapView from '../../../../view/map/leaflet/LeafletMapView';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../pages/dataexplorerpage/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
 import DrillDownChartImpl from '../DrillDownChartImpl';
 
