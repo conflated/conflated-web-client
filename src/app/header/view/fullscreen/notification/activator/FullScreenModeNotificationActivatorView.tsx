@@ -7,10 +7,7 @@ type Props = {
   showFullScreenModeNotification: () => void;
 };
 
-export default function FullScreenModeNotificationActivatorView({
-  isFullScreenModeActive,
-  showFullScreenModeNotification
-}: Props) {
+const FullScreenModeNotificationActivatorView = ({ isFullScreenModeActive, showFullScreenModeNotification }: Props) => {
   const className = classNames(styles.fullScreenModeNotificationActivator, {
     [styles.hidden]: !isFullScreenModeActive
   });
@@ -18,4 +15,6 @@ export default function FullScreenModeNotificationActivatorView({
   return (
     <div className={className} onMouseOver={showFullScreenModeNotification} onFocus={showFullScreenModeNotification} />
   );
-}
+};
+
+export default FullScreenModeNotificationActivatorView;

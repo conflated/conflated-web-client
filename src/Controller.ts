@@ -3,7 +3,7 @@ import { AbstractAction } from 'oo-redux-utils';
 
 export type Dispatch = (plainActionObject: { type: AbstractAction<any, any> }) => void;
 
-export default abstract class Controller<T extends string> {
+export default abstract class Controller<T extends string = ''> {
   protected readonly dispatch: (action: AbstractAction<any, T>) => void;
 
   constructor(dispatch: Dispatch) {
@@ -15,6 +15,7 @@ export default abstract class Controller<T extends string> {
     return {};
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   abstract getActionDispatchers(stateNamespace: T): Record<string, Function>;
 
   dispatchWithDi(

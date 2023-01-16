@@ -1,21 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import classNames from 'classnames';
 import styles from './HeaderView.module.scss';
 import type { AppState } from '../../../store/AppState';
-import HeaderControllerFactory from '../controller/HeaderControllerFactory';
 import NavigationView from './navigation/NavigationView';
 import UserMenuView from './usermenu/UserMenuView';
 import FullScreenIconView from './fullscreen/icon/FullScreenIconView';
 import FullScreenModeNotificationView from './fullscreen/notification/FullScreenModeNotificationView';
 import FullScreenModeNotificationActivatorView from './fullscreen/notification/activator/FullScreenModeNotificationActivatorView';
+import { ActionDispatchers, controller, State } from '../headerController';
 
-const mapAppStateToComponentProps = (appState: AppState) => appState.headerState;
-const createController = (dispatch: Dispatch) => new HeaderControllerFactory(dispatch).createController();
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
+type Props = ActionDispatchers & State;
 
 // noinspection OverlyComplexFunctionJS
 function HeaderView({
@@ -96,4 +91,7 @@ function HeaderView({
   );
 }
 
-export default connect(mapAppStateToComponentProps, createController)(HeaderView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(HeaderView);

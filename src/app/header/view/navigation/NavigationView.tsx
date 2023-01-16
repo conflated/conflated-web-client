@@ -8,7 +8,7 @@ type Props = {
   selectPage: (pageStateNamespace: PageStateNamespace) => void;
 };
 
-export default function NavigationView({ selectPage }: Props) {
+const NavigationView = ({ selectPage }: Props) => {
   const { pathname } = useLocation();
 
   return (
@@ -39,4 +39,6 @@ export default function NavigationView({ selectPage }: Props) {
       </Link>
     </nav>
   );
-}
+};
+
+export default NavigationView;
