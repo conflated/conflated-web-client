@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import type { Dispatch } from 'oo-redux-utils';
 import type { AppState } from '../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
-import TriggersPageLeftPaneControllerFactory from '../controller/TriggersPageLeftPaneControllerFactory';
+import TriggersPageLeftPaneController from '../triggersPageLeftPaneController';
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
 import selectorStateNamespaces from '../../../selector/model/state/namespace/SelectorStateNamespace';
 import PagePaneView from '../../../../view/pagepane/PagePaneView';
@@ -35,7 +35,7 @@ const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }:
 });
 
 const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new TriggersPageLeftPaneControllerFactory(dispatch, pageStateNamespace).createController();
+  new TriggersPageLeftPaneController(dispatch, pageStateNamespace).createController();
 
 type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
 type Controller = ReturnType<typeof createController>;

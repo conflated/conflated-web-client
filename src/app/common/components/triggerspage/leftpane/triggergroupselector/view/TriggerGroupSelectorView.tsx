@@ -1,45 +1,16 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListItemView';
 import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/namespace/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import TriggerGroupSelectorControllerFactory from '../controller/TriggerGroupSelectorControllerFactory';
-import selectorStateNamespaces from '../../../../selector/model/state/namespace/SelectorStateNamespace';
 import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import createTriggerGroupsSelector from '../model/state/selector/createTriggerGroupsSelector';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
-import SelectorWithDefaultActionsController from '../../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../triggerGroupSelectorController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
-
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].triggerGroupSelectorState, {
-    triggerGroups: createTriggerGroupsSelector(pageStateNamespace)(appState),
-
-    isTriggerDataSourceSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
-        .isSelectorOpen,
-
-    isTriggerSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]].isSelectorOpen
-  });
-
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
-    dispatch,
-    selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]
-  ).createController().toggleMaximizeSelector,
-
-  ...new TriggerGroupSelectorControllerFactory(dispatch, pageStateNamespace).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
+type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerGroupSelectorView = ({
   isTriggerDataSourceSelectorOpen,
@@ -97,4 +68,7 @@ const TriggerGroupSelectorView = ({
   );
 };
 
-export default connect(mapAppStateToComponentProps, createController)(TriggerGroupSelectorView);
+export default connect(
+  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+)(TriggerGroupSelectorView);

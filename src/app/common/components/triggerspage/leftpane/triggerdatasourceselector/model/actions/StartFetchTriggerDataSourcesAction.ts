@@ -30,6 +30,7 @@ type ConstructorArgs = {
   stateNamespace: TriggersPageStateNamespace;
 };
 
+Inject('alertDataSourceService');
 class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorDispatchingAction {
   private readonly alertDataSourceService: AlertDataSourceService;
 
@@ -52,4 +53,4 @@ class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelect
   }
 }
 
-export default Inject('alertDataSourceService')(StartFetchTriggerDataSourcesAction);
+export default StartFetchTriggerDataSourcesAction;
