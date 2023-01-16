@@ -1,14 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
-import type { AppState } from '../../../../../store/AppState';
-import selectShownDimensions from '../../../model/state/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
-import FilterSelectorControllerFactory from '../controller/FilterSelectorControllerFactory';
 import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
@@ -22,40 +17,14 @@ import type { FilterInputType } from '../../chartarea/chart/model/state/selected
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresAndDimensionsTabView from '../../../view/measuresanddimensionstabview/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
-import SelectorWithDefaultActionsControllerFactory from '../../selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import { ActionDispatchers, controller, State } from '../filterSelectorController';
+import { AppState } from '../../../../../store/AppState';
 
 type OwnProps = { pageStateNamespace: FilterSelectorPageStateNamespace };
 
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
-  selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart,
-  shownDimensions: selectShownDimensions(false)(appState),
-  shownMeasures: selectShownMeasures(appState),
+type Props = OwnProps & ActionDispatchers & State;
 
-  shouldShowPageRightPanePermanently:
-    appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.rightPane,
-
-  isSortBySelectorOpen:
-    appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]].isSelectorOpen,
-
-  isDataPointsCountSelectorOpen:
-    appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]]
-      .isSelectorOpen
-});
-
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
-    dispatch,
-    selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
-  ).createController().toggleMaximizeSelector,
-
-  ...new FilterSelectorControllerFactory(dispatch, pageStateNamespace).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
-
-function FilterSelectorView({
+const FilterSelectorView = ({
   addDimensionFilterToSelectedChart,
   addMeasureFilterToSelectedChart,
   changeSelectedFilterAggregationFunctionForSelectedChart,
@@ -72,7 +41,7 @@ function FilterSelectorView({
   shownMeasures,
   toggleShouldShowPageRightPanePermanently,
   toggleMaximizeSelector
-}: Props) {
+}: Props) => {
   const handleMaximizeIconClick = (event: React.SyntheticEvent<HTMLElement>) => {
     event.stopPropagation();
 
@@ -167,6 +136,9 @@ function FilterSelectorView({
       selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(FilterSelectorView);
+export default connect(
+  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+)(FilterSelectorView);

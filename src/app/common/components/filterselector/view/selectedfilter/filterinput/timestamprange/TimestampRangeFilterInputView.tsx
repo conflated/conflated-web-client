@@ -9,7 +9,7 @@ type Props = {
   filterExpression: string;
 };
 
-export default function TimestampRangeFilterInputView({ changeFilterExpression, className, filterExpression }: Props) {
+const TimestampRangeFilterInputView = ({ changeFilterExpression, className, filterExpression }: Props) => {
   const changeStartTimestamp = useCallback(
     (event: React.SyntheticEvent<HTMLElement>, { value: startTimestamp }: any) => {
       const timestamps = filterExpression.split(';');
@@ -72,4 +72,6 @@ export default function TimestampRangeFilterInputView({ changeFilterExpression, 
       </div>
     </div>
   );
-}
+};
+
+export default TimestampRangeFilterInputView;

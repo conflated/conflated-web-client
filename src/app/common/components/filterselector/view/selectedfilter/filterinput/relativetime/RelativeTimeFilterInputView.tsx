@@ -9,7 +9,7 @@ type Props = {
   filterExpression: string;
 };
 
-export default function RelativeTimeFilterInputView({ changeFilterExpression, filterExpression }: Props) {
+const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression }: Props) => {
   const changeRelativeTimeValue = ({
     currentTarget: { value: relativeTimeValueStr }
   }: React.SyntheticEvent<HTMLInputElement>) => {
@@ -77,4 +77,6 @@ export default function RelativeTimeFilterInputView({ changeFilterExpression, fi
       />
     </div>
   );
-}
+};
+
+export default RelativeTimeFilterInputView;

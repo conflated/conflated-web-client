@@ -11,7 +11,7 @@ type Props = {
   selectedFilter: SelectedFilter;
 };
 
-export default function SliderFilterInputView({ changeFilterExpression, chartData, className, selectedFilter }: Props) {
+const SliderFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
   const changeSliderValues = (newSelectedMinValue: number, newSelectedMaxValue: number) => {
     const newFilterExpression = `${newSelectedMinValue}-${newSelectedMaxValue}`;
     changeFilterExpression(newFilterExpression);
@@ -33,4 +33,6 @@ export default function SliderFilterInputView({ changeFilterExpression, chartDat
       onSliderValuesChange={changeSliderValues}
     />
   );
-}
+};
+
+export default SliderFilterInputView;

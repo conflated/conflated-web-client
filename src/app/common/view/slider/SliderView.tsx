@@ -51,7 +51,7 @@ type SliderProps = {
   onSliderValuesChange: (min: number, max: number) => void;
 };
 
-export default class SliderView extends React.Component<SliderProps, undefined> {
+export default class SliderView extends React.Component<SliderProps> {
   onSliderValuesChange = (values: number[]) => {
     const { onSliderValuesChange } = this.props;
     if (values.length === 2) {

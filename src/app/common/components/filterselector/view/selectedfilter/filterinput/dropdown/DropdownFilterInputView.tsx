@@ -11,12 +11,7 @@ type Props = {
   selectedFilter: SelectedFilter;
 };
 
-export default function DropdownFilterInputView({
-  changeFilterExpression,
-  chartData,
-  className,
-  selectedFilter
-}: Props) {
+const DropdownFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
   const dropdownItems = chartData.getForSelectedFilter(selectedFilter);
 
   const dropdownOptions = dropdownItems.map((value: any) => ({
@@ -40,4 +35,6 @@ export default function DropdownFilterInputView({
       }
     />
   );
-}
+};
+
+export default DropdownFilterInputView;

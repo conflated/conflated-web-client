@@ -8,7 +8,7 @@ type Props = {
   changeFilterExpression: (filterExpression: string) => void;
 };
 
-export default function DateRangeFilterInputView({ className, filterExpression, changeFilterExpression }: Props) {
+const DateRangeFilterInputView = ({ className, filterExpression, changeFilterExpression }: Props) => {
   return (
     <div className={`${className} dates-range-input`}>
       <DatesRangeInput
@@ -25,4 +25,6 @@ export default function DateRangeFilterInputView({ className, filterExpression, 
       />
     </div>
   );
-}
+};
+
+export default DateRangeFilterInputView;

@@ -13,13 +13,13 @@ type Props = {
   changeFilterExpression: (filterExpression: string) => void;
 };
 
-export default function CheckboxesFilterInputView({
+const CheckboxesFilterInputView = ({
   chartData,
   className,
   selectedFilter,
   selectedFilter: { filterExpression },
   changeFilterExpression
-}: Props) {
+}: Props) => {
   const changeCheckboxState = (event: React.SyntheticEvent<HTMLElement>, { label: filterItem, checked }: any) => {
     let selectedFilterItems = filterExpression ? JSON.parse(filterExpression) : [];
 
@@ -46,4 +46,6 @@ export default function CheckboxesFilterInputView({
   ));
 
   return <div className={`${className} ${styles.checkboxesSelector} small-checkboxes`}>{checkboxes}</div>;
-}
+};
+
+export default CheckboxesFilterInputView;

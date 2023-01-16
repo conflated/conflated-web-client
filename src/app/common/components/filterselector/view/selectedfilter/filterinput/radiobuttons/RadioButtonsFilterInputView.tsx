@@ -12,12 +12,7 @@ type Props = {
   selectedFilter: SelectedFilter;
 };
 
-export default function RadioButtonsFilterInputView({
-  changeFilterExpression,
-  chartData,
-  className,
-  selectedFilter
-}: Props) {
+const RadioButtonsFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
   const radioButtonItems = chartData.getForSelectedFilter(selectedFilter);
 
   const radioButtons = radioButtonItems.map((item: any) => (
@@ -33,4 +28,6 @@ export default function RadioButtonsFilterInputView({
   ));
 
   return <div className={`${className} ${checkboxesSelector} small-checkboxes`}>{radioButtons}</div>;
-}
+};
+
+export default RadioButtonsFilterInputView;

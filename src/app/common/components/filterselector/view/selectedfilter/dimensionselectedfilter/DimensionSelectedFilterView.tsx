@@ -17,14 +17,14 @@ type Props = {
 };
 
 // noinspection FunctionWithMoreThanThreeNegationsJS
-export default function DimensionSelectedFilterView({
+const DimensionSelectedFilterView = ({
   changeSelectedFilterDataScopeType,
   changeSelectedFilterExpression,
   changeSelectedFilterInputType,
   chartData,
   removeSelectedFilter,
   selectedFilter
-}: Props) {
+}: Props) => {
   const [dimensionFilterInputTypeDropdownItems, filterRemoveIcon] = (() => {
     if (!selectedFilter.isDrillDownFilter && !selectedFilter.isSelectionFilter) {
       return [
@@ -56,4 +56,6 @@ export default function DimensionSelectedFilterView({
       {selectedFilter.getFilterInputView(styles.filterInput, chartData, changeSelectedFilterExpression)}
     </List.Item>
   );
-}
+};
+
+export default DimensionSelectedFilterView;

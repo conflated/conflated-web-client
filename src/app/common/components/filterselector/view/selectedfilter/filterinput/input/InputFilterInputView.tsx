@@ -8,12 +8,7 @@ type Props = {
   isSelectionFilter: boolean | null | undefined;
 };
 
-export default function InputFilterInputView({
-  changeFilterExpression,
-  className,
-  filterExpression,
-  isSelectionFilter
-}: Props) {
+const InputFilterInputView = ({ changeFilterExpression, className, filterExpression, isSelectionFilter }: Props) => {
   return (
     <Input
       className={className}
@@ -23,4 +18,6 @@ export default function InputFilterInputView({
       value={filterExpression}
     />
   );
-}
+};
+
+export default InputFilterInputView;

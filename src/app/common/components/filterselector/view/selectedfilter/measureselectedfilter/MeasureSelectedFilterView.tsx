@@ -19,7 +19,7 @@ type Props = {
   selectedFilter: SelectedFilter;
 };
 
-export default function MeasureSelectedFilterView({
+const MeasureSelectedFilterView = ({
   changeSelectedFilterAggregationFunction,
   changeSelectedFilterExpression,
   changeSelectedFilterInputType,
@@ -27,7 +27,7 @@ export default function MeasureSelectedFilterView({
   chart,
   removeSelectedFilter,
   selectedFilter
-}: Props) {
+}: Props) => {
   return (
     <List.Item key={selectedFilter.measureOrDimension.name}>
       <AggregationFunctionPickerView
@@ -58,4 +58,6 @@ export default function MeasureSelectedFilterView({
       {selectedFilter.getFilterInputView(styles.filterInput, chart.chartData, changeSelectedFilterExpression)}
     </List.Item>
   );
-}
+};
+
+export default MeasureSelectedFilterView;
