@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './TriggersPageChartAreaView.module.scss';
 import type { AppState } from '../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
-import TriggersPageChartAreaControllerFactory from '../controller/TriggersPageChartAreaControllerFactory';
 import Constants from '../../../../Constants';
 import ChartView from '../../../chartarea/chart/view/ChartView';
+import { ActionDispatchers, controller, State } from '../triggersPageChartAreaController';
 
 type SizeAwareComponent = {
   size: {
@@ -21,28 +20,14 @@ type OwnProps = {
   pageStateNamespace: TriggersPageStateNamespace;
 };
 
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-  appState[pageStateNamespace].chartAreaState;
-
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new TriggersPageChartAreaControllerFactory(dispatch, pageStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & SizeAwareComponent & MappedState & Controller;
-
+type Props = OwnProps & SizeAwareComponent & ActionDispatchers & State;
 const { chartArea, gridLayout } = styles;
 
 const TriggersPageChartAreaView = ({
-  // eslint-disable-next-line react/prop-types
   layout,
-  // eslint-disable-next-line react/prop-types
   pageStateNamespace,
-  // eslint-disable-next-line react/prop-types
   size: { width: triggersAreaWidth, height: triggersAreaHeight },
-  // eslint-disable-next-line react/prop-types
   startFetchDataForCharts,
-  // eslint-disable-next-line react/prop-types
   charts
 }: Props) => {
   useEffect(() => {
@@ -86,4 +71,9 @@ const TriggersPageChartAreaView = ({
 export default sizeMe({
   monitorHeight: true,
   monitorWidth: true
-})(connect(mapAppStateToComponentProps, createController)(TriggersPageChartAreaView));
+})(
+  connect(
+    (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+    () => controller.getActionDispatchers()
+  )(TriggersPageChartAreaView)
+);
