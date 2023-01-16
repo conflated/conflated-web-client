@@ -12,7 +12,7 @@ type Props = {
   toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-export default function TitleDefaultActionsView({
+const TitleDefaultActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
   iconClassName,
@@ -20,7 +20,7 @@ export default function TitleDefaultActionsView({
   shouldShowPinIcon,
   toggleShowSearchInput,
   toggleMaximizeAccordion
-}: Props) {
+}: Props) => {
   const pinIconColor = isPinned ? 'var(--secondary-text-color-on-hover)' : 'var(--secondary-text-color)';
 
   const addIcon = (
@@ -69,7 +69,7 @@ export default function TitleDefaultActionsView({
       {shouldShowPinIcon ? pinIcon : undefined}
     </div>
   );
-}
+};
 
 TitleDefaultActionsView.defaultProps = {
   addIconTooltipText: '',
@@ -77,3 +77,5 @@ TitleDefaultActionsView.defaultProps = {
   isPinned: false,
   handlePinIconClick: _.noop
 };
+
+export default TitleDefaultActionsView;

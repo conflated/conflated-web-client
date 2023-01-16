@@ -18,7 +18,7 @@ import type { Dimension } from '../../dimensionselector/model/state/entities/Dim
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import SelectorWithDefaultActionsControllerFactory from '../../../../../common/components/selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const mapAppStateToComponentProps = (appState: AppState) =>
   OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.measureSelectorState, {
@@ -33,10 +33,8 @@ const mapAppStateToComponentProps = (appState: AppState) =>
   });
 
 const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
-    dispatch,
-    'measureSelector'
-  ).createController().toggleMaximizeSelector,
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'measureSelector').createController()
+    .toggleMaximizeSelector,
 
   ...new MeasureSelectorControllerFactory(dispatch).createController()
 });

@@ -10,7 +10,7 @@ import type { Measure } from '../../../../pages/dataexplorer/leftpane/measuresel
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import selectShownDimensions from '../../../model/state/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
-import SortBySelectorControllerFactory from '../controller/SortBySelectorControllerFactory';
+import SortBySelectorControllerFactory from '../SortBySelectorControllerFactory';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
 import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
@@ -24,7 +24,7 @@ import type { AggregationFunction } from '../../chartarea/chart/model/state/sele
 import type { SortDirection } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
-import SelectorWithDefaultActionsControllerFactory from '../../selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const { hidden, selectedSortBysSection, visible } = styles;
 type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
@@ -45,7 +45,7 @@ const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }:
   });
 
 const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
     dispatch,
     selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}SortBySelector`]
   ).createController().toggleMaximizeSelector,

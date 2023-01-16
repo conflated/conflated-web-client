@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import { Accordion, Icon } from 'semantic-ui-react';
 import styles from './SelectorView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import SelectorControllerFactory from '../controller/SelectorControllerFactory';
 import type { SelectorStateNamespace } from '../model/state/namespace/SelectorStateNamespace';
+import { ActionDispatchers, controller, State } from '../selectorController';
 
 type OwnProps = {
   additionalContent?: JSX.Element | null;
@@ -19,15 +18,7 @@ type OwnProps = {
   titleContent?: JSX.Element | null;
 };
 
-const mapAppStateToComponentProps = (appState: AppState, { selectorStateNamespace }: OwnProps) =>
-  appState.common.selectorStates[selectorStateNamespace];
-
-const createController = (dispatch: Dispatch, { selectorStateNamespace }: OwnProps) =>
-  new SelectorControllerFactory(dispatch, selectorStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
+type Props = OwnProps & ActionDispatchers & State;
 
 const SelectorView: React.FC<Props> = ({
   additionalContent,
@@ -62,4 +53,7 @@ SelectorView.defaultProps = {
   titleContent: undefined
 };
 
-export default connect(mapAppStateToComponentProps, createController)(SelectorView);
+export default connect(
+  (appState: AppState, { selectorStateNamespace }: OwnProps) => controller.getState(appState, selectorStateNamespace),
+  (_, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace)
+)(SelectorView);

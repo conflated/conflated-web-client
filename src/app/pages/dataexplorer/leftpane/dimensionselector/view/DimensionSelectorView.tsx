@@ -18,7 +18,7 @@ import createShownDimensionsSelector from '../../../../../common/model/state/sel
 import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistitem/DraggableMeasureAsDimensionListItemView';
 import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import SelectorWithDefaultActionsControllerFactory from '../../../../../common/components/selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const mapAppStateToComponentProps = (appState: AppState) =>
   OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dimensionSelectorState, {
@@ -33,10 +33,8 @@ const mapAppStateToComponentProps = (appState: AppState) =>
   });
 
 const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
-    dispatch,
-    'dimensionSelector'
-  ).createController().toggleMaximizeSelector,
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'dimensionSelector').createController()
+    .toggleMaximizeSelector,
 
   ...new DimensionSelectorControllerFactory(dispatch).createController()
 });

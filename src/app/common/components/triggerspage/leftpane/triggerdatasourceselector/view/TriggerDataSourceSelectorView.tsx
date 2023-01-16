@@ -12,7 +12,7 @@ import type { DataSource } from '../../../../../model/state/datasource/DataSourc
 import selectorStateNamespaces from '../../../../selector/model/state/namespace/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
-import SelectorWithDefaultActionsControllerFactory from '../../../../selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 
@@ -33,7 +33,7 @@ const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }:
   });
 
 const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
     dispatch,
     selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
   ).createController().toggleMaximizeSelector,

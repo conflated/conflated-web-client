@@ -1,14 +1,13 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import styles2 from './SelectorWithDefaultActionsView.module.scss';
 import styles from '../../selector/view/SelectorView.module.scss';
 import SearchInputView from '../../../view/searchinput/SearchInputView';
 import TitleDefaultActionsView from './titledefaultactions/TitleDefaultActionsView';
 import type { AppState } from '../../../../../store/AppState';
-import SelectorWithDefaultActionsControllerFactory from '../controller/SelectorWithDefaultActionsControllerFactory';
 import SelectorView from '../../selector/view/SelectorView';
 import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import { ActionDispatchers, controller, State } from '../selectorWithDefaultActionsController';
 
 type OwnProps = {
   additionalContent?: JSX.Element | null;
@@ -22,18 +21,9 @@ type OwnProps = {
   titleText: string;
 };
 
-const mapAppStateToComponentProps = (appState: AppState, { selectorStateNamespace }: OwnProps) => ({
-  ...appState.common.selectorWithDefaultActionsStates[selectorStateNamespace]
-});
+type Props = OwnProps & ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch, { selectorStateNamespace }: OwnProps) =>
-  new SelectorWithDefaultActionsControllerFactory(dispatch, selectorStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
-
-function SelectorWithDefaultActionsView({
+const SelectorWithDefaultActionsView = ({
   additionalContent,
   changeSelectorSearchedValue,
   handleMaximizeIconClick,
@@ -47,7 +37,7 @@ function SelectorWithDefaultActionsView({
   selectorStateNamespace,
   titleText,
   toggleShowSearchInput
-}: Props) {
+}: Props) => {
   const handleSearchIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -98,6 +88,9 @@ function SelectorWithDefaultActionsView({
       selectorStateNamespace={selectorStateNamespace}
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(SelectorWithDefaultActionsView);
+export default connect(
+  (appState: AppState, { selectorStateNamespace }: OwnProps) => controller.getState(appState, selectorStateNamespace),
+  (_, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace)
+)(SelectorWithDefaultActionsView);

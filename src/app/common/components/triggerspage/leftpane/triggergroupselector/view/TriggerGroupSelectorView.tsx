@@ -12,7 +12,7 @@ import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithd
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import createTriggerGroupsSelector from '../model/state/selector/createTriggerGroupsSelector';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
-import SelectorWithDefaultActionsControllerFactory from '../../../../selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 
@@ -29,7 +29,7 @@ const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }:
   });
 
 const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
     dispatch,
     selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]
   ).createController().toggleMaximizeSelector,

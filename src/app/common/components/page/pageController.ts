@@ -9,7 +9,7 @@ import Controller from '../../../../Controller';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 
-export default class PageController extends Controller<PageStateNamespace> {
+class PageController extends Controller<PageStateNamespace> {
   getState(appState: AppState, pageStateNamespace: PageStateNamespace) {
     return appState.common.pageStates[pageStateNamespace];
   }

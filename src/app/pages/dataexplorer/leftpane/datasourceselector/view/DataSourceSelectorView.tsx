@@ -11,7 +11,7 @@ import selectShownDataSources from '../model/selectors/selectShownDataSources';
 import type { DataSource } from '../../../../../common/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
-import SelectorWithDefaultActionsControllerFactory from '../../../../../common/components/selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const mapAppStateToComponentProps = (appState: AppState) =>
   OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dataSourceSelectorState, {
@@ -24,10 +24,8 @@ const mapAppStateToComponentProps = (appState: AppState) =>
   });
 
 const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
-    dispatch,
-    'dataSourceSelector'
-  ).createController().toggleMaximizeSelector,
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'dataSourceSelector').createController()
+    .toggleMaximizeSelector,
 
   ...new DataSourceSelectorControllerFactory(dispatch).createController()
 });

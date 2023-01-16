@@ -9,7 +9,7 @@ import selectShownDashboardGroups from '../model/state/selectors/selectShownDash
 import type { DashboardGroup } from '../../../model/state/entities/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import DashboardsPageControllerFactory from '../../../controller/DashboardsPageControllerFactory';
-import SelectorWithDefaultActionsControllerFactory from '../../../../../common/components/selectorwithdefaultactions/controller/SelectorWithDefaultActionsControllerFactory';
+import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const mapAppStateToComponentProps = (appState: AppState) => ({
   shownDashboardGroups: selectShownDashboardGroups(appState),
@@ -18,7 +18,7 @@ const mapAppStateToComponentProps = (appState: AppState) => ({
 });
 
 const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsControllerFactory(
+  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
     dispatch,
     'dashboardGroupSelector'
   ).createController().toggleMaximizeSelector,
