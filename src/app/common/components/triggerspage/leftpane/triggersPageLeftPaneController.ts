@@ -3,8 +3,33 @@ import type { TriggersPageStateNamespace } from '../model/state/namespace/Trigge
 import Controller from '../../../../../Controller';
 import { PageStateNamespace } from '../../page/model/state/namespace/PageStateNamespace';
 import store from '../../../../../store/store';
+import { AppState } from '../../../../../store/AppState';
+import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
 
 class TriggersPageLeftPaneController extends Controller<PageStateNamespace> {
+  getState(appState: AppState, pageStateNamespace: PageStateNamespace) {
+    return {
+      isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+      triggersPageLeftPaneGutterOffset: appState.common.pageStates[pageStateNamespace].pagePaneGutterOffset.leftPane,
+
+      shouldShowTriggersPageLeftPane: appState.common.pageStates[pageStateNamespace].shouldShowPagePane.leftPane,
+
+      shouldShowTriggersPageLeftPanePermanently:
+        appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.leftPane,
+
+      isTriggerDataSourceSelectorOpen:
+        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
+          .isSelectorOpen,
+
+      isTriggerGroupSelectorOpen:
+        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]]
+          .isSelectorOpen,
+
+      isTriggerSelectorOpen:
+        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]].isSelectorOpen
+    };
+  }
+
   getActionDispatchers(stateNamespace: TriggersPageStateNamespace) {
     return {
       hideTriggersPageLeftPane: () => this.dispatch(new HidePagePaneAction(stateNamespace, 'leftPane'))
