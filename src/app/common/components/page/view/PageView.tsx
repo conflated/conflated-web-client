@@ -1,13 +1,12 @@
 import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import classNames from 'classnames';
 import styles from './PageView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import PageControllerFactory from '../controller/PageControllerFactory';
 import type { Pane } from '../model/state/types/Pane';
 import type { PageStateNamespace } from '../model/state/namespace/PageStateNamespace';
+import { ActionDispatchers, controller, State } from '../pageController';
 
 type OwnProps = {
   className?: string;
@@ -20,17 +19,9 @@ type OwnProps = {
   showPaneActivatorHintsOnComponentMount?: boolean;
 };
 
-const mapAppStateToComponentProps = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-  appState.common.pageStates[pageStateNamespace];
+type Props = OwnProps & ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch, { pageStateNamespace }: OwnProps) =>
-  new PageControllerFactory(dispatch, pageStateNamespace).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = OwnProps & MappedState & Controller;
-
-function PageView({
+const PageView = ({
   className,
   dragPagePaneGutter,
   flashBrieflyPaneActivatorHints,
@@ -44,7 +35,7 @@ function PageView({
   showPane,
   showPaneActivatorHintsOnComponentMount,
   startPaneGutterDrag
-}: Props) {
+}: Props) => {
   useEffect(() => {
     if (showPaneActivatorHintsOnComponentMount) {
       flashBrieflyPaneActivatorHints();
@@ -114,7 +105,7 @@ function PageView({
       <div className={rightPaneActivatorHintClassName} />
     </div>
   );
-}
+};
 
 PageView.defaultProps = {
   className: '',
@@ -123,4 +114,7 @@ PageView.defaultProps = {
   showPaneActivatorHintsOnComponentMount: true
 };
 
-export default connect(mapAppStateToComponentProps, createController)(PageView);
+export default connect(
+  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
+  (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+)(PageView);
