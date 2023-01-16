@@ -3,7 +3,7 @@ import _ from 'lodash';
 import type { DispatchAction } from 'oo-redux-utils';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import ChartDataService from '../../../../chart/model/service/ChartDataService';
+import type { ChartDataService } from '../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
 import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';

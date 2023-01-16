@@ -4,7 +4,7 @@ import type { Dispatch } from 'oo-redux-utils';
 import OOReduxUtils from 'oo-redux-utils';
 import styles from './DashboardsPageView.module.scss';
 import type { AppState } from '../../../../store/AppState';
-import DashboardsPageControllerFactory from '../controller/DashboardsPageControllerFactory';
+import DashboardsPageController from '../dashboardsPageController';
 import PageView from '../../../common/components/page/view/PageView';
 import DashboardsPageHeaderView from '../header/view/DashboardsPageHeaderView';
 import DashboardsPageLeftPaneView from '../leftpane/view/DashboardsPageLeftPaneView';
@@ -24,7 +24,7 @@ const mapAppStateToComponentProps = (appState: AppState) =>
     shouldShowDashboardsPageHeaderPermanently: appState.dashboardsPage.headerState.shouldShowDashboardsHeaderPermanently
   });
 
-const createController = (dispatch: Dispatch) => new DashboardsPageControllerFactory(dispatch).createController();
+const createController = (dispatch: Dispatch) => new DashboardsPageController(dispatch).createController();
 
 type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
 type Controller = ReturnType<typeof createController>;

@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import type { DispatchAction } from 'oo-redux-utils';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
-import DashboardGroupsService from '../../service/DashboardGroupsService';
+import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
 import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
 import type { DashboardGroup } from '../../state/entities/DashboardGroup';
 

@@ -1,35 +1,19 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import classNames from 'classnames';
 import { Dropdown } from 'semantic-ui-react';
 import styles from './DashboardsPageHeaderView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import DashboardsPageHeaderControllerFactory from '../controller/DashboardsPageHeaderControllerFactory';
 import type { Dashboard } from '../../model/state/entities/Dashboard';
 import type { DashboardGroup } from '../../model/state/entities/DashboardGroup';
 import DashboardsSlideShowSlideChangeIntervalInputView from './slideshow/slidechangeintervalinput/DashboardsSlideShowSlideChangeIntervalInputView';
 import DashboardsSlideShowPlayOrPauseButtonView from './slideshow/playorpausebutton/DashboardsSlideShowPlayOrPauseButtonView';
 import DashboardsPageHeaderPinIconView from './pinicon/DashboardsPageHeaderPinIconView';
-import DashboardsPageControllerFactory from '../../controller/DashboardsPageControllerFactory';
+import { ActionDispatchers, controller, State } from '../dashboardsPageHeaderController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.headerState, {
-    ...appState.dashboardsPage.dashboardsState,
-    isFullScreenModeActive: appState.headerState.isFullScreenModeActive
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => ({
-  ...new DashboardsPageControllerFactory(dispatch).createController(),
-  ...new DashboardsPageHeaderControllerFactory(dispatch).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function DashboardsPageHeaderView({
+const DashboardsPageHeaderView = ({
   cancelDelayedDashboardsHeaderHide,
   changeDashboardsSlideChangeInterval,
   dashboardGroups,
@@ -45,14 +29,14 @@ function DashboardsPageHeaderView({
   showDashboardGroup,
   toggleDashboardsSlideShowPlay,
   toggleShouldShowDashboardsHeaderPermanently
-}: Props) {
+}: Props) => {
   const dashboardDropDownItems = useMemo(
     () =>
       selectedDashboardGroup?.dashboards.map((dashboard: Dashboard) => (
         <Dropdown.Item
           key={dashboard.name}
           text={dashboard.name}
-          value={dashboard}
+          value={dashboard as any}
           onClick={() => showDashboard(dashboard)}
         />
       )),
@@ -65,7 +49,7 @@ function DashboardsPageHeaderView({
         <Dropdown.Item
           key={dashboardGroup.name}
           text={dashboardGroup.name}
-          value={dashboardGroup}
+          value={dashboardGroup as any}
           onClick={() => showDashboardGroup(dashboardGroup)}
         />
       )),
@@ -130,6 +114,9 @@ function DashboardsPageHeaderView({
       </div>
     </header>
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DashboardsPageHeaderView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(DashboardsPageHeaderView);

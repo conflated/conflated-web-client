@@ -7,7 +7,7 @@ import SelectorWithDefaultActionsView from '../../../../../common/components/sel
 import selectShownDashboards from '../model/state/selectors/selectShownDashboards';
 import type { Dashboard } from '../../../model/state/entities/Dashboard';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
-import DashboardsPageControllerFactory from '../../../controller/DashboardsPageControllerFactory';
+import DashboardsPageController from '../../../dashboardsPageController';
 import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 const mapAppStateToComponentProps = (appState: AppState) => ({
@@ -20,7 +20,7 @@ const createController = (dispatch: Dispatch) => ({
   toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'dashboardSelector').createController()
     .toggleMaximizeSelector,
 
-  showDashboard: new DashboardsPageControllerFactory(dispatch).createController().showDashboard
+  showDashboard: new DashboardsPageController(dispatch).createController().showDashboard
 });
 
 type MappedState = ReturnType<typeof mapAppStateToComponentProps>;

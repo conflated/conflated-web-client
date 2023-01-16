@@ -7,23 +7,23 @@ type Props = {
   toggleShouldShowDashboardsHeaderPermanently: () => void;
 };
 
-export default function DashboardsPageHeaderPinIconView({
+const DashboardsPageHeaderPinIconView = ({
   shouldShowDashboardsHeaderPermanently,
   toggleShouldShowDashboardsHeaderPermanently
-}: Props) {
-  return (
-    <Popup
-      inverted
-      trigger={
-        <Icon
-          className={styles.actionIcon}
-          style={{ color: shouldShowDashboardsHeaderPermanently ? 'var(--brand-color-1)' : 'rgb(0,0,0' }}
-          size="large"
-          name="pin"
-          onClick={toggleShouldShowDashboardsHeaderPermanently}
-        />
-      }
-      content={shouldShowDashboardsHeaderPermanently ? 'Unpin dashboards header' : 'Pin dashboards header'}
-    />
-  );
-}
+}: Props) => (
+  <Popup
+    inverted
+    trigger={
+      <Icon
+        className={styles.actionIcon}
+        style={{ color: shouldShowDashboardsHeaderPermanently ? 'var(--brand-color-1)' : 'rgb(0,0,0' }}
+        size="large"
+        name="pin"
+        onClick={toggleShouldShowDashboardsHeaderPermanently}
+      />
+    }
+    content={shouldShowDashboardsHeaderPermanently ? 'Unpin dashboards header' : 'Pin dashboards header'}
+  />
+);
+
+export default DashboardsPageHeaderPinIconView;

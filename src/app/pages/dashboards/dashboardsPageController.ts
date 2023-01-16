@@ -1,0 +1,72 @@
+import StartFetchDashboardGroupsAction from './model/actions/fetchdata/StartFetchDashboardGroupsAction';
+import diContainer from '../../../di/diContainer';
+import type { Dashboard } from './model/state/entities/Dashboard';
+import ChangeChartAreaLayoutAndChartsAction from '../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAndChartsAction';
+import StartFetchDataForOtherChartsAction from '../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
+import type { DashboardGroup } from './model/state/entities/DashboardGroup';
+import ChangeSelectedDashboardGroupAction from './model/actions/changeselected/ChangeSelectedDashboardGroupAction';
+import ChangeSelectedDashboardAction from './model/actions/changeselected/ChangeSelectedDashboardAction';
+import ShowDashboardsPageHeaderAction from './header/model/actions/show/ShowDashboardsPageHeaderAction';
+import HideDashboardsPageHeaderAction from './header/model/actions/show/HideDashboardsPageHeaderAction';
+import Constants from '../../common/Constants';
+import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './header/model/actions/show/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
+import Controller from '../../../Controller';
+import { ChartAreaPageStateNamespace } from '../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import store from '../../../store/store';
+
+class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
+  getActionDispatchers() {
+    return {
+      startFetchDashboardGroups: () => this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {}),
+
+      showDashboard: (dashboard: Dashboard | undefined) => {
+        if (dashboard) {
+          this.dispatch(new ChangeSelectedDashboardAction(dashboard));
+          this.dispatch(new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', dashboard.layout, dashboard.charts));
+
+          this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
+            stateNamespace: 'dashboardsPage',
+            chart: null
+          });
+        }
+      },
+
+      showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => {
+        if (dashboardGroup) {
+          this.dispatch(new ChangeSelectedDashboardGroupAction(dashboardGroup));
+          const newSelectedDashboard = dashboardGroup.dashboards?.[0];
+
+          if (newSelectedDashboard) {
+            this.dispatch(
+              new ChangeChartAreaLayoutAndChartsAction(
+                'dashboardsPage',
+                newSelectedDashboard.layout,
+                newSelectedDashboard.charts
+              )
+            );
+
+            this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
+              stateNamespace: 'dashboardsPage',
+              chart: null
+            });
+          }
+        }
+      },
+
+      showDashboardsHeaderBriefly: () => {
+        this.dispatch(new ShowDashboardsPageHeaderAction());
+
+        const headerDelayedHideTimeoutId = setTimeout(
+          () => this.dispatch(new HideDashboardsPageHeaderAction()),
+          Constants.SHOW_DASHBOARDS_HEADER_BRIEFLY_DURATION_IN_MILLIS
+        );
+
+        this.dispatch(new SetDashboardsPageHeaderDelayedHideTimeoutIdAction(headerDelayedHideTimeoutId));
+      }
+    };
+  }
+}
+
+export const controller = new DashboardsPageController(store.dispatch);
+export type State = ReturnType<typeof controller.getState>;
+export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
