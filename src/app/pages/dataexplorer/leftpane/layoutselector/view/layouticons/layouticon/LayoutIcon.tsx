@@ -11,7 +11,9 @@ type Props = {
   selectLayout: (layout: Layout) => void;
 };
 
-export default function LayoutIcon({ iconClassName, layout, selectedLayout, selectLayout }: Props) {
+const LayoutIcon = ({ iconClassName, layout, selectedLayout, selectLayout }: Props) => {
   const className = classNames(iconClassName, { [styles.selected]: layout === selectedLayout });
   return <span className={className} onClick={() => selectLayout(layout)} />;
-}
+};
+
+export default LayoutIcon;

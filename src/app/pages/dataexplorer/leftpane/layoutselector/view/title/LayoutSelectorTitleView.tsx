@@ -9,45 +9,45 @@ type Props = {
   shouldShowDataExplorerPageLeftPanePermanently: boolean;
 };
 
-export default function LayoutSelectorTitleView({
+const LayoutSelectorTitleView = ({
   handleLockIconClick,
   handlePinIconClick,
   isLayoutLocked,
   shouldShowDataExplorerPageLeftPanePermanently
-}: Props) {
-  return (
-    <>
-      <Popup
-        inverted
-        trigger={
-          <Icon
-            className={styles.actionIcon}
-            name={isLayoutLocked ? 'lock' : 'lock open'}
-            onClick={handleLockIconClick}
-          />
-        }
-        content={
-          isLayoutLocked
-            ? 'Click to enable dragging and resizing charts in chart area'
-            : 'Click to disable dragging and resizing charts in chart area'
-        }
-      />
-      <Popup
-        inverted
-        trigger={
-          <Icon
-            className={styles.actionIcon}
-            style={{
-              color: shouldShowDataExplorerPageLeftPanePermanently
-                ? 'var(--secondary-text-color-on-hover)'
-                : 'var(--secondary-text-color)'
-            }}
-            name="pin"
-            onClick={handlePinIconClick}
-          />
-        }
-        content="Pin or unpin left pane"
-      />
-    </>
-  );
-}
+}: Props) => (
+  <>
+    <Popup
+      inverted
+      trigger={
+        <Icon
+          className={styles.actionIcon}
+          name={isLayoutLocked ? 'lock' : 'lock open'}
+          onClick={handleLockIconClick}
+        />
+      }
+      content={
+        isLayoutLocked
+          ? 'Click to enable dragging and resizing charts in chart area'
+          : 'Click to disable dragging and resizing charts in chart area'
+      }
+    />
+    <Popup
+      inverted
+      trigger={
+        <Icon
+          className={styles.actionIcon}
+          style={{
+            color: shouldShowDataExplorerPageLeftPanePermanently
+              ? 'var(--secondary-text-color-on-hover)'
+              : 'var(--secondary-text-color)'
+          }}
+          name="pin"
+          onClick={handlePinIconClick}
+        />
+      }
+      content="Pin or unpin left pane"
+    />
+  </>
+);
+
+export default LayoutSelectorTitleView;

@@ -1,49 +1,23 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import { List } from 'semantic-ui-react';
 import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../common/view/dimensionlistitem/DimensionListItemView';
 import MeasureListItemView from '../../../../../common/view/measurelistitem/MeasureListItemView';
 import type { AppState } from '../../../../../../store/AppState';
-import MeasureSelectorControllerFactory from '../controller/MeasureSelectorControllerFactory';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectShownDimensions from '../../../../../common/model/state/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../../../common/model/state/selectors/selectShownMeasures';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Measure } from '../model/state/entities/Measure';
 import type { Dimension } from '../../dimensionselector/model/state/entities/Dimension';
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../measureSelectorController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.measureSelectorState, {
-    shownDimensions: selectShownDimensions(false)(appState),
-    shownMeasures: selectShownMeasures(appState),
-    selectedChart: appState.dataExplorerPage.chartAreaState.selectedChart,
-    isLayoutSelectorOpen: appState.common.selectorStates.layoutSelector.isSelectorOpen,
-    isChartTypeSelectorOpen: appState.common.selectorStates.chartTypeSelector.isSelectorOpen,
-    isDataSourceSelectorOpen: appState.common.selectorStates.dataSourceSelector.isSelectorOpen,
-    isDimensionSelectorOpen: appState.common.selectorStates.dimensionSelector.isSelectorOpen,
-    theme: appState.dataExplorerPage.settingsState.theme
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'measureSelector').createController()
-    .toggleMaximizeSelector,
-
-  ...new MeasureSelectorControllerFactory(dispatch).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function MeasureSelectorView({
+const MeasureSelectorView = ({
   addSelectedMeasureToSelectedChart,
   changeSelectedMeasureAggregationFunctionForSelectedChart,
   changeSelectedMeasureVisualizationColorForSelectedChart,
@@ -58,7 +32,7 @@ function MeasureSelectorView({
   shownMeasures,
   theme,
   toggleMaximizeSelector
-}: Props) {
+}: Props) => {
   const handleMaximizeIconClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -163,6 +137,9 @@ function MeasureSelectorView({
       selectorStateNamespace="measureSelector"
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(MeasureSelectorView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(MeasureSelectorView);

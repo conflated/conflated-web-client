@@ -1,5 +1,3 @@
-// @flow
-
 export default class DataExplorerPageRightPaneViewUtils {
   static updateSelectorContentHeights({
     isDataPointsCountSelectorOpen,

@@ -20,7 +20,7 @@ type Props = {
   theme: Theme;
 };
 
-export default function SelectedMeasureListItemView({
+const SelectedMeasureListItemView = ({
   changeAggregationFunction,
   changeVisualizationColor,
   changeVisualizationType,
@@ -28,7 +28,7 @@ export default function SelectedMeasureListItemView({
   removeSelectedMeasure,
   selectedMeasure,
   theme
-}: Props) {
+}: Props) => {
   const visualizationColorPicker = (() => {
     if (chart.supportsSelectedMeasureVisualizationColor()) {
       return (
@@ -60,4 +60,6 @@ export default function SelectedMeasureListItemView({
       <Icon className={styles.removeIcon} name="close" onClick={() => removeSelectedMeasure(selectedMeasure)} />
     </List.Item>
   );
-}
+};
+
+export default SelectedMeasureListItemView;

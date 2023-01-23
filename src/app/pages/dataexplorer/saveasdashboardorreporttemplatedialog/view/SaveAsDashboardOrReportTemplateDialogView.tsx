@@ -1,29 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import { Button, Dropdown, DropdownProps, Form, Input, Modal, Radio } from 'semantic-ui-react';
 import { Notification } from 'react-notification';
 import { dashboardGroupField } from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import SaveAsDashboardOrReportTemplateDialogControllerFactory from '../controller/SaveAsDashboardOrReportTemplateDialogControllerFactory';
 import type { DashboardGroup } from '../../../dashboards/model/state/entities/DashboardGroup';
+import { ActionDispatchers, controller, State } from '../saveAsDashboardOrReportTemplateDialogController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.saveAsDashboardOrReportTemplateDialogState, {
-    dashboardGroups: appState.dashboardsPage.dashboardsState.dashboardGroups,
-    layout: appState.dataExplorerPage.chartAreaState.layout,
-    charts: appState.dataExplorerPage.chartAreaState.charts
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) =>
-  new SaveAsDashboardOrReportTemplateDialogControllerFactory(dispatch).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function SaveAsDashboardOrReportTemplateDialogView({
+const SaveAsDashboardOrReportTemplateDialogView = ({
   charts,
   closeDialog,
   dashboardGroups,
@@ -33,7 +19,7 @@ function SaveAsDashboardOrReportTemplateDialogView({
   saveDashboard,
   shouldShowSavedSuccessfullyNotification,
   startFetchDashboardGroups
-}: Props) {
+}: Props) => {
   const [dashboardGroupName, setDashboardGroupName] = useState('');
   const [dashboardName, setDashboardName] = useState('');
 
@@ -134,6 +120,9 @@ function SaveAsDashboardOrReportTemplateDialogView({
       />
     </div>
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(SaveAsDashboardOrReportTemplateDialogView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(SaveAsDashboardOrReportTemplateDialogView);

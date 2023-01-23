@@ -12,11 +12,7 @@ type Props = {
   selectedMeasure: SelectedMeasure;
 };
 
-export default function SelectedMeasureVisualizationTypeDropdownView({
-  changeVisualizationType,
-  chart,
-  selectedMeasure
-}: Props) {
+const SelectedMeasureVisualizationTypeDropdownView = ({ changeVisualizationType, chart, selectedMeasure }: Props) => {
   const visualizationTypeDropdownMenuItems = useMemo(
     () =>
       chart
@@ -61,4 +57,6 @@ export default function SelectedMeasureVisualizationTypeDropdownView({
   } else {
     return null;
   }
-}
+};
+
+export default SelectedMeasureVisualizationTypeDropdownView;
