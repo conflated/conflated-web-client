@@ -1,44 +1,22 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import DashboardGroupSelectorControllerFactory from '../controller/DashboardGroupSelectorControllerFactory';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectShownDashboardGroups from '../model/state/selectors/selectShownDashboardGroups';
 import type { DashboardGroup } from '../../../model/state/entities/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
-import DashboardsPageController from '../../../dashboardsPageController';
-import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../dashboardGroupSelectorController';
 
-const mapAppStateToComponentProps = (appState: AppState) => ({
-  shownDashboardGroups: selectShownDashboardGroups(appState),
-  selectedDashboardGroup: appState.dashboardsPage.dashboardsState.selectedDashboardGroup,
-  isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen
-});
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsController(
-    dispatch,
-    'dashboardGroupSelector'
-  ).createController().toggleMaximizeSelector,
-
-  showDashboardGroup: new DashboardsPageController(dispatch).createController().showDashboardGroup,
-  ...new DashboardGroupSelectorControllerFactory(dispatch).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function DashboardGroupSelectorView({
+const DashboardGroupSelectorView = ({
   isDashboardSelectorOpen,
   selectedDashboardGroup,
   showDashboardGroup,
   shownDashboardGroups,
   toggleMaximizeSelector,
   toggleShouldShowDashboardsPageLeftPanePermanently
-}: Props) {
+}: Props) => {
   const handleMaximizeIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -86,6 +64,9 @@ function DashboardGroupSelectorView({
       selectorStateNamespace="dashboardGroupSelector"
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DashboardGroupSelectorView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(DashboardGroupSelectorView);

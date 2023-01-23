@@ -13,13 +13,13 @@ type Props = {
   theme: Theme;
 };
 
-export default function SelectedDimensionListItem({
+const SelectedDimensionListItem = ({
   changeVisualizationColor,
   removeSelectedDimension,
   selectedDimension,
   shouldShowVisualizationColorPicker,
   theme
-}: Props) {
+}: Props) => {
   const visualizationColorPicker = (() => {
     if (shouldShowVisualizationColorPicker) {
       return (
@@ -42,4 +42,6 @@ export default function SelectedDimensionListItem({
       <Icon className={styles.removeIcon} name="close" onClick={() => removeSelectedDimension(selectedDimension)} />
     </List.Item>
   );
-}
+};
+
+export default SelectedDimensionListItem;

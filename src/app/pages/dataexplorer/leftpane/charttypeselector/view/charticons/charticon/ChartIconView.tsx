@@ -16,7 +16,7 @@ type Props = {
   tooltipText: string;
 };
 
-export default function ChartIcon({
+const ChartIcon: React.FC<Props> = ({
   chartType,
   content,
   iconClassName,
@@ -25,7 +25,7 @@ export default function ChartIcon({
   selectChartType,
   selectedChartType,
   tooltipText
-}: Props) {
+}: Props) => {
   function onDragStart(event: React.DragEvent<HTMLSpanElement>) {
     event.dataTransfer.setData('chartType', chartType);
     notifyDragStart();
@@ -50,7 +50,7 @@ export default function ChartIcon({
       inverted
     />
   );
-}
+};
 
 ChartIcon.defaultProps = {
   content: null

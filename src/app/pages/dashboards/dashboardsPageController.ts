@@ -1,3 +1,4 @@
+import OOReduxUtils from 'oo-redux-utils';
 import StartFetchDashboardGroupsAction from './model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import diContainer from '../../../di/diContainer';
 import type { Dashboard } from './model/state/entities/Dashboard';
@@ -13,8 +14,24 @@ import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './header/model/ac
 import Controller from '../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
 import store from '../../../store/store';
+import { AppState } from '../../../store/AppState';
+import selectedNextDashboard from './model/state/selectors/selectedNextDashboard';
+import selectNextDashboardGroup from './model/state/selectors/selectNextDashboardGroup';
+import selectPreviousDashboard from './model/state/selectors/selectPreviousDashboard';
+import selectPreviousDashboardGroup from './model/state/selectors/selectPreviousDashboardGroup';
 
 class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
+  getState(appState: AppState) {
+    return OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.dashboardsState, {
+      nextDashboard: selectedNextDashboard(appState),
+      nextDashboardGroup: selectNextDashboardGroup(appState),
+      previousDashboard: selectPreviousDashboard(appState),
+      previousDashboardGroup: selectPreviousDashboardGroup(appState),
+      shouldShowDashboardsPageHeaderPermanently:
+        appState.dashboardsPage.headerState.shouldShowDashboardsHeaderPermanently
+    });
+  }
+
   getActionDispatchers() {
     return {
       startFetchDashboardGroups: () => this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {}),

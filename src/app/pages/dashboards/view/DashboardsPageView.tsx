@@ -1,36 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import styles from './DashboardsPageView.module.scss';
 import type { AppState } from '../../../../store/AppState';
-import DashboardsPageController from '../dashboardsPageController';
 import PageView from '../../../common/components/page/view/PageView';
 import DashboardsPageHeaderView from '../header/view/DashboardsPageHeaderView';
 import DashboardsPageLeftPaneView from '../leftpane/view/DashboardsPageLeftPaneView';
 import DashboardsPageRightPaneView from '../rightpane/view/DashboardsPageRightPaneView';
 import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
-import selectedNextDashboard from '../model/state/selectors/selectedNextDashboard';
-import selectPreviousDashboardGroup from '../model/state/selectors/selectPreviousDashboardGroup';
-import selectNextDashboardGroup from '../model/state/selectors/selectNextDashboardGroup';
-import selectPreviousDashboard from '../model/state/selectors/selectPreviousDashboard';
+import { ActionDispatchers, controller, State } from '../dashboardsPageController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.dashboardsState, {
-    nextDashboard: selectedNextDashboard(appState),
-    nextDashboardGroup: selectNextDashboardGroup(appState),
-    previousDashboard: selectPreviousDashboard(appState),
-    previousDashboardGroup: selectPreviousDashboardGroup(appState),
-    shouldShowDashboardsPageHeaderPermanently: appState.dashboardsPage.headerState.shouldShowDashboardsHeaderPermanently
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => new DashboardsPageController(dispatch).createController();
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function DashboardsPageView({
+const DashboardsPageView = ({
   nextDashboard,
   nextDashboardGroup,
   previousDashboard,
@@ -40,7 +21,7 @@ function DashboardsPageView({
   showDashboard,
   showDashboardGroup,
   startFetchDashboardGroups
-}: Props) {
+}: Props) => {
   useEffect(() => {
     // noinspection JSIgnoredPromiseFromCall
     startFetchDashboardGroups();
@@ -105,6 +86,9 @@ function DashboardsPageView({
       showPaneActivatorHintsOnComponentMount
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DashboardsPageView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(DashboardsPageView);

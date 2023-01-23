@@ -1,0 +1,33 @@
+import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
+import Controller from '../../../../../Controller';
+import store from '../../../../../store/store';
+import { PageStateNamespace } from '../../../../common/components/page/model/state/namespace/PageStateNamespace';
+import { AppState } from '../../../../../store/AppState';
+import selectShownDashboardGroups from './model/state/selectors/selectShownDashboardGroups';
+
+class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
+  getState(appState: AppState) {
+    return {
+      shownDashboardGroups: selectShownDashboardGroups(appState),
+      selectedDashboardGroup: appState.dashboardsPage.dashboardsState.selectedDashboardGroup,
+      isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen
+    };
+  }
+
+  getActionDispatchers() {
+    return {
+      toggleShouldShowDashboardsPageLeftPanePermanently: () =>
+        this.dispatch(new ToggleShouldShowPagePanePermanentlyAction('dashboardsPage', 'leftPane')),
+
+      toggleMaximizeSelector: new SelectorWithDefaultActionsController(this.dispatch).getActionDispatchers(
+        'dashboardGroupSelector'
+      ).toggleMaximizeSelector,
+
+      showDashboardGroup: new DashboardsPageController(this.dispatch).getActionDispatchers().showDashboardGroup
+    };
+  }
+}
+
+export const controller = new DashboardGroupSelectorController(store.dispatch);
+export type State = ReturnType<typeof controller.getState>;
+export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;

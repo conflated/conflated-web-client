@@ -1,40 +1,17 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import DataSourceSelectorControllerFactory from '../controller/DataSourceSelectorControllerFactory';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectShownDataSources from '../model/selectors/selectShownDataSources';
 import type { DataSource } from '../../../../../common/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
-import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../dataSourceSelectorController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dataSourceSelectorState, {
-    selectedChart: appState.dataExplorerPage.chartAreaState.selectedChart,
-    shownDataSources: selectShownDataSources(appState),
-    isLayoutSelectorOpen: appState.common.selectorStates.layoutSelector.isSelectorOpen,
-    isChartTypeSelectorOpen: appState.common.selectorStates.chartTypeSelector.isSelectorOpen,
-    isMeasureSelectorOpen: appState.common.selectorStates.measureSelector.isSelectorOpen,
-    isDimensionSelectorOpen: appState.common.selectorStates.dimensionSelector.isSelectorOpen
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'dataSourceSelector').createController()
-    .toggleMaximizeSelector,
-
-  ...new DataSourceSelectorControllerFactory(dispatch).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function DataSourceSelectorView({
+const DataSourceSelectorView = ({
   confirmDataSourceSelection,
   hideDataSourceChangeConfirmation,
   isChartTypeSelectorOpen,
@@ -47,7 +24,7 @@ function DataSourceSelectorView({
   shownDataSources,
   startFetchDataSources,
   toggleMaximizeSelector
-}: Props) {
+}: Props) => {
   const handleMaximizeIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -131,6 +108,9 @@ function DataSourceSelectorView({
       }
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DataSourceSelectorView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(DataSourceSelectorView);

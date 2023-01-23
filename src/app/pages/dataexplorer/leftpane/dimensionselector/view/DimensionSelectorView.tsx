@@ -1,49 +1,23 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import type { Dispatch } from 'oo-redux-utils';
-import OOReduxUtils from 'oo-redux-utils';
 import { List } from 'semantic-ui-react';
 import styles from './DimensionSelectorView.module.scss';
 import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
 import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import DimensionSelectorControllerFactory from '../controller/DimensionSelectorControllerFactory';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectShownMeasures from '../../../../../common/model/state/selectors/selectShownMeasures';
 import type { Dimension } from '../model/state/entities/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
 import type { Measure } from '../../measureselector/model/state/entities/Measure';
-import createShownDimensionsSelector from '../../../../../common/model/state/selectors/createShownDimensionsSelector';
 import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistitem/DraggableMeasureAsDimensionListItemView';
 import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import SelectorWithDefaultActionsController from '../../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../dimensionSelectorController';
 
-const mapAppStateToComponentProps = (appState: AppState) =>
-  OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dimensionSelectorState, {
-    shownMeasures: selectShownMeasures(appState),
-    shownDimensions: createShownDimensionsSelector(true)(appState),
-    selectedChart: appState.dataExplorerPage.chartAreaState.selectedChart,
-    isLayoutSelectorOpen: appState.common.selectorStates.layoutSelector.isSelectorOpen,
-    isChartTypeSelectorOpen: appState.common.selectorStates.chartTypeSelector.isSelectorOpen,
-    isDataSourceSelectorOpen: appState.common.selectorStates.dataSourceSelector.isSelectorOpen,
-    isMeasureSelectorOpen: appState.common.selectorStates.measureSelector.isSelectorOpen,
-    theme: appState.dataExplorerPage.settingsState.theme
-  });
+type Props = ActionDispatchers & State;
 
-const createController = (dispatch: Dispatch) => ({
-  toggleMaximizeSelector: new SelectorWithDefaultActionsController(dispatch, 'dimensionSelector').createController()
-    .toggleMaximizeSelector,
-
-  ...new DimensionSelectorControllerFactory(dispatch).createController()
-});
-
-type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
-type Controller = ReturnType<typeof createController>;
-type Props = MappedState & Controller;
-
-function DimensionSelectorView({
+const DimensionSelectorView = ({
   addSelectedDimensionToSelectedChart,
   changeSelectedDimensionColorForSelectedChart,
   dimensions,
@@ -57,7 +31,7 @@ function DimensionSelectorView({
   shownMeasures,
   theme,
   toggleMaximizeSelector
-}: Props) {
+}: Props) => {
   const handleMaximizeIconClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -189,6 +163,9 @@ function DimensionSelectorView({
       selectorStateNamespace="dimensionSelector"
     />
   );
-}
+};
 
-export default connect(mapAppStateToComponentProps, createController)(DimensionSelectorView);
+export default connect(
+  (appState: AppState) => controller.getState(appState),
+  () => controller.getActionDispatchers()
+)(DimensionSelectorView);

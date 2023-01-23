@@ -20,6 +20,7 @@ class DashboardsPageHeaderController extends Controller {
   getActionDispatchers() {
     return {
       ...new DashboardsPageController(this.dispatch).getActionDispatchers(),
+
       hideDashboardsHeaderDelayed: (dashboardHeaderHideDelayInMillis: number) => {
         const timeoutId = setTimeout(
           () => this.dispatch(new HideDashboardsPageHeaderAction()),

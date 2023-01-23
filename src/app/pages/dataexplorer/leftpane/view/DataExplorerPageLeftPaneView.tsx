@@ -8,7 +8,7 @@ import DimensionSelector from '../dimensionselector/view/DimensionSelectorView';
 import LayoutSelector from '../layoutselector/view/LayoutSelectorView';
 import MeasureSelector from '../measureselector/view/MeasureSelectorView';
 import type { AppState } from '../../../../../store/AppState';
-import DataExplorerPageLeftPaneControllerFactory from '../controller/DataExplorerPageLeftPaneControllerFactory';
+import DataExplorerPageLeftPaneController from '../dataExplorerPageLeftPaneController';
 import DataExplorerPageLeftPaneViewUtils from './DataExplorerPageLeftPaneViewUtils';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
 
@@ -25,8 +25,7 @@ const mapAppStateToComponentProps = (appState: AppState) => ({
   isDimensionSelectorOpen: appState.common.selectorStates.dimensionSelector.isSelectorOpen
 });
 
-const createController = (dispatch: Dispatch) =>
-  new DataExplorerPageLeftPaneControllerFactory(dispatch).createController();
+const createController = (dispatch: Dispatch) => new DataExplorerPageLeftPaneController(dispatch).createController();
 
 type MappedState = ReturnType<typeof mapAppStateToComponentProps>;
 type Controller = ReturnType<typeof createController>;
