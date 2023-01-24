@@ -6,7 +6,7 @@ import type { ChartType } from '../../../../../../../common/components/chartarea
 
 type Props = {
   chartType: ChartType;
-  content: string | null;
+  content?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   iconClassName: any;
   notifyDragEnd: () => void;
@@ -16,7 +16,7 @@ type Props = {
   tooltipText: string;
 };
 
-const ChartIcon: React.FC<Props> = ({
+const ChartIconView: React.FC<Props> = ({
   chartType,
   content,
   iconClassName,
@@ -52,6 +52,8 @@ const ChartIcon: React.FC<Props> = ({
   );
 };
 
-ChartIcon.defaultProps = {
-  content: null
+ChartIconView.defaultProps = {
+  content: undefined
 };
+
+export default ChartIconView;

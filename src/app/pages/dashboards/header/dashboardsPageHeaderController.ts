@@ -8,6 +8,7 @@ import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './model/actions/s
 import Controller from '../../../../Controller';
 import { AppState } from '../../../../store/AppState';
 import store from '../../../../store/store';
+import { controller as dashboardsPageController } from '../dashboardsPageController';
 
 class DashboardsPageHeaderController extends Controller {
   getState(appState: AppState) {
@@ -19,7 +20,7 @@ class DashboardsPageHeaderController extends Controller {
 
   getActionDispatchers() {
     return {
-      ...new DashboardsPageController(this.dispatch).getActionDispatchers(),
+      ...dashboardsPageController.getActionDispatchers(),
 
       hideDashboardsHeaderDelayed: (dashboardHeaderHideDelayInMillis: number) => {
         const timeoutId = setTimeout(

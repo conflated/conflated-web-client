@@ -9,15 +9,15 @@ import Utils from '../../../../../../../../model/state/utils/Utils';
 import type { DataSeries } from '../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 
-export default class TimelineChartImpl extends BasicChartImpl {
+export default abstract class TimelineChartImpl extends BasicChartImpl {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedDimensions = [];
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  // eslint-disable-next-line no-unused-vars
-  getApexChartDataSeries(): DataSeries[] | any[] {
+  // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
+  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     const timeValues = this.getChartDataForSelectedDimensionOfType('Timeline');
 
     if (this.selectedMeasures.length > 0) {

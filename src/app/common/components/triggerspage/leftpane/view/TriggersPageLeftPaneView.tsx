@@ -62,5 +62,5 @@ const TriggersPageLeftPaneView = ({
 
 export default connect(
   (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
 )(TriggersPageLeftPaneView);

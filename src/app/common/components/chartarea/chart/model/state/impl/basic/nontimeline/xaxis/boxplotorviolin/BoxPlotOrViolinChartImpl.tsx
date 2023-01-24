@@ -8,8 +8,8 @@ import type { AggregationFunction } from '../../../../../selectedmeasure/types/A
 import type { ChartAreaPageStateNamespace } from '../../../../../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
 import type { DataPoint } from '../../../../../types/DataPoint';
-import type { ChartController } from '../../../../../../../view/basic/apex/ApexChartView';
 import type { DrillDown } from '../../../../../types/DrillDown';
+import { ActionDispatchers as ChartActionDispatchers } from '../../../../../../../chartController';
 
 export default class BoxPlotOrViolinChartImpl extends XAxisChartImpl {
   timeoutId: ReturnType<typeof setTimeout> | 0 = 0;
@@ -150,7 +150,7 @@ export default class BoxPlotOrViolinChartImpl extends XAxisChartImpl {
     activeElements: any[],
     data: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
+    actions: ChartActionDispatchers
   ) {
     if (activeElements.length === 1) {
       const clickedDataPoint = {
@@ -194,7 +194,7 @@ export default class BoxPlotOrViolinChartImpl extends XAxisChartImpl {
       deselectChartDataPoint,
       removeSelectionFilterFromNotSelectedCharts,
       selectChartDataPoint
-    }: ChartController
+    }: ChartActionDispatchers
   ) {
     this.timeoutId = 0;
     const labelDimension = this.getSelectedDimensionOfType('X-axis categories');
@@ -239,7 +239,7 @@ export default class BoxPlotOrViolinChartImpl extends XAxisChartImpl {
     clickedDataPoint: DataPoint,
     data: any,
     stateNamespace: ChartAreaPageStateNamespace,
-    { drillDownChart }: ChartController
+    { drillDownChart }: ChartActionDispatchers
   ) {
     const drillDown: DrillDown = {
       selectedDimension: this.currentDrillDownSelectedDimension || this.selectedDimensions[0],

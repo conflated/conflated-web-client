@@ -3,6 +3,8 @@ import store from '../../../../../store/store';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/namespace/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDashboards from './model/state/selectors/selectShownDashboards';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as dashboardsPageController } from '../../dashboardsPageController';
 
 class DashboardSelectorController extends Controller<PageStateNamespace> {
   getState(appState: AppState) {
@@ -15,11 +17,10 @@ class DashboardSelectorController extends Controller<PageStateNamespace> {
 
   getActionDispatchers() {
     return {
-      toggleMaximizeSelector: new SelectorWithDefaultActionsController(this.dispatch).getActionDispatchers(
-        'dashboardGroupSelector'
-      ).toggleMaximizeSelector,
+      toggleMaximizeSelector:
+        selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
 
-      showDashboard: new DashboardsPageController(this.dispatch).getActionDispatchers().showDashboardGroup
+      showDashboard: dashboardsPageController.getActionDispatchers().showDashboard
     };
   }
 }

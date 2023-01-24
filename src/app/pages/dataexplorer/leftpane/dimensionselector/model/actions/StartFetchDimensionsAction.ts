@@ -1,7 +1,7 @@
 import { Inject } from 'noicejs';
 import type { DispatchAction } from 'oo-redux-utils';
 import AbstractDimensionSelectorAction from './AbstractDimensionSelectorAction';
-import DimensionService from '../service/DimensionService';
+import type { DimensionService } from '../service/DimensionService';
 import type { DimensionSelectorState } from '../state/DimensionSelectorState';
 import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
 import type { Dimension } from '../state/entities/Dimension';

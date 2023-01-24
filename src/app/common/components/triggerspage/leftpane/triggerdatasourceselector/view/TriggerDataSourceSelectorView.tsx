@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
@@ -44,7 +45,7 @@ const TriggerDataSourceSelectorView = ({
         }
       ]);
     },
-    [isTriggerSelectorOpen, isTriggerGroupSelectorOpen]
+    [toggleMaximizeSelector, isTriggerGroupSelectorOpen, pageStateNamespace, isTriggerSelectorOpen]
   );
 
   const handlePinIconClick = (event: React.SyntheticEvent<HTMLElement>) => {
@@ -59,7 +60,7 @@ const TriggerDataSourceSelectorView = ({
           key={dataSource.name}
           item={dataSource}
           selectedItem={selectedDataSources[0]}
-          onItemClick={(selectedDataSource: DataSource) => selectTriggerDataSource(selectedDataSource)}
+          onItemClick={((selectedDataSource: DataSource) => selectTriggerDataSource(selectedDataSource)) as any}
         />
       )),
     [shownDataSources, selectedDataSources, selectTriggerDataSource]

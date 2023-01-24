@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import type { DispatchAction } from 'oo-redux-utils';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
-import DataSourceService from '../service/DataSourceService';
+import type { DataSourceService } from '../service/DataSourceService';
 import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
 import AbstractDataSourceSelectorDispatchingAction from './AbstractDataSourceSelectorDispatchingAction';
 

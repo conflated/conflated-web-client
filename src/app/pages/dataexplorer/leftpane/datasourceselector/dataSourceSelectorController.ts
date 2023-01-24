@@ -13,6 +13,7 @@ import Controller from '../../../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDataSources from './model/selectors/selectShownDataSources';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState(appState: AppState) {
@@ -43,8 +44,8 @@ class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespac
         }
       },
 
-      toggleMaximizeSelector: new SelectorWithDefaultActionsController().getActionDispatchers('dataSourceSelector')
-        .toggleMaximizeSelector
+      toggleMaximizeSelector:
+        selectorWithDefaultActionsController.getActionDispatchers('dataSourceSelector').toggleMaximizeSelector
     };
   }
 }

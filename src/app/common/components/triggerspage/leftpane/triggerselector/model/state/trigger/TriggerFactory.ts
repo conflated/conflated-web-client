@@ -22,6 +22,7 @@ export default class TriggerFactory {
 
     const triggerNameToTriggerCountMap = _.countBy(triggersInSelectedTriggerGroups);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return Object.entries(triggerNameToTriggerCountMap).map(([triggerName, triggerCount]: [string, any]) => ({
       name: triggerName,
       count: triggerCount,

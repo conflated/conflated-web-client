@@ -11,6 +11,19 @@ import type { DimensionVisualizationType } from '../../selecteddimension/types/D
 import DrillDownChartImpl from '../DrillDownChartImpl';
 
 export default class MapChartImpl extends DrillDownChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  handleDataPointSelection(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sliceOrFillXAxisData(): any[] {
+    throw new Error('Method not implemented.');
+  }
+
   getDimensionDropZoneListItemViews(
     dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
   ): Array<JSX.Element> {

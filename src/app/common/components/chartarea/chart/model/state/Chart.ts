@@ -21,12 +21,12 @@ import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DataSeries } from './types/DataSeries';
 import DimensionDropZoneListItemViewFactory from '../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { LegendPosition } from './types/LegendPosition';
-import type { ChartController } from '../../view/basic/apex/ApexChartView';
 import type { SelectedFilter } from './selectedfilters/selectedfilter/SelectedFilter';
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
 import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
 import type { Layout } from '../../../model/state/types/Layout';
 import type { Column } from './types/Column';
+import { ActionDispatchers as ChartActionDispatchers } from '../../chartController';
 
 export interface Chart {
   id: string;
@@ -179,7 +179,7 @@ export interface Chart {
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
+    actions: ChartActionDispatchers
   ): void;
 
   handleChartJsClick(
@@ -187,7 +187,7 @@ export interface Chart {
     activeElements: object[],
     data: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
+    actions: ChartActionDispatchers
   ): void;
 
   hasData(): boolean;

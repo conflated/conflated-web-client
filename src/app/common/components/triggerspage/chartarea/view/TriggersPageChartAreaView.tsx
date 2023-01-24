@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';

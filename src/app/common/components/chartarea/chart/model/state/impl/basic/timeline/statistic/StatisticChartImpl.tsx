@@ -12,6 +12,10 @@ import type { ChartAreaPageStateNamespace } from '../../../../../../../model/sta
 import ApexChartView from '../../../../../../view/basic/apex/ApexChartView';
 
 export default class StatisticChartImpl extends TimelineChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     super.addSelectedDimension(dimension, visualizationType);

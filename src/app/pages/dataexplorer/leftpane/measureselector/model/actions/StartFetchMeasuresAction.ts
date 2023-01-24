@@ -1,7 +1,7 @@
 import { Inject } from 'noicejs';
 import type { DispatchAction } from 'oo-redux-utils';
 import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
-import MeasureService from '../service/MeasureService';
+import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
 import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
 import type { Measure } from '../state/entities/Measure';

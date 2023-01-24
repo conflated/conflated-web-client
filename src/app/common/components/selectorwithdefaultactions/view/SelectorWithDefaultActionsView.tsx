@@ -10,20 +10,20 @@ import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/na
 import { ActionDispatchers, controller, State } from '../selectorWithDefaultActionsController';
 
 type OwnProps = {
-  additionalContent?: JSX.Element | null;
+  additionalContent?: JSX.Element;
   handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
   id: string;
   isPinned?: boolean;
   listItemsContent: JSX.Element | Array<JSX.Element> | null;
-  selectedListItemsContent?: JSX.Element | void;
+  selectedListItemsContent?: JSX.Element;
   selectorStateNamespace: SelectorWithDefaultActionsStateNamespace;
   titleText: string;
 };
 
 type Props = OwnProps & ActionDispatchers & State;
 
-const SelectorWithDefaultActionsView = ({
+const SelectorWithDefaultActionsView: React.FC<Props> = ({
   additionalContent,
   changeSelectorSearchedValue,
   handleMaximizeIconClick,
@@ -88,6 +88,13 @@ const SelectorWithDefaultActionsView = ({
       selectorStateNamespace={selectorStateNamespace}
     />
   );
+};
+
+SelectorWithDefaultActionsView.defaultProps = {
+  additionalContent: undefined,
+  handlePinIconClick: undefined,
+  isPinned: false,
+  selectedListItemsContent: undefined
 };
 
 export default connect(

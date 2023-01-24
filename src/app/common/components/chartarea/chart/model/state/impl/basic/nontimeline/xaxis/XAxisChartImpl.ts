@@ -8,7 +8,7 @@ import type { SelectedDimension } from '../../../../selecteddimension/SelectedDi
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import NonTimelineChartImpl from '../NonTimelineChartImpl';
 
-export default class XAxisChartImpl extends NonTimelineChartImpl {
+export default abstract class XAxisChartImpl extends NonTimelineChartImpl {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.selectedDimensions.length === 1 && visualizationType === 'Legend') {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
@@ -98,6 +98,7 @@ export default class XAxisChartImpl extends NonTimelineChartImpl {
       );
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return convertedSelectedDimensions as any;
   }
 

@@ -4,7 +4,6 @@ import _ from 'lodash';
 import FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
 import type { ChartAreaPageStateNamespace } from '../../../../../model/state/namespace/ChartAreaPageStateNamespace';
-import type { ChartController } from '../../../../view/basic/apex/ApexChartView';
 import ApexChartView from '../../../../view/basic/apex/ApexChartView';
 import type { DataSeries } from '../../types/DataSeries';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
@@ -14,8 +13,9 @@ import type { DataPoint } from '../../types/DataPoint';
 import type { DrillDown } from '../../types/DrillDown';
 import DrillDownChartImpl from '../DrillDownChartImpl';
 import type { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
+import { ActionDispatchers as ChartActionDispatchers } from '../../../../chartController';
 
-export default class BasicChartImpl extends DrillDownChartImpl {
+export default abstract class BasicChartImpl extends DrillDownChartImpl {
   isInternallyTriggeredDataPointSelection = false;
 
   dataPointSelectionTimeoutId: ReturnType<typeof setTimeout> | 0 = 0;
@@ -238,7 +238,7 @@ export default class BasicChartImpl extends DrillDownChartImpl {
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
+    actions: ChartActionDispatchers
   ) {
     const { dataPointIndex, seriesIndex: dataSeriesIndex } = params as any;
     if (this.isInternallyTriggeredDataPointSelection) {
@@ -266,7 +266,7 @@ export default class BasicChartImpl extends DrillDownChartImpl {
 
   handleSelectDataPoint(
     { selectedDataPoints, w }: any,
-    { addSelectionFilterToNotSelectedChartsAction, removeSelectionFilterFromNotSelectedCharts }: ChartController
+    { addSelectionFilterToNotSelectedChartsAction, removeSelectionFilterFromNotSelectedCharts }: ChartActionDispatchers
   ) {
     this.dataPointSelectionTimeoutId = 0;
     const xAxisCategoriesSelectedDimension = this.getSelectedDimensionOfType('X-axis categories');
@@ -308,7 +308,7 @@ export default class BasicChartImpl extends DrillDownChartImpl {
     }
   }
 
-  handleDrilldown({ dataPointIndex, w }: any, { drillDownChart }: ChartController) {
+  handleDrilldown({ dataPointIndex, w }: any, { drillDownChart }: ChartActionDispatchers) {
     const drillDown: DrillDown = {
       selectedDimension: this.currentDrillDownSelectedDimension ?? this.selectedDimensions[0],
       value: w.globals.labels[dataPointIndex]

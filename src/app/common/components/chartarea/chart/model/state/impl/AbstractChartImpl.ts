@@ -39,7 +39,7 @@ import type { Layout } from '../../../../model/state/types/Layout';
 import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
-import { ChartController } from '../../../view/basic/apex/ApexChartView';
+import { ActionDispatchers as ChartActionDispatchers } from '../../../chartController';
 
 export default abstract class AbstractChartImpl implements Chart {
   id = '1';
@@ -198,7 +198,8 @@ export default abstract class AbstractChartImpl implements Chart {
     return theme?.colors ?? ['#1a76c7', '#57943a', '#dfd91f', '#dd8a29', '#dd333f', '#dc4cdd'];
   }
 
-  getApexChartDataSeries(): DataSeries[] | any[] {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     throw new Error('Abstract method called');
   }
 
@@ -494,20 +495,27 @@ export default abstract class AbstractChartImpl implements Chart {
     );
   }
 
-  abstract handleChartJsClick(
+  handleChartJsClick(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     event: any,
-    activeElements: object[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    activeElements: any[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     data: object,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
-  ): void;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    actions: ChartActionDispatchers
+  ): void {
+    throw new Error('Not implemented');
+  }
 
   abstract handleDataPointSelection(
     event: object,
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartController
+    actions: ChartActionDispatchers
   ): void;
 
   hasContinuousXAxis(): boolean {

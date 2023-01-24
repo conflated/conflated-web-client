@@ -1,4 +1,4 @@
-/* eslint-disable no-bitwise */
+/* eslint-disable no-bitwise,@typescript-eslint/no-explicit-any */
 export default class HashValueCalculator {
   static hashValue(value: any): number {
     let hash = 0;

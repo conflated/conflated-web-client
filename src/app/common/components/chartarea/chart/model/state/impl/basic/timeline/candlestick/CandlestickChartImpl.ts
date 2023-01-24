@@ -4,13 +4,17 @@ import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasur
 import type { DataSeries } from '../../../../types/DataSeries';
 
 export default class CandlestickChartImpl extends TimelineChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
   getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 4);
     return super.getConvertSelectedMeasures();
   }
 
   // eslint-disable-next-line no-unused-vars
-  getApexChartDataSeries(): DataSeries[] {
+  override getApexChartDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
     const openData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'open');
     const highData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'high');
@@ -29,6 +33,7 @@ export default class CandlestickChartImpl extends TimelineChartImpl {
       lowData.length === closeData.length &&
       timelineData.length === closeData.length
     ) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const data = timelineData.map((xValue: any, index: number) => ({
         x: xValue,
         y: [openData[index], highData[index], lowData[index], closeData[index]]

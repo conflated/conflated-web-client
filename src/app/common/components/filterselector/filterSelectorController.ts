@@ -26,6 +26,7 @@ import { ChartAreaPageStateNamespace } from '../chartarea/model/state/namespace/
 import Controller from '../../../../Controller';
 import { PageStateNamespace } from '../page/model/state/namespace/PageStateNamespace';
 import store from '../../../../store/store';
+import { controller as selectorWithDefaultActionsController } from '../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
   getState(appState: AppState, pageStateNamespace: FilterSelectorPageStateNamespace) {
@@ -122,7 +123,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       toggleShouldShowPageRightPanePermanently: () =>
         this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(stateNamespace, 'rightPane')),
 
-      toggleMaximizeSelector: new SelectorWithDefaultActionsController().getActionDispatchers(
+      toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
         selectorWithDefaultActionsStateNamespaces[`${stateNamespace}FilterSelector`]
       ).toggleMaximizeSelector
     };

@@ -9,7 +9,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   iconClassName?: string;
   iconName?: string;
   item: T;
-  onItemClick: (item: T) => void;
+  onItemClick: (item: T | undefined) => void;
   selectedItem?: T | null;
 };
 

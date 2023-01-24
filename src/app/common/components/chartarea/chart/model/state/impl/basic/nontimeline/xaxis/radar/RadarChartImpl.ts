@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import XAxisChartImpl from '../XAxisChartImpl';
 
 export default class RadarChartImpl extends XAxisChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
   getFillOpacity(): number {
     return 0.4;
   }

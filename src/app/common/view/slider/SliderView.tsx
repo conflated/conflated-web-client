@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Slider as ReactCompoundSlider, Handles, Rail, Tracks } from 'react-compound-slider';
 import styles from './SliderView.module.scss';

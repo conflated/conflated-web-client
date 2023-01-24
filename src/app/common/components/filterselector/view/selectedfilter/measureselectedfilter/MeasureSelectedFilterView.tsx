@@ -27,37 +27,35 @@ const MeasureSelectedFilterView = ({
   chart,
   removeSelectedFilter,
   selectedFilter
-}: Props) => {
-  return (
-    <List.Item key={selectedFilter.measureOrDimension.name}>
-      <AggregationFunctionPickerView
-        aggregationFunctions={chart.getSupportedAggregationFunctions()}
-        changeAggregationFunction={changeSelectedFilterAggregationFunction}
-        selectedAggregationFunction={selectedFilter.aggregationFunction}
-      />
-      <div className={styles.measureOrDimensionName}>{selectedFilter.measureOrDimension.name}</div>
-      <DataScopePickerView
-        changeDataScopeType={changeSelectedFilterDataScopeType}
-        selectedDataScopeType={selectedFilter.dataScopeType}
-      />
-      <Dropdown className={styles.icon} icon="setting">
-        <Dropdown.Menu direction="left">
-          <Dropdown.Item
-            text="Input filter"
-            value="Input filter"
-            onClick={() => changeSelectedFilterInputType('Input filter')}
-          />
-          <Dropdown.Item
-            text="Range filter"
-            value="Range filter"
-            onClick={() => changeSelectedFilterInputType('Range filter')}
-          />
-        </Dropdown.Menu>
-      </Dropdown>
-      <Icon className={styles.icon} name="close" onClick={() => removeSelectedFilter()} />
-      {selectedFilter.getFilterInputView(styles.filterInput, chart.chartData, changeSelectedFilterExpression)}
-    </List.Item>
-  );
-};
+}: Props) => (
+  <List.Item key={selectedFilter.measureOrDimension.name}>
+    <AggregationFunctionPickerView
+      aggregationFunctions={chart.getSupportedAggregationFunctions()}
+      changeAggregationFunction={changeSelectedFilterAggregationFunction}
+      selectedAggregationFunction={selectedFilter.aggregationFunction}
+    />
+    <div className={styles.measureOrDimensionName}>{selectedFilter.measureOrDimension.name}</div>
+    <DataScopePickerView
+      changeDataScopeType={changeSelectedFilterDataScopeType}
+      selectedDataScopeType={selectedFilter.dataScopeType}
+    />
+    <Dropdown className={styles.icon} icon="setting">
+      <Dropdown.Menu direction="left">
+        <Dropdown.Item
+          text="Input filter"
+          value="Input filter"
+          onClick={() => changeSelectedFilterInputType('Input filter')}
+        />
+        <Dropdown.Item
+          text="Range filter"
+          value="Range filter"
+          onClick={() => changeSelectedFilterInputType('Range filter')}
+        />
+      </Dropdown.Menu>
+    </Dropdown>
+    <Icon className={styles.icon} name="close" onClick={() => removeSelectedFilter()} />
+    {selectedFilter.getFilterInputView(styles.filterInput, chart.chartData, changeSelectedFilterExpression)}
+  </List.Item>
+);
 
 export default MeasureSelectedFilterView;

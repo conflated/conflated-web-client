@@ -13,7 +13,7 @@ import { ActionDispatchers, controller, State } from '../headerController';
 type Props = ActionDispatchers & State;
 
 // noinspection OverlyComplexFunctionJS
-function HeaderView({
+const HeaderView = ({
   dismissFullScreenModeNotification,
   exitFullScreenMode,
   isFullScreenModeActive,
@@ -22,7 +22,7 @@ function HeaderView({
   showDashboardsHeader,
   showFullScreenModeNotification,
   switchToFullScreenMode
-}: Props) {
+}: Props) => {
   useEffect(() => {
     function onKeyDown(keyboardEvent: KeyboardEvent) {
       if (keyboardEvent.code === 'Escape') {
@@ -89,7 +89,7 @@ function HeaderView({
       />
     </header>
   );
-}
+};
 
 export default connect(
   (appState: AppState) => controller.getState(appState),

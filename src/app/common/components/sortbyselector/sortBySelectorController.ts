@@ -29,6 +29,7 @@ import selectShownMeasures from '../../model/state/selectors/selectShownMeasures
 import createShownDimensionsSelector from '../../model/state/selectors/createShownDimensionsSelector';
 import store from '../../../../store/store';
 import selectorWithDefaultActionsStateNamespaces from '../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import { controller as selectorWithDefaultActionsController } from '../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class SortBySelectorController extends Controller<PageStateNamespace> {
   getState(appState: AppState, stateNamespace: SortBySelectorPageStateNamespace) {
@@ -138,7 +139,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         }
       },
 
-      toggleMaximizeSelector: new SelectorWithDefaultActionsController().getActionDispatchers(
+      toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
         selectorWithDefaultActionsStateNamespaces[`${stateNamespace}FilterSelector`]
       ).toggleMaximizeSelector
     };

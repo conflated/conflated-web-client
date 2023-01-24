@@ -3,6 +3,8 @@ import type { Measure } from '../../../measureselector/model/state/entities/Meas
 import type { ListItemViewProps } from '../../../../../../common/view/listitems/listitem/ListItemView';
 import ListItemView from '../../../../../../common/view/listitems/listitem/ListItemView';
 
-export default function DraggableMeasureAsDimensionListItemView(props: ListItemViewProps<Measure>) {
-  return <ListItemView draggable dragEventDataKey="measureName" iconName="dashboard" {...props} />;
-}
+const DraggableMeasureAsDimensionListItemView = (props: ListItemViewProps<Measure>) => (
+  <ListItemView draggable dragEventDataKey="measureName" iconName="dashboard" {...props} />
+);
+
+export default DraggableMeasureAsDimensionListItemView;

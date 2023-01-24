@@ -77,7 +77,11 @@ export default class ScatterChartImpl extends DataPointsChartImpl {
     }
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  getSupportedMeasureVisualizationTypes(
+    selectedMeasure: SelectedMeasure,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    supportedMeasureVisualizationTypes?: MeasureVisualizationType[]
+  ): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['x-axis', 'y-axis']);
   }
 

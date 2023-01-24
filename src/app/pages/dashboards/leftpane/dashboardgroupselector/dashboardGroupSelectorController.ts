@@ -4,6 +4,8 @@ import store from '../../../../../store/store';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/namespace/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDashboardGroups from './model/state/selectors/selectShownDashboardGroups';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as dashboardsPageController } from '../../dashboardsPageController';
 
 class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
   getState(appState: AppState) {
@@ -19,11 +21,10 @@ class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
       toggleShouldShowDashboardsPageLeftPanePermanently: () =>
         this.dispatch(new ToggleShouldShowPagePanePermanentlyAction('dashboardsPage', 'leftPane')),
 
-      toggleMaximizeSelector: new SelectorWithDefaultActionsController(this.dispatch).getActionDispatchers(
-        'dashboardGroupSelector'
-      ).toggleMaximizeSelector,
+      toggleMaximizeSelector:
+        selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
 
-      showDashboardGroup: new DashboardsPageController(this.dispatch).getActionDispatchers().showDashboardGroup
+      showDashboardGroup: dashboardsPageController.getActionDispatchers().showDashboardGroup
     };
   }
 }

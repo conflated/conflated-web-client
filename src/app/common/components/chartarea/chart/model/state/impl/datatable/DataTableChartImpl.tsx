@@ -9,8 +9,25 @@ import AgGridAlertsDataTableView from '../../../../view/datatable/aggrid/AgGridA
 import AgGridGoalsDataTableView from '../../../../view/datatable/aggrid/AgGridGoalsDataTableView';
 
 export default class DataTableChartImpl extends DrillDownChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  getDimensionDropZoneListItemViews(): JSX.Element[] {
+    throw new Error('Method not implemented.');
+  }
+
+  handleDataPointSelection(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sliceOrFillXAxisData(): any[] {
+    throw new Error('Method not implemented.');
+  }
+
   // eslint-disable-next-line no-unused-vars
-  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): Element<any> {
+  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element {
     if (stateNamespace === 'alertsPage') {
       return <AgGridAlertsDataTableView chart={this} width={width} height={height} />;
     } else if (stateNamespace === 'goalsPage') {
@@ -33,6 +50,6 @@ export default class DataTableChartImpl extends DrillDownChartImpl {
   }
 
   getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
-    return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['text' /* column', 'line', 'area' */]);
+    return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['text']);
   }
 }

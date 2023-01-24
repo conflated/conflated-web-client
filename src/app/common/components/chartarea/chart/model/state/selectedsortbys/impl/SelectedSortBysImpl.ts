@@ -17,7 +17,7 @@ import SqlUtils from '../../../../../../../model/state/utils/SqlUtils';
 import { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
 import { Chart } from '../../Chart';
 
-export default abstract class SelectedSortBysImpl implements SelectedSortBys {
+export default class SelectedSortBysImpl implements SelectedSortBys {
   selectedSortBys: SelectedSortBy[];
 
   constructor(selectedSortBys: SelectedSortBy[]) {
@@ -114,7 +114,7 @@ export default abstract class SelectedSortBysImpl implements SelectedSortBys {
     });
   }
 
-  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
+  getConvertSelectedSortBys(): SelectedSortBy[] {
     return this.selectedSortBys;
   }
 
@@ -130,16 +130,21 @@ export default abstract class SelectedSortBysImpl implements SelectedSortBys {
     this.selectedSortBys = _.without(this.selectedSortBys, selectedSortBy);
   }
 
-  abstract updateSelectedSortBysWhenAddingSelectedDimension(
+  updateSelectedSortBysWhenAddingSelectedDimension(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     measureOrDimension: Dimension | Measure,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     visualizationType: DimensionVisualizationType,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     chart: Chart
-  ): void;
+  ): void {}
 
-  abstract updateSelectedSortBysWhenAddingSelectedMeasure(
+  updateSelectedSortBysWhenAddingSelectedMeasure(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     measureOrDimension: Measure | Dimension,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedMeasures: SelectedMeasure[]
-  ): void;
+  ): void {}
 
   updateSelectedSortBysWhenChangingSelectedMeasureAggregationFunction(
     aggregationFunction: AggregationFunction,
@@ -155,13 +160,17 @@ export default abstract class SelectedSortBysImpl implements SelectedSortBys {
     }
   }
 
-  abstract updateSelectedSortBysWhenRemovingSelectedDimension(
+  updateSelectedSortBysWhenRemovingSelectedDimension(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedDimension: SelectedDimension,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedMeasures: SelectedMeasure[]
-  ): void;
+  ): void {}
 
-  abstract updateSelectedSortBysWhenRemovingSelectedMeasure(
+  updateSelectedSortBysWhenRemovingSelectedMeasure(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedMeasure: SelectedMeasure,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedMeasures: SelectedMeasure[]
-  ): void;
+  ): void {}
 }

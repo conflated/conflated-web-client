@@ -4,6 +4,10 @@ import type { DataSeries } from '../../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
 
 export default class HeatmapChartImpl extends XAxisChartImpl {
+  handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
+  }
+
   getApexChartDataSeries(): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0) {
       const dataSeries: DataSeries[] = [];
