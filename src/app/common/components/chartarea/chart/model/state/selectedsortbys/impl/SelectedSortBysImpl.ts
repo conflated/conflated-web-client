@@ -114,7 +114,8 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     });
   }
 
-  getConvertSelectedSortBys(): SelectedSortBy[] {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
     return this.selectedSortBys;
   }
 
