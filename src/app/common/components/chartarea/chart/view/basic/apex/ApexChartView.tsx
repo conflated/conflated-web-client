@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { connect } from 'react-redux';
 import { default as ApexChart } from 'react-apexcharts';
 import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
@@ -21,7 +20,6 @@ import ApexChartDataLabelOptionsFactory from './model/factories/ApexChartDataLab
 import ApexChartLegendOptionsFactory from './model/factories/ApexChartLegendOptionsFactory';
 import ApexChartTooltipOptionsFactory from './model/factories/ApexChartTooltipOptionsFactory';
 import ApexChartYAxisOptionsFactory from './model/factories/ApexChartYAxisOptionsFactory';
-import { ActionDispatchers, controller } from '../../../chartController';
 
 type OwnProps = {
   chart: Chart;
@@ -30,7 +28,7 @@ type OwnProps = {
   width: number;
 };
 
-type Props = OwnProps & ActionDispatchers;
+type Props = OwnProps;
 
 const ApexChartView = ({ chart, height, width, pageStateNamespace, ...actions }: Props) => {
   const chartOptions = {
@@ -75,6 +73,4 @@ const ApexChartView = ({ chart, height, width, pageStateNamespace, ...actions }:
   );
 };
 
-export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(ApexChartView);
+export default ApexChartView;

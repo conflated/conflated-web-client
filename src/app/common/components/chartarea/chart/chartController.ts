@@ -15,9 +15,8 @@ import type { DrillDown } from './model/state/types/DrillDown';
 import type { Chart } from './model/state/Chart';
 import StartFetchDataForChartAction from '../model/actions/chart/fetchdata/StartFetchDataForChartAction';
 import Controller from '../../../../../Controller';
-import store from '../../../../../store/store';
 
-class ChartController extends Controller<ChartAreaPageStateNamespace> {
+export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
@@ -63,6 +62,3 @@ class ChartController extends Controller<ChartAreaPageStateNamespace> {
     };
   }
 }
-
-export const controller = new ChartController(store.dispatch);
-export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;

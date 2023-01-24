@@ -8,7 +8,8 @@ import ChartMenuView from '../menu/view/ChartMenuView';
 import ChartConfigHintsView from './confighints/ChartConfigHintsView';
 import ChartScrollbarView from '../scrollbar/ChartScrollbarView';
 import DrillUpIconView from '../drillupicon/view/DrillUpIconView';
-import { ActionDispatchers, controller } from '../chartController';
+import ChartController from '../chartController';
+import store from '../../../../../../store/store';
 
 type OwnProps = {
   chart: Chart;
@@ -17,6 +18,9 @@ type OwnProps = {
   pageStateNamespace: ChartAreaPageStateNamespace;
   width: number;
 };
+
+const controller = new ChartController(store.dispatch);
+type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
 
 type Props = OwnProps & ActionDispatchers;
 

@@ -3,19 +3,17 @@ import classNames from 'classnames';
 import 'chartjs-chart-box-and-violin-plot';
 import React, { useEffect, useRef, useState } from 'react';
 import { Chart as ChartJsChart } from 'chart.js';
-import { connect } from 'react-redux';
 import styles from './ChartJsChartView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ChartJsChartBaseOptionsFactory from './model/factories/ChartJsChartBaseOptionsFactory';
-import { ActionDispatchers, controller } from '../../../chartController';
 
 type OwnProps = {
   chart: Chart;
   pageStateNamespace: ChartAreaPageStateNamespace;
 };
 
-type Props = OwnProps & ActionDispatchers;
+type Props = OwnProps;
 
 const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
   // eslint-disable-next-line react/prefer-exact-props
@@ -66,6 +64,4 @@ const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
   );
 };
 
-export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(ChartJsChartView);
+export default ChartJsChartView;

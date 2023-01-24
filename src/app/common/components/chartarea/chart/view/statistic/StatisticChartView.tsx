@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { statisticGroup } from './StatisticChartView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
 import type { Chart } from '../../model/state/Chart';
-import { ActionDispatchers, controller } from '../../chartController';
+import ChartController from '../../chartController';
+import store from '../../../../../../../store/store';
 
+export const controller = new ChartController(store.dispatch);
+export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
 type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
 
 type Props = OwnProps & ActionDispatchers;
