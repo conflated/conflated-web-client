@@ -36,7 +36,7 @@ const ApexChartView = ({ chart, height, width, pageStateNamespace, ...actions }:
   const chartOptions = {
     chart: {
       ...ApexChartGeneralOptionsFactory.createGeneralOptions(chart),
-      events: ApexChartEventOptionsFactory.createEventOptions(chart, pageStateNamespace, actions),
+      events: ApexChartEventOptionsFactory.createEventOptions(chart, pageStateNamespace, actions as any),
       toolbar: {
         tools: {
           download: false

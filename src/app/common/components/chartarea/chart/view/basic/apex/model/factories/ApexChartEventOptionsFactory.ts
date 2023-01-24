@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ChartAreaPageStateNamespace } from '../../../../../../model/state/namespace/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../../../model/state/Chart';
-import { ActionDispatchers } from '../../../../../chartController';
 
 export default class ApexChartEventOptionsFactory {
   static createEventOptions(
     chart: Chart,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ActionDispatchers
+    actions: Record<string, (...args: any[]) => any>
   ): object {
     return {
       click: () => actions.selectChart(chart),

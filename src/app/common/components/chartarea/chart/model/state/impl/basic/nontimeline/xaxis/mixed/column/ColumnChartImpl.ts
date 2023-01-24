@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import MixedChartImpl from '../MixedChartImpl';
 import type { MeasureVisualizationType } from '../../../../../../selectedmeasure/types/MeasureVisualizationType';
-import { ActionDispatchers as ChartActionDispatchers } from '../../../../../../../../chartController';
 
 export default class ColumnChartImpl extends MixedChartImpl {
   getLegendType(): string {
@@ -12,7 +11,7 @@ export default class ColumnChartImpl extends MixedChartImpl {
     return 'column';
   }
 
-  handleSelectDataPoint(params: any, actions: ChartActionDispatchers) {
+  handleSelectDataPoint(params: any, actions: Record<string, (...args: any[]) => void>) {
     const { dataPointIndex, selectedDataPoints, w } = params;
     const { setSelectedDataPointIndexForChart } = actions;
 

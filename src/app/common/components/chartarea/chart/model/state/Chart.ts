@@ -26,7 +26,6 @@ import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
 import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
 import type { Layout } from '../../../model/state/types/Layout';
 import type { Column } from './types/Column';
-import { ActionDispatchers as ChartActionDispatchers } from '../../chartController';
 
 export interface Chart {
   id: string;
@@ -179,7 +178,7 @@ export interface Chart {
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartActionDispatchers
+    actions: Record<string, (...args: any[]) => void>
   ): void;
 
   handleChartJsClick(
@@ -187,7 +186,7 @@ export interface Chart {
     activeElements: object[],
     data: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartActionDispatchers
+    actions: Record<string, (...args: any[]) => any>
   ): void;
 
   hasData(): boolean;

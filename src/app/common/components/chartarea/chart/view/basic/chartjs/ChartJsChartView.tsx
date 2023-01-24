@@ -30,7 +30,7 @@ const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
       const options = {
         ...ChartJsChartBaseOptionsFactory.createBaseOptions(),
         onClick: (event: any, activeElements: object[]) =>
-          chart.handleChartJsClick(event, activeElements, data, pageStateNamespace, actions)
+          chart.handleChartJsClick(event, activeElements, data, pageStateNamespace, actions as any)
       };
 
       if (chartJsChart) {

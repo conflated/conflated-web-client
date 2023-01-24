@@ -13,7 +13,6 @@ import type { DataPoint } from '../../types/DataPoint';
 import type { DrillDown } from '../../types/DrillDown';
 import DrillDownChartImpl from '../DrillDownChartImpl';
 import type { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
-import { ActionDispatchers as ChartActionDispatchers } from '../../../../chartController';
 
 export default abstract class BasicChartImpl extends DrillDownChartImpl {
   isInternallyTriggeredDataPointSelection = false;
@@ -238,7 +237,7 @@ export default abstract class BasicChartImpl extends DrillDownChartImpl {
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartActionDispatchers
+    actions: Record<string, (...args: any[]) => any>
   ) {
     const { dataPointIndex, seriesIndex: dataSeriesIndex } = params as any;
     if (this.isInternallyTriggeredDataPointSelection) {
@@ -266,7 +265,10 @@ export default abstract class BasicChartImpl extends DrillDownChartImpl {
 
   handleSelectDataPoint(
     { selectedDataPoints, w }: any,
-    { addSelectionFilterToNotSelectedChartsAction, removeSelectionFilterFromNotSelectedCharts }: ChartActionDispatchers
+    {
+      addSelectionFilterToNotSelectedChartsAction,
+      removeSelectionFilterFromNotSelectedCharts
+    }: Record<string, (...args: any[]) => void>
   ) {
     this.dataPointSelectionTimeoutId = 0;
     const xAxisCategoriesSelectedDimension = this.getSelectedDimensionOfType('X-axis categories');
@@ -308,7 +310,7 @@ export default abstract class BasicChartImpl extends DrillDownChartImpl {
     }
   }
 
-  handleDrilldown({ dataPointIndex, w }: any, { drillDownChart }: ChartActionDispatchers) {
+  handleDrilldown({ dataPointIndex, w }: any, { drillDownChart }: Record<string, (...args: any[]) => any>) {
     const drillDown: DrillDown = {
       selectedDimension: this.currentDrillDownSelectedDimension ?? this.selectedDimensions[0],
       value: w.globals.labels[dataPointIndex]

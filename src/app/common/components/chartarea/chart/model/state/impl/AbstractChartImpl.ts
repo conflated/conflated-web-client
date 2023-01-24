@@ -39,7 +39,6 @@ import type { Layout } from '../../../../model/state/types/Layout';
 import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
-import { ActionDispatchers as ChartActionDispatchers } from '../../../chartController';
 
 export default abstract class AbstractChartImpl implements Chart {
   id = '1';
@@ -505,7 +504,7 @@ export default abstract class AbstractChartImpl implements Chart {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     stateNamespace: ChartAreaPageStateNamespace,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    actions: ChartActionDispatchers
+    actions: Record<string, (...args: any[]) => void>
   ): void {
     throw new Error('Not implemented');
   }
@@ -515,7 +514,7 @@ export default abstract class AbstractChartImpl implements Chart {
     chartContext: object,
     params: object,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: ChartActionDispatchers
+    actions: Record<string, (...args: any[]) => void>
   ): void;
 
   hasContinuousXAxis(): boolean {

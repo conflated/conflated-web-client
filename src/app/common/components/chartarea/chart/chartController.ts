@@ -1,4 +1,3 @@
-import store from '../../../../../store/store';
 import type { ChartAreaPageStateNamespace } from '../model/state/namespace/ChartAreaPageStateNamespace';
 import SelectChartAction from '../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../model/actions/chart/datapointselection/DeselectChartDataPointAction';
@@ -16,6 +15,7 @@ import type { DrillDown } from './model/state/types/DrillDown';
 import type { Chart } from './model/state/Chart';
 import StartFetchDataForChartAction from '../model/actions/chart/fetchdata/StartFetchDataForChartAction';
 import Controller from '../../../../../Controller';
+import store from '../../../../../store/store';
 
 class ChartController extends Controller<ChartAreaPageStateNamespace> {
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
