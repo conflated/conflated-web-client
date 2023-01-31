@@ -1,5 +1,17 @@
 :root {
   --base-font-size: calc(1vw);
+
+  /* Conflated Brand
+
+  --brand-color-1: rgb(26, 118, 199);
+  --transparent-brand-color-1: rgb(26, 118, 199, 0.1);
+  --brand-color-2: rgb(87, 148, 58);
+  --brand-logo-font-family: 'Raleway', sans-serif;
+  --brand-logo-font-weight: 100;
+  --brand-font-family: 'Arimo', sans-serif;
+  --brand-font-weight: 400; */
+
+  /* Nokia Brand */
   --brand-color-1: rgb(26, 118, 199);
   --transparent-brand-color-1: rgb(26, 118, 199, 0.1);
   --brand-color-2: rgb(87, 148, 58);
@@ -7,6 +19,7 @@
   --brand-logo-font-weight: 100;
   --brand-font-family: 'Arimo', sans-serif;
   --brand-font-weight: 400;
+
   --primary-text-color: rgb(0, 0, 0);
   --primary-text-color-on-hover: var(--brand-color-1);
   --secondary-text-color: rgb(255, 255, 255);

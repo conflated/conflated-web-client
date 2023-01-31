@@ -105,7 +105,12 @@
       "jsx-a11y/label-has-for": "off",
       "react/jsx-curly-newline": "off",
       "react/jsx-props-no-spreading": "off",
-      "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+      "react/function-component-definition": [
+        2,
+        {
+          "namedComponents": "arrow-function"
+        }
+      ],
       "react/require-default-props": [
         1,
         {
@@ -154,6 +159,7 @@
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
     "@types/react-grid-layout": "^1.3.2",
+    "caniuse-lite": "^1.0.30001449",
     "cross-env": "^7.0.3",
     "customize-cra": "^1.0.0",
     "eslint": "^8.2.0",
