@@ -39,11 +39,9 @@ class StartFetchDashboardGroupsAction extends AbstractDashboardsPageDispatchingA
   }
 
   performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
-    this.dashboardsService
-      .fetchDashboardGroups()
-      .then((dashboardGroups: DashboardGroup[]) =>
-        this.dispatchAction(new FinishFetchDashboardGroupsAction(dashboardGroups))
-      );
+    this.dashboardsService.fetchDashboardGroups().then((dashboardGroups: DashboardGroup[]) => {
+      this.dispatchAction(new FinishFetchDashboardGroupsAction(dashboardGroups));
+    });
 
     const newState = {
       ...currentState,

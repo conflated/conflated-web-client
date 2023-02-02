@@ -17,7 +17,7 @@ declare module 'oo-redux-utils' {
     StateType,
     StateNamespaceType
   > {
-    readonly dispatchAction: DispatchAction;
+    readonly dispatchAction_: DispatchAction;
 
     constructor(stateNamespace: StateNamespaceType, dispatchAction: DispatchAction);
 

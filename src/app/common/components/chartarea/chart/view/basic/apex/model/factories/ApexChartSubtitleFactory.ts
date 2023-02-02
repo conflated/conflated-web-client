@@ -9,7 +9,7 @@ export default class ApexChartSubtitleFactory {
       offsetX: (chart.drillDowns ?? []).length > 0 ? 25 : 0,
       style: {
         fontSize: chart.hasLargerTitle() ? '15px' : '13px',
-        color: 'rgb(150 150 150)'
+        color: 'rgb(150, 150, 150)'
       }
     };
   }

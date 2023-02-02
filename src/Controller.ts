@@ -25,7 +25,7 @@ export default abstract class Controller<T extends string = ''> {
   ) {
     diContainer
       .create(ActionClass, {
-        dispatch: this.dispatch,
+        dispatchAction: this.dispatch,
         ...otherArgs
       })
       .then((action: any) => this.dispatch(action));
