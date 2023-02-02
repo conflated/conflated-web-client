@@ -37,7 +37,7 @@ const DashboardsPageHeaderView = ({
         <Dropdown.Item
           key={dashboard.name}
           text={dashboard.name}
-          value={dashboard as any}
+          value={dashboard.name}
           onClick={() => showDashboard(dashboard)}
         />
       )),
@@ -50,7 +50,7 @@ const DashboardsPageHeaderView = ({
         <Dropdown.Item
           key={dashboardGroup.name}
           text={dashboardGroup.name}
-          value={dashboardGroup as any}
+          value={dashboardGroup.name}
           onClick={() => showDashboardGroup(dashboardGroup)}
         />
       )),
