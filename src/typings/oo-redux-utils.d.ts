@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/comma-dangle */
-
 // eslint-disable-next-line max-classes-per-file
 declare module 'oo-redux-utils' {
   export class AbstractAction<StateType, StateNamespaceType extends string = ''> {
@@ -18,7 +17,7 @@ declare module 'oo-redux-utils' {
     StateType,
     StateNamespaceType
   > {
-    readonly dispatchAction_: DispatchAction;
+    readonly dispatchAction: DispatchAction;
 
     constructor(stateNamespace: StateNamespaceType, dispatchAction: DispatchAction);
 

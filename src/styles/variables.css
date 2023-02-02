@@ -1,7 +1,7 @@
 @import 'nokia-brand.css';
 
 :root {
-  --base-font-size: 62.5%;
+  --base-font-size: 100%;
   --primary-text-color: rgb(0 0 0);
   --primary-text-color-on-hover: var(--brand-color-1);
   --secondary-text-color: rgb(255 255 255);
