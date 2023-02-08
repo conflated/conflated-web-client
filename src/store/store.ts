@@ -6,8 +6,8 @@ import dataSourceSelectorStateReducer from '../app/pages/dataexplorer/leftpane/d
 import measureSelectorStateReducer from '../app/pages/dataexplorer/leftpane/measureselector/model/state/measureSelectorStateReducer';
 import dimensionSelectorStateReducer from '../app/pages/dataexplorer/leftpane/dimensionselector/model/state/dimensionSelectorStateReducer';
 import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/reducer/createChartAreaStateReducer';
-import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/settings/state/reducer/dataExplorerSettingsStateReducer';
-import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/reducer/saveAsDashboardOrReportTemplateDialogStateReducer';
+import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/settings/state/dataExplorerSettingsStateReducer';
+import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
 import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/reducer/createSortBySelectorStateReducer';
 import dashboardsPageStateReducer from '../app/pages/dashboards/model/state/dashboardsPageStateReducer';
 import createTriggerDataSourceSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/reducer/createTriggerDataSourceSelectorStateReducer';
