@@ -17,7 +17,7 @@ class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNam
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       changeFetchedRowCountForSelectedChart: (fetchedRowCount: string) => {
-        this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(stateNamespace, this.dispatch, fetchedRowCount));
+        this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(stateNamespace, fetchedRowCount));
         this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {});
       },
 

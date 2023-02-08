@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import NumberInput from 'semantic-ui-react-numberinput';
 import styles from './DataPointsCountSelectorView.module.scss';
 import SelectorView from '../../selector/view/SelectorView';
-import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/namespace/DataPointsCountSelectorPageStateNamespace';
+import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
 import Constants from '../../../Constants';
 import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
 import { ActionDispatchers, controller, State } from '../dataPointsCountSelectorController';

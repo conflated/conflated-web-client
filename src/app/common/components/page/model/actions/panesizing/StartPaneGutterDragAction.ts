@@ -1,7 +1,7 @@
 import AbstractPageAction from '../AbstractPageAction';
 import type { PageState } from '../../state/PageState';
 import type { Pane } from '../../state/types/Pane';
-import type { PageStateNamespace } from '../../state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../../state/types/PageStateNamespace';
 
 export default class StartPaneGutterDragAction extends AbstractPageAction {
   constructor(

@@ -4,7 +4,7 @@ import ShowFullScreenModeNotificationAction from './model/actions/ShowFullScreen
 import DismissFullScreenModeNotificationAction from './model/actions/DismissFullScreenModeNotificationAction';
 import ShowDashboardsPageHeaderAction from '../pages/dashboards/header/model/actions/show/ShowDashboardsPageHeaderAction';
 import SelectPageAction from './model/actions/SelectPageAction';
-import type { PageStateNamespace } from '../common/components/page/model/state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../common/components/page/model/state/types/PageStateNamespace';
 import Controller from '../../Controller';
 import store from '../../store/store';
 import { AppState } from '../../store/AppState';

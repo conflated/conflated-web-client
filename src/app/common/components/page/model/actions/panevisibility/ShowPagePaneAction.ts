@@ -1,7 +1,7 @@
 import type { PageState } from '../../state/PageState';
 import AbstractPageAction from '../AbstractPageAction';
 import type { Pane } from '../../state/types/Pane';
-import type { PageStateNamespace } from '../../state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../../state/types/PageStateNamespace';
 
 export default class ShowPagePaneAction extends AbstractPageAction {
   constructor(stateNamespace: PageStateNamespace, private readonly pane: Pane) {

@@ -9,7 +9,7 @@ import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemVi
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import type { FilterSelectorPageStateNamespace } from '../model/state/namespace/FilterSelectorPageStateNamespace';
+import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
 import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';

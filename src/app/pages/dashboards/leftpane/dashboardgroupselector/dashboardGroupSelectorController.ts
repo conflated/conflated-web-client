@@ -1,7 +1,7 @@
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
 import Controller from '../../../../../Controller';
 import store from '../../../../../store/store';
-import { PageStateNamespace } from '../../../../common/components/page/model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDashboardGroups from './model/state/selectors/selectShownDashboardGroups';
 import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';

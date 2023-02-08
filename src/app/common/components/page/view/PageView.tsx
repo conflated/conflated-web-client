@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './PageView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
 import type { Pane } from '../model/state/types/Pane';
-import type { PageStateNamespace } from '../model/state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../model/state/types/PageStateNamespace';
 import { ActionDispatchers, controller, State } from '../pageController';
 
 type OwnProps = {

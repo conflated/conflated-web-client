@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
-import type { PageStateNamespace } from '../../../common/components/page/model/state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../../../common/components/page/model/state/types/PageStateNamespace';
 import styles from './NavigationView.module.scss';
 
 type Props = {

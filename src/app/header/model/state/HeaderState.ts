@@ -1,5 +1,5 @@
 import type { DragType } from './types/DragType';
-import type { PageStateNamespace } from '../../../common/components/page/model/state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../../../common/components/page/model/state/types/PageStateNamespace';
 
 export type HeaderState = {
   readonly currentPage: PageStateNamespace;

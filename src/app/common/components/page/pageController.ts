@@ -1,7 +1,7 @@
 import StartPaneGutterDragAction from './model/actions/panesizing/StartPaneGutterDragAction';
 import ShowPagePaneAction from './model/actions/panevisibility/ShowPagePaneAction';
 import PagePaneGutterDragAction from './model/actions/panesizing/PagePaneGutterDragAction';
-import { PageStateNamespace } from './model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from './model/state/types/PageStateNamespace';
 import { Pane } from './model/state/types/Pane';
 import HidePagePaneActivatorHintAction from './model/actions/paneactivatorhints/HidePagePaneActivatorHintAction';
 import ShowPagePaneActivatorHintAction from './model/actions/paneactivatorhints/ShowPagePaneActivatorHintAction';

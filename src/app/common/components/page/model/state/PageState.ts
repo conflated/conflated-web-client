@@ -1,7 +1,7 @@
 import type { Pane } from './types/Pane';
 
-type PaneStates = { [K in Pane]: boolean };
-type PaneValues = { [K in Pane]: number };
+type PaneStates = { readonly [K in Pane]: boolean };
+type PaneValues = { readonly [K in Pane]: number };
 
 export type PageState = {
   readonly shouldShowPagePaneActivatorHint: PaneStates;

@@ -1,6 +1,6 @@
 import AbstractHeaderAction from './AbstractHeaderAction';
 import type { HeaderState } from '../state/HeaderState';
-import type { PageStateNamespace } from '../../../common/components/page/model/state/namespace/PageStateNamespace';
+import type { PageStateNamespace } from '../../../common/components/page/model/state/types/PageStateNamespace';
 
 export default class SelectPageAction extends AbstractHeaderAction {
   page: PageStateNamespace;

@@ -1,7 +1,7 @@
 import HidePagePaneAction from '../../page/model/actions/panevisibility/HidePagePaneAction';
 import type { TriggersPageStateNamespace } from '../model/state/namespace/TriggersPageStateNamespace';
 import Controller from '../../../../../Controller';
-import { PageStateNamespace } from '../../page/model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';

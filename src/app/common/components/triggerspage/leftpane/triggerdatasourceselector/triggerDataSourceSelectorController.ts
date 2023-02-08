@@ -9,7 +9,7 @@ import { AppState } from '../../../../../../store/AppState';
 import createShownTriggerDataSourcesSelector from './model/state/selector/createShownTriggerDataSourcesSelector';
 import Controller from '../../../../../../Controller';
 import selectorStateNamespaces from '../../../selector/model/state/namespace/SelectorStateNamespace';
-import { PageStateNamespace } from '../../../page/model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../../store/store';
 import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../selectorwithdefaultactions/selectorWithDefaultActionsController';

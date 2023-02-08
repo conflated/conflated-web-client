@@ -17,7 +17,7 @@ import selectorStateNamespaces from '../app/common/components/selector/model/sta
 import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithdefaultactions/model/state/SelectorWithDefaultActionsState';
 import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
-import pageStateNamespaces from '../app/common/components/page/model/state/namespace/PageStateNamespace';
+import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 
 export type AppState = {
   common: {

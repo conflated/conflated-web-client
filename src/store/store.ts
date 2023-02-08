@@ -13,14 +13,14 @@ import dashboardsPageStateReducer from '../app/pages/dashboards/model/state/dash
 import createTriggerDataSourceSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/reducer/createTriggerDataSourceSelectorStateReducer';
 import createTriggerGroupSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/reducer/createTriggerGroupSelectorStateReducer';
 import createTriggerSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/reducer/createTriggerSelectorStateReducer';
-import createPageStateReducer from '../app/common/components/page/model/state/reducer/createPageStateReducer';
+import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/reducer/createSelectorStateReducer';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/namespace/SelectorStateNamespace';
 import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
 import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selectorwithdefaultactions/model/state/reducer/createSelectorWithDefaultActionsStateReducer';
 import dashboardsPageHeaderStateReducer from '../app/pages/dashboards/header/model/state/dashboardsPageHeaderStateReducer';
 import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/reducer/createTriggersPageChartAreaStateReducer';
-import pageStateNamespaces from '../app/common/components/page/model/state/namespace/PageStateNamespace';
+import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 
 const appStateReducer = combineReducers({
   common: combineReducers({

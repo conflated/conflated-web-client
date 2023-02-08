@@ -1,7 +1,7 @@
 import OOReduxUtils from 'oo-redux-utils2';
-import AbstractPageAction from '../../actions/AbstractPageAction';
-import type { PageState } from '../PageState';
-import type { PageStateNamespace } from '../namespace/PageStateNamespace';
+import AbstractPageAction from '../actions/AbstractPageAction';
+import type { PageState } from './PageState';
+import type { PageStateNamespace } from './types/PageStateNamespace';
 
 const initialPageState: PageState = {
   shouldShowPagePaneActivatorHint: {
@@ -37,6 +37,6 @@ const dataExplorerPageInitialState = {
 export default (stateNamespace: PageStateNamespace) =>
   OOReduxUtils.createNamespacedStateReducer<PageState, PageStateNamespace>(
     stateNamespace === 'dataExplorerPage' ? dataExplorerPageInitialState : initialPageState,
-    [AbstractPageAction, undefined],
+    AbstractPageAction,
     stateNamespace
   );

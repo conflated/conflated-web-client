@@ -21,7 +21,7 @@ import HideSelectedSortBysAction from './model/actions/HideSelectedSortBysAction
 import StartFetchDataForSortByAddedToSelectedChartAction from '../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
 import type { Chart } from '../chartarea/chart/model/state/Chart';
 import Controller from '../../../../Controller';
-import { PageStateNamespace } from '../page/model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from '../page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../store/AppState';
 import createShownTimeSortOptionsSelector from './model/state/selectors/createShownTimeSortOptionsSelector';
 import selectorStateNamespaces from '../selector/model/state/namespace/SelectorStateNamespace';

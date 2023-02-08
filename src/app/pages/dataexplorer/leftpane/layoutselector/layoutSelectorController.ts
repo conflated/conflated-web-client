@@ -4,7 +4,7 @@ import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/compon
 import type { Layout } from '../../../../common/components/chartarea/model/state/types/Layout';
 import ChangeChartAreaLayoutAction from '../../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAction';
 import Controller from '../../../../../Controller';
-import { PageStateNamespace } from '../../../../common/components/page/model/state/namespace/PageStateNamespace';
+import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 
