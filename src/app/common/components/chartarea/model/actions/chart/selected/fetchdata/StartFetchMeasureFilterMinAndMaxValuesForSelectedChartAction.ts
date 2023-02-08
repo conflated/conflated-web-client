@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
@@ -24,7 +24,7 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
     this.chartDataService = chartDataService;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     const selectedFilters = selectedChart.getSelectedFilters();
 

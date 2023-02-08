@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import ToggleLayoutLockedAction from './model/actions/ToggleLayoutLockedAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Layout } from '../../../../common/components/chartarea/model/state/types/Layout';

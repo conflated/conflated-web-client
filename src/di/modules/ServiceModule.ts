@@ -1,5 +1,5 @@
 import { Module } from 'noicejs';
-import { DispatchUtils } from 'oo-redux-utils';
+import { DispatchUtils } from 'oo-redux-utils2';
 import store from '../../store/store';
 import FakeDataSourceServiceImpl from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceServiceImpl';
 import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measureselector/model/service/FakeMeasureServiceImpl';

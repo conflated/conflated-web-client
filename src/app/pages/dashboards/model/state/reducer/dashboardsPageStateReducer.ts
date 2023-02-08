@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { DashboardsState } from '../DashboardsState';
 import AbstractDashboardsPageAction from '../../actions/AbstractDashboardsPageAction';
 import AbstractDashboardsPageDispatchingAction from '../../actions/AbstractDashboardsPageDispatchingAction';

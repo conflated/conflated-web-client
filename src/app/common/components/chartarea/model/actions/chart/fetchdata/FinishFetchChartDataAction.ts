@@ -14,7 +14,7 @@ export default class FinishFetchChartDataAction extends AbstractChartAreaAction 
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const chart = Utils.findElem(currentState.charts, 'id', this.chartId);
 
     if (chart) {

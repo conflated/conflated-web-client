@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { Chart } from './chart/model/state/Chart';
 import CopyChartAction from './model/actions/chart/copypaste/CopyChartAction';
 import PasteChartAction from './model/actions/chart/copypaste/PasteChartAction';

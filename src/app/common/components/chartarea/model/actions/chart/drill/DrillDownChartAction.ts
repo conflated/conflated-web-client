@@ -16,7 +16,7 @@ export default class DrillDownChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.drillDown(this.drillDown, this.newDrillDownSelectedDimension);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

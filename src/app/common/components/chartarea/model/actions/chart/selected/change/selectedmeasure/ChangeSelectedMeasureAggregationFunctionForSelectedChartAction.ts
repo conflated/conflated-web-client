@@ -14,7 +14,7 @@ export default class ChangeSelectedMeasureAggregationFunctionForSelectedChartAct
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.changeSelectedMeasureAggregationFunction(this.selectedMeasure, this.aggregationFunction);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { SelectorState } from '../SelectorState';
 import AbstractSelectorAction from '../../actions/AbstractSelectorAction';
 import type { SelectorStateNamespace } from '../namespace/SelectorStateNamespace';

@@ -13,7 +13,7 @@ export default class SetSelectedDataPointIndexForChartAction extends AbstractCha
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.selectedDataPointIndex = this.selectedDataPointIndex;
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

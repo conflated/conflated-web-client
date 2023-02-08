@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import AddSelectedMeasureToSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/add/selectedmeasure/AddSelectedMeasureToSelectedChartAction';
 import RemoveSelectedMeasureFromSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/remove/RemoveSelectedMeasureFromSelectedChartAction';
 import ChangeSelectedMeasureAggregationFunctionForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureAggregationFunctionForSelectedChartAction';

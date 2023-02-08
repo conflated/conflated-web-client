@@ -13,7 +13,7 @@ export default class ChangeSelectedMeasureColorForSelectedChartAction extends Ab
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     currentState.selectedChart.changeSelectedMeasureColor(this.selectedMeasure, this.color);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
   }

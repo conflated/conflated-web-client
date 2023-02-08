@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
 import SelectTriggerAction from './model/actions/SelectTriggerAction';
 import Controller from '../../../../../../Controller';

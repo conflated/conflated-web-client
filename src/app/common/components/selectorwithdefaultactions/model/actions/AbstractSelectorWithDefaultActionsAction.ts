@@ -1,4 +1,4 @@
-import { AbstractAction } from 'oo-redux-utils';
+import { AbstractAction } from 'oo-redux-utils2';
 import type { SelectorWithDefaultActionsState } from '../state/SelectorWithDefaultActionsState';
 import type { SelectorWithDefaultActionsStateNamespace } from '../state/namespace/SelectorWithDefaultActionsStateNamespace';
 

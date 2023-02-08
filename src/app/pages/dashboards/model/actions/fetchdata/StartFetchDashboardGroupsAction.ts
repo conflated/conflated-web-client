@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
@@ -11,7 +11,7 @@ class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
     super();
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     const newState = {
       ...currentState,
       dashboardGroups: this.dashboardGroups,
@@ -38,7 +38,7 @@ class StartFetchDashboardGroupsAction extends AbstractDashboardsPageDispatchingA
     this.dashboardsService = dashboardsService;
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     this.dashboardsService
       .fetchDashboardGroups()
       .then((dashboardGroups: DashboardGroup[]) =>

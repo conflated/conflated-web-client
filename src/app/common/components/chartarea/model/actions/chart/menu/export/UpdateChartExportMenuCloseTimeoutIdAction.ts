@@ -13,7 +13,7 @@ export default class UpdateChartExportMenuCloseTimeoutIdAction extends AbstractC
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.exportMenuCloseTimeoutID = this.timeoutId;
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

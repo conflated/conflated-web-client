@@ -3,9 +3,7 @@ import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDe
 
 export default class HideSelectorSearchInputAction extends AbstractSelectorWithDefaultActionsAction {
   // noinspection JSMethodCanBeStatic
-  performActionAndReturnNewState(
-    currentState: SelectorWithDefaultActionsState
-  ): SelectorWithDefaultActionsState {
+  perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     return {
       ...currentState,
       isSearchInputShown: false,

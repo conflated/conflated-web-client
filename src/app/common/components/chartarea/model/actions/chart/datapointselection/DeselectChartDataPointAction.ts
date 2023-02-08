@@ -14,7 +14,7 @@ export default class DeselectChartDataPointAction extends AbstractChartAreaActio
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.deselectDataPoint(this.dataPoint);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

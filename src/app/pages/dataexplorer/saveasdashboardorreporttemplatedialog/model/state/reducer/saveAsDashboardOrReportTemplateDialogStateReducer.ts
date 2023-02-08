@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../SaveAsDashboardOrReportTemplateDialogState';
 import AbstractSaveAsDashboardOrReportTemplateDialogAction from '../../actions/AbstractSaveAsDashboardOrReportTemplateDialogAction';
 import AbstractSaveAsDashboardOrReportTemplateDialogDispatchingAction from '../../actions/AbstractSaveAsDashboardOrReportTemplateDialogDispatchingAction';

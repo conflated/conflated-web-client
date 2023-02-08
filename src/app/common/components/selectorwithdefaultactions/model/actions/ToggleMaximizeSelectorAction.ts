@@ -2,9 +2,7 @@ import AbstractSelectorWithDefaultActionsAction from './AbstractSelectorWithDefa
 import type { SelectorWithDefaultActionsState } from '../state/SelectorWithDefaultActionsState';
 
 export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithDefaultActionsAction {
-  performActionAndReturnNewState(
-    currentState: SelectorWithDefaultActionsState
-  ): SelectorWithDefaultActionsState {
+  perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     return {
       ...currentState,
       isSelectorMaximized: !currentState.isSelectorMaximized

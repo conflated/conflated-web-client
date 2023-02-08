@@ -8,7 +8,7 @@ export default class HidePagePaneAction extends AbstractPageAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     const newState = {
       ...currentState,
       shouldShowPagePane: {

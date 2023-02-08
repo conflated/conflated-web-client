@@ -12,7 +12,7 @@ export default class PagePaneGutterDragAction extends AbstractPageAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     return {
       ...currentState,
       pagePaneGutterOffset: {

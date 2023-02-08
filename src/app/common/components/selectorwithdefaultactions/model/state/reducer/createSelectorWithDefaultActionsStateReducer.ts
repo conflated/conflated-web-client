@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import AbstractSelectorWithDefaultActionsAction from '../../actions/AbstractSelectorWithDefaultActionsAction';
 import type { SelectorWithDefaultActionsState } from '../SelectorWithDefaultActionsState';
 import type { SelectorWithDefaultActionsStateNamespace } from '../namespace/SelectorWithDefaultActionsStateNamespace';

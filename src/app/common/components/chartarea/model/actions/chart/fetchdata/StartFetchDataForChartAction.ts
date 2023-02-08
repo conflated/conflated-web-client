@@ -1,7 +1,7 @@
 // @flow
 
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
 import AbstractChartAreaDispatchingAction from '../../AbstractChartAreaDispatchingAction';
 import type { Chart } from '../../../../chart/model/state/Chart';
@@ -30,7 +30,7 @@ class StartFetchDataForChartAction extends AbstractChartAreaDispatchingAction {
     this.chart = chart;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chartDataService
       .fetchChartData(
         this.chart.dataSource,

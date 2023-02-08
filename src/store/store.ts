@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { createNamespacedReducers } from 'oo-redux-utils';
+import { createNamespacedReducers } from 'oo-redux-utils2';
 import headerStateReducer from '../app/header/model/state/reducer/headerStateReducer';
 import layoutSelectorStateReducer from '../app/pages/dataexplorer/leftpane/layoutselector/model/state/reducer/layoutSelectorStateReducer';
 import dataSourceSelectorStateReducer from '../app/pages/dataexplorer/leftpane/datasourceselector/model/state/reducer/dataSourceSelectorStateReducer';

@@ -8,7 +8,7 @@ export default class SelectChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const newState = {
       ...currentState,
       selectedChart: this.chart

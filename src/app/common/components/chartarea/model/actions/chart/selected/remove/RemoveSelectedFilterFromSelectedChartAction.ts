@@ -9,7 +9,7 @@ export default class RemoveSelectedFilterFromSelectedChartAction extends Abstrac
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.removeSelectedFilter(this.selectedFilter);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);

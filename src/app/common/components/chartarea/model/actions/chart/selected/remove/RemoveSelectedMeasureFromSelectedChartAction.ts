@@ -9,7 +9,7 @@ export default class RemoveSelectedMeasureFromSelectedChartAction extends Abstra
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.removeSelectedMeasure(this.selectedMeasure);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

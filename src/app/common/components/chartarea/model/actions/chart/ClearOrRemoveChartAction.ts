@@ -11,7 +11,7 @@ export default class ClearOrRemoveChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     let newState;
 
     if (this.chart.menuConfirmationType === 'clear') {

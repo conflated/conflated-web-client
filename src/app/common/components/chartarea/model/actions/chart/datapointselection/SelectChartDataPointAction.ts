@@ -14,7 +14,7 @@ export default class SelectChartDataPointAction extends AbstractChartAreaAction 
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.selectDataPoint(this.dataPoint);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

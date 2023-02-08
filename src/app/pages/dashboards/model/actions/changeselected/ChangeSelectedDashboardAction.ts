@@ -7,7 +7,7 @@ export default class ChangeSelectedDashboardAction extends AbstractDashboardsPag
     super();
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     const newState = {
       ...currentState,
       selectedDashboard: this.dashboard

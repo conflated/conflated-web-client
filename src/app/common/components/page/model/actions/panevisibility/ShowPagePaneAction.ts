@@ -8,7 +8,7 @@ export default class ShowPagePaneAction extends AbstractPageAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     return {
       ...currentState,
       shouldShowPagePane: {

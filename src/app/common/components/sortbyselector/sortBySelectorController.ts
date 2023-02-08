@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
 import type { SortBySelectorPageStateNamespace } from './model/state/namespace/SortBySelectorPageStateNamespace';
 import type { TimeSortOption } from '../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';

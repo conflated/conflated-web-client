@@ -8,7 +8,7 @@ export default class ChangeXAxisScrollPositionForSelectedChartAction extends Abs
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.xAxisScrollPosition = this.xAxisScrollPosition;
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

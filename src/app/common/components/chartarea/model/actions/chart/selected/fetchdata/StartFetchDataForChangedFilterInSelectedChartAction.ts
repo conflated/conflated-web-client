@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
@@ -28,7 +28,7 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
     this.selectedFilter = selectedFilter;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
 
     const ActionClass = (() => {

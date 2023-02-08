@@ -1,4 +1,4 @@
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
 import Utils from '../../../../../../../../model/state/utils/Utils';
@@ -14,7 +14,7 @@ export default class ChangeFetchedRowCountForSelectedChartAction extends Abstrac
     super(stateNamespace, dispatchAction);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.fetchedRowCount = Utils.parseIntOrDefault(this.fetchedRowCountStr, 0);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import StartFetchDashboardGroupsAction from './model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import diContainer from '../../../di/diContainer';
 import type { Dashboard } from './model/state/entities/Dashboard';

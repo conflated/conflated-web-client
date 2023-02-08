@@ -7,7 +7,7 @@ export default class SelectTriggerAction extends AbstractTriggerSelectorAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: TriggerSelectorState): TriggerSelectorState {
+  perform(currentState: TriggerSelectorState): TriggerSelectorState {
     return {
       ...currentState,
       selectedTriggers: [this.trigger]

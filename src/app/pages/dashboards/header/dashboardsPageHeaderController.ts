@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import ChangeDashboardSlideChangeIntervalAction from '../model/actions/slideshow/ChangeDashboardSlideChangeIntervalAction';
 import CancelDelayedDashboardsPageHeaderHideAction from './model/actions/show/CancelDelayedDashboardsPageHeaderHideAction';
 import ToggleShouldShowDashboardsPageHeaderPermanentlyAction from './model/actions/show/ToggleShouldShowDashboardsPageHeaderPermanentlyAction';

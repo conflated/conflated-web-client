@@ -7,7 +7,7 @@ export default class ChangeSelectedDashboardGroupAction extends AbstractDashboar
     super();
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     const newState = {
       ...currentState,
       selectedDashboardGroup: this.dashboardGroup,

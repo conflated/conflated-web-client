@@ -11,7 +11,7 @@ export default class RemoveChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const newCharts = _.without(currentState.charts, this.chart);
     const emptyChart = ChartFactory.createChart();
     const selectedChart = newCharts.length > 0 ? newCharts[0] : emptyChart;

@@ -9,7 +9,7 @@ export default class ShowDeleteChartConfirmationInChartMenuAction extends Abstra
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.menuConfirmationType = 'delete';
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

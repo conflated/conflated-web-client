@@ -8,9 +8,7 @@ export default class SelectTriggerDataSourceAction extends AbstractTriggerDataSo
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(
-    currentState: TriggerDataSourceSelectorState
-  ): TriggerDataSourceSelectorState {
+  perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
     return {
       ...currentState,
       selectedDataSources: [...currentState.selectedDataSources, this.dataSource]

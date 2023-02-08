@@ -9,7 +9,7 @@ export default class RemoveSelectionFilterFromNotSelectedChartsAction extends Ab
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { charts } = currentState;
 
     if (this.selectedChart != null) {

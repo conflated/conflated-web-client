@@ -1,7 +1,7 @@
-import { AbstractAction } from 'oo-redux-utils';
+import { AbstractAction } from 'oo-redux-utils2';
 import type { HeaderState } from '../state/HeaderState';
 
-export default class AbstractHeaderAction extends AbstractAction<HeaderState> {
+export default abstract class AbstractHeaderAction extends AbstractAction<HeaderState> {
   constructor() {
     super('');
   }

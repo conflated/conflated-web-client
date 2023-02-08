@@ -5,7 +5,7 @@ import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDi
 import type { DashboardsState } from '../../state/DashboardsState';
 
 export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPageDispatchingAction {
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     clearInterval(currentState.dashboardsSlideShowIntervalId);
 
     const dashboardSlideChangeIntervalInMillis = Utils.secsToMillis(

@@ -6,10 +6,17 @@
   margin-right: auto;
 
   .link {
+    margin-top: 0.17rem;
+
+    .linkIcon {
+      text-align: right;
+    }
+
     .linkText {
       color: var(--header-foreground-color);
       font-family: var(--brand-font-family);
       font-size: var(--app-navigation-font-size);
+      margin-left: 0.2rem;
       padding-right: 40px;
 
       &:hover,
@@ -20,6 +27,12 @@
 
       &.selected {
         color: var(--secondary-text-color-on-hover);
+      }
+    }
+
+    &:last-child {
+      .linkText {
+        padding-right: 0;
       }
     }
   }

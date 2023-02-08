@@ -14,7 +14,7 @@ export default class ChangeSelectedMeasureVisualizationTypeAndColorForSelectedCh
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
 
     selectedChart.changeSelectedMeasureTypeAndColor(

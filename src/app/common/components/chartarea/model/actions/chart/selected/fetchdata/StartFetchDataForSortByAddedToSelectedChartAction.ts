@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
@@ -22,7 +22,7 @@ class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAre
     this.chartDataService = chartDataService;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     const lastSelectedSortBy = _.last(selectedChart.getSelectedSortBys());
 

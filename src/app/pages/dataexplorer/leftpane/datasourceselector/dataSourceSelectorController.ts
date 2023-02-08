@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import StartFetchDataSourcesAction from './model/actions/StartFetchDataSourcesAction';
 import ConfirmDataSourceSelectionAction from './model/actions/ConfirmDataSourceSelectionAction';
 import HideDataSourceChangeConfirmationAction from './model/actions/HideDataSourceChangeConfirmationAction';

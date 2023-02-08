@@ -13,7 +13,7 @@ export default class ChangeSelectedDimensionColorForSelectedChartAction extends 
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.changeSelectedDimensionColor(this.selectedDimension, this.color);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

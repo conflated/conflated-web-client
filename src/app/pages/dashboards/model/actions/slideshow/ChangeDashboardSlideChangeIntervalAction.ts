@@ -1,4 +1,4 @@
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import Utils from '../../../../../common/model/state/utils/Utils';
 import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
 import type { DashboardsState } from '../../state/DashboardsState';
@@ -8,7 +8,7 @@ export default class ChangeDashboardSlideChangeIntervalAction extends AbstractDa
     super(dispatchAction);
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     const newDashboardSlideChangeIntervalInSecsStr = Utils.parseIntOrDefault(
       this.dashboardSlideChangeIntervalInSecsStr,
       currentState.dashboardSlideChangeIntervalInSecsStr

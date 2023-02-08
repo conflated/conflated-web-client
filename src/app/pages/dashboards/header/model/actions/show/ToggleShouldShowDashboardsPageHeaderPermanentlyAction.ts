@@ -2,7 +2,7 @@ import AbstractDashboardsPageHeaderAction from '../AbstractDashboardsPageHeaderA
 import type { DashboardsPageHeaderState } from '../../state/DashboardsPageHeaderState';
 
 export default class ToggleShouldShowDashboardsPageHeaderPermanentlyAction extends AbstractDashboardsPageHeaderAction {
-  performActionAndReturnNewState(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
+  perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     const newState = {
       ...currentState,
       shouldShowDashboardsHeaderPermanently: !currentState.shouldShowDashboardsHeaderPermanently

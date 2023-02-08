@@ -9,7 +9,7 @@ export default class AddDimensionFilterToSelectedChartAction extends AbstractCha
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.addDimensionSelectedFilter(this.dimension);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

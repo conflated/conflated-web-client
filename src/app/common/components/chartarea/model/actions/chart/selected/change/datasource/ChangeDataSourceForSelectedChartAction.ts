@@ -10,7 +10,7 @@ export default class ChangeDataSourceForSelectedChartAction extends AbstractChar
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { charts, selectedChart } = currentState;
 
     const newChart = ChartFactory.createChart({

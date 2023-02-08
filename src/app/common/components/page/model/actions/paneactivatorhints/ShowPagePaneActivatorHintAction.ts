@@ -2,7 +2,7 @@ import AbstractPageAction from '../AbstractPageAction';
 import type { PageState } from '../../state/PageState';
 
 export default class ShowPagePaneActivatorHintAction extends AbstractPageAction {
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     return {
       ...currentState,
       shouldShowPagePaneActivatorHint: {

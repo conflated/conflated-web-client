@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
 import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
@@ -12,7 +12,7 @@ class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
     super();
   }
 
-  performActionAndReturnNewState(currentState: MeasureSelectorState): MeasureSelectorState {
+  perform(currentState: MeasureSelectorState): MeasureSelectorState {
     const newState = {
       ...currentState,
       measures: this.measures,
@@ -41,7 +41,7 @@ class StartFetchMeasuresAction extends AbstractMeasureSelectorDispatchingAction 
     this.dataSource = dataSource;
   }
 
-  performActionAndReturnNewState(currentState: MeasureSelectorState): MeasureSelectorState {
+  perform(currentState: MeasureSelectorState): MeasureSelectorState {
     this.measureService
       .fetchMeasures(this.dataSource)
       .then((measures: Measure[]) => this.dispatchAction(new FinishFetchMeasuresAction(measures)));

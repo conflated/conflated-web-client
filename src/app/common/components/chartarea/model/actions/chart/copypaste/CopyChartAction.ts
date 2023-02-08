@@ -8,7 +8,7 @@ export default class CopyChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     return {
       ...currentState,
       copiedChart: this.chart

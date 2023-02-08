@@ -10,7 +10,7 @@ export default class OpenChartExportMenuAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     let newState = currentState;
 
     if (this.chart.exportMenuCloseTimeoutID) {

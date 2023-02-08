@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AbstractAction } from 'oo-redux-utils';
+import { AbstractAction } from 'oo-redux-utils2';
 
 export type Dispatch = (plainActionObject: { type: AbstractAction<any, any> }) => void;
 

@@ -9,7 +9,7 @@ export default class AllowChartMenuToBeOpenedAction extends AbstractChartAreaAct
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.menuConfirmationType = undefined;
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

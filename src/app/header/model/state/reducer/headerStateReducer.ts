@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { HeaderState } from '../HeaderState';
 import AbstractHeaderAction from '../../actions/AbstractHeaderAction';
 
@@ -9,4 +9,4 @@ const initialHeaderState: HeaderState = {
   shouldShowFullScreenModeNotification: false
 };
 
-export default OOReduxUtils.createStateReducer<HeaderState>(initialHeaderState, [AbstractHeaderAction, undefined]);
+export default OOReduxUtils.createStateReducer<HeaderState>(initialHeaderState, AbstractHeaderAction);

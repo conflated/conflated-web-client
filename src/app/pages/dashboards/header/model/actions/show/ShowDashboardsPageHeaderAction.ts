@@ -3,7 +3,7 @@ import AbstractDashboardsPageHeaderAction from '../AbstractDashboardsPageHeaderA
 import type { DashboardsPageHeaderState } from '../../state/DashboardsPageHeaderState';
 
 export default class ShowDashboardsPageHeaderAction extends AbstractDashboardsPageHeaderAction {
-  performActionAndReturnNewState(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
+  perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     clearTimeout(currentState.dashboardsHeaderDelayedHideTimeoutId);
 
     const newState = {

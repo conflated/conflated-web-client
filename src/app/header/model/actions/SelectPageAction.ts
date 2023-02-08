@@ -10,7 +10,7 @@ export default class SelectPageAction extends AbstractHeaderAction {
     this.page = page;
   }
 
-  performActionAndReturnNewState(currentState: HeaderState): HeaderState {
+  perform(currentState: HeaderState): HeaderState {
     const newState = {
       ...currentState,
       currentPage: this.page

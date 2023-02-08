@@ -13,7 +13,7 @@ export default class ChangeChartAreaLayoutAndChartsAction extends AbstractChartA
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const newState = {
       ...currentState,
       layout: this.layout,

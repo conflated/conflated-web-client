@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { SortBySelectorState } from '../SortBySelectorState';
 import AbstractSortBySelectorAction from '../../actions/AbstractSortBySelectorAction';
 import type { SortBySelectorPageStateNamespace } from '../namespace/SortBySelectorPageStateNamespace';

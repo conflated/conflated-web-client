@@ -14,7 +14,7 @@ export default class ChangeSelectedFilterDataScopeTypeForSelectedChartAction ext
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.changeSelectedFilterDataScopeType(this.selectedFilter, this.dataScopeType);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

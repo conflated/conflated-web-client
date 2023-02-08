@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import initialAlertsPageChartAreaState from '../../../../../../../pages/alerts/chartarea/model/state/initialAlertsPageChartAreaState';
 import initialGoalsPageChartAreaState from '../../../../../../../pages/goals/chartarea/model/state/initialGoalsPageChartAreaState';
 import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';

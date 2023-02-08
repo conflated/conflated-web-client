@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import AbstractPageAction from '../../actions/AbstractPageAction';
 import type { PageState } from '../PageState';
 import type { PageStateNamespace } from '../namespace/PageStateNamespace';

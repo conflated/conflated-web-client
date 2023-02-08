@@ -9,7 +9,7 @@ export default class RemoveSelectedDimensionFromSelectedChartAction extends Abst
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.removeSelectedDimension(this.selectedDimension);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

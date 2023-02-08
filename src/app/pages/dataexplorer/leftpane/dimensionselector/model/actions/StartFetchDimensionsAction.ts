@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractDimensionSelectorAction from './AbstractDimensionSelectorAction';
 import type { DimensionService } from '../service/DimensionService';
 import type { DimensionSelectorState } from '../state/DimensionSelectorState';
@@ -12,7 +12,7 @@ class FinishFetchDimensionsAction extends AbstractDimensionSelectorAction {
     super();
   }
 
-  performActionAndReturnNewState(currentState: DimensionSelectorState): DimensionSelectorState {
+  perform(currentState: DimensionSelectorState): DimensionSelectorState {
     const newState = {
       ...currentState,
       dimensions: this.dimensions,
@@ -41,7 +41,7 @@ class StartFetchDimensionsAction extends AbstractDimensionSelectorDispatchingAct
     this.dataSource = dataSource;
   }
 
-  performActionAndReturnNewState(currentState: DimensionSelectorState): DimensionSelectorState {
+  perform(currentState: DimensionSelectorState): DimensionSelectorState {
     this.dimensionService
       .fetchDimensions(this.dataSource)
       .then((dimensions: Dimension[]) => this.dispatchAction(new FinishFetchDimensionsAction(dimensions)));

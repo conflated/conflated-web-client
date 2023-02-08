@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
 import type { DataSourceService } from '../service/DataSourceService';
@@ -11,7 +11,7 @@ class FinishFetchDataSourcesAction extends AbstractDataSourceSelectorAction {
     super();
   }
 
-  performActionAndReturnNewState(currentState: DataSourceSelectorState): DataSourceSelectorState {
+  perform(currentState: DataSourceSelectorState): DataSourceSelectorState {
     const newState = {
       ...currentState,
       dataSources: this.dataSources,
@@ -36,7 +36,7 @@ class StartFetchDataSourcesAction extends AbstractDataSourceSelectorDispatchingA
     this.dataSourceService = dataSourceService;
   }
 
-  performActionAndReturnNewState(currentState: DataSourceSelectorState): DataSourceSelectorState {
+  perform(currentState: DataSourceSelectorState): DataSourceSelectorState {
     this.dataSourceService
       .fetchDataSources()
       .then((dataSources: DataSource[]) => this.dispatchAction(new FinishFetchDataSourcesAction(dataSources)));

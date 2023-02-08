@@ -15,7 +15,7 @@ export default class AddChartAction extends AbstractChartAreaAction {
     this.layout = layout;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const newState = {
       ...currentState,
       layout: this.layout,

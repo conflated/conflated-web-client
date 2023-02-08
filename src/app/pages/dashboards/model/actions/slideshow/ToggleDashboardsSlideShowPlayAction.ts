@@ -4,7 +4,7 @@ import type { DashboardsState } from '../../state/DashboardsState';
 import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
 
 export default class ToggleDashboardsSlideShowPlayAction extends AbstractDashboardsPageDispatchingAction {
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     if (currentState.isDashboardsSlideShowPlaying) {
       return this.performAction(new PauseDashboardsSlideShowAction(), currentState);
     }

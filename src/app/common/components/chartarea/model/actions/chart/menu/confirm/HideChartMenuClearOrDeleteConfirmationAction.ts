@@ -9,7 +9,7 @@ export default class HideChartMenuClearOrDeleteConfirmationAction extends Abstra
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.menuConfirmationType = 'none';
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

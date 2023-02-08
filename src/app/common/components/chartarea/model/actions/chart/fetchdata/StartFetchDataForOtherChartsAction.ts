@@ -1,6 +1,6 @@
 import { Inject } from 'noicejs';
 import _ from 'lodash';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartDataService } from '../../../../chart/model/service/ChartDataService';
@@ -28,7 +28,7 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaDispatchingAct
     this.chart = chart;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { charts } = currentState;
 
     _.without(charts, this.chart).forEach((chart: Chart) =>

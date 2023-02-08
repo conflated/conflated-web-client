@@ -10,7 +10,7 @@ export default class NotifyDragStartAction extends AbstractHeaderAction {
     this.dragType = dragType;
   }
 
-  performActionAndReturnNewState(currentState: HeaderState): HeaderState {
+  perform(currentState: HeaderState): HeaderState {
     const newState = {
       ...currentState,
       lastDragType: this.dragType

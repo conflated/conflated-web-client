@@ -15,7 +15,7 @@ export default class AddSelectDimensionToSelectedChartAction extends AbstractCha
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     const visualizationType = this.visualizationType || selectedChart.getNextDimensionVisualizationType();
     selectedChart.addSelectedDimension(this.dimension, visualizationType);

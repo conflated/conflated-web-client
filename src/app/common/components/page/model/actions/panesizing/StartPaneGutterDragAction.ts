@@ -12,7 +12,7 @@ export default class StartPaneGutterDragAction extends AbstractPageAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     return {
       ...currentState,
       pagePaneGutterPositionOnDragStart: {

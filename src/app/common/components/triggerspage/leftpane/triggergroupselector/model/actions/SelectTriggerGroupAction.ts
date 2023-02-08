@@ -7,7 +7,7 @@ export default class SelectTriggerGroupAction extends AbstractTriggerGroupSelect
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: TriggerGroupSelectorState): TriggerGroupSelectorState {
+  perform(currentState: TriggerGroupSelectorState): TriggerGroupSelectorState {
     return {
       ...currentState,
       selectedTriggerGroups: [this.triggerGroup]

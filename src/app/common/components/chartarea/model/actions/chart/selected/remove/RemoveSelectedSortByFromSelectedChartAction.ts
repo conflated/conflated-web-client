@@ -10,7 +10,7 @@ export default class RemoveSelectedSortByFromSelectedChartAction extends Abstrac
     this.selectedSortBy = selectedSortBy;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedSortBys.removeSelectedSortBy(this.selectedSortBy);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

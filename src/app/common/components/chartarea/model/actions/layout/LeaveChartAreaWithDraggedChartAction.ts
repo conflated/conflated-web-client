@@ -5,7 +5,7 @@ import type { GridItem } from '../../state/types/GridItem';
 import Constants from '../../../../../Constants';
 
 export default class LeaveChartAreaWithDraggedChartAction extends AbstractChartAreaAction {
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { layout } = currentState;
     const layoutWithoutChartPlaceholder = layout.filter(({ i }: GridItem) => i !== Constants.CHART_PLACEHOLDER);
 

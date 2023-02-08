@@ -8,7 +8,7 @@ export default class ToggleShouldShowPagePanePermanentlyAction extends AbstractP
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: PageState): PageState {
+  perform(currentState: PageState): PageState {
     const newState = {
       ...currentState,
       shouldShowPagePanePermanently: {

@@ -2,9 +2,7 @@ import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAs
 import AbstractSaveAsDashboardOrReportTemplateDialogAction from './AbstractSaveAsDashboardOrReportTemplateDialogAction';
 
 export default class HideSavedSuccessfullyNotificationAction extends AbstractSaveAsDashboardOrReportTemplateDialogAction {
-  performActionAndReturnNewState(
-    currentState: SaveAsDashboardOrReportTemplateDialogState
-  ): SaveAsDashboardOrReportTemplateDialogState {
+  perform(currentState: SaveAsDashboardOrReportTemplateDialogState): SaveAsDashboardOrReportTemplateDialogState {
     const newState = {
       ...currentState,
       shouldShowSavedSuccessfullyNotification: false

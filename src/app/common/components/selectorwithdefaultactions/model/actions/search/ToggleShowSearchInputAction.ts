@@ -4,9 +4,7 @@ import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDe
 import AbstractSelectorWithDefaultActionsAction from '../AbstractSelectorWithDefaultActionsAction';
 
 export default class ToggleShowSearchInputAction extends AbstractSelectorWithDefaultActionsAction {
-  performActionAndReturnNewState(
-    currentState: SelectorWithDefaultActionsState
-  ): SelectorWithDefaultActionsState {
+  perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     if (currentState.isSearchInputShown) {
       return this.performAction(new HideSelectorSearchInputAction(this.stateNamespace), currentState);
     } else {

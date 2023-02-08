@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
@@ -17,7 +17,7 @@ export default class AddSelectionFilterToNotSelectedChartsAction extends Abstrac
     super(stateNamespace, dispatchAction);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { charts } = currentState;
 
     const newState = {

@@ -14,7 +14,7 @@ export default class ChangeSelectedFilterInputTypeForSelectedChartAction extends
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.changeSelectedFilterInputType(this.selectedFilter, this.filterInputType);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

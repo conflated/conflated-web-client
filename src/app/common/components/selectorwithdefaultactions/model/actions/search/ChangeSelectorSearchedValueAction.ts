@@ -11,9 +11,7 @@ export default class ChangeSelectorSearchedValueAction extends AbstractSelectorW
     this.searchedValue = searchedValue;
   }
 
-  performActionAndReturnNewState(
-    currentState: SelectorWithDefaultActionsState
-  ): SelectorWithDefaultActionsState {
+  perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     return {
       ...currentState,
       searchedValue: this.searchedValue

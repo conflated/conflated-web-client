@@ -9,7 +9,7 @@ export default class ShowClearChartConfirmationInChartMenuAction extends Abstrac
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.menuConfirmationType = 'clear';
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

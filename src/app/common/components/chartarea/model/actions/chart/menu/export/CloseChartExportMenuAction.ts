@@ -9,7 +9,7 @@ export default class CloseChartExportMenuAction extends AbstractChartAreaAction 
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.isExportMenuOpen = false;
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

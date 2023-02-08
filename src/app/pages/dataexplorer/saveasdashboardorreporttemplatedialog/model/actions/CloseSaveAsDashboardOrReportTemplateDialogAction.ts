@@ -2,9 +2,7 @@ import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAs
 import AbstractSaveAsDashboardOrReportTemplateDialogAction from './AbstractSaveAsDashboardOrReportTemplateDialogAction';
 
 export default class CloseSaveAsDashboardOrReportTemplateDialogAction extends AbstractSaveAsDashboardOrReportTemplateDialogAction {
-  performActionAndReturnNewState(
-    currentState: SaveAsDashboardOrReportTemplateDialogState
-  ): SaveAsDashboardOrReportTemplateDialogState {
+  perform(currentState: SaveAsDashboardOrReportTemplateDialogState): SaveAsDashboardOrReportTemplateDialogState {
     const newState = {
       ...currentState,
       isOpen: false

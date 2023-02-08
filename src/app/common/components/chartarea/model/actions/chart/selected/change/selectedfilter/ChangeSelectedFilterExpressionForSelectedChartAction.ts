@@ -13,7 +13,7 @@ export default class ChangeSelectedFilterExpressionForSelectedChartAction extend
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.changeSelectedFilterExpression(this.selectedFilter, this.expression);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);

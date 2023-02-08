@@ -14,7 +14,7 @@ export default class ChangeSelectedSortByAggregationFunctionForSelectedChartActi
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
 
     selectedChart.selectedSortBys.changeSelectedSortByAggregationFunction(

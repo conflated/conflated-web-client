@@ -6,7 +6,7 @@ export default class SetDashboardsPageHeaderDelayedHideTimeoutIdAction extends A
     super();
   }
 
-  performActionAndReturnNewState(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
+  perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     clearTimeout(currentState.dashboardsHeaderDelayedHideTimeoutId);
 
     const newState = {

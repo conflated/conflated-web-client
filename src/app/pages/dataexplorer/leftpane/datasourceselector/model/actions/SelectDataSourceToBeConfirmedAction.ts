@@ -7,7 +7,7 @@ export default class SelectDataSourceToBeConfirmedAction extends AbstractDataSou
     super();
   }
 
-  performActionAndReturnNewState(currentState: DataSourceSelectorState): DataSourceSelectorState {
+  perform(currentState: DataSourceSelectorState): DataSourceSelectorState {
     const newState = {
       ...currentState,
       selectedDataSourceToConfirm: this.dataSource,

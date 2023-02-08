@@ -1,4 +1,4 @@
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
 import type { Layout } from '../../../../../common/components/chartarea/model/state/types/Layout';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAsDashboardOrReportTemplateDialogState';
@@ -17,9 +17,7 @@ export default class SaveDashboardAction extends AbstractSaveAsDashboardOrReport
     super(dispatchAction);
   }
 
-  performActionAndReturnNewState(
-    currentState: SaveAsDashboardOrReportTemplateDialogState
-  ): SaveAsDashboardOrReportTemplateDialogState {
+  perform(currentState: SaveAsDashboardOrReportTemplateDialogState): SaveAsDashboardOrReportTemplateDialogState {
     const newState = {
       ...currentState,
       isOpen: false,

@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractTriggerDataSourceSelectorAction from './AbstractTriggerDataSourceSelectorAction';
 import AlertDataSourceService from '../service/AlertDataSourceService';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
@@ -15,7 +15,7 @@ class FinishFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelec
     this.alertDataSources = alertDataSources;
   }
 
-  performActionAndReturnNewState(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
+  perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
     return {
       ...currentState,
       dataSources: this.alertDataSources,
@@ -39,7 +39,7 @@ class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelect
     this.alertDataSourceService = alertDataSourceService;
   }
 
-  performActionAndReturnNewState(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
+  perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
     this.alertDataSourceService
       .fetchDataSources()
       .then((dataSources: DataSource[]) =>

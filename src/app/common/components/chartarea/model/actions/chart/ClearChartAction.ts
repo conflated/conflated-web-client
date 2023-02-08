@@ -10,7 +10,7 @@ export default class ClearChartAction extends AbstractChartAreaAction {
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const newChart = ChartFactory.createChart();
     newChart.id = this.chart.id;
 

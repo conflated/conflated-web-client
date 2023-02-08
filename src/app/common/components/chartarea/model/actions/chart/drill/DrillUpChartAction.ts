@@ -1,4 +1,4 @@
-import type { DispatchAction } from 'oo-redux-utils';
+import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
@@ -14,7 +14,7 @@ export default class DrillUpChartAction extends AbstractChartAreaDispatchingActi
     super(stateNamespace, dispatchAction);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.drillUp();
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

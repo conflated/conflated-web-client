@@ -12,7 +12,7 @@ export default class ChangeChartTypeForSelectedChartAction extends AbstractChart
     this.chartType = chartType;
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { charts, selectedChart } = currentState;
 
     const newChartType =

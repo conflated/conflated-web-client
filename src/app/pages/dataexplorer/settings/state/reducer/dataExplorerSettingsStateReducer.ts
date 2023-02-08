@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import type { DataExplorerSettingsState } from '../DataExplorerSettingsState';
 import AbstractDataExplorerSettingsAction from '../../actions/AbstractDataExplorerSettingsAction';
 

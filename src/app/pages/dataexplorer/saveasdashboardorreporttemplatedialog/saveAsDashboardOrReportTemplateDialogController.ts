@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils';
+import OOReduxUtils from 'oo-redux-utils2';
 import StartFetchDashboardGroupsAction from '../../dashboards/model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import CloseSaveAsDashboardOrReportTemplateDialogAction from './model/actions/CloseSaveAsDashboardOrReportTemplateDialogAction';
 import HideSavedSuccessfullyNotificationAction from './model/actions/HideSavedSuccessfullyNotificationAction';

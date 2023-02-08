@@ -9,7 +9,7 @@ export default class AddDashboardToDashboardGroupAction extends AbstractDashboar
     super();
   }
 
-  performActionAndReturnNewState(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsState): DashboardsState {
     const newDashboardGroup = {
       ...this.dashboardGroup,
       dashboards: [...this.dashboardGroup.dashboards, this.dashboard]

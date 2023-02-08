@@ -15,7 +15,7 @@ export default class AddSelectedMeasureToSelectedChartAction extends AbstractCha
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.addSelectedMeasure(this.measureOrDimension, this.aggregationFunction);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

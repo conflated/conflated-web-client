@@ -9,7 +9,7 @@ export default class ChangeXAxisCategoriesShownCountForSelectedChartAction exten
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
     selectedChart.xAxisCategoriesShownCount = Utils.parseIntOrDefault(this.xAxisCategoriesShownCountStr, 10);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

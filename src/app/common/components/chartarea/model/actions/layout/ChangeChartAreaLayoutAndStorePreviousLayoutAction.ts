@@ -8,7 +8,7 @@ export default class ChangeChartAreaLayoutAndStorePreviousLayoutAction extends A
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     let newState;
 
     if (this.layout.length > 0) {

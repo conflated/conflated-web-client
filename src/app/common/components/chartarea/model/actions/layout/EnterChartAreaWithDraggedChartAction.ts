@@ -12,7 +12,7 @@ export default class EnterChartAreaWithDraggedChartAction extends AbstractChartA
     super(stateNamespace);
   }
 
-  performActionAndReturnNewState(currentState: ChartAreaState): ChartAreaState {
+  perform(currentState: ChartAreaState): ChartAreaState {
     const { layout } = currentState;
 
     const chartPlaceholder = Utils.findElem(layout, 'i', Constants.CHART_PLACEHOLDER);
