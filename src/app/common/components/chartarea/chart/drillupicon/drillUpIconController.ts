@@ -1,5 +1,5 @@
 import type { Chart } from '../model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import DrillUpChartAction from '../../model/actions/chart/drill/DrillUpChartAction';
 import diContainer from '../../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
@@ -11,7 +11,7 @@ class DrillUpIconController extends Controller<ChartAreaPageStateNamespace> {
     return {
       drillUpChart: (chart: Chart) => {
         this.dispatch(new DrillUpChartAction(stateNamespace, this.dispatch, chart));
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { chart });
+        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { chart, stateNamespace });
       }
     };
   }

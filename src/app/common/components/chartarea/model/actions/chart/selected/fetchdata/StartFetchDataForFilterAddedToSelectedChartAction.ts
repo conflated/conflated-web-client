@@ -1,24 +1,22 @@
 import _ from 'lodash';
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
-import AbstractChartAreaDispatchingAction from '../../../AbstractChartAreaDispatchingAction';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
+import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  dispatchAction: DispatchAction;
   stateNamespace: ChartAreaPageStateNamespace;
 };
 
 @Inject('chartDataService')
-class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAreaDispatchingAction {
+class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  constructor({ chartDataService, dispatchAction, stateNamespace }: ConstructorArgs) {
-    super(stateNamespace, dispatchAction);
+  constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
   }
 
@@ -30,7 +28,6 @@ class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAre
       return this.performAction(
         new StartFetchDataForSelectedChartAction({
           chartDataService: this.chartDataService,
-          dispatchAction: this.dispatchAction,
           stateNamespace: this.stateNamespace
         }),
         currentState

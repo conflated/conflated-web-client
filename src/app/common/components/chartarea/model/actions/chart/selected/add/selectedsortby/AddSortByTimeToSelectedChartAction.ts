@@ -5,7 +5,7 @@ import type { SortDirection } from '../../../../../../chart/model/state/selected
 import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class AddSortByTimeToSelectedChartAction extends AbstractChartAreaAction {
   constructor(

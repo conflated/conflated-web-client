@@ -1,4 +1,4 @@
-import type { ChartAreaPageStateNamespace } from '../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
 import SelectChartAction from '../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../model/actions/chart/datapointselection/DeselectChartDataPointAction';
 import SelectChartDataPointAction from '../model/actions/chart/datapointselection/SelectChartDataPointAction';
@@ -32,7 +32,7 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
 
       drillDownChart: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
         this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension));
-        this.dispatchWithDi(diContainer, StartFetchDataForChartAction, { chart });
+        this.dispatchWithDi(diContainer, StartFetchDataForChartAction, { chart, stateNamespace });
       },
 
       removeSelectionFilterFromNotSelectedCharts: (chart: Chart) =>
@@ -53,12 +53,14 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
           )
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart });
+        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart, stateNamespace });
       },
 
       startFetchDataForOtherCharts: (chart: Chart) =>
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart }),
-      startFetchDataForSelectedChart: () => this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {})
+        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart, stateNamespace }),
+
+      startFetchDataForSelectedChart: () =>
+        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace })
     };
   }
 }

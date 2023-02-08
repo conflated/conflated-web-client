@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import styles from './ChartMenuView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../model/state/Chart';
 import { ActionDispatchers, controller } from '../chartMenuController';
 

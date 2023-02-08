@@ -2,7 +2,7 @@ import type { Dimension } from '../../../../../../../../../pages/dataexplorer/le
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class AddDimensionFilterToSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly dimension: Dimension) {

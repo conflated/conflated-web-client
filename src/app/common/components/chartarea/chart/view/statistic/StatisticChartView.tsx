@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { statisticGroup } from './StatisticChartView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../model/state/Chart';
 import ChartController from '../../chartController';
 import store from '../../../../../../../store/store';

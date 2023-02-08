@@ -4,7 +4,7 @@ import type { Measure } from '../../../../../../../../../pages/dataexplorer/left
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class AddSelectDimensionToSelectedChartAction extends AbstractChartAreaAction {
   constructor(

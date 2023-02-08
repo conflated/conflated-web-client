@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
 import ApexChartView from '../../../../view/basic/apex/ApexChartView';
 import type { DataSeries } from '../../types/DataSeries';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';

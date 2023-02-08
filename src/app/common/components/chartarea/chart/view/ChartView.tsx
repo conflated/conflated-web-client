@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import type { ChartAreaPageStateNamespace } from '../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import styles from './ChartView.module.scss';
 import type { Chart } from '../model/state/Chart';
 import ChartMenuView from '../menu/view/ChartMenuView';

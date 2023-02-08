@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Layout } from '../../state/types/Layout';
-import type { ChartAreaPageStateNamespace } from '../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 
 export default class ChangeChartAreaLayoutAndStorePreviousLayoutAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly layout: Layout) {

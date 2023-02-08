@@ -4,7 +4,7 @@ import type { AggregationFunction } from '../../../../../../chart/model/state/se
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class AddSelectedMeasureToSelectedChartAction extends AbstractChartAreaAction {
   constructor(

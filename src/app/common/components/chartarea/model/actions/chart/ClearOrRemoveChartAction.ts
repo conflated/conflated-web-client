@@ -1,4 +1,4 @@
-import type { ChartAreaPageStateNamespace } from '../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../chart/model/state/Chart';
 import ClearChartAction from './ClearChartAction';
 import DeleteChartAction from './RemoveChartAction';

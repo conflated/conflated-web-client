@@ -1,29 +1,27 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
-import AbstractChartAreaDispatchingAction from '../../../AbstractChartAreaDispatchingAction';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
 import StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction from './StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction';
 import StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction from './StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction';
 import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  dispatchAction: DispatchAction;
   stateNamespace: ChartAreaPageStateNamespace;
   selectedFilter: SelectedFilter;
 };
 
 @Inject('chartDataService')
-class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartAreaDispatchingAction {
+class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
   private readonly selectedFilter: SelectedFilter;
 
-  constructor({ chartDataService, dispatchAction, stateNamespace, selectedFilter }: ConstructorArgs) {
-    super(stateNamespace, dispatchAction);
+  constructor({ chartDataService, stateNamespace, selectedFilter }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
     this.selectedFilter = selectedFilter;
   }
@@ -47,7 +45,6 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
       return this.performAction(
         new ActionClass({
           chartDataService: this.chartDataService,
-          dispatchAction: this.dispatchAction,
           stateNamespace: this.stateNamespace
         }),
         currentState

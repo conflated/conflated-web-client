@@ -2,7 +2,7 @@ import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater
 import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class RemoveSelectedFilterFromSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedFilter: SelectedFilter) {

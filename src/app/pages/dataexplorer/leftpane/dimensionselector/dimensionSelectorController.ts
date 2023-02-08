@@ -10,7 +10,7 @@ import StartFetchDataForSelectedChartAction from '../../../../common/components/
 import type { Measure } from '../measureselector/model/state/entities/Measure';
 import store from '../../../../../store/store';
 import Controller from '../../../../../Controller';
-import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownMeasures from '../../../../common/model/state/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../../../common/model/state/selectors/createShownDimensionsSelector';

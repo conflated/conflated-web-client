@@ -1,5 +1,5 @@
 import ChangeXAxisCategoriesShownCountForSelectedChartAction from '../chartarea/model/actions/chart/selected/change/datapointscount/ChangeXAxisCategoriesShownCountForSelectedChartAction';
-import type { ChartAreaPageStateNamespace } from '../chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../chartarea/model/state/types/ChartAreaPageStateNamespace';
 import ChangeFetchedRowCountForSelectedChartAction from '../chartarea/model/actions/chart/selected/change/datapointscount/ChangeFetchedRowCountForSelectedChartAction';
 import diContainer from '../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';

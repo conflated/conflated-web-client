@@ -4,7 +4,7 @@ import type { MeasureVisualizationType } from '../../selectedmeasure/types/Measu
 import type { ChartType } from '../../types/ChartType';
 import type { Chart } from '../../Chart';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
 import LeafletMapView from '../../../../view/map/leaflet/LeafletMapView';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';

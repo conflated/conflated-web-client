@@ -6,7 +6,7 @@ import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import type { ChartAreaPageStateNamespace } from '../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
 import Constants from '../../../Constants';
 import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';

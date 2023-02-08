@@ -2,7 +2,7 @@
 import React from 'react';
 import { default as ApexChart } from 'react-apexcharts';
 import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ApexChartGeneralOptionsFactory from './model/factories/ApexChartGeneralOptionsFactory';
 import ApexChartEventOptionsFactory from './model/factories/ApexChartEventOptionsFactory';

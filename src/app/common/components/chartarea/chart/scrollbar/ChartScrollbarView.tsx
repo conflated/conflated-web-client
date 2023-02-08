@@ -4,7 +4,7 @@ import React from 'react';
 import Scrollbar from 'semantic-ui-react-scrollbar';
 import { connect } from 'react-redux';
 import type { Chart } from '../model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import { ActionDispatchers, controller } from './chartScrollbarController';
 
 // eslint-disable-next-line react/no-unused-prop-types

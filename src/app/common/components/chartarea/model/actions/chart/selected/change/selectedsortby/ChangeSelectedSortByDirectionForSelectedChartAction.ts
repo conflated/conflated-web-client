@@ -3,7 +3,7 @@ import type { SortDirection } from '../../../../../../chart/model/state/selected
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class ChangeSelectedSortByDirectionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(

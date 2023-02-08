@@ -6,7 +6,7 @@ import ClearChartAction from './model/actions/chart/ClearChartAction';
 import ChangeChartAreaLayoutAndStorePreviousLayoutAction from './model/actions/layout/ChangeChartAreaLayoutAndStorePreviousLayoutAction';
 import EnterChartAreaWithDraggedChartAction from './model/actions/layout/EnterChartAreaWithDraggedChartAction';
 import LeaveChartAreaWithDraggedChartAction from './model/actions/layout/LeaveChartAreaWithDraggedChartAction';
-import type { ChartAreaPageStateNamespace } from './model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from './model/state/types/ChartAreaPageStateNamespace';
 import type { Layout } from './model/state/types/Layout';
 import type { ChartType } from './chart/model/state/types/ChartType';
 import DropChartAction from './model/actions/chart/DropChartAction';

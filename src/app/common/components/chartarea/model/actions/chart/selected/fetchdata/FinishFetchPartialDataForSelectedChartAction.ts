@@ -1,6 +1,6 @@
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 

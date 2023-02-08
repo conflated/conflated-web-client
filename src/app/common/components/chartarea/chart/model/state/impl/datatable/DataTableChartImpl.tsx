@@ -3,7 +3,7 @@ import type { MeasureVisualizationType } from '../../selectedmeasure/types/Measu
 import type { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
 import AgGridDataTableView from '../../../../view/datatable/aggrid/AgGridDataTableView';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
 import DrillDownChartImpl from '../DrillDownChartImpl';
 import AgGridAlertsDataTableView from '../../../../view/datatable/aggrid/AgGridAlertsDataTableView';
 import AgGridGoalsDataTableView from '../../../../view/datatable/aggrid/AgGridGoalsDataTableView';

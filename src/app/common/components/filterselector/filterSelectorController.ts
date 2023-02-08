@@ -22,7 +22,7 @@ import { AppState } from '../../../../store/AppState';
 import selectShownDimensions from '../../model/state/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../model/state/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../selector/model/state/namespace/SelectorStateNamespace';
-import { ChartAreaPageStateNamespace } from '../chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import { ChartAreaPageStateNamespace } from '../chartarea/model/state/types/ChartAreaPageStateNamespace';
 import Controller from '../../../../Controller';
 import { PageStateNamespace } from '../page/model/state/namespace/PageStateNamespace';
 import store from '../../../../store/store';

@@ -8,7 +8,7 @@ import type { Dimension } from '../../../../../../../../../../pages/dataexplorer
 import type { Measure } from '../../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
-import type { ChartAreaPageStateNamespace } from '../../../../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../../../model/state/types/ChartAreaPageStateNamespace';
 import ApexChartView from '../../../../../../view/basic/apex/ApexChartView';
 
 export default class StatisticChartImpl extends TimelineChartImpl {

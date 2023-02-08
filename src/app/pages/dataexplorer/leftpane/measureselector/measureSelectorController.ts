@@ -12,7 +12,7 @@ import ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction from
 import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import Controller from '../../../../../Controller';
-import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../../common/model/state/selectors/createShownDimensionsSelector';

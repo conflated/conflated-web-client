@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react';
 import styles from './DrillUpIconView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import { ActionDispatchers, controller } from '../drillUpIconController';
 import type { Chart } from '../../model/state/Chart';
 

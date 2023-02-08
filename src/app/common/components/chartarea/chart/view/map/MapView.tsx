@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import { actionButtons, emptyArea, geometrySelector, mapHeader, subtitle, title, titles } from './MapView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import LeafletMapView from './leaflet/LeafletMapView';
 import type { Chart } from '../../model/state/Chart';
 import MapGeometryOptionsFactory from './factories/MapGeometryOptionsFactory';

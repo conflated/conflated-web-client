@@ -1,4 +1,4 @@
-import type { ChartAreaPageStateNamespace } from '../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../model/state/Chart';
 import OpenChartExportMenuAction from '../../model/actions/chart/menu/export/OpenChartExportMenuAction';
 import UpdateChartExportMenuCloseTimeoutIdAction from '../../model/actions/chart/menu/export/UpdateChartExportMenuCloseTimeoutIdAction';

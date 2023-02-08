@@ -1,17 +1,12 @@
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
-import AbstractChartAreaDispatchingAction from '../../AbstractChartAreaDispatchingAction';
+import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
-export default class DrillUpChartAction extends AbstractChartAreaDispatchingAction {
-  constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
-    dispatchAction: DispatchAction,
-    private readonly chart: Chart
-  ) {
-    super(stateNamespace, dispatchAction);
+export default class DrillUpChartAction extends AbstractChartAreaAction {
+  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
+    super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {

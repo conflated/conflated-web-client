@@ -1,26 +1,24 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
-import AbstractChartAreaDispatchingAction from '../../../AbstractChartAreaDispatchingAction';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  dispatchAction: DispatchAction;
   stateNamespace: ChartAreaPageStateNamespace;
 };
 
 @Inject('chartDataService')
-class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends AbstractChartAreaDispatchingAction {
+class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  constructor({ chartDataService, dispatchAction, stateNamespace }: ConstructorArgs) {
-    super(stateNamespace, dispatchAction);
+  constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
   }
 
@@ -39,9 +37,7 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
     this.chartDataService
       .fetchMinAndMaxValues(selectedChart.dataSource, minMaxMeasureColumns, [], selectedFilters)
       .then((columnNameToValuesMap: ColumnNameToValuesMap) =>
-        this.dispatchAction(
-          new FinishFetchPartialDataForSelectedChartAction(this.stateNamespace, columnNameToValuesMap)
-        )
+        this.dispatch(new FinishFetchPartialDataForSelectedChartAction(this.stateNamespace, columnNameToValuesMap))
       );
 
     selectedChart.isFetchingChartData = true;

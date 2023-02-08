@@ -5,7 +5,7 @@ import layoutSelectorStateReducer from '../app/pages/dataexplorer/leftpane/layou
 import dataSourceSelectorStateReducer from '../app/pages/dataexplorer/leftpane/datasourceselector/model/state/dataSourceSelectorStateReducer';
 import measureSelectorStateReducer from '../app/pages/dataexplorer/leftpane/measureselector/model/state/measureSelectorStateReducer';
 import dimensionSelectorStateReducer from '../app/pages/dataexplorer/leftpane/dimensionselector/model/state/dimensionSelectorStateReducer';
-import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/reducer/createChartAreaStateReducer';
+import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/createChartAreaStateReducer';
 import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/settings/state/dataExplorerSettingsStateReducer';
 import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
 import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/reducer/createSortBySelectorStateReducer';

@@ -1,20 +1,18 @@
 import _ from 'lodash';
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
 import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
-import AbstractChartAreaDispatchingAction from '../../AbstractChartAreaDispatchingAction';
+import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
-export default class AddSelectionFilterToNotSelectedChartsAction extends AbstractChartAreaDispatchingAction {
+export default class AddSelectionFilterToNotSelectedChartsAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaPageStateNamespace,
-    dispatchAction: DispatchAction,
     private readonly chart: Chart,
     private readonly selectedDimension: SelectedDimension,
     private readonly filterExpression: string
   ) {
-    super(stateNamespace, dispatchAction);
+    super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {

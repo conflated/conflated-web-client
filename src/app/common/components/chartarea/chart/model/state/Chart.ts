@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ChartAreaPageStateNamespace } from '../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import type { DimensionVisualizationType } from './selecteddimension/types/DimensionVisualizationType';
 import type { SelectedMeasure } from './selectedmeasure/SelectedMeasure';
 import type { MeasureVisualizationType } from './selectedmeasure/types/MeasureVisualizationType';

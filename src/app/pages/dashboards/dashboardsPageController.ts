@@ -12,7 +12,7 @@ import HideDashboardsPageHeaderAction from './header/model/actions/show/HideDash
 import Constants from '../../common/Constants';
 import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './header/model/actions/show/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
 import Controller from '../../../Controller';
-import { ChartAreaPageStateNamespace } from '../../common/components/chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import { ChartAreaPageStateNamespace } from '../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../store/store';
 import { AppState } from '../../../store/AppState';
 import selectedNextDashboard from './model/state/selectors/selectedNextDashboard';

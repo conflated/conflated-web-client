@@ -3,7 +3,7 @@ import type { SelectedFilter } from '../../../../../../chart/model/state/selecte
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class ChangeSelectedFilterDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(

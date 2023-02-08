@@ -4,7 +4,7 @@ import 'chartjs-chart-box-and-violin-plot';
 import React, { useEffect, useRef, useState } from 'react';
 import { Chart as ChartJsChart } from 'chart.js';
 import styles from './ChartJsChartView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ChartJsChartBaseOptionsFactory from './model/factories/ChartJsChartBaseOptionsFactory';
 

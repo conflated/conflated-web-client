@@ -3,7 +3,7 @@ import ChangeChartAreaLayoutAndStorePreviousLayoutAction from './ChangeChartArea
 import Constants from '../../../../../Constants';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { GridItem } from '../../state/types/GridItem';
-import type { ChartAreaPageStateNamespace } from '../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import type { DragType } from '../../../../../../header/model/state/types/DragType';
 import Utils from '../../../../../model/state/utils/Utils';
 

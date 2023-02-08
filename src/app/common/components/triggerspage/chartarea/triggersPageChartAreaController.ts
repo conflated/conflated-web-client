@@ -1,4 +1,4 @@
-import type { ChartAreaPageStateNamespace } from '../../chartarea/model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../chartarea/model/state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForOtherChartsAction from '../../chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../di/diContainer';
 import Controller from '../../../../../Controller';

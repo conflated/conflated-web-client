@@ -5,7 +5,7 @@ import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpda
 import type { SortDirection } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class AddSortByToSelectedChartAction extends AbstractChartAreaAction {
   constructor(

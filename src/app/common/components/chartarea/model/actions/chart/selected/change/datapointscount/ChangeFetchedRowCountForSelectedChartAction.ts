@@ -1,17 +1,12 @@
-import type { DispatchAction } from 'oo-redux-utils2';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 import Utils from '../../../../../../../../model/state/utils/Utils';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import AbstractChartAreaDispatchingAction from '../../../../AbstractChartAreaDispatchingAction';
+import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 
-export default class ChangeFetchedRowCountForSelectedChartAction extends AbstractChartAreaDispatchingAction {
-  constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
-    dispatchAction: DispatchAction,
-    private readonly fetchedRowCountStr: string
-  ) {
-    super(stateNamespace, dispatchAction);
+export default class ChangeFetchedRowCountForSelectedChartAction extends AbstractChartAreaAction {
+  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly fetchedRowCountStr: string) {
+    super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {

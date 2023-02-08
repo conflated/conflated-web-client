@@ -2,7 +2,7 @@ import type { SelectedSortBy } from '../../../../../chart/model/state/selectedso
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
 
 export default class RemoveSelectedSortByFromSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedSortBy: SelectedSortBy) {

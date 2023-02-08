@@ -1,31 +1,27 @@
-// @flow
-
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
-import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
-import AbstractChartAreaDispatchingAction from '../../AbstractChartAreaDispatchingAction';
+import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import { ChartDataService } from '../../../../chart/model/service/ChartDataService';
+import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  dispatchAction: DispatchAction;
   stateNamespace: ChartAreaPageStateNamespace;
   chart: Chart;
 };
 
 @Inject('chartDataService')
-class StartFetchDataForChartAction extends AbstractChartAreaDispatchingAction {
+class StartFetchDataForChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
   private readonly chart: Chart;
 
-  constructor({ chartDataService, dispatchAction, stateNamespace, chart }: ConstructorArgs) {
-    super(stateNamespace, dispatchAction);
+  constructor({ chartDataService, stateNamespace, chart }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
     this.chart = chart;
   }
@@ -39,7 +35,7 @@ class StartFetchDataForChartAction extends AbstractChartAreaDispatchingAction {
         this.chart.getSelectedSortBys()
       )
       .then((columnNameToValuesMap: ColumnNameToValuesMap) => {
-        this.dispatchAction(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, this.chart.id));
+        this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, this.chart.id));
       });
 
     this.chart.isFetchingChartData = true;

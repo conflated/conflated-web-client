@@ -5,7 +5,7 @@ import React from 'react';
 import ChartJsChartView from '../../../../../../../view/basic/chartjs/ChartJsChartView';
 import XAxisChartImpl from '../XAxisChartImpl';
 import type { AggregationFunction } from '../../../../../selectedmeasure/types/AggregationFunction';
-import type { ChartAreaPageStateNamespace } from '../../../../../../../../model/state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../../../../../../model/state/types/ChartAreaPageStateNamespace';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
 import type { DataPoint } from '../../../../../types/DataPoint';
 import type { DrillDown } from '../../../../../types/DrillDown';

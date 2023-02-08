@@ -1,7 +1,7 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
-import type { ChartAreaPageStateNamespace } from '../../../state/namespace/ChartAreaPageStateNamespace';
+import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
 import type { DrillDown } from '../../../../chart/model/state/types/DrillDown';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
