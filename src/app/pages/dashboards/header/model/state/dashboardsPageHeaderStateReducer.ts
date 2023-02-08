@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import OOReduxUtils from 'oo-redux-utils2';
-import type { DashboardsPageHeaderState } from '../DashboardsPageHeaderState';
-import AbstractDashboardsPageHeaderAction from '../../actions/AbstractDashboardsPageHeaderAction';
+import type { DashboardsPageHeaderState } from './DashboardsPageHeaderState';
+import AbstractDashboardsPageHeaderAction from '../actions/AbstractDashboardsPageHeaderAction';
 
 const initialDashboardsPageHeaderState: DashboardsPageHeaderState = {
   shouldShowDashboardsHeader: false,
@@ -11,7 +11,7 @@ const initialDashboardsPageHeaderState: DashboardsPageHeaderState = {
   dashboardsHeaderDelayedHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER)
 };
 
-export default OOReduxUtils.createStateReducer<DashboardsPageHeaderState>(initialDashboardsPageHeaderState, [
-  AbstractDashboardsPageHeaderAction,
-  undefined
-]);
+export default OOReduxUtils.createStateReducer<DashboardsPageHeaderState>(
+  initialDashboardsPageHeaderState,
+  AbstractDashboardsPageHeaderAction
+);

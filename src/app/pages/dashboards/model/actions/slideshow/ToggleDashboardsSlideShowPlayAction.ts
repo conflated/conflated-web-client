@@ -1,14 +1,14 @@
 import PauseDashboardsSlideShowAction from './PauseDashboardsSlideShowAction';
 import PlayDashboardsSlideShowAction from './PlayDashboardsSlideShowAction';
 import type { DashboardsState } from '../../state/DashboardsState';
-import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
+import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
-export default class ToggleDashboardsSlideShowPlayAction extends AbstractDashboardsPageDispatchingAction {
+export default class ToggleDashboardsSlideShowPlayAction extends AbstractDashboardsPageAction {
   perform(currentState: DashboardsState): DashboardsState {
     if (currentState.isDashboardsSlideShowPlaying) {
       return this.performAction(new PauseDashboardsSlideShowAction(), currentState);
     }
 
-    return this.performAction(new PlayDashboardsSlideShowAction(this.dispatchAction), currentState);
+    return this.performAction(new PlayDashboardsSlideShowAction(), currentState);
   }
 }

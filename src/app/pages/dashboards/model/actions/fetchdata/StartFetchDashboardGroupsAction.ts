@@ -1,9 +1,7 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
-import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
 import type { DashboardGroup } from '../../state/entities/DashboardGroup';
 
 class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
@@ -26,15 +24,14 @@ class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
 
 type ConstructorArgs = {
   dashboardsService: DashboardGroupsService;
-  dispatchAction: DispatchAction;
 };
 
 @Inject('dashboardsService')
-class StartFetchDashboardGroupsAction extends AbstractDashboardsPageDispatchingAction {
+class StartFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
   readonly dashboardsService: DashboardGroupsService;
 
-  constructor({ dashboardsService, dispatchAction }: ConstructorArgs) {
-    super(dispatchAction);
+  constructor({ dashboardsService }: ConstructorArgs) {
+    super();
     this.dashboardsService = dashboardsService;
   }
 
@@ -42,7 +39,7 @@ class StartFetchDashboardGroupsAction extends AbstractDashboardsPageDispatchingA
     this.dashboardsService
       .fetchDashboardGroups()
       .then((dashboardGroups: DashboardGroup[]) =>
-        this.dispatchAction(new FinishFetchDashboardGroupsAction(dashboardGroups))
+        this.dispatch(new FinishFetchDashboardGroupsAction(dashboardGroups))
       );
 
     const newState = {

@@ -1,10 +1,10 @@
 import ShowNextDashboardInSlideShowAction from './ShowNextDashboardInSlideShowAction';
 import Utils from '../../../../../common/model/state/utils/Utils';
 import Constants from '../../../../../common/Constants';
-import AbstractDashboardsPageDispatchingAction from '../AbstractDashboardsPageDispatchingAction';
+import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 
-export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPageDispatchingAction {
+export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPageAction {
   perform(currentState: DashboardsState): DashboardsState {
     clearInterval(currentState.dashboardsSlideShowIntervalId);
 
@@ -19,7 +19,7 @@ export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPag
       ...currentState,
       isDashboardsSlideShowPlaying: true,
       dashboardsSlideShowIntervalId: setInterval(
-        () => this.dispatchAction(new ShowNextDashboardInSlideShowAction()),
+        () => this.dispatch(new ShowNextDashboardInSlideShowAction()),
         dashboardSlideChangeIntervalInMillis
       )
     };

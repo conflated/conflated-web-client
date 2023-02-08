@@ -1,8 +1,9 @@
-import { AbstractAction } from 'oo-redux-utils2';
+import { AbstractDispatchingAction } from 'oo-redux-utils2';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
+import dispatch from '../../../../../../../store/dispatch';
 
-export default class AbstractMeasureSelectorAction extends AbstractAction<MeasureSelectorState> {
+export default abstract class AbstractMeasureSelectorAction extends AbstractDispatchingAction<MeasureSelectorState> {
   constructor() {
-    super('');
+    super('', dispatch);
   }
 }

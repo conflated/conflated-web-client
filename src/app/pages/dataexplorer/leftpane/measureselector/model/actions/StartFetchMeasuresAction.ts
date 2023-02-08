@@ -1,11 +1,9 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
 import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
 import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
 import type { Measure } from '../state/entities/Measure';
-import AbstractMeasureSelectorDispatchingAction from './AbstractMeasureSelectorDispatchingAction';
 
 class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
   constructor(private readonly measures: Measure[]) {
@@ -25,18 +23,17 @@ class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
 
 type ConstructorArgs = {
   measureService: MeasureService;
-  dispatchAction: DispatchAction;
   dataSource: DataSource;
 };
 
 @Inject('measureService')
-class StartFetchMeasuresAction extends AbstractMeasureSelectorDispatchingAction {
+class StartFetchMeasuresAction extends AbstractMeasureSelectorAction {
   readonly measureService: MeasureService;
 
   readonly dataSource: DataSource;
 
-  constructor({ measureService, dispatchAction, dataSource }: ConstructorArgs) {
-    super(dispatchAction);
+  constructor({ measureService, dataSource }: ConstructorArgs) {
+    super();
     this.measureService = measureService;
     this.dataSource = dataSource;
   }
@@ -44,7 +41,7 @@ class StartFetchMeasuresAction extends AbstractMeasureSelectorDispatchingAction 
   perform(currentState: MeasureSelectorState): MeasureSelectorState {
     this.measureService
       .fetchMeasures(this.dataSource)
-      .then((measures: Measure[]) => this.dispatchAction(new FinishFetchMeasuresAction(measures)));
+      .then((measures: Measure[]) => this.dispatch(new FinishFetchMeasuresAction(measures)));
 
     const newState = {
       ...currentState,

@@ -1,8 +1,9 @@
-import { AbstractAction } from 'oo-redux-utils2';
+import { AbstractDispatchingAction } from 'oo-redux-utils2';
 import type { DashboardsState } from '../state/DashboardsState';
+import dispatch from '../../../../../store/dispatch';
 
-export default class AbstractDashboardsPageAction extends AbstractAction<DashboardsState> {
+export default abstract class AbstractDashboardsPageAction extends AbstractDispatchingAction<DashboardsState> {
   constructor() {
-    super('');
+    super('', dispatch);
   }
 }

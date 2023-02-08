@@ -1,8 +1,7 @@
 import _ from 'lodash';
 import OOReduxUtils from 'oo-redux-utils2';
-import type { DashboardsState } from '../DashboardsState';
-import AbstractDashboardsPageAction from '../../actions/AbstractDashboardsPageAction';
-import AbstractDashboardsPageDispatchingAction from '../../actions/AbstractDashboardsPageDispatchingAction';
+import type { DashboardsState } from './DashboardsState';
+import AbstractDashboardsPageAction from '../actions/AbstractDashboardsPageAction';
 
 const initialDashboardsState: DashboardsState = {
   dashboardGroups: [],
@@ -15,7 +14,4 @@ const initialDashboardsState: DashboardsState = {
   dashboardIndexShownInSlideShow: 0
 };
 
-export default OOReduxUtils.createStateReducer<DashboardsState>(initialDashboardsState, [
-  AbstractDashboardsPageAction,
-  AbstractDashboardsPageDispatchingAction
-]);
+export default OOReduxUtils.createStateReducer<DashboardsState>(initialDashboardsState, AbstractDashboardsPageAction);

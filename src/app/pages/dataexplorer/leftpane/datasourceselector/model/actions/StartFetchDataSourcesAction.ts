@@ -1,10 +1,8 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
 import type { DataSourceService } from '../service/DataSourceService';
 import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
-import AbstractDataSourceSelectorDispatchingAction from './AbstractDataSourceSelectorDispatchingAction';
 
 class FinishFetchDataSourcesAction extends AbstractDataSourceSelectorAction {
   constructor(private readonly dataSources: DataSource[]) {
@@ -24,22 +22,21 @@ class FinishFetchDataSourcesAction extends AbstractDataSourceSelectorAction {
 
 type ConstructorArgs = {
   dataSourceService: DataSourceService;
-  dispatchAction: DispatchAction;
 };
 
 @Inject('dataSourceService')
-class StartFetchDataSourcesAction extends AbstractDataSourceSelectorDispatchingAction {
+class StartFetchDataSourcesAction extends AbstractDataSourceSelectorAction {
   readonly dataSourceService: DataSourceService;
 
-  constructor({ dataSourceService, dispatchAction }: ConstructorArgs) {
-    super(dispatchAction);
+  constructor({ dataSourceService }: ConstructorArgs) {
+    super();
     this.dataSourceService = dataSourceService;
   }
 
   perform(currentState: DataSourceSelectorState): DataSourceSelectorState {
     this.dataSourceService
       .fetchDataSources()
-      .then((dataSources: DataSource[]) => this.dispatchAction(new FinishFetchDataSourcesAction(dataSources)));
+      .then((dataSources: DataSource[]) => this.dispatch(new FinishFetchDataSourcesAction(dataSources)));
 
     const newState = {
       ...currentState,
