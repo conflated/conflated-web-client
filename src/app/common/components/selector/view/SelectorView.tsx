@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Accordion, Icon } from 'semantic-ui-react';
 import styles from './SelectorView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import type { SelectorStateNamespace } from '../model/state/namespace/SelectorStateNamespace';
+import type { SelectorStateNamespace } from '../model/state/types/SelectorStateNamespace';
 import { ActionDispatchers, controller, State } from '../selectorController';
 
 type OwnProps = {

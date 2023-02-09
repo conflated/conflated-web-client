@@ -13,9 +13,9 @@ import type { TriggerSelectorState } from '../app/common/components/triggerspage
 import type { TriggerDataSourceSelectorState } from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';
 import type { PageState } from '../app/common/components/page/model/state/PageState';
 import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
-import selectorStateNamespaces from '../app/common/components/selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
 import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithdefaultactions/model/state/SelectorWithDefaultActionsState';
-import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 

@@ -1,5 +1,5 @@
 import ToggleSelectorOpenAction from './model/actions/ToggleSelectorOpenAction';
-import type { SelectorStateNamespace } from './model/state/namespace/SelectorStateNamespace';
+import type { SelectorStateNamespace } from './model/state/types/SelectorStateNamespace';
 import Controller from '../../../../Controller';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';

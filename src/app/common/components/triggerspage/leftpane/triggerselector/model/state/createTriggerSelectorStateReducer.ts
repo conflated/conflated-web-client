@@ -1,7 +1,7 @@
 import OOReduxUtils from 'oo-redux-utils2';
-import type { TriggerSelectorState } from '../TriggerSelectorState';
-import AbstractTriggerSelectorAction from '../../actions/AbstractTriggerSelectorAction';
-import type { TriggersPageStateNamespace } from '../../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggerSelectorState } from './TriggerSelectorState';
+import AbstractTriggerSelectorAction from '../actions/AbstractTriggerSelectorAction';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
 const initialAlertSelectorState: TriggerSelectorState = {
   selectedTriggers: []
@@ -10,6 +10,6 @@ const initialAlertSelectorState: TriggerSelectorState = {
 export default (stateNamespace: TriggersPageStateNamespace) =>
   OOReduxUtils.createNamespacedStateReducer<TriggerSelectorState, TriggersPageStateNamespace>(
     initialAlertSelectorState,
-    [AbstractTriggerSelectorAction, undefined],
+    AbstractTriggerSelectorAction,
     stateNamespace
   );

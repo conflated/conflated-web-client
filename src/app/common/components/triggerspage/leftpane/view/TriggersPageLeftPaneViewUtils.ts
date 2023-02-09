@@ -1,4 +1,4 @@
-import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 
 export default class TriggersPageLeftPaneViewUtils {
   static updateSelectorContentHeights(

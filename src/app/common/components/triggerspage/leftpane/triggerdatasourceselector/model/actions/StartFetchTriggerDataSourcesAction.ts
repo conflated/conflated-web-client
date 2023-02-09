@@ -1,11 +1,9 @@
 import { Inject } from 'noicejs';
-import type { DispatchAction } from 'oo-redux-utils2';
 import AbstractTriggerDataSourceSelectorAction from './AbstractTriggerDataSourceSelectorAction';
 import AlertDataSourceService from '../service/AlertDataSourceService';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
-import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import type { DataSource } from '../../../../../../model/state/datasource/DataSource';
-import AbstractTriggerDataSourceSelectorDispatchingAction from './AbstractTriggerDataSourceSelectorDispatchingAction';
 
 class FinishFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorAction {
   alertDataSources: DataSource[];
@@ -26,16 +24,15 @@ class FinishFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelec
 
 type ConstructorArgs = {
   alertDataSourceService: AlertDataSourceService;
-  dispatchAction: DispatchAction;
   stateNamespace: TriggersPageStateNamespace;
 };
 
 Inject('alertDataSourceService');
-class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorDispatchingAction {
+class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorAction {
   private readonly alertDataSourceService: AlertDataSourceService;
 
-  constructor({ alertDataSourceService, dispatchAction, stateNamespace }: ConstructorArgs) {
-    super(stateNamespace, dispatchAction);
+  constructor({ alertDataSourceService, stateNamespace }: ConstructorArgs) {
+    super(stateNamespace);
     this.alertDataSourceService = alertDataSourceService;
   }
 
@@ -43,7 +40,7 @@ class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelect
     this.alertDataSourceService
       .fetchDataSources()
       .then((dataSources: DataSource[]) =>
-        this.dispatchAction(new FinishFetchTriggerDataSourcesAction(this.stateNamespace, dataSources))
+        this.dispatch(new FinishFetchTriggerDataSourcesAction(this.stateNamespace, dataSources))
       );
 
     return {

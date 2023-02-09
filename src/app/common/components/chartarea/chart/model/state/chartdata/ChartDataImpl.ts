@@ -12,7 +12,7 @@ import type { DimensionVisualizationType } from '../selecteddimension/types/Dime
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
 import RowComparer from './rowcomparer/RowComparer';
-import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
 
 export default class ChartDataImpl implements ChartData {
   columnNameToDataMap: ColumnNameToValuesMap;

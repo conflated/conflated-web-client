@@ -44,13 +44,7 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
         filterExpression: string
       ) => {
         this.dispatch(
-          new AddSelectionFilterToNotSelectedChartsAction(
-            stateNamespace,
-            this.dispatch,
-            chart,
-            selectedDimension,
-            filterExpression
-          )
+          new AddSelectionFilterToNotSelectedChartsAction(stateNamespace, chart, selectedDimension, filterExpression)
         );
 
         this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart, stateNamespace });

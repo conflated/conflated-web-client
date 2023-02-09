@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerListItemView from './triggerlistitem/TriggerListItemView';
-import type { TriggersPageStateNamespace } from '../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
-import selectorStateNamespaces from '../../../../selector/model/state/namespace/SelectorStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { Trigger } from '../model/state/trigger/Trigger';
 import { ActionDispatchers, controller, State } from '../triggerSelectorController';

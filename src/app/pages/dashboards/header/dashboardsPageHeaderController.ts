@@ -32,13 +32,11 @@ class DashboardsPageHeaderController extends Controller {
       },
 
       toggleDashboardsSlideShowPlay: () => {
-        this.dispatch(new ToggleDashboardsSlideShowPlayAction(this.dispatch));
+        this.dispatch(new ToggleDashboardsSlideShowPlayAction());
       },
 
       changeDashboardsSlideChangeInterval: (dashboardSlideChangeIntervalInSecsStr: string) => {
-        this.dispatch(
-          new ChangeDashboardSlideChangeIntervalAction(this.dispatch, dashboardSlideChangeIntervalInSecsStr)
-        );
+        this.dispatch(new ChangeDashboardSlideChangeIntervalAction(dashboardSlideChangeIntervalInSecsStr));
       },
 
       cancelDelayedDashboardsHeaderHide: () => {

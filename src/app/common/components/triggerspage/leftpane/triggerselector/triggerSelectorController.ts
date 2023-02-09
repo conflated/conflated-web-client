@@ -1,12 +1,12 @@
 import OOReduxUtils from 'oo-redux-utils2';
-import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import SelectTriggerAction from './model/actions/SelectTriggerAction';
 import Controller from '../../../../../../Controller';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import createTriggersSelector from './model/state/selector/createTriggersSelector';
-import selectorStateNamespaces from '../../../selector/model/state/namespace/SelectorStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorStateNamespaces from '../../../selector/model/state/types/SelectorStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class TriggerSelectorController extends Controller<TriggersPageStateNamespace> {

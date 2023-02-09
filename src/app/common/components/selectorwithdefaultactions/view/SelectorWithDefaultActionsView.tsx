@@ -6,7 +6,7 @@ import SearchInputView from '../../../view/searchinput/SearchInputView';
 import TitleDefaultActionsView from './titledefaultactions/TitleDefaultActionsView';
 import type { AppState } from '../../../../../store/AppState';
 import SelectorView from '../../selector/view/SelectorView';
-import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../selectorWithDefaultActionsController';
 
 type OwnProps = {

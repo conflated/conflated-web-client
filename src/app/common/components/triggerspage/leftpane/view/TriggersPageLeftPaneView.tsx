@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import type { AppState } from '../../../../../../store/AppState';
-import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
 import PagePaneView from '../../../../view/pagepane/PagePaneView';
 import TriggerDataSourceSelectorView from '../triggerdatasourceselector/view/TriggerDataSourceSelectorView';

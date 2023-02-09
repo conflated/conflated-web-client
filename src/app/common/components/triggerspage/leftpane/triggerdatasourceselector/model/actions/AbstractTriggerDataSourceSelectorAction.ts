@@ -1,8 +1,13 @@
-import { AbstractAction } from 'oo-redux-utils2';
+import { AbstractDispatchingAction } from 'oo-redux-utils2';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
-import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
+import dispatch from '../../../../../../../../store/dispatch';
 
-export default class AbstractTriggerDataSourceSelectorAction extends AbstractAction<
+export default abstract class AbstractTriggerDataSourceSelectorAction extends AbstractDispatchingAction<
   TriggerDataSourceSelectorState,
   TriggersPageStateNamespace
-> {}
+> {
+  constructor(triggersPageStateNamespace: TriggersPageStateNamespace) {
+    super(triggersPageStateNamespace, dispatch);
+  }
+}

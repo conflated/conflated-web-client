@@ -11,13 +11,13 @@ import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/vie
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { TimeSortOption } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
-import type { SortBySelectorPageStateNamespace } from '../model/state/namespace/SortBySelectorPageStateNamespace';
+import type { SortBySelectorPageStateNamespace } from '../model/state/types/SortBySelectorPageStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../sortBySelectorController';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 
 type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;

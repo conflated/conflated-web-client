@@ -1,10 +1,10 @@
 import HidePagePaneAction from '../../page/model/actions/panevisibility/HidePagePaneAction';
-import type { TriggersPageStateNamespace } from '../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../model/state/TriggersPageStateNamespace';
 import Controller from '../../../../../Controller';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
-import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 
 class TriggersPageLeftPaneController extends Controller<PageStateNamespace> {
   getState(appState: AppState, pageStateNamespace: PageStateNamespace) {

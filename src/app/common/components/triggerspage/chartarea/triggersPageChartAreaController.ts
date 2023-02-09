@@ -5,15 +5,15 @@ import Controller from '../../../../../Controller';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 
-export default class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNamespace> {
+class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNamespace> {
   getState(appState: AppState, stateNamespace: ChartAreaPageStateNamespace) {
     return appState[stateNamespace].chartAreaState;
   }
 
-  getActionDispatchers() {
+  getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       startFetchDataForCharts: () =>
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart: null })
+        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart: null, stateNamespace })
     };
   }
 }

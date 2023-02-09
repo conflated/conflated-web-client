@@ -1,6 +1,6 @@
 import AbstractTriggerDataSourceSelectorAction from './AbstractTriggerDataSourceSelectorAction';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
-import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import type { DataSource } from '../../../../../../model/state/datasource/DataSource';
 
 export default class SelectTriggerDataSourceAction extends AbstractTriggerDataSourceSelectorAction {

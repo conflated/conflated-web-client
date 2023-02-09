@@ -1,6 +1,4 @@
 import { Module } from 'noicejs';
-import { DispatchUtils } from 'oo-redux-utils2';
-import store from '../../store/store';
 import FakeDataSourceServiceImpl from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceServiceImpl';
 import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measureselector/model/service/FakeMeasureServiceImpl';
 import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionServiceImpl';
@@ -11,7 +9,6 @@ import CachingChartDataService from '../../app/common/components/chartarea/chart
 
 export default class ServiceModule extends Module {
   async configure() {
-    this.bind('dispatchAction').toInstance(DispatchUtils.createActionDispatcher(store.dispatch));
     this.bind('dataSourceService').toInstance(new FakeDataSourceServiceImpl());
     this.bind('measureService').toInstance(new FakeMeasureServiceImpl());
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());

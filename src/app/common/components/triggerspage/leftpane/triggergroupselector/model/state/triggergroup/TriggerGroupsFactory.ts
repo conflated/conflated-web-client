@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import type { TriggerGroup } from './TriggerGroup';
 import type { Chart } from '../../../../../../chartarea/chart/model/state/Chart';
-import type { TriggersPageStateNamespace } from '../../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../../model/state/TriggersPageStateNamespace';
 
 export default class TriggerGroupsFactory {
   static createTriggerGroups(

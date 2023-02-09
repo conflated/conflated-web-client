@@ -1,8 +1,8 @@
 import ToggleShowSearchInputAction from './model/actions/search/ToggleShowSearchInputAction';
 import ChangeSelectorSearchedValueAction from './model/actions/search/ChangeSelectorSearchedValueAction';
-import type { SelectorWithDefaultActionsStateNamespace } from './model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithDefaultActionsStateNamespace } from './model/state/types/SelectorWithDefaultActionsStateNamespace';
 import Utils from '../../model/state/utils/Utils';
-import type { SelectorOpenStatus } from './model/state/entities/SelectorOpenStatus';
+import type { SelectorOpenStatus } from './model/state/types/SelectorOpenStatus';
 import ToggleSelectorOpenAction from '../selector/model/actions/ToggleSelectorOpenAction';
 import ToggleMaximizeSelectorAction from './model/actions/ToggleMaximizeSelectorAction';
 import OpenSelectorAction from '../selector/model/actions/OpenSelectorAction';

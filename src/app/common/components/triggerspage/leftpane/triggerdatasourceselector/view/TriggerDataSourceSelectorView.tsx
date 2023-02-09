@@ -3,12 +3,12 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../../store/AppState';
-import type { TriggersPageStateNamespace } from '../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
-import selectorStateNamespaces from '../../../../selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../triggerDataSourceSelectorController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };

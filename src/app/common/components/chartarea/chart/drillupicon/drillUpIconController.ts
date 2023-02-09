@@ -10,7 +10,7 @@ class DrillUpIconController extends Controller<ChartAreaPageStateNamespace> {
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       drillUpChart: (chart: Chart) => {
-        this.dispatch(new DrillUpChartAction(stateNamespace, this.dispatch, chart));
+        this.dispatch(new DrillUpChartAction(stateNamespace, chart));
         this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { chart, stateNamespace });
       }
     };

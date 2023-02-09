@@ -1,6 +1,6 @@
 import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDefaultActionsState';
 import AbstractSelectorWithDefaultActionsAction from '../AbstractSelectorWithDefaultActionsAction';
-import type { SelectorWithDefaultActionsStateNamespace } from '../../state/namespace/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithDefaultActionsStateNamespace } from '../../state/types/SelectorWithDefaultActionsStateNamespace';
 
 // eslint-disable-next-line no-undef
 export default class ChangeSelectorSearchedValueAction extends AbstractSelectorWithDefaultActionsAction {

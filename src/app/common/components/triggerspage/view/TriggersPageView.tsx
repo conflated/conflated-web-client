@@ -1,6 +1,6 @@
 import React from 'react';
 import PageView from '../../page/view/PageView';
-import type { TriggersPageStateNamespace } from '../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneView from '../leftpane/view/TriggersPageLeftPaneView';
 import TriggersPageChartAreaView from '../chartarea/view/TriggersPageChartAreaView';
 

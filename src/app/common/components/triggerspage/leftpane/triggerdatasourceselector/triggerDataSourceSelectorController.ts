@@ -3,15 +3,15 @@ import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actio
 import SelectTriggerDataSourceAction from './model/actions/SelectTriggerDataSourceAction';
 import StartFetchTriggerDataSourcesAction from './model/actions/StartFetchTriggerDataSourcesAction';
 import diContainer from '../../../../../../di/diContainer';
-import type { TriggersPageStateNamespace } from '../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import type { DataSource } from '../../../../model/state/datasource/DataSource';
 import { AppState } from '../../../../../../store/AppState';
 import createShownTriggerDataSourcesSelector from './model/state/selector/createShownTriggerDataSourcesSelector';
 import Controller from '../../../../../../Controller';
-import selectorStateNamespaces from '../../../selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../../store/store';
-import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class TriggerDataSourceSelectorController extends Controller<PageStateNamespace> {
@@ -37,7 +37,8 @@ class TriggerDataSourceSelectorController extends Controller<PageStateNamespace>
       selectTriggerDataSource: (dataSource: DataSource) =>
         this.dispatch(new SelectTriggerDataSourceAction(stateNamespace, dataSource)),
 
-      startFetchTriggerDataSources: () => this.dispatchWithDi(diContainer, StartFetchTriggerDataSourcesAction, {}),
+      startFetchTriggerDataSources: () =>
+        this.dispatchWithDi(diContainer, StartFetchTriggerDataSourcesAction, { stateNamespace }),
 
       toggleShouldShowTriggersPageLeftPanePermanently: () =>
         this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(stateNamespace, 'leftPane')),

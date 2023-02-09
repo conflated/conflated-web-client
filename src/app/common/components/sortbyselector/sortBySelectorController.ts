@@ -1,6 +1,6 @@
 import OOReduxUtils from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
-import type { SortBySelectorPageStateNamespace } from './model/state/namespace/SortBySelectorPageStateNamespace';
+import type { SortBySelectorPageStateNamespace } from './model/state/types/SortBySelectorPageStateNamespace';
 import type { TimeSortOption } from '../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
 import type { Dimension } from '../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Measure } from '../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
@@ -24,11 +24,11 @@ import Controller from '../../../../Controller';
 import { PageStateNamespace } from '../page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../store/AppState';
 import createShownTimeSortOptionsSelector from './model/state/selectors/createShownTimeSortOptionsSelector';
-import selectorStateNamespaces from '../selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../selector/model/state/types/SelectorStateNamespace';
 import selectShownMeasures from '../../model/state/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../model/state/selectors/createShownDimensionsSelector';
 import store from '../../../../store/store';
-import selectorWithDefaultActionsStateNamespaces from '../selectorwithdefaultactions/model/state/namespace/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../selectorwithdefaultactions/selectorWithDefaultActionsController';
 
 class SortBySelectorController extends Controller<PageStateNamespace> {
@@ -75,7 +75,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
             )
           );
 
-          this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, {});
+          this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, { stateNamespace });
         }
       },
 
@@ -85,7 +85,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         sortDirection: SortDirection
       ) => {
         this.dispatch(new AddSortByToSelectedChartAction(stateNamespace, dimensionOrMeasure, type, sortDirection));
-        this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, {});
+        this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, { stateNamespace });
       },
 
       changeSelectedSortByAggregationFunctionForSelectedChart: (
@@ -101,7 +101,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {});
+          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
         }
       },
 
@@ -114,7 +114,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {});
+          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
         }
       },
 
@@ -127,7 +127,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {});
+          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
         }
       },
 
@@ -135,7 +135,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         this.dispatch(new RemoveSelectedSortByFromSelectedChartAction(stateNamespace, selectedSortBy));
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {});
+          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
         }
       },
 

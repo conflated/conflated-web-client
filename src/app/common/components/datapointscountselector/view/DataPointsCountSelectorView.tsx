@@ -8,7 +8,7 @@ import styles from './DataPointsCountSelectorView.module.scss';
 import SelectorView from '../../selector/view/SelectorView';
 import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
 import Constants from '../../../Constants';
-import selectorStateNamespaces from '../../selector/model/state/namespace/SelectorStateNamespace';
+import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import { ActionDispatchers, controller, State } from '../dataPointsCountSelectorController';
 import { AppState } from '../../../../../store/AppState';
 

@@ -1,4 +1,4 @@
-import type { TriggersPageStateNamespace } from '../../../../model/state/namespace/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import AbstractTriggerSelectorAction from './AbstractTriggerSelectorAction';
 import type { TriggerSelectorState } from '../state/TriggerSelectorState';
 
