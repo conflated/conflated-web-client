@@ -1,4 +1,9 @@
 .slideChangeIntervalInput {
   margin-right: 0.5rem;
   width: 4rem;
+
+  & > input {
+    padding-bottom: 0.4em !important;
+    padding-top: 0.4em !important;
+  }
 }
