@@ -1,9 +1,9 @@
-import { AbstractDispatchingAction } from 'oo-redux-utils2';
+import { AbstractDispatchingAction, createActionDispatcher } from 'oo-redux-utils2';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAsDashboardOrReportTemplateDialogState';
-import dispatch from '../../../../../../store/dispatch';
+import store from '../../../../../../store/store';
 
 export default abstract class AbstractSaveAsDashboardOrReportTemplateDialogAction extends AbstractDispatchingAction<SaveAsDashboardOrReportTemplateDialogState> {
   constructor() {
-    super('', dispatch);
+    super('', createActionDispatcher(store.dispatch));
   }
 }

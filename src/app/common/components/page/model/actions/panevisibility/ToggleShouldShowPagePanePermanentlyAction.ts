@@ -13,7 +13,7 @@ export default class ToggleShouldShowPagePanePermanentlyAction extends AbstractP
       ...currentState,
       shouldShowPagePanePermanently: {
         ...currentState.shouldShowPagePanePermanently,
-        [this.pane]: currentState.shouldShowPagePanePermanently[this.pane]
+        [this.pane]: !currentState.shouldShowPagePanePermanently[this.pane]
       }
     };
 
