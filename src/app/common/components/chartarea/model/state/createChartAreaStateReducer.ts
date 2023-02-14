@@ -5,7 +5,7 @@ import AbstractChartAreaAction from '../actions/AbstractChartAreaAction';
 import type { ChartAreaPageStateNamespace } from './types/ChartAreaPageStateNamespace';
 import ChartFactory from '../../chart/model/state/factory/ChartFactory';
 
-const emptyChart = ChartFactory.createChart();
+export const emptyChart = ChartFactory.createChart();
 
 const initialChartAreaState: ChartAreaState = {
   layout: layout1,

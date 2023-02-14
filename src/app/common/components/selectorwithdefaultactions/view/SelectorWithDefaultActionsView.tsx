@@ -10,6 +10,7 @@ import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/ty
 import { ActionDispatchers, controller, State } from '../selectorWithDefaultActionsController';
 
 type OwnProps = {
+  addIconTooltipText: string;
   additionalContent?: JSX.Element;
   handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -24,6 +25,7 @@ type OwnProps = {
 type Props = OwnProps & ActionDispatchers & State;
 
 const SelectorWithDefaultActionsView: React.FC<Props> = ({
+  addIconTooltipText,
   additionalContent,
   changeSelectorSearchedValue,
   handleMaximizeIconClick,
@@ -61,6 +63,7 @@ const SelectorWithDefaultActionsView: React.FC<Props> = ({
       shouldShowPinIcon={isPinned !== undefined}
       isPinned={isPinned}
       handlePinIconClick={handlePinIconClick}
+      addIconTooltipText={addIconTooltipText}
     />
   );
 
@@ -93,7 +96,7 @@ const SelectorWithDefaultActionsView: React.FC<Props> = ({
 SelectorWithDefaultActionsView.defaultProps = {
   additionalContent: undefined,
   handlePinIconClick: undefined,
-  isPinned: false,
+  isPinned: undefined,
   selectedListItemsContent: undefined
 };
 

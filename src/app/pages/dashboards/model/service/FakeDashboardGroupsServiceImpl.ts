@@ -2,12 +2,56 @@ import { DashboardGroupsService } from './DashboardGroupsService';
 import layout1 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
 import type { DashboardGroup } from '../state/entities/DashboardGroup';
 import ChartFactory from '../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
+import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
+import emptyDataSource from '../../../../common/model/state/datasource/emptyDataSource';
+import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 
 export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsService {
   private readonly latency = 1000;
 
   fetchDashboardGroups(): Promise<DashboardGroup[]> {
     const emptyChart = ChartFactory.createChart();
+    const chartConfig: ChartConfiguration = {
+      id: '1',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#124191',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
+    const nonEmptyChart = ChartFactory.createChart(chartConfig);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
@@ -18,7 +62,7 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
               {
                 name: 'Dashboard 1.1',
                 layout: layout1,
-                charts: [emptyChart]
+                charts: [nonEmptyChart]
               },
               {
                 name: 'Dashboard 1.2',

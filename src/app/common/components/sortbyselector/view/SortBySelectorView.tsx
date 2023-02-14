@@ -116,6 +116,7 @@ const SortBySelectorView = ({
     <SelectorWithDefaultActionsView
       id={selectorStateNamespace}
       titleText="SORT BY"
+      addIconTooltipText="Add new sort definition"
       selectedListItemsContent={
         <section className={`${selectedSortBysSection} ${areSelectedSortBysShown ? visible : hidden}`}>
           <List>{selectedSortByListItems}</List>

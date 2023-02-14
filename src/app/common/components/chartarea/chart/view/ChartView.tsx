@@ -26,7 +26,7 @@ type Props = OwnProps & ActionDispatchers;
 
 const ChartView = ({ chart, height, isSelectedChart, selectChart, pageStateNamespace, width }: Props) => {
   const className = classNames(styles.scrollableChart, { [styles.selectedChart]: isSelectedChart });
-  const chartView = chart.createChartView(width, height, pageStateNamespace);
+  const chartView = chart.createChartView(width, height, pageStateNamespace, { selectChart });
 
   return (
     <div className={className} onClick={() => selectChart(chart)}>

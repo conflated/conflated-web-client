@@ -72,6 +72,7 @@ const TriggerDataSourceSelectorView = ({
     <SelectorWithDefaultActionsView
       id={selectorStateNamespace}
       titleText="DATA SOURCE"
+      addIconTooltipText="Add new data source"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dataSourceListItems} secondTabPaneListItems={[]} />
       }

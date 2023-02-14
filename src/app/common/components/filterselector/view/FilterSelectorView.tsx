@@ -122,6 +122,7 @@ const FilterSelectorView = ({
     <SelectorWithDefaultActionsView
       id={selectorStateNamespace}
       titleText="FILTER"
+      addIconTooltipText="Add new filter"
       selectedListItemsContent={
         <section className={styles.selectedFiltersSection}>
           <List>{selectedFilterListItems}</List>

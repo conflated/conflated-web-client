@@ -32,9 +32,35 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
     });
   }
 
+  showDashboardGroup = (dashboardGroup: DashboardGroup | undefined) => {
+    if (dashboardGroup) {
+      this.dispatch(new ChangeSelectedDashboardGroupAction(dashboardGroup));
+      const newSelectedDashboard = dashboardGroup.dashboards?.[0];
+
+      if (newSelectedDashboard) {
+        this.dispatch(
+          new ChangeChartAreaLayoutAndChartsAction(
+            'dashboardsPage',
+            newSelectedDashboard.layout,
+            newSelectedDashboard.charts
+          )
+        );
+
+        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
+          stateNamespace: 'dashboardsPage',
+          chart: null
+        });
+      }
+    }
+  };
+
   getActionDispatchers() {
     return {
-      startFetchDashboardGroups: () => this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {}),
+      showDashboardGroup: this.showDashboardGroup,
+      startFetchDashboardGroups: () =>
+        this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {
+          showDashboardGroup: this.showDashboardGroup
+        }),
 
       showDashboard: (dashboard: Dashboard | undefined) => {
         if (dashboard) {
@@ -45,28 +71,6 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
             stateNamespace: 'dashboardsPage',
             chart: null
           });
-        }
-      },
-
-      showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => {
-        if (dashboardGroup) {
-          this.dispatch(new ChangeSelectedDashboardGroupAction(dashboardGroup));
-          const newSelectedDashboard = dashboardGroup.dashboards?.[0];
-
-          if (newSelectedDashboard) {
-            this.dispatch(
-              new ChangeChartAreaLayoutAndChartsAction(
-                'dashboardsPage',
-                newSelectedDashboard.layout,
-                newSelectedDashboard.charts
-              )
-            );
-
-            this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
-              stateNamespace: 'dashboardsPage',
-              chart: null
-            });
-          }
         }
       },
 

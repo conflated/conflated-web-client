@@ -24,23 +24,26 @@ class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
 
 type ConstructorArgs = {
   dashboardsService: DashboardGroupsService;
+  showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => void;
 };
 
 @Inject('dashboardsService')
 class StartFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
   readonly dashboardsService: DashboardGroupsService;
 
-  constructor({ dashboardsService }: ConstructorArgs) {
+  readonly showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => void;
+
+  constructor({ dashboardsService, showDashboardGroup }: ConstructorArgs) {
     super();
     this.dashboardsService = dashboardsService;
+    this.showDashboardGroup = showDashboardGroup;
   }
 
   perform(currentState: DashboardsState): DashboardsState {
-    this.dashboardsService
-      .fetchDashboardGroups()
-      .then((dashboardGroups: DashboardGroup[]) =>
-        this.dispatch(new FinishFetchDashboardGroupsAction(dashboardGroups))
-      );
+    this.dashboardsService.fetchDashboardGroups().then((dashboardGroups: DashboardGroup[]) => {
+      this.dispatch(new FinishFetchDashboardGroupsAction(dashboardGroups));
+      this.showDashboardGroup(dashboardGroups[0]);
+    });
 
     const newState = {
       ...currentState,

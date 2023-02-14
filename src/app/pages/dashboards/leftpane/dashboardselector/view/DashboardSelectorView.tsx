@@ -47,6 +47,7 @@ const DashboardSelectorView = ({
     <SelectorWithDefaultActionsView
       id="dashboardSelector"
       titleText="DASHBOARD"
+      addIconTooltipText="Add new dashboard"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dashboardListItems} secondTabPaneListItems={[]} />
       }

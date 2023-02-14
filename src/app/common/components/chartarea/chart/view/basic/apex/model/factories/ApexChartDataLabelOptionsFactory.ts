@@ -2,14 +2,17 @@ import type { Chart } from '../../../../../model/state/Chart';
 
 export default class ApexChartDataLabelOptionsFactory {
   static createDataLabelOptions(chart: Chart): object {
+    const seriesColor = chart.getColors()[0];
     return {
       enabled: chart.shouldShowDataLabels(),
       textAnchor: 'middle',
       offsetX: 1,
       offsetY: 0,
       style: {
-        fontSize: '10.5px',
-        fontFamily: 'Arimo, sans-serif'
+        fontSize: '0.7rem',
+        fontFamily: 'Arimo, sans-serif',
+        fontWeight: 'normal',
+        colors: [seriesColor === '#124191' ? '#FFF' : '#000']
       },
       dropShadow: {
         enabled: chart.shouldShowDataLabelsDropShadow(),

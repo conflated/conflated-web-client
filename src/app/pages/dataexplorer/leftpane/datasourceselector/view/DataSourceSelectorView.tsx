@@ -85,6 +85,7 @@ const DataSourceSelectorView = ({
     <SelectorWithDefaultActionsView
       id="dataSourceSelector"
       titleText="DATA SOURCE"
+      addIconTooltipText="Add new data source"
       listItemsContent={
         <ListItemsView
           listItems={dataSourceListItems}

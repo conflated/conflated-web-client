@@ -61,6 +61,7 @@ const TriggerSelectorView = ({
     <SelectorWithDefaultActionsView
       id={selectorStateNamespace}
       titleText="ALERT"
+      addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert' : 'Add new goal'}
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}

@@ -12,7 +12,10 @@ class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
     return {
       shownDashboardGroups: selectShownDashboardGroups(appState),
       selectedDashboardGroup: appState.dashboardsPage.dashboardsState.selectedDashboardGroup,
-      isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen
+      isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen,
+
+      shouldShowDashboardsPageLeftPanePermanently:
+        appState.common.pageStates.dashboardsPage.shouldShowPagePanePermanently.leftPane
     };
   }
 

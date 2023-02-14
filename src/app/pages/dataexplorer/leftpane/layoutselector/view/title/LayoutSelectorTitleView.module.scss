@@ -3,6 +3,6 @@
   line-height: var(--body-font-size);
 
   &:hover {
-    color: var(--secondary-text-color-on-hover);
+    color: var(--secondary-text-color-on-hover) !important;
   }
 }

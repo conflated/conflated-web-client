@@ -6,12 +6,12 @@
   white-space: nowrap !important;
 
   &.selected {
-    color: var(--primary-text-color-on-hover) !important;
+    color: #000 !important;
     font-weight: bold !important;
   }
 
   &:hover {
-    color: var(--primary-text-color-on-hover) !important;
+    color: #000 !important;
     cursor: pointer !important;
     font-weight: bold !important;
   }

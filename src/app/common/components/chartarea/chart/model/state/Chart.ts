@@ -66,7 +66,12 @@ export interface Chart {
     aggregationFunction: AggregationFunction
   ): void;
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element;
+  createChartView(
+    width: number,
+    height: number,
+    stateNamespace: ChartAreaPageStateNamespace,
+    actions: Record<string, (...args: any[]) => void>
+  ): JSX.Element;
 
   getConvertedSelectedDimensions(): SelectedDimension[];
 

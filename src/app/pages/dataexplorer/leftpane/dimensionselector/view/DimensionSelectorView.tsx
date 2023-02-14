@@ -146,6 +146,7 @@ const DimensionSelectorView = ({
     <SelectorWithDefaultActionsView
       id="dimensionSelector"
       titleText="DIMENSION"
+      addIconTooltipText="Add new dimension"
       selectedListItemsContent={
         <section className={styles.selectedDimensionsAndDropZonesSection}>
           <List className={styles.list}>{selectedDimensionListItems}</List>

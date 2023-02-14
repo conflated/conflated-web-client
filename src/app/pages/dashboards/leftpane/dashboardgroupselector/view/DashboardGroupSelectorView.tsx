@@ -12,6 +12,7 @@ type Props = ActionDispatchers & State;
 const DashboardGroupSelectorView = ({
   isDashboardSelectorOpen,
   selectedDashboardGroup,
+  shouldShowDashboardsPageLeftPanePermanently,
   showDashboardGroup,
   shownDashboardGroups,
   toggleMaximizeSelector,
@@ -56,12 +57,14 @@ const DashboardGroupSelectorView = ({
     <SelectorWithDefaultActionsView
       id="dashboardGroupSelector"
       titleText="DASHBOARD GROUP"
+      addIconTooltipText="Add new dashboard group"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dashboardGroupListItems} secondTabPaneListItems={[]} />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       handlePinIconClick={handlePinIconClick}
       selectorStateNamespace="dashboardGroupSelector"
+      isPinned={shouldShowDashboardsPageLeftPanePermanently}
     />
   );
 };

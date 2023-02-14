@@ -24,8 +24,15 @@ export default abstract class BasicChartImpl extends DrillDownChartImpl {
     labelIndex: 1
   };
 
-  createChartView(width: number, height: number, pageStateNamespace: ChartAreaPageStateNamespace): JSX.Element {
-    return <ApexChartView chart={this} width={width} height={height} pageStateNamespace={pageStateNamespace} />;
+  createChartView(
+    width: number,
+    height: number,
+    pageStateNamespace: ChartAreaPageStateNamespace,
+    actions: Record<string, (...args: any[]) => void>
+  ): JSX.Element {
+    return (
+      <ApexChartView chart={this} width={width} height={height} pageStateNamespace={pageStateNamespace} {...actions} />
+    );
   }
 
   exportToPdf = () => {

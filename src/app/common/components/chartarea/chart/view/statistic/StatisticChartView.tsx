@@ -14,7 +14,7 @@ type Props = OwnProps & ActionDispatchers;
 
 const StatisticChartView = ({ chart, selectChart, pageStateNamespace }: Props) => (
   <div key={chart.id} className={statisticGroup} onClick={() => selectChart(chart)}>
-    {chart.createChartView(0, 0, pageStateNamespace)}
+    {chart.createChartView(0, 0, pageStateNamespace, {})}
   </div>
 );
 

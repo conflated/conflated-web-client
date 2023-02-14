@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
 import SelectChartAction from '../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../model/actions/chart/datapointselection/DeselectChartDataPointAction';
@@ -17,9 +18,15 @@ import StartFetchDataForChartAction from '../model/actions/chart/fetchdata/Start
 import Controller from '../../../../../Controller';
 
 export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
+  selectChart = _.debounce(
+    (stateNamespace: ChartAreaPageStateNamespace, chart: Chart) =>
+      this.dispatch(new SelectChartAction(stateNamespace, chart)),
+    150
+  );
+
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
-      selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
+      selectChart: (chart: Chart) => this.selectChart(stateNamespace, chart),
 
       deselectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
         this.dispatch(new DeselectChartDataPointAction(stateNamespace, chart, dataPoint)),

@@ -165,7 +165,12 @@ export default abstract class AbstractChartImpl implements Chart {
     });
   }
 
-  abstract createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element;
+  abstract createChartView(
+    width: number,
+    height: number,
+    stateNamespace: ChartAreaPageStateNamespace,
+    actions: Record<string, (...args: any[]) => void>
+  ): JSX.Element;
 
   deselectDataPoint(dataPoint: DataPoint) {
     this.selectedDataPoints = this.selectedDataPoints.filter(
@@ -194,7 +199,7 @@ export default abstract class AbstractChartImpl implements Chart {
   }
 
   getAllColors(theme?: Theme): string[] {
-    return theme?.colors ?? ['#1a76c7', '#57943a', '#dfd91f', '#dd8a29', '#dd333f', '#dc4cdd'];
+    return theme?.colors ?? ['#124191', '#00C9FF', '#4BDD33', '#FFFB00', '#FF8B10', '#FF3154', '#273142'];
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -49,12 +49,13 @@ const PageView = ({
 
   const handlePaneGutterDrag = _.throttle((event: React.DragEvent<HTMLDivElement>, pane: Pane) => {
     event.persist();
-    if (event.pageX !== null) {
+
+    if (event.pageX !== 0) {
       dragPagePaneGutter(pane, event.pageX);
     }
   }, 25);
 
-  const getDraggableGutter = (pane: Pane) => {
+  const createDraggableGutter = (pane: Pane) => {
     if (shouldShowPagePanePermanently[pane]) {
       return (
         <div
@@ -69,7 +70,7 @@ const PageView = ({
     return undefined;
   };
 
-  const getPaneActivator = (pane: Pane) => {
+  const createPaneActivator = (pane: Pane) => {
     if (shouldShowPagePane[pane] || shouldShowPagePanePermanently[pane]) {
       return undefined;
     } else {
@@ -83,7 +84,7 @@ const PageView = ({
     }
   };
 
-  const leftPaneActivatorClassName = classNames(styles.leftPaneActivatorHint, {
+  const leftPaneActivatorHintClassName = classNames(styles.leftPaneActivatorHint, {
     [styles.visible]: shouldShowPagePaneActivatorHint.leftPane
   });
 
@@ -95,13 +96,13 @@ const PageView = ({
     <div className={`${styles.page} ${className ?? ''}`}>
       {header}
       {leftPane}
-      {getDraggableGutter('leftPane')}
+      {createDraggableGutter('leftPane')}
       {middlePane}
-      {getDraggableGutter('rightPane')}
+      {createDraggableGutter('rightPane')}
       {rightPane}
-      {getPaneActivator('leftPane')}
-      {getPaneActivator('rightPane')}
-      <div className={leftPaneActivatorClassName} />
+      {createPaneActivator('leftPane')}
+      {createPaneActivator('rightPane')}
+      <div className={leftPaneActivatorHintClassName} />
       <div className={rightPaneActivatorHintClassName} />
     </div>
   );

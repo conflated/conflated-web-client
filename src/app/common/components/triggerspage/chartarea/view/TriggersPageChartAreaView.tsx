@@ -52,7 +52,8 @@ const TriggersPageChartAreaView = ({
           {charts[0].createChartView(
             triggersAreaWidth,
             (layout[0].h / Constants.GRID_ROW_COUNT) * triggersAreaHeight,
-            pageStateNamespace
+            pageStateNamespace,
+            {}
           )}
         </div>
         <div key="2">

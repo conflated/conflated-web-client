@@ -121,6 +121,7 @@ const MeasureSelectorView = ({
     <SelectorWithDefaultActionsView
       id="measureSelector"
       titleText="MEASURE"
+      addIconTooltipText="Add new measure"
       selectedListItemsContent={
         <section className={styles.selectedListItems}>
           <List>{selectedMeasureListItems}</List>
