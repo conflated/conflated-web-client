@@ -40,11 +40,11 @@
 
   .actionIcon {
     cursor: pointer;
-    margin-left: 0.7rem;
+    margin-right: 1rem;
 
     &:hover,
     &:focus {
-      color: var(--brand-color-1);
+      color: var(--secondary-text-color-on-hover) !important;
     }
   }
 }
