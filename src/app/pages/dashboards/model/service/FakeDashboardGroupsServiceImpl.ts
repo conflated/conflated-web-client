@@ -1,5 +1,6 @@
 import { DashboardGroupsService } from './DashboardGroupsService';
 import layout1 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
+import layout2 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout2';
 import type { DashboardGroup } from '../state/entities/DashboardGroup';
 import ChartFactory from '../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
 import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
@@ -12,6 +13,7 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
 
   fetchDashboardGroups(): Promise<DashboardGroup[]> {
     const emptyChart = ChartFactory.createChart();
+
     const chartConfig: ChartConfiguration = {
       id: '1',
       chartType: 'column',
@@ -51,7 +53,87 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
       fetchedRowCount: 100
     };
 
-    const nonEmptyChart = ChartFactory.createChart(chartConfig);
+    const chartConfig2: ChartConfiguration = {
+      id: '1',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#00C9FF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
+    const chartConfig3: ChartConfiguration = {
+      id: '2',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#00C9FF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
+    const chart1 = ChartFactory.createChart(chartConfig);
+    const chart2 = ChartFactory.createChart(chartConfig2);
+    const chart3 = ChartFactory.createChart(chartConfig3);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
@@ -62,17 +144,17 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
               {
                 name: 'Dashboard 1.1',
                 layout: layout1,
-                charts: [nonEmptyChart]
+                charts: [chart1]
               },
               {
                 name: 'Dashboard 1.2',
                 layout: layout1,
-                charts: [emptyChart]
+                charts: [chart2]
               },
               {
                 name: 'Dashboard 1.3',
-                layout: layout1,
-                charts: [emptyChart]
+                layout: layout2,
+                charts: [chart1, chart3]
               }
             ]
           },
@@ -95,7 +177,7 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.4 very long name here for dashboard xxx',
+                name: 'Dashboard 2.4 very long name here for dashboard xxxyyyyzzz',
                 layout: layout1,
                 charts: [emptyChart]
               },

@@ -1,6 +1,7 @@
 .actionIcon {
   color: var(--secondary-text-color);
   line-height: var(--body-font-size);
+  margin-right: 0.65rem !important;
   visibility: hidden;
 
   &:hover {
