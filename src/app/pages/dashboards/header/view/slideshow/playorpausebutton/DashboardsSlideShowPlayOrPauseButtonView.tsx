@@ -16,7 +16,7 @@ const DashboardsSlideShowPlayOrPauseButtonView = ({
     trigger={
       <Icon
         className={styles.actionIcon}
-        style={{ marginLeft: '1rem' }}
+        style={{ color: '#000000', marginLeft: '1rem' }}
         size="large"
         name={isDashboardsSlideShowPlaying ? 'pause' : 'play'}
         onClick={toggleDashboardsSlideShowPlay}
