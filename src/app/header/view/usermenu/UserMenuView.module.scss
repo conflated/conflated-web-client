@@ -7,3 +7,9 @@
     background-image: url("../../../../assets/images/icons/header/user_icon.svg");
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .userMenu {
+    display: none;
+  }
+}

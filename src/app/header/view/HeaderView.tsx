@@ -9,6 +9,7 @@ import FullScreenIconView from './fullscreen/icon/FullScreenIconView';
 import FullScreenModeNotificationView from './fullscreen/notification/FullScreenModeNotificationView';
 import FullScreenModeNotificationActivatorView from './fullscreen/notification/activator/FullScreenModeNotificationActivatorView';
 import { ActionDispatchers, controller, State } from '../headerController';
+import DropDownMenuView from './dropdownmenu/DropDownMenuView';
 
 type Props = ActionDispatchers & State;
 
@@ -75,6 +76,7 @@ const HeaderView = ({
   return (
     <header className={className} onMouseOver={showDashboardsHeader} onFocus={showDashboardsHeader}>
       {/* <h1 className={styles.appTitle}>Conflated</h1> */}
+      <DropDownMenuView />
       <img className={styles.appTitle} height="60%" src="/images/nokia-logo.svg" alt="" />
       <NavigationView selectPage={selectPage} />
       <UserMenuView />
