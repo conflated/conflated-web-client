@@ -1,29 +1,65 @@
 @import 'nokia-brand.css';
 
-:root {
-  --base-font-size: 100%;
-  --primary-text-color: rgb(0 0 0);
-  --primary-text-color-on-hover: var(--brand-color-1);
-  --secondary-text-color: rgb(255 255 255);
-  --secondary-text-color-on-hover: rgb(0 201 255);
-  --header-background-color: var(--brand-color-1);
-  --header-foreground-color: var(--secondary-text-color);
-  --app-title-font-size: 2rem;
-  --app-navigation-font-size: 1rem;
-  --large-font-size: 1rem;
-  --body-font-size: 0.9rem;
-  --small-font-size: 0.7rem;
-  --small-font-color: rgb(120 120 120);
-  --drop-zone-font-color: rgb(120 120 120);
-  --notification-z-index: 900;
-  --topmost-z-index: 999;
-  --on-top-of-map-z-index: 1000;
-  --data-explorer-page-left-pane-default-width: 22rem;
-  --data-explorer-page-right-pane-default-width: 22rem;
-  --dashboards-page-left-pane-default-width: 25rem;
-  --dashboards-page-right-pane-default-width: 25rem;
-  --triggers-page-left-pane-default-width: 22%;
-  --dialog-header-and-footer-background-color: rgba(230 230 230);
+@media (prefers-color-scheme: light) {
+  :root {
+    --base-font-size: 100%;
+    --background-color: #ffffff;
+    --primary-text-color: rgb(0 0 0);
+    --primary-text-color-on-hover: var(--brand-color-1);
+    --secondary-text-color: rgb(255 255 255);
+    --secondary-text-color-on-hover: rgb(0 201 255);
+    --header-background-color: var(--brand-color-1);
+    --header-foreground-color: var(--secondary-text-color);
+    --selected-list-item-color: var(--secondary-text-color);
+    --app-title-font-size: 2rem;
+    --app-navigation-font-size: 1rem;
+    --large-font-size: 1rem;
+    --body-font-size: 0.9rem;
+    --small-font-size: 0.7rem;
+    --small-font-color: rgb(120 120 120);
+    --drop-zone-font-color: rgb(120 120 120);
+    --notification-z-index: 900;
+    --topmost-z-index: 999;
+    --on-top-of-map-z-index: 1000;
+    --data-explorer-page-left-pane-default-width: 22rem;
+    --data-explorer-page-right-pane-default-width: 22rem;
+    --dashboards-page-left-pane-default-width: 25rem;
+    --dashboards-page-right-pane-default-width: 25rem;
+    --triggers-page-left-pane-default-width: 22%;
+    --dialog-header-and-footer-background-color: rgba(230 230 230);
 
-  font-size: var(--base-font-size);
+    font-size: var(--base-font-size);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-font-size: 100%;
+    --background-color: #000000;
+    --primary-text-color: rgb(255 255 255);
+    --primary-text-color-on-hover: var(--brand-color-1);
+    --secondary-text-color: rgb(255 255 255);
+    --secondary-text-color-on-hover: rgb(0 201 255);
+    --header-background-color: var(--brand-color-1);
+    --header-foreground-color: var(--secondary-text-color);
+    --selected-list-item-color: var(--secondary-text-color-on-hover);
+    --app-title-font-size: 2rem;
+    --app-navigation-font-size: 1rem;
+    --large-font-size: 1rem;
+    --body-font-size: 0.9rem;
+    --small-font-size: 0.7rem;
+    --small-font-color: rgb(120 120 120);
+    --drop-zone-font-color: rgb(120 120 120);
+    --notification-z-index: 900;
+    --topmost-z-index: 999;
+    --on-top-of-map-z-index: 1000;
+    --data-explorer-page-left-pane-default-width: 22rem;
+    --data-explorer-page-right-pane-default-width: 22rem;
+    --dashboards-page-left-pane-default-width: 25rem;
+    --dashboards-page-right-pane-default-width: 25rem;
+    --triggers-page-left-pane-default-width: 22%;
+    --dialog-header-and-footer-background-color: rgba(230 230 230);
+
+    font-size: var(--base-font-size);
+  }
 }

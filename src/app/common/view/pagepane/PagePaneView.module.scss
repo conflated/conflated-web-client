@@ -1,5 +1,5 @@
 .pagePane {
-  background-color: #fff;
+  background-color: var(--background-color);
   display: none;
   height: calc(100vh - 3rem);
   max-width: 50vw;

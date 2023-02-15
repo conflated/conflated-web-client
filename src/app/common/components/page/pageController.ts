@@ -21,9 +21,9 @@ class PageController extends Controller<PageStateNamespace> {
 
       flashBrieflyPaneActivatorHints: () => {
         this.dispatch(new ShowPagePaneActivatorHintAction(stateNamespace));
-        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 1000);
-        setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(stateNamespace)), 2000);
-        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 3000);
+        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 2000);
+        setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(stateNamespace)), 4000);
+        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 6000);
       },
 
       showPane: (pane: Pane) => this.dispatch(new ShowPagePaneAction(stateNamespace, pane)),

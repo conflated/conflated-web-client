@@ -73,3 +73,21 @@ i.icon.teal {
     text-shadow: none !important;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .ui.secondary.pointing.menu {
+    border-bottom: 2px solid #333333;
+
+    .item:hover:not(.active) {
+      color: var(--selected-list-item-color) !important;
+    }
+
+    .active.item {
+      border-color: #ffffff !important;
+    }
+  }
+}
+
+.ui.menu .item {
+  color: var(--primary-text-color) !important;
+}

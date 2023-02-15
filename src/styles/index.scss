@@ -5,7 +5,8 @@
 @import 'react-resizable';
 
 body {
-  background-color: #ffffff;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
   font-family: var(--brand-font-family);
   font-size: var(--body-font-size);
   -webkit-font-smoothing: antialiased;
