@@ -1,7 +1,7 @@
+import { Controller } from 'oo-redux-utils2';
 import NotifyDragStartAction from '../../../../header/model/actions/NotifyDragStartAction';
 import type { ChartType } from '../../../../common/components/chartarea/chart/model/state/types/ChartType';
 import ChangeChartTypeForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/charttype/ChangeChartTypeForSelectedChartAction';
-import Controller from '../../../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import store from '../../../../../store/store';

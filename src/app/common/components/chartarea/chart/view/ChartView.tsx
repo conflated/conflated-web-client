@@ -39,6 +39,6 @@ const ChartView = ({ chart, height, isSelectedChart, selectChart, pageStateNames
   );
 };
 
-export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
   controller.getActionDispatchers(pageStateNamespace)
 )(ChartView);

@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import StartFetchDashboardGroupsAction from './model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import diContainer from '../../../di/diContainer';
 import type { Dashboard } from './model/state/entities/Dashboard';
@@ -11,7 +11,6 @@ import ShowDashboardsPageHeaderAction from './header/model/actions/show/ShowDash
 import HideDashboardsPageHeaderAction from './header/model/actions/show/HideDashboardsPageHeaderAction';
 import Constants from '../../common/Constants';
 import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './header/model/actions/show/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
-import Controller from '../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../store/store';
 import { AppState } from '../../../store/AppState';
@@ -46,7 +45,7 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
           )
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
+        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
           stateNamespace: 'dashboardsPage',
           chart: null
         });
@@ -57,8 +56,9 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
   getActionDispatchers() {
     return {
       showDashboardGroup: this.showDashboardGroup,
+
       startFetchDashboardGroups: () =>
-        this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {
+        this.dispatchWithDi(StartFetchDashboardGroupsAction, diContainer, {
           showDashboardGroup: this.showDashboardGroup
         }),
 
@@ -67,7 +67,7 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
           this.dispatch(new ChangeSelectedDashboardAction(dashboard));
           this.dispatch(new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', dashboard.layout, dashboard.charts));
 
-          this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, {
+          this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
             stateNamespace: 'dashboardsPage',
             chart: null
           });

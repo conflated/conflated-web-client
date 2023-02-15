@@ -1,3 +1,4 @@
+import { Controller } from 'oo-redux-utils2';
 import ExitFullScreenModeAction from './model/actions/ExitFullScreenModeAction';
 import SwitchToFullScreenModeAction from './model/actions/SwitchToFullScreenModeAction';
 import ShowFullScreenModeNotificationAction from './model/actions/ShowFullScreenModeNotificationAction';
@@ -5,7 +6,6 @@ import DismissFullScreenModeNotificationAction from './model/actions/DismissFull
 import ShowDashboardsPageHeaderAction from '../pages/dashboards/header/model/actions/show/ShowDashboardsPageHeaderAction';
 import SelectPageAction from './model/actions/SelectPageAction';
 import type { PageStateNamespace } from '../common/components/page/model/state/types/PageStateNamespace';
-import Controller from '../../Controller';
 import store from '../../store/store';
 import { AppState } from '../../store/AppState';
 

@@ -39,7 +39,4 @@ const DataExplorerPageActionIconsView = ({ openSaveAsDashboardOrReportTemplateDi
   </section>
 );
 
-export default connect(
-  () => controller.getState(),
-  () => controller.getActionDispatchers()
-)(DataExplorerPageActionIconsView);
+export default connect(null, () => controller.getActionDispatchers())(DataExplorerPageActionIconsView);

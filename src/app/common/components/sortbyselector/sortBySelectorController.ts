@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
 import type { SortBySelectorPageStateNamespace } from './model/state/types/SortBySelectorPageStateNamespace';
 import type { TimeSortOption } from '../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
@@ -20,7 +20,6 @@ import ShowSelectedSortBysAction from './model/actions/ShowSelectedSortBysAction
 import HideSelectedSortBysAction from './model/actions/HideSelectedSortBysAction';
 import StartFetchDataForSortByAddedToSelectedChartAction from '../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
 import type { Chart } from '../chartarea/chart/model/state/Chart';
-import Controller from '../../../../Controller';
 import { PageStateNamespace } from '../page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../store/AppState';
 import createShownTimeSortOptionsSelector from './model/state/selectors/createShownTimeSortOptionsSelector';
@@ -75,7 +74,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
             )
           );
 
-          this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -85,7 +84,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         sortDirection: SortDirection
       ) => {
         this.dispatch(new AddSortByToSelectedChartAction(stateNamespace, dimensionOrMeasure, type, sortDirection));
-        this.dispatchWithDi(diContainer, StartFetchDataForSortByAddedToSelectedChartAction, { stateNamespace });
+        this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, { stateNamespace });
       },
 
       changeSelectedSortByAggregationFunctionForSelectedChart: (
@@ -101,7 +100,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -114,7 +113,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -127,7 +126,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -135,7 +134,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
         this.dispatch(new RemoveSelectedSortByFromSelectedChartAction(stateNamespace, selectedSortBy));
 
         if (selectedSortBy.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 

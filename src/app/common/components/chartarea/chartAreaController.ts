@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import type { Chart } from './chart/model/state/Chart';
 import CopyChartAction from './model/actions/chart/copypaste/CopyChartAction';
 import PasteChartAction from './model/actions/chart/copypaste/PasteChartAction';
@@ -12,7 +12,6 @@ import type { ChartType } from './chart/model/state/types/ChartType';
 import DropChartAction from './model/actions/chart/DropChartAction';
 import type { DragType } from '../../../header/model/state/types/DragType';
 import ShowDeleteChartConfirmationInChartMenuAction from './model/actions/chart/menu/confirm/ShowDeleteChartConfirmationInChartMenuAction';
-import Controller from '../../../../Controller';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 

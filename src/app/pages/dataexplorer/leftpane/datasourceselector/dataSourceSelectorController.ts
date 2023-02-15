@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import StartFetchDataSourcesAction from './model/actions/StartFetchDataSourcesAction';
 import ConfirmDataSourceSelectionAction from './model/actions/ConfirmDataSourceSelectionAction';
 import HideDataSourceChangeConfirmationAction from './model/actions/HideDataSourceChangeConfirmationAction';
@@ -9,7 +9,6 @@ import ChangeDataSourceForSelectedChartAction from '../../../../common/component
 import StartFetchDimensionsAction from '../dimensionselector/model/actions/StartFetchDimensionsAction';
 import StartFetchMeasuresAction from '../measureselector/model/actions/StartFetchMeasuresAction';
 import store from '../../../../../store/store';
-import Controller from '../../../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDataSources from './model/selectors/selectShownDataSources';
@@ -29,7 +28,7 @@ class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespac
 
   getActionDispatchers() {
     return {
-      startFetchDataSources: () => this.dispatchWithDi(diContainer, StartFetchDataSourcesAction, {}),
+      startFetchDataSources: () => this.dispatchWithDi(StartFetchDataSourcesAction, diContainer, {}),
       hideDataSourceChangeConfirmation: () => this.dispatch(new HideDataSourceChangeConfirmationAction()),
 
       selectDataSourceToBeConfirmed: (dataSource: DataSource) =>
@@ -39,8 +38,8 @@ class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespac
         if (dataSource) {
           this.dispatch(new ConfirmDataSourceSelectionAction());
           this.dispatch(new ChangeDataSourceForSelectedChartAction('dataExplorerPage', dataSource));
-          this.dispatchWithDi(diContainer, StartFetchDimensionsAction, { dataSource });
-          this.dispatchWithDi(diContainer, StartFetchMeasuresAction, { dataSource });
+          this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { dataSource });
+          this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { dataSource });
         }
       },
 

@@ -1,5 +1,5 @@
+import { Controller } from 'oo-redux-utils2';
 import OpenSaveAsDashboardOrReportTemplateDialogAction from '../../saveasdashboardorreporttemplatedialog/model/actions/OpenSaveAsDashboardOrReportTemplateDialogAction';
-import Controller from '../../../../../Controller';
 import store from '../../../../../store/store';
 
 class DataExplorerActionIconsController extends Controller {

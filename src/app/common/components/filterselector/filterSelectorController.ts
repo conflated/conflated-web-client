@@ -1,3 +1,4 @@
+import { Controller } from 'oo-redux-utils2';
 import AddMeasureFilterToSelectedChartAction from '../chartarea/model/actions/chart/selected/add/selectedfilter/AddMeasureFilterToSelectedChartAction';
 import RemoveSelectedFilterFromSelectedChartAction from '../chartarea/model/actions/chart/selected/remove/RemoveSelectedFilterFromSelectedChartAction';
 import ChangeSelectedFilterAggregationFunctionForSelectedChartAction from '../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterAggregationFunctionForSelectedChartAction';
@@ -23,7 +24,6 @@ import selectShownDimensions from '../../model/state/selectors/createShownDimens
 import selectShownMeasures from '../../model/state/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../selector/model/state/types/SelectorStateNamespace';
 import { ChartAreaPageStateNamespace } from '../chartarea/model/state/types/ChartAreaPageStateNamespace';
-import Controller from '../../../../Controller';
 import { PageStateNamespace } from '../page/model/state/types/PageStateNamespace';
 import store from '../../../../store/store';
 import { controller as selectorWithDefaultActionsController } from '../selectorwithdefaultactions/selectorWithDefaultActionsController';
@@ -51,12 +51,12 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     return {
       addDimensionFilterToSelectedChart: (dimension: Dimension) => {
         this.dispatch(new AddDimensionFilterToSelectedChartAction(stateNamespace, dimension));
-        this.dispatchWithDi(diContainer, StartFetchDataForFilterAddedToSelectedChartAction, { stateNamespace });
+        this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, { stateNamespace });
       },
 
       addMeasureFilterToSelectedChart: (measure: Measure) => {
         this.dispatch(new AddMeasureFilterToSelectedChartAction(stateNamespace, measure));
-        this.dispatchWithDi(diContainer, StartFetchDataForFilterAddedToSelectedChartAction, { stateNamespace });
+        this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, { stateNamespace });
       },
 
       changeSelectedFilterAggregationFunctionForSelectedChart: (
@@ -72,7 +72,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedFilter.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -82,7 +82,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
         );
 
         if (selectedFilter.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 
@@ -94,7 +94,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
           new ChangeSelectedFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType)
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForChangedFilterInSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
           selectedFilter,
           stateNamespace
         });
@@ -108,7 +108,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
           new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType)
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForChangedFilterInSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
           selectedFilter,
           stateNamespace
         });
@@ -118,7 +118,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
         this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(stateNamespace, selectedFilter));
 
         if (selectedFilter.dataScopeType === 'all') {
-          this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace });
+          this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
         }
       },
 

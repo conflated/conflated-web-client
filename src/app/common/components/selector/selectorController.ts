@@ -1,6 +1,6 @@
+import { Controller } from 'oo-redux-utils2';
 import ToggleSelectorOpenAction from './model/actions/ToggleSelectorOpenAction';
 import type { SelectorStateNamespace } from './model/state/types/SelectorStateNamespace';
-import Controller from '../../../../Controller';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 

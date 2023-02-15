@@ -17,6 +17,6 @@ const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
     </div>
   ) : null;
 
-export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
   controller.getActionDispatchers(pageStateNamespace)
 )(DrillUpIconView);

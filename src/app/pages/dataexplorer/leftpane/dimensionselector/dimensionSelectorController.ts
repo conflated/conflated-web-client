@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSelectDimensionToSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/add/selecteddimension/AddSelectDimensionToSelectedChartAction';
 import RemoveSelectedDimensionFromSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/remove/RemoveSelectedDimensionFromSelectedChartAction';
 import ChangeSelectedDimensionColorForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selecteddimension/ChangeSelectedDimensionColorForSelectedChartAction';
@@ -9,7 +9,6 @@ import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import type { Measure } from '../measureselector/model/state/entities/Measure';
 import store from '../../../../../store/store';
-import Controller from '../../../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownMeasures from '../../../../common/model/state/selectors/selectShownMeasures';
@@ -40,7 +39,7 @@ export default class DimensionSelectorController extends Controller<ChartAreaPag
           new AddSelectDimensionToSelectedChartAction('dataExplorerPage', dimension, possibleVisualizationType)
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
           stateNamespace: 'dataExplorerPage'
         });
       },
@@ -48,7 +47,7 @@ export default class DimensionSelectorController extends Controller<ChartAreaPag
       removeSelectedDimensionFromSelectedChart: (selectedDimension: SelectedDimension) => {
         this.dispatch(new RemoveSelectedDimensionFromSelectedChartAction('dataExplorerPage', selectedDimension));
 
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
           stateNamespace: 'dataExplorerPage'
         });
       },

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { Controller } from 'oo-redux-utils2';
 import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
 import SelectChartAction from '../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../model/actions/chart/datapointselection/DeselectChartDataPointAction';
@@ -15,7 +16,6 @@ import RemoveSelectionFilterFromNotSelectedChartsAction from '../model/actions/c
 import type { DrillDown } from './model/state/types/DrillDown';
 import type { Chart } from './model/state/Chart';
 import StartFetchDataForChartAction from '../model/actions/chart/fetchdata/StartFetchDataForChartAction';
-import Controller from '../../../../../Controller';
 
 export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
   selectChart = _.debounce(
@@ -39,7 +39,7 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
 
       drillDownChart: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
         this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension));
-        this.dispatchWithDi(diContainer, StartFetchDataForChartAction, { chart, stateNamespace });
+        this.dispatchWithDi(StartFetchDataForChartAction, diContainer, { chart, stateNamespace });
       },
 
       removeSelectionFilterFromNotSelectedCharts: (chart: Chart) =>
@@ -54,14 +54,14 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
           new AddSelectionFilterToNotSelectedChartsAction(stateNamespace, chart, selectedDimension, filterExpression)
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart, stateNamespace });
+        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, stateNamespace });
       },
 
       startFetchDataForOtherCharts: (chart: Chart) =>
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart, stateNamespace }),
+        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, stateNamespace }),
 
       startFetchDataForSelectedChart: () =>
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, { stateNamespace })
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace })
     };
   }
 }

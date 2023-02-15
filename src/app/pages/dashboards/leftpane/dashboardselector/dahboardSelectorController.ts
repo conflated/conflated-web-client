@@ -1,4 +1,4 @@
-import Controller from '../../../../../Controller';
+import { Controller } from 'oo-redux-utils2';
 import store from '../../../../../store/store';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';

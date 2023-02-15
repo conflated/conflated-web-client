@@ -1,6 +1,6 @@
+import { Controller } from 'oo-redux-utils2';
 import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
-import Controller from '../../../../../../Controller';
 import store from '../../../../../../store/store';
 
 class ChartScrollbarController extends Controller<ChartAreaPageStateNamespace> {

@@ -1,5 +1,5 @@
+import { Controller } from 'oo-redux-utils2';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
-import Controller from '../../../../../Controller';
 import store from '../../../../../store/store';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';

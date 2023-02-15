@@ -1,6 +1,6 @@
+import { Controller } from 'oo-redux-utils2';
 import HidePagePaneAction from '../../page/model/actions/panevisibility/HidePagePaneAction';
 import type { TriggersPageStateNamespace } from '../model/state/TriggersPageStateNamespace';
-import Controller from '../../../../../Controller';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';

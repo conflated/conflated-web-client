@@ -23,6 +23,6 @@ const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Pro
   ) : null;
 };
 
-export default connect(controller.getState, (_, { pageStateNamespace }: OwnProps) =>
+export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
   controller.getActionDispatchers(pageStateNamespace)
 )(ChartScrollbarView);

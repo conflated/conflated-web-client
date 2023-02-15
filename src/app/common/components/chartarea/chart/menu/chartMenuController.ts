@@ -1,3 +1,4 @@
+import { Controller } from 'oo-redux-utils2';
 import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../model/state/Chart';
 import OpenChartExportMenuAction from '../../model/actions/chart/menu/export/OpenChartExportMenuAction';
@@ -11,7 +12,6 @@ import ShowDeleteChartConfirmationInChartMenuAction from '../../model/actions/ch
 import ClearOrRemoveChartAction from '../../model/actions/chart/ClearOrRemoveChartAction';
 import HideChartMenuClearOrDeleteConfirmationAction from '../../model/actions/chart/menu/confirm/HideChartMenuClearOrDeleteConfirmationAction';
 import AllowChartMenuToBeOpenedAction from '../../model/actions/chart/menu/AllowChartMenuToBeOpenedAction';
-import Controller from '../../../../../../Controller';
 import store from '../../../../../../store/store';
 
 class ChartMenuController extends Controller<ChartAreaPageStateNamespace> {

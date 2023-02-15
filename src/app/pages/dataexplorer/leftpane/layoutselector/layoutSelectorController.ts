@@ -1,9 +1,8 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import ToggleLayoutLockedAction from './model/actions/ToggleLayoutLockedAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Layout } from '../../../../common/components/chartarea/model/state/types/Layout';
 import ChangeChartAreaLayoutAction from '../../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAction';
-import Controller from '../../../../../Controller';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';

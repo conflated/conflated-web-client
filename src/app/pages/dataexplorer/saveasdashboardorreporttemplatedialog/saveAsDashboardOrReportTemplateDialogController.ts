@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import StartFetchDashboardGroupsAction from '../../dashboards/model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import CloseSaveAsDashboardOrReportTemplateDialogAction from './model/actions/CloseSaveAsDashboardOrReportTemplateDialogAction';
 import HideSavedSuccessfullyNotificationAction from './model/actions/HideSavedSuccessfullyNotificationAction';
@@ -9,7 +9,6 @@ import AddDashboardToDashboardGroupAction from '../../dashboards/model/actions/a
 import Utils from '../../../common/model/state/utils/Utils';
 import ShowSavedSuccessfullyNotificationAction from './model/actions/ShowSavedSuccessfullyNotificationAction';
 import type { Dashboard } from '../../dashboards/model/state/entities/Dashboard';
-import Controller from '../../../../Controller';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 
@@ -26,7 +25,7 @@ export default class SaveAsDashboardOrReportTemplateDialogController extends Con
     return {
       closeDialog: () => this.dispatch(new CloseSaveAsDashboardOrReportTemplateDialogAction()),
       hideSavedSuccessfullyNotification: () => this.dispatch(new HideSavedSuccessfullyNotificationAction()),
-      startFetchDashboardGroups: () => this.dispatchWithDi(diContainer, StartFetchDashboardGroupsAction, {}),
+      startFetchDashboardGroups: () => this.dispatchWithDi(StartFetchDashboardGroupsAction, diContainer, {}),
 
       saveDashboard: (
         dashboardGroupName: string,

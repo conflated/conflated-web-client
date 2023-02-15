@@ -1,11 +1,10 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import ChangeDashboardSlideChangeIntervalAction from '../model/actions/slideshow/ChangeDashboardSlideChangeIntervalAction';
 import CancelDelayedDashboardsPageHeaderHideAction from './model/actions/show/CancelDelayedDashboardsPageHeaderHideAction';
 import ToggleShouldShowDashboardsPageHeaderPermanentlyAction from './model/actions/show/ToggleShouldShowDashboardsPageHeaderPermanentlyAction';
 import ToggleDashboardsSlideShowPlayAction from '../model/actions/slideshow/ToggleDashboardsSlideShowPlayAction';
 import HideDashboardsPageHeaderAction from './model/actions/show/HideDashboardsPageHeaderAction';
 import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './model/actions/show/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
-import Controller from '../../../../Controller';
 import { AppState } from '../../../../store/AppState';
 import store from '../../../../store/store';
 import { controller as dashboardsPageController } from '../dashboardsPageController';

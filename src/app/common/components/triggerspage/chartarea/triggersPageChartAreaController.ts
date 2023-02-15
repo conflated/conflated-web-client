@@ -1,7 +1,7 @@
+import { Controller } from 'oo-redux-utils2';
 import type { ChartAreaPageStateNamespace } from '../../chartarea/model/state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForOtherChartsAction from '../../chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../di/diContainer';
-import Controller from '../../../../../Controller';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 
@@ -13,7 +13,7 @@ class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNames
   getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       startFetchDataForCharts: () =>
-        this.dispatchWithDi(diContainer, StartFetchDataForOtherChartsAction, { chart: null, stateNamespace })
+        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart: null, stateNamespace })
     };
   }
 }

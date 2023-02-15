@@ -1,4 +1,4 @@
-import OOReduxUtils from 'oo-redux-utils2';
+import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSelectedMeasureToSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/add/selectedmeasure/AddSelectedMeasureToSelectedChartAction';
 import RemoveSelectedMeasureFromSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/remove/RemoveSelectedMeasureFromSelectedChartAction';
 import ChangeSelectedMeasureAggregationFunctionForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureAggregationFunctionForSelectedChartAction';
@@ -11,7 +11,6 @@ import type { MeasureVisualizationType } from '../../../../common/components/cha
 import ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction';
 import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
-import Controller from '../../../../../Controller';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
@@ -43,7 +42,7 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
           new AddSelectedMeasureToSelectedChartAction('dataExplorerPage', measureOrDimension, aggregationFunction)
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
           stateNamespace: 'dataExplorerPage'
         });
       },
@@ -51,7 +50,7 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
       removeSelectedMeasureFromSelectedChart: (selectedMeasure: SelectedMeasure) => {
         this.dispatch(new RemoveSelectedMeasureFromSelectedChartAction('dataExplorerPage', selectedMeasure));
 
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
           stateNamespace: 'dataExplorerPage'
         });
       },
@@ -68,7 +67,7 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
           )
         );
 
-        this.dispatchWithDi(diContainer, StartFetchDataForSelectedChartAction, {
+        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
           stateNamespace: 'dataExplorerPage'
         });
       },
