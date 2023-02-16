@@ -7,7 +7,8 @@ export default class ChartAreaStateUpdater {
   static getNewStateForChangedChart(currentState: ChartAreaState, chart: Chart): ChartAreaState {
     const { charts, selectedChart } = currentState;
 
-    const newChart = chart === selectedChart ? ChartFactory.createChart(chart.getChartConfiguration()) : chart;
+    // const newChart = chart === selectedChart ? ChartFactory.createChart(chart.getChartConfiguration()) : chart;
+    const newChart = ChartFactory.createChart(chart.getChartConfiguration());
 
     const newState = {
       ...currentState,
