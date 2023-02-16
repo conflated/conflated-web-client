@@ -64,7 +64,13 @@ const ChartMenuView = ({
 
   return (
     <div className={className}>
-      <Dropdown open={hasConfirmAction} size="large" floating direction="left" icon={<Icon name="bars" size="large" />}>
+      <Dropdown
+        open={hasConfirmAction}
+        size="large"
+        floating
+        direction="left"
+        icon={<Icon className={styles.icon} name="bars" size="large" />}
+      >
         <Dropdown.Menu>
           <Dropdown.Item
             className={styles.menuItemWithKeyboardShortcut}

@@ -1,3 +1,9 @@
+.icon {
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+  }
+}
+
 .dangerItem {
   color: red !important;
 }
