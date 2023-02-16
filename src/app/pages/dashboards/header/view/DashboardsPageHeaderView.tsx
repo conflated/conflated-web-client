@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Icon } from 'semantic-ui-react';
 import styles from './DashboardsPageHeaderView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
 import type { Dashboard } from '../../model/state/entities/Dashboard';
@@ -97,6 +97,78 @@ const DashboardsPageHeaderView = ({
       <div className={styles.dashboardSelectors}>
         {dashboardSelectorContent}
         {dashboardGroupSelectorContent}
+      </div>
+      <div>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>PgUp</td>
+            <td>Previous dashboard</td>
+          </tr>
+          <tr>
+            <td>PgDown</td>
+            <td>Next dashboard</td>
+          </tr>
+        </table>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>Ctrl + PgUp</td>
+            <td>Prev dashboard group</td>
+          </tr>
+          <tr>
+            <td>Ctrl + PgDown</td>
+            <td>Next dashboard group</td>
+          </tr>
+        </table>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>Ctrl + Home</td>
+            <td>First dashboard</td>
+          </tr>
+          <tr>
+            <td>Ctrl + End</td>
+            <td>Last dashboard </td>
+          </tr>
+        </table>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>
+              <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
+            </td>
+            <td>Scroll chart 1 data point left</td>
+          </tr>
+          <tr>
+            <td>
+              <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
+            </td>
+            <td>Scroll chart 1 data point right</td>
+          </tr>
+        </table>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>
+              Ctrl +
+              <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
+            </td>
+            <td>Scroll chart 1 page left</td>
+          </tr>
+          <tr>
+            <td>
+              Ctrl +
+              <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
+            </td>
+            <td>Scroll chart 1 page right</td>
+          </tr>
+        </table>
+        <table className={styles.keyboardShortcutsTable}>
+          <tr>
+            <td>Home</td>
+            <td>First chart data point</td>
+          </tr>
+          <tr>
+            <td>End</td>
+            <td>Last chart data point</td>
+          </tr>
+        </table>
       </div>
       <div className={styles.emptySpace} />
       <div>

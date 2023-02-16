@@ -35,6 +35,36 @@
     }
   }
 
+  .keyboardShortcutsTable {
+    display: inline-table;
+    margin-left: 2rem;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    td {
+      color: #999999;
+      font-size: 0.6rem;
+      line-height: 0.6rem;
+      padding: 0.16rem;
+
+      .keyboardShortcutIcon {
+        margin: 0;
+      }
+
+      &:first-child {
+        border: 1px solid #bbbbbb;
+        border-radius: 0.25rem;
+        text-align: center;
+      }
+
+      &:last-child {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
   .emptySpace {
     flex-grow: 1;
   }
