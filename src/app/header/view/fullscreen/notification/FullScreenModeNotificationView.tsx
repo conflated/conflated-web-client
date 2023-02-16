@@ -1,5 +1,6 @@
-import React from 'react';
-import { Notification } from 'react-notification';
+import React, { useEffect } from 'react';
+import { Message } from 'semantic-ui-react';
+import styles from './FullScreenModeNotificationView.module.scss';
 import Constants from '../../../../common/Constants';
 
 type Props = {
@@ -9,20 +10,27 @@ type Props = {
 };
 
 const FullScreenModeNotificationView = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   exitFullScreenMode,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   dismissFullScreenModeNotification,
   shouldShowFullScreenModeNotification
-}: Props) => (
-  <Notification
-    isActive={shouldShowFullScreenModeNotification}
-    message={shouldShowFullScreenModeNotification ? '' : 'Press ESC to return to normal mode'}
-    action={shouldShowFullScreenModeNotification ? 'Exit' : 'Dismiss'}
-    title="FULL SCREEN MODE"
-    dismissAfter={Constants.NOTIFICATION_DISMISS_INTERVAL_IN_MILLIS}
-    onClick={shouldShowFullScreenModeNotification ? exitFullScreenMode : dismissFullScreenModeNotification}
-    onDismiss={dismissFullScreenModeNotification}
-    activeBarStyle={{ zIndex: 'var(--notification-z-index)', top: 0, bottom: 'auto', left: 'auto' }}
-  />
-);
+}: Props) => {
+  useEffect(() => {
+    const timeoutId = setTimeout(
+      () => dismissFullScreenModeNotification(),
+      Constants.NOTIFICATION_DISMISS_INTERVAL_IN_MILLIS
+    );
+
+    return () => clearTimeout(timeoutId);
+  });
+
+  return shouldShowFullScreenModeNotification ? (
+    <Message className={styles.message}>
+      <Message.Header>FULL SCREEN MODE</Message.Header>
+      <p>Press ESC to return to normal mode</p>
+    </Message>
+  ) : null;
+};
 
 export default FullScreenModeNotificationView;

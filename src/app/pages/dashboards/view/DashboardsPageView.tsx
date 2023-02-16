@@ -12,6 +12,8 @@ import { ActionDispatchers, controller, State } from '../dashboardsPageControlle
 type Props = ActionDispatchers & State;
 
 const DashboardsPageView = ({
+  firstDashboard,
+  lastDashboard,
   nextDashboard,
   nextDashboardGroup,
   previousDashboard,
@@ -32,7 +34,7 @@ const DashboardsPageView = ({
       let isKeyboardEventHandled = false;
 
       if (keyboardEvent.code === 'PageUp') {
-        if (keyboardEvent.ctrlKey || keyboardEvent.shiftKey) {
+        if (keyboardEvent.shiftKey) {
           showDashboardGroup(previousDashboardGroup);
           isKeyboardEventHandled = true;
         } else {
@@ -40,13 +42,19 @@ const DashboardsPageView = ({
           isKeyboardEventHandled = true;
         }
       } else if (keyboardEvent.code === 'PageDown') {
-        if (keyboardEvent.ctrlKey || keyboardEvent.shiftKey) {
+        if (keyboardEvent.shiftKey) {
           showDashboardGroup(nextDashboardGroup);
           isKeyboardEventHandled = true;
         } else {
           showDashboard(nextDashboard);
           isKeyboardEventHandled = true;
         }
+      } else if (keyboardEvent.shiftKey && keyboardEvent.code === 'Home') {
+        showDashboard(firstDashboard);
+        isKeyboardEventHandled = true;
+      } else if (keyboardEvent.shiftKey && keyboardEvent.code === 'End') {
+        showDashboard(lastDashboard);
+        isKeyboardEventHandled = true;
       }
 
       if (isKeyboardEventHandled) {
@@ -62,6 +70,8 @@ const DashboardsPageView = ({
       document.removeEventListener('keydown', onKeyDown);
     };
   }, [
+    firstDashboard,
+    lastDashboard,
     nextDashboard,
     nextDashboardGroup,
     previousDashboard,

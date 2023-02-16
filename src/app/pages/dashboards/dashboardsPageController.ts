@@ -18,10 +18,14 @@ import selectedNextDashboard from './model/state/selectors/selectedNextDashboard
 import selectNextDashboardGroup from './model/state/selectors/selectNextDashboardGroup';
 import selectPreviousDashboard from './model/state/selectors/selectPreviousDashboard';
 import selectPreviousDashboardGroup from './model/state/selectors/selectPreviousDashboardGroup';
+import selectFirstDashboard from './model/state/selectors/selectFirstDashboard';
+import selectLastDashboard from './model/state/selectors/selectLastDashboard';
 
 class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState(appState: AppState) {
     return OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.dashboardsState, {
+      firstDashboard: selectFirstDashboard(appState),
+      lastDashboard: selectLastDashboard(appState),
       nextDashboard: selectedNextDashboard(appState),
       nextDashboardGroup: selectNextDashboardGroup(appState),
       previousDashboard: selectPreviousDashboard(appState),
