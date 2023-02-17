@@ -6,7 +6,7 @@ import styles2 from '../HeaderView.module.scss';
 const UserMenuView = () => (
   <section className={styles.userMenu}>
     <span className={`${styles2.headerIcon} ${styles.userIcon}`} />
-    <span>PKSILEN</span>
+    <span>Petri</span>
     <Icon name="dropdown" />
   </section>
 );

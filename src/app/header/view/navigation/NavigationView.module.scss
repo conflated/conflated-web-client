@@ -8,8 +8,18 @@
   .link {
     margin-top: 0.17rem;
 
+    &:hover .linkIcon,
+    &:hover .linkText {
+      color: var(--secondary-text-color-on-hover) !important;
+      cursor: pointer;
+    }
+
     .linkIcon {
       text-align: right;
+
+      &.selectedIcon {
+        color: var(--secondary-text-color-on-hover) !important;
+      }
     }
 
     .linkText {
@@ -17,13 +27,7 @@
       font-family: var(--brand-font-family);
       font-size: var(--app-navigation-font-size);
       margin-left: 0.2rem;
-      padding-right: 40px;
-
-      &:hover,
-      &:focus {
-        color: var(--secondary-text-color-on-hover);
-        cursor: pointer;
-      }
+      margin-right: 40px;
 
       &.selected {
         color: var(--secondary-text-color-on-hover);
