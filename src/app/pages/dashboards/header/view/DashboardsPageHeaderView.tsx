@@ -26,6 +26,7 @@ const DashboardsPageHeaderView = ({
   selectedDashboard,
   shouldShowDashboardsHeader,
   shouldShowDashboardsHeaderPermanently,
+  shouldShowKeyboardShortcuts,
   showDashboard,
   showDashboardGroup,
   toggleDashboardsSlideShowPlay,
@@ -86,6 +87,11 @@ const DashboardsPageHeaderView = ({
     [styles.fullScreen]: isFullScreenModeActive
   });
 
+  const tableClassNames = classNames(styles.keyboardShortcutsTable, {
+    [styles.visible]: shouldShowKeyboardShortcuts
+  });
+  console.log(shouldShowKeyboardShortcuts);
+
   return (
     <header
       className={className}
@@ -100,7 +106,7 @@ const DashboardsPageHeaderView = ({
       </div>
       {shouldShowDashboardsHeaderPermanently ? undefined : (
         <div>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>
@@ -116,7 +122,7 @@ const DashboardsPageHeaderView = ({
               </tr>
             </tbody>
           </table>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>
@@ -132,7 +138,7 @@ const DashboardsPageHeaderView = ({
               </tr>
             </tbody>
           </table>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>
@@ -148,23 +154,27 @@ const DashboardsPageHeaderView = ({
               </tr>
             </tbody>
           </table>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>
-                  <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
+                  <span>
+                    <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
+                  </span>
                 </td>
                 <td>Scroll chart 1 data point left</td>
               </tr>
               <tr>
                 <td>
-                  <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
+                  <span>
+                    <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
+                  </span>
                 </td>
                 <td>Scroll chart 1 data point right</td>
               </tr>
             </tbody>
           </table>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>
@@ -186,7 +196,7 @@ const DashboardsPageHeaderView = ({
               </tr>
             </tbody>
           </table>
-          <table className={styles.keyboardShortcutsTable}>
+          <table className={tableClassNames}>
             <tbody>
               <tr>
                 <td>

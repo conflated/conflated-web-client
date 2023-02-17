@@ -36,11 +36,15 @@
   }
 
   .keyboardShortcutsTable {
-    display: inline-table;
+    display: none;
     margin-left: 2rem;
 
     &:not(:first-child) {
       margin-left: 1rem;
+    }
+
+    &.visible {
+      display: inline-table;
     }
 
     td {
