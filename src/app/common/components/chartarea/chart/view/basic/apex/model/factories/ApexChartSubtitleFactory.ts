@@ -2,6 +2,8 @@ import type { Chart } from '../../../../../model/state/Chart';
 
 export default class ApexChartSubtitleFactory {
   static createSubtitle(chart: Chart): object {
+    const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     return {
       text: chart.getSubtitleText(),
       floating: chart.hasFloatingSubtitle(),
@@ -9,7 +11,7 @@ export default class ApexChartSubtitleFactory {
       offsetX: (chart.drillDowns ?? []).length > 0 ? 25 : 0,
       style: {
         fontSize: chart.hasLargerTitle() ? '15px' : '13px',
-        color: 'rgb(150, 150, 150)'
+        color: isDarkModeActive ? 'rgb(180, 180, 180)' : 'rgb(150, 150, 150)'
       }
     };
   }

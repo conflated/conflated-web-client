@@ -34,7 +34,7 @@ class PageController extends Controller<PageStateNamespace> {
   }
 
   getActionDispatchers(stateNamespace: PageStateNamespace) {
-    return this.cachedActionDispatchers(this.createActionDispatchers(stateNamespace));
+    return this.getCachedActionDispatchers(this.createActionDispatchers(stateNamespace));
   }
 }
 

@@ -96,5 +96,5 @@ const HeaderView = ({
 
 export default connect(
   (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
+  () => controller.actionDispatchers
 )(HeaderView);
