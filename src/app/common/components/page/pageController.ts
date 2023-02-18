@@ -8,34 +8,29 @@ import HidePagePaneActivatorHintAction from './model/actions/paneactivatorhints/
 import ShowPagePaneActivatorHintAction from './model/actions/paneactivatorhints/ShowPagePaneActivatorHintAction';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
+import { OwnProps } from './view/PageView';
 
 class PageController extends Controller<PageStateNamespace> {
-  getState(appState: AppState, pageStateNamespace: PageStateNamespace) {
+  getState(appState: AppState, { pageStateNamespace }: OwnProps) {
     return appState.common.pageStates[pageStateNamespace];
   }
 
-  createActionDispatchers(stateNamespace: PageStateNamespace) {
-    return {
-      dragPagePaneGutter: (pane: Pane, pagePaneGutterPosition: number) =>
-        this.dispatch(new PagePaneGutterDragAction(stateNamespace, pane, pagePaneGutterPosition)),
+  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+    dragPagePaneGutter: (pane: Pane, pagePaneGutterPosition: number) =>
+      this.dispatch(new PagePaneGutterDragAction(pageStateNamespace, pane, pagePaneGutterPosition)),
 
-      flashBrieflyPaneActivatorHints: () => {
-        this.dispatch(new ShowPagePaneActivatorHintAction(stateNamespace));
-        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 2000);
-        setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(stateNamespace)), 4000);
-        setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(stateNamespace)), 6000);
-      },
+    flashBrieflyPaneActivatorHints: () => {
+      this.dispatch(new ShowPagePaneActivatorHintAction(pageStateNamespace));
+      setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(pageStateNamespace)), 2000);
+      setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(pageStateNamespace)), 4000);
+      setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(pageStateNamespace)), 6000);
+    },
 
-      showPane: (pane: Pane) => this.dispatch(new ShowPagePaneAction(stateNamespace, pane)),
+    showPane: (pane: Pane) => this.dispatch(new ShowPagePaneAction(pageStateNamespace, pane)),
 
-      startPaneGutterDrag: (pane: Pane, pagePaneGutterPositionOnDragStart: number) =>
-        this.dispatch(new StartPaneGutterDragAction(stateNamespace, pane, pagePaneGutterPositionOnDragStart))
-    };
-  }
-
-  getActionDispatchers(stateNamespace: PageStateNamespace) {
-    return this.getCachedActionDispatchers(this.createActionDispatchers(stateNamespace));
-  }
+    startPaneGutterDrag: (pane: Pane, pagePaneGutterPositionOnDragStart: number) =>
+      this.dispatch(new StartPaneGutterDragAction(pageStateNamespace, pane, pagePaneGutterPositionOnDragStart))
+  });
 }
 
 export const controller = new PageController(store.dispatch);

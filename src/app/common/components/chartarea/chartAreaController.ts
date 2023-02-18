@@ -23,7 +23,7 @@ class ChartAreaController extends Controller<ChartAreaPageStateNamespace> {
     });
   }
 
-  getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
+  createActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
     return {
       dropChart: (chartType: ChartType) => this.dispatch(new DropChartAction(stateNamespace, chartType)),
       leaveChartAreaWithDraggedChart: () => this.dispatch(new LeaveChartAreaWithDraggedChartAction(stateNamespace)),
@@ -40,6 +40,10 @@ class ChartAreaController extends Controller<ChartAreaPageStateNamespace> {
       confirmDeleteChart: (chart: Chart) =>
         this.dispatch(new ShowDeleteChartConfirmationInChartMenuAction(stateNamespace, chart))
     };
+  }
+
+  getActionDispatchers(stateNamespace: ChartAreaPageStateNamespace) {
+    return this.getCachedActionDispatchers(this.createActionDispatchers(stateNamespace));
   }
 }
 

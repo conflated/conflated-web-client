@@ -3,12 +3,11 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import styles from './PageView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
 import type { Pane } from '../model/state/types/Pane';
 import type { PageStateNamespace } from '../model/state/types/PageStateNamespace';
 import { ActionDispatchers, controller, State } from '../pageController';
 
-type OwnProps = {
+export type OwnProps = {
   className?: string;
   header?: JSX.Element;
   leftPane: JSX.Element;
@@ -115,7 +114,4 @@ PageView.defaultProps = {
   showPaneActivatorHintsOnComponentMount: true
 };
 
-export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
-)(PageView);
+export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(PageView);

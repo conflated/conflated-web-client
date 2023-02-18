@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import styles from './HeaderView.module.scss';
-import type { AppState } from '../../../store/AppState';
 import NavigationView from './navigation/NavigationView';
 import UserMenuView from './usermenu/UserMenuView';
 import FullScreenIconView from './fullscreen/icon/FullScreenIconView';
@@ -94,7 +93,4 @@ const HeaderView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.actionDispatchers
-)(HeaderView);
+export default connect(controller.getState, () => controller.actionDispatchers)(HeaderView);

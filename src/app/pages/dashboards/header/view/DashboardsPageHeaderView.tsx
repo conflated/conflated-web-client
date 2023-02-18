@@ -105,7 +105,7 @@ const DashboardsPageHeaderView = ({
         {dashboardGroupSelectorContent}
       </div>
       {shouldShowDashboardsHeaderPermanently ? undefined : (
-        <div>
+        <div className={styles.keyboardShortcuts}>
           <table className={tableClassNames}>
             <tbody>
               <tr>
