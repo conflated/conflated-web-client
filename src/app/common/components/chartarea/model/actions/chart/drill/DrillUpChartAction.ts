@@ -5,8 +5,8 @@ import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
 export default class DrillUpChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
-    super(stateNamespace);
+  constructor(pageStateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
+    super(pageStateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {

@@ -8,15 +8,15 @@ import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  stateNamespace: ChartAreaPageStateNamespace;
+  pageStateNamespace: ChartAreaPageStateNamespace;
 };
 
 @Inject('chartDataService')
 class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
-    super(stateNamespace);
+  constructor({ chartDataService, pageStateNamespace }: ConstructorArgs) {
+    super(pageStateNamespace);
     this.chartDataService = chartDataService;
   }
 
@@ -31,7 +31,7 @@ class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAre
       return this.performAction(
         new StartFetchDataForSelectedChartAction({
           chartDataService: this.chartDataService,
-          stateNamespace: this.stateNamespace
+          pageStateNamespace: this.stateNamespace
         }),
         currentState
       );

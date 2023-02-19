@@ -11,15 +11,15 @@ import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  stateNamespace: ChartAreaPageStateNamespace;
+  pageStateNamespace: ChartAreaPageStateNamespace;
 };
 
 @Inject('chartDataService')
 class StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
-    super(stateNamespace);
+  constructor({ chartDataService, pageStateNamespace }: ConstructorArgs) {
+    super(pageStateNamespace);
     this.chartDataService = chartDataService;
   }
 

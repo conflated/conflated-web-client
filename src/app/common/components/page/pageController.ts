@@ -11,9 +11,7 @@ import { AppState } from '../../../../store/AppState';
 import { OwnProps } from './view/PageView';
 
 class PageController extends Controller<PageStateNamespace> {
-  getState(appState: AppState, { pageStateNamespace }: OwnProps) {
-    return appState.common.pageStates[pageStateNamespace];
-  }
+  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState.common.pageStates[pageStateNamespace];
 
   getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
     dragPagePaneGutter: (pane: Pane, pagePaneGutterPosition: number) =>

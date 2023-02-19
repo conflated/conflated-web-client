@@ -10,7 +10,7 @@ import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  stateNamespace: ChartAreaPageStateNamespace;
+  pageStateNamespace: ChartAreaPageStateNamespace;
   chart: Chart;
 };
 
@@ -20,8 +20,8 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaAction {
 
   readonly chart: Chart;
 
-  constructor({ chartDataService, stateNamespace, chart }: ConstructorArgs) {
-    super(stateNamespace);
+  constructor({ chartDataService, pageStateNamespace, chart }: ConstructorArgs) {
+    super(pageStateNamespace);
     this.chartDataService = chartDataService;
     this.chart = chart;
   }

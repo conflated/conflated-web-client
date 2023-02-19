@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react';
@@ -7,7 +8,7 @@ import { ActionDispatchers, controller } from '../drillUpIconController';
 import type { Chart } from '../../model/state/Chart';
 
 // eslint-disable-next-line react/no-unused-prop-types
-type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
+export type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
@@ -17,6 +18,4 @@ const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
     </div>
   ) : null;
 
-export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(DrillUpIconView);
+export default connect(null, _.memoize(controller.getActionDispatchers))(DrillUpIconView);

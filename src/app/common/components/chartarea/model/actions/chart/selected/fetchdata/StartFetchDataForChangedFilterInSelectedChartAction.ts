@@ -10,7 +10,7 @@ import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  stateNamespace: ChartAreaPageStateNamespace;
+  pageStateNamespace: ChartAreaPageStateNamespace;
   selectedFilter: SelectedFilter;
 };
 
@@ -20,8 +20,8 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
 
   private readonly selectedFilter: SelectedFilter;
 
-  constructor({ chartDataService, stateNamespace, selectedFilter }: ConstructorArgs) {
-    super(stateNamespace);
+  constructor({ chartDataService, pageStateNamespace, selectedFilter }: ConstructorArgs) {
+    super(pageStateNamespace);
     this.chartDataService = chartDataService;
     this.selectedFilter = selectedFilter;
   }
@@ -45,7 +45,7 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
       return this.performAction(
         new ActionClass({
           chartDataService: this.chartDataService,
-          stateNamespace: this.stateNamespace
+          pageStateNamespace: this.stateNamespace
         }),
         currentState
       );

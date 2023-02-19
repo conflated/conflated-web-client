@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
@@ -11,7 +12,7 @@ import DrillUpIconView from '../drillupicon/view/DrillUpIconView';
 import ChartController from '../chartController';
 import store from '../../../../../../store/store';
 
-type OwnProps = {
+export type OwnProps = {
   chart: Chart;
   height: number;
   isSelectedChart: boolean;
@@ -39,6 +40,4 @@ const ChartView = ({ chart, height, isSelectedChart, selectChart, pageStateNames
   );
 };
 
-export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(ChartView);
+export default connect(null, _.memoize(controller.getActionDispatchers))(ChartView);

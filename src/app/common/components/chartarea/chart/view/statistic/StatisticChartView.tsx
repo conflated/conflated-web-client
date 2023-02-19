@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { statisticGroup } from './StatisticChartView.module.scss';
@@ -18,6 +19,4 @@ const StatisticChartView = ({ chart, selectChart, pageStateNamespace }: Props) =
   </div>
 );
 
-export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(StatisticChartView);
+export default connect(null, _.memoize(controller.getActionDispatchers))(StatisticChartView);

@@ -50,7 +50,7 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
         );
 
         this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-          stateNamespace: 'dashboardsPage',
+          pageStateNamespace: 'dashboardsPage',
           chart: null
         });
       }
@@ -72,7 +72,7 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
           this.dispatch(new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', dashboard.layout, dashboard.charts));
 
           this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-            stateNamespace: 'dashboardsPage',
+            pageStateNamespace: 'dashboardsPage',
             chart: null
           });
         }
