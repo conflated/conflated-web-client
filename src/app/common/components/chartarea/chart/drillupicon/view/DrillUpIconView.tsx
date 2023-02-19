@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react';
 import styles from './DrillUpIconView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
-import { ActionDispatchers, controller } from '../drillUpIconController';
+import { ActionDispatchers, controller } from '../controller/drillUpIconController';
 import type { Chart } from '../../model/state/Chart';
 
 // eslint-disable-next-line react/no-unused-prop-types

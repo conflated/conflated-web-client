@@ -1,13 +1,14 @@
+import _ from 'lodash';
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import styles from './ChartMenuView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../model/state/Chart';
-import { ActionDispatchers, controller } from '../chartMenuController';
+import { ActionDispatchers, controller } from '../controller/chartMenuController';
 
 // eslint-disable-next-line react/no-unused-prop-types
-type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+export type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const ChartMenuView = ({
@@ -152,6 +153,4 @@ const ChartMenuView = ({
   );
 };
 
-export default connect(null, (_, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
-)(ChartMenuView);
+export default connect(null, _.memoize(controller.getActionDispatchers))(ChartMenuView);
