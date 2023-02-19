@@ -119,13 +119,17 @@ const DashboardsPageHeaderView = ({
           <tbody>
             <tr>
               <td>
-                <span className={styles.first}>Shift</span>+<span className={styles.second}>PgUp</span>
+                <span className={styles.first}>Shift</span>
+                <b>+</b>
+                <span className={styles.second}>PgUp</span>
               </td>
               <td>Prev dashboard group</td>
             </tr>
             <tr>
               <td>
-                <span className={styles.first}>Shift</span>+<span className={styles.second}>PgDown</span>
+                <span className={styles.first}>Shift</span>
+                <b>+</b>
+                <span className={styles.second}>PgDown</span>
               </td>
               <td>Next dashboard group</td>
             </tr>
@@ -135,13 +139,17 @@ const DashboardsPageHeaderView = ({
           <tbody>
             <tr>
               <td>
-                <span className={styles.first}>Shift</span>+<span className={styles.second}>Home</span>
+                <span className={styles.first}>Shift</span>
+                <b>+</b>
+                <span className={styles.second}>Home</span>
               </td>
               <td>First dashboard</td>
             </tr>
             <tr>
               <td>
-                <span className={styles.first}>Shift</span>+<span className={styles.second}>End</span>
+                <span className={styles.first}>Shift</span>
+                <b>+</b>
+                <span className={styles.second}>End</span>
               </td>
               <td>Last dashboard </td>
             </tr>
@@ -171,7 +179,8 @@ const DashboardsPageHeaderView = ({
           <tbody>
             <tr>
               <td>
-                <span className={styles.first}>Ctrl</span>+
+                <span className={styles.first}>Ctrl</span>
+                <b>+</b>
                 <span className={styles.second}>
                   <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
                 </span>
@@ -180,7 +189,8 @@ const DashboardsPageHeaderView = ({
             </tr>
             <tr>
               <td>
-                <span className={styles.first}>Ctrl</span>+
+                <span className={styles.first}>Ctrl</span>
+                <b>+</b>
                 <span className={styles.second}>
                   <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
                 </span>

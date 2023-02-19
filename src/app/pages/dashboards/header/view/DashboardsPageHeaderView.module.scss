@@ -41,6 +41,7 @@
     justify-content: center;
     margin: 0 2rem;
     opacity: 0;
+    transition: opacity 1s;
 
     &:hover {
       opacity: 1;
@@ -55,7 +56,7 @@
       }
 
       td {
-        color: #999999;
+        color: #666666;
         font-size: 0.6rem;
         line-height: 0.6rem;
         padding: 0.25rem;
@@ -72,7 +73,7 @@
           padding: 0.15rem;
 
           &.first {
-            margin-right: 0.2rem;
+            margin-right: 0.3rem;
           }
 
           &.second {
