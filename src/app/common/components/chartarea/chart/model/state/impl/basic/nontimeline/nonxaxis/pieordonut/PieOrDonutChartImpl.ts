@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { DimensionVisualizationType } from '../../../../../selecteddimension/types/DimensionVisualizationType';
-import NonTimelineChartImpl from '../../NonTimelineChartImpl';
+import AbstractNonTimelineChart from '../../AbstractNonTimelineChart';
 import type { SelectedDimension } from '../../../../../selecteddimension/SelectedDimension';
 import type { DataSeries } from '../../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
@@ -8,7 +8,7 @@ import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { LegendPosition } from '../../../../../types/LegendPosition';
 
-export default class PieOrDonutChartImpl extends NonTimelineChartImpl {
+export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
   getApexChartDataSeries(): DataSeries[] | any[] {
     const emptyData: any[] = [0];
 

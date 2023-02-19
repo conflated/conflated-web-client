@@ -6,9 +6,9 @@ import type { Measure } from '../../../../../../../../../../pages/dataexplorer/l
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
-import NonTimelineChartImpl from '../NonTimelineChartImpl';
+import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 
-export default abstract class XAxisChartImpl extends NonTimelineChartImpl {
+export default abstract class AbstractXAxisChart extends AbstractNonTimelineChart {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.selectedDimensions.length === 1 && visualizationType === 'Legend') {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);

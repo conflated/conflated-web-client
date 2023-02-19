@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import MixedChartImpl from '../MixedChartImpl';
-import type { MeasureVisualizationType } from '../../../../../../selectedmeasure/types/MeasureVisualizationType';
+import AbstractMixedChart from './AbstractMixedChart';
+import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 
-export default class ColumnChartImpl extends MixedChartImpl {
+export default class ColumnChart extends AbstractMixedChart {
   getLegendType(): string {
     return 'timestamp or legend';
   }

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { MeasureVisualizationType } from '../../../../../../selectedmeasure/types/MeasureVisualizationType';
-import ScatterChartImpl from '../scatter/ScatterChartImpl';
-import type { SelectedMeasure } from '../../../../../../selectedmeasure/SelectedMeasure';
-import type { DataSeries } from '../../../../../../types/DataSeries';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
+import ScatterChart from './ScatterChart';
+import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
+import type { DataSeries } from '../../../../../types/DataSeries';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
-export default class BubbleChartImpl extends ScatterChartImpl {
+export default class BubbleChart extends ScatterChart {
   getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 3);
     return super.getConvertSelectedMeasures();

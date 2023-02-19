@@ -2,9 +2,9 @@ import type { SelectedMeasure } from '../../../../../../selectedmeasure/Selected
 import type { Dimension } from '../../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { DimensionVisualizationType } from '../../../../../../selecteddimension/types/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import MixedChartImpl from '../MixedChartImpl';
+import AbstractMixedChart from '../AbstractMixedChart';
 
-export default class LineOrAreaChartImpl extends MixedChartImpl {
+export default class AbstractLineOrAreaChart extends AbstractMixedChart {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.hasTimestampXAxis()) {
       this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);

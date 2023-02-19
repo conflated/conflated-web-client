@@ -3,10 +3,10 @@ import type { DimensionVisualizationType } from '../../../../../selecteddimensio
 import type { FillType } from '../../../../../types/FillType';
 import type { SelectedDimension } from '../../../../../selecteddimension/SelectedDimension';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
-import NonTimelineChartImpl from '../../NonTimelineChartImpl';
+import AbstractNonTimelineChart from '../../AbstractNonTimelineChart';
 import type { LegendPosition } from '../../../../../types/LegendPosition';
 
-export default class DataPointsChartImpl extends NonTimelineChartImpl {
+export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineChart {
   getApexXAxisOptions(): object {
     return {
       type: 'category',

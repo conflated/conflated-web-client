@@ -1,52 +1,52 @@
 import type { Chart } from './Chart';
-import ColumnChartImpl from './impl/basic/nontimeline/xaxis/mixed/column/ColumnChartImpl';
-import AreaChartImpl from './impl/basic/nontimeline/xaxis/mixed/lineorarea/area/AreaChartImpl';
+import ColumnChart from './impl/basic/nontimeline/xaxis/mixed/ColumnChart';
+import AreaChart from './impl/basic/nontimeline/xaxis/mixed/lineorarea/AreaChart';
 import PieOrDonutChartImpl from './impl/basic/nontimeline/nonxaxis/pieordonut/PieOrDonutChartImpl';
-import LineChartImpl from './impl/basic/nontimeline/xaxis/mixed/lineorarea/line/LineChartImpl';
-import BubbleChartImpl from './impl/basic/nontimeline/nonxaxis/datapoints/bubble/BubbleChartImpl';
-import ScatterChartImpl from './impl/basic/nontimeline/nonxaxis/datapoints/scatter/ScatterChartImpl';
+import LineChart from './impl/basic/nontimeline/xaxis/mixed/lineorarea/LineChart';
+import BubbleChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/BubbleChart';
+import ScatterChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/ScatterChart';
 import CandlestickChart from './impl/basic/timeline/CandlestickChart';
-import BoxPlotOrViolinChartImpl from './impl/basic/nontimeline/xaxis/boxplotorviolin/BoxPlotOrViolinChartImpl';
-import RadarChartImpl from './impl/basic/nontimeline/xaxis/radar/RadarChartImpl';
-import HeatmapChartImpl from './impl/basic/nontimeline/xaxis/heatmap/HeatmapChartImpl';
+import BoxPlotOrViolinChart from './impl/basic/nontimeline/xaxis/BoxPlotOrViolinChart';
+import RadarChart from './impl/basic/nontimeline/xaxis/RadarChart';
+import HeatmapChart from './impl/basic/nontimeline/xaxis/HeatmapChart';
 import DataTableChart from './impl/DataTableChart';
 import MapChart from './impl/MapChart';
 import StatisticChart from './impl/basic/timeline/StatisticChart';
 import type { ChartConfiguration } from './ChartConfiguration';
-import BarChartImpl from './impl/basic/nontimeline/xaxis/bar/BarChartImpl';
+import BarChart from './impl/basic/nontimeline/xaxis/BarChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
   static createChart(chartConfiguration?: ChartConfiguration): Chart {
     if (!chartConfiguration) {
-      return new ColumnChartImpl(chartConfiguration);
+      return new ColumnChart(chartConfiguration);
     }
 
     switch (chartConfiguration.chartType) {
       case 'column':
-        return new ColumnChartImpl(chartConfiguration);
+        return new ColumnChart(chartConfiguration);
       case 'bar':
-        return new BarChartImpl(chartConfiguration);
+        return new BarChart(chartConfiguration);
       case 'area':
-        return new AreaChartImpl(chartConfiguration);
+        return new AreaChart(chartConfiguration);
       case 'line':
-        return new LineChartImpl(chartConfiguration);
+        return new LineChart(chartConfiguration);
       case 'donut':
       case 'pie':
         return new PieOrDonutChartImpl(chartConfiguration);
       case 'bubble':
-        return new BubbleChartImpl(chartConfiguration);
+        return new BubbleChart(chartConfiguration);
       case 'scatter':
-        return new ScatterChartImpl(chartConfiguration);
+        return new ScatterChart(chartConfiguration);
       case 'candlestick':
         return new CandlestickChart(chartConfiguration);
       case 'boxplot':
       case 'violin':
-        return new BoxPlotOrViolinChartImpl(chartConfiguration);
+        return new BoxPlotOrViolinChart(chartConfiguration);
       case 'radar':
-        return new RadarChartImpl(chartConfiguration);
+        return new RadarChart(chartConfiguration);
       case 'heatmap':
-        return new HeatmapChartImpl(chartConfiguration);
+        return new HeatmapChart(chartConfiguration);
       case 'map':
         return new MapChart(chartConfiguration);
       case 'statistic':

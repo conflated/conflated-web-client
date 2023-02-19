@@ -1,9 +1,9 @@
-import XAxisChartImpl from '../XAxisChartImpl';
+import AbstractXAxisChart from '../AbstractXAxisChart';
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
 import Utils from '../../../../../../../../../../model/state/utils/Utils';
 
-export default class MixedChartImpl extends XAxisChartImpl {
+export default class AbstractMixedChart extends AbstractXAxisChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

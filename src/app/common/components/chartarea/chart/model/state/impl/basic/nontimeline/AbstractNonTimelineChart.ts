@@ -3,7 +3,7 @@ import type { Dimension } from '../../../../../../../../../pages/dataexplorer/le
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import AbstractBasicChart from '../AbstractBasicChart';
 
-export default abstract class NonTimelineChartImpl extends AbstractBasicChart {
+export default abstract class AbstractNonTimelineChart extends AbstractBasicChart {
   addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);

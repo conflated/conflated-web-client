@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import DataPointsChartImpl from '../DataPointsChartImpl';
-import type { MeasureVisualizationType } from '../../../../../../selectedmeasure/types/MeasureVisualizationType';
-import type { SelectedMeasure } from '../../../../../../selectedmeasure/SelectedMeasure';
-import type { DataSeries } from '../../../../../../types/DataSeries';
+import AbstractBubbleOrScatterChart from './AbstractBubbleOrScatterChart';
+import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
+import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
+import type { DataSeries } from '../../../../../types/DataSeries';
 
-export default class ScatterChartImpl extends DataPointsChartImpl {
+export default class ScatterChart extends AbstractBubbleOrScatterChart {
   getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 2);
     return super.getConvertSelectedMeasures();
