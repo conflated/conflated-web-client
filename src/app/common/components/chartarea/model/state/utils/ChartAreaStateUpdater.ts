@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import type { ChartAreaState } from '../ChartAreaState';
-import ChartFactory from '../../../chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../chart/model/state/ChartFactory';
 import type { Chart } from '../../../chart/model/state/Chart';
 
 export default class ChartAreaStateUpdater {

@@ -1,5 +1,5 @@
 import Constants from '../../../../../common/Constants';
-import ChartFactory from '../../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../../../common/components/chartarea/chart/model/state/ChartFactory';
 import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
 import type { ChartAreaState } from '../../../../../common/components/chartarea/model/state/ChartAreaState';
 
@@ -8,7 +8,7 @@ const dataTableChart = ChartFactory.createChart({
   chartType: 'alertsdatatable',
   dataSource: {
     ...emptyDataSource,
-    name: 'alertsdata',
+    name: 'alertsdata'
   },
   selectedMeasures: [],
   selectedDimensions: [
@@ -19,13 +19,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: 'Severity',
-        expression: 'Severity',
+        expression: 'Severity'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -34,13 +34,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: true,
         isString: false,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Trigger time"',
-        expression: '"Trigger time"',
+        expression: '"Trigger time"'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -49,13 +49,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: false,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Active duration"',
-        expression: '"Active duration"',
+        expression: '"Active duration"'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -64,13 +64,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Alert group"',
-        expression: '"Alert group"',
+        expression: '"Alert group"'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -79,13 +79,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Alert name"',
-        expression: '"Alert name"',
+        expression: '"Alert name"'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -94,13 +94,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Trigger details"',
-        expression: '"Trigger details"',
+        expression: '"Trigger details"'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -109,13 +109,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: 'Status',
-        expression: 'Status',
+        expression: 'Status'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -124,13 +124,13 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: false,
         isString: true,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: 'Assignee',
-        expression: 'Assignee',
+        expression: 'Assignee'
       },
-      visualizationType: 'none',
+      visualizationType: 'none'
     },
     {
       dimension: {
@@ -139,20 +139,20 @@ const dataTableChart = ChartFactory.createChart({
         isTimestamp: true,
         isString: false,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Status last modified"',
-        expression: '"Status last modified"',
+        expression: '"Status last modified"'
       },
-      visualizationType: 'none',
-    },
+      visualizationType: 'none'
+    }
   ],
   selectedFilters: [],
   selectedSortBys: [],
   chartData: {},
   xAxisCategoriesShownCount: 0,
-  fetchedRowCount: 0,
+  fetchedRowCount: 0
 });
 
 const timelineChart = ChartFactory.createChart({
@@ -160,7 +160,7 @@ const timelineChart = ChartFactory.createChart({
   chartType: 'line',
   dataSource: {
     ...emptyDataSource,
-    name: 'alertstatistics',
+    name: 'alertstatistics'
   },
   selectedMeasures: [
     {
@@ -171,15 +171,15 @@ const timelineChart = ChartFactory.createChart({
         isString: false,
         isTimestamp: false,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Trigger time COUNT"',
-        expression: 'COUNT("Trigger time")',
+        expression: 'COUNT("Trigger time")'
       },
       visualizationType: 'line',
-      visualizationColor: '',
-    },
+      visualizationColor: ''
+    }
   ],
   selectedDimensions: [
     {
@@ -189,20 +189,20 @@ const timelineChart = ChartFactory.createChart({
         isTimestamp: true,
         isString: false,
         isDate: false,
-        unit: 'none',
+        unit: 'none'
       },
       sqlColumn: {
         name: '"Trigger time"',
-        expression: '"Trigger time"',
+        expression: '"Trigger time"'
       },
-      visualizationType: 'X-axis categories',
-    },
+      visualizationType: 'X-axis categories'
+    }
   ],
   selectedFilters: [],
   selectedSortBys: [],
   chartData: {},
   xAxisCategoriesShownCount: 10,
-  fetchedRowCount: 1000,
+  fetchedRowCount: 1000
 });
 
 const initialAlertsPageChartAreaState: ChartAreaState = {
@@ -212,18 +212,18 @@ const initialAlertsPageChartAreaState: ChartAreaState = {
       x: 0,
       y: 0,
       w: Constants.GRID_COLUMN_COUNT,
-      h: (2 * Constants.GRID_ROW_COUNT) / 3,
+      h: (2 * Constants.GRID_ROW_COUNT) / 3
     },
     {
       i: '2',
       x: 0,
       y: (2 * Constants.GRID_ROW_COUNT) / 3,
       w: Constants.GRID_COLUMN_COUNT,
-      h: Constants.GRID_ROW_COUNT / 3,
-    },
+      h: Constants.GRID_ROW_COUNT / 3
+    }
   ],
   charts: [dataTableChart, timelineChart],
-  selectedChart: dataTableChart,
+  selectedChart: dataTableChart
 };
 
 export default initialAlertsPageChartAreaState;

@@ -5,7 +5,7 @@ import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPag
 import Constants from '../../../../../Constants';
 import type { ChartType } from '../../../chart/model/state/types/ChartType';
 import Utils from '../../../../../model/state/utils/Utils';
-import ChartFactory from '../../../chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../chart/model/state/ChartFactory';
 import ChangeChartAreaLayoutAction from '../layout/ChangeChartAreaLayoutAction';
 
 export default class DropChartAction extends AbstractChartAreaAction {

@@ -11,10 +11,10 @@ import type { SelectedDimension } from '../../selecteddimension/SelectedDimensio
 import type { LegendPosition } from '../../types/LegendPosition';
 import type { DataPoint } from '../../types/DataPoint';
 import type { DrillDown } from '../../types/DrillDown';
-import DrillDownChartImpl from '../DrillDownChartImpl';
+import AbstractDrillDownChart from '../AbstractDrillDownChart';
 import type { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
 
-export default abstract class BasicChartImpl extends DrillDownChartImpl {
+export default abstract class AbstractBasicChart extends AbstractDrillDownChart {
   isInternallyTriggeredDataPointSelection = false;
 
   dataPointSelectionTimeoutId: ReturnType<typeof setTimeout> | 0 = 0;

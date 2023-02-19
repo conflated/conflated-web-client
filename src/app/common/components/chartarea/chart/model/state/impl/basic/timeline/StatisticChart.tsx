@@ -1,17 +1,17 @@
 import React from 'react';
 import { Statistic } from 'semantic-ui-react';
-import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
-import TimelineChartImpl from '../TimelineChartImpl';
-import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
-import type { FillType } from '../../../../types/FillType';
-import type { Dimension } from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
-import type { Measure } from '../../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
-import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
-import type { ChartAreaPageStateNamespace } from '../../../../../../../model/state/types/ChartAreaPageStateNamespace';
-import ApexChartView from '../../../../../../view/basic/apex/ApexChartView';
+import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
+import AbstractTimelineChart from './AbstractTimelineChart';
+import type { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
+import type { FillType } from '../../../types/FillType';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
+import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
+import type { ChartAreaPageStateNamespace } from '../../../../../../model/state/types/ChartAreaPageStateNamespace';
+import ApexChartView from '../../../../../view/basic/apex/ApexChartView';
 
-export default class StatisticChartImpl extends TimelineChartImpl {
+export default class StatisticChart extends AbstractTimelineChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

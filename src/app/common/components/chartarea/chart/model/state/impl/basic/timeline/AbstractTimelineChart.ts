@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import BasicChartImpl from '../BasicChartImpl';
+import AbstractBasicChart from '../AbstractBasicChart';
 import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
@@ -9,7 +9,7 @@ import Utils from '../../../../../../../../model/state/utils/Utils';
 import type { DataSeries } from '../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 
-export default abstract class TimelineChartImpl extends BasicChartImpl {
+export default abstract class AbstractTimelineChart extends AbstractBasicChart {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedDimensions = [];
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);

@@ -1,16 +1,16 @@
 import React from 'react';
-import ChartFactory from '../../factory/ChartFactory';
-import type { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
-import type { ChartType } from '../../types/ChartType';
-import type { Chart } from '../../Chart';
-import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
-import LeafletMapView from '../../../../view/map/leaflet/LeafletMapView';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
-import type { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
-import DrillDownChartImpl from '../DrillDownChartImpl';
+import ChartFactory from '../ChartFactory';
+import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
+import type { ChartType } from '../types/ChartType';
+import type { Chart } from '../Chart';
+import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
+import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import LeafletMapView from '../../../view/map/leaflet/LeafletMapView';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import AbstractDrillDownChart from './AbstractDrillDownChart';
 
-export default class MapChartImpl extends DrillDownChartImpl {
+export default class MapChart extends AbstractDrillDownChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

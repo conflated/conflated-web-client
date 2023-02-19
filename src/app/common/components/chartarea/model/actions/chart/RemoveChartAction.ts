@@ -4,7 +4,7 @@ import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import Utils from '../../../../../model/state/utils/Utils';
-import ChartFactory from '../../../chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../chart/model/state/ChartFactory';
 
 export default class RemoveChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {

@@ -1,5 +1,5 @@
 import Constants from '../../../../../common/Constants';
-import ChartFactory from '../../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../../../common/components/chartarea/chart/model/state/ChartFactory';
 import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
 import type { ChartAreaState } from '../../../../../common/components/chartarea/model/state/ChartAreaState';
 

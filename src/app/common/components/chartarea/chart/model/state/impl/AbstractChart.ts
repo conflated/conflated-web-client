@@ -16,7 +16,7 @@ import SelectedSortBysImpl from '../selectedsortbys/impl/SelectedSortBysImpl';
 import type { SelectedSortBys } from '../selectedsortbys/SelectedSortBys';
 import type { SelectedFilters } from '../selectedfilters/SelectedFilters';
 import type { FillType } from '../types/FillType';
-import ChartFactory from '../factory/ChartFactory';
+import ChartFactory from '../ChartFactory';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import ChartDataImpl from '../chartdata/ChartDataImpl';
 import type { ChartData } from '../chartdata/ChartData';
@@ -40,7 +40,7 @@ import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 
-export default abstract class AbstractChartImpl implements Chart {
+export default abstract class AbstractChart implements Chart {
   id = '1';
 
   chartType: ChartType = 'column';

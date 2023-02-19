@@ -3,7 +3,7 @@ import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
-import ChartFactory from '../../../chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../chart/model/state/ChartFactory';
 
 export default class ClearChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {

@@ -1,9 +1,9 @@
-import TimelineChartImpl from '../TimelineChartImpl';
-import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
-import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
-import type { DataSeries } from '../../../../types/DataSeries';
+import AbstractTimelineChart from './AbstractTimelineChart';
+import type { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
+import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
+import type { DataSeries } from '../../../types/DataSeries';
 
-export default class CandlestickChartImpl extends TimelineChartImpl {
+export default class CandlestickChart extends AbstractTimelineChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

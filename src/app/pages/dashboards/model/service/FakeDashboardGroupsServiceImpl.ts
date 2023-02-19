@@ -2,7 +2,7 @@ import { DashboardGroupsService } from './DashboardGroupsService';
 import layout1 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
 import layout2 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout2';
 import type { DashboardGroup } from '../state/entities/DashboardGroup';
-import ChartFactory from '../../../../common/components/chartarea/chart/model/state/factory/ChartFactory';
+import ChartFactory from '../../../../common/components/chartarea/chart/model/state/ChartFactory';
 import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
 import emptyDataSource from '../../../../common/model/state/datasource/emptyDataSource';
 import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/entities/Measure';

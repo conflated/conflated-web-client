@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
-import AbstractChartImpl from './AbstractChartImpl';
+import AbstractChart from './AbstractChart';
 
-export default abstract class DrillDownChartImpl extends AbstractChartImpl {
+export default abstract class AbstractDrillDownChart extends AbstractChart {
   drillDown(drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) {
     this.drillDowns?.push(drillDown);
     this.currentDrillDownSelectedDimension = newDrillDownSelectedDimension;

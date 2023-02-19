@@ -9,7 +9,7 @@ import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/Sel
 import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
 import ChartDataImpl from '../state/chartdata/ChartDataImpl';
 
-export default class FakeChartDataServiceImpl implements ChartDataService {
+export default class FakeChartDataService implements ChartDataService {
   private readonly latency = 1000;
 
   // noinspection JSMethodCanBeStatic

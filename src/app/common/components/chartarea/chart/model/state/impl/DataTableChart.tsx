@@ -1,14 +1,14 @@
 import React from 'react';
-import type { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
-import type { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
-import AgGridDataTableView from '../../../../view/datatable/aggrid/AgGridDataTableView';
-import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
-import DrillDownChartImpl from '../DrillDownChartImpl';
-import AgGridAlertsDataTableView from '../../../../view/datatable/aggrid/AgGridAlertsDataTableView';
-import AgGridGoalsDataTableView from '../../../../view/datatable/aggrid/AgGridGoalsDataTableView';
+import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import AgGridDataTableView from '../../../view/datatable/aggrid/AgGridDataTableView';
+import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
+import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import AbstractDrillDownChart from './AbstractDrillDownChart';
+import AgGridAlertsDataTableView from '../../../view/datatable/aggrid/AgGridAlertsDataTableView';
+import AgGridGoalsDataTableView from '../../../view/datatable/aggrid/AgGridGoalsDataTableView';
 
-export default class DataTableChartImpl extends DrillDownChartImpl {
+export default class DataTableChart extends AbstractDrillDownChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
