@@ -1,13 +1,16 @@
 .scrollableChart {
   border: 4px solid transparent;
   height: 100%;
+  padding-bottom: 0.3rem !important;
 
   & > div {
     min-height: auto !important;
   }
 
   .scrollbar {
+    margin: 0 0.5rem;
     visibility: hidden;
+    width: calc(100% - 1rem) !important;
 
     @media (prefers-color-scheme: dark) {
       :global(.button) {
