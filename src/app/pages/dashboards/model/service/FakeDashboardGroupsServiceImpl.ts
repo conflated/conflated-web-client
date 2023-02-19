@@ -7,6 +7,7 @@ import { ChartConfiguration } from '../../../../common/components/chartarea/char
 import emptyDataSource from '../../../../common/model/state/datasource/emptyDataSource';
 import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import layout4 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout4';
 
 export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsService {
   private readonly latency = 1000;
@@ -131,9 +132,49 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
       fetchedRowCount: 100
     };
 
+    const chartConfig4: ChartConfiguration = {
+      id: '3',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#4BDD33',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
     const chart1 = ChartFactory.createChart(chartConfig);
     const chart2 = ChartFactory.createChart(chartConfig2);
     const chart3 = ChartFactory.createChart(chartConfig3);
+    const chart4 = ChartFactory.createChart(chartConfig4);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
@@ -155,6 +196,11 @@ export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsSe
                 name: 'Dashboard 1.3',
                 layout: layout2,
                 charts: [chart1, chart3]
+              },
+              {
+                name: 'Dashboard 1.4',
+                layout: layout4,
+                charts: [chart1, chart3, chart4]
               }
             ]
           },
