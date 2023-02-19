@@ -5,8 +5,7 @@ export default class HideDashboardsPageHeaderAction extends AbstractDashboardsPa
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     const newState = {
       ...currentState,
-      shouldShowDashboardsHeader: false,
-      shouldShowKeyboardShortcuts: true
+      shouldShowDashboardsHeader: false
     };
 
     return newState;

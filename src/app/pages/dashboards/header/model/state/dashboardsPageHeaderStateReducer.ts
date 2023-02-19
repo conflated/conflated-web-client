@@ -6,7 +6,6 @@ import AbstractDashboardsPageHeaderAction from '../actions/AbstractDashboardsPag
 const initialDashboardsPageHeaderState: DashboardsPageHeaderState = {
   shouldShowDashboardsHeader: false,
   shouldShowDashboardsHeaderPermanently: false,
-  shouldShowKeyboardShortcuts: true,
   dashboardsHeaderHideDelayInMillis: 200,
   dashboardsHeaderHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER),
   dashboardsHeaderDelayedHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER)

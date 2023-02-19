@@ -79,7 +79,7 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
       },
 
       showDashboardsHeaderBriefly: () => {
-        this.dispatch(new ShowDashboardsPageHeaderAction(false));
+        this.dispatch(new ShowDashboardsPageHeaderAction());
 
         const headerDelayedHideTimeoutId = setTimeout(
           () => this.dispatch(new HideDashboardsPageHeaderAction()),

@@ -36,6 +36,10 @@
   }
 
   .keyboardShortcuts {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0 2rem;
     opacity: 0;
 
     &:hover {
@@ -43,15 +47,11 @@
     }
 
     .keyboardShortcutsTable {
-      display: none;
-      margin-left: 2rem;
+      display: inline-table;
+
 
       &:not(:first-child) {
         margin-left: 1rem;
-      }
-
-      &.visible {
-        display: inline-table;
       }
 
       td {
@@ -85,10 +85,6 @@
         }
       }
     }
-  }
-
-  .emptySpace {
-    flex-grow: 1;
   }
 
   .actionIcon {
