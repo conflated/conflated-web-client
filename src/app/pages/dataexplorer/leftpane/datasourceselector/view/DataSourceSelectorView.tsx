@@ -2,12 +2,11 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
-import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
-import { ActionDispatchers, controller, State } from '../dataSourceSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/dataSourceSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -111,7 +110,4 @@ const DataSourceSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DataSourceSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DataSourceSelectorView);

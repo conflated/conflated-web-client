@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import type { AppState } from '../../../../../../store/AppState';
 import ChartIconsView from './charticons/ChartIconsView';
 import SelectorView from '../../../../../common/components/selector/view/SelectorView';
-import { ActionDispatchers, controller, State } from '../chartTypeSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/chartTypeSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -23,7 +22,4 @@ const ChartTypeSelectorView = ({ notifyDragEnd, notifyDragStart, selectChartType
   />
 );
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(ChartTypeSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(ChartTypeSelectorView);

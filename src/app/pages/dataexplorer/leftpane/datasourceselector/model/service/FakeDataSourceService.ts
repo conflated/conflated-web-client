@@ -1,7 +1,7 @@
 import { DataSourceService } from './DataSourceService';
 import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 
-export default class FakeDataSourceServiceImpl implements DataSourceService {
+export default class FakeDataSourceService implements DataSourceService {
   latency = 1000;
 
   // TODO: encrypt user, password and sqlStatement in config service and decrypt in data service

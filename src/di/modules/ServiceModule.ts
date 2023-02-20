@@ -1,5 +1,5 @@
 import { Module } from 'noicejs';
-import FakeDataSourceServiceImpl from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceServiceImpl';
+import FakeDataSourceService from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceService';
 import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measureselector/model/service/FakeMeasureServiceImpl';
 import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionServiceImpl';
 import FakeChartDataService from '../../app/common/components/chartarea/chart/model/service/FakeChartDataService';
@@ -9,7 +9,7 @@ import CachingChartDataService from '../../app/common/components/chartarea/chart
 
 export default class ServiceModule extends Module {
   async configure() {
-    this.bind('dataSourceService').toInstance(new FakeDataSourceServiceImpl());
+    this.bind('dataSourceService').toInstance(new FakeDataSourceService());
     this.bind('measureService').toInstance(new FakeMeasureServiceImpl());
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());
     this.bind('chartDataService').toInstance(new CachingChartDataService(new FakeChartDataService()));
