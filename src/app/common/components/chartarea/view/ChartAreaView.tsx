@@ -28,6 +28,11 @@ type Props = OwnProps & State & ActionDispatchers;
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ChartAreaView extends React.Component<Props> {
+  // eslint-disable-next-line react/static-property-placement
+  static defaultProps = {
+    className: undefined
+  };
+
   render() {
     const {
       charts,

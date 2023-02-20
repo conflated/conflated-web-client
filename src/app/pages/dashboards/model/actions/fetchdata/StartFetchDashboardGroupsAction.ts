@@ -3,6 +3,7 @@ import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
+import ShowDashboardGroupAction from '../show/ShowDashboardGroupAction';
 
 class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboardGroups: DashboardGroup[]) {
@@ -24,25 +25,21 @@ class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
 
 type ConstructorArgs = {
   dashboardsService: DashboardGroupsService;
-  showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => void;
 };
 
 @Inject('dashboardsService')
 class StartFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
   readonly dashboardsService: DashboardGroupsService;
 
-  readonly showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) => void;
-
-  constructor({ dashboardsService, showDashboardGroup }: ConstructorArgs) {
+  constructor({ dashboardsService }: ConstructorArgs) {
     super();
     this.dashboardsService = dashboardsService;
-    this.showDashboardGroup = showDashboardGroup;
   }
 
   perform(currentState: DashboardsState): DashboardsState {
     this.dashboardsService.fetchDashboardGroups().then((dashboardGroups: DashboardGroup[]) => {
       this.dispatch(new FinishFetchDashboardGroupsAction(dashboardGroups));
-      this.showDashboardGroup(dashboardGroups[0]);
+      this.dispatch(new ShowDashboardGroupAction(dashboardGroups[0]));
     });
 
     const newState = {

@@ -5,7 +5,6 @@ import type { Dashboard } from '../model/state/types/Dashboard';
 import ChangeChartAreaLayoutAndChartsAction from '../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAndChartsAction';
 import StartFetchDataForOtherChartsAction from '../../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import type { DashboardGroup } from '../model/state/types/DashboardGroup';
-import ChangeSelectedDashboardGroupAction from '../model/actions/changeselected/ChangeSelectedDashboardGroupAction';
 import ChangeSelectedDashboardAction from '../model/actions/changeselected/ChangeSelectedDashboardAction';
 import ShowDashboardsPageHeaderAction from '../header/model/actions/ShowDashboardsPageHeaderAction';
 import HideDashboardsPageHeaderAction from '../header/model/actions/HideDashboardsPageHeaderAction';
@@ -20,6 +19,7 @@ import selectPreviousDashboard from './selectors/selectPreviousDashboard';
 import selectPreviousDashboardGroup from './selectors/selectPreviousDashboardGroup';
 import selectFirstDashboard from './selectors/selectFirstDashboard';
 import selectLastDashboard from './selectors/selectLastDashboard';
+import ShowDashboardGroupAction from '../model/actions/show/ShowDashboardGroupAction';
 
 class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) =>
@@ -34,35 +34,11 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
         appState.dashboardsPage.headerState.shouldShowDashboardsHeaderPermanently
     });
 
-  showDashboardGroup = (dashboardGroup: DashboardGroup | undefined) => {
-    if (dashboardGroup) {
-      this.dispatch(new ChangeSelectedDashboardGroupAction(dashboardGroup));
-      const newSelectedDashboard = dashboardGroup.dashboards?.[0];
-
-      if (newSelectedDashboard) {
-        this.dispatch(
-          new ChangeChartAreaLayoutAndChartsAction(
-            'dashboardsPage',
-            newSelectedDashboard.layout,
-            newSelectedDashboard.charts
-          )
-        );
-
-        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-          pageStateNamespace: 'dashboardsPage',
-          chart: null
-        });
-      }
-    }
-  };
-
   readonly actionDispatchers = {
-    showDashboardGroup: this.showDashboardGroup,
+    showDashboardGroup: (dashboardGroup: DashboardGroup | undefined) =>
+      this.dispatch(new ShowDashboardGroupAction(dashboardGroup)),
 
-    startFetchDashboardGroups: () =>
-      this.dispatchWithDi(StartFetchDashboardGroupsAction, diContainer, {
-        showDashboardGroup: this.showDashboardGroup
-      }),
+    startFetchDashboardGroups: () => this.dispatchWithDi(StartFetchDashboardGroupsAction, diContainer, {}),
 
     showDashboard: (dashboard: Dashboard | undefined) => {
       if (dashboard) {
