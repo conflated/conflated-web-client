@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerListItemView from './triggerlistitem/TriggerListItemView';
@@ -7,10 +8,9 @@ import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { Trigger } from '../model/state/trigger/Trigger';
-import { ActionDispatchers, controller, State } from '../triggerSelectorController';
-import { AppState } from '../../../../../../../store/AppState';
+import { ActionDispatchers, controller, State } from '../controller/triggerSelectorController';
 
-type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerSelectorView = ({
@@ -70,6 +70,6 @@ const TriggerSelectorView = ({
 };
 
 export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(TriggerSelectorView);

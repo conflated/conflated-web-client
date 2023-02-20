@@ -1,15 +1,15 @@
+import _ from 'lodash';
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListItemView';
-import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
-import { ActionDispatchers, controller, State } from '../triggerGroupSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/triggerGroupSelectorController';
 
-type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerGroupSelectorView = ({
@@ -70,6 +70,6 @@ const TriggerGroupSelectorView = ({
 };
 
 export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  controller.getState,
+  _.memoize((_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(TriggerGroupSelectorView);
