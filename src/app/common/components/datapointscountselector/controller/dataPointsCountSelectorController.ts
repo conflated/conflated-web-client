@@ -7,6 +7,7 @@ import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/DataPointsCountSelectorView';
+import { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
 
 class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNamespace> {
   getState(appState: AppState, { pageStateNamespace }: OwnProps) {
@@ -15,7 +16,7 @@ class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNam
     };
   }
 
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: DataPointsCountSelectorPageStateNamespace) => ({
     changeFetchedRowCountForSelectedChart: (fetchedRowCount: string) => {
       this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(pageStateNamespace, fetchedRowCount));
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {});

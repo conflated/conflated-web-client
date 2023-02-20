@@ -68,4 +68,7 @@ const DataPointsCountSelectorView = ({
   );
 };
 
-export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(DataPointsCountSelectorView);
+export default connect(
+  controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(DataPointsCountSelectorView);
