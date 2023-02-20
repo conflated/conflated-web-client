@@ -7,7 +7,7 @@ import UserMenuView from './usermenu/UserMenuView';
 import FullScreenIconView from './fullscreen/icon/FullScreenIconView';
 import FullScreenModeNotificationView from './fullscreen/notification/FullScreenModeNotificationView';
 import FullScreenModeNotificationActivatorView from './fullscreen/notification/activator/FullScreenModeNotificationActivatorView';
-import { ActionDispatchers, controller, State } from '../headerController';
+import { ActionDispatchers, controller, State } from '../controller/headerController';
 import DropDownMenuView from './dropdownmenu/DropDownMenuView';
 
 type Props = ActionDispatchers & State;

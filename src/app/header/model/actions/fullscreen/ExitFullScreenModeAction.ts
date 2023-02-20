@@ -1,5 +1,5 @@
-import AbstractHeaderAction from './AbstractHeaderAction';
-import type { HeaderState } from '../state/HeaderState';
+import AbstractHeaderAction from '../AbstractHeaderAction';
+import type { HeaderState } from '../../state/HeaderState';
 
 export default class ExitFullScreenModeAction extends AbstractHeaderAction {
   perform(currentState: HeaderState): HeaderState {
