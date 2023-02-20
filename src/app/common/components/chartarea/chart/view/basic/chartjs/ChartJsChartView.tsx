@@ -6,7 +6,7 @@ import { Chart as ChartJsChart } from 'chart.js';
 import styles from './ChartJsChartView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
-import ChartJsChartBaseOptionsFactory from './model/factories/ChartJsChartBaseOptionsFactory';
+import ChartJsChartBaseOptionsFactory from './ChartJsChartBaseOptionsFactory';
 
 type OwnProps = {
   chart: Chart;

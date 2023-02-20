@@ -1,34 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
-import type { SelectedDimension } from '../../../model/state/selecteddimension/SelectedDimension';
-import type { Chart } from '../../../model/state/Chart';
+import HashValueCalculator from '../../../../../model/state/utils/HashValueCalculator';
+import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
+import type { Chart } from '../../model/state/Chart';
 
 type Props = { chart: Chart; height: number; width: number };
 
 const columnWidthWeights = {
-  Severity: 0.05,
+  Status: 0.1,
   'Trigger time': 0.12,
-  'Active duration': 0.07,
-  'Alert group': 0.14,
-  'Alert name': 0.2,
-  'Trigger details': 0.15,
-  Status: 0.07,
-  Assignee: 0.08,
-  'Status last modified': 0.12
+  'Goal group': 0.2,
+  'Goal name': 0.3,
+  'Trigger details': 0.28
 };
 
-const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
+const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
   let columnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(
-        ({ dimension: { name, isDate, isString, isTimestamp }, sqlColumn }: SelectedDimension): object => {
+        ({ dimension: { name, isString, isTimestamp }, sqlColumn }: SelectedDimension): object => {
           let filter = 'agNumberColumnFilter';
 
           if (isString) {
             filter = 'agTextColumnFilter';
-          } else if (isDate || isTimestamp) {
+          } else if (isTimestamp) {
             filter = 'agDateColumnFilter';
           }
 
@@ -42,16 +38,15 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             filter
           };
 
-          const severityToPriorityValueMap = {
-            Critical: 4,
-            Major: 3,
-            Minor: 2,
-            Info: 1
+          const statusToPriorityValueMap = {
+            'Far below target': 3,
+            'Below target': 2,
+            'On target': 1
           };
 
-          if (name === 'Severity') {
-            (colDef as any).comparator = (severity1: string, severity2: string) =>
-              (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
+          if (name === 'Status') {
+            (colDef as any).comparator = (status1: string, status2: string) =>
+              (statusToPriorityValueMap as any)[status1] - (statusToPriorityValueMap as any)[status2];
           }
 
           return colDef;
@@ -60,21 +55,21 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
     [chart.selectedDimensions, width]
   );
 
-  const severityIndicatorColumnDef = useMemo(
+  const statusIndicatorColumnDef = useMemo(
     () => ({
       width: 20,
-      field: 'Severity',
+      field: 'Status',
       cellStyle(params: any): object {
         let color;
         switch (params.value) {
-          case 'Critical':
-            color = 'red';
+          case 'On target':
+            color = 'green';
             break;
-          case 'Major':
-            color = 'orange';
-            break;
-          case 'Minor':
+          case 'Below target':
             color = 'yellow';
+            break;
+          case 'Far below target':
+            color = 'red';
             break;
           default:
             color = 'white';
@@ -85,7 +80,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
     []
   );
 
-  columnDefs = [severityIndicatorColumnDef, ...columnDefs];
+  columnDefs = [statusIndicatorColumnDef, ...columnDefs];
   const dataRows = chart.chartData.getChartDataAsRows();
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
@@ -103,4 +98,4 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
   );
 };
 
-export default AgGridAlertsDataTableView;
+export default AgGridGoalsDataTableView;

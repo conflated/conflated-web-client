@@ -4,7 +4,7 @@ import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import type { Chart } from '../../../model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
-import LeafletMapCircleGeometriesFactory from './factories/LeafletCircleGeometriesFactory';
+import LeafletMapCircleGeometriesFactory from './LeafletCircleGeometriesFactory';
 
 // eslint-disable-next-line react/no-unused-prop-types
 type Props = { chart: Chart; stateNamespace: ChartAreaPageStateNamespace };

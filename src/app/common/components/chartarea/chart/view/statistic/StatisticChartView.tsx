@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { statisticGroup } from './StatisticChartView.module.scss';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../model/state/Chart';
-import ChartController from '../../chartController';
+import ChartController from '../../controller/chartController';
 import store from '../../../../../../../store/store';
 
 export const controller = new ChartController(store.dispatch);

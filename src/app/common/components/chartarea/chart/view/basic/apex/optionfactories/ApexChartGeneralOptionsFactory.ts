@@ -1,4 +1,4 @@
-import type { Chart } from '../../../../../model/state/Chart';
+import type { Chart } from '../../../../model/state/Chart';
 
 export default class ApexChartGeneralOptionsFactory {
   static createGeneralOptions(chart: Chart): object {

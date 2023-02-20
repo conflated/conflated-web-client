@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex,@typescript-eslint/no-explicit-any */
 
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
 import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
 import Constants from '../../../Constants';
 import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
-import { ActionDispatchers, controller, State } from '../chartAreaController';
+import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
 
 type SizeAwareComponent = {
   size: {
@@ -19,7 +19,7 @@ type SizeAwareComponent = {
   };
 };
 
-type OwnProps = SizeAwareComponent & {
+export type OwnProps = SizeAwareComponent & {
   pageStateNamespace: ChartAreaPageStateNamespace;
   className?: string;
 };
@@ -73,8 +73,5 @@ class ChartAreaView extends React.Component<Props> {
 }
 
 export default sizeMe({ monitorHeight: true, monitorWidth: true })(
-  connect(
-    (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-    (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
-  )(ChartAreaView)
+  connect(controller.getState, _.memoize(controller.getActionDispatchers))(ChartAreaView)
 );

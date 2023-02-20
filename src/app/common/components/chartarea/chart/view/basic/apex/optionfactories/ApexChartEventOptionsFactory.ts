@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ChartAreaPageStateNamespace } from '../../../../../../model/state/types/ChartAreaPageStateNamespace';
-import type { Chart } from '../../../../../model/state/Chart';
+import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { Chart } from '../../../../model/state/Chart';
 
 export default class ApexChartEventOptionsFactory {
   static createEventOptions(

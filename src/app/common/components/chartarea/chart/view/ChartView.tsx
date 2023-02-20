@@ -7,9 +7,9 @@ import styles from './ChartView.module.scss';
 import type { Chart } from '../model/state/Chart';
 import ChartMenuView from '../menu/view/ChartMenuView';
 import ChartConfigHintsView from './confighints/ChartConfigHintsView';
-import ChartScrollbarView from '../scrollbar/ChartScrollbarView';
+import ChartScrollbarView from '../scrollbar/view/ChartScrollbarView';
 import DrillUpIconView from '../drillupicon/view/DrillUpIconView';
-import ChartController from '../chartController';
+import ChartController from '../controller/chartController';
 import store from '../../../../../../store/store';
 
 export type OwnProps = {
