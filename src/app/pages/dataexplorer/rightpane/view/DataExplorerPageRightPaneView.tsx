@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import FilterSelectorView from '../../../../common/components/filterselector/view/FilterSelectorView';
 import SortBySelectorView from '../../../../common/components/sortbyselector/view/SortBySelectorView';
 import DataPointsCountSelectorView from '../../../../common/components/datapointscountselector/view/DataPointsCountSelectorView';
-import type { AppState } from '../../../../../store/AppState';
 import DataExplorerPageRightPaneViewUtils from './DataExplorerPageRightPaneViewUtils';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
-import DataExplorerPageActionIconsView from '../actionicons/view/DataExplorerPageActionIconsView';
-import { ActionDispatchers, controller, State } from '../dataExplorerPageRightPaneController';
+import DataExplorerPageActionIconsView from '../actions/view/DataExplorerActionsView';
+import { ActionDispatchers, controller, State } from '../controller/dataExplorerPageRightPaneController';
 
 type Props = ActionDispatchers & State;
 
@@ -60,7 +59,4 @@ const DataExplorerPageRightPaneView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DataExplorerPageRightPaneView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DataExplorerPageRightPaneView);
