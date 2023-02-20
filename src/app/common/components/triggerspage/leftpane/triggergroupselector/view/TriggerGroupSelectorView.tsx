@@ -71,5 +71,5 @@ const TriggerGroupSelectorView = ({
 
 export default connect(
   controller.getState,
-  _.memoize((_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(TriggerGroupSelectorView);
