@@ -20,7 +20,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "noicejs": "^5.0.0-2",
-    "oo-redux-utils2": "^1.0.7",
+    "oo-redux-utils2": "^1.0.8",
     "react": "^18.1.0",
     "react-apexcharts": "^1.4.0",
     "react-compound-slider": "^3.4.0",

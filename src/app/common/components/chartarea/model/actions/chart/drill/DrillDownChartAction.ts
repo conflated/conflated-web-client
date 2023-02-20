@@ -5,6 +5,8 @@ import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartArea
 import type { DrillDown } from '../../../../chart/model/state/types/DrillDown';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import StartFetchDataForChartAction from '../fetchdata/StartFetchDataForChartAction';
+import diContainer from '../../../../../../../../di/diContainer';
 
 export default class DrillDownChartAction extends AbstractChartAreaAction {
   constructor(
@@ -17,6 +19,11 @@ export default class DrillDownChartAction extends AbstractChartAreaAction {
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForChartAction, diContainer, {
+      chart: this.chart,
+      pageStateNamespace: this.stateNamespace
+    });
+
     this.chart.drillDown(this.drillDown, this.newDrillDownSelectedDimension);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
   }

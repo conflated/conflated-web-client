@@ -15,7 +15,6 @@ import type { DataPoint } from '../model/state/types/DataPoint';
 import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/actions/chart/notselected/RemoveSelectionFilterFromNotSelectedChartsAction';
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
-import StartFetchDataForChartAction from '../../model/actions/chart/fetchdata/StartFetchDataForChartAction';
 
 export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
   selectChart = _.debounce(
@@ -38,7 +37,6 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
 
     drillDownChart: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
       this.dispatch(new DrillDownChartAction(pageStateNamespace, chart, drillDown, newDrillDownSelectedDimension));
-      this.dispatchWithDi(StartFetchDataForChartAction, diContainer, { chart, pageStateNamespace });
     },
 
     removeSelectionFilterFromNotSelectedCharts: (chart: Chart) =>
@@ -52,8 +50,6 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
       this.dispatch(
         new AddSelectionFilterToNotSelectedChartsAction(pageStateNamespace, chart, selectedDimension, filterExpression)
       );
-
-      this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, pageStateNamespace });
     },
 
     startFetchDataForOtherCharts: (chart: Chart) =>
