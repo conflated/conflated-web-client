@@ -3,7 +3,7 @@ import AbstractDimensionSelectorAction from './AbstractDimensionSelectorAction';
 import type { DimensionService } from '../service/DimensionService';
 import type { DimensionSelectorState } from '../state/DimensionSelectorState';
 import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import type { Dimension } from '../state/entities/Dimension';
+import type { Dimension } from '../state/types/Dimension';
 
 class FinishFetchDimensionsAction extends AbstractDimensionSelectorAction {
   constructor(private readonly dimensions: Dimension[]) {

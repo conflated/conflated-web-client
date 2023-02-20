@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import LayoutIconsView from './layouticons/LayoutIconsView';
-import type { AppState } from '../../../../../../store/AppState';
 import SelectorView from '../../../../../common/components/selector/view/SelectorView';
 import LayoutSelectorTitleView from './title/LayoutSelectorTitleView';
-import { ActionDispatchers, controller, State } from '../layoutSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/layoutSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -50,7 +49,4 @@ const LayoutSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(LayoutSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(LayoutSelectorView);

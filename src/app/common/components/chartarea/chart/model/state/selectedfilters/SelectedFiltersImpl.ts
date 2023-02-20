@@ -8,7 +8,7 @@ import SqlUtils from '../../../../../../utils/SqlUtils';
 import type { ChartData } from '../chartdata/ChartData';
 import type { FilterInputType } from './selectedfilter/types/FilterInputType';
 import SelectedFilterFactory from './selectedfilter/factory/SelectedFilterFactory';
-import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';

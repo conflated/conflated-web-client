@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Dimension } from '../../model/state/entities/Dimension';
+import type { Dimension } from '../../model/state/types/Dimension';
 import type { ListItemViewProps } from '../../../../../../common/view/listitems/listitem/ListItemView';
 import ListItemView from '../../../../../../common/view/listitems/listitem/ListItemView';
 

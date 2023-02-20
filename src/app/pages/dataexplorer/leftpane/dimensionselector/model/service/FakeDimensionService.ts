@@ -1,5 +1,5 @@
 import { DimensionService } from './DimensionService';
-import type { Dimension } from '../state/entities/Dimension';
+import type { Dimension } from '../state/types/Dimension';
 
 export default class DimensionServiceImpl implements DimensionService {
   latency = 1000;

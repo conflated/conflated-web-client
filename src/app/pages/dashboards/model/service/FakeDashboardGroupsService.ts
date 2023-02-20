@@ -6,7 +6,7 @@ import ChartFactory from '../../../../common/components/chartarea/chart/model/st
 import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
 import emptyDataSource from '../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import layout4 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout4';
 
 export default class FakeDashboardGroupsService implements DashboardGroupsService {

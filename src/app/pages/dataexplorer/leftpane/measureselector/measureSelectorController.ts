@@ -5,7 +5,7 @@ import ChangeSelectedMeasureAggregationFunctionForSelectedChartAction from '../.
 import ChangeSelectedMeasureColorForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureColorForSelectedChartAction';
 import type { SelectedMeasure } from '../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Measure } from './model/state/entities/Measure';
-import type { Dimension } from '../dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../dimensionselector/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction';
@@ -14,7 +14,7 @@ import StartFetchDataForSelectedChartAction from '../../../../common/components/
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
-import selectShownDimensions from '../../../../common/selectors/createShownDimensionsSelector';
+import selectShownDimensions from '../dimensionselector/controller/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../../common/selectors/selectShownMeasures';
 import { controller as selectorWithActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 

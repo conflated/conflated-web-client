@@ -1,4 +1,4 @@
-import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedDimension } from '../SelectedDimension';
 import type { DimensionVisualizationType } from '../types/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';

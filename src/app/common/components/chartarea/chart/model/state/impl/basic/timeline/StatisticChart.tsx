@@ -4,7 +4,7 @@ import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import AbstractTimelineChart from './AbstractTimelineChart';
 import type { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
 import type { FillType } from '../../../types/FillType';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';

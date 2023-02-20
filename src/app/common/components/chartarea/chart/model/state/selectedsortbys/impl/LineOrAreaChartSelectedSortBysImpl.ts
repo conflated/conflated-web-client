@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import XAxisChartSelectedSortBysImpl from './XAxisChartSelectedSortBysImpl';
-import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 import type { SelectedSortBy } from '../selectedsortby/SelectedSortBy';

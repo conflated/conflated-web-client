@@ -4,16 +4,15 @@ import { List } from 'semantic-ui-react';
 import styles from './DimensionSelectorView.module.scss';
 import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
 import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
-import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
-import type { Dimension } from '../model/state/entities/Dimension';
+import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
 import type { Measure } from '../../measureselector/model/state/entities/Measure';
 import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistitem/DraggableMeasureAsDimensionListItemView';
 import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import { ActionDispatchers, controller, State } from '../dimensionSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/dimensionSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -166,7 +165,4 @@ const DimensionSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DimensionSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DimensionSelectorView);

@@ -1,7 +1,7 @@
 import { Module } from 'noicejs';
 import FakeDataSourceService from '../../app/pages/dataexplorer/leftpane/datasourceselector/model/service/FakeDataSourceService';
 import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measureselector/model/service/FakeMeasureServiceImpl';
-import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionServiceImpl';
+import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionService';
 import FakeChartDataService from '../../app/common/components/chartarea/chart/model/service/FakeChartDataService';
 import FakeDashboardGroupsService from '../../app/pages/dashboards/model/service/FakeDashboardGroupsService';
 import FakeAlertDataSourceService from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeAlertDataSourceService';

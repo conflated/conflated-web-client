@@ -1,4 +1,4 @@
-import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { SelectedSortByType } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SelectedfSortByType';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';

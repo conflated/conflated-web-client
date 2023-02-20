@@ -15,7 +15,7 @@ import type { DataPoint } from './types/DataPoint';
 import type { ChartMenuConfirmationType } from './types/ChartMenuConfirmationType';
 import type { ChartData } from './chartdata/ChartData';
 import type { Measure } from '../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import type { Dimension } from '../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Theme } from '../../../../../../pages/dataexplorer/settings/state/entities/Theme';
 import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DataSeries } from './types/DataSeries';

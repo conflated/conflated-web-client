@@ -1,4 +1,4 @@
-import type { Dimension } from './entities/Dimension';
+import type { Dimension } from './types/Dimension';
 
 export type DimensionSelectorState = {
   readonly dimensions: Dimension[];

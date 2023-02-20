@@ -2,7 +2,7 @@ import type { SelectedMeasure } from '../SelectedMeasure';
 import type { AggregationFunction } from '../types/AggregationFunction';
 import type { MeasureVisualizationType } from '../types/MeasureVisualizationType';
 import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
-import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import SqlUtils from '../../../../../../../utils/SqlUtils';
 
 export default class SelectedMeasureFactory {

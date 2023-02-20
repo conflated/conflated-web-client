@@ -9,7 +9,7 @@ import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Measure } from '../model/state/entities/Measure';
-import type { Dimension } from '../../dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../dimensionselector/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';

@@ -1,5 +1,5 @@
 import FilterInputTypeFactory from './FilterInputTypeFactory';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedFilterConfiguration } from '../SelectedFilterConfiguration';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';

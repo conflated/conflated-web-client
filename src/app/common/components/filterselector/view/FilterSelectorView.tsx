@@ -8,7 +8,7 @@ import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilte
 import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
-import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
+import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
