@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from './DataExplorerPageView.module.scss';
-import type { AppState } from '../../../../store/AppState';
 import PageView from '../../../common/components/page/view/PageView';
 import DataExplorerPageLeftPaneView from '../leftpane/view/DataExplorerPageLeftPaneView';
 import DataExplorerPageRightPaneView from '../rightpane/view/DataExplorerPageRightPaneView';
 import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
-import { controller, State } from '../dataExplorerPageController';
+import { controller, State } from '../controller/dataExplorerPageController';
 
 type Props = State;
 
@@ -21,4 +20,4 @@ const DataExplorerPageView = ({ isFullScreenModeActive }: Props) => (
   />
 );
 
-export default connect((appState: AppState) => controller.getState(appState))(DataExplorerPageView);
+export default connect(controller.getState)(DataExplorerPageView);

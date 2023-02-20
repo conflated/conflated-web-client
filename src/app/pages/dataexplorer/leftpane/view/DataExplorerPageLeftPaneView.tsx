@@ -6,10 +6,9 @@ import DataSourceSelector from '../datasourceselector/view/DataSourceSelectorVie
 import DimensionSelector from '../dimensionselector/view/DimensionSelectorView';
 import LayoutSelector from '../layoutselector/view/LayoutSelectorView';
 import MeasureSelector from '../measureselector/view/MeasureSelectorView';
-import type { AppState } from '../../../../../store/AppState';
 import DataExplorerPageLeftPaneViewUtils from './DataExplorerPageLeftPaneViewUtils';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
-import { ActionDispatchers, controller, State } from '../dataExplorerPageLeftPaneController';
+import { ActionDispatchers, controller, State } from '../controller/dataExplorerPageLeftPaneController';
 
 type Props = ActionDispatchers & State;
 
@@ -62,7 +61,4 @@ const DataExplorerPageLeftPaneView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DataExplorerPageLeftPaneView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DataExplorerPageLeftPaneView);
