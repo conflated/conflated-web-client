@@ -1,8 +1,13 @@
-import { AbstractAction } from 'oo-redux-utils2';
-import type { SelectorWithDefaultActionsState } from '../state/SelectorWithDefaultActionsState';
+import { AbstractDispatchingAction, createActionDispatcher } from 'oo-redux-utils2';
+import type { SelectorWithActionsState } from '../state/SelectorWithActionsState';
 import type { SelectorWithActionsStateNamespace } from '../state/types/SelectorWithActionsStateNamespace';
+import store from '../../../../../../store/store';
 
-export default abstract class AbstractSelectorWithActionsAction extends AbstractAction<
-  SelectorWithDefaultActionsState,
+export default abstract class AbstractSelectorWithActionsAction extends AbstractDispatchingAction<
+  SelectorWithActionsState,
   SelectorWithActionsStateNamespace
-> {}
+> {
+  constructor(stateNamespace: SelectorWithActionsStateNamespace) {
+    super(stateNamespace, createActionDispatcher(store.dispatch));
+  }
+}

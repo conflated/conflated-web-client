@@ -1,4 +1,4 @@
-export type SelectorWithDefaultActionsState = {
+export type SelectorWithActionsState = {
   readonly isSelectorMaximized: boolean;
   readonly isSearchInputShown: boolean;
   readonly searchedValue: string;

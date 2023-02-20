@@ -5,7 +5,7 @@ import HidePagePaneActivatorHintAction from './HidePagePaneActivatorHintAction';
 
 export default class FlashBrieflyPaneActivatorHintsAction extends AbstractPageAction {
   perform(currentState: PageState): PageState {
-    setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(this.stateNamespace)), 0);
+    this.dispatchAfterThis(new ShowPagePaneActivatorHintAction(this.stateNamespace));
     setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(this.stateNamespace)), 2000);
     setTimeout(() => this.dispatch(new ShowPagePaneActivatorHintAction(this.stateNamespace)), 4000);
     setTimeout(() => this.dispatch(new HidePagePaneActivatorHintAction(this.stateNamespace)), 6000);

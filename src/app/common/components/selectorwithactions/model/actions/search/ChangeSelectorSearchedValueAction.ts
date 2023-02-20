@@ -1,4 +1,4 @@
-import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDefaultActionsState';
+import type { SelectorWithActionsState } from '../../state/SelectorWithActionsState';
 import AbstractSelectorWithActionsAction from '../AbstractSelectorWithActionsAction';
 import type { SelectorWithActionsStateNamespace } from '../../state/types/SelectorWithActionsStateNamespace';
 
@@ -11,7 +11,7 @@ export default class ChangeSelectorSearchedValueAction extends AbstractSelectorW
     this.searchedValue = searchedValue;
   }
 
-  perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
+  perform(currentState: SelectorWithActionsState): SelectorWithActionsState {
     return {
       ...currentState,
       searchedValue: this.searchedValue
