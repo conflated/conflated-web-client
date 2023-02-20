@@ -6,6 +6,8 @@ import type { Dimension } from '../../../../../../../../../pages/dataexplorer/le
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSortByAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class AddSortByTimeToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -18,6 +20,10 @@ export default class AddSortByTimeToSelectedChartAction extends AbstractChartAre
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, {
+      pageStateNamespace: this.stateNamespace
+    });
+
     const { selectedChart } = currentState;
     selectedChart.selectedSortBys.addSelectedSortByTime(this.dimension, this.timeSortOption, this.sortDirection);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

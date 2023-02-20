@@ -68,8 +68,6 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
             sortDirection
           )
         );
-
-        this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, { stateNamespace });
       }
     },
 
