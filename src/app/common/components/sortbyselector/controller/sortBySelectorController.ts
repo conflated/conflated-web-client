@@ -14,9 +14,6 @@ import ChangeSelectedSortByDirectionForSelectedChartAction from '../../chartarea
 import ChangeSelectedSortByDataScopeTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByDataScopeTypeForSelectedChartAction';
 import type { DataScopeType } from '../../chartarea/chart/model/state/types/DataScopeType';
 import RemoveSelectedSortByFromSelectedChartAction from '../../chartarea/model/actions/chart/selected/remove/RemoveSelectedSortByFromSelectedChartAction';
-import diContainer from '../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
-import StartFetchDataForSortByAddedToSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
 import type { Chart } from '../../chartarea/chart/model/state/Chart';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
@@ -77,7 +74,6 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
       sortDirection: SortDirection
     ) => {
       this.dispatch(new AddSortByToSelectedChartAction(stateNamespace, dimensionOrMeasure, type, sortDirection));
-      this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, { stateNamespace });
     },
 
     changeSelectedSortByAggregationFunctionForSelectedChart: (
@@ -91,10 +87,6 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
           aggregationFunction
         )
       );
-
-      if (selectedSortBy.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
-      }
     },
 
     changeSelectedSortBySortDirectionForSelectedChart: (
@@ -104,10 +96,6 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
       this.dispatch(
         new ChangeSelectedSortByDirectionForSelectedChartAction(stateNamespace, selectedSortBy, sortDirection)
       );
-
-      if (selectedSortBy.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
-      }
     },
 
     changeSelectedSortByDataScopeTypeForSelectedChart: (
@@ -117,18 +105,10 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
       this.dispatch(
         new ChangeSelectedSortByDataScopeTypeForSelectedChartAction(stateNamespace, selectedSortBy, dataScopeType)
       );
-
-      if (selectedSortBy.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
-      }
     },
 
     removeSelectedSortByFromSelectedChart: (selectedSortBy: SelectedSortBy) => {
       this.dispatch(new RemoveSelectedSortByFromSelectedChartAction(stateNamespace, selectedSortBy));
-
-      if (selectedSortBy.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace });
-      }
     },
 
     toggleMaximizeSelector: selectorWithActionsController.getActionDispatchers(

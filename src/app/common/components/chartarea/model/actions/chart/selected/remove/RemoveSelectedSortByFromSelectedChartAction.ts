@@ -3,6 +3,8 @@ import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
+import diContainer from '../../../../../../../../../di/diContainer';
 
 export default class RemoveSelectedSortByFromSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedSortBy: SelectedSortBy) {
@@ -11,6 +13,12 @@ export default class RemoveSelectedSortByFromSelectedChartAction extends Abstrac
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    if (this.selectedSortBy.dataScopeType === 'all') {
+      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+        pageStateNamespace: this.stateNamespace
+      });
+    }
+
     const { selectedChart } = currentState;
     selectedChart.selectedSortBys.removeSelectedSortBy(this.selectedSortBy);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

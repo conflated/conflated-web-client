@@ -6,6 +6,8 @@ import type { SortDirection } from '../../../../../../chart/model/state/selected
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSortByAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class AddSortByToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -18,6 +20,10 @@ export default class AddSortByToSelectedChartAction extends AbstractChartAreaAct
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, {
+      pageStateNamespace: this.stateNamespace
+    });
+
     const { selectedChart } = currentState;
     selectedChart.selectedSortBys.addSelectedSortBy(this.measureOrDimension, this.type, this.sortDirection);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
