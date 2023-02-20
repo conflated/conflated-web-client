@@ -3,7 +3,7 @@ import AddSortByTimeToSelectedChartAction from '../../chartarea/model/actions/ch
 import type { SortBySelectorPageStateNamespace } from '../model/state/types/SortBySelectorPageStateNamespace';
 import type { TimeSortOption } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import AddSortByToSelectedChartAction from '../../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByToSelectedChartAction';
 import ChangeSelectedSortByAggregationFunctionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByAggregationFunctionForSelectedChartAction';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
@@ -24,7 +24,7 @@ import { PageStateNamespace } from '../../page/model/state/types/PageStateNamesp
 import { AppState } from '../../../../../store/AppState';
 import createShownTimeSortOptionsSelector from './selectors/createShownTimeSortOptionsSelector';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
-import selectShownMeasures from '../../../selectors/selectShownMeasures';
+import selectShownMeasures from '../../../../pages/dataexplorer/leftpane/measureselector/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../../../pages/dataexplorer/leftpane/dimensionselector/controller/selectors/createShownDimensionsSelector';
 import store from '../../../../../store/store';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';

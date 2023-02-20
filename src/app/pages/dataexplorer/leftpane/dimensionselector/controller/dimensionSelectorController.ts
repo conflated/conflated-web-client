@@ -7,11 +7,11 @@ import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import diContainer from '../../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
-import type { Measure } from '../../measureselector/model/state/entities/Measure';
+import type { Measure } from '../../measureselector/model/state/types/Measure';
 import store from '../../../../../../store/store';
 import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
-import selectShownMeasures from '../../../../../common/selectors/selectShownMeasures';
+import selectShownMeasures from '../../measureselector/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from './selectors/createShownDimensionsSelector';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 

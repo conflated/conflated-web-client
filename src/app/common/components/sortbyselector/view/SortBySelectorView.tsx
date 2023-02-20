@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './SortBySelectorView.module.scss';
 import SelectedSortByListItemView from './selectedsortbylistitem/SelectedSortByListItemView';
-import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
 import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';

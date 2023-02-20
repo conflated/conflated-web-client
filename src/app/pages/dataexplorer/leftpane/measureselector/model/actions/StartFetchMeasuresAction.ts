@@ -3,7 +3,7 @@ import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
 import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
 import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import type { Measure } from '../state/entities/Measure';
+import type { Measure } from '../state/types/Measure';
 
 class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
   constructor(private readonly measures: Measure[]) {

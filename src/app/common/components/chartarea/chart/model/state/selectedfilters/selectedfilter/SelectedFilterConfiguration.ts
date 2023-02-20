@@ -1,7 +1,7 @@
 import type { FilterType } from './types/FilterType';
 import type { FilterInputType } from './types/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
-import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { DataScopeType } from '../../types/DataScopeType';
 

@@ -4,7 +4,7 @@ import RemoveSelectedFilterFromSelectedChartAction from '../../chartarea/model/a
 import ChangeSelectedFilterAggregationFunctionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterAggregationFunctionForSelectedChartAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
@@ -20,7 +20,7 @@ import StartFetchDataForChangedFilterInSelectedChartAction from '../../chartarea
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../../pages/dataexplorer/leftpane/dimensionselector/controller/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../selectors/selectShownMeasures';
+import selectShownMeasures from '../../../../pages/dataexplorer/leftpane/measureselector/controller/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';

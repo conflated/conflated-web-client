@@ -1,4 +1,4 @@
-import type { Measure } from './entities/Measure';
+import type { Measure } from './types/Measure';
 
 export type MeasureSelectorState = {
   readonly measures: Measure[];

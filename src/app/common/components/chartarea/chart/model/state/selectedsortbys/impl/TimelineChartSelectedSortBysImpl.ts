@@ -1,6 +1,6 @@
 import BasicChartSelectedSortBysImpl from './BasicChartSelectedSortBysImpl';
 import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 
 export default class TimelineChartSelectedSortBysImpl extends BasicChartSelectedSortBysImpl {
   updateSelectedSortBysWhenAddingSelectedDimension(measureOrDimension: Dimension | Measure) {

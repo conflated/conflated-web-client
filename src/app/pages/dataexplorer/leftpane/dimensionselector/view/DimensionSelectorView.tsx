@@ -8,7 +8,7 @@ import SelectorWithDefaultActionsView from '../../../../../common/components/sel
 import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
-import type { Measure } from '../../measureselector/model/state/entities/Measure';
+import type { Measure } from '../../measureselector/model/state/types/Measure';
 import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistitem/DraggableMeasureAsDimensionListItemView';
 import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';

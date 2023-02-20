@@ -9,7 +9,7 @@ import SelectorWithDefaultActionsView from '../../selectorwithactions/view/Selec
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';

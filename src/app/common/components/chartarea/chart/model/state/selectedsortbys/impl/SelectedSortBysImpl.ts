@@ -3,7 +3,7 @@ import type { SelectedSortBys } from '../SelectedSortBys';
 import type { SelectedSortBy } from '../selectedsortby/SelectedSortBy';
 import type { DefaultSelectedSortByType } from '../selectedsortby/types/DefaultSelectedSortByType';
 import Utils from '../../../../../../../utils/Utils';
-import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedSortByType } from '../selectedsortby/types/SelectedfSortByType';
 import type { SortDirection } from '../selectedsortby/types/SortDirection';

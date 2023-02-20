@@ -21,7 +21,7 @@ import type { AggregationFunction } from '../selectedmeasure/types/AggregationFu
 import ChartDataImpl from '../chartdata/ChartDataImpl';
 import type { ChartData } from '../chartdata/ChartData';
 import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import SelectedDimensionFactory from '../selecteddimension/factory/SelectedDimensionFactory';
 import type { Theme } from '../../../../../../../pages/dataexplorer/settings/state/entities/Theme';
 import SelectedMeasureFactory from '../selectedmeasure/factory/SelectedMeasureFactory';

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Measure } from '../../../measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../measureselector/model/state/types/Measure';
 import type { ListItemViewProps } from '../../../../../../common/view/listitems/listitem/ListItemView';
 import ListItemView from '../../../../../../common/view/listitems/listitem/ListItemView';
 

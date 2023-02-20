@@ -5,7 +5,7 @@ import type { DashboardGroup } from '../state/types/DashboardGroup';
 import ChartFactory from '../../../../common/components/chartarea/chart/model/state/ChartFactory';
 import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
 import emptyDataSource from '../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
-import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import layout4 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout4';
 

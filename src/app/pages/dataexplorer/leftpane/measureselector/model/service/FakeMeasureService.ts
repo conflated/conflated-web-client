@@ -1,5 +1,5 @@
 import { MeasureService } from './MeasureService';
-import type { Measure } from '../state/entities/Measure';
+import type { Measure } from '../state/types/Measure';
 
 export default class MeasureServiceImpl implements MeasureService {
   latency = 1000;

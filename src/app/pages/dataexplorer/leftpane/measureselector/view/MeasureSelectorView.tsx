@@ -5,15 +5,14 @@ import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../common/view/dimensionlistitem/DimensionListItemView';
 import MeasureListItemView from '../../../../../common/view/measurelistitem/MeasureListItemView';
-import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
-import type { Measure } from '../model/state/entities/Measure';
+import type { Measure } from '../model/state/types/Measure';
 import type { Dimension } from '../../dimensionselector/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import { ActionDispatchers, controller, State } from '../measureSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/measureSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -140,7 +139,4 @@ const MeasureSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(MeasureSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(MeasureSelectorView);

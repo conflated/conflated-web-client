@@ -1,4 +1,4 @@
-import type { Measure } from '../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { Dimension } from '../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedMeasure } from '../components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';

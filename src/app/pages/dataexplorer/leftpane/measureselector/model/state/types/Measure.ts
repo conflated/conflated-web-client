@@ -1,4 +1,4 @@
-import type { MeasureUnit } from '../types/MeasureUnit';
+import type { MeasureUnit } from './MeasureUnit';
 
 export type Measure = {
   name: string;

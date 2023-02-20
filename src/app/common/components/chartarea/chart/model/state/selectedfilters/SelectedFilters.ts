@@ -3,7 +3,7 @@ import type { SelectedFilter } from './selectedfilter/SelectedFilter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from './selectedfilter/types/FilterInputType';
 import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 
