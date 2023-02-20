@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
@@ -17,10 +18,9 @@ import type { FilterInputType } from '../../chartarea/chart/model/state/selected
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresAndDimensionsTabView from '../../../view/measuresanddimensionstabview/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
-import { ActionDispatchers, controller, State } from '../filterSelectorController';
-import { AppState } from '../../../../../store/AppState';
+import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 
-type OwnProps = { pageStateNamespace: FilterSelectorPageStateNamespace };
+export type OwnProps = { pageStateNamespace: FilterSelectorPageStateNamespace };
 
 type Props = OwnProps & ActionDispatchers & State;
 
@@ -139,7 +139,4 @@ const FilterSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
-)(FilterSelectorView);
+export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(FilterSelectorView);
