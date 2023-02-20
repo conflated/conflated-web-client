@@ -6,15 +6,12 @@ import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/SelectorView';
 
 class SelectorController extends Controller<SelectorStateNamespace> {
-  getState(appState: AppState, { selectorStateNamespace }: OwnProps) {
-    return appState.common.selectorStates[selectorStateNamespace];
-  }
+  getState = (appState: AppState, { selectorStateNamespace }: OwnProps) =>
+    appState.common.selectorStates[selectorStateNamespace];
 
-  getActionDispatchers(_: unknown, { selectorStateNamespace }: OwnProps) {
-    return {
-      toggleSelectorOpen: () => this.dispatch(new ToggleSelectorOpenAction(selectorStateNamespace))
-    };
-  }
+  getActionDispatchers = (selectorStateNamespace: SelectorStateNamespace) => ({
+    toggleSelectorOpen: () => this.dispatch(new ToggleSelectorOpenAction(selectorStateNamespace))
+  });
 }
 
 export const controller = new SelectorController(store.dispatch);

@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import type { TimeSortOption } from '../../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
-import type { AppState } from '../../../../../../../store/AppState';
-import type { SortBySelectorPageStateNamespace } from '../types/SortBySelectorPageStateNamespace';
-import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
+import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
+import type { AppState } from '../../../../../../store/AppState';
+import type { SortBySelectorPageStateNamespace } from '../../model/state/types/SortBySelectorPageStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 
 export default function (pageStateNamespace: SortBySelectorPageStateNamespace) {
   const timeSortOptionsSelector = (appState: AppState) =>

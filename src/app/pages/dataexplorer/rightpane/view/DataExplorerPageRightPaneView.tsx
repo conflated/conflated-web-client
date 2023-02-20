@@ -55,7 +55,7 @@ const DataExplorerPageRightPaneView = ({
       <DataExplorerPageActionIconsView />
       <FilterSelectorView pageStateNamespace="dataExplorerPage" />
       <SortBySelectorView pageStateNamespace="dataExplorerPage" />
-      <DataPointsCountSelectorView selectorStateNamespace="dataExplorerPage" />
+      <DataPointsCountSelectorView pageStateNamespace="dataExplorerPage" />
     </PagePaneView>
   );
 };

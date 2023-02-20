@@ -8,6 +8,7 @@ import type { Chart } from '../../model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import { ActionDispatchers, controller } from '../controller/chartScrollbarController';
 
+// eslint-disable-next-line react/no-unused-prop-types
 type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
@@ -25,5 +26,5 @@ const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Pro
 
 export default connect(
   null,
-  _.memoize((_: unknown, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(ChartScrollbarView);

@@ -141,5 +141,5 @@ const FilterSelectorView = ({
 
 export default connect(
   controller.getState,
-  _.memoize((_: unknown, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(FilterSelectorView);

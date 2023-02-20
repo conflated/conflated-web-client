@@ -53,4 +53,7 @@ SelectorView.defaultProps = {
   titleContent: undefined
 };
 
-export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(SelectorView);
+export default connect(
+  controller.getState,
+  _.memoize((__, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace))
+)(SelectorView);

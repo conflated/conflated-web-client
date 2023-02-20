@@ -12,11 +12,10 @@ import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/SelectorWithActionsView';
 
 class SelectorWithActionsController extends Controller<SelectorWithActionsStateNamespace> {
-  getState(appState: AppState, { selectorStateNamespace }: OwnProps) {
-    return appState.common.selectorWithDefaultActionsStates[selectorStateNamespace];
-  }
+  getState = (appState: AppState, { selectorStateNamespace }: OwnProps) =>
+    appState.common.selectorWithDefaultActionsStates[selectorStateNamespace];
 
-  getActionDispatchers = (_: unknown, { selectorStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (selectorStateNamespace: SelectorWithActionsStateNamespace) => ({
     toggleShowSearchInput: () => this.dispatch(new ToggleShowSearchInputAction(selectorStateNamespace)),
 
     changeSelectorSearchedValue: (searchedValue: string) =>

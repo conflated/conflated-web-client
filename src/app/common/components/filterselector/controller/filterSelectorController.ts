@@ -29,23 +29,21 @@ import { OwnProps } from '../view/FilterSelectorView';
 import { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
-  getState(appState: AppState, { pageStateNamespace }: OwnProps) {
-    return {
-      selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart,
-      shownDimensions: selectShownDimensions(false)(appState),
-      shownMeasures: selectShownMeasures(appState),
+  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
+    selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart,
+    shownDimensions: selectShownDimensions(false)(appState),
+    shownMeasures: selectShownMeasures(appState),
 
-      shouldShowPageRightPanePermanently:
-        appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.rightPane,
+    shouldShowPageRightPanePermanently:
+      appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.rightPane,
 
-      isSortBySelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]].isSelectorOpen,
+    isSortBySelectorOpen:
+      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]].isSelectorOpen,
 
-      isDataPointsCountSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]]
-          .isSelectorOpen
-    };
-  }
+    isDataPointsCountSelectorOpen:
+      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]]
+        .isSelectorOpen
+  });
 
   getActionDispatchers = (pageStateNamespace: FilterSelectorPageStateNamespace) => ({
     addDimensionFilterToSelectedChart: (dimension: Dimension) => {

@@ -19,4 +19,7 @@ const StatisticChartView = ({ chart, selectChart, pageStateNamespace }: Props) =
   </div>
 );
 
-export default connect(null, _.memoize(controller.getActionDispatchers))(StatisticChartView);
+export default connect(
+  null,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(StatisticChartView);

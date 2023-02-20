@@ -10,11 +10,9 @@ import { OwnProps } from '../view/DataPointsCountSelectorView';
 import { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
 
 class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNamespace> {
-  getState(appState: AppState, { pageStateNamespace }: OwnProps) {
-    return {
-      selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart
-    };
-  }
+  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
+    selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart
+  });
 
   getActionDispatchers = (pageStateNamespace: DataPointsCountSelectorPageStateNamespace) => ({
     changeFetchedRowCountForSelectedChart: (fetchedRowCount: string) => {

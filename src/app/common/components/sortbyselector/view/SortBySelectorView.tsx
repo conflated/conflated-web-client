@@ -1,9 +1,9 @@
+import _ from 'lodash';
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './SortBySelectorView.module.scss';
 import SelectedSortByListItemView from './selectedsortbylistitem/SelectedSortByListItemView';
-import type { AppState } from '../../../../../store/AppState';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
@@ -16,10 +16,10 @@ import type { AggregationFunction } from '../../chartarea/chart/model/state/sele
 import type { SortDirection } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
-import { ActionDispatchers, controller, State } from '../sortBySelectorController';
+import { ActionDispatchers, controller, State } from '../controller/sortBySelectorController';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 
-type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
+export type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 const { hidden, selectedSortBysSection, visible } = styles;
 
@@ -136,6 +136,6 @@ const SortBySelectorView = ({
 };
 
 export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  () => controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(SortBySelectorView);

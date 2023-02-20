@@ -100,4 +100,7 @@ SelectorWithActionsView.defaultProps = {
   selectedListItemsContent: undefined
 };
 
-export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(SelectorWithActionsView);
+export default connect(
+  controller.getState,
+  _.memoize((__, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace))
+)(SelectorWithActionsView);
