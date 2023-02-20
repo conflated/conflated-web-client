@@ -17,7 +17,7 @@ import type { SortDirection } from '../../chartarea/chart/model/state/selectedso
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../sortBySelectorController';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 
 type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -49,12 +49,11 @@ const SortBySelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isFilterSelectorOpen,
-          selectorStateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
         },
         {
           isOpen: isDataPointsCountSelectorOpen,
-          selectorStateNamespace:
-            selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
         }
       ]);
     },
@@ -131,7 +130,7 @@ const SortBySelectorView = ({
         />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
-      selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
+      selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
 };

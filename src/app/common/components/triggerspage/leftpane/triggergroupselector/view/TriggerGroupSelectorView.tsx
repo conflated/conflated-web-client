@@ -4,7 +4,7 @@ import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListIte
 import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
 import { ActionDispatchers, controller, State } from '../triggerGroupSelectorController';
@@ -27,12 +27,11 @@ const TriggerGroupSelectorView = ({
     toggleMaximizeSelector([
       {
         isOpen: isTriggerDataSourceSelectorOpen,
-        selectorStateNamespace:
-          selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
+        selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
       },
       {
         isOpen: isTriggerSelectorOpen,
-        selectorStateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+        selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
       }
     ]);
   };
@@ -65,7 +64,7 @@ const TriggerGroupSelectorView = ({
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
-      selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
+      selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
 };

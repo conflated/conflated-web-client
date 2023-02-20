@@ -114,4 +114,7 @@ PageView.defaultProps = {
   showPaneActivatorHintsOnComponentMount: true
 };
 
-export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(PageView);
+export default connect(
+  controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(PageView);

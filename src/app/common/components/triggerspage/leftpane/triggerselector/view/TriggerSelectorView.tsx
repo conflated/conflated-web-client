@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TriggerListItemView from './triggerlistitem/TriggerListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { Trigger } from '../model/state/trigger/Trigger';
@@ -64,7 +64,7 @@ const TriggerSelectorView = ({
       addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert' : 'Add new goal'}
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}
       handleMaximizeIconClick={handleMaximizeIconClick}
-      selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
+      selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
 };

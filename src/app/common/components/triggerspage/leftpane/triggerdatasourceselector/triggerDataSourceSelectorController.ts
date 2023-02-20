@@ -10,7 +10,7 @@ import createShownTriggerDataSourcesSelector from './model/state/selector/create
 import selectorStateNamespaces from '../../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../../store/store';
-import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../selectorwithactions/controller/selectorWithActionsController';
 
 class TriggerDataSourceSelectorController extends Controller<PageStateNamespace> {
@@ -43,7 +43,7 @@ class TriggerDataSourceSelectorController extends Controller<PageStateNamespace>
         this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(stateNamespace, 'leftPane')),
 
       toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
-        selectorWithDefaultActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
+        selectorWithActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
       ).toggleMaximizeSelector
     };
   }

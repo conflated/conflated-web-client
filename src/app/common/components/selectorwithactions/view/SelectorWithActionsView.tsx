@@ -6,7 +6,7 @@ import styles from '../../selector/view/SelectorView.module.scss';
 import SearchInputView from '../../../view/searchinput/SearchInputView';
 import ActionsView from './actions/ActionsView';
 import SelectorView from '../../selector/view/SelectorView';
-import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/types/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/selectorWithActionsController';
 
 export type OwnProps = {
@@ -18,7 +18,7 @@ export type OwnProps = {
   isPinned?: boolean;
   listItemsContent: JSX.Element | Array<JSX.Element> | null;
   selectedListItemsContent?: JSX.Element;
-  selectorStateNamespace: SelectorWithDefaultActionsStateNamespace;
+  selectorStateNamespace: SelectorWithActionsStateNamespace;
   titleText: string;
 };
 

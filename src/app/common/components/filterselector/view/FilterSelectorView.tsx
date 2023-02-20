@@ -11,7 +11,7 @@ import DimensionListItemView from '../../../view/dimensionlistitem/DimensionList
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
@@ -134,9 +134,12 @@ const FilterSelectorView = ({
       handleMaximizeIconClick={handleMaximizeIconClick}
       isPinned={shouldShowPageRightPanePermanently}
       handlePinIconClick={toggleShouldShowPageRightPanePermanently}
-      selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
+      selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
 };
 
-export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(FilterSelectorView);
+export default connect(
+  controller.getState,
+  _.memoize((_: unknown, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(FilterSelectorView);

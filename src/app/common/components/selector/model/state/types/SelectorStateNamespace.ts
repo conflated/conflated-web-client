@@ -1,7 +1,7 @@
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 
 const selectorStateNamespaces = {
-  ...selectorWithDefaultActionsStateNamespaces,
+  ...selectorWithActionsStateNamespaces,
   layoutSelector: 'layoutSelector',
   chartTypeSelector: 'chartTypeSelector',
   dataExplorerPageDataPointsCountSelector: 'dataExplorerPageDataPointsCountSelector',

@@ -1,7 +1,7 @@
 import { Controller } from 'oo-redux-utils2';
 import ToggleShowSearchInputAction from '../model/actions/search/ToggleShowSearchInputAction';
 import ChangeSelectorSearchedValueAction from '../model/actions/search/ChangeSelectorSearchedValueAction';
-import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/types/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';
 import Utils from '../../../model/state/utils/Utils';
 import type { SelectorOpenStatus } from '../model/state/types/SelectorOpenStatus';
 import ToggleSelectorOpenAction from '../../selector/model/actions/ToggleSelectorOpenAction';
@@ -11,7 +11,7 @@ import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/SelectorWithActionsView';
 
-class SelectorWithActionsController extends Controller<SelectorWithDefaultActionsStateNamespace> {
+class SelectorWithActionsController extends Controller<SelectorWithActionsStateNamespace> {
   getState(appState: AppState, { selectorStateNamespace }: OwnProps) {
     return appState.common.selectorWithDefaultActionsStates[selectorStateNamespace];
   }

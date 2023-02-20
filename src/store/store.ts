@@ -16,7 +16,7 @@ import createTriggerSelectorStateReducer from '../app/common/components/triggers
 import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/createSelectorStateReducer';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selectorwithactions/model/state/createSelectorWithDefaultActionsStateReducer';
 import dashboardsPageHeaderStateReducer from '../app/pages/dashboards/header/model/state/dashboardsPageHeaderStateReducer';
 import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/createTriggersPageChartAreaStateReducer';
@@ -26,7 +26,7 @@ const appStateReducer = combineReducers({
   common: combineReducers({
     selectorStates: combineReducers(createNamespacedReducers(selectorStateNamespaces, createSelectorStateReducer)),
     selectorWithDefaultActionsStates: combineReducers(
-      createNamespacedReducers(selectorWithDefaultActionsStateNamespaces, createSelectorWithDefaultActionsStateReducer)
+      createNamespacedReducers(selectorWithActionsStateNamespaces, createSelectorWithDefaultActionsStateReducer)
     ),
     pageStates: combineReducers(createNamespacedReducers(pageStateNamespaces, createPageStateReducer))
   }),

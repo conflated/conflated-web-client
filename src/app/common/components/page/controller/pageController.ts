@@ -13,7 +13,7 @@ import { OwnProps } from '../view/PageView';
 class PageController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState.common.pageStates[pageStateNamespace];
 
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: PageStateNamespace) => ({
     dragPagePaneGutter: (pane: Pane, pagePaneGutterPosition: number) =>
       this.dispatch(new PagePaneGutterDragAction(pageStateNamespace, pane, pagePaneGutterPosition)),
 

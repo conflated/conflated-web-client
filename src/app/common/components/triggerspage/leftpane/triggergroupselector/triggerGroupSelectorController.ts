@@ -5,7 +5,7 @@ import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import createTriggerGroupsSelector from './model/state/selectors/createTriggerGroupsSelector';
 import selectorStateNamespaces from '../../../selector/model/state/types/SelectorStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../selectorwithactions/controller/selectorWithActionsController';
 
 class TriggerGroupSelectorController extends Controller<TriggersPageStateNamespace> {
@@ -28,7 +28,7 @@ class TriggerGroupSelectorController extends Controller<TriggersPageStateNamespa
         this.dispatch(new SelectTriggerGroupAction(stateNamespace, triggerGroup)),
 
       toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
-        selectorWithDefaultActionsStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
+        selectorWithActionsStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
       ).toggleMaximizeSelector
     };
   }

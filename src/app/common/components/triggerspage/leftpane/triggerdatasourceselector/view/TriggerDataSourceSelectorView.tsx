@@ -8,7 +8,7 @@ import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../triggerDataSourceSelectorController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
@@ -79,7 +79,7 @@ const TriggerDataSourceSelectorView = ({
       handleMaximizeIconClick={handleMaximizeIconClick}
       isPinned={shouldShowTriggersPageLeftPanePermanently}
       handlePinIconClick={handlePinIconClick}
-      selectorStateNamespace={selectorWithDefaultActionsStateNamespaces[selectorStateNamespace]}
+      selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
 };

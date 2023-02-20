@@ -1,7 +1,7 @@
 import OOReduxUtils from 'oo-redux-utils2';
 import AbstractSelectorWithActionsAction from '../actions/AbstractSelectorWithActionsAction';
 import type { SelectorWithDefaultActionsState } from './SelectorWithDefaultActionsState';
-import type { SelectorWithDefaultActionsStateNamespace } from './types/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithActionsStateNamespace } from './types/SelectorWithActionsStateNamespace';
 
 const initialSelectorWithDefaultActionsState: SelectorWithDefaultActionsState = {
   isSelectorMaximized: false,
@@ -9,8 +9,8 @@ const initialSelectorWithDefaultActionsState: SelectorWithDefaultActionsState = 
   searchedValue: ''
 };
 
-export default (stateNamespace: SelectorWithDefaultActionsStateNamespace) =>
-  OOReduxUtils.createNamespacedStateReducer<SelectorWithDefaultActionsState, SelectorWithDefaultActionsStateNamespace>(
+export default (stateNamespace: SelectorWithActionsStateNamespace) =>
+  OOReduxUtils.createNamespacedStateReducer<SelectorWithDefaultActionsState, SelectorWithActionsStateNamespace>(
     initialSelectorWithDefaultActionsState,
     AbstractSelectorWithActionsAction,
     stateNamespace

@@ -1,4 +1,4 @@
-const selectorWithDefaultActionsStateNamespaces = {
+const selectorWithActionsStateNamespaces = {
   dashboardGroupSelector: 'dashboardGroupSelector',
   dashboardSelector: 'dashboardSelector',
   dataSourceSelector: 'dataSourceSelector',
@@ -16,6 +16,6 @@ const selectorWithDefaultActionsStateNamespaces = {
   goalsPageTriggerSelector: 'goalsPageTriggerSelector'
 } as Record<string, string>;
 
-export type SelectorWithDefaultActionsStateNamespace = keyof typeof selectorWithDefaultActionsStateNamespaces;
+export type SelectorWithActionsStateNamespace = keyof typeof selectorWithActionsStateNamespaces;
 
-export default selectorWithDefaultActionsStateNamespaces;
+export default selectorWithActionsStateNamespaces;

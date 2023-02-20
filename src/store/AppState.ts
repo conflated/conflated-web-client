@@ -15,7 +15,7 @@ import type { PageState } from '../app/common/components/page/model/state/PageSt
 import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
 import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithactions/model/state/SelectorWithDefaultActionsState';
-import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 
@@ -23,7 +23,7 @@ export type AppState = {
   common: {
     selectorStates: { [K in keyof typeof selectorStateNamespaces]: SelectorState };
     selectorWithDefaultActionsStates: {
-      [K in keyof typeof selectorWithDefaultActionsStateNamespaces]: SelectorWithDefaultActionsState;
+      [K in keyof typeof selectorWithActionsStateNamespaces]: SelectorWithDefaultActionsState;
     };
     pageStates: { [K in keyof typeof pageStateNamespaces]: PageState };
   };

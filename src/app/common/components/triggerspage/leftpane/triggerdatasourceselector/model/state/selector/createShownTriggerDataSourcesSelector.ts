@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import FilterUtils from '../../../../../../../model/state/utils/FilterUtils';
 import type { AppState } from '../../../../../../../../../store/AppState';
 import type { DataSource } from '../../../../../../../model/state/datasource/DataSource';
-import selectorWithDefaultActionsStateNamespaces from '../../../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { TriggersPageStateNamespace } from '../../../../../model/state/TriggersPageStateNamespace';
 
 export default function (pageStateNamespace: TriggersPageStateNamespace) {
@@ -11,7 +11,7 @@ export default function (pageStateNamespace: TriggersPageStateNamespace) {
 
   const searchedValueSelector = (appState: AppState) =>
     appState.common.selectorWithDefaultActionsStates[
-      selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
+      selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
     ].searchedValue;
 
   return createSelector(

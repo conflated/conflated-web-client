@@ -17,15 +17,16 @@ import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../model/state/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
-import { controller as selectorWithDefaultActionsController } from '../../selectorwithactions/controller/selectorWithActionsController';
+import { controller as selectorWithActionsController } from '../../selectorwithactions/controller/selectorWithActionsController';
 import { OwnProps } from '../view/FilterSelectorView';
+import { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
   getState(appState: AppState, { pageStateNamespace }: OwnProps) {
@@ -46,7 +47,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     };
   }
 
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: FilterSelectorPageStateNamespace) => ({
     addDimensionFilterToSelectedChart: (dimension: Dimension) => {
       this.dispatch(new AddDimensionFilterToSelectedChartAction(pageStateNamespace, dimension));
       this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, { pageStateNamespace });
@@ -123,8 +124,8 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     toggleShouldShowPageRightPanePermanently: () =>
       this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(pageStateNamespace, 'rightPane')),
 
-    toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
-      selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
+    toggleMaximizeSelector: selectorWithActionsController.getActionDispatchers(
+      selectorWithActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
     ).toggleMaximizeSelector
   });
 }

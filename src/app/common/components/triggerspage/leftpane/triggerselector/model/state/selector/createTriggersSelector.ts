@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import type { TriggersPageStateNamespace } from '../../../../../model/state/TriggersPageStateNamespace';
 import type { Chart } from '../../../../../../chartarea/chart/model/state/Chart';
-import selectorWithDefaultActionsStateNamespaces from '../../../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { AppState } from '../../../../../../../../../store/AppState';
 import TriggerFactory from '../trigger/TriggerFactory';
 
@@ -14,7 +14,7 @@ export default function createTriggersSelector(pageStateNamespace: TriggersPageS
 
   const searchedValueSelector = (appState: AppState): string =>
     appState.common.selectorWithDefaultActionsStates[
-      selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+      selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
     ].searchedValue;
 
   return createSelector(
