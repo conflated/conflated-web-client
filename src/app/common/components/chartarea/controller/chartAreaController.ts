@@ -24,7 +24,7 @@ class ChartAreaController extends Controller<ChartAreaPageStateNamespace> {
     });
   }
 
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
     dropChart: (chartType: ChartType) => this.dispatch(new DropChartAction(pageStateNamespace, chartType)),
     leaveChartAreaWithDraggedChart: () => this.dispatch(new LeaveChartAreaWithDraggedChartAction(pageStateNamespace)),
     copyChart: (chart: Chart) => this.dispatch(new CopyChartAction(pageStateNamespace, chart)),

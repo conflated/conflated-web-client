@@ -1,12 +1,12 @@
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Accordion, Icon } from 'semantic-ui-react';
 import styles from './SelectorView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
 import type { SelectorStateNamespace } from '../model/state/types/SelectorStateNamespace';
-import { ActionDispatchers, controller, State } from '../selectorController';
+import { ActionDispatchers, controller, State } from '../controller/selectorController';
 
-type OwnProps = {
+export type OwnProps = {
   additionalContent?: JSX.Element | null;
   id: string;
   isSelectorMaximized?: boolean;
@@ -53,7 +53,4 @@ SelectorView.defaultProps = {
   titleContent: undefined
 };
 
-export default connect(
-  (appState: AppState, { selectorStateNamespace }: OwnProps) => controller.getState(appState, selectorStateNamespace),
-  (_, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace)
-)(SelectorView);
+export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(SelectorView);

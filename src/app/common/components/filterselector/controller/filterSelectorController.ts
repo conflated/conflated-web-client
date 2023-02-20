@@ -17,14 +17,14 @@ import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../model/state/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';
-import { controller as selectorWithDefaultActionsController } from '../../selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../selectorwithactions/controller/selectorWithActionsController';
 import { OwnProps } from '../view/FilterSelectorView';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {

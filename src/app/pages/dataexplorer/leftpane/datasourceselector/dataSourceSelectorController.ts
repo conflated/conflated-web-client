@@ -12,7 +12,7 @@ import store from '../../../../../store/store';
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDataSources from './model/selectors/selectShownDataSources';
-import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 
 class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState(appState: AppState) {

@@ -14,8 +14,8 @@ import type { TriggerDataSourceSelectorState } from '../app/common/components/tr
 import type { PageState } from '../app/common/components/page/model/state/PageState';
 import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
-import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithdefaultactions/model/state/SelectorWithDefaultActionsState';
-import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import type { SelectorWithDefaultActionsState } from '../app/common/components/selectorwithactions/model/state/SelectorWithDefaultActionsState';
+import selectorWithDefaultActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 

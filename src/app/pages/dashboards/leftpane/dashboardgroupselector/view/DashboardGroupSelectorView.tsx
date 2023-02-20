@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/entities/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../dashboardGroupSelectorController';
@@ -25,7 +25,7 @@ const DashboardGroupSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isDashboardSelectorOpen,
-          stateNamespace: 'dashboardSelector'
+          selectorStateNamespace: 'dashboardSelector'
         }
       ]);
     },

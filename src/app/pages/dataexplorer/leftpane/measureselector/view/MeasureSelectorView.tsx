@@ -6,7 +6,7 @@ import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeas
 import DimensionListItemView from '../../../../../common/view/dimensionlistitem/DimensionListItemView';
 import MeasureListItemView from '../../../../../common/view/measurelistitem/MeasureListItemView';
 import type { AppState } from '../../../../../../store/AppState';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Measure } from '../model/state/entities/Measure';
 import type { Dimension } from '../../dimensionselector/model/state/entities/Dimension';
@@ -40,19 +40,19 @@ const MeasureSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
-          stateNamespace: 'layoutSelector'
+          selectorStateNamespace: 'layoutSelector'
         },
         {
           isOpen: isChartTypeSelectorOpen,
-          stateNamespace: 'chartTypeSelector'
+          selectorStateNamespace: 'chartTypeSelector'
         },
         {
           isOpen: isDimensionSelectorOpen,
-          stateNamespace: 'dimensionSelector'
+          selectorStateNamespace: 'dimensionSelector'
         },
         {
           isOpen: isDataSourceSelectorOpen,
-          stateNamespace: 'dataSourceSelector'
+          selectorStateNamespace: 'dataSourceSelector'
         }
       ]);
     },

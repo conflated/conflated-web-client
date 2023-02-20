@@ -8,7 +8,7 @@ import type { Chart } from '../../model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import { ActionDispatchers, controller } from '../controller/chartScrollbarController';
 
-export type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Props) => {
@@ -23,4 +23,7 @@ const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Pro
   ) : null;
 };
 
-export default connect(null, _.memoize(controller.getActionDispatchers))(ChartScrollbarView);
+export default connect(
+  null,
+  _.memoize((_: unknown, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(ChartScrollbarView);

@@ -1,7 +1,7 @@
-import AbstractSelectorWithDefaultActionsAction from './AbstractSelectorWithDefaultActionsAction';
+import AbstractSelectorWithActionsAction from './AbstractSelectorWithActionsAction';
 import type { SelectorWithDefaultActionsState } from '../state/SelectorWithDefaultActionsState';
 
-export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithDefaultActionsAction {
+export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithActionsAction {
   perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     return {
       ...currentState,

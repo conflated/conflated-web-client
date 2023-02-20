@@ -16,7 +16,6 @@ import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/action
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
 import StartFetchDataForChartAction from '../../model/actions/chart/fetchdata/StartFetchDataForChartAction';
-import { OwnProps } from '../view/ChartView';
 
 export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
   selectChart = _.debounce(
@@ -25,7 +24,7 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
     150
   );
 
-  getActionDispatchers = (__: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
     selectChart: (chart: Chart) => this.selectChart(pageStateNamespace, chart),
 
     deselectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>

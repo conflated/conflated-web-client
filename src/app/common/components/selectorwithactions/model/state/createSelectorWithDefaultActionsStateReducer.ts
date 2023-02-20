@@ -1,5 +1,5 @@
 import OOReduxUtils from 'oo-redux-utils2';
-import AbstractSelectorWithDefaultActionsAction from '../actions/AbstractSelectorWithDefaultActionsAction';
+import AbstractSelectorWithActionsAction from '../actions/AbstractSelectorWithActionsAction';
 import type { SelectorWithDefaultActionsState } from './SelectorWithDefaultActionsState';
 import type { SelectorWithDefaultActionsStateNamespace } from './types/SelectorWithDefaultActionsStateNamespace';
 
@@ -12,6 +12,6 @@ const initialSelectorWithDefaultActionsState: SelectorWithDefaultActionsState = 
 export default (stateNamespace: SelectorWithDefaultActionsStateNamespace) =>
   OOReduxUtils.createNamespacedStateReducer<SelectorWithDefaultActionsState, SelectorWithDefaultActionsStateNamespace>(
     initialSelectorWithDefaultActionsState,
-    AbstractSelectorWithDefaultActionsAction,
+    AbstractSelectorWithActionsAction,
     stateNamespace
   );

@@ -5,13 +5,13 @@ import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
-import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
@@ -48,11 +48,11 @@ const FilterSelectorView = ({
     toggleMaximizeSelector([
       {
         isOpen: isSortBySelectorOpen,
-        stateNamespace: selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]
+        selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]
       },
       {
         isOpen: isDataPointsCountSelectorOpen,
-        stateNamespace: selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
+        selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
       }
     ]);
   };

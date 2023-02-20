@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import SelectorWithDefaultActionsView from '../../../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../triggerDataSourceSelectorController';
 
 type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
@@ -37,11 +37,11 @@ const TriggerDataSourceSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isTriggerGroupSelectorOpen,
-          stateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]
+          selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]
         },
         {
           isOpen: isTriggerSelectorOpen,
-          stateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+          selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]
         }
       ]);
     },

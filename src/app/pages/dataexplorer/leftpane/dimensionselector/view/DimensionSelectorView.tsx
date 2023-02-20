@@ -5,7 +5,7 @@ import styles from './DimensionSelectorView.module.scss';
 import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
 import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { Dimension } from '../model/state/entities/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
@@ -38,19 +38,19 @@ const DimensionSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
-          stateNamespace: 'layoutSelector'
+          selectorStateNamespace: 'layoutSelector'
         },
         {
           isOpen: isChartTypeSelectorOpen,
-          stateNamespace: 'chartTypeSelector'
+          selectorStateNamespace: 'chartTypeSelector'
         },
         {
           isOpen: isMeasureSelectorOpen,
-          stateNamespace: 'measureSelector'
+          selectorStateNamespace: 'measureSelector'
         },
         {
           isOpen: isDataSourceSelectorOpen,
-          stateNamespace: 'dataSourceSelector'
+          selectorStateNamespace: 'dataSourceSelector'
         }
       ]);
     },

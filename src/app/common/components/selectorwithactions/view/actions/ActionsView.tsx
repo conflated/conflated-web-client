@@ -12,7 +12,7 @@ type Props = {
   toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-const TitleDefaultActionsView: React.FC<Props> = ({
+const ActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
   iconClassName,
@@ -71,11 +71,11 @@ const TitleDefaultActionsView: React.FC<Props> = ({
   );
 };
 
-TitleDefaultActionsView.defaultProps = {
+ActionsView.defaultProps = {
   addIconTooltipText: '',
   shouldShowPinIcon: false,
   isPinned: false,
   handlePinIconClick: _.noop
 };
 
-export default TitleDefaultActionsView;
+export default ActionsView;

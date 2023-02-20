@@ -13,7 +13,7 @@ import { ChartAreaPageStateNamespace } from '../../../../common/components/chart
 import { AppState } from '../../../../../store/AppState';
 import selectShownMeasures from '../../../../common/model/state/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../../../common/model/state/selectors/createShownDimensionsSelector';
-import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 
 export default class DimensionSelectorController extends Controller<ChartAreaPageStateNamespace> {
   getState(appState: AppState) {

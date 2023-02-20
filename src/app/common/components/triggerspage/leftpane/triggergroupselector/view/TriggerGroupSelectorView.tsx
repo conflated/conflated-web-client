@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListItemView';
 import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import SelectorWithDefaultActionsView from '../../../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
-import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
+import selectorWithDefaultActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
 import { ActionDispatchers, controller, State } from '../triggerGroupSelectorController';
@@ -27,11 +27,12 @@ const TriggerGroupSelectorView = ({
     toggleMaximizeSelector([
       {
         isOpen: isTriggerDataSourceSelectorOpen,
-        stateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
+        selectorStateNamespace:
+          selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
       },
       {
         isOpen: isTriggerSelectorOpen,
-        stateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+        selectorStateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
       }
     ]);
   };

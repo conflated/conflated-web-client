@@ -5,8 +5,8 @@ import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import createTriggersSelector from './model/state/selector/createTriggersSelector';
 import selectorStateNamespaces from '../../../selector/model/state/types/SelectorStateNamespace';
-import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
-import { controller as selectorWithDefaultActionsController } from '../../../selectorwithdefaultactions/selectorWithDefaultActionsController';
+import selectorWithDefaultActionsStateNamespaces from '../../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import { controller as selectorWithDefaultActionsController } from '../../../selectorwithactions/controller/selectorWithActionsController';
 
 class TriggerSelectorController extends Controller<TriggersPageStateNamespace> {
   getState(appState: AppState, pageStateNamespace: TriggersPageStateNamespace) {

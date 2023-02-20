@@ -8,7 +8,7 @@ import { ActionDispatchers, controller } from '../controller/drillUpIconControll
 import type { Chart } from '../../model/state/Chart';
 
 // eslint-disable-next-line react/no-unused-prop-types
-export type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
@@ -18,4 +18,7 @@ const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
     </div>
   ) : null;
 
-export default connect(null, _.memoize(controller.getActionDispatchers))(DrillUpIconView);
+export default connect(
+  null,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(DrillUpIconView);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../store/AppState';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../common/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
@@ -32,19 +32,19 @@ const DataSourceSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
-          stateNamespace: 'layoutSelector'
+          selectorStateNamespace: 'layoutSelector'
         },
         {
           isOpen: isChartTypeSelectorOpen,
-          stateNamespace: 'chartTypeSelector'
+          selectorStateNamespace: 'chartTypeSelector'
         },
         {
           isOpen: isMeasureSelectorOpen,
-          stateNamespace: 'measureSelector'
+          selectorStateNamespace: 'measureSelector'
         },
         {
           isOpen: isDimensionSelectorOpen,
-          stateNamespace: 'dimensionSelector'
+          selectorStateNamespace: 'dimensionSelector'
         }
       ]);
     },

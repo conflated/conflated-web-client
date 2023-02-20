@@ -2,5 +2,5 @@ import type { SelectorStateNamespace } from '../../../../selector/model/state/ty
 
 export type SelectorOpenStatus = {
   readonly isOpen: boolean;
-  readonly stateNamespace: SelectorStateNamespace;
+  readonly selectorStateNamespace: SelectorStateNamespace;
 };

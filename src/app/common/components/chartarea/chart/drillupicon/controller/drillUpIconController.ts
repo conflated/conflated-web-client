@@ -5,10 +5,9 @@ import DrillUpChartAction from '../../../model/actions/chart/drill/DrillUpChartA
 import diContainer from '../../../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../../model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import store from '../../../../../../../store/store';
-import { OwnProps } from '../view/DrillUpIconView';
 
 class DrillUpIconController extends Controller<ChartAreaPageStateNamespace> {
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
     drillUpChart: (chart: Chart) => {
       this.dispatch(new DrillUpChartAction(pageStateNamespace, chart));
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { chart, pageStateNamespace });

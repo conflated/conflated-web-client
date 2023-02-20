@@ -73,5 +73,8 @@ class ChartAreaView extends React.Component<Props> {
 }
 
 export default sizeMe({ monitorHeight: true, monitorWidth: true })(
-  connect(controller.getState, _.memoize(controller.getActionDispatchers))(ChartAreaView)
+  connect(
+    controller.getState,
+    _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  )(ChartAreaView)
 );

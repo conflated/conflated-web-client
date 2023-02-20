@@ -8,7 +8,7 @@ import type { Chart } from '../../model/state/Chart';
 import { ActionDispatchers, controller } from '../controller/chartMenuController';
 
 // eslint-disable-next-line react/no-unused-prop-types
-export type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const ChartMenuView = ({
@@ -153,4 +153,7 @@ const ChartMenuView = ({
   );
 };
 
-export default connect(null, _.memoize(controller.getActionDispatchers))(ChartMenuView);
+export default connect(
+  null,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(ChartMenuView);

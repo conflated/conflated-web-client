@@ -3,7 +3,7 @@ import store from '../../../../../store/store';
 import { PageStateNamespace } from '../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDashboards from './model/state/selectors/selectShownDashboards';
-import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 import { controller as dashboardsPageController } from '../../dashboardsPageController';
 
 class DashboardSelectorController extends Controller<PageStateNamespace> {

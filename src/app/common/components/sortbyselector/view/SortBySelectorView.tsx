@@ -7,7 +7,7 @@ import type { AppState } from '../../../../../store/AppState';
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
-import SelectorWithDefaultActionsView from '../../selectorwithdefaultactions/view/SelectorWithDefaultActionsView';
+import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { TimeSortOption } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
@@ -17,7 +17,7 @@ import type { SortDirection } from '../../chartarea/chart/model/state/selectedso
 import type { DataScopeType } from '../../../model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../sortBySelectorController';
-import selectorWithDefaultActionsStateNamespaces from '../../selectorwithdefaultactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
+import selectorWithDefaultActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithDefaultActionsStateNamespace';
 
 type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -49,11 +49,12 @@ const SortBySelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isFilterSelectorOpen,
-          stateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
+          selectorStateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
         },
         {
           isOpen: isDataPointsCountSelectorOpen,
-          stateNamespace: selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
+          selectorStateNamespace:
+            selectorWithDefaultActionsStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
         }
       ]);
     },

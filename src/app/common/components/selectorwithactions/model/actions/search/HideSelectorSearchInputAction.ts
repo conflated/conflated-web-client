@@ -1,12 +1,13 @@
-import AbstractSelectorWithDefaultActionsAction from '../AbstractSelectorWithDefaultActionsAction';
+import AbstractSelectorWithActionsAction from '../AbstractSelectorWithActionsAction';
 import type { SelectorWithDefaultActionsState } from '../../state/SelectorWithDefaultActionsState';
 
-export default class ShowSelectorSearchInputAction extends AbstractSelectorWithDefaultActionsAction {
+export default class HideSelectorSearchInputAction extends AbstractSelectorWithActionsAction {
   // noinspection JSMethodCanBeStatic
   perform(currentState: SelectorWithDefaultActionsState): SelectorWithDefaultActionsState {
     return {
       ...currentState,
-      isSearchInputShown: true
+      isSearchInputShown: false,
+      searchedValue: ''
     };
   }
 }

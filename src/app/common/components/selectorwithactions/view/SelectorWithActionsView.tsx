@@ -1,15 +1,15 @@
+import _ from 'lodash';
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import styles2 from './SelectorWithDefaultActionsView.module.scss';
+import styles2 from './SelectorWithActionsView.module.scss';
 import styles from '../../selector/view/SelectorView.module.scss';
 import SearchInputView from '../../../view/searchinput/SearchInputView';
-import TitleDefaultActionsView from './titledefaultactions/TitleDefaultActionsView';
-import type { AppState } from '../../../../../store/AppState';
+import ActionsView from './actions/ActionsView';
 import SelectorView from '../../selector/view/SelectorView';
 import type { SelectorWithDefaultActionsStateNamespace } from '../model/state/types/SelectorWithDefaultActionsStateNamespace';
-import { ActionDispatchers, controller, State } from '../selectorWithDefaultActionsController';
+import { ActionDispatchers, controller, State } from '../controller/selectorWithActionsController';
 
-type OwnProps = {
+export type OwnProps = {
   addIconTooltipText: string;
   additionalContent?: JSX.Element;
   handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
@@ -24,7 +24,7 @@ type OwnProps = {
 
 type Props = OwnProps & ActionDispatchers & State;
 
-const SelectorWithDefaultActionsView: React.FC<Props> = ({
+const SelectorWithActionsView: React.FC<Props> = ({
   addIconTooltipText,
   additionalContent,
   changeSelectorSearchedValue,
@@ -56,7 +56,7 @@ const SelectorWithDefaultActionsView: React.FC<Props> = ({
   }
 
   const titleContent = (
-    <TitleDefaultActionsView
+    <ActionsView
       iconClassName={styles.actionIcon}
       toggleShowSearchInput={handleSearchIconClick}
       toggleMaximizeAccordion={handleMaximizeIconClick}
@@ -93,14 +93,11 @@ const SelectorWithDefaultActionsView: React.FC<Props> = ({
   );
 };
 
-SelectorWithDefaultActionsView.defaultProps = {
+SelectorWithActionsView.defaultProps = {
   additionalContent: undefined,
   handlePinIconClick: undefined,
   isPinned: undefined,
   selectedListItemsContent: undefined
 };
 
-export default connect(
-  (appState: AppState, { selectorStateNamespace }: OwnProps) => controller.getState(appState, selectorStateNamespace),
-  (_, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace)
-)(SelectorWithDefaultActionsView);
+export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(SelectorWithActionsView);

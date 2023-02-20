@@ -13,10 +13,9 @@ import ClearOrRemoveChartAction from '../../../model/actions/chart/ClearOrRemove
 import HideChartMenuClearOrDeleteConfirmationAction from '../../../model/actions/chart/menu/confirm/HideChartMenuClearOrDeleteConfirmationAction';
 import AllowChartMenuToBeOpenedAction from '../../../model/actions/chart/menu/AllowChartMenuToBeOpenedAction';
 import store from '../../../../../../../store/store';
-import { OwnProps } from '../view/ChartMenuView';
 
 class ChartMenuController extends Controller<ChartAreaPageStateNamespace> {
-  getActionDispatchers = (_: unknown, { pageStateNamespace }: OwnProps) => ({
+  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
     openChartExportMenu: (chart: Chart) => this.dispatch(new OpenChartExportMenuAction(pageStateNamespace, chart)),
     closeChartExportMenu: (chart: Chart) => this.dispatch(new CloseChartExportMenuAction(pageStateNamespace, chart)),
     copyChart: (chart: Chart) => this.dispatch(new CopyChartAction(pageStateNamespace, chart)),

@@ -16,7 +16,7 @@ import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../../common/model/state/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../../common/model/state/selectors/selectShownMeasures';
-import { controller as selectorWithDefaultActionsController } from '../../../../common/components/selectorwithdefaultactions/selectorWithDefaultActionsController';
+import { controller as selectorWithActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 
 export default class MeasureSelectorController extends Controller<ChartAreaPageStateNamespace> {
   getState(appState: AppState) {
@@ -90,7 +90,7 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
       },
 
       toggleMaximizeSelector:
-        selectorWithDefaultActionsController.getActionDispatchers('measureSelector').toggleMaximizeSelector
+        selectorWithActionsController.getActionDispatchers('measureSelector').toggleMaximizeSelector
     };
   }
 }

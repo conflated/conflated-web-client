@@ -12,7 +12,7 @@ import DrillUpIconView from '../drillupicon/view/DrillUpIconView';
 import ChartController from '../controller/chartController';
 import store from '../../../../../../store/store';
 
-export type OwnProps = {
+type OwnProps = {
   chart: Chart;
   height: number;
   isSelectedChart: boolean;
@@ -40,4 +40,7 @@ const ChartView = ({ chart, height, isSelectedChart, selectChart, pageStateNames
   );
 };
 
-export default connect(null, _.memoize(controller.getActionDispatchers))(ChartView);
+export default connect(
+  null,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+)(ChartView);
