@@ -1,16 +1,15 @@
 import _ from 'lodash';
 import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { AppState } from '../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
 import PagePaneView from '../../../../view/pagepane/PagePaneView';
 import TriggerDataSourceSelectorView from '../triggerdatasourceselector/view/TriggerDataSourceSelectorView';
 import TriggerGroupSelectorView from '../triggergroupselector/view/TriggerGroupSelectorView';
 import TriggerSelectorView from '../triggerselector/view/TriggerSelectorView';
-import { ActionDispatchers, controller, State } from '../triggersPageLeftPaneController';
+import { ActionDispatchers, controller, State } from '../controller/triggersPageLeftPaneController';
 
-type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggersPageLeftPaneView = ({
@@ -61,6 +60,6 @@ const TriggersPageLeftPaneView = ({
 };
 
 export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(TriggersPageLeftPaneView);

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './TriggersPageChartAreaView.module.scss';
-import type { AppState } from '../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import Constants from '../../../../Constants';
 import ChartView from '../../../chartarea/chart/view/ChartView';
-import { ActionDispatchers, controller, State } from '../triggersPageChartAreaController';
+import { ActionDispatchers, controller, State } from '../controller/triggersPageChartAreaController';
 
 type SizeAwareComponent = {
   size: {
@@ -17,7 +17,7 @@ type SizeAwareComponent = {
   };
 };
 
-type OwnProps = {
+export type OwnProps = {
   pageStateNamespace: TriggersPageStateNamespace;
 };
 
@@ -75,7 +75,7 @@ export default sizeMe({
   monitorWidth: true
 })(
   connect(
-    (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-    (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+    controller.getState,
+    _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
   )(TriggersPageChartAreaView)
 );
