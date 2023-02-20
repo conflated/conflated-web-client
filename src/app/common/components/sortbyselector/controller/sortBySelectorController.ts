@@ -16,8 +16,6 @@ import type { DataScopeType } from '../../chartarea/chart/model/state/types/Data
 import RemoveSelectedSortByFromSelectedChartAction from '../../chartarea/model/actions/chart/selected/remove/RemoveSelectedSortByFromSelectedChartAction';
 import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
-import ShowSelectedSortBysAction from '../model/actions/ShowSelectedSortBysAction';
-import HideSelectedSortBysAction from '../model/actions/HideSelectedSortBysAction';
 import StartFetchDataForSortByAddedToSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
 import type { Chart } from '../../chartarea/chart/model/state/Chart';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
@@ -30,6 +28,7 @@ import store from '../../../../../store/store';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithActionsController } from '../../selectorwithactions/controller/selectorWithActionsController';
 import { OwnProps } from '../view/SortBySelectorView';
+import FlashSelectedSortBysBrieflyAction from '../model/actions/FlashSelectedSortBysBrieflyAction';
 
 class SortBySelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) =>
@@ -49,10 +48,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
 
   getActionDispatchers = (stateNamespace: SortBySelectorPageStateNamespace) => ({
     flashSelectedSortBysBriefly: () => {
-      this.dispatch(new HideSelectedSortBysAction(stateNamespace));
-      setTimeout(() => this.dispatch(new ShowSelectedSortBysAction('dataExplorerPage')), 1000);
-      setTimeout(() => this.dispatch(new HideSelectedSortBysAction('dataExplorerPage')), 2000);
-      setTimeout(() => this.dispatch(new ShowSelectedSortBysAction('dataExplorerPage')), 3000);
+      this.dispatch(new FlashSelectedSortBysBrieflyAction(stateNamespace));
     },
 
     addSortByTimeToSelectedChart: (
