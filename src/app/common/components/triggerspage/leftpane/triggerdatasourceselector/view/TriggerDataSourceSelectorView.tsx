@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';

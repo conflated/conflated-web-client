@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../types/DataScopeType';
 import type { SelectedFilter } from './selectedfilter/SelectedFilter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from './selectedfilter/types/FilterInputType';

@@ -15,7 +15,7 @@ import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
-import type { DataScopeType } from '../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresAndDimensionsTabView from '../../../view/measuresanddimensionstabview/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';

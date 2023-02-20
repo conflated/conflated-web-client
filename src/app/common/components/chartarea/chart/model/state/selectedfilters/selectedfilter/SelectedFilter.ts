@@ -3,7 +3,7 @@ import type { ColumnNameToValuesMap } from '../../chartdata/ColumnNameToValuesMa
 import type { ChartData } from '../../chartdata/ChartData';
 import type { FilterInputType } from './types/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
-import type { DataScopeType } from '../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../types/DataScopeType';
 import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import type { FilterType } from './types/FilterType';

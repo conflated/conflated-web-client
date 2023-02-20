@@ -1,4 +1,4 @@
-import Utils from '../../../../../common/model/state/utils/Utils';
+import Utils from '../../../../../common/utils/Utils';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 

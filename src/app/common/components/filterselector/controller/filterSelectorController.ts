@@ -9,7 +9,7 @@ import type { AggregationFunction } from '../../chartarea/chart/model/state/sele
 import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
 import ChangeSelectedFilterDataScopeTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterDataScopeTypeForSelectedChartAction';
-import type { DataScopeType } from '../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../chartarea/chart/model/state/types/DataScopeType';
 import AddDimensionFilterToSelectedChartAction from '../../chartarea/model/actions/chart/selected/add/selectedfilter/AddDimensionFilterToSelectedChartAction';
 import ChangeSelectedFilterExpressionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterExpressionForSelectedChartAction';
 import type { SelectedFilter } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
@@ -19,8 +19,8 @@ import StartFetchDataForFilterAddedToSelectedChartAction from '../../chartarea/m
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../store/AppState';
-import selectShownDimensions from '../../../model/state/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
+import selectShownDimensions from '../../../selectors/createShownDimensionsSelector';
+import selectShownMeasures from '../../../selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../store/store';

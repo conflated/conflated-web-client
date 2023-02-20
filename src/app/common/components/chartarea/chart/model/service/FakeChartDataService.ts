@@ -4,7 +4,7 @@ import { ChartDataService } from './ChartDataService';
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { SelectedFilterConfiguration } from '../state/selectedfilters/selectedfilter/SelectedFilterConfiguration';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
 import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
 import ChartDataImpl from '../state/chartdata/ChartDataImpl';

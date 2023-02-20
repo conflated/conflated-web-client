@@ -1,5 +1,5 @@
 import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
-import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 
 export default class SelectDataSourceToBeConfirmedAction extends AbstractDataSourceSelectorAction {

@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import type { SelectedFilters } from './SelectedFilters';
-import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../types/DataScopeType';
 import type { SelectedFilter } from './selectedfilter/SelectedFilter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
-import Utils from '../../../../../../model/state/utils/Utils';
-import SqlUtils from '../../../../../../model/state/utils/SqlUtils';
+import Utils from '../../../../../../utils/Utils';
+import SqlUtils from '../../../../../../utils/SqlUtils';
 import type { ChartData } from '../chartdata/ChartData';
 import type { FilterInputType } from './selectedfilter/types/FilterInputType';
 import SelectedFilterFactory from './selectedfilter/factory/SelectedFilterFactory';

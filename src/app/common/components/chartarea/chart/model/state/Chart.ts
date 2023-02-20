@@ -7,7 +7,7 @@ import type { FillType } from './types/FillType';
 import type { AggregationFunction } from './selectedmeasure/types/AggregationFunction';
 import type { ChartType } from './types/ChartType';
 import type { ChartConfiguration } from './ChartConfiguration';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from './datasource/DataSource';
 import type { SelectedFilters } from './selectedfilters/SelectedFilters';
 import type { SelectedSortBys } from './selectedsortbys/SelectedSortBys';
 import type { DrillDown } from './types/DrillDown';

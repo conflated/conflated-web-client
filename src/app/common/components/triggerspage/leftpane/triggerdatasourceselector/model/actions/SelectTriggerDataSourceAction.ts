@@ -1,7 +1,7 @@
 import AbstractTriggerDataSourceSelectorAction from './AbstractTriggerDataSourceSelectorAction';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
-import type { DataSource } from '../../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 
 export default class SelectTriggerDataSourceAction extends AbstractTriggerDataSourceSelectorAction {
   constructor(stateNamespace: TriggersPageStateNamespace, private readonly dataSource: DataSource) {

@@ -4,9 +4,9 @@ import _ from 'lodash';
 import { Circle, Popup } from 'react-leaflet';
 import type { Chart } from '../../../model/state/Chart';
 import type { SelectedMeasure } from '../../../model/state/selectedmeasure/SelectedMeasure';
-import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
+import HashValueCalculator from '../../../../../../utils/HashValueCalculator';
 import MapTooltipTextFactory from '../factories/MapTooltipTextFactory';
-import Utils from '../../../../../../model/state/utils/Utils';
+import Utils from '../../../../../../utils/Utils';
 
 export default class LeafletCircleGeometriesFactory {
   static createCircleGeometries(chart: Chart): Array<JSX.Element> {

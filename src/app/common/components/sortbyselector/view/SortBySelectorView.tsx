@@ -14,7 +14,7 @@ import type { TimeSortOption } from '../../chartarea/chart/model/state/selecteds
 import type { SortBySelectorPageStateNamespace } from '../model/state/types/SortBySelectorPageStateNamespace';
 import type { AggregationFunction } from '../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
-import type { DataScopeType } from '../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortBySelectorController';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';

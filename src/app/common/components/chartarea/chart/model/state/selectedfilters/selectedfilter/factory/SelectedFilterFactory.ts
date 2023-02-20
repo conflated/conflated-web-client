@@ -10,7 +10,7 @@ import JsonSelectedFilterImpl from '../impl/jsonselectedfilter/JsonSelectedFilte
 import RelativeTimeSelectedFilterImpl from '../impl/relativetimeselectedfilter/RelativeTimeSelectedFilterImpl';
 import DateRangeSelectedFilterImpl from '../impl/daterangeselectedfilter/DateRangeSelectedFilterImpl';
 import TimestampRangeSelectedFilterImpl from '../impl/timestamprangeselectedfilter/TimestampRangeSelectedFilterImpl';
-import SqlUtils from '../../../../../../../../model/state/utils/SqlUtils';
+import SqlUtils from '../../../../../../../../utils/SqlUtils';
 import type { SelectedFilter } from '../SelectedFilter';
 import type { DrillDown } from '../../../types/DrillDown';
 

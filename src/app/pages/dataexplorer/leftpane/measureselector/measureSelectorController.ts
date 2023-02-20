@@ -14,8 +14,8 @@ import StartFetchDataForSelectedChartAction from '../../../../common/components/
 import { ChartAreaPageStateNamespace } from '../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
-import selectShownDimensions from '../../../../common/model/state/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../../common/model/state/selectors/selectShownMeasures';
+import selectShownDimensions from '../../../../common/selectors/createShownDimensionsSelector';
+import selectShownMeasures from '../../../../common/selectors/selectShownMeasures';
 import { controller as selectorWithActionsController } from '../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 
 export default class MeasureSelectorController extends Controller<ChartAreaPageStateNamespace> {

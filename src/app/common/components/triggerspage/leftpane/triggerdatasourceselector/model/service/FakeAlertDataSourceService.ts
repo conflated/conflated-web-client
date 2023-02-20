@@ -1,5 +1,5 @@
 import AlertDataSourceService from './AlertDataSourceService';
-import type { DataSource } from '../../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 
 export default class FakeAlertDataSourceService extends AlertDataSourceService {
   latency = 1000;

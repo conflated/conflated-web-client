@@ -12,7 +12,7 @@ import type { SelectedSortByType } from '../../chartarea/chart/model/state/selec
 import type { SortDirection } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import ChangeSelectedSortByDirectionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByDirectionForSelectedChartAction';
 import ChangeSelectedSortByDataScopeTypeForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByDataScopeTypeForSelectedChartAction';
-import type { DataScopeType } from '../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../chartarea/chart/model/state/types/DataScopeType';
 import RemoveSelectedSortByFromSelectedChartAction from '../../chartarea/model/actions/chart/selected/remove/RemoveSelectedSortByFromSelectedChartAction';
 import diContainer from '../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
@@ -24,8 +24,8 @@ import { PageStateNamespace } from '../../page/model/state/types/PageStateNamesp
 import { AppState } from '../../../../../store/AppState';
 import createShownTimeSortOptionsSelector from './selectors/createShownTimeSortOptionsSelector';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
-import selectShownMeasures from '../../../model/state/selectors/selectShownMeasures';
-import createShownDimensionsSelector from '../../../model/state/selectors/createShownDimensionsSelector';
+import selectShownMeasures from '../../../selectors/selectShownMeasures';
+import createShownDimensionsSelector from '../../../selectors/createShownDimensionsSelector';
 import store from '../../../../../store/store';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithActionsController } from '../../selectorwithactions/controller/selectorWithActionsController';

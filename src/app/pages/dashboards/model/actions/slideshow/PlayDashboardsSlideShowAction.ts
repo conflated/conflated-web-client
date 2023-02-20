@@ -1,5 +1,5 @@
 import ShowNextDashboardInSlideShowAction from './ShowNextDashboardInSlideShowAction';
-import Utils from '../../../../../common/model/state/utils/Utils';
+import Utils from '../../../../../common/utils/Utils';
 import Constants from '../../../../../common/Constants';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';

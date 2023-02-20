@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import FilterUtils from '../utils/FilterUtils';
-import type { AppState } from '../../../../../store/AppState';
-import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
+import type { AppState } from '../../../store/AppState';
+import type { Measure } from '../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 
 const measuresSelector = (appState: AppState) => appState.dataExplorerPage.measureSelectorState.measures;
 

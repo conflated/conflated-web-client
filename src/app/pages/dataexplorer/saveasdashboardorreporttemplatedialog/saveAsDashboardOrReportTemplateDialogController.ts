@@ -6,7 +6,7 @@ import diContainer from '../../../../di/diContainer';
 import type { DashboardGroup } from '../../dashboards/model/state/entities/DashboardGroup';
 import AddDashboardGroupAction from '../../dashboards/model/actions/add/AddDashboardGroupAction';
 import AddDashboardToDashboardGroupAction from '../../dashboards/model/actions/add/AddDashboardToDashboardGroupAction';
-import Utils from '../../../common/model/state/utils/Utils';
+import Utils from '../../../common/utils/Utils';
 import ShowSavedSuccessfullyNotificationAction from './model/actions/ShowSavedSuccessfullyNotificationAction';
 import type { Dashboard } from '../../dashboards/model/state/entities/Dashboard';
 import store from '../../../../store/store';

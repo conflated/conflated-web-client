@@ -2,7 +2,7 @@ import type { DashboardsState } from '../../state/DashboardsState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { Dashboard } from '../../state/entities/Dashboard';
 import type { DashboardGroup } from '../../state/entities/DashboardGroup';
-import Utils from '../../../../../common/model/state/utils/Utils';
+import Utils from '../../../../../common/utils/Utils';
 
 export default class AddDashboardToDashboardGroupAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboard: Dashboard, private readonly dashboardGroup: DashboardGroup) {

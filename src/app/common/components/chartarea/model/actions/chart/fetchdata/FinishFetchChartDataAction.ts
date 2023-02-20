@@ -3,7 +3,7 @@ import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
-import Utils from '../../../../../../model/state/utils/Utils';
+import Utils from '../../../../../../utils/Utils';
 
 export default class FinishFetchChartDataAction extends AbstractChartAreaAction {
   constructor(

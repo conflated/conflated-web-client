@@ -3,7 +3,7 @@ import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from '../SelectedFilterView.module.scss';
 import type { AggregationFunction } from '../../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
-import type { DataScopeType } from '../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../../../chartarea/chart/model/state/types/DataScopeType';
 import AggregationFunctionPickerView from '../../../../../view/aggregationfunctionpicker/AggregationFunctionPickerView';
 import type { Chart } from '../../../../chartarea/chart/model/state/Chart';
 import DataScopePickerView from '../../../../../view/datascopepicker/DataScopePickerView';

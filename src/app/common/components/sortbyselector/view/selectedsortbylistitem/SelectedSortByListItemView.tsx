@@ -4,7 +4,7 @@ import styles from './SelectedSortByListItemView.module.scss';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { SelectedSortBy } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
-import type { DataScopeType } from '../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import AggregationFunctionPickerView from '../../../../view/aggregationfunctionpicker/AggregationFunctionPickerView';
 import type { Chart } from '../../../chartarea/chart/model/state/Chart';
 import DataScopePickerView from '../../../../view/datascopepicker/DataScopePickerView';
@@ -12,12 +12,12 @@ import DataScopePickerView from '../../../../view/datascopepicker/DataScopePicke
 const { icon, listItem, measureOrDimensionOrTimeSortOptionName, sortDirectionSelector } = styles;
 
 type Props = {
-  changeSelectedSortByAggregationFunction: (aggregationFunction: AggregationFunction) => void,
-  changeSelectedSortByDataScopeType: (dataScopeType: DataScopeType) => void,
-  changeSelectedSortByDirection: (sortDirection: SortDirection) => void,
-  chart: Chart,
-  selectedSortBy: SelectedSortBy,
-  removeSelectedSortBy: () => void,
+  changeSelectedSortByAggregationFunction: (aggregationFunction: AggregationFunction) => void;
+  changeSelectedSortByDataScopeType: (dataScopeType: DataScopeType) => void;
+  changeSelectedSortByDirection: (sortDirection: SortDirection) => void;
+  chart: Chart;
+  selectedSortBy: SelectedSortBy;
+  removeSelectedSortBy: () => void;
 };
 
 const SelectedSortByListItemView = ({
@@ -26,7 +26,7 @@ const SelectedSortByListItemView = ({
   changeSelectedSortByDirection,
   chart,
   removeSelectedSortBy,
-  selectedSortBy,
+  selectedSortBy
 }: Props) => {
   const sortByName = selectedSortBy.measureOrDimension.name || selectedSortBy.timeSortOption;
   let aggregationFunctionPickerView;

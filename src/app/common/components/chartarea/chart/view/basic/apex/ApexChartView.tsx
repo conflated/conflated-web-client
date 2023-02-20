@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { default as ApexChart } from 'react-apexcharts';
-import HashValueCalculator from '../../../../../../model/state/utils/HashValueCalculator';
+import HashValueCalculator from '../../../../../../utils/HashValueCalculator';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ApexChartGeneralOptionsFactory from './optionfactories/ApexChartGeneralOptionsFactory';

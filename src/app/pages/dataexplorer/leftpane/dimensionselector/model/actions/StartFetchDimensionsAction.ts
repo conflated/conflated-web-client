@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import AbstractDimensionSelectorAction from './AbstractDimensionSelectorAction';
 import type { DimensionService } from '../service/DimensionService';
 import type { DimensionSelectorState } from '../state/DimensionSelectorState';
-import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import type { Dimension } from '../state/entities/Dimension';
 
 class FinishFetchDimensionsAction extends AbstractDimensionSelectorAction {

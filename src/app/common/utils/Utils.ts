@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from 'lodash';
-import Constants from '../../../Constants';
+import Constants from '../Constants';
 
 export default class Utils {
   static pick<T extends { [key: string]: any }>(items: T[], key: keyof T, wantedValue?: any): T[] {

@@ -1,5 +1,5 @@
 import { DataSourceService } from './DataSourceService';
-import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 
 export default class FakeDataSourceServiceImpl implements DataSourceService {
   latency = 1000;

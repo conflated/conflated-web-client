@@ -1,6 +1,6 @@
 import Constants from '../../../../../common/Constants';
 import ChartFactory from '../../../../../common/components/chartarea/chart/model/state/ChartFactory';
-import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
+import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import type { ChartAreaState } from '../../../../../common/components/chartarea/model/state/ChartAreaState';
 
 const dataTableChart = ChartFactory.createChart({

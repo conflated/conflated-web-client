@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import type { AppState } from '../../../../../../../../store/AppState';
-import FilterUtils from '../../../../../../../common/model/state/utils/FilterUtils';
+import FilterUtils from '../../../../../../../common/utils/FilterUtils';
 import type { DashboardGroup } from '../../../../../model/state/entities/DashboardGroup';
 import type { Dashboard } from '../../../../../model/state/entities/Dashboard';
 

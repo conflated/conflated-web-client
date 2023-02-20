@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import FilterUtils from '../../../../../../model/state/utils/FilterUtils';
+import FilterUtils from '../../../../../../utils/FilterUtils';
 import type { AppState } from '../../../../../../../../store/AppState';
-import type { DataSource } from '../../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorWithActionsStateNamespaces from '../../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 

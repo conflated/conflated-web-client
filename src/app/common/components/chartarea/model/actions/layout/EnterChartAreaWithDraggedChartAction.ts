@@ -5,7 +5,7 @@ import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { GridItem } from '../../state/types/GridItem';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import type { DragType } from '../../../../../../header/model/state/types/DragType';
-import Utils from '../../../../../model/state/utils/Utils';
+import Utils from '../../../../../utils/Utils';
 
 export default class EnterChartAreaWithDraggedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly dragType: DragType) {

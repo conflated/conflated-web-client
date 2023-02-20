@@ -5,7 +5,7 @@ import type { SelectedFilter } from '../selectedfilters/selectedfilter/SelectedF
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
-import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../types/DataScopeType';
 import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 

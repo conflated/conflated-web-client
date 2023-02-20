@@ -5,7 +5,7 @@ import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane
 import type { SelectedSortByType } from './selectedsortby/types/SelectedfSortByType';
 import type { SortDirection } from './selectedsortby/types/SortDirection';
 import type { TimeSortOption } from './selectedsortby/types/TimeSortOption';
-import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../types/DataScopeType';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';

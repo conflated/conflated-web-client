@@ -4,7 +4,7 @@ import SelectTriggerDataSourceAction from '../model/actions/SelectTriggerDataSou
 import StartFetchTriggerDataSourcesAction from '../model/actions/StartFetchTriggerDataSourcesAction';
 import diContainer from '../../../../../../../di/diContainer';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../../../../chartarea/chart/model/state/datasource/DataSource';
 import { AppState } from '../../../../../../../store/AppState';
 import createShownTriggerDataSourcesSelector from './selector/createShownTriggerDataSourcesSelector';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';

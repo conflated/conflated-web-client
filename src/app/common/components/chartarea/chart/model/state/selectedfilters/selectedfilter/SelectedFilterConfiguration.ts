@@ -3,7 +3,7 @@ import type { FilterInputType } from './types/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
-import type { DataScopeType } from '../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../types/DataScopeType';
 
 export type SelectedFilterConfiguration = {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];

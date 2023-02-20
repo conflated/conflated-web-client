@@ -7,10 +7,10 @@ import type { SelectedFilter } from '../selectedfilters/selectedfilter/SelectedF
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
-import Utils from '../../../../../../model/state/utils/Utils';
+import Utils from '../../../../../../utils/Utils';
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
-import type { DataScopeType } from '../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../types/DataScopeType';
 import RowComparer from './rowcomparer/RowComparer';
 import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
 

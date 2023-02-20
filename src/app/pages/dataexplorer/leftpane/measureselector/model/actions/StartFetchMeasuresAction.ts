@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
 import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
-import type { DataSource } from '../../../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import type { Measure } from '../state/entities/Measure';
 
 class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {

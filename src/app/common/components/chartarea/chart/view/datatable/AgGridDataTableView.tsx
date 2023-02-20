@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import HashValueCalculator from '../../../../../model/state/utils/HashValueCalculator';
+import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
 import type { SelectedMeasure } from '../../model/state/selectedmeasure/SelectedMeasure';
 import type { Chart } from '../../model/state/Chart';

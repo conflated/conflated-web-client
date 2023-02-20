@@ -4,9 +4,9 @@ import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
 import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
-import type { DataSource } from '../../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
-import emptyDataSource from '../../../../../common/model/state/datasource/emptyDataSource';
+import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { ActionDispatchers, controller, State } from '../dataSourceSelectorController';
 
 type Props = ActionDispatchers & State;

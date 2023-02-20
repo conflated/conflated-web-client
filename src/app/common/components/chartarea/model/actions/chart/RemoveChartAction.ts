@@ -3,7 +3,7 @@ import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
-import Utils from '../../../../../model/state/utils/Utils';
+import Utils from '../../../../../utils/Utils';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 
 export default class RemoveChartAction extends AbstractChartAreaAction {

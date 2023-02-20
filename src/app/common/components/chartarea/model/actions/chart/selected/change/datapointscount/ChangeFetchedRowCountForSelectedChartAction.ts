@@ -1,6 +1,6 @@
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
-import Utils from '../../../../../../../../model/state/utils/Utils';
+import Utils from '../../../../../../../../utils/Utils';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 

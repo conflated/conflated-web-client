@@ -2,8 +2,8 @@ import type { Column } from '../state/types/Column';
 import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import { ChartDataService } from './ChartDataService';
-import HashValueCalculator from '../../../../../model/state/utils/HashValueCalculator';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import HashValueCalculator from '../../../../../utils/HashValueCalculator';
+import type { DataSource } from '../state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
 import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
 

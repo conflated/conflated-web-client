@@ -1,7 +1,7 @@
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
 import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
 import type { ChartType } from './types/ChartType';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from './datasource/DataSource';
 import type { SelectedMeasure } from './selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DrillDown } from './types/DrillDown';

@@ -1,7 +1,7 @@
 import AbstractXAxisChart from '../AbstractXAxisChart';
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
-import Utils from '../../../../../../../../../../model/state/utils/Utils';
+import Utils from '../../../../../../../../../../utils/Utils';
 
 export default class AbstractMixedChart extends AbstractXAxisChart {
   handleChartJsClick(): void {

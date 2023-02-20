@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../../../../../chart/model/state/types/DataScopeType';
 import type { SelectedFilter } from '../../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';

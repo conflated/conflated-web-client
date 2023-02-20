@@ -4,7 +4,7 @@ import ConfirmDataSourceSelectionAction from './model/actions/ConfirmDataSourceS
 import HideDataSourceChangeConfirmationAction from './model/actions/HideDataSourceChangeConfirmationAction';
 import SelectDataSourceToBeConfirmedAction from './model/actions/SelectDataSourceToBeConfirmedAction';
 import diContainer from '../../../../../di/diContainer';
-import type { DataSource } from '../../../../common/model/state/datasource/DataSource';
+import type { DataSource } from '../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import ChangeDataSourceForSelectedChartAction from '../../../../common/components/chartarea/model/actions/chart/selected/change/datasource/ChangeDataSourceForSelectedChartAction';
 import StartFetchDimensionsAction from '../dimensionselector/model/actions/StartFetchDimensionsAction';
 import StartFetchMeasuresAction from '../measureselector/model/actions/StartFetchMeasuresAction';

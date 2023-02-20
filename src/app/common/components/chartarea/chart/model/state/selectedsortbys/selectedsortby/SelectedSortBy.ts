@@ -4,7 +4,7 @@ import type { TimeSortOption } from './types/TimeSortOption';
 import type { SortDirection } from './types/SortDirection';
 import type { DefaultSelectedSortByType } from './types/DefaultSelectedSortByType';
 import type { SelectedSortByType } from './types/SelectedfSortByType';
-import type { DataScopeType } from '../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../types/DataScopeType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 
 export type SelectedSortBy = {

@@ -5,7 +5,7 @@ import type { Dimension } from '../../../../../../../../../pages/dataexplorer/le
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import type { FilterType } from '../types/FilterType';
 import type { FilterInputType } from '../types/FilterInputType';
-import type { DataScopeType } from '../../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../../types/DataScopeType';
 import type { SelectedFilter } from '../SelectedFilter';
 import type { SelectedFilterConfiguration } from '../SelectedFilterConfiguration';
 import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';

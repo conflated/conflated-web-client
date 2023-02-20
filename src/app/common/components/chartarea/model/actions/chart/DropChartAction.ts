@@ -4,7 +4,7 @@ import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import Constants from '../../../../../Constants';
 import type { ChartType } from '../../../chart/model/state/types/ChartType';
-import Utils from '../../../../../model/state/utils/Utils';
+import Utils from '../../../../../utils/Utils';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 import ChangeChartAreaLayoutAction from '../layout/ChangeChartAreaLayoutAction';
 

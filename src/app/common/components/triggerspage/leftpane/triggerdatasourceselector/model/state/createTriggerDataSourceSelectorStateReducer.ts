@@ -2,7 +2,7 @@ import OOReduxUtils from 'oo-redux-utils2';
 import type { TriggerDataSourceSelectorState } from './TriggerDataSourceSelectorState';
 import AbstractTriggerDataSourceSelectorAction from '../actions/AbstractTriggerDataSourceSelectorAction';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
-import emptyDataSource from '../../../../../../model/state/datasource/emptyDataSource';
+import emptyDataSource from '../../../../../chartarea/chart/model/state/datasource/emptyDataSource';
 
 const initialAlertDataSourceSelectorState: TriggerDataSourceSelectorState = {
   selectedDataSources: [emptyDataSource],

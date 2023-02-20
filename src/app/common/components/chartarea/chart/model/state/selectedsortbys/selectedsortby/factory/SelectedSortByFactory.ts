@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../../../../../../../../model/state/types/DataScopeType';
+import type { DataScopeType } from '../../../types/DataScopeType';
 import type { SelectedSortBy } from '../SelectedSortBy';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/entities/Measure';
 import type { SortDirection } from '../types/SortDirection';
@@ -8,7 +8,7 @@ import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
 import type { SelectedSortByType } from '../types/SelectedfSortByType';
 import type { DefaultSelectedSortByType } from '../types/DefaultSelectedSortByType';
-import SqlUtils from '../../../../../../../../model/state/utils/SqlUtils';
+import SqlUtils from '../../../../../../../../utils/SqlUtils';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 
 export default class SelectedSortByFactory {

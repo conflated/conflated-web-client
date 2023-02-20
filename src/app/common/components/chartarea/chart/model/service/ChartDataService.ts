@@ -1,7 +1,7 @@
 import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
-import type { DataSource } from '../../../../../model/state/datasource/DataSource';
+import type { DataSource } from '../state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
 import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
 
