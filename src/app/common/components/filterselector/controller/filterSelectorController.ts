@@ -13,10 +13,6 @@ import type { DataScopeType } from '../../chartarea/chart/model/state/types/Data
 import AddDimensionFilterToSelectedChartAction from '../../chartarea/model/actions/chart/selected/add/selectedfilter/AddDimensionFilterToSelectedChartAction';
 import ChangeSelectedFilterExpressionForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterExpressionForSelectedChartAction';
 import type { SelectedFilter } from '../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
-import diContainer from '../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
-import StartFetchDataForFilterAddedToSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
-import StartFetchDataForChangedFilterInSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import selectorWithActionsStateNamespaces from '../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../store/AppState';
 import selectShownDimensions from '../../../../pages/dataexplorer/leftpane/dimensionselector/controller/selectors/createShownDimensionsSelector';
@@ -48,12 +44,10 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
   getActionDispatchers = (pageStateNamespace: FilterSelectorPageStateNamespace) => ({
     addDimensionFilterToSelectedChart: (dimension: Dimension) => {
       this.dispatch(new AddDimensionFilterToSelectedChartAction(pageStateNamespace, dimension));
-      this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, { pageStateNamespace });
     },
 
     addMeasureFilterToSelectedChart: (measure: Measure) => {
       this.dispatch(new AddMeasureFilterToSelectedChartAction(pageStateNamespace, measure));
-      this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, { pageStateNamespace });
     },
 
     changeSelectedFilterAggregationFunctionForSelectedChart: (
@@ -67,20 +61,12 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
           aggregationFunction
         )
       );
-
-      if (selectedFilter.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace });
-      }
     },
 
     changeSelectedFilterExpressionForSelectedChart: (selectedFilter: SelectedFilter, expression: string) => {
       this.dispatch(
         new ChangeSelectedFilterExpressionForSelectedChartAction(pageStateNamespace, selectedFilter, expression)
       );
-
-      if (selectedFilter.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace });
-      }
     },
 
     changeSelectedFilterInputTypeForSelectedChart: (
@@ -90,11 +76,6 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(
         new ChangeSelectedFilterInputTypeForSelectedChartAction(pageStateNamespace, selectedFilter, filterInputType)
       );
-
-      this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
-        selectedFilter,
-        pageStateNamespace
-      });
     },
 
     changeSelectedFilterDataScopeTypeForSelectedChart: (
@@ -104,19 +85,10 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(
         new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(pageStateNamespace, selectedFilter, dataScopeType)
       );
-
-      this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
-        selectedFilter,
-        pageStateNamespace
-      });
     },
 
     removeSelectedFilterFromSelectedChart: (selectedFilter: SelectedFilter) => {
       this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(pageStateNamespace, selectedFilter));
-
-      if (selectedFilter.dataScopeType === 'all') {
-        this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace });
-      }
     },
 
     toggleShouldShowPageRightPanePermanently: () =>

@@ -4,6 +4,8 @@ import type { SelectedFilter } from '../../../../../../chart/model/state/selecte
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeSelectedFilterInputTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -15,6 +17,11 @@ export default class ChangeSelectedFilterInputTypeForSelectedChartAction extends
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
+      selectedFilter: this.selectedFilter,
+      pageStateNamespace: this.stateNamespace
+    });
+
     const { selectedChart } = currentState;
     selectedChart.selectedFilters.changeSelectedFilterInputType(this.selectedFilter, this.filterInputType);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

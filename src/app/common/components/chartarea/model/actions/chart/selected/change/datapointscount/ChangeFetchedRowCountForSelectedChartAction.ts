@@ -3,6 +3,8 @@ import type { ChartAreaPageStateNamespace } from '../../../../../state/types/Cha
 import Utils from '../../../../../../../../utils/Utils';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
+import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeFetchedRowCountForSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly fetchedRowCountStr: string) {
@@ -10,6 +12,7 @@ export default class ChangeFetchedRowCountForSelectedChartAction extends Abstrac
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {});
     const { selectedChart } = currentState;
     selectedChart.fetchedRowCount = Utils.parseIntOrDefault(this.fetchedRowCountStr, 0);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

@@ -4,6 +4,8 @@ import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeSelectedFilterAggregationFunctionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -15,6 +17,12 @@ export default class ChangeSelectedFilterAggregationFunctionForSelectedChartActi
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    if (this.selectedFilter.dataScopeType === 'all') {
+      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+        pageStateNamespace: this.stateNamespace
+      });
+    }
+
     const { selectedChart } = currentState;
 
     selectedChart.selectedFilters.changeSelectedFilterAggregationFunction(

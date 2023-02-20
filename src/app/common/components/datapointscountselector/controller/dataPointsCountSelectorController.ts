@@ -2,8 +2,6 @@ import { Controller } from 'oo-redux-utils2';
 import ChangeXAxisCategoriesShownCountForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeXAxisCategoriesShownCountForSelectedChartAction';
 import type { ChartAreaPageStateNamespace } from '../../chartarea/model/state/types/ChartAreaPageStateNamespace';
 import ChangeFetchedRowCountForSelectedChartAction from '../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeFetchedRowCountForSelectedChartAction';
-import diContainer from '../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/DataPointsCountSelectorView';
@@ -17,7 +15,6 @@ class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNam
   getActionDispatchers = (pageStateNamespace: DataPointsCountSelectorPageStateNamespace) => ({
     changeFetchedRowCountForSelectedChart: (fetchedRowCount: string) => {
       this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(pageStateNamespace, fetchedRowCount));
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {});
     },
 
     changeXAxisCategoriesShownCountForSelectedChart: (xAxisCategoriesShownCount: string) =>
