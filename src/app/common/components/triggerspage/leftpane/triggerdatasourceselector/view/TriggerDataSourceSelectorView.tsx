@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
-import type { AppState } from '../../../../../../../store/AppState';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
-import { ActionDispatchers, controller, State } from '../triggerDataSourceSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/triggerDataSourceSelectorController';
 
-type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerDataSourceSelectorView = ({
@@ -85,6 +85,6 @@ const TriggerDataSourceSelectorView = ({
 };
 
 export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
+  controller.getState,
+  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
 )(TriggerDataSourceSelectorView);
