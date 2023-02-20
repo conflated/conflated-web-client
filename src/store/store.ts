@@ -6,7 +6,7 @@ import dataSourceSelectorStateReducer from '../app/pages/dataexplorer/leftpane/d
 import measureSelectorStateReducer from '../app/pages/dataexplorer/leftpane/measureselector/model/state/measureSelectorStateReducer';
 import dimensionSelectorStateReducer from '../app/pages/dataexplorer/leftpane/dimensionselector/model/state/dimensionSelectorStateReducer';
 import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/createChartAreaStateReducer';
-import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/settings/state/dataExplorerSettingsStateReducer';
+import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/model/state/dataExplorerStateReducer';
 import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
 import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/createSortBySelectorStateReducer';
 import dashboardsPageStateReducer from '../app/pages/dashboards/model/state/dashboardsPageStateReducer';

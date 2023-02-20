@@ -8,7 +8,7 @@ import type { MeasureSelectorState } from '../app/pages/dataexplorer/leftpane/me
 import type { DimensionSelectorState } from '../app/pages/dataexplorer/leftpane/dimensionselector/model/state/DimensionSelectorState';
 import type { ChartAreaState } from '../app/common/components/chartarea/model/state/ChartAreaState';
 import type { SortBySelectorState } from '../app/common/components/sortbyselector/model/state/SortBySelectorState';
-import type { DataExplorerSettingsState } from '../app/pages/dataexplorer/settings/state/DataExplorerSettingsState';
+import type { DataExplorerState } from '../app/pages/dataexplorer/model/state/DataExplorerState';
 import type { TriggerSelectorState } from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/TriggerSelectorState';
 import type { TriggerDataSourceSelectorState } from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';
 import type { PageState } from '../app/common/components/page/model/state/PageState';
@@ -35,7 +35,7 @@ export type AppState = {
     dimensionSelectorState: DimensionSelectorState;
     chartAreaState: ChartAreaState;
     sortBySelectorState: SortBySelectorState;
-    settingsState: DataExplorerSettingsState;
+    settingsState: DataExplorerState;
     saveAsDashboardOrReportTemplateDialogState: SaveAsDashboardOrReportTemplateDialogState;
   };
   dashboardsPage: {

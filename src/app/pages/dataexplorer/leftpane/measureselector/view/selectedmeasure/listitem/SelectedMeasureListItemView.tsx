@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, List } from 'semantic-ui-react';
 import styles from './SelectedMeasureListItemView.module.scss';
 import type { SelectedMeasure } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
-import type { Theme } from '../../../../../settings/state/entities/Theme';
+import type { Theme } from '../../../../../model/state/types/Theme';
 import type { AggregationFunction } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import type { Chart } from '../../../../../../../common/components/chartarea/chart/model/state/Chart';

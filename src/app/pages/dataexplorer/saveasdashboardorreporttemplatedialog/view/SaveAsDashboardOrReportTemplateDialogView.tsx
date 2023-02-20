@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Button, Dropdown, DropdownProps, Form, Input, Modal, Radio } from 'semantic-ui-react';
 import { Notification } from 'react-notification';
 import { dashboardGroupField } from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
 import type { DashboardGroup } from '../../../dashboards/model/state/types/DashboardGroup';
-import { ActionDispatchers, controller, State } from '../saveAsDashboardOrReportTemplateDialogController';
+import { ActionDispatchers, controller, State } from '../controller/saveAsDashboardOrReportTemplateDialogController';
 
 type Props = ActionDispatchers & State;
 
@@ -123,6 +122,6 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
 };
 
 export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
+  controller.getState,
+  () => controller.actionDispatchers
 )(SaveAsDashboardOrReportTemplateDialogView);

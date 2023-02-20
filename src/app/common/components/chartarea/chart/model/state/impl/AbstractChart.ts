@@ -23,7 +23,7 @@ import type { ChartData } from '../chartdata/ChartData';
 import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import SelectedDimensionFactory from '../selecteddimension/factory/SelectedDimensionFactory';
-import type { Theme } from '../../../../../../../pages/dataexplorer/settings/state/entities/Theme';
+import type { Theme } from '../../../../../../../pages/dataexplorer/model/state/types/Theme';
 import SelectedMeasureFactory from '../selectedmeasure/factory/SelectedMeasureFactory';
 import Utils from '../../../../../../utils/Utils';
 import SqlUtils from '../../../../../../utils/SqlUtils';
