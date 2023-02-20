@@ -2,10 +2,9 @@ import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DashboardListItem from './dashboardlistitem/DashboardListItem';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
-import type { Dashboard } from '../../../model/state/entities/Dashboard';
+import type { Dashboard } from '../../../model/state/types/Dashboard';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
-import { ActionDispatchers, controller, State } from '../dahboardSelectorController';
-import { AppState } from '../../../../../../store/AppState';
+import { ActionDispatchers, controller, State } from '../controller/dahboardSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -57,7 +56,4 @@ const DashboardSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardSelectorView);

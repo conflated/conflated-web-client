@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
-import type { AppState } from '../../../../../../store/AppState';
-import type { DashboardGroup } from '../entities/DashboardGroup';
+import type { AppState } from '../../../../../store/AppState';
+import type { DashboardGroup } from '../../model/state/types/DashboardGroup';
 
 const dashboardGroupsSelector = (appState: AppState) => appState.dashboardsPage.dashboardsState.dashboardGroups;
 

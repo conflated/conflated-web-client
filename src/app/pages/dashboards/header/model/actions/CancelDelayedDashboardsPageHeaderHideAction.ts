@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import AbstractDashboardsPageHeaderAction from '../AbstractDashboardsPageHeaderAction';
-import type { DashboardsPageHeaderState } from '../../state/DashboardsPageHeaderState';
+import AbstractDashboardsPageHeaderAction from './AbstractDashboardsPageHeaderAction';
+import type { DashboardsPageHeaderState } from '../state/DashboardsPageHeaderState';
 
 export default class CancelDelayedDashboardsPageHeaderHideAction extends AbstractDashboardsPageHeaderAction {
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {

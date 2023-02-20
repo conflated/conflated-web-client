@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styles from './DashboardsPageView.module.scss';
-import type { AppState } from '../../../../store/AppState';
 import PageView from '../../../common/components/page/view/PageView';
 import DashboardsPageHeaderView from '../header/view/DashboardsPageHeaderView';
 import DashboardsPageLeftPaneView from '../leftpane/view/DashboardsPageLeftPaneView';
 import DashboardsPageRightPaneView from '../rightpane/view/DashboardsPageRightPaneView';
 import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
-import { ActionDispatchers, controller, State } from '../dashboardsPageController';
+import { ActionDispatchers, controller, State } from '../controller/dashboardsPageController';
 
 type Props = ActionDispatchers & State;
 
@@ -98,7 +97,4 @@ const DashboardsPageView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardsPageView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardsPageView);

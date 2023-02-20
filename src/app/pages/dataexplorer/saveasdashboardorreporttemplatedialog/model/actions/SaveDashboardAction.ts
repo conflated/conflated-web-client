@@ -1,7 +1,7 @@
 import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
 import type { Layout } from '../../../../../common/components/chartarea/model/state/types/Layout';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAsDashboardOrReportTemplateDialogState';
-import type { DashboardGroup } from '../../../../dashboards/model/state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../../../dashboards/model/state/types/DashboardGroup';
 import AbstractSaveAsDashboardOrReportTemplateDialogAction from './AbstractSaveAsDashboardOrReportTemplateDialogAction';
 
 export default class SaveDashboardAction extends AbstractSaveAsDashboardOrReportTemplateDialogAction {

@@ -1,5 +1,5 @@
-import type { DashboardGroup } from './entities/DashboardGroup';
-import type { Dashboard } from './entities/Dashboard';
+import type { DashboardGroup } from './types/DashboardGroup';
+import type { Dashboard } from './types/Dashboard';
 
 export type DashboardsState = {
   readonly dashboardGroups: DashboardGroup[];

@@ -1,12 +1,11 @@
 import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import type { AppState } from '../../../../../store/AppState';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
 import DashboardsPageLeftPaneViewUtils from './DashboardsPageLeftPaneViewUtils';
 import DashboardGroupSelectorView from '../dashboardgroupselector/view/DashboardGroupSelectorView';
 import DashboardSelectorView from '../dashboardselector/view/DashboardSelectorView';
-import { ActionDispatchers, controller, State } from '../dashboardsPageLeftPaneController';
+import { ActionDispatchers, controller, State } from '../controller/dashboardsPageLeftPaneController';
 
 type Props = ActionDispatchers & State;
 
@@ -54,7 +53,4 @@ const DashboardsPageLeftPaneView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardsPageLeftPaneView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardsPageLeftPaneView);

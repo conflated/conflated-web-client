@@ -1,6 +1,6 @@
 import type { DashboardsState } from '../../state/DashboardsState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
-import type { DashboardGroup } from '../../state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../state/types/DashboardGroup';
 
 export default class AddDashboardGroupAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboardGroup: DashboardGroup) {

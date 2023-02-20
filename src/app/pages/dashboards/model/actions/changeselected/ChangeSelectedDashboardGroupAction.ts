@@ -1,5 +1,5 @@
 import type { DashboardsState } from '../../state/DashboardsState';
-import type { DashboardGroup } from '../../state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../state/types/DashboardGroup';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
 export default class ChangeSelectedDashboardGroupAction extends AbstractDashboardsPageAction {

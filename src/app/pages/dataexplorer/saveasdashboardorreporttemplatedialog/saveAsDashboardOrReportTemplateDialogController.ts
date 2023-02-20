@@ -3,12 +3,12 @@ import StartFetchDashboardGroupsAction from '../../dashboards/model/actions/fetc
 import CloseSaveAsDashboardOrReportTemplateDialogAction from './model/actions/CloseSaveAsDashboardOrReportTemplateDialogAction';
 import HideSavedSuccessfullyNotificationAction from './model/actions/HideSavedSuccessfullyNotificationAction';
 import diContainer from '../../../../di/diContainer';
-import type { DashboardGroup } from '../../dashboards/model/state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../dashboards/model/state/types/DashboardGroup';
 import AddDashboardGroupAction from '../../dashboards/model/actions/add/AddDashboardGroupAction';
 import AddDashboardToDashboardGroupAction from '../../dashboards/model/actions/add/AddDashboardToDashboardGroupAction';
 import Utils from '../../../common/utils/Utils';
 import ShowSavedSuccessfullyNotificationAction from './model/actions/ShowSavedSuccessfullyNotificationAction';
-import type { Dashboard } from '../../dashboards/model/state/entities/Dashboard';
+import type { Dashboard } from '../../dashboards/model/state/types/Dashboard';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 

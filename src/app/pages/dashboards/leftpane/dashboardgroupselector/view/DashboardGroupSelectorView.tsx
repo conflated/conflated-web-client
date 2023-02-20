@@ -1,11 +1,10 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
-import type { AppState } from '../../../../../../store/AppState';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
-import type { DashboardGroup } from '../../../model/state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
-import { ActionDispatchers, controller, State } from '../dashboardGroupSelectorController';
+import { ActionDispatchers, controller, State } from '../controller/dashboardGroupSelectorController';
 
 type Props = ActionDispatchers & State;
 
@@ -69,7 +68,4 @@ const DashboardGroupSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardGroupSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardGroupSelectorView);

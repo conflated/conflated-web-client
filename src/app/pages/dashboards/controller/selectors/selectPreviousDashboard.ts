@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import type { AppState } from '../../../../../../store/AppState';
-import type { DashboardGroup } from '../entities/DashboardGroup';
-import type { Dashboard } from '../entities/Dashboard';
+import type { AppState } from '../../../../../store/AppState';
+import type { DashboardGroup } from '../../model/state/types/DashboardGroup';
+import type { Dashboard } from '../../model/state/types/Dashboard';
 
 const currentDashboardGroupSelector = (appState: AppState) =>
   appState.dashboardsPage.dashboardsState.selectedDashboardGroup;
@@ -16,8 +16,8 @@ export default createSelector(
   ): Dashboard | undefined => {
     if (currentDashboardGroup && currentDashboard) {
       const currentDashboardIndex = currentDashboardGroup.dashboards.indexOf(currentDashboard);
-      if (currentDashboardIndex < currentDashboardGroup.dashboards.length - 1) {
-        return currentDashboardGroup.dashboards[currentDashboardIndex + 1];
+      if (currentDashboardIndex > 0) {
+        return currentDashboardGroup.dashboards[currentDashboardIndex - 1];
       }
     }
 

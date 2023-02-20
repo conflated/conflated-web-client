@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import type { AppState } from '../../../../../../../../store/AppState';
-import FilterUtils from '../../../../../../../common/utils/FilterUtils';
-import type { DashboardGroup } from '../../../../../model/state/entities/DashboardGroup';
+import type { AppState } from '../../../../../../../store/AppState';
+import FilterUtils from '../../../../../../common/utils/FilterUtils';
+import type { DashboardGroup } from '../../../../model/state/types/DashboardGroup';
 
 const dashboardGroupsSelector = (appState: AppState) => appState.dashboardsPage.dashboardsState.dashboardGroups;
 

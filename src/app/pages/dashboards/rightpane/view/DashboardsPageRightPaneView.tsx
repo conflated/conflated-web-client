@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import type { AppState } from '../../../../../store/AppState';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
 import FilterSelectorView from '../../../../common/components/filterselector/view/FilterSelectorView';
 import SortBySelectorView from '../../../../common/components/sortbyselector/view/SortBySelectorView';
-import { ActionDispatchers, controller, State } from '../dashboardsPageRightPaneController';
+import { ActionDispatchers, controller, State } from '../controller/dashboardsPageRightPaneController';
 
 type Props = ActionDispatchers & State;
 
@@ -30,7 +29,4 @@ const DashboardsPageRightPaneView = ({
   </PagePaneView>
 );
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardsPageRightPaneView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardsPageRightPaneView);

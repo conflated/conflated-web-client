@@ -4,7 +4,7 @@ import { Button, Dropdown, DropdownProps, Form, Input, Modal, Radio } from 'sema
 import { Notification } from 'react-notification';
 import { dashboardGroupField } from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
 import type { AppState } from '../../../../../store/AppState';
-import type { DashboardGroup } from '../../../dashboards/model/state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../../dashboards/model/state/types/DashboardGroup';
 import { ActionDispatchers, controller, State } from '../saveAsDashboardOrReportTemplateDialogController';
 
 type Props = ActionDispatchers & State;

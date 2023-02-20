@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { Dropdown, Icon } from 'semantic-ui-react';
 import styles from './DashboardsPageHeaderView.module.scss';
-import type { AppState } from '../../../../../store/AppState';
-import type { Dashboard } from '../../model/state/entities/Dashboard';
-import type { DashboardGroup } from '../../model/state/entities/DashboardGroup';
+import type { Dashboard } from '../../model/state/types/Dashboard';
+import type { DashboardGroup } from '../../model/state/types/DashboardGroup';
 import DashboardsSlideShowSlideChangeIntervalInputView from './slideshow/slidechangeintervalinput/DashboardsSlideShowSlideChangeIntervalInputView';
 import DashboardsSlideShowPlayOrPauseButtonView from './slideshow/playorpausebutton/DashboardsSlideShowPlayOrPauseButtonView';
 import DashboardsPageHeaderPinIconView from './pinicon/DashboardsPageHeaderPinIconView';
-import { ActionDispatchers, controller, State } from '../dashboardsPageHeaderController';
+import { ActionDispatchers, controller, State } from '../controller/dashboardsPageHeaderController';
 
 type Props = ActionDispatchers & State;
 
@@ -235,7 +234,4 @@ const DashboardsPageHeaderView = ({
   );
 };
 
-export default connect(
-  (appState: AppState) => controller.getState(appState),
-  () => controller.getActionDispatchers()
-)(DashboardsPageHeaderView);
+export default connect(controller.getState, () => controller.actionDispatchers)(DashboardsPageHeaderView);

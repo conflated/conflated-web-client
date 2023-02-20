@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardsState } from '../../state/DashboardsState';
 import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
-import type { DashboardGroup } from '../../state/entities/DashboardGroup';
+import type { DashboardGroup } from '../../state/types/DashboardGroup';
 
 class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboardGroups: DashboardGroup[]) {

@@ -1,7 +1,7 @@
 import { DashboardGroupsService } from './DashboardGroupsService';
 import layout1 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
 import layout2 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout2';
-import type { DashboardGroup } from '../state/entities/DashboardGroup';
+import type { DashboardGroup } from '../state/types/DashboardGroup';
 import ChartFactory from '../../../../common/components/chartarea/chart/model/state/ChartFactory';
 import { ChartConfiguration } from '../../../../common/components/chartarea/chart/model/state/ChartConfiguration';
 import emptyDataSource from '../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
@@ -9,7 +9,7 @@ import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/st
 import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/entities/Dimension';
 import layout4 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout4';
 
-export default class FakeDashboardGroupsServiceImpl implements DashboardGroupsService {
+export default class FakeDashboardGroupsService implements DashboardGroupsService {
   private readonly latency = 1000;
 
   fetchDashboardGroups(): Promise<DashboardGroup[]> {
