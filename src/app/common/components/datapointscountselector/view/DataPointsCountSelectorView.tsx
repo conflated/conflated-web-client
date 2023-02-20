@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -9,10 +10,9 @@ import SelectorView from '../../selector/view/SelectorView';
 import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
 import Constants from '../../../Constants';
 import selectorStateNamespaces from '../../selector/model/state/types/SelectorStateNamespace';
-import { ActionDispatchers, controller, State } from '../dataPointsCountSelectorController';
-import { AppState } from '../../../../../store/AppState';
+import { ActionDispatchers, controller, State } from '../controller/dataPointsCountSelectorController';
 
-type OwnProps = { pageStateNamespace: DataPointsCountSelectorPageStateNamespace };
+export type OwnProps = { pageStateNamespace: DataPointsCountSelectorPageStateNamespace };
 type Props = OwnProps & State & ActionDispatchers;
 
 const DataPointsCountSelectorView = ({
@@ -68,7 +68,4 @@ const DataPointsCountSelectorView = ({
   );
 };
 
-export default connect(
-  (appState: AppState, { pageStateNamespace }: OwnProps) => controller.getState(appState, pageStateNamespace),
-  (_, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace)
-)(DataPointsCountSelectorView);
+export default connect(controller.getState, _.memoize(controller.getActionDispatchers))(DataPointsCountSelectorView);
