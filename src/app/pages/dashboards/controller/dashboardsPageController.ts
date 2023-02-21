@@ -2,14 +2,7 @@ import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import StartFetchDashboardGroupsAction from '../model/actions/fetchdata/StartFetchDashboardGroupsAction';
 import diContainer from '../../../../di/diContainer';
 import type { Dashboard } from '../model/state/types/Dashboard';
-import ChangeChartAreaLayoutAndChartsAction from '../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAndChartsAction';
-import StartFetchDataForOtherChartsAction from '../../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import type { DashboardGroup } from '../model/state/types/DashboardGroup';
-import ChangeSelectedDashboardAction from '../model/actions/changeselected/ChangeSelectedDashboardAction';
-import ShowDashboardsPageHeaderAction from '../header/model/actions/ShowDashboardsPageHeaderAction';
-import HideDashboardsPageHeaderAction from '../header/model/actions/HideDashboardsPageHeaderAction';
-import Constants from '../../../common/Constants';
-import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from '../header/model/actions/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
 import { ChartAreaPageStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
@@ -20,6 +13,8 @@ import selectPreviousDashboardGroup from './selectors/selectPreviousDashboardGro
 import selectFirstDashboard from './selectors/selectFirstDashboard';
 import selectLastDashboard from './selectors/selectLastDashboard';
 import ShowDashboardGroupAction from '../model/actions/show/ShowDashboardGroupAction';
+import ShowDashboardAction from '../model/actions/show/ShowDashboardAction';
+import ShowDashboardsPageHeaderBrieflyAction from '../header/model/actions/ShowDashboardsHeaderBrieflyAction';
 
 class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) =>
@@ -39,28 +34,10 @@ class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | 
       this.dispatch(new ShowDashboardGroupAction(dashboardGroup)),
 
     startFetchDashboardGroups: () => this.dispatchWithDi(StartFetchDashboardGroupsAction, diContainer, {}),
-
-    showDashboard: (dashboard: Dashboard | undefined) => {
-      if (dashboard) {
-        this.dispatch(new ChangeSelectedDashboardAction(dashboard));
-        this.dispatch(new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', dashboard.layout, dashboard.charts));
-
-        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-          pageStateNamespace: 'dashboardsPage',
-          chart: null
-        });
-      }
-    },
+    showDashboard: (dashboard: Dashboard | undefined) => this.dispatch(new ShowDashboardAction(dashboard)),
 
     showDashboardsHeaderBriefly: () => {
-      this.dispatch(new ShowDashboardsPageHeaderAction());
-
-      const headerDelayedHideTimeoutId = setTimeout(
-        () => this.dispatch(new HideDashboardsPageHeaderAction()),
-        Constants.SHOW_DASHBOARDS_HEADER_BRIEFLY_DURATION_IN_MILLIS
-      );
-
-      this.dispatch(new SetDashboardsPageHeaderDelayedHideTimeoutIdAction(headerDelayedHideTimeoutId));
+      this.dispatch(new ShowDashboardsPageHeaderBrieflyAction());
     }
   };
 }
