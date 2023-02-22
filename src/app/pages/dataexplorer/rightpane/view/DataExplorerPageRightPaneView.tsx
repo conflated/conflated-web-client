@@ -6,7 +6,7 @@ import SortBySelectorView from '../../../../common/components/sortbyselector/vie
 import DataPointsCountSelectorView from '../../../../common/components/datapointscountselector/view/DataPointsCountSelectorView';
 import DataExplorerPageRightPaneViewUtils from './DataExplorerPageRightPaneViewUtils';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
-import DataExplorerPageActionIconsView from '../actions/view/DataExplorerActionsView';
+import DataExplorerPageActionIconsView from '../actionicons/view/ActionIconsView';
 import { ActionDispatchers, controller, State } from '../controller/dataExplorerPageRightPaneController';
 
 type Props = ActionDispatchers & State;

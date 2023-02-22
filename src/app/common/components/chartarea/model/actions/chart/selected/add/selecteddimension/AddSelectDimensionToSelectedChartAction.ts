@@ -5,6 +5,8 @@ import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class AddSelectDimensionToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -16,6 +18,10 @@ export default class AddSelectDimensionToSelectedChartAction extends AbstractCha
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+      stateNamespace: 'dataExplorerPage'
+    });
+
     const { selectedChart } = currentState;
     const visualizationType = this.visualizationType || selectedChart.getNextDimensionVisualizationType();
     selectedChart.addSelectedDimension(this.dimension, visualizationType);

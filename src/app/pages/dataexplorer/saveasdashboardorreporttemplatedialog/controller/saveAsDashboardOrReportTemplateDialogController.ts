@@ -4,13 +4,10 @@ import CloseSaveAsDashboardOrReportTemplateDialogAction from '../model/actions/C
 import HideSavedSuccessfullyNotificationAction from '../model/actions/HideSavedSuccessfullyNotificationAction';
 import diContainer from '../../../../../di/diContainer';
 import type { DashboardGroup } from '../../../dashboards/model/state/types/DashboardGroup';
-import AddDashboardGroupAction from '../../../dashboards/model/actions/add/AddDashboardGroupAction';
-import AddDashboardToDashboardGroupAction from '../../../dashboards/model/actions/add/AddDashboardToDashboardGroupAction';
-import Utils from '../../../../common/utils/Utils';
-import ShowSavedSuccessfullyNotificationAction from '../model/actions/ShowSavedSuccessfullyNotificationAction';
 import type { Dashboard } from '../../../dashboards/model/state/types/Dashboard';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
+import SaveDashboardAction from '../model/actions/SaveDashboardAction';
 
 export default class SaveAsDashboardOrReportTemplateDialogController extends Controller {
   getState = (appState: AppState) =>
@@ -30,20 +27,7 @@ export default class SaveAsDashboardOrReportTemplateDialogController extends Con
       dashboardName: string,
       dashboardGroups: DashboardGroup[],
       dashboard: Dashboard
-    ) => {
-      const existingDashboardGroup = Utils.findElem(dashboardGroups, 'name', dashboardGroupName);
-      const dashboardGroup = existingDashboardGroup ?? {
-        name: dashboardGroupName,
-        dashboards: []
-      };
-
-      if (!existingDashboardGroup) {
-        this.dispatch(new AddDashboardGroupAction(dashboardGroup));
-        this.dispatch(new AddDashboardToDashboardGroupAction(dashboard, dashboardGroup));
-        this.dispatch(new CloseSaveAsDashboardOrReportTemplateDialogAction());
-        this.dispatch(new ShowSavedSuccessfullyNotificationAction());
-      }
-    }
+    ) => this.dispatch(new SaveDashboardAction(dashboardGroupName, dashboardName, dashboardGroups, dashboard))
   };
 }
 

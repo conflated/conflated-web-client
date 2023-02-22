@@ -5,8 +5,6 @@ import ChangeSelectedDimensionColorForSelectedChartAction from '../../../../../c
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
 import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
-import diContainer from '../../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import type { Measure } from '../../measureselector/model/state/types/Measure';
 import store from '../../../../../../store/store';
 import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
@@ -31,30 +29,16 @@ export default class DimensionSelectorController extends Controller<ChartAreaPag
   actionDispatchers = {
     addSelectedDimensionToSelectedChart: (
       dimension: Dimension | Measure,
-      possibleVisualizationType?: DimensionVisualizationType
-    ) => {
-      this.dispatch(
-        new AddSelectDimensionToSelectedChartAction('dataExplorerPage', dimension, possibleVisualizationType)
-      );
+      visualizationType?: DimensionVisualizationType
+    ) => this.dispatch(new AddSelectDimensionToSelectedChartAction('dataExplorerPage', dimension, visualizationType)),
 
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: 'dataExplorerPage'
-      });
-    },
+    removeSelectedDimensionFromSelectedChart: (selectedDimension: SelectedDimension) =>
+      this.dispatch(new RemoveSelectedDimensionFromSelectedChartAction('dataExplorerPage', selectedDimension)),
 
-    removeSelectedDimensionFromSelectedChart: (selectedDimension: SelectedDimension) => {
-      this.dispatch(new RemoveSelectedDimensionFromSelectedChartAction('dataExplorerPage', selectedDimension));
-
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: 'dataExplorerPage'
-      });
-    },
-
-    changeSelectedDimensionColorForSelectedChart: (selectedDimension: SelectedDimension, color: string) => {
+    changeSelectedDimensionColorForSelectedChart: (selectedDimension: SelectedDimension, color: string) =>
       this.dispatch(
         new ChangeSelectedDimensionColorForSelectedChartAction('dataExplorerPage', selectedDimension, color)
-      );
-    },
+      ),
 
     toggleMaximizeSelector:
       selectorWithDefaultActionsController.getActionDispatchers('dimensionSelector').toggleMaximizeSelector

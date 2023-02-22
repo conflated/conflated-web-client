@@ -5,9 +5,6 @@ import HideDataSourceChangeConfirmationAction from '../model/actions/HideDataSou
 import SelectDataSourceToBeConfirmedAction from '../model/actions/SelectDataSourceToBeConfirmedAction';
 import diContainer from '../../../../../../di/diContainer';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import ChangeDataSourceForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/change/datasource/ChangeDataSourceForSelectedChartAction';
-import StartFetchDimensionsAction from '../../dimensionselector/model/actions/StartFetchDimensionsAction';
-import StartFetchMeasuresAction from '../../measureselector/model/actions/StartFetchMeasuresAction';
 import store from '../../../../../../store/store';
 import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
@@ -32,14 +29,8 @@ class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespac
     selectDataSourceToBeConfirmed: (dataSource: DataSource) =>
       this.dispatch(new SelectDataSourceToBeConfirmedAction(dataSource)),
 
-    confirmDataSourceSelection: (dataSource: DataSource | null) => {
-      if (dataSource) {
-        this.dispatch(new ConfirmDataSourceSelectionAction());
-        this.dispatch(new ChangeDataSourceForSelectedChartAction('dataExplorerPage', dataSource));
-        this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { dataSource });
-        this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { dataSource });
-      }
-    },
+    confirmDataSourceSelection: (dataSource: DataSource | null) =>
+      this.dispatch(new ConfirmDataSourceSelectionAction(dataSource)),
 
     toggleMaximizeSelector:
       selectorWithDefaultActionsController.getActionDispatchers('dataSourceSelector').toggleMaximizeSelector

@@ -11,11 +11,11 @@ export default class DataExplorerPageRightPaneController extends Controller<Page
     isFilterSelectorOpen: appState.common.selectorStates.dataExplorerPageFilterSelector.isSelectorOpen,
     isSortBySelectorOpen: appState.common.selectorStates.dataExplorerPageSortBySelector.isSelectorOpen,
     shouldShowDataExplorerPageRightPane: appState.common.pageStates.dataExplorerPage.shouldShowPagePane.rightPane,
+    isDataPointsCountSelectorOpen:
+      appState.common.selectorStates.dataExplorerPageDataPointsCountSelector.isSelectorOpen,
 
     shouldShowDataExplorerPageRightPanePermanently:
-      appState.common.pageStates.dataExplorerPage.shouldShowPagePanePermanently.rightPane,
-
-    isDataPointsCountSelectorOpen: appState.common.selectorStates.dataExplorerPageDataPointsCountSelector.isSelectorOpen
+      appState.common.pageStates.dataExplorerPage.shouldShowPagePanePermanently.rightPane
   });
 
   actionDispatchers = {

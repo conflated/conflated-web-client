@@ -9,8 +9,6 @@ import type { Dimension } from '../../dimensionselector/model/state/types/Dimens
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction';
-import diContainer from '../../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
@@ -35,40 +33,25 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
     addSelectedMeasureToSelectedChart: (
       measureOrDimension: Measure | Dimension,
       aggregationFunction: AggregationFunction
-    ) => {
+    ) =>
       this.dispatch(
         new AddSelectedMeasureToSelectedChartAction('dataExplorerPage', measureOrDimension, aggregationFunction)
-      );
+      ),
 
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: 'dataExplorerPage'
-      });
-    },
-
-    removeSelectedMeasureFromSelectedChart: (selectedMeasure: SelectedMeasure) => {
-      this.dispatch(new RemoveSelectedMeasureFromSelectedChartAction('dataExplorerPage', selectedMeasure));
-
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: 'dataExplorerPage'
-      });
-    },
+    removeSelectedMeasureFromSelectedChart: (selectedMeasure: SelectedMeasure) =>
+      this.dispatch(new RemoveSelectedMeasureFromSelectedChartAction('dataExplorerPage', selectedMeasure)),
 
     changeSelectedMeasureAggregationFunctionForSelectedChart: (
       selectedMeasure: SelectedMeasure,
       aggregationFunction: AggregationFunction
-    ) => {
+    ) =>
       this.dispatch(
         new ChangeSelectedMeasureAggregationFunctionForSelectedChartAction(
           'dataExplorerPage',
           selectedMeasure,
           aggregationFunction
         )
-      );
-
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: 'dataExplorerPage'
-      });
-    },
+      ),
 
     changeSelectedMeasureVisualizationColorForSelectedChart: (selectedMeasure: SelectedMeasure, color: string) => {
       this.dispatch(new ChangeSelectedMeasureColorForSelectedChartAction('dataExplorerPage', selectedMeasure, color));
@@ -77,15 +60,14 @@ export default class MeasureSelectorController extends Controller<ChartAreaPageS
     changeSelectedMeasureVisualizationTypeForSelectedChart: (
       selectedMeasure: SelectedMeasure,
       visualizationType: MeasureVisualizationType
-    ) => {
+    ) =>
       this.dispatch(
         new ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction(
           'dataExplorerPage',
           selectedMeasure,
           visualizationType
         )
-      );
-    },
+      ),
 
     toggleMaximizeSelector: selectorWithActionsController.getActionDispatchers('measureSelector').toggleMaximizeSelector
   };

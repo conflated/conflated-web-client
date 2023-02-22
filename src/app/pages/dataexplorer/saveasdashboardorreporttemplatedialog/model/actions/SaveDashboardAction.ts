@@ -1,27 +1,37 @@
-import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
-import type { Layout } from '../../../../../common/components/chartarea/model/state/types/Layout';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../state/SaveAsDashboardOrReportTemplateDialogState';
-import type { DashboardGroup } from '../../../../dashboards/model/state/types/DashboardGroup';
 import AbstractSaveAsDashboardOrReportTemplateDialogAction from './AbstractSaveAsDashboardOrReportTemplateDialogAction';
+import Utils from '../../../../../common/utils/Utils';
+import AddDashboardGroupAction from '../../../../dashboards/model/actions/add/AddDashboardGroupAction';
+import AddDashboardToDashboardGroupAction from '../../../../dashboards/model/actions/add/AddDashboardToDashboardGroupAction';
+import CloseSaveAsDashboardOrReportTemplateDialogAction from './CloseSaveAsDashboardOrReportTemplateDialogAction';
+import ShowSavedSuccessfullyNotificationAction from './ShowSavedSuccessfullyNotificationAction';
+import { DashboardGroup } from '../../../../dashboards/model/state/types/DashboardGroup';
+import { Dashboard } from '../../../../dashboards/model/state/types/Dashboard';
 
 export default class SaveDashboardAction extends AbstractSaveAsDashboardOrReportTemplateDialogAction {
   constructor(
     private readonly dashboardGroupName: string,
     private readonly dashboardName: string,
     private readonly dashboardGroups: DashboardGroup[],
-    private readonly charts: Chart[],
-    private readonly layout: Layout
+    private readonly dashboard: Dashboard
   ) {
     super();
   }
 
   perform(currentState: SaveAsDashboardOrReportTemplateDialogState): SaveAsDashboardOrReportTemplateDialogState {
-    const newState = {
-      ...currentState,
-      isOpen: false,
-      shouldShowSavedSuccessfullyNotification: true
+    const existingDashboardGroup = Utils.findElem(this.dashboardGroups, 'name', this.dashboardGroupName);
+    const dashboardGroup = existingDashboardGroup ?? {
+      name: this.dashboardGroupName,
+      dashboards: []
     };
 
-    return newState;
+    if (!existingDashboardGroup) {
+      this.dispatch(new AddDashboardGroupAction(dashboardGroup));
+      this.dispatch(new AddDashboardToDashboardGroupAction(this.dashboard, dashboardGroup));
+      this.dispatch(new CloseSaveAsDashboardOrReportTemplateDialogAction());
+      this.dispatch(new ShowSavedSuccessfullyNotificationAction());
+    }
+
+    return currentState;
   }
 }

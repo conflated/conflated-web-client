@@ -5,6 +5,8 @@ import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpda
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
+import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class AddSelectedMeasureToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -16,6 +18,10 @@ export default class AddSelectedMeasureToSelectedChartAction extends AbstractCha
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+      stateNamespace: 'dataExplorerPage'
+    });
+
     const { selectedChart } = currentState;
     selectedChart.addSelectedMeasure(this.measureOrDimension, this.aggregationFunction);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);

@@ -9,12 +9,11 @@ class DashboardsPageLeftPaneController extends Controller<PageStateNamespace> {
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
     dashboardsPageLeftPaneGutterOffset: appState.common.pageStates.dashboardsPage.pagePaneGutterOffset.leftPane,
     shouldShowDashboardsPageLeftPane: appState.common.pageStates.dashboardsPage.shouldShowPagePane.leftPane,
+    isDashboardGroupSelectorOpen: appState.common.selectorStates.dashboardGroupSelector.isSelectorOpen,
+    isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen,
 
     shouldShowDashboardsPageLeftPanePermanently:
-      appState.common.pageStates.dashboardsPage.shouldShowPagePanePermanently.leftPane,
-
-    isDashboardGroupSelectorOpen: appState.common.selectorStates.dashboardGroupSelector.isSelectorOpen,
-    isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen
+      appState.common.pageStates.dashboardsPage.shouldShowPagePanePermanently.leftPane
   });
 
   actionDispatchers = {
