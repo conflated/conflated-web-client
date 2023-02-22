@@ -8,9 +8,10 @@
   }
 
   .scrollbar {
-    margin: 0 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     visibility: hidden;
-    width: calc(100% - 1rem) !important;
+    width: calc(100% - 4rem) !important;
 
     @media (prefers-color-scheme: dark) {
       :global(.button) {
