@@ -59,7 +59,7 @@ const DashboardsPageHeaderView = ({
   const dashboardSelectorContent = (() => {
     if (selectedDashboard) {
       return (
-        <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name.toUpperCase()}>
+        <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name}>
           <Dropdown.Menu>{dashboardDropDownItems}</Dropdown.Menu>
         </Dropdown>
       );

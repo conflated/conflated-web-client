@@ -7,14 +7,14 @@ import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from './SetDashboardsPa
 
 export default class ShowDashboardsPageHeaderBrieflyAction extends AbstractDashboardsPageHeaderAction {
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
-    this.dispatchAfterThis(new ShowDashboardsPageHeaderAction());
+    this.dispatch(new ShowDashboardsPageHeaderAction());
 
     const headerDelayedHideTimeoutId = setTimeout(
       () => this.dispatch(new HideDashboardsPageHeaderAction()),
       Constants.SHOW_DASHBOARDS_HEADER_BRIEFLY_DURATION_IN_MILLIS
     );
 
-    this.dispatchAfterThis(new SetDashboardsPageHeaderDelayedHideTimeoutIdAction(headerDelayedHideTimeoutId));
+    this.dispatch(new SetDashboardsPageHeaderDelayedHideTimeoutIdAction(headerDelayedHideTimeoutId));
     return currentState;
   }
 }

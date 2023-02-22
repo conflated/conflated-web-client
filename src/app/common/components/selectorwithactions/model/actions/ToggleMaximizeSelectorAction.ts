@@ -20,16 +20,16 @@ export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithAc
 
     if (areAllOtherSelectorsClosed) {
       this.otherSelectorOpenStatuses.forEach(({ selectorStateNamespace }: SelectorOpenStatus) =>
-        this.dispatchAfterThis(new ToggleSelectorOpenAction(selectorStateNamespace))
+        this.dispatch(new ToggleSelectorOpenAction(selectorStateNamespace))
       );
     } else {
       Utils.pick(this.otherSelectorOpenStatuses, 'isOpen', true).forEach(
         ({ selectorStateNamespace }: SelectorOpenStatus) =>
-          this.dispatchAfterThis(new ToggleSelectorOpenAction(selectorStateNamespace))
+          this.dispatch(new ToggleSelectorOpenAction(selectorStateNamespace))
       );
     }
 
-    this.dispatchAfterThis(new OpenSelectorAction(this.stateNamespace));
+    this.dispatch(new OpenSelectorAction(this.stateNamespace));
 
     return {
       ...currentState,

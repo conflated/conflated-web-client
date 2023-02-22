@@ -13,13 +13,13 @@ export default class ShowDashboardAction extends AbstractDashboardsPageAction {
 
   perform(currentState: DashboardsState): DashboardsState {
     if (this.dashboard) {
-      this.dispatchAfterThis(new ChangeSelectedDashboardAction(this.dashboard));
+      this.dispatch(new ChangeSelectedDashboardAction(this.dashboard));
 
-      this.dispatchAfterThis(
+      this.dispatch(
         new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', this.dashboard.layout, this.dashboard.charts)
       );
 
-      this.dispatchAfterThisWithDi(StartFetchDataForOtherChartsAction, diContainer, {
+      this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
         pageStateNamespace: 'dashboardsPage',
         chart: null
       });

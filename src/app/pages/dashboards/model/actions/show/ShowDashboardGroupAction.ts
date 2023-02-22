@@ -13,11 +13,11 @@ export default class ShowDashboardGroupAction extends AbstractDashboardsPageActi
 
   perform(currentState: DashboardsState): DashboardsState {
     if (this.dashboardGroup) {
-      this.dispatchAfterThis(new ChangeSelectedDashboardGroupAction(this.dashboardGroup));
+      this.dispatch(new ChangeSelectedDashboardGroupAction(this.dashboardGroup));
       const newSelectedDashboard = this.dashboardGroup.dashboards?.[0];
 
       if (newSelectedDashboard) {
-        this.dispatchAfterThis(
+        this.dispatch(
           new ChangeChartAreaLayoutAndChartsAction(
             'dashboardsPage',
             newSelectedDashboard.layout,
@@ -25,7 +25,7 @@ export default class ShowDashboardGroupAction extends AbstractDashboardsPageActi
           )
         );
 
-        this.dispatchAfterThisWithDi(StartFetchDataForOtherChartsAction, diContainer, {
+        this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
           pageStateNamespace: 'dashboardsPage',
           chart: null
         });

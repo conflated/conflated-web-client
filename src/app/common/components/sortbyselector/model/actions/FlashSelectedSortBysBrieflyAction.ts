@@ -5,7 +5,7 @@ import ShowSelectedSortBysAction from './ShowSelectedSortBysAction';
 
 export default class FlashSelectedSortBysBrieflyAction extends AbstractSortBySelectorAction {
   perform(currentState: SortBySelectorState): SortBySelectorState {
-    this.dispatchAfterThis(new HideSelectedSortBysAction(this.stateNamespace));
+    this.dispatch(new HideSelectedSortBysAction(this.stateNamespace));
     setTimeout(() => this.dispatch(new ShowSelectedSortBysAction('dataExplorerPage')), 1000);
     setTimeout(() => this.dispatch(new HideSelectedSortBysAction('dataExplorerPage')), 2000);
     setTimeout(() => this.dispatch(new ShowSelectedSortBysAction('dataExplorerPage')), 3000);
