@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createStore, combineReducers } from 'redux';
 import { createNamespacedReducers } from 'oo-redux-utils2';
 import headerStateReducer from '../app/header/model/state/headerStateReducer';
@@ -62,4 +63,8 @@ const appStateReducer = combineReducers({
 });
 
 // noinspection JSDeprecatedSymbols
-export default createStore(appStateReducer);
+export default createStore(
+  appStateReducer,
+  // eslint-disable-next-line no-underscore-dangle
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+);

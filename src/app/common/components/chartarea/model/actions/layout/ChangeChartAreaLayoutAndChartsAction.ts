@@ -17,7 +17,8 @@ export default class ChangeChartAreaLayoutAndChartsAction extends AbstractChartA
     const newState = {
       ...currentState,
       layout: this.layout,
-      charts: this.charts
+      charts: this.charts,
+      selectedChart: this.charts[0]
     };
 
     return newState;
