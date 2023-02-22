@@ -5,12 +5,12 @@ import AbstractChartAreaAction from '../actions/AbstractChartAreaAction';
 import type { ChartAreaPageStateNamespace } from './types/ChartAreaPageStateNamespace';
 import ChartFactory from '../../chart/model/state/ChartFactory';
 
-export const emptyChart = ChartFactory.createChart();
+export const nullChart = ChartFactory.createChart();
 
 const initialChartAreaState: ChartAreaState = {
   layout: layout1,
-  selectedChart: emptyChart,
-  charts: [emptyChart],
+  selectedChart: nullChart,
+  charts: [nullChart],
   copiedChart: null
 };
 

@@ -22,7 +22,7 @@ const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Pro
       allowShiftArrowKeys
       pageSize={chart.xAxisCategoriesShownCount}
       maxScrollPosition={maxScrollPosition}
-      changeScrollPosition={(scrollPosition: number) => changeXAxisScrollPosition(scrollPosition)}
+      changeScrollPosition={(scrollPosition: number) => changeXAxisScrollPosition(chart, scrollPosition)}
     />
   ) : null;
 };
