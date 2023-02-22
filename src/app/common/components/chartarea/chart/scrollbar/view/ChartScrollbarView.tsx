@@ -18,6 +18,7 @@ const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Pro
   return maxScrollPosition > 0 ? (
     <Scrollbar
       className={className}
+      allowHomeAndEndKeys
       maxScrollPosition={maxScrollPosition}
       changeScrollPosition={(scrollPosition: number) => changeXAxisScrollPosition(scrollPosition)}
     />
