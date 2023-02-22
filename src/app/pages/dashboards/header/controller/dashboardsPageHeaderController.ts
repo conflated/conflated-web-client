@@ -3,11 +3,10 @@ import ChangeDashboardSlideChangeIntervalAction from '../../model/actions/slides
 import CancelDelayedDashboardsPageHeaderHideAction from '../model/actions/CancelDelayedDashboardsPageHeaderHideAction';
 import ToggleShouldShowDashboardsPageHeaderPermanentlyAction from '../model/actions/ToggleShouldShowDashboardsPageHeaderPermanentlyAction';
 import ToggleDashboardsSlideShowPlayAction from '../../model/actions/slideshow/ToggleDashboardsSlideShowPlayAction';
-import HideDashboardsPageHeaderAction from '../model/actions/HideDashboardsPageHeaderAction';
-import SetDashboardsPageHeaderDelayedHideTimeoutIdAction from '../model/actions/SetDashboardsPageHeaderDelayedHideTimeoutIdAction';
 import { AppState } from '../../../../../store/AppState';
 import store from '../../../../../store/store';
 import { controller as dashboardsPageController } from '../../controller/dashboardsPageController';
+import HideDashboardsHeaderDelayedAction from '../model/actions/HideDashboardsHeaderDelayedAction';
 
 class DashboardsPageHeaderController extends Controller {
   getState = (appState: AppState) =>
@@ -20,12 +19,7 @@ class DashboardsPageHeaderController extends Controller {
     ...dashboardsPageController.actionDispatchers,
 
     hideDashboardsHeaderDelayed: (dashboardHeaderHideDelayInMillis: number) => {
-      const timeoutId = setTimeout(
-        () => this.dispatch(new HideDashboardsPageHeaderAction()),
-        dashboardHeaderHideDelayInMillis
-      );
-
-      this.dispatch(new SetDashboardsPageHeaderDelayedHideTimeoutIdAction(timeoutId));
+      this.dispatch(new HideDashboardsHeaderDelayedAction(dashboardHeaderHideDelayInMillis));
     },
 
     toggleDashboardsSlideShowPlay: () => {
