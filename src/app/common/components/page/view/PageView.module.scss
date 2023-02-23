@@ -29,6 +29,11 @@
   }
 
   .abstractPaneActivatorHint {
+
+    @media (any-pointer: coarse) {
+      display: none;
+    }
+
     background-color: rgb(240, 240, 240);
     color: var(--red-color);
     font-size: 1.5rem;

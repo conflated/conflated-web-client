@@ -1,5 +1,8 @@
 .scrollableChart {
-  border: 3px solid transparent;
+  @media (any-pointer: fine) {
+    border: 3px solid transparent;
+  }
+
   height: 100%;
   padding-bottom: 0.3rem !important;
 
@@ -8,6 +11,10 @@
   }
 
   .scrollbar {
+    @media (any-pointer: coarse) {
+      display: none;
+    }
+
     margin-left: 2rem;
     margin-right: 2rem;
     visibility: hidden;
@@ -33,11 +40,13 @@
   }
 
   &.selectedChart {
-    background-color: var(--transparent-brand-color-1);
-    border: 3px solid var(--brand-color-1);
+    @media (any-pointer: fine) {
+      background-color: var(--transparent-brand-color-1);
+      border: 3px solid var(--brand-color-1);
 
-    @media (prefers-color-scheme: dark) {
-      background-color: #131313;
+      @media (prefers-color-scheme: dark) {
+        background-color: #131313;
+      }
     }
   }
 

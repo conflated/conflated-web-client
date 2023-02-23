@@ -44,34 +44,58 @@ class ChartAreaView extends React.Component<Props> {
       size: { width: chartAreaWidth, height: chartAreaHeight }
     }: Props = this.props;
 
-    const chartElements = charts.map((chart: Chart) => (
-      <div key={chart.id}>
-        <ChartView
-          chart={chart}
-          isSelectedChart={chart === selectedChart}
-          height={chart.getHeight(layout, chartAreaHeight)}
-          width={chart.getWidth(layout, chartAreaWidth)}
-          pageStateNamespace={pageStateNamespace}
-        />
-      </div>
-    ));
+    const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
+    const isPortrait = window.matchMedia && window.matchMedia('screen and (orientation: portrait)').matches;
+
+    const chartElements = charts.map((chart: Chart) => {
+      let chartHeight;
+
+      if (isMaxWidth1024px) {
+        const headerHeight = 3 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        if (isPortrait) {
+          chartHeight = (document.body.clientHeight - headerHeight) / 2;
+        } else {
+          chartHeight = document.body.clientHeight - headerHeight;
+        }
+      } else {
+        chartHeight = chart.getHeight(layout, chartAreaHeight);
+      }
+
+      const chartWidth = isMaxWidth1024px ? document.body.clientWidth - 10 : chart.getWidth(layout, chartAreaWidth);
+
+      return (
+        <div key={chart.id} style={{ height: chartHeight, width: '100%' }}>
+          <ChartView
+            chart={chart}
+            isSelectedChart={chart === selectedChart}
+            height={chartHeight}
+            width={chartWidth}
+            pageStateNamespace={pageStateNamespace}
+          />
+        </div>
+      );
+    });
 
     return (
       <section className={`${styles.chartArea} ${className || ''}`} tabIndex={0}>
-        <GridLayout
-          className={styles.gridLayout}
-          layout={layout as any}
-          verticalCompact
-          cols={Constants.GRID_COLUMN_COUNT}
-          margin={[0, 0]}
-          containerPadding={[0, 0]}
-          rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
-          width={chartAreaWidth}
-          isDraggable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
-          isResizable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
-        >
-          {chartElements}
-        </GridLayout>
+        {isMaxWidth1024px ? (
+          chartElements
+        ) : (
+          <GridLayout
+            className={styles.gridLayout}
+            layout={layout as any}
+            verticalCompact
+            cols={Constants.GRID_COLUMN_COUNT}
+            margin={[0, 0]}
+            containerPadding={[0, 0]}
+            rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
+            width={chartAreaWidth}
+            isDraggable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
+            isResizable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
+          >
+            {chartElements}
+          </GridLayout>
+        )}
       </section>
     );
   }
