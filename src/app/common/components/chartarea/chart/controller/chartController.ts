@@ -15,6 +15,7 @@ import type { DataPoint } from '../model/state/types/DataPoint';
 import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/actions/chart/notselected/RemoveSelectionFilterFromNotSelectedChartsAction';
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
+import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
 
 export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
   selectChart = _.debounce(
@@ -56,6 +57,9 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, pageStateNamespace }),
 
     startFetchDataForSelectedChart: () =>
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace })
+      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace }),
+
+    changeXAxisScrollPosition: (chart: Chart, xAxisScrollPosition: number) =>
+      this.dispatch(new ChangeXAxisScrollPositionForSelectedChartAction(pageStateNamespace, chart, xAxisScrollPosition))
   });
 }

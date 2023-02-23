@@ -12,7 +12,7 @@
 
   .scrollbar {
     @media (any-pointer: coarse) {
-      display: none;
+      display: none !important;
     }
 
     margin-left: 2rem;

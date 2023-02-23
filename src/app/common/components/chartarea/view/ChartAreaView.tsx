@@ -61,10 +61,10 @@ class ChartAreaView extends React.Component<Props> {
         chartHeight = chart.getHeight(layout, chartAreaHeight);
       }
 
-      const chartWidth = isMaxWidth1024px ? document.body.clientWidth - 10 : chart.getWidth(layout, chartAreaWidth);
+      const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
 
       return (
-        <div key={chart.id} style={{ height: chartHeight, width: '100%' }}>
+        <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
           <ChartView
             chart={chart}
             isSelectedChart={chart === selectedChart}
