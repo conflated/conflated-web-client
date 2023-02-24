@@ -51,7 +51,7 @@ class ChartAreaView extends React.Component<Props> {
       let chartHeight;
 
       if (isMaxWidth1024px) {
-        const headerHeight = 3 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const headerHeight = 6 * parseFloat(getComputedStyle(document.documentElement).fontSize);
         if (isPortrait) {
           chartHeight = (document.body.clientHeight - headerHeight) / 2;
         } else {
