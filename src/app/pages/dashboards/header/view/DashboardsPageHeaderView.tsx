@@ -21,6 +21,8 @@ const DashboardsPageHeaderView = ({
   isDashboardsSlideShowPlaying,
   isFullScreenModeActive,
   hideDashboardsHeaderDelayed,
+  nextDashboard,
+  previousDashboard,
   selectedDashboardGroup,
   selectedDashboard,
   shouldShowDashboardsHeader,
@@ -93,18 +95,13 @@ const DashboardsPageHeaderView = ({
         className={styles.actionIcon}
         size="big"
         name="angle left"
-        onClick={toggleShouldShowDashboardsHeaderPermanently}
+        onClick={() => showDashboard(previousDashboard)}
       />
       <div className={styles.dashboardSelectors}>
         {dashboardSelectorContent}
         {dashboardGroupSelectorContent}
       </div>
-      <Icon
-        className={styles.actionIcon}
-        size="big"
-        name="angle right"
-        onClick={toggleShouldShowDashboardsHeaderPermanently}
-      />
+      <Icon className={styles.actionIcon} size="big" name="angle right" onClick={() => showDashboard(nextDashboard)} />
     </header>
   ) : (
     <header

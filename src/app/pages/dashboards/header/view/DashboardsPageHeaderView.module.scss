@@ -109,9 +109,10 @@
       margin: 0;
     }
 
-    &:hover,
-    &:focus {
-      color: var(--secondary-text-color-on-hover) !important;
+    &:hover {
+      @media screen and (any-pointer: fine) {
+        color: var(--secondary-text-color-on-hover) !important;
+      }
     }
   }
 }

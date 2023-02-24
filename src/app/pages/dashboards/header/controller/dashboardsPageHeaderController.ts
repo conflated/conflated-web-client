@@ -7,11 +7,17 @@ import { AppState } from '../../../../../store/AppState';
 import store from '../../../../../store/store';
 import { controller as dashboardsPageController } from '../../controller/dashboardsPageController';
 import HideDashboardsHeaderDelayedAction from '../model/actions/HideDashboardsHeaderDelayedAction';
+import selectedNextDashboard from '../../controller/selectors/selectedNextDashboard';
+import selectNextDashboardGroup from '../../controller/selectors/selectNextDashboardGroup';
+import selectPreviousDashboard from '../../controller/selectors/selectPreviousDashboard';
 
 class DashboardsPageHeaderController extends Controller {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.headerState, {
       ...appState.dashboardsPage.dashboardsState,
+      nextDashboard: selectedNextDashboard(appState),
+      nextDashboardGroup: selectNextDashboardGroup(appState),
+      previousDashboard: selectPreviousDashboard(appState),
       isFullScreenModeActive: appState.headerState.isFullScreenModeActive
     });
 
