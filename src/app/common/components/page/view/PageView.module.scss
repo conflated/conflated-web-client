@@ -2,12 +2,21 @@
   display: flex;
   height: calc(100vh - 3rem);
 
+  @media screen and (any-pointer: coarse) {
+    display: block;
+    height: auto;
+  }
+
   .draggableGutter {
     cursor: ew-resize;
     flex-basis: 2px;
     flex-shrink: 0;
     height: 100%;
     opacity: 0;
+
+    @media screen and (any-pointer: coarse) {
+      display: none;
+    }
   }
 
   .leftPaneActivator {
@@ -17,6 +26,10 @@
     top: 3rem;
     width: 2px;
     z-index: var(--topmost-z-index);
+
+    @media screen and (any-pointer: coarse) {
+      display: none;
+    }
   }
 
   .rightPaneActivator {
@@ -26,11 +39,15 @@
     top: 3rem;
     width: 2px;
     z-index: var(--topmost-z-index);
+
+    @media screen and (any-pointer: coarse) {
+      display: none;
+    }
   }
 
   .abstractPaneActivatorHint {
 
-    @media (any-pointer: coarse) {
+    @media screen and (any-pointer: coarse) {
       display: none;
     }
 

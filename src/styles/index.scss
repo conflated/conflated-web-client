@@ -13,6 +13,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: var(--brand-font-weight);
   overflow: hidden;
+
+  @media screen and (any-pointer: coarse) {
+    overflow-y: auto;
+  }
 }
 
 a {

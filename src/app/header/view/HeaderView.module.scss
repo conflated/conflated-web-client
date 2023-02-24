@@ -6,6 +6,10 @@
   height: 3rem;
   justify-content: center;
 
+  @media screen and (any-pointer: coarse) {
+    height: 2.5rem;
+  }
+
   &.hidden {
     height: 0;
     overflow: hidden;

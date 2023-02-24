@@ -85,7 +85,28 @@ const DashboardsPageHeaderView = ({
     [styles.fullScreen]: isFullScreenModeActive
   });
 
-  return (
+  const isCoarsePointer = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
+
+  return isCoarsePointer ? (
+    <header className={styles.header}>
+      <Icon
+        className={styles.actionIcon}
+        size="big"
+        name="angle left"
+        onClick={toggleShouldShowDashboardsHeaderPermanently}
+      />
+      <div className={styles.dashboardSelectors}>
+        {dashboardSelectorContent}
+        {dashboardGroupSelectorContent}
+      </div>
+      <Icon
+        className={styles.actionIcon}
+        size="big"
+        name="angle right"
+        onClick={toggleShouldShowDashboardsHeaderPermanently}
+      />
+    </header>
+  ) : (
     <header
       className={className}
       onMouseEnter={cancelDelayedDashboardsHeaderHide}
