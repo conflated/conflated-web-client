@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { Dropdown, Icon } from 'semantic-ui-react';
+import { Dropdown, Icon, Input } from 'semantic-ui-react';
 import styles from './DashboardsPageHeaderView.module.scss';
 import type { Dashboard } from '../../model/state/types/Dashboard';
 import type { DashboardGroup } from '../../model/state/types/DashboardGroup';
@@ -62,7 +62,12 @@ const DashboardsPageHeaderView = ({
     if (selectedDashboard) {
       return (
         <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name}>
-          <Dropdown.Menu>{dashboardDropDownItems}</Dropdown.Menu>
+          <Dropdown.Menu>
+            <div style={{ margin: '1.1rem 0.78rem' }} onClick={(event: React.MouseEvent) => event.stopPropagation()}>
+              <Input fluid size="small" icon="search" iconPosition="left" name="search" />
+            </div>
+            {dashboardDropDownItems}
+          </Dropdown.Menu>
         </Dropdown>
       );
     }
