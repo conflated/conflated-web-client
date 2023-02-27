@@ -29,7 +29,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             name: 'measure1',
             expression: ''
           },
-          visualizationColor: '#124191',
+          visualizationColor: '#005AFF',
           aggregationFunction: 'SUM',
           visualizationType: 'column'
         }
@@ -68,7 +68,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             name: 'measure1',
             expression: ''
           },
-          visualizationColor: '#00C9FF',
+          visualizationColor: '#23ABB6',
           aggregationFunction: 'SUM',
           visualizationType: 'column'
         }
@@ -107,7 +107,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             name: 'measure1',
             expression: ''
           },
-          visualizationColor: '#00C9FF',
+          visualizationColor: '#23ABB6',
           aggregationFunction: 'SUM',
           visualizationType: 'column'
         }
@@ -146,7 +146,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             name: 'measure1',
             expression: ''
           },
-          visualizationColor: '#4BDD33',
+          visualizationColor: '#F7B737',
           aggregationFunction: 'SUM',
           visualizationType: 'column'
         }

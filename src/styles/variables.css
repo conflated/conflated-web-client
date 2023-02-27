@@ -3,7 +3,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --base-font-size: 80%;
-    --background-color: #ffffff;
+    --background-color: #fff;
     --primary-text-color: rgb(0 0 0);
     --primary-text-color-on-hover: var(--brand-color-1);
     --secondary-text-color: rgb(255 255 255);
@@ -39,7 +39,7 @@
     --primary-text-color: rgb(255 255 255);
     --primary-text-color-on-hover: var(--brand-color-1);
     --secondary-text-color: rgb(255 255 255);
-    --secondary-text-color-on-hover: rgb(0 201 255);
+    --secondary-text-color-on-hover: #37CC73;
     --header-background-color: var(--brand-color-1);
     --header-foreground-color: var(--secondary-text-color);
     --selected-list-item-color: var(--secondary-text-color-on-hover);

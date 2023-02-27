@@ -1,8 +1,8 @@
 :root {
-  --brand-color-1: rgb(18 65 145);
+  --brand-color-1: #005AFF;
   --transparent-brand-color-1: rgb(179, 209, 255, 0.3);
-  --brand-color-2: rgb(152 162 174);
-  --red-color: #ff3154;
+  --brand-color-2: #37CC73;
+  --red-color: #E23B3B;
   --brand-logo-font-family: 'Raleway', sans-serif;
   --brand-logo-font-weight: 100;
   --brand-font-family: 'Arimo', sans-serif;

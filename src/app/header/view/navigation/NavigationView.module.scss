@@ -10,16 +10,11 @@
 
     &:hover .linkIcon,
     &:hover .linkText {
-      color: var(--secondary-text-color-on-hover) !important;
       cursor: pointer;
     }
 
     .linkIcon {
       text-align: right;
-
-      &.selectedIcon {
-        color: var(--secondary-text-color-on-hover) !important;
-      }
     }
 
     .linkText {
@@ -30,7 +25,7 @@
       margin-right: 40px;
 
       &.selected {
-        color: var(--secondary-text-color-on-hover);
+        border-bottom: 1px solid #fff;
       }
     }
 

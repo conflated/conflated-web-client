@@ -4,7 +4,7 @@ import AbstractDataExplorerAction from '../actions/AbstractDataExplorerAction';
 
 const defaultTheme = {
   name: 'default',
-  colors: ['#124191', '#00C9FF', '#4BDD33', '#FFFB00', '#FF8B10', '#FF3154', '#273142']
+  colors: ['#005AFF', '#23ABB6', '#F7B737', '#F47F31', '#EO3DCD', '#7D33F2', '#37CC73', '#E23B3B']
 };
 
 const initialDataExplorerSettingsState: DataExplorerState = {
