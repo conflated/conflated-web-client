@@ -15,13 +15,18 @@
     overflow: hidden;
   }
 
-  .appTitle {
+  .appLogo {
     font-family: var(--brand-logo-font-family);
     font-size: var(--app-title-font-size);
     font-weight: var(--brand-logo-font-weight);
-    line-height: 45px;
+    line-height: 3rem;
     margin-left: 20px;
     vertical-align: middle;
+  }
+
+  .productName {
+    font-size: 1.2rem;
+    margin-left: 2rem;
   }
 
   .headerIcon {

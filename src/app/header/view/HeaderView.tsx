@@ -74,9 +74,11 @@ const HeaderView = ({
 
   return (
     <header className={className} onMouseOver={showDashboardsHeader} onFocus={showDashboardsHeader}>
-      {/* <h1 className={styles.appTitle}>Conflated</h1> */}
       <DropDownMenuView />
-      <img className={styles.appTitle} height="60%" src="/images/nokia-logo.svg" alt="" />
+      <img className={styles.appLogo} height="60%" src="/images/nokia-logo.svg" alt="" />
+      <div className={styles.productName}>
+        <b>CNI</b> Real-Time Monitoring
+      </div>
       <NavigationView selectPage={selectPage} />
       <UserMenuView />
       <FullScreenIconView requestFullScreenMode={requestFullScreenMode} />
