@@ -49,7 +49,22 @@
 
       :global(.menu) {
         max-height: calc(100vh - 8rem);
-        // max-width: 80%;
+        max-width: 80vw;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: #CCCCCC;
+        }
+
+        & > :global(.item) {
+          @media screen and (any-pointer: fine) {
+            padding-top: 0.3rem !important;
+            padding-bottom: 0.3rem !important;
+
+            &:last-child {
+              margin-bottom: 1rem !important;
+            }
+          }
+        }
       }
     }
 
