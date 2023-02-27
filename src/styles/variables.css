@@ -39,10 +39,10 @@
     --primary-text-color: rgb(255 255 255);
     --primary-text-color-on-hover: var(--brand-color-1);
     --secondary-text-color: rgb(255 255 255);
-    --secondary-text-color-on-hover: #37CC73;
+    --secondary-text-color-on-hover: #23ABB6;
     --header-background-color: var(--brand-color-1);
     --header-foreground-color: var(--secondary-text-color);
-    --selected-list-item-color: var(--secondary-text-color-on-hover);
+    --selected-list-item-color: #37CC73;
     --app-title-font-size: 2rem;
     --app-navigation-font-size: 1rem;
     --large-font-size: 1rem;

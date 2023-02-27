@@ -16,7 +16,7 @@ const DashboardsPageHeaderPinIconView = ({
     trigger={
       <Icon
         className={styles.actionIcon}
-        style={{ color: shouldShowDashboardsHeaderPermanently ? 'var(--secondary-text-color-on-hover)' : 'rgb(0,0,0)' }}
+        style={{ color: shouldShowDashboardsHeaderPermanently ? 'var(--primary-text-color-on-hover)' : 'rgb(0,0,0)' }}
         size="large"
         name="pin"
         onClick={toggleShouldShowDashboardsHeaderPermanently}
