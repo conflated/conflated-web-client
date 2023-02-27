@@ -32,6 +32,12 @@ const DashboardsPageHeaderView = ({
   toggleDashboardsSlideShowPlay,
   toggleShouldShowDashboardsHeaderPermanently
 }: Props) => {
+  function stopEventPropagation(event: React.MouseEvent) {
+    event.stopPropagation();
+    event.preventDefault();
+    cancelDelayedDashboardsHeaderHide();
+  }
+
   const dashboardDropDownItems = useMemo(
     () =>
       selectedDashboardGroup?.dashboards.map((dashboard: Dashboard) => (
@@ -63,8 +69,11 @@ const DashboardsPageHeaderView = ({
       return (
         <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name}>
           <Dropdown.Menu>
-            <div style={{ margin: '1.1rem 0.78rem' }} onClick={(event: React.MouseEvent) => event.stopPropagation()}>
-              <Input fluid size="small" icon="search" iconPosition="left" name="search" />
+            <div style={{ margin: '1.1rem 0.78rem' }} onClick={stopEventPropagation}>
+              <Input fluid size="small" icon="search" iconPosition="left" />
+            </div>
+            <div className={styles.tabs}>
+              ALL<span>FAVORITES</span>
             </div>
             {dashboardDropDownItems}
           </Dropdown.Menu>
@@ -79,7 +88,12 @@ const DashboardsPageHeaderView = ({
     if (selectedDashboardGroup) {
       return (
         <Dropdown scrolling className={styles.dashboardGroupSelector} text={selectedDashboardGroup.name}>
-          <Dropdown.Menu>{dashboardGroupDropDownItems}</Dropdown.Menu>
+          <Dropdown.Menu>
+            <div style={{ margin: '1.1rem 0.78rem' }} onClick={stopEventPropagation}>
+              <Input fluid size="small" icon="search" iconPosition="left" />
+            </div>
+            {dashboardGroupDropDownItems}
+          </Dropdown.Menu>
         </Dropdown>
       );
     }

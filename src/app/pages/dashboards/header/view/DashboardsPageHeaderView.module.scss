@@ -47,12 +47,27 @@
         padding-bottom: 0.5rem;
       }
 
+      .tabs {
+        margin: 1rem;
+
+        span {
+          font-weight: normal;
+          padding-left: 1rem;
+        }
+      }
+
       :global(.menu) {
         max-height: calc(100vh - 8rem);
         max-width: 80vw;
 
         @media (prefers-color-scheme: dark) {
           background-color: #CCCCCC;
+        }
+
+        input {
+          background-color: #CCCCCC !important;
+          padding-bottom: 0.4rem;
+          padding-top: 0.4rem;
         }
 
         & > :global(.item) {
@@ -74,7 +89,29 @@
 
 
       :global(.menu) {
-        max-width: 80vh;
+        max-width: 80vw;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: #CCCCCC;
+        }
+
+        input {
+          background-color: #CCCCCC !important;
+          font-size: 1rem;
+          padding-bottom: 0.4rem;
+          padding-top: 0.4rem;
+        }
+
+        & > :global(.item) {
+          @media screen and (any-pointer: fine) {
+            padding-top: 0.3rem !important;
+            padding-bottom: 0.3rem !important;
+
+            &:last-child {
+              margin-bottom: 1rem !important;
+            }
+          }
+        }
       }
     }
   }
