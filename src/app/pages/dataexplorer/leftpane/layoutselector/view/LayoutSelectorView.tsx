@@ -35,6 +35,7 @@ const LayoutSelectorView = ({
     <SelectorView
       id="layoutSelector"
       titleText="LAYOUT"
+      position="leftPane"
       titleContent={
         <LayoutSelectorTitleView
           handleLockIconClick={handleLockIconClick}

@@ -10,6 +10,7 @@ export type OwnProps = {
   additionalContent?: JSX.Element | null;
   id: string;
   isSelectorMaximized?: boolean;
+  position: 'leftPane' | 'rightPane';
   selectorContentClassName?: string;
   selectorContent: JSX.Element;
   // eslint-disable-next-line react/no-unused-prop-types
@@ -25,13 +26,14 @@ const SelectorView: React.FC<Props> = ({
   id,
   isSelectorOpen,
   isSelectorMaximized,
+  position,
   selectorContent,
   selectorContentClassName,
   titleContent,
   titleText,
   toggleSelectorOpen
 }: Props) => (
-  <section id={id}>
+  <section id={id} className={position === 'leftPane' ? styles.leftPaneSelector : styles.rightPaneSelector}>
     <Accordion className={isSelectorMaximized && isSelectorOpen ? styles.maximizedSelector : ''}>
       <Accordion.Title className={styles.title} active={isSelectorOpen} index={0} onClick={toggleSelectorOpen}>
         <Icon name="dropdown" />

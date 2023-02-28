@@ -7,6 +7,7 @@ type Props = {
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
   iconClassName: string;
   isPinned?: boolean;
+  position: 'leftPane' | 'rightPane';
   shouldShowPinIcon?: boolean;
   toggleShowSearchInput: (event: React.MouseEvent<HTMLElement>) => void;
   toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
@@ -17,11 +18,18 @@ const ActionsView: React.FC<Props> = ({
   handlePinIconClick,
   iconClassName,
   isPinned,
+  position,
   shouldShowPinIcon,
   toggleShowSearchInput,
   toggleMaximizeAccordion
 }: Props) => {
-  const pinIconColor = isPinned ? 'var(--secondary-text-color-on-hover)' : 'var(--secondary-text-color)';
+  let pinIconColor = 'var(--secondary-text-color)';
+
+  if (isPinned && position === 'leftPane') {
+    pinIconColor = 'var(--secondary-text-color-on-hover)';
+  } else if (isPinned && position === 'rightPane') {
+    pinIconColor = 'var(--brand-color-2)';
+  }
 
   const addIcon = (
     <Popup inverted trigger={<Icon className={iconClassName} name="plus" />} content={addIconTooltipText} />

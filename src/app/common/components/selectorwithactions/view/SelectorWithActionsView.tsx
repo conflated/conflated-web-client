@@ -17,6 +17,7 @@ export type OwnProps = {
   id: string;
   isPinned?: boolean;
   listItemsContent: JSX.Element | Array<JSX.Element> | null;
+  position: 'leftPane' | 'rightPane';
   selectedListItemsContent?: JSX.Element;
   selectorStateNamespace: SelectorWithActionsStateNamespace;
   titleText: string;
@@ -35,6 +36,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   isSearchInputShown,
   isSelectorMaximized,
   listItemsContent,
+  position,
   selectedListItemsContent,
   selectorStateNamespace,
   titleText,
@@ -58,6 +60,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   const titleContent = (
     <ActionsView
       iconClassName={styles.actionIcon}
+      position={position}
       toggleShowSearchInput={handleSearchIconClick}
       toggleMaximizeAccordion={handleMaximizeIconClick}
       shouldShowPinIcon={isPinned !== undefined}
@@ -85,6 +88,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       isSelectorMaximized={isSelectorMaximized}
       titleText={titleText}
       titleContent={titleContent}
+      position={position}
       selectorContent={selectorContent}
       selectorContentClassName={styles2.content}
       additionalContent={additionalContent}

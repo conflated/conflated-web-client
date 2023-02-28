@@ -39,7 +39,7 @@
     --primary-text-color: rgb(255 255 255);
     --primary-text-color-on-hover: var(--brand-color-1);
     --secondary-text-color: rgb(255 255 255);
-    --secondary-text-color-on-hover: #23ABB6;
+    --secondary-text-color-on-hover: #005AFF;
     --header-background-color: linear-gradient(90deg, rgba(0,90,255,1) 0%, rgba(55,204,115,1) 100%); //var(--brand-color-1);
     --header-foreground-color: var(--secondary-text-color);
     --selected-list-item-color: #37CC73;

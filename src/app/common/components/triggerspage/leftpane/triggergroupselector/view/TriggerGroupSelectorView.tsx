@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
 import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
@@ -56,9 +56,10 @@ const TriggerGroupSelectorView = ({
   const selectorStateNamespace = `${pageStateNamespace}TriggerGroupSelector`;
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id={selectorStateNamespace}
       titleText="ALERT GROUP"
+      position="leftPane"
       addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert group' : 'Add new goal group'}
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />

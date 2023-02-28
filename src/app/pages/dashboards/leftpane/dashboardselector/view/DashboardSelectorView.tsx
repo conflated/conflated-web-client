@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DashboardListItem from './dashboardlistitem/DashboardListItem';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { Dashboard } from '../../../model/state/types/Dashboard';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dahboardSelectorController';
@@ -43,10 +43,11 @@ const DashboardSelectorView = ({
   );
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id="dashboardSelector"
       titleText="DASHBOARD"
       addIconTooltipText="Add new dashboard"
+      position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dashboardListItems} secondTabPaneListItems={[]} />
       }

@@ -5,7 +5,7 @@ import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
-import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
@@ -119,10 +119,11 @@ const FilterSelectorView = ({
   const selectorStateNamespace = `${pageStateNamespace}FilterSelector`;
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id={selectorStateNamespace}
       titleText="FILTER"
       addIconTooltipText="Add new filter"
+      position="rightPane"
       selectedListItemsContent={
         <section className={styles.selectedFiltersSection}>
           <List>{selectedFilterListItems}</List>

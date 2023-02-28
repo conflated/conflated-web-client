@@ -7,7 +7,7 @@ import SelectedSortByListItemView from './selectedsortbylistitem/SelectedSortByL
 import type { Measure } from '../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { Dimension } from '../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedSortBy } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
-import SelectorWithDefaultActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../selectorwithactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../view/measurelistitem/MeasureListItemView';
 import DimensionListItemView from '../../../view/dimensionlistitem/DimensionListItemView';
 import type { TimeSortOption } from '../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
@@ -113,10 +113,11 @@ const SortBySelectorView = ({
   const selectorStateNamespace = `${pageStateNamespace}SortBySelector`;
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id={selectorStateNamespace}
       titleText="SORT BY"
       addIconTooltipText="Add new sort definition"
+      position="rightPane"
       selectedListItemsContent={
         <section className={`${selectedSortBysSection} ${areSelectedSortBysShown ? visible : hidden}`}>
           <List>{selectedSortByListItems}</List>

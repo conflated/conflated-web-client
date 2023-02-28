@@ -3,7 +3,7 @@ import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerListItemView from './triggerlistitem/TriggerListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import SelectorWithDefaultActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
@@ -58,10 +58,11 @@ const TriggerSelectorView = ({
   const selectorStateNamespace = `${pageStateNamespace}TriggerSelector`;
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id={selectorStateNamespace}
       titleText="ALERT"
       addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert' : 'Add new goal'}
+      position="leftPane"
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}

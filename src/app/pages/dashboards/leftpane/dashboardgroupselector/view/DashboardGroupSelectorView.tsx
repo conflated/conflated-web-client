@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dashboardGroupSelectorController';
@@ -53,10 +53,11 @@ const DashboardGroupSelectorView = ({
   );
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id="dashboardGroupSelector"
       titleText="DASHBOARD GROUP"
       addIconTooltipText="Add new dashboard group"
+      position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dashboardGroupListItems} secondTabPaneListItems={[]} />
       }

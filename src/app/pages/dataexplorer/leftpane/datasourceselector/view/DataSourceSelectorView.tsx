@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
@@ -81,10 +81,11 @@ const DataSourceSelectorView = ({
   }, [shownDataSources, selectedChart.dataSource, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
 
   return (
-    <SelectorWithDefaultActionsView
+    <SelectorWithActionsView
       id="dataSourceSelector"
       titleText="DATA SOURCE"
       addIconTooltipText="Add new data source"
+      position="leftPane"
       listItemsContent={
         <ListItemsView
           listItems={dataSourceListItems}

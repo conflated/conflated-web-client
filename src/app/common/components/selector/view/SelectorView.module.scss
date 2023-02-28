@@ -5,10 +5,6 @@
   margin-right: 0.65rem !important;
   visibility: hidden;
 
-  &:hover {
-    color: var(--secondary-text-color-on-hover) !important;
-  }
-
   &:last-child {
     margin-right: 1rem !important;
   }
@@ -20,16 +16,10 @@
 
 .title {
   align-items: center !important;
-  background-color: var(--brand-color-2) !important;
   color: var(--secondary-text-color) !important;
   display: flex !important;
   font-size: 1rem !important;
   font-weight: bold;
-
-  &:hover,
-  &:focus {
-    color: var(--secondary-text-color-on-hover) !important;
-  }
 
   &:hover .actionIcon {
     visibility: visible;
@@ -38,8 +28,34 @@
 
 .titleSpan {
   flex-grow: 1;
+}
 
-  &:hover {
-    color: var(--secondary-text-color-on-hover);
+.leftPaneSelector {
+  .actionIcon:hover {
+    color: var(--secondary-text-color-on-hover) !important;
+  }
+
+  .title {
+    background-color: var(--brand-color-2);
+
+    &:hover,
+    &:focus {
+      color: var(--secondary-text-color-on-hover) !important;
+    }
+  }
+}
+
+.rightPaneSelector {
+  .actionIcon:hover {
+      color: var(--brand-color-2) !important;
+  }
+
+  .title {
+    background-color: var(--brand-color-1);
+
+    &:hover,
+    &:focus {
+      color: var(--brand-color-2) !important;
+    }
   }
 }

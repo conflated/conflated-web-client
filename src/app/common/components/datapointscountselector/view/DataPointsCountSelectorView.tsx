@@ -46,6 +46,7 @@ const DataPointsCountSelectorView = ({
     <SelectorView
       id={selectorStateNamespace}
       titleText={selectedChart.supportsDataPointsCount() ? 'SHOWN/FETCHED DATA' : 'FETCHED DATA'}
+      position="rightPane"
       selectorStateNamespace={(selectorStateNamespaces as any)[selectorStateNamespace]}
       selectorContent={
         <>
