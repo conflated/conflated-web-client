@@ -101,8 +101,8 @@ const PageView = ({
       {rightPane}
       {createPaneActivator('leftPane')}
       {createPaneActivator('rightPane')}
-      <div className={leftPaneActivatorHintClassName}>Hover here to activate left pane</div>
-      <div className={rightPaneActivatorHintClassName}>Hover here to activate right pane</div>
+      <div className={leftPaneActivatorHintClassName}>Hover here to show the left pane</div>
+      <div className={rightPaneActivatorHintClassName}>Hover here to show the right pane</div>
     </div>
   );
 };
