@@ -4,187 +4,235 @@
 
   %abstract-chart-icon {
     background-repeat: no-repeat;
-    background-size: 1.9rem 1.9rem;
+    background-size: 2.2rem 2.2rem;
     display: inline-block;
-    height: 2rem;
+    height: 2.25rem;
     margin-bottom: 0.2rem;
     margin-right: 0.2rem;
-    width: 2rem;
+    width: 2.25rem;
   }
 
   .columnChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/column_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/column_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/column_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/column_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/column_chart_icon.svg');
     }
   }
 
   .barChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/bar_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/bar_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
-      background-image: url("../../../../../../../assets/images/icons/chart/darkmode/bar_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/bar_chart_icon.svg');
     }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bar_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/bar_chart_icon.svg');
     }
   }
 
   .areaChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/area_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/area_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
-      background-image: url("../../../../../../../assets/images/icons/chart/darkmode/area_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/area_chart_icon.svg');
     }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/area_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/area_chart_icon.svg');
     }
   }
 
   .lineChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/line_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/line_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/line_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/line_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/line_chart_icon.svg');
     }
   }
 
   .donutChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/donut_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/donut_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/donut_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/donut_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/donut_chart_icon.svg');
     }
   }
 
   .pieChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/pie_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/pie_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/pie_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/pie_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/pie_chart_icon.svg');
     }
   }
 
   .bubbleChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/bubble_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/bubble_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/bubble_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bubble_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/bubble_chart_icon.svg');
     }
   }
 
   .scatterPlotIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/scatter_plot_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/scatter_plot_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/scatter_plot_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/scatter_plot_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/scatter_plot_icon.svg');
     }
   }
 
   .candlestickChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/candlestick_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/candlestick_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/candlestick_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/candlestick_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/candlestick_chart_icon.svg');
     }
   }
 
   .boxPlotIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/box_plot_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/box_plot_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/box_plot_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/box_plot_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/box_plot_icon.svg');
     }
   }
 
   .radarChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/radar_chart_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/radar_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/radar_chart_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/radar_chart_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/radar_chart_icon.svg');
     }
   }
 
   .heatmapIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/heatmap_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/heatmap_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/heatmap_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/heatmap_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/heatmap_icon.svg');
     }
   }
 
   .dataTableIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/data_table_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/data_table_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/data_table_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/data_table_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/data_table_icon.svg');
     }
   }
 
   .mapIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url("../../../../../../../assets/images/icons/chart/map_icon.svg");
+    background-image: url('../../../../../../../assets/images/icons/chart/map_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/map_icon.svg');
+    }
 
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/map_icon.svg");
+      background-image: url('../../../../../../../assets/images/icons/chart/onhover/map_icon.svg');
     }
   }
 
@@ -194,10 +242,18 @@
     letter-spacing: 0;
     line-height: 2rem;
 
+    @media (prefers-color-scheme: dark) {
+      color: var(--primary-text-color);
+    }
+
     &.selected,
     &:hover,
     &:focus {
       color: var(--brand-color-1);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--brand-color-2);
+      }
     }
   }
 }
