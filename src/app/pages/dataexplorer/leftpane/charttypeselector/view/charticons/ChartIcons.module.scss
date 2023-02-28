@@ -29,6 +29,10 @@
 
     background-image: url("../../../../../../../assets/images/icons/chart/bar_chart_icon.svg");
 
+    @media (prefers-color-scheme: dark) {
+      background-image: url("../../../../../../../assets/images/icons/chart/darkmode/bar_chart_icon.svg");
+    }
+
     &.selected,
     &:hover,
     &:focus {
