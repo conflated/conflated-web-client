@@ -16,6 +16,8 @@ type Props = ActionDispatchers & State;
 const DashboardsPageHeaderView = ({
   cancelDelayedDashboardsHeaderHide,
   changeDashboardsSlideChangeInterval,
+  dashboardGroupFilterText,
+  dashboardFilterText,
   dashboardGroups,
   dashboardSlideChangeIntervalInSecsStr,
   isDashboardsSlideShowPlaying,
@@ -25,6 +27,8 @@ const DashboardsPageHeaderView = ({
   previousDashboard,
   selectedDashboardGroup,
   selectedDashboard,
+  setDashboardGroupFilterText,
+  setDashboardFilterText,
   shouldShowDashboardsHeader,
   shouldShowDashboardsHeaderPermanently,
   showDashboard,
@@ -43,28 +47,32 @@ const DashboardsPageHeaderView = ({
 
   const dashboardDropDownItems = useMemo(
     () =>
-      selectedDashboardGroup?.dashboards.map((dashboard: Dashboard) => (
-        <Dropdown.Item
-          key={dashboard.name}
-          text={dashboard.name}
-          value={dashboard.name}
-          onClick={() => showDashboard(dashboard)}
-        />
-      )),
-    [selectedDashboardGroup?.dashboards, showDashboard]
+      selectedDashboardGroup?.dashboards
+        .filter((dashboard: Dashboard) => dashboard.name.includes(dashboardFilterText))
+        .map((dashboard: Dashboard) => (
+          <Dropdown.Item
+            key={dashboard.name}
+            text={dashboard.name}
+            value={dashboard.name}
+            onClick={() => showDashboard(dashboard)}
+          />
+        )),
+    [dashboardFilterText, selectedDashboardGroup?.dashboards, showDashboard]
   );
 
   const dashboardGroupDropDownItems = useMemo(
     () =>
-      dashboardGroups.map((dashboardGroup: DashboardGroup) => (
-        <Dropdown.Item
-          key={dashboardGroup.name}
-          text={dashboardGroup.name}
-          value={dashboardGroup.name}
-          onClick={() => showDashboardGroup(dashboardGroup)}
-        />
-      )),
-    [dashboardGroups, showDashboardGroup]
+      dashboardGroups
+        .filter((dashboardGroup: DashboardGroup) => dashboardGroup.name.includes(dashboardGroupFilterText))
+        .map((dashboardGroup: DashboardGroup) => (
+          <Dropdown.Item
+            key={dashboardGroup.name}
+            text={dashboardGroup.name}
+            value={dashboardGroup.name}
+            onClick={() => showDashboardGroup(dashboardGroup)}
+          />
+        )),
+    [dashboardGroupFilterText, dashboardGroups, showDashboardGroup]
   );
 
   const dashboardSelectorContent = (() => {
@@ -72,7 +80,14 @@ const DashboardsPageHeaderView = ({
       return (
         <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name}>
           <Dropdown.Menu>
-            <Input fluid size="small" icon="search" iconPosition="left" onClick={stopEventPropagation} />
+            <Input
+              fluid
+              size="small"
+              icon="search"
+              iconPosition="left"
+              onClick={stopEventPropagation}
+              onChange={(_, { value }: any) => setDashboardFilterText(value)}
+            />
             <div className={styles.tabs}>
               ALL<span>FAVORITES</span>
             </div>
@@ -90,7 +105,14 @@ const DashboardsPageHeaderView = ({
       return (
         <Dropdown scrolling className={styles.dashboardGroupSelector} text={selectedDashboardGroup.name}>
           <Dropdown.Menu>
-            <Input fluid size="small" icon="search" iconPosition="left" onClick={stopEventPropagation} />
+            <Input
+              fluid
+              size="small"
+              icon="search"
+              iconPosition="left"
+              onClick={stopEventPropagation}
+              onChange={(_, { value }: any) => setDashboardGroupFilterText(value)}
+            />
             {dashboardGroupDropDownItems}
           </Dropdown.Menu>
         </Dropdown>

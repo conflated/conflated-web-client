@@ -8,7 +8,9 @@ const initialDashboardsPageHeaderState: DashboardsPageHeaderState = {
   shouldShowDashboardsHeaderPermanently: false,
   dashboardsHeaderHideDelayInMillis: 200,
   dashboardsHeaderHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER),
-  dashboardsHeaderDelayedHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER)
+  dashboardsHeaderDelayedHideTimeoutId: setTimeout(() => _.noop(), Number.MAX_SAFE_INTEGER),
+  dashboardFilterText: '',
+  dashboardGroupFilterText: ''
 };
 
 export default OOReduxUtils.createStateReducer<DashboardsPageHeaderState>(

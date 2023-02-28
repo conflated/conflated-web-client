@@ -30,9 +30,7 @@ const DropdownFilterInputView = ({ changeFilterExpression, chartData, className,
       search
       options={dropdownOptions}
       value={selectedFilter.filterExpression ? JSON.parse(selectedFilter.filterExpression) : []}
-      onChange={(event: React.SyntheticEvent<HTMLElement>, { value }: any) =>
-        changeFilterExpression(JSON.stringify(value))
-      }
+      onChange={(_, { value }: any) => changeFilterExpression(JSON.stringify(value))}
     />
   );
 };

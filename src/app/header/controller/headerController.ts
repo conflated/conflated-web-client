@@ -3,7 +3,7 @@ import ExitFullScreenModeAction from '../model/actions/fullscreen/ExitFullScreen
 import EnterFullScreenModeAction from '../model/actions/fullscreen/EnterFullScreenModeAction';
 import ShowFullScreenModeNotificationAction from '../model/actions/fullscreen/notification/ShowFullScreenModeNotificationAction';
 import DismissFullScreenModeNotificationAction from '../model/actions/fullscreen/notification/DismissFullScreenModeNotificationAction';
-import ShowDashboardsPageHeaderAction from '../../pages/dashboards/header/model/actions/ShowDashboardsPageHeaderAction';
+import ShowHeaderAction from '../../pages/dashboards/header/model/actions/show/ShowHeaderAction';
 import SelectPageAction from '../model/actions/SelectPageAction';
 import type { PageStateNamespace } from '../../common/components/page/model/state/types/PageStateNamespace';
 import store from '../../../store/store';
@@ -15,7 +15,7 @@ class HeaderController extends Controller {
     switchToFullScreenMode: () => this.dispatch(new EnterFullScreenModeAction()),
     showFullScreenModeNotification: () => this.dispatch(new ShowFullScreenModeNotificationAction()),
     dismissFullScreenModeNotification: () => this.dispatch(new DismissFullScreenModeNotificationAction()),
-    showDashboardsHeader: () => this.dispatch(new ShowDashboardsPageHeaderAction()),
+    showDashboardsHeader: () => this.dispatch(new ShowHeaderAction()),
     selectPage: (page: PageStateNamespace) => this.dispatch(new SelectPageAction(page))
   };
 

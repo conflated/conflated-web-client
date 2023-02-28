@@ -14,7 +14,7 @@ import selectFirstDashboard from './selectors/selectFirstDashboard';
 import selectLastDashboard from './selectors/selectLastDashboard';
 import ShowDashboardGroupAction from '../model/actions/show/ShowDashboardGroupAction';
 import ShowDashboardAction from '../model/actions/show/ShowDashboardAction';
-import ShowDashboardsPageHeaderBrieflyAction from '../header/model/actions/ShowDashboardsHeaderBrieflyAction';
+import ShowDashboardsPageHeaderBrieflyAction from '../header/model/actions/show/ShowHeaderBrieflyAction';
 
 class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) =>

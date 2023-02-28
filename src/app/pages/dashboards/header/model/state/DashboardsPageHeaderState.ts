@@ -4,4 +4,6 @@ export type DashboardsPageHeaderState = {
   readonly dashboardsHeaderHideDelayInMillis: number;
   readonly dashboardsHeaderHideTimeoutId: ReturnType<typeof setTimeout>;
   readonly dashboardsHeaderDelayedHideTimeoutId: ReturnType<typeof setTimeout>;
+  readonly dashboardFilterText: string;
+  readonly dashboardGroupFilterText: string;
 };
