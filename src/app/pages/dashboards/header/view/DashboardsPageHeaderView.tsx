@@ -16,8 +16,8 @@ type Props = ActionDispatchers & State;
 const DashboardsPageHeaderView = ({
   cancelDelayedDashboardsHeaderHide,
   changeDashboardsSlideChangeInterval,
-  dashboardGroupFilterText,
-  dashboardFilterText,
+  dashboardGroupNameFilterText,
+  dashboardNameFilterText,
   dashboardGroups,
   dashboardSlideChangeIntervalInSecsStr,
   isDashboardsSlideShowPlaying,
@@ -48,7 +48,7 @@ const DashboardsPageHeaderView = ({
   const dashboardDropDownItems = useMemo(
     () =>
       selectedDashboardGroup?.dashboards
-        .filter((dashboard: Dashboard) => dashboard.name.includes(dashboardFilterText))
+        .filter((dashboard: Dashboard) => dashboard.name.includes(dashboardNameFilterText))
         .map((dashboard: Dashboard) => (
           <Dropdown.Item
             key={dashboard.name}
@@ -57,13 +57,13 @@ const DashboardsPageHeaderView = ({
             onClick={() => showDashboard(dashboard)}
           />
         )),
-    [dashboardFilterText, selectedDashboardGroup?.dashboards, showDashboard]
+    [dashboardNameFilterText, selectedDashboardGroup?.dashboards, showDashboard]
   );
 
   const dashboardGroupDropDownItems = useMemo(
     () =>
       dashboardGroups
-        .filter((dashboardGroup: DashboardGroup) => dashboardGroup.name.includes(dashboardGroupFilterText))
+        .filter((dashboardGroup: DashboardGroup) => dashboardGroup.name.includes(dashboardGroupNameFilterText))
         .map((dashboardGroup: DashboardGroup) => (
           <Dropdown.Item
             key={dashboardGroup.name}
@@ -72,7 +72,7 @@ const DashboardsPageHeaderView = ({
             onClick={() => showDashboardGroup(dashboardGroup)}
           />
         )),
-    [dashboardGroupFilterText, dashboardGroups, showDashboardGroup]
+    [dashboardGroupNameFilterText, dashboardGroups, showDashboardGroup]
   );
 
   const dashboardSelectorContent = (() => {
