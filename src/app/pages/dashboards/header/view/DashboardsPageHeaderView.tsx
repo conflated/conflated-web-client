@@ -89,7 +89,8 @@ const DashboardsPageHeaderView = ({
               onChange={(_, { value }: any) => setDashboardFilterText(value)}
             />
             <div className={styles.tabs}>
-              ALL<span>FAVORITES</span>
+              <span className={styles.selected}>ALL</span>
+              <span>FAVORITES</span>
             </div>
             {dashboardDropDownItems}
           </Dropdown.Menu>

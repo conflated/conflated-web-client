@@ -1,6 +1,6 @@
 .header {
   align-items: center;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   border-top: 2px rgb(150, 150, 150) solid;
   display: none;
   height: 3rem;
@@ -48,11 +48,20 @@
       }
 
       .tabs {
-        margin: 1rem;
+        margin: 1.2rem;
 
         span {
           font-weight: normal;
-          padding-left: 1rem;
+          padding-bottom: 0.2rem;
+
+          &.selected {
+            font-weight: bold;
+            border-bottom: 2px solid #000000;
+          }
+
+          &:last-child {
+            padding-left: 1rem;
+          }
         }
       }
 
@@ -61,11 +70,11 @@
         max-width: 80vw;
 
         @media (prefers-color-scheme: dark) {
-          background-color: #CCCCCC;
+          background-color: #cccccc;
         }
 
         input {
-          background-color: #CCCCCC !important;
+          background-color: #cccccc !important;
           padding-bottom: 0.4rem;
           padding-top: 0.4rem;
         }
@@ -87,16 +96,15 @@
       color: var(--small-font-color);
       font-size: 0.85rem;
 
-
       :global(.menu) {
         max-width: 80vw;
 
         @media (prefers-color-scheme: dark) {
-          background-color: #CCCCCC;
+          background-color: #cccccc;
         }
 
         input {
-          background-color: #CCCCCC !important;
+          background-color: #cccccc !important;
           font-size: 1rem;
           padding-bottom: 0.4rem;
           padding-top: 0.4rem;
@@ -130,7 +138,6 @@
 
     .keyboardShortcutsTable {
       display: inline-table;
-
 
       &:not(:first-child) {
         margin-left: 1rem;
@@ -185,4 +192,3 @@
     }
   }
 }
-
