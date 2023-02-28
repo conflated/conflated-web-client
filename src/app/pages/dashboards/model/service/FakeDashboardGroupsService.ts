@@ -8,6 +8,7 @@ import emptyDataSource from '../../../../common/components/chartarea/chart/model
 import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import layout4 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout4';
+import layout14 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout14';
 
 export default class FakeDashboardGroupsService implements DashboardGroupsService {
   private readonly latency = 1000;
@@ -171,10 +172,130 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       fetchedRowCount: 100
     };
 
+    const chartConfig5: ChartConfiguration = {
+      id: '3',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#F47F31',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
+    const chartConfig6: ChartConfiguration = {
+      id: '3',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#E03DCD',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
+    const chartConfig7: ChartConfiguration = {
+      id: '3',
+      chartType: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#7D33F2',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 100
+    };
+
     const chart1 = ChartFactory.createChart(chartConfig);
     const chart2 = ChartFactory.createChart(chartConfig2);
     const chart3 = ChartFactory.createChart(chartConfig3);
     const chart4 = ChartFactory.createChart(chartConfig4);
+    const chart5 = ChartFactory.createChart(chartConfig5);
+    const chart6 = ChartFactory.createChart(chartConfig6);
+    const chart7 = ChartFactory.createChart(chartConfig7);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
@@ -201,6 +322,11 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
                 name: 'Dashboard 1.4',
                 layout: layout4,
                 charts: [chart1, chart3, chart4]
+              },
+              {
+                name: 'Dashboard 1.5',
+                layout: layout14,
+                charts: [chart1, chart3, chart4, chart5, chart6, chart7]
               }
             ]
           },

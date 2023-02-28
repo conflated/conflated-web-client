@@ -199,7 +199,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   getAllColors(theme?: Theme): string[] {
-    return theme?.colors ?? ['#005AFF', '#23ABB6', '#F7B737', '#F47F31', '#EO3DCD', '#7D33F2', '#37CC73', '#E23B3B'];
+    return theme?.colors ?? ['#005AFF', '#23ABB6', '#F7B737', '#F47F31', '#E03DCD', '#7D33F2', '#37CC73', '#E23B3B'];
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
