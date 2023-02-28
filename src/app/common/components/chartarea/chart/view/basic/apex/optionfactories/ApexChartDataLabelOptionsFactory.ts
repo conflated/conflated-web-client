@@ -11,7 +11,7 @@ export default class ApexChartDataLabelOptionsFactory {
         fontSize: '0.7rem',
         fontFamily: 'Arimo, sans-serif',
         fontWeight: 'normal',
-        colors: ['#000']
+        colors: ['#FFF']
       },
       dropShadow: {
         enabled: chart.shouldShowDataLabelsDropShadow(),
