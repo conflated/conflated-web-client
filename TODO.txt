@@ -1,3 +1,14 @@
+-Dashboard page selectors:
+ - on hover show:
+   - delete icon
+   - rename icon (caret?), same as double click item, opens dashboard in new tab
+     - Show editable list item as Input, only enter press finalizes action successfully
+   - edit icon
+ - show toggleable reorder icon (hamburger) in title actions, use react-sort-hoc component
+
+Dashboard edit mode:
+ - header with buttons "Save" and "Save and Close"
+
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
 Implement chart selection that changes data source, cache dimensions/measures for data sources, refresh button in accordion title bar to clear cache

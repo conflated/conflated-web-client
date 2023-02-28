@@ -114,6 +114,10 @@ const DashboardsPageHeaderView = ({
               onClick={stopEventPropagation}
               onChange={(_, { value }: any) => setDashboardGroupFilterText(value)}
             />
+            <div className={styles.tabs}>
+              <span className={styles.selected}>ALL</span>
+              <span>FAVORITES</span>
+            </div>
             {dashboardGroupDropDownItems}
           </Dropdown.Menu>
         </Dropdown>
