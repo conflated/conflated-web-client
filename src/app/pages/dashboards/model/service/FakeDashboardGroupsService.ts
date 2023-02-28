@@ -173,7 +173,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
     };
 
     const chartConfig5: ChartConfiguration = {
-      id: '3',
+      id: '4',
       chartType: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
@@ -212,7 +212,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
     };
 
     const chartConfig6: ChartConfiguration = {
-      id: '3',
+      id: '5',
       chartType: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
@@ -251,7 +251,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
     };
 
     const chartConfig7: ChartConfiguration = {
-      id: '3',
+      id: '6',
       chartType: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
