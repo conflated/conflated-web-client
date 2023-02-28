@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { Dropdown, Icon, Input } from 'semantic-ui-react';
@@ -32,11 +32,14 @@ const DashboardsPageHeaderView = ({
   toggleDashboardsSlideShowPlay,
   toggleShouldShowDashboardsHeaderPermanently
 }: Props) => {
-  function stopEventPropagation(event: React.MouseEvent) {
-    event.stopPropagation();
-    event.preventDefault();
-    cancelDelayedDashboardsHeaderHide();
-  }
+  const stopEventPropagation = useCallback(
+    (event: React.MouseEvent) => {
+      event.stopPropagation();
+      event.preventDefault();
+      cancelDelayedDashboardsHeaderHide();
+    },
+    [cancelDelayedDashboardsHeaderHide]
+  );
 
   const dashboardDropDownItems = useMemo(
     () =>
@@ -69,9 +72,7 @@ const DashboardsPageHeaderView = ({
       return (
         <Dropdown scrolling className={styles.dashboardSelector} text={selectedDashboard.name}>
           <Dropdown.Menu>
-            <div style={{ margin: '1.1rem 0.78rem' }} onClick={stopEventPropagation}>
-              <Input fluid size="small" icon="search" iconPosition="left" />
-            </div>
+            <Input fluid size="small" icon="search" iconPosition="left" onClick={stopEventPropagation} />
             <div className={styles.tabs}>
               ALL<span>FAVORITES</span>
             </div>
@@ -89,9 +90,7 @@ const DashboardsPageHeaderView = ({
       return (
         <Dropdown scrolling className={styles.dashboardGroupSelector} text={selectedDashboardGroup.name}>
           <Dropdown.Menu>
-            <div style={{ margin: '1.1rem 0.78rem' }} onClick={stopEventPropagation}>
-              <Input fluid size="small" icon="search" iconPosition="left" />
-            </div>
+            <Input fluid size="small" icon="search" iconPosition="left" onClick={stopEventPropagation} />
             {dashboardGroupDropDownItems}
           </Dropdown.Menu>
         </Dropdown>

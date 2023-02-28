@@ -13,6 +13,21 @@
     background-color: rgba(0, 0, 0, 0.75);
   }
 
+  &.input > input {
+    @media (prefers-color-scheme: dark) {
+      background-color: #cccccc;
+      border-color: #909090;
+    }
+
+    &:focus {
+      border-color: var(--brand-color-1);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #cccccc;
+      }
+    }
+  }
+
   &.menu {
     font-family: var(--brand-font-family);
     font-size: var(--body-font-size);
