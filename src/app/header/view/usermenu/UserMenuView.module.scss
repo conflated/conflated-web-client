@@ -2,11 +2,6 @@
   font-family: var(--brand-font-family);
   font-size: var(--app-navigation-font-size);
   padding-right: 30px;
-
-  .userIcon {
-    background-image: url("../../../../assets/images/icons/header/user_icon.svg");
-    margin-bottom: 0.08rem;
-  }
 }
 
 @media screen and (max-width: 1024px) {

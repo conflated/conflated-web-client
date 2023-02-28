@@ -20,7 +20,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/column_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/column_chart_icon.svg");
     }
   }
 
@@ -32,7 +32,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bar_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bar_chart_icon.svg");
     }
   }
 
@@ -41,10 +41,14 @@
 
     background-image: url("../../../../../../../assets/images/icons/chart/area_chart_icon.svg");
 
+    @media (prefers-color-scheme: dark) {
+      background-image: url("../../../../../../../assets/images/icons/chart/darkmode/area_chart_icon.svg");
+    }
+
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/area_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/area_chart_icon.svg");
     }
   }
 
@@ -56,7 +60,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/line_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/line_chart_icon.svg");
     }
   }
 
@@ -68,7 +72,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/donut_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/donut_chart_icon.svg");
     }
   }
 
@@ -80,7 +84,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/pie_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/pie_chart_icon.svg");
     }
   }
 
@@ -92,7 +96,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bubble_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/bubble_chart_icon.svg");
     }
   }
 
@@ -104,7 +108,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/scatter_plot_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/scatter_plot_icon.svg");
     }
   }
 
@@ -116,7 +120,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/candlestick_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/candlestick_chart_icon.svg");
     }
   }
 
@@ -128,7 +132,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/box_plot_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/box_plot_icon.svg");
     }
   }
 
@@ -140,7 +144,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/radar_chart_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/radar_chart_icon.svg");
     }
   }
 
@@ -152,7 +156,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/heatmap_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/heatmap_icon.svg");
     }
   }
 
@@ -164,7 +168,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/data_table_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/data_table_icon.svg");
     }
   }
 
@@ -176,7 +180,7 @@
     &.selected,
     &:hover,
     &:focus {
-      background-image: url("../../../../../../../assets/images/icons/chart/onhover/map_icon_on_hover.svg");
+      background-image: url("../../../../../../../assets/images/icons/chart/onhover/map_icon.svg");
     }
   }
 

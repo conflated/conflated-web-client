@@ -2,4 +2,8 @@
   position: absolute !important;
   top: 3rem;
   z-index: var(--topmost-z-index);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #CCCCCC !important;
+  }
 }
