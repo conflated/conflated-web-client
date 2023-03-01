@@ -47,7 +47,11 @@ const DashboardGroupSelectorView = ({
           item={dashboardGroup}
           selectedItem={selectedDashboardGroup}
           onItemClick={showDashboardGroup}
-          actions={[{ iconName: 'trash alternate outline', onClick: () => {} }]}
+          actions={[
+            { iconName: 'i cursor', onClick: () => {} },
+            { iconName: 'bars', onClick: () => {} },
+            { iconName: 'trash alternate outline', onClick: () => {} }
+          ]}
         />
       )),
     [shownDashboardGroups, selectedDashboardGroup, showDashboardGroup]
