@@ -6,6 +6,9 @@
    - edit icon
  - show toggleable reorder icon (hamburger) in title actions, use react-sort-hoc component
 
+- Tab/Shift-Tab will change selected chart in chart area
+- Chart menu on hover change color
+
 Dashboard edit mode:
  - header with buttons "Save" and "Save and Close"
 
@@ -14,6 +17,8 @@ Reports:
     -Report groups
     -Reports
     -Report templates
+
+- Shift-Arrow will change selected data point in chart
 
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data

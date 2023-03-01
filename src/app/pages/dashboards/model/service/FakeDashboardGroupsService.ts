@@ -174,7 +174,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
 
     const chartConfig5: ChartConfiguration = {
       id: '4',
-      chartType: 'column',
+      chartType: 'line',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -188,7 +188,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           },
           visualizationColor: '#F47F31',
           aggregationFunction: 'SUM',
-          visualizationType: 'column'
+          visualizationType: 'line'
         }
       ],
       selectedDimensions: [
@@ -213,7 +213,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
 
     const chartConfig6: ChartConfiguration = {
       id: '5',
-      chartType: 'column',
+      chartType: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -227,7 +227,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           },
           visualizationColor: '#E03DCD',
           aggregationFunction: 'SUM',
-          visualizationType: 'column'
+          visualizationType: 'area'
         }
       ],
       selectedDimensions: [
@@ -252,7 +252,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
 
     const chartConfig7: ChartConfiguration = {
       id: '6',
-      chartType: 'column',
+      chartType: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -266,7 +266,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           },
           visualizationColor: '#7D33F2',
           aggregationFunction: 'SUM',
-          visualizationType: 'column'
+          visualizationType: 'area'
         }
       ],
       selectedDimensions: [

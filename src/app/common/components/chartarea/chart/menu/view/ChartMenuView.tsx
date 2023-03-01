@@ -70,7 +70,7 @@ const ChartMenuView = ({
         size="large"
         floating
         direction="left"
-        icon={<Icon className={styles.icon} name="bars" size="large" />}
+        icon={<Icon className={styles.icon} name="ellipsis vertical" size="large" />}
       >
         <Dropdown.Menu>
           <Dropdown.Item
