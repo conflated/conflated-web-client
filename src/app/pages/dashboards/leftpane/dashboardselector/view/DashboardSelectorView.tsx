@@ -37,6 +37,11 @@ const DashboardSelectorView = ({
           item={dashboard}
           selectedItem={selectedDashboard}
           onItemClick={showDashboard}
+          actions={[
+            { iconName: 'edit', onClick: () => {}, tooltipText: 'Edit' },
+            { iconName: 'i cursor', onClick: () => {}, tooltipText: 'Rename' },
+            { iconName: 'trash alternate outline', onClick: () => {}, tooltipText: 'Delete' }
+          ]}
         />
       )),
     [shownDashboards, selectedDashboard, showDashboard]
@@ -53,6 +58,7 @@ const DashboardSelectorView = ({
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace="dashboardSelector"
+      reorderIconTooltipText="Reorder dashboards"
     />
   );
 };

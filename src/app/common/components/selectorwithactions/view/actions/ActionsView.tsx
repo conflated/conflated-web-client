@@ -5,9 +5,11 @@ import { Icon, Popup } from 'semantic-ui-react';
 type Props = {
   addIconTooltipText?: string;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  handleReorderIconClick?: () => void;
   iconClassName: string;
   isPinned?: boolean;
   position: 'leftPane' | 'rightPane';
+  reorderIconTooltipText?: string;
   shouldShowPinIcon?: boolean;
   toggleShowSearchInput: (event: React.MouseEvent<HTMLElement>) => void;
   toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
@@ -16,9 +18,11 @@ type Props = {
 const ActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
+  handleReorderIconClick,
   iconClassName,
   isPinned,
   position,
+  reorderIconTooltipText,
   shouldShowPinIcon,
   toggleShowSearchInput,
   toggleMaximizeAccordion
@@ -69,10 +73,19 @@ const ActionsView: React.FC<Props> = ({
     />
   );
 
+  const reorderIcon = (
+    <Popup
+      inverted
+      trigger={<Icon className={iconClassName} name="bars" onClick={handleReorderIconClick} />}
+      content={reorderIconTooltipText}
+    />
+  );
+
   return (
     <div>
       {addIcon}
       {searchIcon}
+      {reorderIconTooltipText ? reorderIcon : undefined}
       {maximizeIcon}
       {shouldShowPinIcon ? pinIcon : undefined}
     </div>
@@ -81,9 +94,11 @@ const ActionsView: React.FC<Props> = ({
 
 ActionsView.defaultProps = {
   addIconTooltipText: '',
-  shouldShowPinIcon: false,
+  handlePinIconClick: _.noop,
+  handleReorderIconClick: _.noop,
   isPinned: false,
-  handlePinIconClick: _.noop
+  reorderIconTooltipText: undefined,
+  shouldShowPinIcon: false
 };
 
 export default ActionsView;

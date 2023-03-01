@@ -18,6 +18,7 @@ export type OwnProps = {
   isPinned?: boolean;
   listItemsContent: JSX.Element | Array<JSX.Element> | null;
   position: 'leftPane' | 'rightPane';
+  reorderIconTooltipText?: string;
   selectedListItemsContent?: JSX.Element;
   selectorStateNamespace: SelectorWithActionsStateNamespace;
   titleText: string;
@@ -37,6 +38,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   isSelectorMaximized,
   listItemsContent,
   position,
+  reorderIconTooltipText,
   selectedListItemsContent,
   selectorStateNamespace,
   titleText,
@@ -67,6 +69,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       isPinned={isPinned}
       handlePinIconClick={handlePinIconClick}
       addIconTooltipText={addIconTooltipText}
+      reorderIconTooltipText={reorderIconTooltipText}
     />
   );
 
@@ -101,6 +104,7 @@ SelectorWithActionsView.defaultProps = {
   additionalContent: undefined,
   handlePinIconClick: undefined,
   isPinned: undefined,
+  reorderIconTooltipText: undefined,
   selectedListItemsContent: undefined
 };
 

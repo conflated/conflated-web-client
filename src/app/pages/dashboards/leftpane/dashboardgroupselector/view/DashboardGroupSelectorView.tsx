@@ -59,7 +59,7 @@ const DashboardGroupSelectorView = ({
   return (
     <SelectorWithActionsView
       id="dashboardGroupSelector"
-      titleText="DASHBOARD GROUP"
+      titleText="DASHBOARD GROUPS"
       addIconTooltipText="Add new dashboard group"
       position="leftPane"
       listItemsContent={
@@ -69,6 +69,7 @@ const DashboardGroupSelectorView = ({
       handlePinIconClick={handlePinIconClick}
       selectorStateNamespace="dashboardGroupSelector"
       isPinned={shouldShowDashboardsPageLeftPanePermanently}
+      reorderIconTooltipText="Reorder dashboard groups"
     />
   );
 };

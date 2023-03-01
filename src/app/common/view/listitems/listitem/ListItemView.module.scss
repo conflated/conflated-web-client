@@ -1,10 +1,11 @@
 .listItem {
   color: var(--primary-text-color);
+  display: flex;
   font-family: var(--brand-font-family) !important;
   font-size: var(--body-font-size) !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
+  justify-content: space-between;
+  overflow: hidden;
+  white-space: nowrap;
 
   &.selected {
     color: var(--selected-list-item-color);
@@ -17,17 +18,17 @@
     font-weight: bold !important;
 
     .listItemIcon {
-      display: table-cell;
+      visibility: visible;
     }
   }
 
   .listItemIcon {
     color: var(--small-font-color);
-    display: none;
     padding-right: 0.7rem;
     padding-top: 0;
     transition: color 0.1s ease;
     vertical-align: top;
+    visibility: hidden;
 
     @media (prefers-color-scheme: dark) {
       color: var(--primary-text-color);
@@ -39,9 +40,9 @@
   }
 
   .listItemContent {
-    display: table-cell;
     padding: 0 0 0 0.5em;
+    overflow: clip;
+    text-overflow: ellipsis;
     vertical-align: top;
-    width: 100%;
   }
 }

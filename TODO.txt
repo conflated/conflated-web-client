@@ -1,10 +1,11 @@
 -Dashboard page selectors:
  - on hover show:
    - delete icon
-   - rename icon (caret?), same as double click item, opens dashboard in new tab
+   - rename icon (caret?),
      - Show editable list item as Input, only enter press finalizes action successfully
    - edit icon
- - show toggleable reorder icon (hamburger) in title actions, use react-sort-hoc component
+   -open in new window (same as double click)
+
 
 - Tab/Shift-Tab will change selected chart in chart area
 - Chart menu on hover change color
@@ -17,6 +18,8 @@ Reports:
     -Report groups
     -Reports
     -Report templates
+
+use react-sortable-hoc component for reordering list items
 
 - Shift-Arrow will change selected data point in chart
 

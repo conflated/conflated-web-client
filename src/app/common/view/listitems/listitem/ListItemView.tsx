@@ -66,7 +66,7 @@ const ListItemView = <T extends { readonly name: string }>({
       <List.Item className={className} onClick={() => onItemClick(item)}>
         {listIcon}
         <List.Content className={listItemContent}>{item.name}</List.Content>
-        {actionIcons}
+        <div style={{ whiteSpace: 'nowrap' }}>{actionIcons}</div>
       </List.Item>
     </div>
   );
