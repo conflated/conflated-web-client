@@ -3,6 +3,11 @@ import { List } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from './ListItemView.module.scss';
 
+export type ListItemAction = {
+  iconName: string;
+  onClick: () => void;
+};
+
 export type ListItemViewProps<T extends { readonly name: string }> = {
   dragEventDataKey?: string;
   draggable?: boolean;
@@ -11,11 +16,13 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   item: T;
   onItemClick: (item: T | undefined) => void;
   selectedItem?: T | null;
+  actions?: ListItemAction[];
 };
 
 const { listItem, listItemContent, listItemIcon, selected } = styles;
 
 const ListItemView = <T extends { readonly name: string }>({
+  actions,
   dragEventDataKey,
   draggable,
   iconClassName,
@@ -36,17 +43,24 @@ const ListItemView = <T extends { readonly name: string }>({
     listIcon = <List.Icon className={iconClassName || listItemIcon} name={iconName as any} />;
   }
 
+  let actionIcons;
+  if (actions) {
+    actionIcons = actions.map((action) => <List.Icon className={listItemIcon} name={action.iconName as any} />);
+  }
+
   return (
     <div id={item.name} draggable={draggable} onDragStart={onDragStart}>
       <List.Item className={className} onClick={() => onItemClick(item)}>
         {listIcon}
         <List.Content className={listItemContent}>{item.name}</List.Content>
+        {actionIcons}
       </List.Item>
     </div>
   );
 };
 
 ListItemView.defaultProps = {
+  actions: undefined,
   dragEventDataKey: '',
   draggable: false,
   iconClassName: '',

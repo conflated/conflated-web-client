@@ -4,7 +4,7 @@
   }
 
   height: 100%;
-  padding-bottom: 0.3rem !important;
+  padding-bottom: 1rem !important;
 
   & > div {
     min-height: auto !important;
@@ -15,6 +15,7 @@
       display: none !important;
     }
 
+    margin-bottom: 0.5rem;
     margin-left: 2rem;
     margin-right: 2rem;
     visibility: hidden;
