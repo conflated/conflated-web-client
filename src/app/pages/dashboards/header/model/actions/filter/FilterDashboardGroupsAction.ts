@@ -9,7 +9,7 @@ export default class FilterDashboardGroupsAction extends AbstractDashboardsPageH
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     const newState = {
       ...currentState,
-      dashboardGroupFilterText: this.filterText
+      dashboardGroupNameFilterText: this.filterText
     };
 
     return newState;

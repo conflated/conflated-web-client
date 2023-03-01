@@ -38,16 +38,15 @@
       margin: 0 0.75rem;
     }
 
-    .dashboardSelector {
+    %abstractSelector {
       color: #000000;
-      font-size: 1.1rem;
-      font-weight: bold;
 
       @media screen and (any-pointer: coarse) {
         padding-bottom: 0.5rem;
       }
 
       .tabs {
+        font-size: 1rem;
         margin: 1.2rem;
 
         span {
@@ -80,6 +79,7 @@
 
         input {
           background-color: #cccccc !important;
+          font-size: 1rem;
           padding-bottom: 0.4rem;
           padding-top: 0.4rem;
         }
@@ -97,35 +97,18 @@
       }
     }
 
+    .dashboardSelector {
+      @extend %abstractSelector;
+
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
     .dashboardGroupSelector {
+      @extend %abstractSelector;
+
       color: var(--small-font-color);
       font-size: 0.85rem;
-
-      :global(.menu) {
-        max-width: 80vw;
-
-        @media (prefers-color-scheme: dark) {
-          background-color: #cccccc;
-        }
-
-        input {
-          background-color: #cccccc !important;
-          font-size: 1rem;
-          padding-bottom: 0.4rem;
-          padding-top: 0.4rem;
-        }
-
-        & > :global(.item) {
-          @media screen and (any-pointer: fine) {
-            padding-top: 0.3rem !important;
-            padding-bottom: 0.3rem !important;
-
-            &:last-child {
-              margin-bottom: 1rem !important;
-            }
-          }
-        }
-      }
     }
   }
 
