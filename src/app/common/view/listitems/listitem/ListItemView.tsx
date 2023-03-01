@@ -53,12 +53,12 @@ const ListItemView = <T extends { readonly name: string }>({
         return (
           <Popup
             inverted
-            trigger={<List.Icon className={listItemIcon} name={action.iconName as any} />}
+            trigger={<List.Icon className={listItemIcon} name={action.iconName as any} onClick={action.onClick} />}
             content={action.tooltipText}
           />
         );
       } else {
-        return <List.Icon className={listItemIcon} name={action.iconName as any} />;
+        return <List.Icon className={listItemIcon} name={action.iconName as any} onClick={action.onClick} />;
       }
     });
   }
