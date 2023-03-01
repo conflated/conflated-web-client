@@ -33,6 +33,14 @@ class ChartAreaView extends React.Component<Props> {
     className: undefined
   };
 
+  onKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Tab') {
+      console.log('Tab');
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
+
   render() {
     const {
       charts,
@@ -77,7 +85,7 @@ class ChartAreaView extends React.Component<Props> {
     });
 
     return (
-      <section className={`${styles.chartArea} ${className || ''}`} tabIndex={0}>
+      <section className={`${styles.chartArea} ${className || ''}`} onKeyDown={this.onKeyDown} tabIndex={0}>
         {isMaxWidth1024px ? (
           chartElements
         ) : (
