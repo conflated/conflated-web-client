@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from './ListItemView.module.scss';
 
 export type ListItemAction = {
   iconName: string;
   onClick: () => void;
+  tooltipText?: string;
 };
 
 export type ListItemViewProps<T extends { readonly name: string }> = {
@@ -39,13 +41,24 @@ const ListItemView = <T extends { readonly name: string }>({
 
   let listIcon;
   if (iconName) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     listIcon = <List.Icon className={iconClassName || listItemIcon} name={iconName as any} />;
   }
 
   let actionIcons;
   if (actions) {
-    actionIcons = actions.map((action) => <List.Icon className={listItemIcon} name={action.iconName as any} />);
+    actionIcons = actions.map((action) => {
+      if (action.tooltipText) {
+        return (
+          <Popup
+            inverted
+            trigger={<List.Icon className={listItemIcon} name={action.iconName as any} />}
+            content={action.tooltipText}
+          />
+        );
+      } else {
+        return <List.Icon className={listItemIcon} name={action.iconName as any} />;
+      }
+    });
   }
 
   return (

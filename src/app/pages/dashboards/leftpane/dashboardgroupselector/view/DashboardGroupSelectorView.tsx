@@ -48,9 +48,8 @@ const DashboardGroupSelectorView = ({
           selectedItem={selectedDashboardGroup}
           onItemClick={showDashboardGroup}
           actions={[
-            { iconName: 'i cursor', onClick: () => {} },
-            { iconName: 'bars', onClick: () => {} },
-            { iconName: 'trash alternate outline', onClick: () => {} }
+            { iconName: 'i cursor', onClick: () => {}, tooltipText: 'Rename' },
+            { iconName: 'trash alternate outline', onClick: () => {}, tooltipText: 'Delete' }
           ]}
         />
       )),
