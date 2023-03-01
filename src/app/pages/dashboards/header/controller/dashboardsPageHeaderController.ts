@@ -10,8 +10,10 @@ import HideHeaderDelayedAction from '../model/actions/hide/HideHeaderDelayedActi
 import selectedNextDashboard from '../../controller/selectors/selectedNextDashboard';
 import selectNextDashboardGroup from '../../controller/selectors/selectNextDashboardGroup';
 import selectPreviousDashboard from '../../controller/selectors/selectPreviousDashboard';
-import SetDashboardGroupFilterTextAction from '../model/actions/filter/SetDashboardGroupFilterTextAction';
-import SetDashboardFilterTextAction from '../model/actions/filter/SetDashboardFilterTextAction';
+import FilterDashboardGroupsAction from '../model/actions/filter/FilterDashboardGroupsAction';
+import FilterDashboardsAction from '../model/actions/filter/FilterDashboardsAction';
+import ActivateDashboardsTabPaneAction from '../model/actions/tabpane/ActivateDashboardsTabPaneAction';
+import ActivateDashboardGroupsTabPaneAction from '../model/actions/tabpane/ActivateDashboardGroupsTabPaneAction';
 
 class DashboardsPageHeaderController extends Controller {
   getState = (appState: AppState) =>
@@ -29,19 +31,20 @@ class DashboardsPageHeaderController extends Controller {
     hideDashboardsHeaderDelayed: (dashboardHeaderHideDelayInMillis: number) =>
       this.dispatch(new HideHeaderDelayedAction(dashboardHeaderHideDelayInMillis)),
 
-    toggleDashboardsSlideShowPlay: () => this.dispatch(new ToggleDashboardsSlideShowPlayAction()),
-
     changeDashboardsSlideChangeInterval: (dashboardSlideChangeIntervalInSecsStr: string) =>
       this.dispatch(new ChangeDashboardSlideChangeIntervalAction(dashboardSlideChangeIntervalInSecsStr)),
 
+    activateDashboardsTabPane: (tabPane: 'ALL' | 'FAVORITES') =>
+      this.dispatch(new ActivateDashboardsTabPaneAction(tabPane)),
+
+    activateDashboardGroupsTabPane: (tabPane: 'ALL' | 'FAVORITES') =>
+      this.dispatch(new ActivateDashboardGroupsTabPaneAction(tabPane)),
+
     cancelDelayedDashboardsHeaderHide: () => this.dispatch(new CancelDelayedHeaderHideAction()),
-
-    toggleShouldShowDashboardsHeaderPermanently: () => this.dispatch(new ToggleShouldShowHeaderPermanentlyAction()),
-
-    setDashboardGroupFilterText: (filterText: string) =>
-      this.dispatch(new SetDashboardGroupFilterTextAction(filterText)),
-
-    setDashboardFilterText: (filterText: string) => this.dispatch(new SetDashboardFilterTextAction(filterText))
+    filterDashboardGroups: (filterText: string) => this.dispatch(new FilterDashboardGroupsAction(filterText)),
+    filterDashboards: (filterText: string) => this.dispatch(new FilterDashboardsAction(filterText)),
+    toggleDashboardsSlideShowPlay: () => this.dispatch(new ToggleDashboardsSlideShowPlayAction()),
+    toggleShouldShowDashboardsHeaderPermanently: () => this.dispatch(new ToggleShouldShowHeaderPermanentlyAction())
   };
 }
 

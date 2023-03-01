@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
@@ -14,12 +15,18 @@ import { ActionDispatchers, controller, State } from '../controller/dashboardsPa
 type Props = ActionDispatchers & State;
 
 const DashboardsPageHeaderView = ({
+  activateDashboardsTabPane,
+  activateDashboardGroupsTabPane,
+  activeDashboardsTabPane,
+  activeDashboardGroupsTabPane,
   cancelDelayedDashboardsHeaderHide,
   changeDashboardsSlideChangeInterval,
   dashboardGroupNameFilterText,
   dashboardNameFilterText,
   dashboardGroups,
   dashboardSlideChangeIntervalInSecsStr,
+  filterDashboards,
+  filterDashboardGroups,
   isDashboardsSlideShowPlaying,
   isFullScreenModeActive,
   hideDashboardsHeaderDelayed,
@@ -27,8 +34,6 @@ const DashboardsPageHeaderView = ({
   previousDashboard,
   selectedDashboardGroup,
   selectedDashboard,
-  setDashboardGroupFilterText,
-  setDashboardFilterText,
   shouldShowDashboardsHeader,
   shouldShowDashboardsHeaderPermanently,
   showDashboard,
@@ -45,9 +50,9 @@ const DashboardsPageHeaderView = ({
     [cancelDelayedDashboardsHeaderHide]
   );
 
-  const dashboardDropDownItems = useMemo(
-    () =>
-      selectedDashboardGroup?.dashboards
+  const dashboardDropDownItems = useMemo(() => {
+    if (activeDashboardsTabPane === 'ALL') {
+      return selectedDashboardGroup?.dashboards
         .filter((dashboard: Dashboard) => dashboard.name.includes(dashboardNameFilterText))
         .map((dashboard: Dashboard) => (
           <Dropdown.Item
@@ -56,13 +61,15 @@ const DashboardsPageHeaderView = ({
             value={dashboard.name}
             onClick={() => showDashboard(dashboard)}
           />
-        )),
-    [dashboardNameFilterText, selectedDashboardGroup?.dashboards, showDashboard]
-  );
+        ));
+    } else {
+      return null;
+    }
+  }, [activeDashboardsTabPane, dashboardNameFilterText, selectedDashboardGroup?.dashboards, showDashboard]);
 
-  const dashboardGroupDropDownItems = useMemo(
-    () =>
-      dashboardGroups
+  const dashboardGroupDropDownItems = useMemo(() => {
+    if (activeDashboardGroupsTabPane === 'ALL') {
+      return dashboardGroups
         .filter((dashboardGroup: DashboardGroup) => dashboardGroup.name.includes(dashboardGroupNameFilterText))
         .map((dashboardGroup: DashboardGroup) => (
           <Dropdown.Item
@@ -71,9 +78,11 @@ const DashboardsPageHeaderView = ({
             value={dashboardGroup.name}
             onClick={() => showDashboardGroup(dashboardGroup)}
           />
-        )),
-    [dashboardGroupNameFilterText, dashboardGroups, showDashboardGroup]
-  );
+        ));
+    } else {
+      return null;
+    }
+  }, [activeDashboardGroupsTabPane, dashboardGroupNameFilterText, dashboardGroups, showDashboardGroup]);
 
   const dashboardSelectorContent = (() => {
     if (selectedDashboard) {
@@ -86,11 +95,21 @@ const DashboardsPageHeaderView = ({
               icon="search"
               iconPosition="left"
               onClick={stopEventPropagation}
-              onChange={(_, { value }: any) => setDashboardFilterText(value)}
+              onChange={(__, { value }: any) => filterDashboards(value)}
             />
             <div className={styles.tabs}>
-              <span className={styles.selected}>ALL</span>
-              <span>FAVORITES</span>
+              <span
+                className={activeDashboardsTabPane === 'ALL' ? styles.selected : ''}
+                onClick={_.flow(stopEventPropagation, () => activateDashboardsTabPane('ALL'))}
+              >
+                ALL
+              </span>
+              <span
+                className={activeDashboardsTabPane === 'FAVORITES' ? styles.selected : ''}
+                onClick={_.flow(stopEventPropagation, () => activateDashboardsTabPane('FAVORITES'))}
+              >
+                FAVORITES
+              </span>
             </div>
             {dashboardDropDownItems}
           </Dropdown.Menu>
@@ -112,11 +131,21 @@ const DashboardsPageHeaderView = ({
               icon="search"
               iconPosition="left"
               onClick={stopEventPropagation}
-              onChange={(_, { value }: any) => setDashboardGroupFilterText(value)}
+              onChange={(__, { value }: any) => filterDashboardGroups(value)}
             />
             <div className={styles.tabs}>
-              <span className={styles.selected}>ALL</span>
-              <span>FAVORITES</span>
+              <span
+                className={activeDashboardGroupsTabPane === 'ALL' ? styles.selected : ''}
+                onClick={_.flow(stopEventPropagation, () => activateDashboardGroupsTabPane('ALL'))}
+              >
+                ALL
+              </span>
+              <span
+                className={activeDashboardGroupsTabPane === 'FAVORITES' ? styles.selected : ''}
+                onClick={_.flow(stopEventPropagation, () => activateDashboardGroupsTabPane('FAVORITES'))}
+              >
+                FAVORITES
+              </span>
             </div>
             {dashboardGroupDropDownItems}
           </Dropdown.Menu>

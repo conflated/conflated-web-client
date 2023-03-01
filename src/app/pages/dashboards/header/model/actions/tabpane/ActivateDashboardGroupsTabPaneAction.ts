@@ -1,15 +1,15 @@
 import AbstractDashboardsPageHeaderAction from '../AbstractDashboardsPageHeaderAction';
 import type { DashboardsPageHeaderState } from '../../state/DashboardsPageHeaderState';
 
-export default class SetDashboardFilterTextAction extends AbstractDashboardsPageHeaderAction {
-  constructor(private readonly filterText: string) {
+export default class ActivateDashboardGroupsTabPaneAction extends AbstractDashboardsPageHeaderAction {
+  constructor(private readonly tabPane: 'ALL' | 'FAVORITES') {
     super();
   }
 
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     const newState = {
       ...currentState,
-      dashboardFilterText: this.filterText
+      activeDashboardGroupsTabPane: this.tabPane
     };
 
     return newState;

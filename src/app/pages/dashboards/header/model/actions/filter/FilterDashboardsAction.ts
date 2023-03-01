@@ -1,7 +1,7 @@
 import AbstractDashboardsPageHeaderAction from '../AbstractDashboardsPageHeaderAction';
 import type { DashboardsPageHeaderState } from '../../state/DashboardsPageHeaderState';
 
-export default class SetDashboardGroupFilterTextAction extends AbstractDashboardsPageHeaderAction {
+export default class FilterDashboardsAction extends AbstractDashboardsPageHeaderAction {
   constructor(private readonly filterText: string) {
     super();
   }
@@ -9,7 +9,7 @@ export default class SetDashboardGroupFilterTextAction extends AbstractDashboard
   perform(currentState: DashboardsPageHeaderState): DashboardsPageHeaderState {
     const newState = {
       ...currentState,
-      dashboardGroupFilterText: this.filterText
+      dashboardFilterText: this.filterText
     };
 
     return newState;

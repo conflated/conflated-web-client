@@ -9,6 +9,12 @@
 Dashboard edit mode:
  - header with buttons "Save" and "Save and Close"
 
+Reports:
+ -Left pane
+    -Report groups
+    -Reports
+    -Report templates
+
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
 Implement chart selection that changes data source, cache dimensions/measures for data sources, refresh button in accordion title bar to clear cache

@@ -54,13 +54,18 @@
           font-weight: normal;
           padding-bottom: 0.2rem;
 
+          &:hover {
+            cursor: pointer;
+            font-weight: bold;
+          }
+
           &.selected {
             font-weight: bold;
             border-bottom: 2px solid #000000;
           }
 
           &:last-child {
-            padding-left: 1rem;
+            margin-left: 1rem;
           }
         }
       }
