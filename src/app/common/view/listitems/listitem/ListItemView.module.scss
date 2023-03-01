@@ -15,15 +15,23 @@
     color: var(--selected-list-item-color);
     cursor: pointer !important;
     font-weight: bold !important;
+
+    .listItemIcon {
+      display: table-cell;
+    }
   }
 
   .listItemIcon {
     color: var(--small-font-color);
-    display: table-cell;
+    display: none;
     padding-right: 0.28571429em;
     padding-top: 0;
     transition: color 0.1s ease;
     vertical-align: top;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--primary-text-color);
+    }
   }
 
   .listItemContent {
