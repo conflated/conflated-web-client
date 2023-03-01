@@ -15,6 +15,7 @@ import ShowDeleteChartConfirmationInChartMenuAction from '../model/actions/chart
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/ChartAreaView';
+import SelectChartAction from '../model/actions/chart/SelectChartAction';
 
 class ChartAreaController extends Controller<ChartAreaPageStateNamespace> {
   getState(appState: AppState, { pageStateNamespace }: OwnProps) {
@@ -25,6 +26,7 @@ class ChartAreaController extends Controller<ChartAreaPageStateNamespace> {
   }
 
   getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
+    selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(pageStateNamespace, chart)),
     dropChart: (chartType: ChartType) => this.dispatch(new DropChartAction(pageStateNamespace, chartType)),
     leaveChartAreaWithDraggedChart: () => this.dispatch(new LeaveChartAreaWithDraggedChartAction(pageStateNamespace)),
     copyChart: (chart: Chart) => this.dispatch(new CopyChartAction(pageStateNamespace, chart)),

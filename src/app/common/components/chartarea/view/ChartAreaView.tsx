@@ -34,10 +34,24 @@ class ChartAreaView extends React.Component<Props> {
   };
 
   onKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Tab') {
-      console.log('Tab');
-      event.preventDefault();
-      event.stopPropagation();
+    if (event.shiftKey && event.key === 'Tab') {
+      const { charts, selectChart, selectedChart } = this.props;
+      const selectedChartIndex = charts.indexOf(selectedChart);
+
+      if (selectedChartIndex > 0) {
+        selectChart(charts[selectedChartIndex - 1]);
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    } else if (event.key === 'Tab') {
+      const { charts, selectChart, selectedChart } = this.props;
+      const selectedChartIndex = charts.indexOf(selectedChart);
+
+      if (selectedChartIndex === -1 || selectedChartIndex < charts.length - 1) {
+        selectChart(charts[selectedChartIndex + 1]);
+        event.preventDefault();
+        event.stopPropagation();
+      }
     }
   };
 
