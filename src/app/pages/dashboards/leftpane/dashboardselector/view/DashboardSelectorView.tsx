@@ -37,7 +37,9 @@ const DashboardSelectorView = ({
           item={dashboard}
           selectedItem={selectedDashboard}
           onItemClick={showDashboard}
+          onItemDblClick={() => window.open('http://localhost:3000/dashboards', '_blank')}
           actions={[
+            { iconName: 'share', onClick: () => {}, tooltipText: 'Open in new browser tab' },
             { iconName: 'edit', onClick: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', onClick: () => {}, tooltipText: 'Rename' },
             { iconName: 'trash alternate outline', onClick: () => {}, tooltipText: 'Delete' }

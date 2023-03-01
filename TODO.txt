@@ -1,23 +1,16 @@
--Dashboard page selectors:
- - on hover show:
-   - delete icon
-   - rename icon (caret?),
-     - Show editable list item as Input, only enter press finalizes action successfully
-   - edit icon
-   -open in new window (same as double click)
-
 
 - Tab/Shift-Tab will change selected chart in chart area
 - Chart menu on hover change color
-
-Dashboard edit mode:
- - header with buttons "Save" and "Save and Close"
+- Rename list item on long press
 
 Reports:
  -Left pane
     -Report groups
     -Reports
     -Report templates
+
+Dashboard edit mode:
+ - header with buttons "Save" and "Save and Close"
 
 use react-sortable-hoc component for reordering list items
 

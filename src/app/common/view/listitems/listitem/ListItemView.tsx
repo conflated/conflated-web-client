@@ -17,6 +17,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   iconName?: string;
   item: T;
   onItemClick: (item: T | undefined) => void;
+  onItemDblClick?: () => void;
   selectedItem?: T | null;
   actions?: ListItemAction[];
 };
@@ -30,6 +31,7 @@ const ListItemView = <T extends { readonly name: string }>({
   iconClassName,
   iconName,
   item,
+  onItemDblClick,
   onItemClick,
   selectedItem
 }: ListItemViewProps<T>) => {
@@ -65,7 +67,9 @@ const ListItemView = <T extends { readonly name: string }>({
     <div id={item.name} draggable={draggable} onDragStart={onDragStart}>
       <List.Item className={className} onClick={() => onItemClick(item)}>
         {listIcon}
-        <List.Content className={listItemContent}>{item.name}</List.Content>
+        <List.Content className={listItemContent} onDoubleClick={onItemDblClick}>
+          {item.name}{' '}
+        </List.Content>
         <div style={{ whiteSpace: 'nowrap' }}>{actionIcons}</div>
       </List.Item>
     </div>
@@ -78,7 +82,8 @@ ListItemView.defaultProps = {
   draggable: false,
   iconClassName: '',
   iconName: '',
-  selectedItem: null
+  selectedItem: null,
+  onItemDblClick: undefined
 };
 
 export default ListItemView;
