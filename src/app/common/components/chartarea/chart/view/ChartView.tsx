@@ -35,7 +35,6 @@ const ChartView = ({
   width
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
-
   const className = classNames(styles.scrollableChart, { [styles.selectedChart]: isSelectedChart });
   const chartView = chart.createChartView(width, height, pageStateNamespace, { selectChart });
 
@@ -60,7 +59,12 @@ const ChartView = ({
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
       <ChartMenuView chart={chart} className={styles.menu} pageStateNamespace={pageStateNamespace} />
-      <ChartScrollbarView chart={chart} className={styles.scrollbar} pageStateNamespace={pageStateNamespace} />
+      <ChartScrollbarView
+        allowKeyControls={isSelectedChart}
+        chart={chart}
+        className={styles.scrollbar}
+        pageStateNamespace={pageStateNamespace}
+      />
       <DrillUpIconView chart={chart} pageStateNamespace={pageStateNamespace} />
       <ChartConfigHintsView chart={chart} />
     </div>

@@ -8,18 +8,25 @@ import type { Chart } from '../../model/state/Chart';
 import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
 import { ActionDispatchers, controller } from '../controller/chartScrollbarController';
 
-// eslint-disable-next-line react/no-unused-prop-types
-type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = {
+  allowKeyControls: boolean;
+  chart: Chart;
+  className: string;
+  // eslint-disable-next-line react/no-unused-prop-types
+  pageStateNamespace: ChartAreaPageStateNamespace;
+};
+
 type Props = OwnProps & ActionDispatchers;
 
-const ChartScrollbarView = ({ changeXAxisScrollPosition, chart, className }: Props) => {
+const ChartScrollbarView = ({ allowKeyControls, changeXAxisScrollPosition, chart, className }: Props) => {
   const maxScrollPosition = chart.getMaxScrollPosition();
 
   return maxScrollPosition > 0 ? (
     <Scrollbar
       className={className}
-      allowHomeAndEndKeys
-      allowCtrlOrMetaArrowKeys
+      allowArrowKeys={allowKeyControls}
+      allowCtrlOrMetaArrowKeys={allowKeyControls}
+      allowHomeAndEndKeys={allowKeyControls}
       pageSize={chart.xAxisCategoriesShownCount}
       maxScrollPosition={maxScrollPosition}
       changeScrollPosition={(scrollPosition: number) => changeXAxisScrollPosition(chart, scrollPosition)}
