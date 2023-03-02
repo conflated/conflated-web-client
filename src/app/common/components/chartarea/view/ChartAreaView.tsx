@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex,@typescript-eslint/no-explicit-any */
-
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -33,25 +32,35 @@ class ChartAreaView extends React.Component<Props> {
     className: undefined
   };
 
-  onKeyDown = (event: React.KeyboardEvent) => {
+  componentDidMount() {
+    document.addEventListener('keydown', this.onKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKeyDown);
+  }
+
+  onKeyDown = (event: KeyboardEvent) => {
     if (event.shiftKey && event.key === 'Tab') {
       const { charts, selectChart, selectedChart } = this.props;
       const selectedChartIndex = charts.indexOf(selectedChart);
 
       if (selectedChartIndex > 0) {
         selectChart(charts[selectedChartIndex - 1]);
-        event.preventDefault();
-        event.stopPropagation();
       }
+
+      event.preventDefault();
+      event.stopPropagation();
     } else if (event.key === 'Tab') {
       const { charts, selectChart, selectedChart } = this.props;
       const selectedChartIndex = charts.indexOf(selectedChart);
 
       if (selectedChartIndex === -1 || selectedChartIndex < charts.length - 1) {
         selectChart(charts[selectedChartIndex + 1]);
-        event.preventDefault();
-        event.stopPropagation();
       }
+
+      event.preventDefault();
+      event.stopPropagation();
     }
   };
 
@@ -99,7 +108,7 @@ class ChartAreaView extends React.Component<Props> {
     });
 
     return (
-      <section className={`${styles.chartArea} ${className || ''}`} onKeyDown={this.onKeyDown} tabIndex={0}>
+      <section className={`${styles.chartArea} ${className || ''}`} tabIndex={0}>
         {isMaxWidth1024px ? (
           chartElements
         ) : (
