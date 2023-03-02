@@ -5,12 +5,20 @@
   margin-left: auto;
   margin-right: auto;
 
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+
   .link {
     margin-top: 0.17rem;
 
     &:hover .linkIcon,
     &:hover .linkText {
       cursor: pointer;
+    }
+
+    &:hover .linkText {
+      border-bottom: 1px solid #fff;
     }
 
     .linkIcon {
@@ -34,11 +42,5 @@
         padding-right: 0;
       }
     }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .navigation {
-    display: none;
   }
 }
