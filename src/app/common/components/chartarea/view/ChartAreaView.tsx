@@ -47,6 +47,8 @@ class ChartAreaView extends React.Component<Props> {
 
       if (selectedChartIndex > 0) {
         selectChart(charts[selectedChartIndex - 1]);
+      } else {
+        selectChart(charts[charts.length - 1]);
       }
 
       event.preventDefault();
@@ -57,6 +59,8 @@ class ChartAreaView extends React.Component<Props> {
 
       if (selectedChartIndex === -1 || selectedChartIndex < charts.length - 1) {
         selectChart(charts[selectedChartIndex + 1]);
+      } else {
+        selectChart(charts[0]);
       }
 
       event.preventDefault();

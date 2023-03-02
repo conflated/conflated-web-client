@@ -11,15 +11,15 @@
   }
 
   .scrollbar {
-    @media (any-pointer: coarse) {
-      display: none !important;
-    }
-
     margin-bottom: 0.5rem;
     margin-left: 2rem;
     margin-right: 2rem;
     visibility: hidden;
     width: calc(100% - 4rem) !important;
+
+    @media (any-pointer: coarse) {
+      display: none !important;
+    }
 
     @media (prefers-color-scheme: dark) {
       :global(.button) {
@@ -34,10 +34,10 @@
         background-color: #bbb !important;
       }
     }
-  }
 
-  &:hover .scrollbar {
-    visibility: visible;
+    &.selected {
+      visibility: visible;
+    }
   }
 
   &.selectedChart {

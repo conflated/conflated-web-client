@@ -62,7 +62,7 @@ const ChartView = ({
       <ChartScrollbarView
         allowKeyControls={isSelectedChart}
         chart={chart}
-        className={styles.scrollbar}
+        className={`${styles.scrollbar} ${isSelectedChart ? styles.selected : ''}`}
         pageStateNamespace={pageStateNamespace}
       />
       <DrillUpIconView chart={chart} pageStateNamespace={pageStateNamespace} />

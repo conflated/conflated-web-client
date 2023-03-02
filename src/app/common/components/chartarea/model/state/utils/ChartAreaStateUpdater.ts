@@ -1,19 +1,16 @@
-import _ from 'lodash';
 import type { ChartAreaState } from '../ChartAreaState';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 import type { Chart } from '../../../chart/model/state/Chart';
 
 export default class ChartAreaStateUpdater {
-  static getNewStateForChangedChart(currentState: ChartAreaState, chart: Chart): ChartAreaState {
+  static getNewStateForChangedChart(currentState: ChartAreaState, changedChart: Chart): ChartAreaState {
     const { charts, selectedChart } = currentState;
-
-    // const newChart = chart === selectedChart ? ChartFactory.createChart(chart.getChartConfiguration()) : chart;
-    const newChart = ChartFactory.createChart(chart.getChartConfiguration());
+    const newChart = ChartFactory.createChart(changedChart.getChartConfiguration());
 
     const newState = {
       ...currentState,
-      charts: [..._.without(charts, chart), newChart],
-      selectedChart: chart === selectedChart ? newChart : selectedChart
+      charts: charts.map((chart) => (chart === changedChart ? newChart : chart)),
+      selectedChart: changedChart === selectedChart ? newChart : selectedChart
     };
 
     return newState;
