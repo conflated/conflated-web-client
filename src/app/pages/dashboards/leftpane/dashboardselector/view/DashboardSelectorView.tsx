@@ -41,12 +41,12 @@ const DashboardSelectorView = ({
           actions={[
             {
               iconName: 'share',
-              onClick: () => window.open('http://localhost:3000/dashboards', '_blank'),
+              perform: () => window.open('http://localhost:3000/dashboards', '_blank'),
               tooltipText: 'Open in new browser tab'
             },
-            { iconName: 'edit', onClick: () => {}, tooltipText: 'Edit' },
-            { iconName: 'i cursor', onClick: () => {}, tooltipText: 'Rename' },
-            { iconName: 'trash alternate outline', onClick: () => {}, tooltipText: 'Delete' }
+            { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+            { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
+            { iconName: 'trash alternate outline', perform: () => {}, tooltipText: 'Delete' }
           ]}
         />
       )),

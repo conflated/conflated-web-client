@@ -2,7 +2,7 @@ import AbstractDashboardGroupSelectorAction from './AbstractDashboardGroupSelect
 import { DashboardGroup } from '../../../../model/state/types/DashboardGroup';
 import { DashboardGroupSelectorState } from '../state/DashboardGroupSelectorState';
 
-export default class StartRenamingDashboardGroupAction extends AbstractDashboardGroupSelectorAction {
+export default class CancelRenamingDashboardGroupAction extends AbstractDashboardGroupSelectorAction {
   constructor(private readonly dashboardGroup: DashboardGroup) {
     super();
   }
@@ -10,7 +10,7 @@ export default class StartRenamingDashboardGroupAction extends AbstractDashboard
   perform(currentState: DashboardGroupSelectorState): DashboardGroupSelectorState {
     return {
       ...currentState,
-      dashboardGroupToBeRenamed: this.dashboardGroup
+      dashboardGroupToBeRenamed: undefined
     };
   }
 }

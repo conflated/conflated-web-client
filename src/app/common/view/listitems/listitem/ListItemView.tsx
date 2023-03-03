@@ -6,7 +6,7 @@ import styles from './ListItemView.module.scss';
 
 export type ListItemAction = {
   iconName: string;
-  onClick: () => void;
+  perform: () => void;
   tooltipText?: string;
 };
 
@@ -39,6 +39,12 @@ const ListItemView = <T extends { readonly name: string }>({
     event.dataTransfer.setData(dragEventDataKey ?? '', event.currentTarget.id);
   };
 
+  const performAction = (event: React.MouseEvent, action: ListItemAction) => {
+    event.stopPropagation();
+    event.preventDefault();
+    action.perform();
+  };
+
   const className = classNames(listItem, { [selected]: item.name === (selectedItem?.name ?? '') });
 
   let listIcon;
@@ -55,7 +61,13 @@ const ListItemView = <T extends { readonly name: string }>({
             content={action.tooltipText}
             inverted
             key={action.iconName}
-            trigger={<List.Icon className={listItemIcon} name={action.iconName as any} onClick={action.onClick} />}
+            trigger={
+              <List.Icon
+                className={listItemIcon}
+                name={action.iconName as any}
+                onClick={(event: React.MouseEvent) => performAction(event, action)}
+              />
+            }
           />
         );
       } else {
@@ -64,7 +76,7 @@ const ListItemView = <T extends { readonly name: string }>({
             className={listItemIcon}
             key={action.iconName}
             name={action.iconName as any}
-            onClick={action.onClick}
+            onClick={(event: React.MouseEvent) => performAction(event, action)}
           />
         );
       }

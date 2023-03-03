@@ -8,6 +8,8 @@ import { controller as selectorWithDefaultActionsController } from '../../../../
 import { controller as dashboardsPageController } from '../../../controller/dashboardsPageController';
 import { DashboardGroup } from '../../../model/state/types/DashboardGroup';
 import StartRenamingDashboardGroupAction from '../model/actions/StartRenamingDashboardGroupAction';
+import CancelRenamingDashboardGroupAction from '../model/actions/CancelRenamingDashboardGroupAction';
+import FinishRenamingDashboardGroupAction from '../model/actions/FinishRenamingDashboardGroupAction';
 
 class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) =>
@@ -30,7 +32,13 @@ class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
       selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
 
     startRenamingDashboardGroup: (dashboardGroup: DashboardGroup) =>
-      this.dispatch(new StartRenamingDashboardGroupAction(dashboardGroup))
+      this.dispatch(new StartRenamingDashboardGroupAction(dashboardGroup)),
+
+    cancelRenamingDashboardGroup: (dashboardGroup: DashboardGroup) =>
+      this.dispatch(new CancelRenamingDashboardGroupAction(dashboardGroup)),
+
+    finishRenamingDashboardGroup: (dashboardGroup: DashboardGroup, newName: string) =>
+      this.dispatch(new FinishRenamingDashboardGroupAction(dashboardGroup, newName))
   };
 }
 
