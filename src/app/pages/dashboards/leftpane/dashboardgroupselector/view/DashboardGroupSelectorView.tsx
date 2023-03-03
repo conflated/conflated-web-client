@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
+import { Input } from 'semantic-ui-react';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
 import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
@@ -9,11 +10,13 @@ import { ActionDispatchers, controller, State } from '../controller/dashboardGro
 type Props = ActionDispatchers & State;
 
 const DashboardGroupSelectorView = ({
+  dashboardGroupToBeRenamed,
   isDashboardSelectorOpen,
   selectedDashboardGroup,
   shouldShowDashboardsPageLeftPanePermanently,
   showDashboardGroup,
   shownDashboardGroups,
+  startRenamingDashboardGroup,
   toggleMaximizeSelector,
   toggleShouldShowDashboardsPageLeftPanePermanently
 }: Props) => {
@@ -41,19 +44,39 @@ const DashboardGroupSelectorView = ({
 
   const dashboardGroupListItems = useMemo(
     () =>
-      shownDashboardGroups.map((dashboardGroup: DashboardGroup) => (
-        <DashboardGroupListItem
-          key={dashboardGroup.name}
-          item={dashboardGroup}
-          selectedItem={selectedDashboardGroup}
-          onItemClick={showDashboardGroup}
-          actions={[
-            { iconName: 'i cursor', onClick: () => {}, tooltipText: 'Rename' },
-            { iconName: 'trash alternate outline', onClick: () => {}, tooltipText: 'Delete' }
-          ]}
-        />
-      )),
-    [shownDashboardGroups, selectedDashboardGroup, showDashboardGroup]
+      shownDashboardGroups.map((dashboardGroup: DashboardGroup) => {
+        if (dashboardGroup === dashboardGroupToBeRenamed) {
+          return (
+            <Input
+              focus
+              value={dashboardGroup.name}
+              onFocus={(event: React.FocusEvent) => (event.target as any).select()}
+            />
+          );
+        } else {
+          return (
+            <DashboardGroupListItem
+              key={dashboardGroup.name}
+              item={dashboardGroup}
+              selectedItem={selectedDashboardGroup}
+              onItemClick={showDashboardGroup}
+              actions={[
+                {
+                  iconName: 'i cursor',
+                  onClick: () => startRenamingDashboardGroup(dashboardGroup),
+                  tooltipText: 'Rename'
+                },
+                {
+                  iconName: 'trash alternate outline',
+                  onClick: () => {},
+                  tooltipText: 'Delete'
+                }
+              ]}
+            />
+          );
+        }
+      }),
+    [shownDashboardGroups, selectedDashboardGroup, showDashboardGroup, startRenamingDashboardGroup]
   );
 
   return (

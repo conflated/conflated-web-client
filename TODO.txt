@@ -1,6 +1,6 @@
-- Tab/Shift-Tab will change selected chart in chart area
-- Chart menu on hover change color
 - Rename list item on long press
+- Reorder list
+- Chart menu on hover change color
 
 Reports:
  -Left pane

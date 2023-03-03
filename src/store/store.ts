@@ -22,6 +22,7 @@ import createSelectorWithDefaultActionsStateReducer from '../app/common/componen
 import dashboardsPageHeaderStateReducer from '../app/pages/dashboards/header/model/state/dashboardsPageHeaderStateReducer';
 import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/createTriggersPageChartAreaStateReducer';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
+import dashboardGroupSelectorStateReducer from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/dashboardGroupSelectorStateReducer';
 
 const appStateReducer = combineReducers({
   common: combineReducers({
@@ -45,6 +46,7 @@ const appStateReducer = combineReducers({
   dashboardsPage: combineReducers({
     dashboardsState: dashboardsPageStateReducer,
     headerState: dashboardsPageHeaderStateReducer,
+    dashboardGroupSelectorState: dashboardGroupSelectorStateReducer,
     chartAreaState: createChartAreaStateReducer('dashboardsPage'),
     sortBySelectorState: createSortBySelectorStateReducer('dashboardsPage')
   }),

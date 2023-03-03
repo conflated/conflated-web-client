@@ -18,6 +18,7 @@ import type { SelectorWithActionsState } from '../app/common/components/selector
 import selectorWithActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
+import { DashboardGroupSelectorState } from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/DashboardGroupSelectorState';
 
 export type AppState = {
   common: {
@@ -41,6 +42,7 @@ export type AppState = {
   dashboardsPage: {
     dashboardsState: DashboardsState;
     headerState: DashboardsPageHeaderState;
+    dashboardGroupSelectorState: DashboardGroupSelectorState;
     chartAreaState: ChartAreaState;
     sortBySelectorState: SortBySelectorState;
   };
