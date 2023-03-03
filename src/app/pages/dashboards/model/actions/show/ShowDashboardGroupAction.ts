@@ -1,7 +1,7 @@
 import type { DashboardsState } from '../../state/DashboardsState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
-import ChangeSelectedDashboardGroupAction from '../changeselected/ChangeSelectedDashboardGroupAction';
+import SelectDashboardGroupAction from '../select/SelectDashboardGroupAction';
 import ChangeChartAreaLayoutAndChartsAction from '../../../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAndChartsAction';
 import StartFetchDataForOtherChartsAction from '../../../../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../../di/diContainer';
@@ -13,7 +13,7 @@ export default class ShowDashboardGroupAction extends AbstractDashboardsPageActi
 
   perform(currentState: DashboardsState): DashboardsState {
     if (this.dashboardGroup) {
-      this.dispatch(new ChangeSelectedDashboardGroupAction(this.dashboardGroup));
+      this.dispatch(new SelectDashboardGroupAction(this.dashboardGroup));
       const newSelectedDashboard = this.dashboardGroup.dashboards?.[0];
 
       if (newSelectedDashboard) {

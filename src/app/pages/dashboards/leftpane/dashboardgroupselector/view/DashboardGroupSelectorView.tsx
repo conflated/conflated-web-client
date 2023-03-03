@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { Input } from 'semantic-ui-react';
+import _ from 'lodash';
 import styles from './DashboardGroupSelectorView.module.scss';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
 import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dashboardGroupSelectorController';
+import stopEventPropagation from '../../../../../common/utils/stopEventPropagation';
 
 type Props = ActionDispatchers & State;
 
@@ -25,7 +27,7 @@ const DashboardGroupSelectorView = ({
   toggleShouldShowDashboardsPageLeftPanePermanently
 }: Props) => {
   const inputRef: { current: any } = useRef(null);
-
+  const [inputValue, setInputValue] = useState('');
   useEffect(() => inputRef.current?.focus());
 
   const handleMaximizeIconClick = useCallback(
@@ -42,16 +44,22 @@ const DashboardGroupSelectorView = ({
     [isDashboardSelectorOpen, toggleMaximizeSelector]
   );
 
+  const handleInputChange = useCallback((event: React.FormEvent<HTMLInputElement>) => {
+    setInputValue(event.currentTarget.value);
+  }, []);
+
   const handleInputKeyDown = useCallback(
     (event: React.KeyboardEvent, dashboardGroup: DashboardGroup) => {
       event.stopPropagation();
 
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && inputValue !== '') {
         event.preventDefault();
-        finishRenamingDashboardGroup(dashboardGroup, inputRef.current?.value);
+        finishRenamingDashboardGroup(dashboardGroup, inputValue);
+      } else if (event.key === 'Escape') {
+        cancelRenamingDashboardGroup(dashboardGroup);
       }
     },
-    [finishRenamingDashboardGroup]
+    [cancelRenamingDashboardGroup, finishRenamingDashboardGroup, inputValue]
   );
 
   const handlePinIconClick = useCallback(
@@ -70,7 +78,8 @@ const DashboardGroupSelectorView = ({
             <Input
               className={styles.input}
               key={dashboardGroup.name}
-              onBlur={() => cancelRenamingDashboardGroup(dashboardGroup)}
+              onBlur={_.flow(stopEventPropagation, () => cancelRenamingDashboardGroup(dashboardGroup))}
+              onChange={handleInputChange}
               onFocus={(event: React.FocusEvent) => (event.target as any).select()}
               onKeyDown={(event: React.KeyboardEvent) => handleInputKeyDown(event, dashboardGroup)}
               defaultValue={dashboardGroup.name}
@@ -104,6 +113,9 @@ const DashboardGroupSelectorView = ({
     [
       shownDashboardGroups,
       dashboardGroupToBeRenamed,
+      handleInputChange,
+      cancelRenamingDashboardGroup,
+      handleInputKeyDown,
       selectedDashboardGroup,
       showDashboardGroup,
       startRenamingDashboardGroup

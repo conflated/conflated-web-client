@@ -2,7 +2,7 @@ import type { DashboardsState } from '../../state/DashboardsState';
 import type { Dashboard } from '../../state/types/Dashboard';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
-export default class ChangeSelectedDashboardAction extends AbstractDashboardsPageAction {
+export default class SelectDashboardAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboard: Dashboard) {
     super();
   }

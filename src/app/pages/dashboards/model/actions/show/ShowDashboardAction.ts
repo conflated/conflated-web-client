@@ -4,7 +4,7 @@ import ChangeChartAreaLayoutAndChartsAction from '../../../../../common/componen
 import StartFetchDataForOtherChartsAction from '../../../../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../../di/diContainer';
 import { Dashboard } from '../../state/types/Dashboard';
-import ChangeSelectedDashboardAction from '../changeselected/ChangeSelectedDashboardAction';
+import SelectDashboardAction from '../select/SelectDashboardAction';
 
 export default class ShowDashboardAction extends AbstractDashboardsPageAction {
   constructor(private readonly dashboard: Dashboard | undefined) {
@@ -13,7 +13,7 @@ export default class ShowDashboardAction extends AbstractDashboardsPageAction {
 
   perform(currentState: DashboardsState): DashboardsState {
     if (this.dashboard) {
-      this.dispatch(new ChangeSelectedDashboardAction(this.dashboard));
+      this.dispatch(new SelectDashboardAction(this.dashboard));
 
       this.dispatch(
         new ChangeChartAreaLayoutAndChartsAction('dashboardsPage', this.dashboard.layout, this.dashboard.charts)
