@@ -3,9 +3,26 @@
     border-radius: 0;
     font-family: var(--brand-font-family);
 
+    &:focus {
+      @media (prefers-color-scheme: dark) {
+        border: 1px solid #ffffff;
+      }
+    }
+
     &.secondary {
       background: none;
       color: rgb(120, 120, 120);
+
+      @media (prefers-color-scheme: dark) {
+        color: #dddddd;
+      }
+
+      &:hover,
+      &:focus {
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--brand-color-1);
+        }
+      }
     }
   }
 

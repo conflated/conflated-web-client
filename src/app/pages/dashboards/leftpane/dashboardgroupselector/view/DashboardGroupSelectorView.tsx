@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { Button, Input, Modal } from 'semantic-ui-react';
@@ -31,8 +30,10 @@ const DashboardGroupSelectorView = ({
   toggleShouldShowDashboardsPageLeftPanePermanently
 }: Props) => {
   const inputRef: { current: any } = useRef(null);
+  const closeButtonRef: { current: any } = useRef(null);
   const [inputValue, setInputValue] = useState('');
   useEffect(() => inputRef.current?.focus());
+  useEffect(() => closeButtonRef.current?.focus());
 
   const handleMaximizeIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
@@ -148,6 +149,7 @@ const DashboardGroupSelectorView = ({
         closeOnDimmerClick
         closeOnEscape
         onClose={closeDashboardGroupDeleteConfirmationDialog}
+        onKeyDown={stopEventPropagation}
         open={!!dashboardGroupToBeDeleted}
       >
         <Modal.Header content="DELETE DASHBOARD GROUP" />
@@ -155,10 +157,10 @@ const DashboardGroupSelectorView = ({
           Delete <i>{dashboardGroupToBeDeleted?.name}</i> ?
         </Modal.Content>
         <Modal.Actions>
-          <Button secondary onClick={closeDashboardGroupDeleteConfirmationDialog}>
+          <Button ref={closeButtonRef} secondary onClick={closeDashboardGroupDeleteConfirmationDialog} tabIndex="0">
             CANCEL
           </Button>
-          <Button primary negative onClick={() => confirmDashboardGroupDelete(dashboardGroupToBeDeleted)}>
+          <Button primary negative onClick={() => confirmDashboardGroupDelete(dashboardGroupToBeDeleted)} tabIndex="0">
             DELETE
           </Button>
         </Modal.Actions>
