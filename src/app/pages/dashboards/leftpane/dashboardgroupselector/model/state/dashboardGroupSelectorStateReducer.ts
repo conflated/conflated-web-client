@@ -3,6 +3,7 @@ import { DashboardGroupSelectorState } from './DashboardGroupSelectorState';
 import AbstractDashboardGroupSelectorAction from '../actions/AbstractDashboardGroupSelectorAction';
 
 const initialDashboardGroupSelectorState: DashboardGroupSelectorState = {
+  dashboardGroupToBeDeleted: undefined,
   dashboardGroupToBeRenamed: undefined
 };
 

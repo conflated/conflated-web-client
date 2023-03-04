@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { connect } from 'react-redux';
-import { Input } from 'semantic-ui-react';
+import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './DashboardGroupSelectorView.module.scss';
 import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
@@ -15,12 +15,16 @@ type Props = ActionDispatchers & State;
 
 const DashboardGroupSelectorView = ({
   cancelRenamingDashboardGroup,
+  closeDashboardGroupDeleteConfirmationDialog,
+  confirmDashboardGroupDelete,
+  dashboardGroupToBeDeleted,
   dashboardGroupToBeRenamed,
   finishRenamingDashboardGroup,
   isDashboardSelectorOpen,
   selectedDashboardGroup,
   shouldShowDashboardsPageLeftPanePermanently,
   showDashboardGroup,
+  showDashboardGroupDeleteConfirmationDialog,
   shownDashboardGroups,
   startRenamingDashboardGroup,
   toggleMaximizeSelector,
@@ -94,6 +98,7 @@ const DashboardGroupSelectorView = ({
               item={dashboardGroup}
               selectedItem={selectedDashboardGroup}
               onItemClick={showDashboardGroup}
+              onItemLongClick={() => startRenamingDashboardGroup(dashboardGroup)}
               actions={[
                 {
                   iconName: 'i cursor',
@@ -102,7 +107,7 @@ const DashboardGroupSelectorView = ({
                 },
                 {
                   iconName: 'trash alternate outline',
-                  perform: () => {},
+                  perform: () => showDashboardGroupDeleteConfirmationDialog(dashboardGroup),
                   tooltipText: 'Delete'
                 }
               ]}
@@ -118,25 +123,47 @@ const DashboardGroupSelectorView = ({
       handleInputKeyDown,
       selectedDashboardGroup,
       showDashboardGroup,
-      startRenamingDashboardGroup
+      startRenamingDashboardGroup,
+      showDashboardGroupDeleteConfirmationDialog
     ]
   );
 
   return (
-    <SelectorWithActionsView
-      id="dashboardGroupSelector"
-      titleText="DASHBOARD GROUPS"
-      addIconTooltipText="Add new dashboard group"
-      position="leftPane"
-      listItemsContent={
-        <AllAndFavoritesTabView firstTabPaneListItems={dashboardGroupListItems} secondTabPaneListItems={[]} />
-      }
-      handleMaximizeIconClick={handleMaximizeIconClick}
-      handlePinIconClick={handlePinIconClick}
-      selectorStateNamespace="dashboardGroupSelector"
-      isPinned={shouldShowDashboardsPageLeftPanePermanently}
-      reorderIconTooltipText="Reorder dashboard groups"
-    />
+    <>
+      <SelectorWithActionsView
+        id="dashboardGroupSelector"
+        titleText="DASHBOARD GROUPS"
+        addIconTooltipText="Add new dashboard group"
+        position="leftPane"
+        listItemsContent={
+          <AllAndFavoritesTabView firstTabPaneListItems={dashboardGroupListItems} secondTabPaneListItems={[]} />
+        }
+        handleMaximizeIconClick={handleMaximizeIconClick}
+        handlePinIconClick={handlePinIconClick}
+        selectorStateNamespace="dashboardGroupSelector"
+        isPinned={shouldShowDashboardsPageLeftPanePermanently}
+        reorderIconTooltipText="Reorder dashboard groups"
+      />
+      <Modal
+        closeOnDimmerClick
+        closeOnEscape
+        onClose={closeDashboardGroupDeleteConfirmationDialog}
+        open={!!dashboardGroupToBeDeleted}
+      >
+        <Modal.Header content="DELETE DASHBOARD GROUP" />
+        <Modal.Content>
+          Delete <i>{dashboardGroupToBeDeleted?.name}</i> ?
+        </Modal.Content>
+        <Modal.Actions>
+          <Button secondary onClick={closeDashboardGroupDeleteConfirmationDialog}>
+            CANCEL
+          </Button>
+          <Button primary negative onClick={() => confirmDashboardGroupDelete(dashboardGroupToBeDeleted)}>
+            DELETE
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    </>
   );
 };
 

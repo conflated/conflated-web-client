@@ -35,13 +35,34 @@
   }
 
   &.modal {
+    width: auto;
+
+    @media (prefers-color-scheme: dark) {
+      border: 1px solid var(--dialog-color);
+    }
+
     & > .header {
       background-color: var(--dialog-header-and-footer-background-color);
+      color: var(--dialog-color);
       font-family: var(--brand-font-family);
+
+      @media (prefers-color-scheme: dark) {
+        border-bottom: 1px solid #333;
+      }
+    }
+
+    & > .content {
+      background-color: var(--dialog-header-and-footer-background-color);
+      color: var(--dialog-color);
     }
 
     & > .actions {
       background-color: var(--dialog-header-and-footer-background-color);
+      color: var(--dialog-color);
+
+      @media (prefers-color-scheme: dark) {
+        border-top: 1px solid #333;
+      }
     }
   }
 

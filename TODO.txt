@@ -1,4 +1,5 @@
-- Rename list item on long press
+- Delete + confirmation dialog
+- Link icon to dashboard(groups to copy link to clipboard
 - Reorder list
 - Chart menu on hover change color
 

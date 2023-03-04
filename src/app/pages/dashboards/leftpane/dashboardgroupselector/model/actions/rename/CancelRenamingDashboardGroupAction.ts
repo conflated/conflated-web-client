@@ -1,6 +1,6 @@
-import AbstractDashboardGroupSelectorAction from './AbstractDashboardGroupSelectorAction';
-import { DashboardGroup } from '../../../../model/state/types/DashboardGroup';
-import { DashboardGroupSelectorState } from '../state/DashboardGroupSelectorState';
+import AbstractDashboardGroupSelectorAction from '../AbstractDashboardGroupSelectorAction';
+import { DashboardGroup } from '../../../../../model/state/types/DashboardGroup';
+import { DashboardGroupSelectorState } from '../../state/DashboardGroupSelectorState';
 
 export default class CancelRenamingDashboardGroupAction extends AbstractDashboardGroupSelectorAction {
   constructor(private readonly dashboardGroup: DashboardGroup) {

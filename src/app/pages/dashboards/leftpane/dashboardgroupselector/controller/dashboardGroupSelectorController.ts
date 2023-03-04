@@ -7,9 +7,12 @@ import selectShownDashboardGroups from './selectors/selectShownDashboardGroups';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 import { controller as dashboardsPageController } from '../../../controller/dashboardsPageController';
 import { DashboardGroup } from '../../../model/state/types/DashboardGroup';
-import StartRenamingDashboardGroupAction from '../model/actions/StartRenamingDashboardGroupAction';
-import CancelRenamingDashboardGroupAction from '../model/actions/CancelRenamingDashboardGroupAction';
-import FinishRenamingDashboardGroupAction from '../model/actions/FinishRenamingDashboardGroupAction';
+import StartRenamingDashboardGroupAction from '../model/actions/rename/StartRenamingDashboardGroupAction';
+import CancelRenamingDashboardGroupAction from '../model/actions/rename/CancelRenamingDashboardGroupAction';
+import FinishRenamingDashboardGroupAction from '../model/actions/rename/FinishRenamingDashboardGroupAction';
+import ShowDashboardGroupDeleteConfirmationDialogAction from '../model/actions/delete/ShowDashboardGroupDeleteConfirmationDialogAction';
+import CloseDashboardGroupDeleteConfirmationDialogAction from '../model/actions/delete/CloseDashboardGroupDeleteConfirmationDialogAction';
+import ConfirmDashboardGroupDeleteAction from '../model/actions/delete/ConfirmDashboardGroupDeleteAction';
 
 class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) =>
@@ -38,7 +41,16 @@ class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(new CancelRenamingDashboardGroupAction(dashboardGroup)),
 
     finishRenamingDashboardGroup: (dashboardGroup: DashboardGroup, newName: string) =>
-      this.dispatch(new FinishRenamingDashboardGroupAction(dashboardGroup, newName))
+      this.dispatch(new FinishRenamingDashboardGroupAction(dashboardGroup, newName)),
+
+    showDashboardGroupDeleteConfirmationDialog: (dashboardGroup: DashboardGroup) =>
+      this.dispatch(new ShowDashboardGroupDeleteConfirmationDialogAction(dashboardGroup)),
+
+    closeDashboardGroupDeleteConfirmationDialog: () =>
+      this.dispatch(new CloseDashboardGroupDeleteConfirmationDialogAction()),
+
+    confirmDashboardGroupDelete: (dashboardGroup?: DashboardGroup) =>
+      this.dispatch(new ConfirmDashboardGroupDeleteAction(dashboardGroup))
   };
 }
 
