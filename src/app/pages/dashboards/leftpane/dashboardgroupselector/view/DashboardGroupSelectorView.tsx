@@ -103,6 +103,11 @@ const DashboardGroupSelectorView = ({
               onItemLongClick={() => startRenamingDashboardGroup(dashboardGroup)}
               actions={[
                 {
+                  iconName: 'linkify',
+                  perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
+                  tooltipText: 'Copy link to clipboard'
+                },
+                {
                   iconName: 'i cursor',
                   perform: () => startRenamingDashboardGroup(dashboardGroup),
                   tooltipText: 'Rename'
