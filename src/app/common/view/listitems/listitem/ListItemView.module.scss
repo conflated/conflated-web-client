@@ -44,4 +44,12 @@
     text-overflow: ellipsis;
     vertical-align: top;
   }
+
+  .actionIcons {
+    display: none;
+  }
+
+  &:hover .actionIcons {
+    display: block;
+  }
 }

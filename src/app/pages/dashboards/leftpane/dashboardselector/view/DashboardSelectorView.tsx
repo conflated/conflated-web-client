@@ -44,6 +44,11 @@ const DashboardSelectorView = ({
               perform: () => window.open('http://localhost:3000/dashboards', '_blank'),
               tooltipText: 'Open in new browser tab'
             },
+            {
+              iconName: 'linkify',
+              perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
+              tooltipText: 'Copy link to clipboard'
+            },
             { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
             { iconName: 'trash alternate outline', perform: () => {}, tooltipText: 'Delete' }

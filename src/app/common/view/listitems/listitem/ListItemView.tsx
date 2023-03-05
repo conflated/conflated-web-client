@@ -108,7 +108,7 @@ const ListItemView = <T extends { readonly name: string }>({
         >
           {item.name}{' '}
         </List.Content>
-        <div style={{ whiteSpace: 'nowrap' }}>{actionIcons}</div>
+        <div className={styles.actionIcons}>{actionIcons}</div>
       </List.Item>
     </div>
   );
