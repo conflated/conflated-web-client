@@ -10,6 +10,7 @@ const AllAndFavoritesTabView = ({ firstTabPaneListItems, secondTabPaneListItems 
   <SelectorTabView
     firstTabPaneName="ALL"
     firstTabPaneListItems={firstTabPaneListItems}
+    listItemsAreReorderable
     secondTabPaneName="FAVORITES"
     secondTabPaneListItems={secondTabPaneListItems}
   />

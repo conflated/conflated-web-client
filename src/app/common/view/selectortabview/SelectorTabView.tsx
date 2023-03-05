@@ -4,11 +4,13 @@ import _ from 'lodash';
 import React from 'react';
 import { List, Tab } from 'semantic-ui-react';
 import styles from './SelectorTabView.module.scss';
+import ListItemsView from '../listitems/ListItemsView';
 
 type Props = {
   firstNoContentLineText?: string;
   firstTabPaneListItems: Array<JSX.Element>;
   firstTabPaneName: string;
+  listItemsAreReorderable?: boolean;
   secondNoContentLineText?: string;
   secondTabPaneListItems: Array<JSX.Element>;
   secondTabPaneName: string;
@@ -20,13 +22,21 @@ const SelectorTabView: React.FC<Props> = ({
   firstNoContentLineText,
   firstTabPaneListItems,
   firstTabPaneName,
+  listItemsAreReorderable,
   secondNoContentLineText,
   secondTabPaneListItems,
   secondTabPaneName,
   thirdTabPaneListItems,
   thirdTabPaneName
 }: Props) => {
-  let firstTabPaneContent = <List>{firstTabPaneListItems}</List>;
+  let firstTabPaneContent = (
+    <ListItemsView
+      listItems={firstTabPaneListItems}
+      itemsAreReorderable={listItemsAreReorderable}
+      noContentFirstLineText="Tbd"
+      noContentSecondLineText="Tbd"
+    />
+  );
 
   if (_.isEmpty(firstTabPaneListItems) && firstNoContentLineText) {
     firstTabPaneContent = (
@@ -38,7 +48,9 @@ const SelectorTabView: React.FC<Props> = ({
     );
   }
 
-  let secondTabPaneContent = <List>{secondTabPaneListItems}</List>;
+  let secondTabPaneContent = (
+    <ListItemsView listItems={secondTabPaneListItems} noContentFirstLineText="Tbd" noContentSecondLineText="Tbd" />
+  );
 
   if (_.isEmpty(secondTabPaneListItems) && firstNoContentLineText) {
     secondTabPaneContent = (
@@ -87,6 +99,7 @@ const SelectorTabView: React.FC<Props> = ({
 
 SelectorTabView.defaultProps = {
   firstNoContentLineText: '',
+  listItemsAreReorderable: false,
   secondNoContentLineText: '',
   thirdTabPaneListItems: undefined,
   thirdTabPaneName: ''

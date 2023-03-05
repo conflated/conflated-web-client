@@ -16,6 +16,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   iconClassName?: string;
   iconName?: string;
   item: T;
+  key: string;
   onItemClick: (item: T | undefined) => void;
   onItemDblClick?: () => void;
   onItemLongClick?: () => void;
@@ -32,6 +33,7 @@ const ListItemView = <T extends { readonly name: string }>({
   iconClassName,
   iconName,
   item,
+  key,
   onItemDblClick,
   onItemLongClick,
   onItemClick,
@@ -60,12 +62,12 @@ const ListItemView = <T extends { readonly name: string }>({
 
   const className = classNames(listItem, { [selected]: item.name === (selectedItem?.name ?? '') });
 
-  let listIcon;
+  let listIcon: any;
   if (iconName) {
     listIcon = <List.Icon className={iconClassName || listItemIcon} name={iconName as any} />;
   }
 
-  let actionIcons;
+  let actionIcons: any;
   if (actions) {
     actionIcons = actions.map((action) => {
       if (action.tooltipText) {
@@ -97,7 +99,7 @@ const ListItemView = <T extends { readonly name: string }>({
   }
 
   return (
-    <div id={item.name} draggable={draggable} onDragStart={onDragStart}>
+    <div key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
       <List.Item className={className} onClick={() => onItemClick(item)}>
         {listIcon}
         <List.Content
