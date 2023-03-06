@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styles2 from './SelectorWithActionsView.module.scss';
 import styles from '../../selector/view/SelectorView.module.scss';
@@ -8,6 +8,7 @@ import ActionsView from './actions/ActionsView';
 import SelectorView from '../../selector/view/SelectorView';
 import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/selectorWithActionsController';
+import stopEventPropagation from '../../../utils/stopEventPropagation';
 
 export type OwnProps = {
   addIconTooltipText: string;
@@ -45,14 +46,6 @@ const SelectorWithActionsView: React.FC<Props> = ({
   toggleListItemReorderMode,
   toggleShowSearchInput
 }: Props) => {
-  const handleSearchIconClick = useCallback(
-    (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-      toggleShowSearchInput();
-    },
-    [toggleShowSearchInput]
-  );
-
   function scrollSelectedListItemsIntoView() {
     const selectedItemsDiv = document.getElementById(`${id}SelectedItems`);
     if (selectedItemsDiv != null) {
@@ -64,7 +57,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
     <ActionsView
       iconClassName={styles.actionIcon}
       position={position}
-      toggleShowSearchInput={handleSearchIconClick}
+      toggleShowSearchInput={_.flow(stopEventPropagation, toggleShowSearchInput)}
       toggleMaximizeAccordion={handleMaximizeIconClick}
       shouldShowPinIcon={isPinned !== undefined}
       isPinned={isPinned}

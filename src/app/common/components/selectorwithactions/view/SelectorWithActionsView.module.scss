@@ -4,5 +4,7 @@
 }
 
 .searchInput {
-  margin-right: 5px;
+  & > input {
+    border-radius: 0 !important;
+  }
 }
