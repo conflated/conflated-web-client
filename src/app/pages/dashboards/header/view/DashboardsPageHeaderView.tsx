@@ -3,7 +3,7 @@ import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { Dropdown, Icon, Input } from 'semantic-ui-react';
+import { Dropdown, Icon, Input, Popup } from 'semantic-ui-react';
 import styles from './DashboardsPageHeaderView.module.scss';
 import type { Dashboard } from '../../model/state/types/Dashboard';
 import type { DashboardGroup } from '../../model/state/types/DashboardGroup';
@@ -316,6 +316,11 @@ const DashboardsPageHeaderView = ({
         <DashboardsSlideShowPlayOrPauseButtonView
           isDashboardsSlideShowPlaying={isDashboardsSlideShowPlaying}
           toggleDashboardsSlideShowPlay={toggleDashboardsSlideShowPlay}
+        />
+        <Popup
+          content="Show keyboard shortcuts"
+          inverted
+          trigger={<Icon className={styles.actionIcon} name="question" size="large" />}
         />
         <DashboardsPageHeaderPinIconView
           shouldShowDashboardsHeaderPermanently={shouldShowDashboardsHeaderPermanently}
