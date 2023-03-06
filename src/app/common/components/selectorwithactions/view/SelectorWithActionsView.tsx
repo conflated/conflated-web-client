@@ -42,6 +42,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   selectedListItemsContent,
   selectorStateNamespace,
   titleText,
+  toggleListItemReorderMode,
   toggleShowSearchInput
 }: Props) => {
   const handleSearchIconClick = useCallback(
@@ -70,6 +71,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       handlePinIconClick={handlePinIconClick}
       addIconTooltipText={addIconTooltipText}
       reorderIconTooltipText={reorderIconTooltipText}
+      handleReorderIconClick={toggleListItemReorderMode}
     />
   );
 

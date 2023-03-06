@@ -7,6 +7,7 @@ import ToggleMaximizeSelectorAction from '../model/actions/ToggleMaximizeSelecto
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/SelectorWithActionsView';
+import ToggleListItemReorderModeAction from '../model/actions/ToggleListItemReorderModeAction';
 
 class SelectorWithActionsController extends Controller<SelectorWithActionsStateNamespace> {
   getState = (appState: AppState, { selectorStateNamespace }: OwnProps) =>
@@ -17,6 +18,8 @@ class SelectorWithActionsController extends Controller<SelectorWithActionsStateN
 
     changeSelectorSearchedValue: (searchedValue: string) =>
       this.dispatch(new ChangeSelectorSearchedValueAction(selectorStateNamespace, searchedValue)),
+
+    toggleListItemReorderMode: () => this.dispatch(new ToggleListItemReorderModeAction(selectorStateNamespace)),
 
     toggleMaximizeSelector: (otherSelectorOpenStatuses: SelectorOpenStatus[]) => {
       this.dispatch(new ToggleMaximizeSelectorAction(selectorStateNamespace, otherSelectorOpenStatuses));

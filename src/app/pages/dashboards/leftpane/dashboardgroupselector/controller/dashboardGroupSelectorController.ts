@@ -19,6 +19,10 @@ class DashboardGroupSelectorController extends Controller<PageStateNamespace> {
     OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.dashboardGroupSelectorState, {
       shownDashboardGroups: selectShownDashboardGroups(appState),
       selectedDashboardGroup: appState.dashboardsPage.dashboardsState.selectedDashboardGroup,
+
+      isListItemReorderModeActive:
+        appState.common.selectorWithDefaultActionsStates.dashboardGroupSelector.isListItemReorderModeActive,
+
       isDashboardSelectorOpen: appState.common.selectorStates.dashboardSelector.isSelectorOpen,
 
       shouldShowDashboardsPageLeftPanePermanently:

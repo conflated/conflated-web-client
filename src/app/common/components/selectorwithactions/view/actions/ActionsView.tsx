@@ -1,11 +1,12 @@
 import _ from 'lodash';
 import React from 'react';
 import { Icon, Popup } from 'semantic-ui-react';
+import stopEventPropagation from '../../../../utils/stopEventPropagation';
 
 type Props = {
   addIconTooltipText?: string;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
-  handleReorderIconClick?: () => void;
+  handleReorderIconClick: () => void;
   iconClassName: string;
   isPinned?: boolean;
   position: 'leftPane' | 'rightPane';
@@ -76,7 +77,9 @@ const ActionsView: React.FC<Props> = ({
   const reorderIcon = (
     <Popup
       inverted
-      trigger={<Icon className={iconClassName} name="bars" onClick={handleReorderIconClick} />}
+      trigger={
+        <Icon className={iconClassName} name="bars" onClick={_.flow(stopEventPropagation, handleReorderIconClick)} />
+      }
       content={reorderIconTooltipText}
     />
   );
@@ -95,7 +98,6 @@ const ActionsView: React.FC<Props> = ({
 ActionsView.defaultProps = {
   addIconTooltipText: '',
   handlePinIconClick: _.noop,
-  handleReorderIconClick: _.noop,
   isPinned: false,
   reorderIconTooltipText: undefined,
   shouldShowPinIcon: false

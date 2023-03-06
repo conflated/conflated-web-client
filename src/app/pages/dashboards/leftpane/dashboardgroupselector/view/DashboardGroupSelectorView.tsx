@@ -21,6 +21,7 @@ const DashboardGroupSelectorView = ({
   dashboardGroupToBeRenamed,
   finishRenamingDashboardGroup,
   isDashboardSelectorOpen,
+  isListItemReorderModeActive,
   selectedDashboardGroup,
   shouldShowDashboardsPageLeftPanePermanently,
   showDashboardGroup,
@@ -97,6 +98,7 @@ const DashboardGroupSelectorView = ({
           return (
             <DashboardGroupListItem
               key={dashboardGroup.name}
+              iconName={`${isListItemReorderModeActive ? 'bars' : ''}`}
               item={dashboardGroup}
               selectedItem={selectedDashboardGroup}
               onItemClick={showDashboardGroup}
@@ -128,6 +130,7 @@ const DashboardGroupSelectorView = ({
       handleInputChange,
       cancelRenamingDashboardGroup,
       handleInputKeyDown,
+      isListItemReorderModeActive,
       selectedDashboardGroup,
       showDashboardGroup,
       startRenamingDashboardGroup,
@@ -143,7 +146,11 @@ const DashboardGroupSelectorView = ({
         addIconTooltipText="Add new dashboard group"
         position="leftPane"
         listItemsContent={
-          <AllAndFavoritesTabView firstTabPaneListItems={dashboardGroupListItems} secondTabPaneListItems={[]} />
+          <AllAndFavoritesTabView
+            firstTabPaneListItems={dashboardGroupListItems}
+            isListItemReorderModeActive={isListItemReorderModeActive}
+            secondTabPaneListItems={[]}
+          />
         }
         handleMaximizeIconClick={handleMaximizeIconClick}
         handlePinIconClick={handlePinIconClick}

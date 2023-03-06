@@ -3,7 +3,6 @@
   display: flex;
   font-family: var(--brand-font-family) !important;
   font-size: var(--body-font-size) !important;
-  justify-content: space-between;
   overflow: hidden;
   white-space: nowrap;
 
@@ -17,12 +16,12 @@
     cursor: pointer !important;
     font-weight: bold !important;
 
-    .listItemIcon {
+    .listItemActionIcon {
       visibility: visible;
     }
   }
 
-  .listItemIcon {
+  .listItemActionIcon {
     color: var(--small-font-color);
     padding-top: 0;
     transition: color 0.1s ease;
@@ -39,6 +38,7 @@
   }
 
   .listItemContent {
+    flex-grow: 1;
     padding: 0 0 0 0.5em;
     overflow: clip;
     text-overflow: ellipsis;

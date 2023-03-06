@@ -24,7 +24,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   actions?: ListItemAction[];
 };
 
-const { listItem, listItemContent, listItemIcon, selected } = styles;
+const { listItem, listItemContent, listItemIcon, listItemActionIcon, selected } = styles;
 
 const ListItemView = <T extends { readonly name: string }>({
   actions,
@@ -78,7 +78,7 @@ const ListItemView = <T extends { readonly name: string }>({
             key={action.iconName}
             trigger={
               <List.Icon
-                className={listItemIcon}
+                className={listItemActionIcon}
                 name={action.iconName as any}
                 onClick={(event: React.MouseEvent) => performAction(event, action)}
               />
@@ -88,7 +88,7 @@ const ListItemView = <T extends { readonly name: string }>({
       } else {
         return (
           <List.Icon
-            className={listItemIcon}
+            className={listItemActionIcon}
             key={action.iconName}
             name={action.iconName as any}
             onClick={(event: React.MouseEvent) => performAction(event, action)}

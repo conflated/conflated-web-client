@@ -4,6 +4,7 @@ import type { SelectorWithActionsState } from './SelectorWithActionsState';
 import type { SelectorWithActionsStateNamespace } from './types/SelectorWithActionsStateNamespace';
 
 const initialSelectorWithDefaultActionsState: SelectorWithActionsState = {
+  isListItemReorderModeActive: false,
   isSelectorMaximized: false,
   isSearchInputShown: false,
   searchedValue: ''
