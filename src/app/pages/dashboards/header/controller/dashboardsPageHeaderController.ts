@@ -14,6 +14,8 @@ import FilterDashboardGroupsAction from '../model/actions/filter/FilterDashboard
 import FilterDashboardsAction from '../model/actions/filter/FilterDashboardsAction';
 import ActivateDashboardsTabPaneAction from '../model/actions/tabpane/ActivateDashboardsTabPaneAction';
 import ActivateDashboardGroupsTabPaneAction from '../model/actions/tabpane/ActivateDashboardGroupsTabPaneAction';
+import ShowKeyboardShortcutsMessageAction from '../model/actions/show/ShowKeyboardShortcutsMessageAction';
+import HideKeyboardShortcutsMessageAction from '../model/actions/hide/HideKeyboardShortcutsMessageAction';
 
 class DashboardsPageHeaderController extends Controller {
   getState = (appState: AppState) =>
@@ -44,7 +46,9 @@ class DashboardsPageHeaderController extends Controller {
     filterDashboardGroups: (filterText: string) => this.dispatch(new FilterDashboardGroupsAction(filterText)),
     filterDashboards: (filterText: string) => this.dispatch(new FilterDashboardsAction(filterText)),
     toggleDashboardsSlideShowPlay: () => this.dispatch(new ToggleDashboardsSlideShowPlayAction()),
-    toggleShouldShowDashboardsHeaderPermanently: () => this.dispatch(new ToggleShouldShowHeaderPermanentlyAction())
+    toggleShouldShowDashboardsHeaderPermanently: () => this.dispatch(new ToggleShouldShowHeaderPermanentlyAction()),
+    showKeyboardShortcutsMessage: () => this.dispatch(new ShowKeyboardShortcutsMessageAction()),
+    hideKeyboardShortcutsMessage: () => this.dispatch(new HideKeyboardShortcutsMessageAction())
   };
 }
 

@@ -1,27 +1,30 @@
+.message {
+  margin: 0;
+  position: absolute !important;
+  right: 1rem;
+  top: 3rem;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #CCCCCC !important;
+  }
+}
+
 .keyboardShortcuts {
   display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  margin: 0 2rem;
-  opacity: 0;
-  transition: opacity 1s;
-
-  &:hover {
-    opacity: 1;
-  }
+  margin: 1rem 2rem;
 
   .keyboardShortcutsTable {
     display: inline-table;
 
     &:not(:first-child) {
-      margin-left: 1rem;
+      margin-left: 1.5rem;
     }
 
     td {
-      color: #666666;
-      font-size: 0.7rem;
-      line-height: 0.6rem;
-      padding: 0.25rem;
+      color: #000;
+      font-size: 1rem;
+      line-height: 0.9rem;
+      padding: 0.5rem;
 
       .keyboardShortcutIcon {
         margin: 0;
@@ -30,9 +33,9 @@
       span {
         background-color: rgba(220 220 220 / 80%);
         border: 1px solid #909090;
-        box-shadow: 1px 1px 1px rgba(100 100 100 / 90%);
-        border-radius: 0.25rem;
-        padding: 0.15rem;
+        box-shadow: 1px 1px 1px rgba(80 80 80 / 90%);
+        border-radius: 0.5rem;
+        padding: 0.25rem;
 
         &.first {
           margin-right: 0.3rem;

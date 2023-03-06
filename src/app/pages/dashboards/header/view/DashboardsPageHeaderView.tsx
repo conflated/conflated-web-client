@@ -31,14 +31,17 @@ const DashboardsPageHeaderView = ({
   isDashboardsSlideShowPlaying,
   isFullScreenModeActive,
   hideDashboardsHeaderDelayed,
+  hideKeyboardShortcutsMessage,
   nextDashboard,
   previousDashboard,
   selectedDashboardGroup,
   selectedDashboard,
   shouldShowDashboardsHeader,
   shouldShowDashboardsHeaderPermanently,
+  shouldShowKeyboardShortcutsMessage,
   showDashboard,
   showDashboardGroup,
+  showKeyboardShortcutsMessage,
   toggleDashboardsSlideShowPlay,
   toggleShouldShowDashboardsHeaderPermanently
 }: Props) => {
@@ -202,14 +205,18 @@ const DashboardsPageHeaderView = ({
         <Popup
           content="Show keyboard shortcuts"
           inverted
-          trigger={<Icon className={styles.actionIcon} name="question" size="large" />}
+          trigger={
+            <Icon className={styles.actionIcon} name="question" onClick={showKeyboardShortcutsMessage} size="large" />
+          }
         />
         <DashboardsPageHeaderPinIconView
           shouldShowDashboardsHeaderPermanently={shouldShowDashboardsHeaderPermanently}
           toggleShouldShowDashboardsHeaderPermanently={toggleShouldShowDashboardsHeaderPermanently}
         />
       </div>
-      <KeyboardShortcutsMessageView />
+      {shouldShowKeyboardShortcutsMessage ? (
+        <KeyboardShortcutsMessageView onDismissMessage={hideKeyboardShortcutsMessage} />
+      ) : undefined}
     </header>
   );
 };

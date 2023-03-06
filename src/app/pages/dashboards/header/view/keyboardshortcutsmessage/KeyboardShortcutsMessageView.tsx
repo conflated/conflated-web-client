@@ -2,8 +2,12 @@ import React from 'react';
 import { Icon, Message } from 'semantic-ui-react';
 import styles from './KeyboardShortcutsMessageView.module.scss';
 
-const KeyboardShortcutsMessageView = () => (
-  <Message>
+type Props = {
+  onDismissMessage: () => void;
+};
+
+const KeyboardShortcutsMessageView = ({ onDismissMessage }: Props) => (
+  <Message className={styles.message} compact floating onDismiss={onDismissMessage}>
     <Message.Header>KEYBOARD SHORTCUTS</Message.Header>
     <div className={styles.keyboardShortcuts}>
       <table className={styles.keyboardShortcutsTable}>
