@@ -1,4 +1,3 @@
-- Keyboard shortcut help
 - Chart menu on hover change color
 
 Reports:
