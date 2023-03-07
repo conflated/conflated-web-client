@@ -126,6 +126,67 @@ const KeyboardShortcutsMessageView = ({ onDismissMessage }: Props) => (
           </tr>
         </tbody>
       </table>
+
+      <table className={styles.keyboardShortcutsTable}>
+        <tbody>
+          <tr>
+            <td>
+              <span>Tab</span>
+            </td>
+            <td>Next chart</td>
+          </tr>
+          <tr>
+            <td>
+              <span className={styles.first}>Shift</span>
+              <b>+</b>
+              <span className={styles.second}>Tab</span>
+            </td>
+            <td>Previous chart</td>
+          </tr>
+        </tbody>
+      </table>
+      <table className={styles.keyboardShortcutsTable}>
+        <tbody>
+          <tr>
+            <td>
+              <span className={styles.first}>Shift</span>
+              <b>+</b>
+              <span className={styles.second}>
+                <Icon className={styles.keyboardShortcutIcon} name="arrow left" />
+              </span>
+            </td>
+            <td>Select prev chart data point</td>
+          </tr>
+          <tr>
+            <td>
+              <span className={styles.first}>Shift</span>
+              <b>+</b>
+              <span className={styles.second}>
+                <Icon className={styles.keyboardShortcutIcon} name="arrow right" />
+              </span>
+            </td>
+            <td>Select next chart data point</td>
+          </tr>
+        </tbody>
+      </table>
+      <table className={styles.keyboardShortcutsTable}>
+        <tbody>
+          <tr>
+            <td>
+              <span>Enter</span>
+            </td>
+            <td>Drill-down selected chart data point</td>
+          </tr>
+          <tr>
+            <td>
+              <span className={styles.first}>Shift</span>
+              <b>+</b>
+              <span className={styles.second}>Enter</span>
+            </td>
+            <td>Drill-up selected chart data point</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </Message>
 );
