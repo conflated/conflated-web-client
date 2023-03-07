@@ -2,16 +2,14 @@
 
 Reports:
  -Left pane
-    -Report groups
-    -Reports
+    -Report template groups
     -Report templates
 
 Dashboard edit mode:
- - header with buttons "Save" and "Save and Close"
+ - header with buttons "Cancel" and "Complete"
 
-use react-sortable-hoc component for reordering list items
-
-- Shift-Arrow will change selected data point in chart
+- Shift-Arrows will change selected data point in chart
+- Enter, Shift-enter will drill-down/up chart
 
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
