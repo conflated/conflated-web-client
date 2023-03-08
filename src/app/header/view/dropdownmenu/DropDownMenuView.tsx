@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import styles from './DropDownMenuView.module.scss';
+import styles from '../navigation/MobileNavigationView.module.scss';
 
 const DropDownMenuView = () => <Icon className={styles.icon} name="bars" size="big" />;
 

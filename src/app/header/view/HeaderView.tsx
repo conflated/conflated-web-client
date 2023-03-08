@@ -8,7 +8,7 @@ import FullScreenIconView from './fullscreen/icon/FullScreenIconView';
 import FullScreenModeNotificationView from './fullscreen/notification/FullScreenModeNotificationView';
 import FullScreenModeNotificationActivatorView from './fullscreen/notification/activator/FullScreenModeNotificationActivatorView';
 import { ActionDispatchers, controller, State } from '../controller/headerController';
-import DropDownMenuView from './dropdownmenu/DropDownMenuView';
+import MobileNavigationView from './navigation/MobileNavigationView';
 
 type Props = ActionDispatchers & State;
 
@@ -74,7 +74,7 @@ const HeaderView = ({
 
   return (
     <header className={className} onMouseOver={showDashboardsHeader} onFocus={showDashboardsHeader}>
-      <DropDownMenuView />
+      <MobileNavigationView />
       <img className={styles.appLogo} height="60%" src="/images/nokia-logo.svg" alt="" />
       <div className={styles.productName}>
         <b>CNI</b> Real-Time Monitoring
