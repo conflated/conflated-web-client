@@ -7,7 +7,7 @@ Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
 
 - Shift-Arrows will change selected data point in chart
-- Enter, Shift-enter will drill-down/up chart
+- Enter, Backspace will drill-down/up chart
 
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
