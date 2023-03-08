@@ -1,5 +1,3 @@
-- Chart menu on hover change color
-
 Reports:
  -Left pane
     -Report template groups

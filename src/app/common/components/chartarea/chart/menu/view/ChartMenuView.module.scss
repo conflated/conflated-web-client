@@ -1,6 +1,12 @@
 .icon {
+  padding-top: 0.25rem;
+
   @media (prefers-color-scheme: dark) {
     color: #ffffff;
+  }
+
+  &:hover {
+    color: var(--brand-color-1);
   }
 }
 
