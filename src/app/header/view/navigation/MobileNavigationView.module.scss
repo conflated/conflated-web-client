@@ -12,8 +12,16 @@
     border: 1px solid #fff !important;
     z-index: calc(var(--topmost-z-index) + 1) !important;
 
-   .item {
+    .item {
       color: var(--primary-text-color) !important;
+
+      &.selected {
+        color: #37cc73 !important;
+
+        .icon {
+          color: #37cc73 !important;
+        }
+      }
     }
   }
 }
