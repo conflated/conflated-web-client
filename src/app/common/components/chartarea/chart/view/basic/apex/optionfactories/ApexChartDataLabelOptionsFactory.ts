@@ -6,7 +6,7 @@ export default class ApexChartDataLabelOptionsFactory {
       enabled: chart.shouldShowDataLabels(),
       textAnchor: 'middle',
       offsetX: 1,
-      offsetY: 0,
+      offsetY: -5,
       style: {
         fontSize: '0.7rem',
         fontFamily: 'Arimo, sans-serif',

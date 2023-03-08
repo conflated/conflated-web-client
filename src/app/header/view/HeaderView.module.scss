@@ -27,6 +27,10 @@
   .productName {
     font-size: 1.2rem;
     margin-left: 2rem;
+
+    @media screen and (any-pointer: coarse) {
+      display: none;
+    }
   }
 
   .headerIcon {

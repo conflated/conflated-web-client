@@ -18,7 +18,7 @@ const NavigationView = ({ selectPage }: Props) => {
         <span className={`${styles.linkText} ${pathname === '/dashboards' ? styles.selected : ''}`}>DASHBOARDS</span>
       </Link>
       <Link className={styles.link} to="/reports" onClick={() => selectPage('reportsPage')}>
-        <Icon className={styles.linkIcon} name="file" color="teal" />
+        <Icon className={styles.linkIcon} name="file alternate outline" color="teal" />
         <span className={`${styles.linkText} ${pathname === '/reports' ? styles.selected : ''}`}>REPORTS</span>
       </Link>
       <Link className={styles.link} to="/alerts" onClick={() => selectPage('alertsPage')}>
