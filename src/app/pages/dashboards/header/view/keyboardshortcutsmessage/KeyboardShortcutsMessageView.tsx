@@ -179,9 +179,7 @@ const KeyboardShortcutsMessageView = ({ onDismissMessage }: Props) => (
           </tr>
           <tr>
             <td>
-              <span className={styles.first}>Shift</span>
-              <b>+</b>
-              <span className={styles.second}>Enter</span>
+              <span>Backspace</span>
             </td>
             <td>Drill-up selected chart data point</td>
           </tr>
