@@ -1,6 +1,6 @@
 .header {
   align-items: center;
-  background-color: #cccccc;
+  background-color: #CCCCCC;
   border-top: 2px rgb(150, 150, 150) solid;
   display: none;
   height: 3rem;
@@ -43,7 +43,7 @@
       color: #000000;
 
       @media screen and (any-pointer: coarse) {
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
       }
 
       .tabs {
