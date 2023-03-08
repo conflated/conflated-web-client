@@ -30,6 +30,15 @@
   flex-grow: 1;
 }
 
+.content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .leftPaneSelector {
   .actionIcon:hover {
     color: var(--secondary-text-color-on-hover) !important;

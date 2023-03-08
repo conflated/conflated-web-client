@@ -40,7 +40,7 @@ const SelectorView: React.FC<Props> = ({
         <span className={styles.titleSpan}>{titleText}</span>
         {titleContent}
       </Accordion.Title>
-      <Accordion.Content className={selectorContentClassName} active={isSelectorOpen}>
+      <Accordion.Content className={`${selectorContentClassName} ${styles.content}`} active={isSelectorOpen}>
         <div id={`${id}Content`}>{selectorContent}</div>
       </Accordion.Content>
     </Accordion>
