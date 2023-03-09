@@ -4,8 +4,10 @@
     font-family: var(--brand-font-family);
 
     &:focus {
+      border: 1px solid #FFF;
+
       @media (prefers-color-scheme: dark) {
-        border: 1px solid #DDD;
+        border: px solid #DDD;
       }
     }
 
@@ -19,9 +21,7 @@
 
       &:hover,
       &:focus {
-        @media (prefers-color-scheme: dark) {
           background-color: var(--brand-color-1);
-        }
       }
     }
   }

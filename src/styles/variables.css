@@ -23,10 +23,11 @@
     --on-top-of-map-z-index: 1000;
     --data-explorer-page-left-pane-default-width: 22rem;
     --data-explorer-page-right-pane-default-width: 22rem;
+    --dashboards-page-header-background-color: #E7E7E7;
     --dashboards-page-left-pane-default-width: 27rem;
     --dashboards-page-right-pane-default-width: 25rem;
     --triggers-page-left-pane-default-width: 22%;
-    --dialog-header-and-footer-background-color: rgba(230 230 230);
+    --dialog-header-and-footer-background-color: #CCCCCC;
     --dialog-color: #000;
 
     font-size: var(--base-font-size);
@@ -56,6 +57,7 @@
     --on-top-of-map-z-index: 1000;
     --data-explorer-page-left-pane-default-width: 22rem;
     --data-explorer-page-right-pane-default-width: 22rem;
+    --dashboards-page-header-background-color: #CCCCCC;
     --dashboards-page-left-pane-default-width: 25rem;
     --dashboards-page-right-pane-default-width: 25rem;
     --triggers-page-left-pane-default-width: 22%;
