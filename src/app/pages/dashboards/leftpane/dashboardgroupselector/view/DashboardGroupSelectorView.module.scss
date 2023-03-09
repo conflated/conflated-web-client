@@ -3,6 +3,7 @@
   margin-top: 0.4rem;
 
   & > input {
+    background-color: #ffffff !important;
     padding-bottom: 0.4rem !important;
     padding-top: 0.4rem !important;
 
@@ -10,12 +11,11 @@
       background-color: #000000 !important;
       border-color: var(--brand-color-2) !important;
       color: #ffffff !important;
-    }
 
-    &::selection {
-      background-color: #ffffff;
-      color: #000000;
+      &::selection {
+        background-color: #ffffff;
+        color: #000000;
+      }
     }
-
   }
 }
