@@ -79,10 +79,14 @@
         }
 
         input {
-          background-color: #cccccc !important;
+          background-color: #ffffff !important;
           font-size: 1rem;
           padding-bottom: 0.4rem;
           padding-top: 0.4rem;
+
+          @media screen and (prefers-color-scheme: dark) {
+            background-color: #cccccc !important;
+          }
         }
 
         & > :global(.item) {
