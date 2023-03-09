@@ -8,6 +8,10 @@
     margin-bottom: 0;
   }
 
+  @media screen and (min-width: 1025px) and (any-pointer: coarse) {
+    height: calc(100vh - 6rem);
+  }
+
   .gridLayout {
     margin-top: 2px;
 
