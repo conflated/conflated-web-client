@@ -6,6 +6,7 @@ import FakeChartDataService from '../../app/common/components/chartarea/chart/mo
 import FakeDashboardGroupsService from '../../app/pages/dashboards/model/service/FakeDashboardGroupsService';
 import FakeAlertDataSourceService from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeAlertDataSourceService';
 import CachingChartDataService from '../../app/common/components/chartarea/chart/model/service/CachingChartDataService';
+import FakeReportTemplateGroupsService from '../../app/pages/reports/model/services/FakeReportTemplateGroupsService';
 
 export default class ServiceModule extends Module {
   async configure() {
@@ -14,6 +15,7 @@ export default class ServiceModule extends Module {
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());
     this.bind('chartDataService').toInstance(new CachingChartDataService(new FakeChartDataService()));
     this.bind('dashboardsService').toInstance(new FakeDashboardGroupsService());
+    this.bind('reportTemplateGroupsService').toInstance(new FakeReportTemplateGroupsService());
     this.bind('alertDataSourceService').toInstance(new FakeAlertDataSourceService());
   }
 }

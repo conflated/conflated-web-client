@@ -4,6 +4,8 @@ import { ChartAreaPageStateNamespace } from '../../../common/components/chartare
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 import { ReportTemplate } from '../model/state/types/ReportTemplate';
+import StartFetchReportTemplateGroupsAction from '../model/actions/StartFetchReportTemplateGroupsAction';
+import GenerateReportAction from '../model/actions/GenerateReportAction';
 
 class ReportsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) => OOReduxUtils.mergeOwnAndForeignState(appState.reportsPage.reportsState, {});

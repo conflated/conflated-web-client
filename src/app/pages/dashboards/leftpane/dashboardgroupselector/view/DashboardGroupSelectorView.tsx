@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './DashboardGroupSelectorView.module.scss';
-import DashboardGroupListItem from './dashboardgrouplistitem/DashboardGroupListItem';
+import DashboardGroupSelectorListItem from './listitem/DashboardGroupSelectorListItem';
 import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
@@ -96,7 +96,7 @@ const DashboardGroupSelectorView = ({
           );
         } else {
           return (
-            <DashboardGroupListItem
+            <DashboardGroupSelectorListItem
               key={dashboardGroup.name}
               iconName={`${isListItemReorderModeActive ? 'bars' : ''}`}
               item={dashboardGroup}

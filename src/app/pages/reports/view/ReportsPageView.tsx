@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageView from '../../../common/components/page/view/PageView';
-import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
 import { ActionDispatchers, controller, State } from '../controller/reportsPageController';
+import ChartAreaTabsView from './chartareatabs/ChartAreaTabsView';
 
 type Props = ActionDispatchers & State;
 
@@ -15,7 +15,7 @@ const ReportsPageView = ({ startFetchReportTemplateGroups }: Props) => {
   return (
     <PageView
       leftPane={<ReportsPageLeftPaneView />}
-      middlePane={<ChartAreaView pageStateNamespace="reportsPage" />}
+      middlePane={<ChartAreaTabsView />}
       pageStateNamespace="reportsPage"
       showPaneActivatorHintsOnComponentMount
     />
