@@ -206,7 +206,7 @@ const DashboardsPageHeaderView = ({
           content="Show keyboard shortcuts"
           inverted
           trigger={
-            <Icon className={styles.actionIcon} name="question" onClick={showKeyboardShortcutsMessage} size="large" />
+            <Icon className={styles.actionIcon} name="keyboard" onClick={showKeyboardShortcutsMessage} size="large" />
           }
         />
         <DashboardsPageHeaderPinIconView
