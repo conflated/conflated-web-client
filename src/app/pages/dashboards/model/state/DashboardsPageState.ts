@@ -1,7 +1,7 @@
 import type { DashboardGroup } from './types/DashboardGroup';
 import type { Dashboard } from './types/Dashboard';
 
-export type DashboardsState = {
+export type DashboardsPageState = {
   readonly dashboardGroups: DashboardGroup[];
   readonly selectedDashboardGroup?: DashboardGroup;
   readonly selectedDashboard?: Dashboard;

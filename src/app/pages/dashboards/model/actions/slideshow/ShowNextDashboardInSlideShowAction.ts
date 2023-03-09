@@ -1,8 +1,8 @@
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 
 export default class ShowNextDashboardInSlideShowAction extends AbstractDashboardsPageAction {
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     const dashboards = currentState.selectedDashboardGroup?.dashboards;
     const nextDashboardIndexShownInSlideShow =
       (currentState.dashboardIndexShownInSlideShow + 1) % (dashboards?.length ?? 1);

@@ -1,4 +1,4 @@
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { Dashboard } from '../../state/types/Dashboard';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
@@ -9,7 +9,7 @@ export default class AddDashboardToDashboardGroupAction extends AbstractDashboar
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     const newDashboardGroup = {
       ...this.dashboardGroup,
       dashboards: [...this.dashboardGroup.dashboards, this.dashboard]

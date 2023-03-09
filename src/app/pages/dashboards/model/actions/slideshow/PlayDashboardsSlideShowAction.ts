@@ -2,10 +2,10 @@ import ShowNextDashboardInSlideShowAction from './ShowNextDashboardInSlideShowAc
 import Utils from '../../../../../common/utils/Utils';
 import Constants from '../../../../../common/Constants';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 
 export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPageAction {
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     clearInterval(currentState.dashboardsSlideShowIntervalId);
 
     const dashboardSlideChangeIntervalInMillis = Utils.secsToMillis(

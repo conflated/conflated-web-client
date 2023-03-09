@@ -1,4 +1,4 @@
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import type { Dashboard } from '../../state/types/Dashboard';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
@@ -7,7 +7,7 @@ export default class SelectDashboardAction extends AbstractDashboardsPageAction 
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     const newState = {
       ...currentState,
       selectedDashboard: this.dashboard

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
 
@@ -8,7 +8,7 @@ export default class RemoveDashboardGroupAction extends AbstractDashboardsPageAc
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     if (this.dashboardGroup) {
       const { dashboardGroups, selectedDashboardGroup } = currentState;
       const selectedDashboardGroupIndex = selectedDashboardGroup ? dashboardGroups.indexOf(selectedDashboardGroup) : 0;

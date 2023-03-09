@@ -1,4 +1,4 @@
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
@@ -7,7 +7,7 @@ export default class RenameDashboardGroupAction extends AbstractDashboardsPageAc
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     const { dashboardGroups, selectedDashboardGroup } = currentState;
     const newDashboardGroup = { ...this.dashboardGroup, name: this.newName };
 

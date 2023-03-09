@@ -2,7 +2,7 @@ import type { HeaderState } from '../app/header/model/state/HeaderState';
 import type { DataSourceSelectorState } from '../app/pages/dataexplorer/leftpane/datasourceselector/model/state/DataSourceSelectorState';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/SaveAsDashboardOrReportTemplateDialogState';
 import type { TriggerGroupSelectorState } from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/TriggerGroupSelectorState';
-import type { DashboardsState } from '../app/pages/dashboards/model/state/DashboardsState';
+import type { DashboardsPageState } from '../app/pages/dashboards/model/state/DashboardsPageState';
 import type { LayoutSelectorState } from '../app/pages/dataexplorer/leftpane/layoutselector/model/state/LayoutSelectorState';
 import type { MeasureSelectorState } from '../app/pages/dataexplorer/leftpane/measureselector/model/state/MeasureSelectorState';
 import type { DimensionSelectorState } from '../app/pages/dataexplorer/leftpane/dimensionselector/model/state/DimensionSelectorState';
@@ -40,7 +40,7 @@ export type AppState = {
     saveAsDashboardOrReportTemplateDialogState: SaveAsDashboardOrReportTemplateDialogState;
   };
   dashboardsPage: {
-    dashboardsState: DashboardsState;
+    dashboardsState: DashboardsPageState;
     headerState: DashboardsPageHeaderState;
     dashboardGroupSelectorState: DashboardGroupSelectorState;
     chartAreaState: ChartAreaState;

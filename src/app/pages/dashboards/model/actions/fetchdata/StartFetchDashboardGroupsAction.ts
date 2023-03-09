@@ -1,6 +1,6 @@
 import { Inject } from 'noicejs';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import type { DashboardGroupsService } from '../../service/DashboardGroupsService';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
 import ShowDashboardGroupAction from '../show/ShowDashboardGroupAction';
@@ -10,7 +10,7 @@ class FinishFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     const newState = {
       ...currentState,
       dashboardGroups: this.dashboardGroups,
@@ -36,7 +36,7 @@ class StartFetchDashboardGroupsAction extends AbstractDashboardsPageAction {
     this.dashboardsService = dashboardsService;
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     this.dashboardsService.fetchDashboardGroups().then((dashboardGroups: DashboardGroup[]) => {
       this.dispatch(new FinishFetchDashboardGroupsAction(dashboardGroups));
       this.dispatch(new ShowDashboardGroupAction(dashboardGroups[0]));

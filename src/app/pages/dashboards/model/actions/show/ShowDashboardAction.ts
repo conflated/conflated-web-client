@@ -1,4 +1,4 @@
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import ChangeChartAreaLayoutAndChartsAction from '../../../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAndChartsAction';
 import StartFetchDataForOtherChartsAction from '../../../../../common/components/chartarea/model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
@@ -11,7 +11,7 @@ export default class ShowDashboardAction extends AbstractDashboardsPageAction {
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     if (this.dashboard) {
       this.dispatch(new SelectDashboardAction(this.dashboard));
 

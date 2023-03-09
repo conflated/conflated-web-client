@@ -1,10 +1,10 @@
 import PauseDashboardsSlideShowAction from './PauseDashboardsSlideShowAction';
 import PlayDashboardsSlideShowAction from './PlayDashboardsSlideShowAction';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 
 export default class ToggleDashboardsSlideShowPlayAction extends AbstractDashboardsPageAction {
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     if (currentState.isDashboardsSlideShowPlaying) {
       return this.performAction(new PauseDashboardsSlideShowAction(), currentState);
     }

@@ -1,8 +1,8 @@
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 
 export default class PauseDashboardsSlideShowAction extends AbstractDashboardsPageAction {
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     clearInterval(currentState.dashboardsSlideShowIntervalId);
 
     const newState = {

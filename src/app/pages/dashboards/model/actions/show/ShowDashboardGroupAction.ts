@@ -1,4 +1,4 @@
-import type { DashboardsState } from '../../state/DashboardsState';
+import type { DashboardsPageState } from '../../state/DashboardsPageState';
 import AbstractDashboardsPageAction from '../AbstractDashboardsPageAction';
 import type { DashboardGroup } from '../../state/types/DashboardGroup';
 import SelectDashboardGroupAction from '../select/SelectDashboardGroupAction';
@@ -11,7 +11,7 @@ export default class ShowDashboardGroupAction extends AbstractDashboardsPageActi
     super();
   }
 
-  perform(currentState: DashboardsState): DashboardsState {
+  perform(currentState: DashboardsPageState): DashboardsPageState {
     if (this.dashboardGroup) {
       this.dispatch(new SelectDashboardGroupAction(this.dashboardGroup));
       const newSelectedDashboard = this.dashboardGroup.dashboards?.[0];
