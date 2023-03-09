@@ -46,6 +46,10 @@ export type AppState = {
     chartAreaState: ChartAreaState;
     sortBySelectorState: SortBySelectorState;
   };
+  reportsPage: {
+    reportsState: ReportsPageState;
+    chartAreaState: ChartAreaState;
+  };
   alertsPage: {
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
     triggerGroupSelectorState: TriggerGroupSelectorState;
