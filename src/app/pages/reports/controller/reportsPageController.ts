@@ -3,15 +3,12 @@ import diContainer from '../../../../di/diContainer';
 import { ChartAreaPageStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
-import { ReportTemplate } from '../model/state/types/ReportTemplate';
 import StartFetchReportTemplateGroupsAction from '../model/actions/StartFetchReportTemplateGroupsAction';
-import GenerateReportAction from '../model/actions/GenerateReportAction';
 
 class ReportsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) => OOReduxUtils.mergeOwnAndForeignState(appState.reportsPage.reportsState, {});
 
   readonly actionDispatchers = {
-    generateReport: (reportTemplate: ReportTemplate) => this.dispatch(new GenerateReportAction(reportTemplate)),
     startFetchReportTemplateGroups: () => this.dispatchWithDi(StartFetchReportTemplateGroupsAction, diContainer, {})
   };
 }

@@ -12,6 +12,7 @@ import FinishRenamingAction from '../model/actions/rename/FinishRenamingAction';
 import ShowDeleteConfirmationDialogAction from '../model/actions/delete/ShowDeleteConfirmationDialogAction';
 import CloseDeleteConfirmationDialogAction from '../model/actions/delete/CloseDeleteConfirmationDialogAction';
 import ConfirmDeleteAction from '../model/actions/delete/ConfirmDeleteAction';
+import GenerateReportAction from '../../../model/actions/GenerateReportAction';
 
 class ReportTemplateGroupSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) =>
@@ -29,9 +30,6 @@ class ReportTemplateGroupSelectorController extends Controller<PageStateNamespac
     toggleShouldShowLeftPanePermanently: () =>
       this.dispatch(new ToggleShouldShowPagePanePermanentlyAction('reportsPage', 'leftPane')),
 
-    toggleMaximizeSelector:
-      selectorWithDefaultActionsController.getActionDispatchers('reportTemplateGroupSelector').toggleMaximizeSelector,
-
     startRenaming: (reportTemplateGroup: ReportTemplateGroup) =>
       this.dispatch(new StartRenamingAction(reportTemplateGroup)),
 
@@ -47,7 +45,13 @@ class ReportTemplateGroupSelectorController extends Controller<PageStateNamespac
     closeDeleteConfirmationDialog: () => this.dispatch(new CloseDeleteConfirmationDialogAction()),
 
     confirmDelete: (reportTemplateGroup?: ReportTemplateGroup) =>
-      this.dispatch(new ConfirmDeleteAction(reportTemplateGroup))
+      this.dispatch(new ConfirmDeleteAction(reportTemplateGroup)),
+
+    toggleMaximizeSelector:
+      selectorWithDefaultActionsController.getActionDispatchers('reportTemplateGroupSelector').toggleMaximizeSelector,
+
+    generateReport: (reportTemplateGroup: ReportTemplateGroup) =>
+      this.dispatch(new GenerateReportAction(reportTemplateGroup))
   };
 }
 

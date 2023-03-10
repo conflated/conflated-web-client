@@ -17,11 +17,12 @@ const ReportTemplateGroupSelectorView = ({
   cancelRenaming,
   closeDeleteConfirmationDialog,
   confirmDelete,
-  reportTemplateGroupToBeDeleted,
-  reportTemplateGroupToBeRenamed,
   finishRenaming,
+  generateReport,
   isReportTemplateSelectorOpen,
   isListItemReorderModeActive,
+  reportTemplateGroupToBeDeleted,
+  reportTemplateGroupToBeRenamed,
   selectedReportTemplateGroup,
   shouldShowLeftPanePermanently,
   showDeleteConfirmationDialog,
@@ -92,7 +93,7 @@ const ReportTemplateGroupSelectorView = ({
               iconName={`${isListItemReorderModeActive ? 'bars' : ''}`}
               item={reportTemplateGroup}
               selectedItem={selectedReportTemplateGroup}
-              onItemClick={generateReport}
+              onItemClick={() => generateReport(reportTemplateGroup)}
               onItemLongClick={() => startRenaming(reportTemplateGroup)}
               actions={[
                 {
@@ -117,6 +118,7 @@ const ReportTemplateGroupSelectorView = ({
       }),
     [
       cancelRenaming,
+      generateReport,
       handleRenameInputChange,
       handleRenameInputKeyDown,
       isListItemReorderModeActive,
