@@ -23,6 +23,8 @@ import dashboardsPageHeaderStateReducer from '../app/pages/dashboards/header/mod
 import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/createTriggersPageChartAreaStateReducer';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 import dashboardGroupSelectorStateReducer from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/dashboardGroupSelectorStateReducer';
+import reportsPageStateReducer from '../app/pages/reports/model/state/reportsPageStateReducer';
+import reportTemplateGroupSelectorStateReducer from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/reportTemplateGroupSelectorStateReducer';
 
 const appStateReducer = combineReducers({
   common: combineReducers({
@@ -49,6 +51,11 @@ const appStateReducer = combineReducers({
     dashboardGroupSelectorState: dashboardGroupSelectorStateReducer,
     chartAreaState: createChartAreaStateReducer('dashboardsPage'),
     sortBySelectorState: createSortBySelectorStateReducer('dashboardsPage')
+  }),
+  reportsPage: combineReducers({
+    reportsState: reportsPageStateReducer,
+    reportTemplateGroupSelectorState: reportTemplateGroupSelectorStateReducer,
+    chartAreaState: createChartAreaStateReducer('reportsPage')
   }),
   alertsPage: combineReducers({
     triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('alertsPage'),

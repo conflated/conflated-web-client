@@ -4,6 +4,8 @@ const selectorWithActionsStateNamespaces = {
   dataSourceSelector: 'dataSourceSelector',
   measureSelector: 'measureSelector',
   dimensionSelector: 'dimensionSelector',
+  reportTemplateGroupSelector: 'reportTemplateGroupSelector',
+  reportTemplateSelector: 'reportTemplateGroupSelector',
   dashboardsPageFilterSelector: 'dashboardsPageFilterSelector',
   dashboardsPageSortBySelector: 'dashboardsPageSortBySelector',
   dataExplorerPageFilterSelector: 'dataExplorerPageFilterSelector',

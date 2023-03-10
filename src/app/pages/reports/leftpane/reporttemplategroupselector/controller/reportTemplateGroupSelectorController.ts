@@ -21,7 +21,7 @@ class ReportTemplateGroupSelectorController extends Controller<PageStateNamespac
       shownReportTemplateGroups: selectShownReportTemplateGroups(appState),
 
       isListItemReorderModeActive:
-        appState.common.selectorWithDefaultActionsStates.reportTemplateGoupSelector.isListItemReorderModeActive,
+        appState.common.selectorWithDefaultActionsStates.reportTemplateGroupSelector.isListItemReorderModeActive,
 
       isReportTemplateSelectorOpen: appState.common.selectorStates.reportTemplateSelector.isSelectorOpen,
       shouldShowLeftPanePermanently: appState.common.pageStates.reportsPage.shouldShowPagePanePermanently.leftPane

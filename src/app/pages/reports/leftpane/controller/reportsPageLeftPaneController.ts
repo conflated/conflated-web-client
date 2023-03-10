@@ -9,7 +9,7 @@ class ReportsPageLeftPaneController extends Controller<PageStateNamespace> {
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
     leftPaneGutterOffset: appState.common.pageStates.reportsPage.pagePaneGutterOffset.leftPane,
     shouldShowLeftPane: appState.common.pageStates.reportsPage.shouldShowPagePane.leftPane,
-    isReportTemplateGroupSelectorOpen: appState.common.selectorStates.reportTemplateGoupSelector.isSelectorOpen,
+    isReportTemplateGroupSelectorOpen: appState.common.selectorStates.reportTemplateGroupSelector.isSelectorOpen,
     isReportTemplateSelectorOpen: appState.common.selectorStates.reportTemplateSelector.isSelectorOpen,
     shouldShowLeftPanePermanently: appState.common.pageStates.reportsPage.shouldShowPagePanePermanently.leftPane
   });
