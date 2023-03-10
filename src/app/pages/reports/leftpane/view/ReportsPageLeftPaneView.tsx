@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
 import ReportsPageLeftPaneViewUtils from './ReportsPageLeftPaneViewUtils';
 import { ActionDispatchers, controller, State } from '../controller/reportsPageLeftPaneController';
+import ReportTemplateGroupSelectorView from '../reporttemplategroupselector/view/ReportTemplateGroupSelectorView';
+import ReportTemplateSelectorView from '../reporttemplateselector/view/ReportTemplateSelectorView';
 
 type Props = ActionDispatchers & State;
 
