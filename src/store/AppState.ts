@@ -19,6 +19,7 @@ import selectorWithActionsStateNamespaces from '../app/common/components/selecto
 import type { DashboardsPageHeaderState } from '../app/pages/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 import { DashboardGroupSelectorState } from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/DashboardGroupSelectorState';
+import { ReportsPageState } from '../app/pages/reports/model/state/ReportsPageState';
 
 export type AppState = {
   common: {
@@ -48,6 +49,7 @@ export type AppState = {
   };
   reportsPage: {
     reportsState: ReportsPageState;
+    reportTemplateGroupSelectorState: ReportTemplateGroupSelectorState;
     chartAreaState: ChartAreaState;
   };
   alertsPage: {

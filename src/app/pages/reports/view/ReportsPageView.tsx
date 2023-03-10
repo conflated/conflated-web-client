@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PageView from '../../../common/components/page/view/PageView';
 import { ActionDispatchers, controller, State } from '../controller/reportsPageController';
 import ChartAreaTabsView from './chartareatabs/ChartAreaTabsView';
+import ReportsPageLeftPaneView from '../leftpane/view/ReportsPageLeftPaneView';
 
 type Props = ActionDispatchers & State;
 

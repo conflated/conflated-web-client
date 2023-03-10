@@ -3,36 +3,38 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { connect } from 'react-redux';
 import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
-import styles from './DashboardGroupSelectorView.module.scss';
+import styles from './ReportTemplateGroupSelectorView.module.scss';
 import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
 import stopEventPropagation from '../../../../../common/utils/stopEventPropagation';
+import { ActionDispatchers, controller, State } from '../controller/reportTemplateGroupSelectorController';
+import { ReportTemplateGroup } from '../../../model/state/types/ReportTemplateGroup';
+import ReportTemplateGroupSelectorListItem from './listitem/ReportTemplateGroupSelectorListItem';
 
 type Props = ActionDispatchers & State;
 
 const ReportTemplateGroupSelectorView = ({
-  cancelRenamingDashboardGroup,
-  closeDashboardGroupDeleteConfirmationDialog,
-  confirmDashboardGroupDelete,
-  dashboardGroupToBeDeleted,
-  dashboardGroupToBeRenamed,
-  finishRenamingDashboardGroup,
-  isDashboardSelectorOpen,
+  cancelRenaming,
+  closeDeleteConfirmationDialog,
+  confirmDelete,
+  reportTemplateGroupToBeDeleted,
+  reportTemplateGroupToBeRenamed,
+  finishRenaming,
+  isReportTemplateSelectorOpen,
   isListItemReorderModeActive,
-  selectedDashboardGroup,
-  shouldShowDashboardsPageLeftPanePermanently,
-  showDashboardGroup,
-  showDashboardGroupDeleteConfirmationDialog,
-  shownDashboardGroups,
-  startRenamingDashboardGroup,
+  selectedReportTemplateGroup,
+  shouldShowLeftPanePermanently,
+  showDeleteConfirmationDialog,
+  shownReportTemplateGroups,
+  startRenaming,
   toggleMaximizeSelector,
-  toggleShouldShowDashboardsPageLeftPanePermanently
+  toggleShouldShowLeftPanePermanently
 }: Props) => {
-  const inputRef: { current: any } = useRef(null);
-  const closeButtonRef: { current: any } = useRef(null);
-  const [inputValue, setInputValue] = useState('');
-  useEffect(() => inputRef.current?.focus());
-  useEffect(() => closeButtonRef.current?.focus());
+  const renameInputRef: { current: any } = useRef(null);
+  const confirmationDialogCancelButtonRef: { current: any } = useRef(null);
+  const [newReportTemplateGroupName, setNewReportTemplateGroupName] = useState('');
+  useEffect(() => renameInputRef.current?.focus());
+  useEffect(() => confirmationDialogCancelButtonRef.current?.focus());
 
   const handleMaximizeIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
@@ -40,66 +42,58 @@ const ReportTemplateGroupSelectorView = ({
 
       toggleMaximizeSelector([
         {
-          isOpen: isDashboardSelectorOpen,
-          selectorStateNamespace: 'dashboardSelector'
+          isOpen: isReportTemplateSelectorOpen,
+          selectorStateNamespace: 'reportTemplateSelector'
         }
       ]);
     },
-    [isDashboardSelectorOpen, toggleMaximizeSelector]
+    [isReportTemplateSelectorOpen, toggleMaximizeSelector]
   );
 
-  const handleInputChange = useCallback((event: React.FormEvent<HTMLInputElement>) => {
-    setInputValue(event.currentTarget.value);
+  const handleRenameInputChange = useCallback((event: React.FormEvent<HTMLInputElement>) => {
+    setNewReportTemplateGroupName(event.currentTarget.value);
   }, []);
 
-  const handleInputKeyDown = useCallback(
-    (event: React.KeyboardEvent, dashboardGroup: DashboardGroup) => {
+  const handleRenameInputKeyDown = useCallback(
+    (event: React.KeyboardEvent, reportTemplateGroup: ReportTemplateGroup) => {
       event.stopPropagation();
 
-      if (event.key === 'Enter' && inputValue !== '') {
+      if (event.key === 'Enter' && newReportTemplateGroupName !== '') {
         event.preventDefault();
-        finishRenamingDashboardGroup(dashboardGroup, inputValue);
+        finishRenaming(reportTemplateGroup, newReportTemplateGroupName);
       } else if (event.key === 'Escape') {
-        cancelRenamingDashboardGroup(dashboardGroup);
+        cancelRenaming(reportTemplateGroup);
       }
     },
-    [cancelRenamingDashboardGroup, finishRenamingDashboardGroup, inputValue]
+    [cancelRenaming, finishRenaming, newReportTemplateGroupName]
   );
 
-  const handlePinIconClick = useCallback(
-    (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-      toggleShouldShowDashboardsPageLeftPanePermanently();
-    },
-    [toggleShouldShowDashboardsPageLeftPanePermanently]
-  );
-
-  const dashboardGroupListItems = useMemo(
+  const reportTemplateGroupListItems = useMemo(
     () =>
-      shownDashboardGroups.map((dashboardGroup: DashboardGroup) => {
-        if (dashboardGroup === dashboardGroupToBeRenamed) {
+      shownReportTemplateGroups.map((reportTemplateGroup: ReportTemplateGroup) => {
+        if (reportTemplateGroup === reportTemplateGroupToBeRenamed) {
           return (
             <Input
               className={styles.input}
-              key={dashboardGroup.name}
-              onBlur={_.flow(stopEventPropagation, () => cancelRenamingDashboardGroup(dashboardGroup))}
-              onChange={handleInputChange}
+              key={reportTemplateGroup.name}
+              onBlur={_.flow(stopEventPropagation, () => cancelRenaming(reportTemplateGroup))}
+              onChange={handleRenameInputChange}
               onFocus={(event: React.FocusEvent) => (event.target as any).select()}
-              onKeyDown={(event: React.KeyboardEvent) => handleInputKeyDown(event, dashboardGroup)}
-              defaultValue={dashboardGroup.name}
-              ref={inputRef}
+              onKeyDown={(event: React.KeyboardEvent) => handleRenameInputKeyDown(event, reportTemplateGroup)}
+              defaultValue={reportTemplateGroup.name}
+              ref={renameInputRef}
               size="small"
             />
           );
         } else {
           return (
-            <DashboardGroupListItem
-              key={dashboardGroup.name}
+            <ReportTemplateGroupSelectorListItem
+              key={reportTemplateGroup.name}
               iconName={`${isListItemReorderModeActive ? 'bars' : ''}`}
-              item={dashboardGroup}
-              selectedItem={selectedDashboardGroup}
-              onItemClick={showDashboardGroup}
-              onItemLongClick={() => startRenamingDashboardGroup(dashboardGroup)}
+              item={reportTemplateGroup}
+              selectedItem={selectedReportTemplateGroup}
+              onItemClick={generateReport}
+              onItemLongClick={() => startRenaming(reportTemplateGroup)}
               actions={[
                 {
                   iconName: 'linkify',
@@ -108,12 +102,12 @@ const ReportTemplateGroupSelectorView = ({
                 },
                 {
                   iconName: 'i cursor',
-                  perform: () => startRenamingDashboardGroup(dashboardGroup),
+                  perform: () => startRenaming(reportTemplateGroup),
                   tooltipText: 'Rename'
                 },
                 {
                   iconName: 'trash alternate outline',
-                  perform: () => showDashboardGroupDeleteConfirmationDialog(dashboardGroup),
+                  perform: () => showDeleteConfirmationDialog(reportTemplateGroup),
                   tooltipText: 'Delete'
                 }
               ]}
@@ -122,55 +116,59 @@ const ReportTemplateGroupSelectorView = ({
         }
       }),
     [
-      shownDashboardGroups,
-      dashboardGroupToBeRenamed,
-      handleInputChange,
-      cancelRenamingDashboardGroup,
-      handleInputKeyDown,
+      cancelRenaming,
+      handleRenameInputChange,
+      handleRenameInputKeyDown,
       isListItemReorderModeActive,
-      selectedDashboardGroup,
-      showDashboardGroup,
-      startRenamingDashboardGroup,
-      showDashboardGroupDeleteConfirmationDialog
+      reportTemplateGroupToBeRenamed,
+      selectedReportTemplateGroup,
+      showDeleteConfirmationDialog,
+      shownReportTemplateGroups,
+      startRenaming
     ]
   );
 
   return (
     <>
       <SelectorWithActionsView
-        id="dashboardGroupSelector"
-        titleText="DASHBOARD GROUPS"
-        addIconTooltipText="Add new dashboard group"
+        id="reportTemplateGroupSelector"
+        titleText="REPORT TEMPLATE GROUPS"
+        addIconTooltipText="Add new report template group"
         position="leftPane"
         listItemsContent={
           <AllAndFavoritesTabView
-            firstTabPaneListItems={dashboardGroupListItems}
+            firstTabPaneListItems={reportTemplateGroupListItems}
             isListItemReorderModeActive={isListItemReorderModeActive}
             secondTabPaneListItems={[]}
           />
         }
         handleMaximizeIconClick={handleMaximizeIconClick}
-        handlePinIconClick={handlePinIconClick}
-        selectorStateNamespace="dashboardGroupSelector"
-        isPinned={shouldShowDashboardsPageLeftPanePermanently}
-        reorderIconTooltipText="Reorder dashboard groups"
+        handlePinIconClick={_.flow(stopEventPropagation, toggleShouldShowLeftPanePermanently)}
+        selectorStateNamespace="reportTemplateGroupSelector"
+        isPinned={shouldShowLeftPanePermanently}
+        reorderIconTooltipText="Reorder report template groups"
       />
       <Modal
         closeOnDimmerClick
         closeOnEscape
-        onClose={closeDashboardGroupDeleteConfirmationDialog}
+        onClose={closeDeleteConfirmationDialog}
         onKeyDown={stopEventPropagation}
-        open={!!dashboardGroupToBeDeleted}
+        open={!!reportTemplateGroupToBeDeleted}
       >
-        <Modal.Header content="DELETE DASHBOARD GROUP" />
+        <Modal.Header content="DELETE REPORT TEMPLATE GROUP" />
         <Modal.Content>
-          Delete <i>{dashboardGroupToBeDeleted?.name}</i> ?
+          Delete <i>{reportTemplateGroupToBeDeleted?.name}</i> ?
         </Modal.Content>
         <Modal.Actions>
-          <Button ref={closeButtonRef} secondary onClick={closeDashboardGroupDeleteConfirmationDialog} tabIndex="0">
+          <Button
+            ref={confirmationDialogCancelButtonRef}
+            secondary
+            onClick={closeDeleteConfirmationDialog}
+            tabIndex="0"
+          >
             CANCEL
           </Button>
-          <Button primary negative onClick={() => confirmDashboardGroupDelete(dashboardGroupToBeDeleted)} tabIndex="0">
+          <Button primary negative onClick={() => confirmDelete(reportTemplateGroupToBeDeleted)} tabIndex="0">
             DELETE
           </Button>
         </Modal.Actions>
@@ -179,4 +177,4 @@ const ReportTemplateGroupSelectorView = ({
   );
 };
 
-export default connect(controller.getState, () => controller.actionDispatchers)(DashboardGroupSelectorView);
+export default connect(controller.getState, () => controller.actionDispatchers)(ReportTemplateGroupSelectorView);

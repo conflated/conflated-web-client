@@ -7,7 +7,7 @@ import { ActionDispatchers, controller, State } from '../controller/reportsPageL
 
 type Props = ActionDispatchers & State;
 
-const DashboardsPageLeftPaneView = ({
+const ReportsPageLeftPaneView = ({
   hideLeftPane,
   isReportTemplateGroupSelectorOpen,
   isReportTemplateSelectorOpen,
@@ -51,4 +51,4 @@ const DashboardsPageLeftPaneView = ({
   );
 };
 
-export default connect(controller.getState, () => controller.actionDispatchers)(DashboardsPageLeftPaneView);
+export default connect(controller.getState, () => controller.actionDispatchers)(ReportsPageLeftPaneView);
