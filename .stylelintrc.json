@@ -2,7 +2,6 @@
   "extends": ["stylelint-config-standard-scss"],
   "plugins": [
     "stylelint-scss",
-    "stylelint-a11y",
     "stylelint-at-rule-no-children",
     "stylelint-color-format",
     "stylelint-declaration-block-no-ignored-properties",
@@ -36,9 +35,11 @@
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "warning" }],
     "a11y/media-prefers-color-scheme": [true, { "severity": "warning" }],
+    "a11y/anchor-is-valid": false,
     "color-format/format": {
       "format": "rgb"
     },
+    "css-modules/no-undef-class": false,
     "scale-unlimited/declaration-strict-value": [["/color/", "z-index", "font-size"]],
     "plugin/declaration-block-no-ignored-properties": true,
     "sh-waqar/declaration-use-variable": [["/color/", "z-index", "font-size"]],

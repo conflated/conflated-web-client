@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
-import { Icon, Tab } from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 import ChartAreaView from '../../../../common/components/chartarea/view/ChartAreaView';
 import styles from './ChartAreaTabsView.module.scss';
 
@@ -9,16 +9,11 @@ const ChartAreaTabsView = () => {
 
   const panes = [
     {
-      menuItem: (
-        <span
-          className={`item ${activeTabIndex === 0 ? 'active' : ''}`}
-          key="Subs 0504877334 Failures"
-          onClick={() => setActiveTabIndex(0)}
-        >
-          Subs 0504877334 Failures
-          <Icon className={styles.closeIcon} name="close" />
-        </span>
-      ),
+      menuItem: {
+        key: 'Subs 0504877334 Failures',
+        content: 'Subs 0504877334 Failures',
+        icon: 'file alternate outline'
+      },
       render: () => (
         <Tab.Pane>
           <ChartAreaView className={styles.chartArea} pageStateNamespace="reportsPage" />
@@ -26,16 +21,11 @@ const ChartAreaTabsView = () => {
       )
     },
     {
-      menuItem: (
-        <span
-          className={`item ${activeTabIndex === 1 ? 'active' : ''}`}
-          key="Subs 0504877334 Throughput"
-          onClick={() => setActiveTabIndex(1)}
-        >
-          Subs 0504877334 Throughput
-          <Icon className={styles.closeIcon} name="close" />
-        </span>
-      ),
+      menuItem: {
+        key: 'Subs 0504877334 Throughput',
+        content: 'Subs 0504877334 Throughput',
+        icon: 'file alternate outline'
+      },
       render: () => (
         <Tab.Pane>
           <ChartAreaView className={styles.chartArea} pageStateNamespace="reportsPage" />
@@ -44,7 +34,9 @@ const ChartAreaTabsView = () => {
     }
   ];
 
-  return <Tab activeIndex={activeTabIndex} className={styles.tab} panes={panes} />;
+  return (
+    <Tab activeIndex={activeTabIndex} className={styles.tab} onTabChange={() => setActiveTabIndex(1)} panes={panes} />
+  );
 };
 
 export default ChartAreaTabsView;
