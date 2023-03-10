@@ -7,6 +7,7 @@ import DataExplorerPageView from './pages/dataexplorer/view/DataExplorerPageView
 import HeaderView from './header/view/HeaderView';
 import AlertsPageView from './pages/alerts/view/AlertsPageView';
 import GoalsPageView from './pages/goals/view/GoalsPageView';
+import ReportsPageView from './pages/reports/view/ReportsPageView';
 
 const AppView = () => (
   <Provider store={store}>
@@ -17,6 +18,7 @@ const AppView = () => (
           <Route path="/" element={<DashboardsPageView />} />
           <Route path="/dashboards" element={<DashboardsPageView />} />
           <Route path="/data-explorer" element={<DataExplorerPageView />} />
+          <Route path="/reports" element={<ReportsPageView />} />
           <Route path="/alerts" element={<AlertsPageView />} />
           <Route path="/goals" element={<GoalsPageView />} />
         </Routes>
