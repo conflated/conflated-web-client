@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import DashboardListItem from './dashboardlistitem/DashboardListItem';
+import DashboardSelectorListItemView from './listitem/DashboardSelectorListItemView';
 import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
 import type { Dashboard } from '../../../model/state/types/Dashboard';
 import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
@@ -32,7 +32,7 @@ const DashboardSelectorView = ({
   const dashboardListItems = useMemo(
     () =>
       shownDashboards.map((dashboard: Dashboard) => (
-        <DashboardListItem
+        <DashboardSelectorListItemView
           key={dashboard.name}
           item={dashboard}
           selectedItem={selectedDashboard}

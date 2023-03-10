@@ -3,6 +3,6 @@ import type { ListItemViewProps } from '../../../../../../common/view/listitems/
 import ListItemView from '../../../../../../common/view/listitems/listitem/ListItemView';
 import type { Dashboard } from '../../../../model/state/types/Dashboard';
 
-const DashboardListItem = (props: ListItemViewProps<Dashboard>) => <ListItemView {...props} />;
+const DashboardSelectorListItemView = (props: ListItemViewProps<Dashboard>) => <ListItemView {...props} />;
 
-export default DashboardListItem;
+export default DashboardSelectorListItemView;
