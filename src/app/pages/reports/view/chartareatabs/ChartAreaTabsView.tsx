@@ -6,6 +6,7 @@ import styles from './ChartAreaTabsView.module.scss';
 
 const ChartAreaTabsView = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const changeActiveTab = (_: React.SyntheticEvent, { activeIndex }: any) => setActiveTabIndex(activeIndex);
 
   const panes = [
     {
@@ -34,9 +35,7 @@ const ChartAreaTabsView = () => {
     }
   ];
 
-  return (
-    <Tab activeIndex={activeTabIndex} className={styles.tab} onTabChange={() => setActiveTabIndex(1)} panes={panes} />
-  );
+  return <Tab activeIndex={activeTabIndex} className={styles.tab} onTabChange={changeActiveTab} panes={panes} />;
 };
 
 export default ChartAreaTabsView;
