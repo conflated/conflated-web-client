@@ -13,20 +13,23 @@ import ShowDeleteConfirmationDialogAction from '../model/actions/delete/ShowDele
 import CloseDeleteConfirmationDialogAction from '../model/actions/delete/CloseDeleteConfirmationDialogAction';
 import ConfirmDeleteAction from '../model/actions/delete/ConfirmDeleteAction';
 import GenerateReportAction from '../../../model/actions/GenerateReportAction';
+import SelectAction from '../model/actions/SelectAction';
 
 class ReportTemplateGroupSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.reportsPage.reportTemplateGroupSelectorState, {
-      shownDashboardGroups: selectShownReportTemplateGroups(appState),
+      shownReportTemplateGroups: selectShownReportTemplateGroups(appState),
 
       isListItemReorderModeActive:
         appState.common.selectorWithDefaultActionsStates.reportTemplateGoupSelector.isListItemReorderModeActive,
 
       isReportTemplateSelectorOpen: appState.common.selectorStates.reportTemplateSelector.isSelectorOpen,
-      shouldLeftPanePermanently: appState.common.pageStates.reportsPage.shouldShowPagePanePermanently.leftPane
+      shouldShowLeftPanePermanently: appState.common.pageStates.reportsPage.shouldShowPagePanePermanently.leftPane
     });
 
   actionDispatchers = {
+    select: (reportTemplateGroup: ReportTemplateGroup) => this.dispatch(new SelectAction(reportTemplateGroup)),
+
     toggleShouldShowLeftPanePermanently: () =>
       this.dispatch(new ToggleShouldShowPagePanePermanentlyAction('reportsPage', 'leftPane')),
 

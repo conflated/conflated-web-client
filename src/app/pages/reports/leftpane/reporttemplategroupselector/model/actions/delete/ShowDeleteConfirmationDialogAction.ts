@@ -1,16 +1,16 @@
 import AbstractReportTemplateGroupSelectorAction from '../AbstractReportTemplateGroupSelectorAction';
 import { ReportTemplateGroupSelectorState } from '../../state/ReportTemplateGroupSelectorState';
-import { DashboardGroup } from '../../../../../model/state/types/DashboardGroup';
+import { ReportTemplateGroup } from '../../../../../model/state/types/ReportTemplateGroup';
 
 export default class ShowDeleteConfirmationDialogAction extends AbstractReportTemplateGroupSelectorAction {
-  constructor(private readonly dashboardGroup: DashboardGroup) {
+  constructor(private readonly reportTemplateGroup: ReportTemplateGroup) {
     super();
   }
 
   perform(currentState: ReportTemplateGroupSelectorState): ReportTemplateGroupSelectorState {
     return {
       ...currentState,
-      dashboardGroupToBeDeleted: this.dashboardGroup
+      reportTemplateGroupToBeDeleted: this.reportTemplateGroup
     };
   }
 }

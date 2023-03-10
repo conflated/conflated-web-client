@@ -23,6 +23,7 @@ const ReportTemplateGroupSelectorView = ({
   isListItemReorderModeActive,
   reportTemplateGroupToBeDeleted,
   reportTemplateGroupToBeRenamed,
+  select,
   selectedReportTemplateGroup,
   shouldShowLeftPanePermanently,
   showDeleteConfirmationDialog,
@@ -93,9 +94,14 @@ const ReportTemplateGroupSelectorView = ({
               iconName={`${isListItemReorderModeActive ? 'bars' : ''}`}
               item={reportTemplateGroup}
               selectedItem={selectedReportTemplateGroup}
-              onItemClick={() => generateReport(reportTemplateGroup)}
+              onItemClick={() => select(reportTemplateGroup)}
               onItemLongClick={() => startRenaming(reportTemplateGroup)}
               actions={[
+                {
+                  iconName: 'play',
+                  perform: () => generateReport(reportTemplateGroup),
+                  tooltipText: 'Generate all reports in the report template group'
+                },
                 {
                   iconName: 'linkify',
                   perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
@@ -123,6 +129,7 @@ const ReportTemplateGroupSelectorView = ({
       handleRenameInputKeyDown,
       isListItemReorderModeActive,
       reportTemplateGroupToBeRenamed,
+      select,
       selectedReportTemplateGroup,
       showDeleteConfirmationDialog,
       shownReportTemplateGroups,

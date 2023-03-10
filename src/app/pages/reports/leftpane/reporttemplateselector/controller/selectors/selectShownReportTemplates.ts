@@ -5,7 +5,7 @@ import { ReportTemplate } from '../../../../model/state/types/ReportTemplate';
 import { ReportTemplateGroup } from '../../../../model/state/types/ReportTemplateGroup';
 
 const selectedReportTemplateGroupSelector = (appState: AppState) =>
-  appState.reportsPage.reportsState.selectedReportTemplateGroup;
+  appState.reportsPage.reportTemplateGroupSelectorState.selectedReportTemplateGroup;
 
 const searchedValueSelector = (appState: AppState) =>
   appState.common.selectorWithDefaultActionsStates.reportTemplateSelector.searchedValue;

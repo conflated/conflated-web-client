@@ -3,4 +3,5 @@ import { ReportTemplateGroup } from '../../../../model/state/types/ReportTemplat
 export type ReportTemplateGroupSelectorState = {
   readonly reportTemplateGroupToBeDeleted?: ReportTemplateGroup;
   readonly reportTemplateGroupToBeRenamed?: ReportTemplateGroup;
+  readonly selectedReportTemplateGroup?: ReportTemplateGroup;
 };
