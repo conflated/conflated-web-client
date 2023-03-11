@@ -1,4 +1,4 @@
-import { Button, Form, Modal, Tab } from 'semantic-ui-react';
+import { Accordion, Button, Form, Icon, Modal, Tab } from 'semantic-ui-react';
 import React from 'react';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
 import styles from './GenerateReportDialogView.module.scss';
@@ -51,6 +51,47 @@ const GenerateReportDialogView = () => {
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Tab activeIndex={0} panes={tabPanes} />
+          </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Accordion>
+              <Accordion.Title active index={0}>
+                <Icon name="dropdown" />
+                Parameters
+              </Accordion.Title>
+              <Accordion.Content active>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        {' '}
+                        <label>Subscriber MSISDN</label>
+                      </td>
+                      <td>
+                        <input />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {' '}
+                        <label>Parameter 2</label>
+                      </td>
+                      <td>
+                        <input />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {' '}
+                        <label>Parameter 3</label>
+                      </td>
+                      <td>
+                        <input />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </Accordion.Content>
+            </Accordion>
           </Form.Field>
         </Form>
       </Modal.Content>
