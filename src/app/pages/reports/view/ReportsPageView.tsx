@@ -4,6 +4,7 @@ import PageView from '../../../common/components/page/view/PageView';
 import { ActionDispatchers, controller, State } from '../controller/reportsPageController';
 import ChartAreaTabsView from './chartareatabs/ChartAreaTabsView';
 import ReportsPageLeftPaneView from '../leftpane/view/ReportsPageLeftPaneView';
+import GenerateReportDialogView from '../generatereportdialog/view/GenerateReportDialogView';
 
 type Props = ActionDispatchers & State;
 
@@ -14,12 +15,15 @@ const ReportsPageView = ({ startFetchReportTemplateGroups }: Props) => {
   }, [startFetchReportTemplateGroups]);
 
   return (
-    <PageView
-      leftPane={<ReportsPageLeftPaneView />}
-      middlePane={<ChartAreaTabsView />}
-      pageStateNamespace="reportsPage"
-      showPaneActivatorHintsOnComponentMount
-    />
+    <>
+      <PageView
+        leftPane={<ReportsPageLeftPaneView />}
+        middlePane={<ChartAreaTabsView />}
+        pageStateNamespace="reportsPage"
+        showPaneActivatorHintsOnComponentMount
+      />
+      <GenerateReportDialogView />
+    </>
   );
 };
 

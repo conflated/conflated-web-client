@@ -16,10 +16,6 @@
     }
   }
 
-  :global(.item.active) {
-    background-color: #000 !important;
-  }
-
   .chartArea {
     height: calc(100vh - 3rem - 2.85714286em - 4px);
   }

@@ -30,6 +30,65 @@
     background-color: rgba(0, 0, 0, 0.85);
   }
 
+  &.form {
+    .dropdown {
+      background-color: transparent;
+      border: 1px solid #333;
+      color: #ddd;
+
+      &:hover {
+        border: 1px solid #333;
+      }
+
+      .icon {
+        border: none;
+      }
+
+      .menu .item {
+        background-color: transparent !important;
+        color: #ddd !important;
+      }
+    }
+
+    input {
+      border-color: #333 !important;
+      background-color: var(--dialog-content-background-color) !important;
+      color: #ddd !important;
+    }
+
+    label {
+      @media (prefers-color-scheme: dark) {
+        color: #777 !important;
+      }
+    }
+
+    .menu {
+      @media (prefers-color-scheme: dark) {
+        background-color: transparent !important;
+        border-bottom: 1px solid #333;
+      }
+
+      .item {
+        @media (prefers-color-scheme: dark) {
+          color: #777 !important;
+        }
+      }
+
+      .item.active {
+        @media (prefers-color-scheme: dark) {
+          color: #777 !important;
+          border-color: #333 !important;
+        }
+      }
+    }
+
+    .tab {
+      @media (prefers-color-scheme: dark) {
+        border-color: #333 !important;
+      }
+    }
+  }
+
   &.input > input {
     background-color: #e9ebec;
 
@@ -52,19 +111,30 @@
   &.menu {
     font-family: var(--brand-font-family);
     font-size: var(--body-font-size);
+
+    .item.active {
+      background-color: transparent!important;
+    }
   }
 
   &.modal {
     width: auto;
 
     @media (prefers-color-scheme: dark) {
-      border: 1px solid var(--dialog-color);
+      border: 1px solid #333;
+      border-radius: 0;
     }
 
     & > .header {
-      background-color: var(--dialog-header-and-footer-background-color);
+      background-color: var(--dialog-header-background-color);
+      border-radius: 0 !important;
       color: var(--dialog-color);
       font-family: var(--brand-font-family);
+      font-size: 1rem !important;
+      height: 2.5rem;
+      line-height: 2.5rem !important;
+      padding-left: 1rem;
+      padding-top: 0;
 
       @media (prefers-color-scheme: dark) {
         border-bottom: 1px solid var(--dialog-header-and-footer-border-color);
@@ -77,11 +147,16 @@
     }
 
     & > .actions {
-      background-color: var(--dialog-header-and-footer-background-color);
+      background-color: var(--dialog-footer-background-color);
+      border-radius: 0 !important;
       color: var(--dialog-color);
+      height: 5rem;
+      line-height: 5rem !important;
+      padding: 0;
+      padding-right: 1rem;
 
       @media (prefers-color-scheme: dark) {
-        border-top: 1px solid var(--dialog-header-and-footer-border-color);
+        border-top: none;
       }
     }
   }
