@@ -42,6 +42,10 @@ const GenerateReportDialogView = () => {
       <Modal.Content>
         <Form>
           <Form.Field>
+            <label>Report template name</label>
+            <input readOnly placeholder="Subscriber Failures" />
+          </Form.Field>
+          <Form.Field>
             <label>Report name</label>
             <input value="Subs {{Subscriber MSISDN}} Failures" />
           </Form.Field>

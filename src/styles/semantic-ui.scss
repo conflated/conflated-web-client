@@ -7,13 +7,13 @@
       border: 1px solid #FFF;
 
       @media (prefers-color-scheme: dark) {
-        border: px solid #DDD;
+        border: px solid #FFF;
       }
     }
 
     &.secondary {
-      background: none;
-      color: rgb(120, 120, 120);
+      background-color: var(--brand-color-1);
+      color: #fff !important;
 
       @media (prefers-color-scheme: dark) {
         color: #dddddd;
@@ -21,7 +21,8 @@
 
       &:hover,
       &:focus {
-          background-color: var(--brand-color-1);
+        background-color: var(--brand-color-1);
+        color: #fff !important;
       }
     }
   }
@@ -33,11 +34,11 @@
   &.form {
     .dropdown {
       background-color: transparent;
-      border: 1px solid #333;
-      color: #ddd;
+      border: 1px solid #282828;
+      color: #fff;
 
       &:hover {
-        border: 1px solid #333;
+        border: 1px solid #282828;
       }
 
       .icon {
@@ -51,9 +52,13 @@
     }
 
     input {
-      border-color: #333 !important;
+      border-color: #282828 !important;
       background-color: var(--dialog-content-background-color) !important;
-      color: #ddd !important;
+      color: #fff !important;
+    }
+
+    input[readonly] {
+      color: #777 !important;
     }
 
     label {
@@ -65,7 +70,7 @@
     .menu {
       @media (prefers-color-scheme: dark) {
         background-color: transparent !important;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #282828;
       }
 
       .item {
@@ -77,14 +82,14 @@
       .item.active {
         @media (prefers-color-scheme: dark) {
           color: #777 !important;
-          border-color: #333 !important;
+          border-color: #282828 !important;
         }
       }
     }
 
     .tab {
       @media (prefers-color-scheme: dark) {
-        border-color: #333 !important;
+        border-color: #282828 !important;
       }
     }
   }
