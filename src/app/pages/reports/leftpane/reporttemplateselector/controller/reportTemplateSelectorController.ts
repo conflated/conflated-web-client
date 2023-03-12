@@ -4,7 +4,7 @@ import { PageStateNamespace } from '../../../../../common/components/page/model/
 import { AppState } from '../../../../../../store/AppState';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
 import selectShownReportTemplates from './selectors/selectShownReportTemplates';
-import OpenAction from '../../../generatereportdialog/model/actions/OpenAction';
+import OpenGenerateReportDialogAction from '../../../generatereportdialog/model/actions/OpenGenerateReportDialogAction';
 
 class ReportTemplateSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
@@ -16,7 +16,7 @@ class ReportTemplateSelectorController extends Controller<PageStateNamespace> {
     toggleMaximizeSelector:
       selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
 
-    openGenerateReportDialog: () => this.dispatch(new OpenAction())
+    openGenerateReportDialog: () => this.dispatch(new OpenGenerateReportDialogAction())
   };
 }
 
