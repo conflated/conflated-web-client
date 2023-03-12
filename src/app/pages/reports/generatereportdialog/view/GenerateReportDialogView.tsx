@@ -5,6 +5,8 @@ import styles from './GenerateReportDialogView.module.scss';
 
 const GenerateReportDialogView = () => {
   const [parametersShouldBeShown, setParametersShouldBeShown] = useState(true);
+  const [activePaneIndex, setActivePaneIndex] = useState(0);
+  const changeActivePane = (_: React.SyntheticEvent, { activeIndex }: any) => setActivePaneIndex(activeIndex);
 
   const reportingPeriodRelativityOptions = [
     { key: 'l', text: 'Last', value: 'last' },
@@ -52,7 +54,12 @@ const GenerateReportDialogView = () => {
             <input value="Subs {{Subscriber MSISDN}} Failures" />
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <Tab activeIndex={0} menu={{ secondary: true, pointing: true }} panes={tabPanes} />
+            <Tab
+              activeIndex={activePaneIndex}
+              menu={{ secondary: true, pointing: true }}
+              onTabChange={changeActivePane}
+              panes={tabPanes}
+            />
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Accordion>

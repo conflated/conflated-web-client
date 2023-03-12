@@ -47,6 +47,8 @@
       @media (prefers-color-scheme: dark) {
         background-color: transparent;
         color: #fff;
+        min-height: 0;
+        padding: 0;
 
         &.active {
           border: 1px solid #282828;
@@ -59,10 +61,13 @@
 
         .icon {
           border: none;
+          padding: 0;
         }
 
         .text {
           color: #fff !important;
+          padding: 0;
+          padding-right: 1.5rem;
         }
 
         .menu {
@@ -81,6 +86,10 @@
 
     .fields {
       align-items: center;
+
+      .field:first-child {
+        padding-left: 0;
+      }
     }
 
     input {
@@ -116,21 +125,34 @@
     }
 
     .menu.secondary.pointing {
+      margin-bottom: 0.75rem;
+      min-height: 0;
+
       @media (prefers-color-scheme: dark) {
         background-color: transparent !important;
         border-bottom: 1px solid #282828;
       }
 
       .item {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0.5rem;
+        padding-top: 0;
+        margin-right: 1rem;
+
         @media (prefers-color-scheme: dark) {
           color: #666 !important;
+        }
+
+        &:last-child {
+          margin-right: 0;
         }
       }
 
       .item.active {
         @media (prefers-color-scheme: dark) {
           color: #666 !important;
-          border-bottom: 1px solid #484848 !important;
+          border-bottom: 2px solid #484848 !important;
         }
       }
     }
