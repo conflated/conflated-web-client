@@ -25,6 +25,7 @@ import pageStateNamespaces from '../app/common/components/page/model/state/types
 import dashboardGroupSelectorStateReducer from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/dashboardGroupSelectorStateReducer';
 import reportsPageStateReducer from '../app/pages/reports/model/state/reportsPageStateReducer';
 import reportTemplateGroupSelectorStateReducer from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/reportTemplateGroupSelectorStateReducer';
+import generateReportDialogStateReducer from '../app/pages/reports/generatereportdialog/model/state/generateReportDialogStateReducer';
 
 const appStateReducer = combineReducers({
   common: combineReducers({
@@ -55,7 +56,8 @@ const appStateReducer = combineReducers({
   reportsPage: combineReducers({
     reportsState: reportsPageStateReducer,
     reportTemplateGroupSelectorState: reportTemplateGroupSelectorStateReducer,
-    chartAreaState: createChartAreaStateReducer('reportsPage')
+    chartAreaState: createChartAreaStateReducer('reportsPage'),
+    generateReportDialogState: generateReportDialogStateReducer
   }),
   alertsPage: combineReducers({
     triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('alertsPage'),

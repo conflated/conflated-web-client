@@ -3,9 +3,8 @@ import store from '../../../../../../store/store';
 import { PageStateNamespace } from '../../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
-import GenerateReportAction from '../../../model/actions/GenerateReportAction';
-import { ReportTemplate } from '../../../model/state/types/ReportTemplate';
 import selectShownReportTemplates from './selectors/selectShownReportTemplates';
+import OpenAction from '../../../generatereportdialog/model/actions/OpenAction';
 
 class ReportTemplateSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
@@ -17,7 +16,7 @@ class ReportTemplateSelectorController extends Controller<PageStateNamespace> {
     toggleMaximizeSelector:
       selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
 
-    generateReport: (reportTemplate: ReportTemplate) => this.dispatch(new GenerateReportAction(reportTemplate))
+    openGenerateReportDialog: () => this.dispatch(new OpenAction())
   };
 }
 

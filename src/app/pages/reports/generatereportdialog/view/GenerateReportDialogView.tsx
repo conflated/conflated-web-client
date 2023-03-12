@@ -1,9 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Accordion, Button, Form, Icon, Modal, Tab } from 'semantic-ui-react';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
 import styles from './GenerateReportDialogView.module.scss';
+import { ActionDispatchers, controller, State } from '../controller/generateReportDialogController';
 
-const GenerateReportDialogView = () => {
+type Props = State & ActionDispatchers;
+
+const GenerateReportDialogView = ({ close, isOpen }: Props) => {
   const [parametersShouldBeShown, setParametersShouldBeShown] = useState(true);
   const [activePaneIndex, setActivePaneIndex] = useState(0);
   const changeActivePane = (_: React.SyntheticEvent, { activeIndex }: any) => setActivePaneIndex(activeIndex);
@@ -41,7 +46,7 @@ const GenerateReportDialogView = () => {
   ];
 
   return (
-    <Modal closeOnEscape onClose={() => {}} onKeyDown={stopEventPropagation} open>
+    <Modal closeOnEscape onClose={close} onKeyDown={stopEventPropagation} open={isOpen}>
       <Modal.Header>GENERATE REPORT</Modal.Header>
       <Modal.Content>
         <Form>
@@ -105,10 +110,10 @@ const GenerateReportDialogView = () => {
         </Form>
       </Modal.Content>
       <Modal.Actions>
-        <Button secondary onClick={() => {}} tabIndex="0">
+        <Button secondary onClick={close} tabIndex="0">
           CANCEL
         </Button>
-        <Button primary positive onClick={() => {}} tabIndex="0">
+        <Button primary positive onClick={close} tabIndex="0">
           OK
         </Button>
       </Modal.Actions>
@@ -116,4 +121,4 @@ const GenerateReportDialogView = () => {
   );
 };
 
-export default GenerateReportDialogView;
+export default connect(controller.getState, () => controller.actionDispatchers)(GenerateReportDialogView);

@@ -9,8 +9,8 @@ import { ReportTemplate } from '../../../model/state/types/ReportTemplate';
 type Props = ActionDispatchers & State;
 
 const ReportTemplateSelectorView = ({
-  generateReport,
   isReportTemplateGroupSelectorOpen,
+  openGenerateReportDialog,
   shownReportTemplates,
   toggleMaximizeSelector
 }: Props) => {
@@ -34,18 +34,13 @@ const ReportTemplateSelectorView = ({
         <ReportTemplateSelectorListItemView
           item={reportTemplate}
           key={reportTemplate.name}
-          onItemClick={() => generateReport(reportTemplate)}
-          onItemDblClick={() => window.open('http://localhost:3000/dashboards', '_blank')}
+          onItemClick={() => openGenerateReportDialog()}
+          onItemDblClick={() => window.open('http://localhost:3000/reports', '_blank')}
           actions={[
             {
               iconName: 'share',
-              perform: () => window.open('http://localhost:3000/dashboards', '_blank'),
+              perform: () => window.open('http://localhost:3000/reports', '_blank'),
               tooltipText: 'Open in new browser tab'
-            },
-            {
-              iconName: 'linkify',
-              perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
-              tooltipText: 'Copy link to clipboard'
             },
             { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
@@ -53,7 +48,7 @@ const ReportTemplateSelectorView = ({
           ]}
         />
       )),
-    [generateReport, shownReportTemplates]
+    [openGenerateReportDialog, shownReportTemplates]
   );
 
   return (

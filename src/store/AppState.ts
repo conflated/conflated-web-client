@@ -21,6 +21,7 @@ import pageStateNamespaces from '../app/common/components/page/model/state/types
 import { DashboardGroupSelectorState } from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/DashboardGroupSelectorState';
 import { ReportsPageState } from '../app/pages/reports/model/state/ReportsPageState';
 import { ReportTemplateGroupSelectorState } from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/ReportTemplateGroupSelectorState';
+import { GenerateReportDialogState } from '../app/pages/reports/generatereportdialog/model/state/GenerateReportDialogState';
 
 export type AppState = {
   common: {
@@ -52,6 +53,7 @@ export type AppState = {
     reportsState: ReportsPageState;
     reportTemplateGroupSelectorState: ReportTemplateGroupSelectorState;
     chartAreaState: ChartAreaState;
+    generateReportDialogState: GenerateReportDialogState;
   };
   alertsPage: {
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;

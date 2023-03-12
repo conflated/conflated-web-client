@@ -103,11 +103,6 @@ const ReportTemplateGroupSelectorView = ({
                   tooltipText: 'Generate all reports in the report template group'
                 },
                 {
-                  iconName: 'linkify',
-                  perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
-                  tooltipText: 'Copy link to clipboard'
-                },
-                {
                   iconName: 'i cursor',
                   perform: () => startRenaming(reportTemplateGroup),
                   tooltipText: 'Rename'
