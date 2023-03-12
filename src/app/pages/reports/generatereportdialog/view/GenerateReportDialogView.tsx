@@ -39,7 +39,7 @@ const GenerateReportDialogView = () => {
   ];
 
   return (
-    <Modal closeOnDimmerClick closeOnEscape onClose={() => {}} onKeyDown={stopEventPropagation} open>
+    <Modal closeOnEscape onClose={() => {}} onKeyDown={stopEventPropagation} open>
       <Modal.Header>GENERATE REPORT</Modal.Header>
       <Modal.Content>
         <Form>
