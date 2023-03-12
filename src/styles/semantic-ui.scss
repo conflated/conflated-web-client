@@ -33,22 +33,27 @@
 
   &.form {
     .accordion .title {
+      padding: 0;
       @media (prefers-color-scheme: dark) {
-        color: #777;
+        color: #666;
       }
 
       .icon {
-        color: #777;
+        color: #666;
       }
     }
 
     .dropdown.selection {
       @media (prefers-color-scheme: dark) {
         background-color: transparent;
-        border: 1px solid #282828;
         color: #fff;
 
-        &:hover {
+        &.active {
+          border: 1px solid #282828;
+        }
+
+        &:hover,
+        &:focus {
           border: 1px solid #282828;
         }
 
@@ -56,34 +61,61 @@
           border: none;
         }
 
-        .menu .item {
-          background-color: transparent !important;
+        .text {
           color: #fff !important;
+        }
+
+        .menu {
+          background-color: var(--dialog-content-background-color) !important;
+          border: 1px solid #333 !important;
+          color: #fff;
+
+          .item {
+            background-color: var(--dialog-content-background-color) !important;
+            border-top: 1px solid #333 !important;
+            color: #fff !important;
+          }
         }
       }
     }
 
+    .fields {
+      align-items: center;
+    }
+
     input {
+      padding: 0.1rem 0rem !important;
+
       @media (prefers-color-scheme: dark) {
-        border-color: #282828 !important;
         background-color: var(--dialog-content-background-color) !important;
+        border: none !important;
+        border-bottom: 1px solid #333 !important;
+        border-radius: 0 !important;
         color: #fff !important;
+      }
+
+      &:focus {
+        @media (prefers-color-scheme: dark) {
+          background: none !important;
+          box-shadow: none !important;
+          transition: none !important;
+        }
       }
     }
 
-    input[readonly] {
+    input[readOnly] {
       @media (prefers-color-scheme: dark) {
-        color: #777 !important;
+        color: #666 !important;
       }
     }
 
     label {
       @media (prefers-color-scheme: dark) {
-        color: #777 !important;
+        color: #666 !important;
       }
     }
 
-    .menu {
+    .menu.secondary.pointing {
       @media (prefers-color-scheme: dark) {
         background-color: transparent !important;
         border-bottom: 1px solid #282828;
@@ -91,21 +123,23 @@
 
       .item {
         @media (prefers-color-scheme: dark) {
-          color: #777 !important;
+          color: #666 !important;
         }
       }
 
       .item.active {
         @media (prefers-color-scheme: dark) {
-          color: #777 !important;
-          border-color: #282828 !important;
+          color: #666 !important;
+          border-bottom: 1px solid #484848 !important;
         }
       }
     }
 
     .tab {
+      padding-top: 0rem !important;
+
       @media (prefers-color-scheme: dark) {
-        border-color: #282828 !important;
+        border: none;
       }
     }
   }
@@ -134,7 +168,7 @@
     font-size: var(--body-font-size);
 
     .item.active {
-      background-color: transparent!important;
+      background-color: transparent !important;
     }
   }
 
@@ -152,8 +186,8 @@
       color: var(--dialog-color);
       font-family: var(--brand-font-family);
       font-size: 1rem !important;
-      height: 2.5rem;
-      line-height: 2.5rem !important;
+      height: 3rem;
+      line-height: 3rem !important;
       padding-left: 1rem;
       padding-top: 0;
 

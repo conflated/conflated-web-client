@@ -3,10 +3,14 @@
 }
 
 .tabPane {
-  padding: 1.25rem 0.5rem !important;
+  padding: 0rem 0rem !important;
 
   .formGroup {
     margin: 0 !important;
+
+    .reportingPeriodValue {
+      width: 3rem !important;
+    }
   }
 }
 

@@ -1,9 +1,11 @@
 import { Accordion, Button, Form, Icon, Modal, Tab } from 'semantic-ui-react';
-import React from 'react';
+import React, { useState } from 'react';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
 import styles from './GenerateReportDialogView.module.scss';
 
 const GenerateReportDialogView = () => {
+  const [parametersShouldBeShown, setParametersShouldBeShown] = useState(true);
+
   const reportingPeriodRelativityOptions = [
     { key: 'l', text: 'Last', value: 'last' },
     { key: 't', text: 'This', value: 'this' }
@@ -24,7 +26,7 @@ const GenerateReportDialogView = () => {
         <Tab.Pane className={styles.tabPane}>
           <Form.Group className={styles.formGroup}>
             <Form.Select fluid options={reportingPeriodRelativityOptions} value="last" />
-            <Form.Input value="15" />
+            <Form.Input className={styles.reportingPeriodValue} value="15" />
             <Form.Select fluid options={reportingPeriodTimeUnitOptions} value="minutes" />
           </Form.Group>
         </Tab.Pane>
@@ -43,22 +45,22 @@ const GenerateReportDialogView = () => {
         <Form>
           <Form.Field>
             <label>Report template name</label>
-            <input readOnly placeholder="Subscriber Failures" />
+            <input readOnly value="Subscriber Failures" />
           </Form.Field>
-          <Form.Field>
+          <Form.Field className={styles.formField}>
             <label>Report name</label>
             <input value="Subs {{Subscriber MSISDN}} Failures" />
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <Tab activeIndex={0} panes={tabPanes} />
+            <Tab activeIndex={0} menu={{ secondary: true, pointing: true }} panes={tabPanes} />
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Accordion>
-              <Accordion.Title active index={0}>
-                <Icon name="dropdown" />
+              <Accordion.Title active={parametersShouldBeShown} index={0}>
+                <Icon name="dropdown" onClick={() => setParametersShouldBeShown(!parametersShouldBeShown)} />
                 Parameters
               </Accordion.Title>
-              <Accordion.Content active>
+              <Accordion.Content active={parametersShouldBeShown}>
                 <table>
                   <tbody>
                     <tr>
@@ -100,7 +102,7 @@ const GenerateReportDialogView = () => {
           CANCEL
         </Button>
         <Button primary positive onClick={() => {}} tabIndex="0">
-          GENERATE
+          OK
         </Button>
       </Modal.Actions>
     </Modal>
