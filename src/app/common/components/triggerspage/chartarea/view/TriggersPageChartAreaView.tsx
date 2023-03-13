@@ -21,7 +21,7 @@ export type OwnProps = {
   pageStateNamespace: TriggersPageStateNamespace;
 };
 
-type Props = OwnProps & SizeAwareComponent & ActionDispatchers & State;
+type Props = SizeAwareComponent & OwnProps & State & ActionDispatchers;
 const { chartArea, gridLayout } = styles;
 
 const TriggersPageChartAreaView = ({

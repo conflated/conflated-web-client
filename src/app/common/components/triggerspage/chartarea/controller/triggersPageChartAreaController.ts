@@ -10,11 +10,12 @@ class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNames
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState[pageStateNamespace].chartAreaState;
 
   getActionDispatchers = (stateNamespace: ChartAreaPageStateNamespace) => ({
-    startFetchDataForCharts: () =>
+    startFetchDataForCharts: () => {
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
         chart: null,
         stateNamespace
-      })
+      });
+    }
   });
 }
 

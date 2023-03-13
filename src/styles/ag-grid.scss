@@ -1,6 +1,35 @@
 .ag-theme-fresh {
-  .ag-row-selected {
-    background-color: var(--brand-color-1);
-    color: white;
+  .ag-root {
+    @media (prefers-color-scheme: dark) {
+      background-color: #000;
+    }
+
+    .ag-header-row {
+      @media (prefers-color-scheme: dark) {
+        background-color: #ccc;
+      }
+    }
+
+    .ag-row-selected {
+      .ag-cell {
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--brand-color-1);
+          color: #fff;
+        }
+      }
+    }
+
+    .ag-cell {
+      @media (prefers-color-scheme: dark) {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .ag-paging-panel {
+    @media (prefers-color-scheme: dark) {
+      background-color: #ccc;
+    }
   }
 }
