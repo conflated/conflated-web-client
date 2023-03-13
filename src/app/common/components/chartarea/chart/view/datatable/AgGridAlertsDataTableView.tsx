@@ -8,10 +8,10 @@ import type { Chart } from '../../model/state/Chart';
 type Props = { chart: Chart; height: number; width: number };
 
 const columnWidthWeights = {
-  Severity: 0.05,
-  'Trigger time': 0.12,
+  Severity: 0.06,
+  'Trigger time': 0.1,
   'Active duration': 0.07,
-  'Alert group': 0.14,
+  'Alert group': 0.15,
   'Alert name': 0.2,
   'Trigger details': 0.15,
   Status: 0.07,

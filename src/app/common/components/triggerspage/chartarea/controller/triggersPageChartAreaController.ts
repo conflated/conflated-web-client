@@ -9,11 +9,11 @@ import { OwnProps } from '../view/TriggersPageChartAreaView';
 class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNamespace> {
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState[pageStateNamespace].chartAreaState;
 
-  getActionDispatchers = (stateNamespace: ChartAreaPageStateNamespace) => ({
+  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
     startFetchDataForCharts: () => {
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
         chart: null,
-        stateNamespace
+        pageStateNamespace
       });
     }
   });

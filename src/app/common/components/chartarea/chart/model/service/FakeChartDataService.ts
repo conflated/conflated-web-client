@@ -33,10 +33,10 @@ export default class FakeChartDataService implements ChartDataService {
           ];
           columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '3 hours'];
           columnNameToValuesMap['"Alert group"'] = [
-            'Alert group 1',
+            '5G RAN Alerts',
             'Alert group 2 very long name very long name long long',
-            'Alert group 3',
-            'Alert group 4'
+            '4G RAN Alerts',
+            'Core Network Alerts'
           ];
           columnNameToValuesMap['"Alert name"'] = [
             'Alert name 1',
@@ -45,10 +45,10 @@ export default class FakeChartDataService implements ChartDataService {
             'Alert name 4'
           ];
           columnNameToValuesMap['"Trigger details"'] = [
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee'
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee'
           ];
           columnNameToValuesMap.Status = ['New', 'New', 'New', 'New'];
           columnNameToValuesMap.Assignee = ['Petri Silen', 'Petri Silen', 'Petri Silen', 'Petri Silen'];

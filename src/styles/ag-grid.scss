@@ -1,10 +1,17 @@
 .ag-theme-fresh {
+  .ag-root-wrapper {
+    @media (prefers-color-scheme: dark) {
+      border: none;
+    }
+  }
   .ag-root {
     @media (prefers-color-scheme: dark) {
       background-color: #000;
     }
 
     .ag-header-row {
+      font-size: 1rem;
+
       @media (prefers-color-scheme: dark) {
         background-color: #ccc;
       }
@@ -20,6 +27,8 @@
     }
 
     .ag-cell {
+      font-size: 1rem;
+
       @media (prefers-color-scheme: dark) {
         background-color: #000;
         color: #fff;
@@ -28,6 +37,8 @@
   }
 
   .ag-paging-panel {
+    font-size: 1rem;
+
     @media (prefers-color-scheme: dark) {
       background-color: #ccc;
     }

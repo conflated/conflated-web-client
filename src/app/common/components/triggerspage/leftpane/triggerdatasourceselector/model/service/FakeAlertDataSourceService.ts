@@ -10,7 +10,7 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
       setTimeout(() => {
         resolve([
           {
-            name: 'fetchedAlertDS1',
+            name: 'Customer and Network Insights (CNI)',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -20,7 +20,7 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
             sqlStatement: ''
           },
           {
-            name: 'fetchedAlertDS2',
+            name: 'Fixed Network Insights (FNI)',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -30,7 +30,7 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
             sqlStatement: ''
           },
           {
-            name: 'fetchedAlertDS3',
+            name: 'AI Anomaly Detection',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
