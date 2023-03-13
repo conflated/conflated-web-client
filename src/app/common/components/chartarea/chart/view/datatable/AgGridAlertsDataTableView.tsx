@@ -68,18 +68,18 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
         let color;
         switch (params.value) {
           case 'Critical':
-            color = 'red';
+            color = '#E23B3B';
             break;
           case 'Major':
-            color = 'orange';
+            color = '#F47F31';
             break;
           case 'Minor':
-            color = 'yellow';
+            color = '#F7B737';
             break;
           default:
-            color = 'white';
+            color = '#37CC73';
         }
-        return { color, 'background-color': color };
+        return { color, backgroundColor: color };
       }
     }),
     []
