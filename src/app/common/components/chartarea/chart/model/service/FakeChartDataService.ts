@@ -39,10 +39,10 @@ export default class FakeChartDataService implements ChartDataService {
             'Core Network Alerts'
           ];
           columnNameToValuesMap['"Alert name"'] = [
-            'Alert name 1',
+            'High gNB Setup Failure Rate',
             'Alert name 2 very long name very long name long long',
-            'Alert name 3',
-            'Alert name 4'
+            'High 5G-4G Handover Failure Rate',
+            'High Nbr of Paging Failures'
           ];
           columnNameToValuesMap['"Trigger details"'] = [
             'Measure1 = 45.76, Dimension1 = jee',
