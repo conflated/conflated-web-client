@@ -100,12 +100,17 @@ const ReportTemplateGroupSelectorView = ({
                 {
                   iconName: 'play',
                   perform: () => generateReport(reportTemplateGroup),
-                  tooltipText: 'Generate all reports in the report template group'
+                  tooltipText: 'Generate all reports in this group'
                 },
                 {
                   iconName: 'share',
                   perform: () => generateReport(reportTemplateGroup),
-                  tooltipText: 'Generate all reports in the report template group in a new browser tab'
+                  tooltipText: 'Generate all reports in this group in a new browser tab'
+                },
+                {
+                  iconName: 'start',
+                  perform: () => {},
+                  tooltipText: 'Add to favorites'
                 },
                 {
                   iconName: 'i cursor',
