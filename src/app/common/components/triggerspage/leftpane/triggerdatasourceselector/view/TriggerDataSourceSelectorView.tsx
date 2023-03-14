@@ -19,12 +19,12 @@ const TriggerDataSourceSelectorView = ({
   isTriggerSelectorOpen,
   pageStateNamespace,
   selectedDataSources,
-  selectTriggerDataSource,
   shouldShowTriggersPageLeftPanePermanently,
   shownDataSources,
   startFetchTriggerDataSources,
   toggleMaximizeSelector,
-  toggleShouldShowTriggersPageLeftPanePermanently
+  toggleShouldShowTriggersPageLeftPanePermanently,
+  toggleTriggerDataSourceSelection
 }: Props) => {
   useEffect(() => {
     startFetchTriggerDataSources();
@@ -59,11 +59,13 @@ const TriggerDataSourceSelectorView = ({
         <DataSourceListItem
           key={dataSource.name}
           item={dataSource}
-          selectedItem={selectedDataSources[0]}
-          onItemClick={((selectedDataSource: DataSource) => selectTriggerDataSource(selectedDataSource)) as any}
+          selectedItem={selectedDataSources.find((selectedDataSource) => selectedDataSource === dataSource)}
+          onItemClick={
+            ((selectedDataSource: DataSource) => toggleTriggerDataSourceSelection(selectedDataSource)) as any
+          }
         />
       )),
-    [shownDataSources, selectedDataSources, selectTriggerDataSource]
+    [shownDataSources, selectedDataSources, toggleTriggerDataSourceSelection]
   );
 
   const selectorStateNamespace = `${pageStateNamespace}TriggerDataSourceSelector`;

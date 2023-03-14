@@ -32,7 +32,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             filter = 'agDateColumnFilter';
           }
 
-          const colDef: object = {
+          const colDef = {
             headerName: name,
             field: sqlColumn.name,
             sortable: true,
@@ -52,6 +52,10 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           if (name === 'Severity') {
             (colDef as any).comparator = (severity1: string, severity2: string) =>
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
+          }
+
+          if (name !== 'Alert name') {
+            (colDef as any).cellStyle = () => ({ color: '#aaa' });
           }
 
           return colDef;

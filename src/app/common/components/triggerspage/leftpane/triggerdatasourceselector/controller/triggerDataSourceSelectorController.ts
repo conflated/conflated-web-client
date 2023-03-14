@@ -1,6 +1,6 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
-import SelectTriggerDataSourceAction from '../model/actions/SelectTriggerDataSourceAction';
+import ToggleTriggerDataSourceSelectionAction from '../model/actions/ToggleTriggerDataSourceSelectionAction';
 import StartFetchTriggerDataSourcesAction from '../model/actions/StartFetchTriggerDataSourcesAction';
 import diContainer from '../../../../../../../di/diContainer';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
@@ -32,8 +32,8 @@ class TriggerDataSourceSelectorController extends Controller<PageStateNamespace>
     });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({
-    selectTriggerDataSource: (dataSource: DataSource) =>
-      this.dispatch(new SelectTriggerDataSourceAction(stateNamespace, dataSource)),
+    toggleTriggerDataSourceSelection: (dataSource: DataSource) =>
+      this.dispatch(new ToggleTriggerDataSourceSelectionAction(stateNamespace, dataSource)),
 
     startFetchTriggerDataSources: () =>
       this.dispatchWithDi(StartFetchTriggerDataSourcesAction, diContainer, { stateNamespace }),
