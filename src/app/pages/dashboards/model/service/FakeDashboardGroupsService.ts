@@ -250,6 +250,45 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       fetchedRowCount: 100
     };
 
+    const chartConfig8: ChartConfiguration = {
+      id: '1',
+      chartType: 'line',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'measure1',
+            isDate: false
+          } as Measure,
+          sqlColumn: {
+            name: 'measure1',
+            expression: ''
+          },
+          visualizationColor: '#7D33F2',
+          aggregationFunction: 'SUM',
+          visualizationType: 'line'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'dimension1'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      selectedFilters: [],
+      selectedSortBys: [],
+      chartData: {},
+      xAxisCategoriesShownCount: 5,
+      fetchedRowCount: 5
+    };
+
     const chartConfig7: ChartConfiguration = {
       id: '6',
       chartType: 'area',
@@ -296,145 +335,146 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
     const chart5 = ChartFactory.createChart(chartConfig5);
     const chart6 = ChartFactory.createChart(chartConfig6);
     const chart7 = ChartFactory.createChart(chartConfig7);
+    const chart8 = ChartFactory.createChart(chartConfig8);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
         resolve([
           {
-            name: 'Dashboard group 1',
+            name: '5G RAN Monitoring',
             dashboards: [
               {
-                name: 'Dashboard 1.1',
+                name: '5G RAN Traffic',
                 layout: layout1,
                 charts: [chart1]
               },
               {
-                name: 'Dashboard 1.2',
+                name: '5G RAN Failures',
                 layout: layout1,
                 charts: [chart2]
               },
               {
-                name: 'Dashboard 1.3',
+                name: '5G RAN Throughput',
                 layout: layout2,
                 charts: [chart1, chart3]
               },
               {
-                name: 'Dashboard 1.4',
+                name: '5G RAN Mobility',
                 layout: layout4,
                 charts: [chart1, chart3, chart4]
               },
               {
-                name: 'Dashboard 1.5',
+                name: '5G RAN Coverage',
                 layout: layout14,
                 charts: [chart1, chart3, chart4, chart5, chart6, chart7]
               }
             ]
           },
           {
-            name: 'Dashboard group 2',
+            name: 'NOC Wall Screen Dashboards',
             dashboards: [
               {
-                name: 'Dashboard 2.1',
+                name: 'NOC Wall Screen Dashboard 1',
+                layout: layout1,
+                charts: [chart8]
+              },
+              {
+                name: 'NOC Wall Screen Dashboard 2',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.2',
+                name: 'NOC Wall Screen Dashboard 3',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.3',
+                name: 'NOC Wall Screen Dashboard very long name here for dashboard xxxyyyyzzz',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.4 very long name here for dashboard xxxyyyyzzz',
+                name: 'NOC Wall Screen Dashboard 5',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.5',
+                name: 'NOC Wall Screen Dashboard 6',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.6',
+                name: 'NOC Wall Screen Dashboard 7',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.7',
+                name: 'NOC Wall Screen Dashboard 8',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.8',
+                name: 'NOC Wall Screen Dashboard 9',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.9',
+                name: 'NOC Wall Screen Dashboard 10',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.10',
+                name: 'NOC Wall Screen Dashboard 11',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.11',
+                name: 'NOC Wall Screen Dashboard 12',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.12',
+                name: 'NOC Wall Screen Dashboard 13',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.13',
+                name: 'NOC Wall Screen Dashboard 14',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.14',
+                name: 'NOC Wall Screen Dashboard 15',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.15',
+                name: 'NOC Wall Screen Dashboard 16',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.16',
+                name: 'NOC Wall Screen Dashboard 17',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.17',
+                name: 'NOC Wall Screen Dashboard 18',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.18',
+                name: 'NOC Wall Screen Dashboard 19',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.19',
+                name: 'NOC Wall Screen Dashboard 20',
                 layout: layout1,
                 charts: [emptyChart]
               },
               {
-                name: 'Dashboard 2.20',
-                layout: layout1,
-                charts: [emptyChart]
-              },
-              {
-                name: 'Dashboard 2.21',
+                name: 'NOC Wall Screen Dashboard 21',
                 layout: layout1,
                 charts: [emptyChart]
               }

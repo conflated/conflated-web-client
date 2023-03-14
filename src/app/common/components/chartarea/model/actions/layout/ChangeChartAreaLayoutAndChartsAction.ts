@@ -3,6 +3,7 @@ import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { Layout } from '../../state/types/Layout';
 import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
+import { nullChart } from '../../state/createChartAreaStateReducer';
 
 export default class ChangeChartAreaLayoutAndChartsAction extends AbstractChartAreaAction {
   constructor(
@@ -18,7 +19,7 @@ export default class ChangeChartAreaLayoutAndChartsAction extends AbstractChartA
       ...currentState,
       layout: this.layout,
       charts: this.charts,
-      selectedChart: this.charts[0]
+      selectedChart: nullChart
     };
 
     return newState;

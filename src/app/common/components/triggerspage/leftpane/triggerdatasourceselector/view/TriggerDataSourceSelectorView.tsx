@@ -71,7 +71,7 @@ const TriggerDataSourceSelectorView = ({
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText="DATA SOURCE"
+      titleText="DATA SOURCES"
       addIconTooltipText="Add new data source"
       position="leftPane"
       listItemsContent={
