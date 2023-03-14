@@ -103,6 +103,11 @@ const ReportTemplateGroupSelectorView = ({
                   tooltipText: 'Generate all reports in the report template group'
                 },
                 {
+                  iconName: 'share',
+                  perform: () => generateReport(reportTemplateGroup),
+                  tooltipText: 'Generate all reports in the report template group in a new browser tab'
+                },
+                {
                   iconName: 'i cursor',
                   perform: () => startRenaming(reportTemplateGroup),
                   tooltipText: 'Rename'
