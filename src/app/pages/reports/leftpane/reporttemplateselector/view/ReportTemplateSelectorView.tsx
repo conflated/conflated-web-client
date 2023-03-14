@@ -34,13 +34,18 @@ const ReportTemplateSelectorView = ({
         <ReportTemplateSelectorListItemView
           item={reportTemplate}
           key={reportTemplate.name}
-          onItemClick={() => openGenerateReportDialog()}
+          onItemClick={openGenerateReportDialog}
           onItemDblClick={() => window.open('http://localhost:3000/reports', '_blank')}
           actions={[
             {
+              iconName: 'play',
+              perform: openGenerateReportDialog,
+              tooltipText: 'Generate report'
+            },
+            {
               iconName: 'share',
               perform: () => window.open('http://localhost:3000/reports', '_blank'),
-              tooltipText: 'Open in new browser tab'
+              tooltipText: 'Generate report in a new browser tab'
             },
             { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
