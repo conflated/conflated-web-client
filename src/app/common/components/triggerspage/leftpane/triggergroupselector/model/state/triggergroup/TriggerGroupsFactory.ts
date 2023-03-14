@@ -12,7 +12,9 @@ export default class TriggerGroupsFactory {
     const [triggerGroupNameData, severityOrStatusData] =
       triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
 
-    return _.uniq(triggerGroupNameData)
+    return _.uniq(
+      triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))
+    )
       .filter(
         (triggerGroupName: string) =>
           searchedValue.length === 0 || (searchedValue.length > 0 && triggerGroupName.includes(searchedValue))
@@ -20,21 +22,21 @@ export default class TriggerGroupsFactory {
       .map((triggerGroupName: string) => {
         const worstTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
-            triggerGroupNameData[index] === triggerGroupName &&
+            triggerGroupNameData[index].includes(triggerGroupName) &&
             ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Critical') ||
               (pageStateNamespace === 'goalsPage' && severityOrStatus === 'Far below target'))
         );
 
         const intermediateTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
-            triggerGroupNameData[index] === triggerGroupName &&
+            triggerGroupNameData[index].includes(triggerGroupName) &&
             ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Major') ||
               (pageStateNamespace === 'goalsPage' && severityOrStatus === 'Below target'))
         );
 
         const bestTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
-            triggerGroupNameData[index] === triggerGroupName &&
+            triggerGroupNameData[index].includes(triggerGroupName) &&
             ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Minor') ||
               (pageStateNamespace === 'goalsPage' && severityOrStatus === 'On target'))
         );

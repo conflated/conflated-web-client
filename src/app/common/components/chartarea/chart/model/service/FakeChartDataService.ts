@@ -33,10 +33,10 @@ export default class FakeChartDataService implements ChartDataService {
           ];
           columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '3 hours'];
           columnNameToValuesMap['"Alert group"'] = [
-            '5G RAN Alerts',
+            'RAN, 5G RAN, gNB',
             'Alert group 2 very long name very long name long long',
-            '4G RAN Alerts',
-            'Core Network Alerts'
+            'RAN, 4G RAN, eNB',
+            'Core Network, AMF'
           ];
           columnNameToValuesMap['"Alert name"'] = [
             'High gNB Setup Failure Rate',
