@@ -252,7 +252,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
 
     const chartConfig8: ChartConfiguration = {
       id: '1',
-      chartType: 'line',
+      chartType: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -264,9 +264,9 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             name: 'measure1',
             expression: ''
           },
-          visualizationColor: '#7D33F2',
+          visualizationColor: '#005AFF',
           aggregationFunction: 'SUM',
-          visualizationType: 'line'
+          visualizationType: 'area'
         }
       ],
       selectedDimensions: [
@@ -475,6 +475,11 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
               },
               {
                 name: 'NOC Wall Screen Dashboard 21',
+                layout: layout1,
+                charts: [emptyChart]
+              },
+              {
+                name: 'NOC Wall Screen Dashboard 22',
                 layout: layout1,
                 charts: [emptyChart]
               }
