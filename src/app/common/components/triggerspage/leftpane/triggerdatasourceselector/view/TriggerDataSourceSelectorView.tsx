@@ -63,6 +63,19 @@ const TriggerDataSourceSelectorView = ({
           onItemClick={
             ((selectedDataSource: DataSource) => toggleTriggerDataSourceSelection(selectedDataSource)) as any
           }
+          actions={[
+            {
+              iconName: 'star',
+              perform: () => {},
+              tooltipText: 'Add to favorites'
+            },
+            { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+            {
+              iconName: 'trash alternate outline',
+              perform: () => {},
+              tooltipText: 'Delete'
+            }
+          ]}
         />
       )),
     [shownDataSources, selectedDataSources, toggleTriggerDataSourceSelection]
