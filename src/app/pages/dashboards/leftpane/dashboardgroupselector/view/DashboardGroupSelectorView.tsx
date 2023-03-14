@@ -110,6 +110,11 @@ const DashboardGroupSelectorView = ({
                   tooltipText: 'Copy link to clipboard'
                 },
                 {
+                  iconName: 'star',
+                  perform: () => {},
+                  tooltipText: 'Add to favorites'
+                },
+                {
                   iconName: 'i cursor',
                   perform: () => startRenamingDashboardGroup(dashboardGroup),
                   tooltipText: 'Rename'
