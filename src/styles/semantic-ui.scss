@@ -46,25 +46,17 @@
     .dropdown.selection {
       @media (prefers-color-scheme: dark) {
         background-color: transparent;
+        border: none !important;
         color: #fff;
         min-height: 0;
         padding: 0;
-
-        &.active {
-          border: 1px solid #333333;
-        }
-
-        &:hover,
-        &:focus {
-          border: 1px solid #333333;
-        }
 
         .icon {
           border: none;
           padding: 0;
         }
 
-        .text {
+        .divider.text {
           color: #fff !important;
           padding: 0;
           padding-right: 1.5rem;
@@ -74,12 +66,17 @@
           background-color: var(--dialog-content-background-color) !important;
           border: 1px solid #333 !important;
           color: #fff;
+          margin-top: 0.25rem;
 
           .item {
             background-color: var(--dialog-content-background-color) !important;
-            border-top: 1px solid #333 !important;
+            border: none !important;
             color: #fff !important;
+            padding-top: 0.3rem !important;
+            padding-bottom: 0.3rem !important;
           }
+
+
         }
       }
     }
