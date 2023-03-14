@@ -49,6 +49,11 @@ const DashboardSelectorView = ({
               perform: () => navigator.clipboard.writeText('http://localhost:3000/dashboards'),
               tooltipText: 'Copy link to clipboard'
             },
+            {
+              iconName: 'star',
+              perform: () => {},
+              tooltipText: 'Add to favorites'
+            },
             { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
             { iconName: 'trash alternate outline', perform: () => {}, tooltipText: 'Delete' }
