@@ -47,6 +47,11 @@ const ReportTemplateSelectorView = ({
               perform: () => window.open('http://localhost:3000/reports', '_blank'),
               tooltipText: 'Generate report in a new browser tab'
             },
+            {
+              iconName: 'star',
+              perform: () => {},
+              tooltipText: 'Add to favorites'
+            },
             { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
             { iconName: 'trash alternate outline', perform: () => {}, tooltipText: 'Delete' }

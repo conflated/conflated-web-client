@@ -108,7 +108,7 @@ const ReportTemplateGroupSelectorView = ({
                   tooltipText: 'Generate all reports in this group in a new browser tab'
                 },
                 {
-                  iconName: 'start',
+                  iconName: 'star',
                   perform: () => {},
                   tooltipText: 'Add to favorites'
                 },
