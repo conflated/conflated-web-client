@@ -40,6 +40,26 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
             sqlStatement: ''
           },
           {
+            name: 'Active CNI Core Alarms',
+            jdbcDriverClass: '',
+            jdbcUrl: '',
+            authentication: {
+              user: '',
+              password: ''
+            },
+            sqlStatement: ''
+          },
+          {
+            name: 'Active CNI RAN Alarms',
+            jdbcDriverClass: '',
+            jdbcUrl: '',
+            authentication: {
+              user: '',
+              password: ''
+            },
+            sqlStatement: ''
+          },
+          {
             name: 'All Alarms',
             jdbcDriverClass: '',
             jdbcUrl: '',
