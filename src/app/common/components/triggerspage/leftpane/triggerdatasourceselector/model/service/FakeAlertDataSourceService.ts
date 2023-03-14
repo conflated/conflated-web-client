@@ -10,7 +10,7 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
       setTimeout(() => {
         resolve([
           {
-            name: 'AVA Customer and Network Insights (CNI)',
+            name: 'Active CNI Alarms',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -20,7 +20,7 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
             sqlStatement: ''
           },
           {
-            name: 'AVA Fixed Network Insights (FNI)',
+            name: 'Active FNI Alarms',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -30,7 +30,17 @@ export default class FakeAlertDataSourceService extends AlertDataSourceService {
             sqlStatement: ''
           },
           {
-            name: 'NOA AI Anomaly Detection',
+            name: 'Active Detected Anomalies',
+            jdbcDriverClass: '',
+            jdbcUrl: '',
+            authentication: {
+              user: '',
+              password: ''
+            },
+            sqlStatement: ''
+          },
+          {
+            name: 'All Alarms',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
