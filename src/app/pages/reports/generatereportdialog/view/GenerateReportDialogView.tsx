@@ -11,6 +11,8 @@ type Props = State & ActionDispatchers;
 const GenerateReportDialogView = ({ close, isOpen }: Props) => {
   const [parametersShouldBeShown, setParametersShouldBeShown] = useState(true);
   const [activePaneIndex, setActivePaneIndex] = useState(0);
+  const [reportingRelativity, setReportingRelativity] = useState('last');
+  const [reportingTimeUnit, setReportingTimeUnit] = useState('minutes');
   const changeActivePane = (_: React.SyntheticEvent, { activeIndex }: any) => setActivePaneIndex(activeIndex);
 
   const reportingPeriodRelativityOptions = [
@@ -18,12 +20,24 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
     { key: 't', text: 'This', value: 'this' }
   ];
 
-  const reportingPeriodTimeUnitOptions = [
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const reportingTimeUnitOptions = [
     { key: 'm', text: 'Minutes', value: 'minutes' },
     { key: 'h', text: 'Hours', value: 'hours' },
     { key: 'd', text: 'Days', value: 'days' },
     { key: 'mo', text: 'Months', value: 'months' },
     { key: 'y', text: 'Years', value: 'years' }
+  ];
+
+  const reportingTimeUnitOptions2 = [
+    { key: 'm', text: 'Minute', value: 'minutes' },
+    { key: 'h', text: 'Hour', value: 'hours' },
+    { key: 'd', text: 'Day', value: 'days' },
+    { key: 'w', text: 'Week', value: 'weeks' },
+    { key: 'mo', text: 'Month', value: 'months' },
+    { key: 'q', text: 'Quarter', value: 'quarters' },
+    { key: 'hy', text: 'Half year', value: 'halfyear' },
+    { key: 'y', text: 'Year', value: 'years' }
   ];
 
   const tabPanes = [
@@ -32,9 +46,19 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
       render: () => (
         <Tab.Pane className={styles.tabPane}>
           <Form.Group className={styles.formGroup}>
-            <Form.Select fluid options={reportingPeriodRelativityOptions} value="last" />
-            <Form.Input className={styles.reportingPeriodValue} value="15" />
-            <Form.Select fluid options={reportingPeriodTimeUnitOptions} value="minutes" />
+            <Form.Select
+              fluid
+              options={reportingPeriodRelativityOptions}
+              onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingRelativity(value)}
+              value={reportingRelativity}
+            />
+            {reportingRelativity === 'last' && <Form.Input className={styles.reportingPeriodValue} value="15" />}
+            <Form.Select
+              fluid
+              onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingTimeUnit(value)}
+              options={reportingRelativity === 'last' ? reportingTimeUnitOptions : reportingTimeUnitOptions2}
+              value={reportingTimeUnit}
+            />
           </Form.Group>
         </Tab.Pane>
       )

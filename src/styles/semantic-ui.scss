@@ -67,6 +67,7 @@
           border: 1px solid #333 !important;
           color: #fff;
           margin-top: 0.25rem;
+          width: auto !important;
 
           .item {
             background-color: var(--dialog-content-background-color) !important;
@@ -74,9 +75,8 @@
             color: #fff !important;
             padding-top: 0.3rem !important;
             padding-bottom: 0.3rem !important;
+            white-space: nowrap;
           }
-
-
         }
       }
     }
