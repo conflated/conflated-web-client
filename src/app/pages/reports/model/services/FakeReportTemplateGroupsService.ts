@@ -6,6 +6,7 @@ import { Measure } from '../../../dataexplorer/leftpane/measureselector/model/st
 import { Dimension } from '../../../dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import { ReportTemplateGroupsService } from './ReportTemplateGroupsService';
 import { ReportTemplateGroup } from '../state/types/ReportTemplateGroup';
+import layout2 from '../../../dataexplorer/leftpane/layoutselector/model/state/layouts/layout2';
 
 export default class FakeReportTemplateGroupsService implements ReportTemplateGroupsService {
   private readonly latency = 1000;
@@ -102,7 +103,7 @@ export default class FakeReportTemplateGroupsService implements ReportTemplateGr
             reportTemplates: [
               {
                 name: 'Subscriber Activity',
-                layout: layout1,
+                layout: layout2,
                 charts: [chart1, chart3]
               },
               {

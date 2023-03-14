@@ -5,6 +5,10 @@
     align-items: center !important;
   }
 
+  :global(.tab) {
+    border: none !important;
+  }
+
   :global(.item) {
     .closeIcon {
       display: none;
