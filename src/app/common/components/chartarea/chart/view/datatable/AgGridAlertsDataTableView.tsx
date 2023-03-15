@@ -113,11 +113,12 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return (
-    <div className="ag-theme-fresh" style={{ height }}>
+    <div className="ag-theme-balham" style={{ height }}>
       <AgGridReact
         key={key}
         columnDefs={columnDefs}
         rowData={dataRows}
+        rowHeight={19}
         rowSelection="multiple"
         pagination
         enableBrowserTooltips
