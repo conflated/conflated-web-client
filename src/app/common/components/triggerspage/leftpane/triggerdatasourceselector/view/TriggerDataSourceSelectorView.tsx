@@ -86,7 +86,7 @@ const TriggerDataSourceSelectorView = ({
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText="DATA SOURCES"
+      titleText={pageStateNamespace === 'goalsPage' ? 'GOAL DATA SOURCES' : 'ALERT DATA SOURCES'}
       addIconTooltipText="Add new data source"
       position="leftPane"
       listItemsContent={

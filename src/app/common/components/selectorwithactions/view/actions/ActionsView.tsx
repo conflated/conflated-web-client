@@ -86,7 +86,7 @@ const ActionsView: React.FC<Props> = ({
 
   return (
     <div>
-      {addIcon}
+      {addIconTooltipText ? addIcon : undefined}
       {searchIcon}
       {reorderIconTooltipText ? reorderIcon : undefined}
       {maximizeIcon}

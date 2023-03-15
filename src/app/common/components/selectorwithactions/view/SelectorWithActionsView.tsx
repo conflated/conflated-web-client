@@ -11,7 +11,7 @@ import { ActionDispatchers, controller, State } from '../controller/selectorWith
 import stopEventPropagation from '../../../utils/stopEventPropagation';
 
 export type OwnProps = {
-  addIconTooltipText: string;
+  addIconTooltipText?: string;
   additionalContent?: JSX.Element;
   handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
@@ -96,6 +96,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
 };
 
 SelectorWithActionsView.defaultProps = {
+  addIconTooltipText: undefined,
   additionalContent: undefined,
   handlePinIconClick: undefined,
   isPinned: undefined,

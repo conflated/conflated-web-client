@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from '../../../../../../view/listitems/listitem/ListItemView.module.scss';
 import styles2 from './TriggerGroupListItemView.module.scss';
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const { listItem, selected } = styles;
-const { triggerCountBadge, triggerGroupText, triggerGroupListItem } = styles2;
+const { actionIcon, triggerCountBadge, triggerGroupText, triggerGroupListItem } = styles2;
 
 const TriggerGroupListItemView = ({
   bestTriggerCount,
@@ -35,6 +35,11 @@ const TriggerGroupListItemView = ({
   return (
     <List.Item className={className} onClick={() => selectTriggerGroup(triggerGroup)}>
       <span className={triggerGroupText}>{triggerGroup}</span>
+      <Popup
+        content="Add to favorites"
+        inverted
+        trigger={<List.Icon className={`${styles.listItemActionIcon} ${actionIcon}`} name="star" onClick={() => {}} />}
+      />
       <CountBadgeView className={triggerCountBadge} color="red" count={worstTriggerCount} />
       <CountBadgeView
         className={triggerCountBadge}

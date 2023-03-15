@@ -60,7 +60,6 @@ const TriggerGroupSelectorView = ({
       id={selectorStateNamespace}
       titleText="ALERT GROUP"
       position="leftPane"
-      addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert group' : 'Add new goal group'}
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />
       }
