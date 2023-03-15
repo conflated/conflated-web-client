@@ -53,6 +53,22 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
 
             (colDef as any).comparator = (status1: string, status2: string) =>
               (statusToPriorityValueMap as any)[status1] - (statusToPriorityValueMap as any)[status2];
+
+            (colDef as any).cellStyle = (params: any) => {
+              let color;
+              switch (params.value) {
+                case 'Far below target':
+                  color = '#E23B3B';
+                  break;
+                case 'Below target':
+                  color = '#F7B737';
+                  break;
+                default:
+                  color = '#37CC73';
+              }
+
+              return { color };
+            };
           }
 
           return colDef;
