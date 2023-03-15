@@ -58,12 +58,12 @@ export default class FakeChartDataService implements ChartDataService {
             'High Nbr of Paging Failures'
           ];
           columnNameToValuesMap['"Trigger values"'] = [
-            'Setup Failure Rate = 18%',
-            'Drop Call Rate = 11%',
-            'Setup Failure Rate = 12%',
-            'Measure1 = 45.76',
-            'Handover Failure Rate = 25%',
-            'Paging Failures = 34'
+            'Setup Failure Rate: 18%',
+            'Drop Call Rate: 11%',
+            'Setup Failure Rate: 12%',
+            'Measure1: 45.76',
+            'Handover Failure Rate: 25%',
+            'Paging Failures: 34'
           ];
           columnNameToValuesMap.Status = ['New', 'New', 'New', 'New', 'New', 'New'];
           columnNameToValuesMap.Assignee = [
