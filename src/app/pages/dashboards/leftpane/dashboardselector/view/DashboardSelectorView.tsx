@@ -66,7 +66,7 @@ const DashboardSelectorView = ({
   return (
     <SelectorWithActionsView
       id="dashboardSelector"
-      titleText="DASHBOARD"
+      titleText="DASHBOARDS"
       addIconTooltipText="Add new dashboard"
       position="leftPane"
       listItemsContent={
