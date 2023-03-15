@@ -11,8 +11,8 @@ const columnWidthWeights = {
   Severity: 0.06,
   'Trigger time': 0.1,
   'Active duration': 0.07,
-  'Alert group': 0.15,
-  'Alert name': 0.2,
+  Labels: 0.15,
+  Description: 0.2,
   'Trigger values': 0.15,
   Status: 0.07,
   Assignee: 0.08,
@@ -54,7 +54,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
           }
 
-          if (name !== 'Alert name') {
+          if (name !== 'Description') {
             (colDef as any).cellStyle = () => ({ color: '#aaa' });
           }
 

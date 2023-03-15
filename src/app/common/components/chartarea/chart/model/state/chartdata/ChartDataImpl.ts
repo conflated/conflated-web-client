@@ -12,7 +12,6 @@ import type { DimensionVisualizationType } from '../selecteddimension/types/Dime
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DataScopeType } from '../types/DataScopeType';
 import RowComparer from './rowcomparer/RowComparer';
-import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
 
 export default class ChartDataImpl implements ChartData {
   columnNameToDataMap: ColumnNameToValuesMap;
@@ -196,29 +195,14 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, legendData];
   }
 
-  getTriggerData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>] {
-    let triggerNameData;
-
-    if (pageStateNamespace === 'alertsPage') {
-      triggerNameData = this.columnNameToDataMap['"Alert name"'] ?? [];
-    } else {
-      triggerNameData = this.columnNameToDataMap['"Goal name"'] ?? [];
-    }
-
-    return [triggerNameData, ...this.getTriggerGroupData(pageStateNamespace)];
+  getTriggerData(): [Array<any>, Array<any>, Array<any>] {
+    const triggerNameData = this.columnNameToDataMap['"Description"'] ?? [];
+    return [triggerNameData, ...this.getTriggerGroupData()];
   }
 
-  getTriggerGroupData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>] {
-    let triggerGroupNameData;
-    let severityOrStatusData;
-
-    if (pageStateNamespace === 'alertsPage') {
-      triggerGroupNameData = this.columnNameToDataMap['"Alert group"'] ?? [];
-      severityOrStatusData = this.columnNameToDataMap.Severity ?? [];
-    } else {
-      triggerGroupNameData = this.columnNameToDataMap['"Goal group"'] ?? [];
-      severityOrStatusData = this.columnNameToDataMap.Status ?? [];
-    }
+  getTriggerGroupData(): [Array<any>, Array<any>] {
+    const triggerGroupNameData = this.columnNameToDataMap['"Labels"'] ?? [];
+    const severityOrStatusData = this.columnNameToDataMap.Severity ?? [];
 
     return [triggerGroupNameData, severityOrStatusData];
   }

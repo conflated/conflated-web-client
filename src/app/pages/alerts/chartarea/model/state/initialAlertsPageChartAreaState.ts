@@ -29,7 +29,7 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
-        name: 'Alert name',
+        name: 'Description',
         expression: '',
         isTimestamp: false,
         isString: true,
@@ -37,8 +37,8 @@ const dataTableChart = ChartFactory.createChart({
         unit: 'none'
       },
       sqlColumn: {
-        name: '"Alert name"',
-        expression: '"Alert name"'
+        name: '"Description"',
+        expression: '"Description"'
       },
       visualizationType: 'none'
     },
@@ -74,7 +74,7 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
-        name: 'Alert group',
+        name: 'Labels',
         expression: '',
         isTimestamp: false,
         isString: true,
@@ -82,8 +82,8 @@ const dataTableChart = ChartFactory.createChart({
         unit: 'none'
       },
       sqlColumn: {
-        name: '"Alert group"',
-        expression: '"Alert group"'
+        name: '"Labels"',
+        expression: '"Labels"'
       },
       visualizationType: 'none'
     },
