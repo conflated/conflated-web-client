@@ -12,7 +12,7 @@ const columnWidthWeights = {
   'Trigger time': 0.12,
   'Goal group': 0.2,
   'Goal name': 0.3,
-  'Trigger details': 0.28
+  'Trigger values': 0.28
 };
 
 const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {

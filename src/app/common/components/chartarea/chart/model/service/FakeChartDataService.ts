@@ -24,35 +24,59 @@ export default class FakeChartDataService implements ChartDataService {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
 
         if (dataSource.name === 'alertsdata') {
-          columnNameToValuesMap.Severity = ['Critical', 'Major', 'Minor', 'Info'];
+          columnNameToValuesMap.Severity = ['Critical', 'Critical', 'Major', 'Major', 'Minor', 'Info'];
           columnNameToValuesMap['"Trigger time"'] = [
+            '2019-04-01 12:00:00',
+            '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00'
           ];
-          columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '3 hours'];
+          columnNameToValuesMap['"Active duration"'] = [
+            '3 hours',
+            '3 hours',
+            '3 hours',
+            '3 hours',
+            '3 hours',
+            '3 hours'
+          ];
           columnNameToValuesMap['"Alert group"'] = [
-            'RAN, 5G RAN, gNB',
+            '5G RAN, gNB 2345',
+            '5G RAN, gNB 2345',
+            '5G RAN, gNB 2366',
             'Alert group 2 very long name very long name long long',
-            'RAN, 4G RAN, eNB',
-            'Core Network, AMF'
+            '4G RAN, eNB 4333',
+            'Core Network, AMF 3'
           ];
           columnNameToValuesMap['"Alert name"'] = [
+            'High gNB Setup Failure Rate',
+            'High gNB Drop Call Rate',
             'High gNB Setup Failure Rate',
             'Alert name 2 very long name very long name long long',
             'High 5G-4G Handover Failure Rate',
             'High Nbr of Paging Failures'
           ];
-          columnNameToValuesMap['"Trigger details"'] = [
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee'
+          columnNameToValuesMap['"Trigger values"'] = [
+            'Setup Failure Rate = 18%',
+            'Drop Call Rate = 11%',
+            'Setup Failure Rate = 12%',
+            'Measure1 = 45.76',
+            'Handover Failure Rate = 25%',
+            'Paging Failures = 34'
           ];
-          columnNameToValuesMap.Status = ['New', 'New', 'New', 'New'];
-          columnNameToValuesMap.Assignee = ['Petri Silen', 'Petri Silen', 'Petri Silen', 'Petri Silen'];
+          columnNameToValuesMap.Status = ['New', 'New', 'New', 'New', 'New', 'New'];
+          columnNameToValuesMap.Assignee = [
+            'Petri Silen',
+            'Petri Silen',
+            'Petri Silen',
+            'Petri Silen',
+            'Petri Silen',
+            'Petri Silen'
+          ];
           columnNameToValuesMap['"Status last modified"'] = [
+            '2019-04-01 12:00:00',
+            '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
@@ -78,7 +102,7 @@ export default class FakeChartDataService implements ChartDataService {
             'Goal name 3',
             'Goal name 4'
           ];
-          columnNameToValuesMap['"Trigger details"'] = [
+          columnNameToValuesMap['"Trigger values"'] = [
             'Measure1 = 45.76Dimension1 = jee',
             'Measure1 = 45.76Dimension1 = jee',
             'Measure1 = 45.76Dimension1 = jee',

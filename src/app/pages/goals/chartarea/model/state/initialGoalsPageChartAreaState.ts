@@ -74,7 +74,7 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
-        name: 'Trigger details',
+        name: 'Trigger values',
         expression: '',
         isTimestamp: false,
         isString: true,
@@ -82,8 +82,8 @@ const dataTableChart = ChartFactory.createChart({
         unit: 'none'
       },
       sqlColumn: {
-        name: '"Trigger details"',
-        expression: '"Trigger details"'
+        name: '"Trigger values"',
+        expression: '"Trigger values"'
       },
       visualizationType: 'none'
     }

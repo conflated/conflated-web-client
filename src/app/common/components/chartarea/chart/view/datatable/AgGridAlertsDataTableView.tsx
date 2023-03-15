@@ -13,7 +13,7 @@ const columnWidthWeights = {
   'Active duration': 0.07,
   'Alert group': 0.15,
   'Alert name': 0.2,
-  'Trigger details': 0.15,
+  'Trigger values': 0.15,
   Status: 0.07,
   Assignee: 0.08,
   'Status last modified': 0.12
