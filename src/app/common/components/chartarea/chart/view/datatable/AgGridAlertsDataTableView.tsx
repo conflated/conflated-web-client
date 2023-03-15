@@ -54,6 +54,8 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           }
 
           if (name === 'Severity') {
+            (colDef as any).sort = 'desc';
+
             (colDef as any).comparator = (severity1: string, severity2: string) =>
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
 

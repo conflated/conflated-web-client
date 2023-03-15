@@ -10,8 +10,8 @@ type Props = { chart: Chart; height: number; width: number };
 const columnWidthWeights = {
   Status: 0.1,
   'Trigger time': 0.12,
-  'Goal group': 0.2,
-  'Goal name': 0.3,
+  Labels: 0.2,
+  Description: 0.3,
   'Trigger values': 0.28
 };
 
@@ -44,7 +44,13 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
             'On target': 1
           };
 
+          if (name !== 'Description') {
+            (colDef as any).cellStyle = () => ({ color: '#aaa' });
+          }
+
           if (name === 'Status') {
+            (colDef as any).sort = 'asc';
+
             (colDef as any).comparator = (status1: string, status2: string) =>
               (statusToPriorityValueMap as any)[status1] - (statusToPriorityValueMap as any)[status2];
           }

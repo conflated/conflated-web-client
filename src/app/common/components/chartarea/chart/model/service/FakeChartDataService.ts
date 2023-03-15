@@ -90,23 +90,23 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00'
           ];
-          columnNameToValuesMap['"Goal group"'] = [
+          columnNameToValuesMap['"Labels"'] = [
             'Goal group 1',
             'Goal group 2 very long name very long name long long',
             'Goal group 3',
             'Goal group 4'
           ];
-          columnNameToValuesMap['"Goal name"'] = [
+          columnNameToValuesMap['"Description"'] = [
             'Goal name 1',
             'Goal name 2 very long name very long name long long',
             'Goal name 3',
             'Goal name 4'
           ];
           columnNameToValuesMap['"Trigger values"'] = [
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee',
-            'Measure1 = 45.76Dimension1 = jee'
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee',
+            'Measure1 = 45.76, Dimension1 = jee'
           ];
         } else if (dataSource.name === 'alertstatistics' || dataSource.name === 'goalstatistics') {
           columnNameToValuesMap['"Trigger time COUNT"'] = [3, 5, 6, 4];

@@ -29,6 +29,21 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
+        name: 'Description',
+        expression: '',
+        isTimestamp: false,
+        isString: true,
+        isDate: false,
+        unit: 'none'
+      },
+      sqlColumn: {
+        name: '"Description"',
+        expression: '"Description"'
+      },
+      visualizationType: 'none'
+    },
+    {
+      dimension: {
         name: 'Trigger time',
         expression: '',
         isTimestamp: true,
@@ -44,7 +59,7 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
-        name: 'Goal group',
+        name: 'Labels',
         expression: '',
         isTimestamp: false,
         isString: true,
@@ -52,23 +67,8 @@ const dataTableChart = ChartFactory.createChart({
         unit: 'none'
       },
       sqlColumn: {
-        name: '"Goal group"',
-        expression: '"Goal group"'
-      },
-      visualizationType: 'none'
-    },
-    {
-      dimension: {
-        name: 'Goal name',
-        expression: '',
-        isTimestamp: false,
-        isString: true,
-        isDate: false,
-        unit: 'none'
-      },
-      sqlColumn: {
-        name: '"Goal name"',
-        expression: '"Goal name"'
+        name: '"Labels"',
+        expression: '"Labels"'
       },
       visualizationType: 'none'
     },
