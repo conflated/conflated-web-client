@@ -1,3 +1,3 @@
-export type TriggerGroupSelectorState = {
+export type TriggerLabelSelectorState = {
   readonly selectedTriggerGroups: string[];
 };

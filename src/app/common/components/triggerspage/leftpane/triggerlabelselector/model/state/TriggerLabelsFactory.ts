@@ -1,14 +1,14 @@
 import _ from 'lodash';
-import type { TriggerGroup } from './TriggerGroup';
-import type { Chart } from '../../../../../../chartarea/chart/model/state/Chart';
-import type { TriggersPageStateNamespace } from '../../../../../model/state/TriggersPageStateNamespace';
+import type { TriggerLabel } from './types/TriggerLabel';
+import type { Chart } from '../../../../../chartarea/chart/model/state/Chart';
+import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
-export default class TriggerGroupsFactory {
-  static createTriggerGroups(
+export default class TriggerLabelsFactory {
+  static createTriggerLabels(
     triggersDataTableChart: Chart,
     searchedValue: string,
     pageStateNamespace: TriggersPageStateNamespace
-  ) {
+  ): TriggerLabel[] {
     const [triggerGroupNameData, severityOrStatusData] =
       triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
 
@@ -49,7 +49,7 @@ export default class TriggerGroupsFactory {
         };
       })
       .sort(
-        (triggerGroup1: TriggerGroup, triggerGroup2: TriggerGroup) =>
+        (triggerGroup1: TriggerLabel, triggerGroup2: TriggerLabel) =>
           3 * triggerGroup2.worstTriggerCount +
           2 * triggerGroup2.intermediateTriggerCount +
           triggerGroup2.bestTriggerCount -

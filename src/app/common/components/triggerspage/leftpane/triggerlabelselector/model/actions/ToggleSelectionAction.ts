@@ -1,14 +1,14 @@
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
-import AbstractTriggerGroupSelectorAction from './AbstractTriggerGroupSelectorAction';
-import type { TriggerGroupSelectorState } from '../state/TriggerGroupSelectorState';
+import AbstractTriggerLabelSelectorAction from './AbstractTriggerLabelSelectorAction';
+import type { TriggerLabelSelectorState } from '../state/TriggerLabelSelectorState';
 import { without } from '../../../../../../utils/Utils';
 
-export default class ToggleSelectionAction extends AbstractTriggerGroupSelectorAction {
+export default class ToggleSelectionAction extends AbstractTriggerLabelSelectorAction {
   constructor(stateNamespace: TriggersPageStateNamespace, private readonly triggerGroup: string) {
     super(stateNamespace);
   }
 
-  perform(currentState: TriggerGroupSelectorState): TriggerGroupSelectorState {
+  perform(currentState: TriggerLabelSelectorState): TriggerLabelSelectorState {
     const { selectedTriggerGroups } = currentState;
     let newState;
 

@@ -1,4 +1,4 @@
-export default class TriggerListItemBadgeColorFactory {
+export default class TriggerSelectorListItemBadgeColorFactory {
   static createBadgeColor(severity: string): string {
     let color = 'green';
 

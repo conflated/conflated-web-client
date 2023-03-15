@@ -3,16 +3,16 @@ import ToggleSelectionAction from '../model/actions/ToggleSelectionAction';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import store from '../../../../../../../store/store';
 import { AppState } from '../../../../../../../store/AppState';
-import createTriggerGroupsSelector from './selectors/createTriggerGroupsSelector';
+import createTriggerLabelSelector from './selectors/createTriggerLabelSelector';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../../selectorwithactions/controller/selectorWithActionsController';
-import { OwnProps } from '../view/TriggerGroupSelectorView';
+import { OwnProps } from '../view/TriggerLabelSelectorView';
 
-class TriggerGroupSelectorController extends Controller<TriggersPageStateNamespace> {
+class TriggerLabelSelectorController extends Controller<TriggersPageStateNamespace> {
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) =>
     OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].triggerGroupSelectorState, {
-      triggerGroups: createTriggerGroupsSelector(pageStateNamespace)(appState),
+      triggerGroups: createTriggerLabelSelector(pageStateNamespace)(appState),
 
       isTriggerDataSourceSelectorOpen:
         appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
@@ -31,6 +31,6 @@ class TriggerGroupSelectorController extends Controller<TriggersPageStateNamespa
   });
 }
 
-export const controller = new TriggerGroupSelectorController(store.dispatch);
+export const controller = new TriggerLabelSelectorController(store.dispatch);
 export type State = ReturnType<typeof controller.getState>;
 export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;

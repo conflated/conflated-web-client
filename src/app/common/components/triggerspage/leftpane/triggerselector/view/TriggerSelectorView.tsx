@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import TriggerListItemView from './triggerlistitem/TriggerListItemView';
+import TriggerListItemView from './listitem/TriggerListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
@@ -60,7 +60,7 @@ const TriggerSelectorView = ({
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText="ALERT"
+      titleText={pageStateNamespace === 'alertsPage' ? 'ALERTS' : 'GOALS'}
       addIconTooltipText={pageStateNamespace === 'alertsPage' ? 'Add new alert' : 'Add new goal'}
       position="leftPane"
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}

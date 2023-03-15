@@ -1,7 +1,7 @@
 import type { HeaderState } from '../app/header/model/state/HeaderState';
 import type { DataSourceSelectorState } from '../app/pages/dataexplorer/leftpane/datasourceselector/model/state/DataSourceSelectorState';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/SaveAsDashboardOrReportTemplateDialogState';
-import type { TriggerGroupSelectorState } from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/TriggerGroupSelectorState';
+import type { TriggerLabelSelectorState } from '../app/common/components/triggerspage/leftpane/triggerlabelselector/model/state/TriggerLabelSelectorState';
 import type { DashboardsPageState } from '../app/pages/dashboards/model/state/DashboardsPageState';
 import type { LayoutSelectorState } from '../app/pages/dataexplorer/leftpane/layoutselector/model/state/LayoutSelectorState';
 import type { MeasureSelectorState } from '../app/pages/dataexplorer/leftpane/measureselector/model/state/MeasureSelectorState';
@@ -57,13 +57,13 @@ export type AppState = {
   };
   alertsPage: {
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
-    triggerGroupSelectorState: TriggerGroupSelectorState;
+    triggerGroupSelectorState: TriggerLabelSelectorState;
     triggerSelectorState: TriggerSelectorState;
     chartAreaState: ChartAreaState;
   };
   goalsPage: {
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
-    triggerGroupSelectorState: TriggerGroupSelectorState;
+    triggerGroupSelectorState: TriggerLabelSelectorState;
     triggerSelectorState: TriggerSelectorState;
     chartAreaState: ChartAreaState;
   };

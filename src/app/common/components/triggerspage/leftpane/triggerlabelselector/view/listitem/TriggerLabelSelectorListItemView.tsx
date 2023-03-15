@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from '../../../../../../view/listitems/listitem/ListItemView.module.scss';
-import styles2 from './TriggerGroupListItemView.module.scss';
+import styles2 from './TriggerLabelSelectorListItemView.module.scss';
 import CountBadgeView from '../../../../../../view/countbadge/CountBadgeView';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
@@ -19,7 +19,7 @@ type Props = {
 const { listItem, selected } = styles;
 const { actionIcon, triggerCountBadge, triggerGroupText, triggerGroupListItem } = styles2;
 
-const TriggerGroupListItemView = ({
+const TriggerLabelSelectorListItemView = ({
   bestTriggerCount,
   intermediateTriggerCount,
   pageStateNamespace,
@@ -55,4 +55,4 @@ const TriggerGroupListItemView = ({
   );
 };
 
-export default TriggerGroupListItemView;
+export default TriggerLabelSelectorListItemView;

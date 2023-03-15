@@ -2,9 +2,9 @@ import React from 'react';
 import { List } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from '../../../../../../view/listitems/listitem/ListItemView.module.scss';
-import styles2 from './TriggerListItemView.module.scss';
+import styles2 from './TriggerSelectorListItemView.module.scss';
 import CountBadgeView from '../../../../../../view/countbadge/CountBadgeView';
-import TriggerListItemBadgeColorFactory from './badgecolorfactory/TriggerListItemBadgeColorFactory';
+import TriggerSelectorListItemBadgeColorFactory from './badgecolorfactory/TriggerSelectorListItemBadgeColorFactory';
 
 type Props = {
   selectedTriggers: string[];
@@ -18,7 +18,7 @@ const { selected } = styles;
 const { triggerCountBadge, triggerListItem, triggerText } = styles2;
 
 const TriggerListItemView = ({ selectedTriggers, selectTrigger, severity, trigger, triggerCount }: Props) => {
-  const badgeColor = TriggerListItemBadgeColorFactory.createBadgeColor(severity);
+  const badgeColor = TriggerSelectorListItemBadgeColorFactory.createBadgeColor(severity);
   const className = classNames(styles.listItem, triggerListItem, { [selected]: selectedTriggers.includes(trigger) });
 
   return (

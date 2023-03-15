@@ -1,18 +1,18 @@
 import _ from 'lodash';
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
-import TriggerGroupListItemView from './triggergrouplistitem/TriggerGroupListItemView';
+import TriggerLabelSelectorListItemView from './listitem/TriggerLabelSelectorListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import type { TriggerGroup } from '../model/state/triggergroup/TriggerGroup';
-import { ActionDispatchers, controller, State } from '../controller/triggerGroupSelectorController';
+import type { TriggerLabel } from '../model/state/types/TriggerLabel';
+import { ActionDispatchers, controller, State } from '../controller/triggerLabelSelectorController';
 
 export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
-const TriggerGroupSelectorView = ({
+const TriggerLabelSelectorView = ({
   isTriggerDataSourceSelectorOpen,
   isTriggerSelectorOpen,
   pageStateNamespace,
@@ -38,8 +38,8 @@ const TriggerGroupSelectorView = ({
 
   const triggerGroupListItems = useMemo(
     () =>
-      triggerGroups.map((triggerGroup: TriggerGroup) => (
-        <TriggerGroupListItemView
+      triggerGroups.map((triggerGroup: TriggerLabel) => (
+        <TriggerLabelSelectorListItemView
           key={triggerGroup.name}
           triggerGroup={triggerGroup.name}
           selectedTriggerGroups={selectedTriggerGroups}
@@ -72,4 +72,4 @@ const TriggerGroupSelectorView = ({
 export default connect(
   controller.getState,
   _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
-)(TriggerGroupSelectorView);
+)(TriggerLabelSelectorView);

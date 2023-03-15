@@ -5,7 +5,7 @@ import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageS
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
 import PagePaneView from '../../../../view/pagepane/PagePaneView';
 import TriggerDataSourceSelectorView from '../triggerdatasourceselector/view/TriggerDataSourceSelectorView';
-import TriggerGroupSelectorView from '../triggergroupselector/view/TriggerGroupSelectorView';
+import TriggerGroupSelectorView from '../triggerlabelselector/view/TriggerLabelSelectorView';
 import TriggerSelectorView from '../triggerselector/view/TriggerSelectorView';
 import { ActionDispatchers, controller, State } from '../controller/triggersPageLeftPaneController';
 

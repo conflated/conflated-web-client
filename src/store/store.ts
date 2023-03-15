@@ -12,7 +12,7 @@ import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/data
 import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/createSortBySelectorStateReducer';
 import dashboardsPageStateReducer from '../app/pages/dashboards/model/state/dashboardsPageStateReducer';
 import createTriggerDataSourceSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/createTriggerDataSourceSelectorStateReducer';
-import createTriggerGroupSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggergroupselector/model/state/createTriggerGroupSelectorStateReducer';
+import createTriggerGroupSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerlabelselector/model/state/createTriggerLabelSelectorStateReducer';
 import createTriggerSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/createTriggerSelectorStateReducer';
 import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/createSelectorStateReducer';
