@@ -26,10 +26,10 @@ export default class TriggerFactory {
 
     const triggerNameToTriggerCountMap = _.countBy(triggerNamesWithSelectedTriggerLabels);
 
-    return Object.entries(triggerNameToTriggerCountMap).map(([triggerName, triggerCount]) => ({
-      name: triggerName,
-      count: triggerCount,
-      severity: severitiesOrStatuses[triggerNames.indexOf(triggerName)]
+    return Object.entries(triggerNameToTriggerCountMap).map(([name, count]) => ({
+      name,
+      count,
+      severity: severitiesOrStatuses[triggerNames.indexOf(name)]
     }));
   }
 }
