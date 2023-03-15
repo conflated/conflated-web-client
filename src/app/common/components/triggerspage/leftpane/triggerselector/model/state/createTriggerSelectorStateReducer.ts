@@ -3,13 +3,13 @@ import type { TriggerSelectorState } from './TriggerSelectorState';
 import AbstractTriggerSelectorAction from '../actions/AbstractTriggerSelectorAction';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
-const initialAlertSelectorState: TriggerSelectorState = {
+const initialTriggerSelectorState: TriggerSelectorState = {
   selectedTriggers: []
 };
 
 export default (stateNamespace: TriggersPageStateNamespace) =>
   OOReduxUtils.createNamespacedStateReducer<TriggerSelectorState, TriggersPageStateNamespace>(
-    initialAlertSelectorState,
+    initialTriggerSelectorState,
     AbstractTriggerSelectorAction,
     stateNamespace
   );

@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import TriggerListItemView from './listitem/TriggerListItemView';
+import TriggerSelectorListItemView from './listitem/TriggerSelectorListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../selectorwithactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
-import type { Trigger } from '../model/state/trigger/Trigger';
+import type { Trigger } from '../model/state/types/Trigger';
 import { ActionDispatchers, controller, State } from '../controller/triggerSelectorController';
 
 export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
@@ -43,7 +43,7 @@ const TriggerSelectorView = ({
   const triggerListItems = useMemo(
     () =>
       triggers.map((trigger: Trigger) => (
-        <TriggerListItemView
+        <TriggerSelectorListItemView
           key={trigger.name}
           trigger={trigger.name}
           triggerCount={trigger.count}

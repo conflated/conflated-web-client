@@ -33,8 +33,8 @@ const SelectorTabView: React.FC<Props> = ({
     <ListItemsView
       listItems={firstTabPaneListItems}
       itemsAreReorderable={listItemsAreReorderable}
-      noContentFirstLineText="Tbd"
-      noContentSecondLineText="Tbd"
+      noContentFirstLineText=""
+      noContentSecondLineText=""
     />
   );
 
@@ -49,7 +49,7 @@ const SelectorTabView: React.FC<Props> = ({
   }
 
   let secondTabPaneContent = (
-    <ListItemsView listItems={secondTabPaneListItems} noContentFirstLineText="Tbd" noContentSecondLineText="Tbd" />
+    <ListItemsView listItems={secondTabPaneListItems} noContentFirstLineText="" noContentSecondLineText="" />
   );
 
   if (_.isEmpty(secondTabPaneListItems) && firstNoContentLineText) {

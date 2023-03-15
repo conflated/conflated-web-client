@@ -3,7 +3,7 @@ import type { TriggersPageStateNamespace } from '../../../../model/state/Trigger
 import type { Chart } from '../../../../../chartarea/chart/model/state/Chart';
 import selectorWithActionsStateNamespaces from '../../../../../selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { AppState } from '../../../../../../../../store/AppState';
-import TriggerFactory from '../../model/state/trigger/TriggerFactory';
+import TriggerFactory from '../../model/state/factories/TriggerFactory';
 
 export default function createTriggerSelector(pageStateNamespace: TriggersPageStateNamespace) {
   const triggersDataTableChartSelector = (appState: AppState): Chart =>
@@ -20,6 +20,6 @@ export default function createTriggerSelector(pageStateNamespace: TriggersPageSt
   return createSelector(
     [triggersDataTableChartSelector, selectedTriggerGroupsSelector, searchedValueSelector],
     (triggersDataTableChart: Chart, selectedTriggerGroups: string[], searchedValue: string) =>
-      TriggerFactory.createTrigger(triggersDataTableChart, selectedTriggerGroups, searchedValue, pageStateNamespace)
+      TriggerFactory.createTriggers(triggersDataTableChart, selectedTriggerGroups, searchedValue, pageStateNamespace)
   );
 }
