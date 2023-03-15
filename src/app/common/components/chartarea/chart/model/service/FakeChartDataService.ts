@@ -83,7 +83,7 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00'
           ];
         } else if (dataSource.name === 'goalsdata') {
-          columnNameToValuesMap.Status = ['On target', 'On target', 'Below target', 'Far below target'];
+          columnNameToValuesMap.Status = ['Above target', 'On target', 'Below target', 'Far below target'];
           columnNameToValuesMap['"Trigger time"'] = [
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',

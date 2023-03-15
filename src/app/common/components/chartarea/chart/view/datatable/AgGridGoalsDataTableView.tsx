@@ -39,9 +39,10 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
           };
 
           const statusToPriorityValueMap = {
-            'Far below target': 3,
-            'Below target': 2,
-            'On target': 1
+            'Far below target': 4,
+            'Below target': 3,
+            'On target': 2,
+            'Above target': 1
           };
 
           if (name !== 'Description') {
@@ -63,8 +64,11 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
                 case 'Below target':
                   color = '#F7B737';
                   break;
-                default:
+                case 'On target':
                   color = '#37CC73';
+                  break;
+                default:
+                  color = '#23ABB6';
               }
 
               return { color };
@@ -84,6 +88,9 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
       cellStyle(params: any): object {
         let color;
         switch (params.value) {
+          case 'Above target':
+            color = 'teal';
+            break;
           case 'On target':
             color = 'green';
             break;
