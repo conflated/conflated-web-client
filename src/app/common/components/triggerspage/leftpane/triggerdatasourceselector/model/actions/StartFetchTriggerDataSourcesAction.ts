@@ -1,44 +1,44 @@
 import { Inject } from 'noicejs';
 import AbstractTriggerDataSourceSelectorAction from './AbstractTriggerDataSourceSelectorAction';
-import AlertDataSourceService from '../service/AlertDataSourceService';
+import TriggerDataSourceService from '../service/TriggerDataSourceService';
 import type { TriggerDataSourceSelectorState } from '../state/TriggerDataSourceSelectorState';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 
 class FinishFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorAction {
-  alertDataSources: DataSource[];
+  triggerDataSources: DataSource[];
 
   constructor(stateNamespace: TriggersPageStateNamespace, alertDataSources: DataSource[]) {
     super(stateNamespace);
-    this.alertDataSources = alertDataSources;
+    this.triggerDataSources = alertDataSources;
   }
 
   perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
     return {
       ...currentState,
-      dataSources: this.alertDataSources,
+      dataSources: this.triggerDataSources,
       isFetchingDataSources: false
     };
   }
 }
 
 type ConstructorArgs = {
-  alertDataSourceService: AlertDataSourceService;
+  triggerDataSourceService: TriggerDataSourceService;
   stateNamespace: TriggersPageStateNamespace;
 };
 
-@Inject('alertDataSourceService')
+@Inject('triggerDataSourceService')
 class StartFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorAction {
-  private readonly alertDataSourceService: AlertDataSourceService;
+  private readonly triggerDataSourceService: TriggerDataSourceService;
 
-  constructor({ alertDataSourceService, stateNamespace }: ConstructorArgs) {
+  constructor({ triggerDataSourceService, stateNamespace }: ConstructorArgs) {
     super(stateNamespace);
-    this.alertDataSourceService = alertDataSourceService;
+    this.triggerDataSourceService = triggerDataSourceService;
   }
 
   perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {
-    this.alertDataSourceService
-      .fetchDataSources()
+    this.triggerDataSourceService
+      .fetchTriggerDataSources(this.stateNamespace)
       .then((dataSources: DataSource[]) =>
         this.dispatch(new FinishFetchTriggerDataSourcesAction(this.stateNamespace, dataSources))
       );

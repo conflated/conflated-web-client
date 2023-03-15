@@ -4,7 +4,7 @@ import FakeMeasureServiceImpl from '../../app/pages/dataexplorer/leftpane/measur
 import FakeDimensionServiceImpl from '../../app/pages/dataexplorer/leftpane/dimensionselector/model/service/FakeDimensionService';
 import FakeChartDataService from '../../app/common/components/chartarea/chart/model/service/FakeChartDataService';
 import FakeDashboardGroupsService from '../../app/pages/dashboards/model/service/FakeDashboardGroupsService';
-import FakeAlertDataSourceService from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeAlertDataSourceService';
+import FakeTriggerDataSourceService from '../../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/service/FakeTriggerDataSourceService';
 import CachingChartDataService from '../../app/common/components/chartarea/chart/model/service/CachingChartDataService';
 import FakeReportTemplateGroupsService from '../../app/pages/reports/model/services/FakeReportTemplateGroupsService';
 
@@ -16,6 +16,6 @@ export default class ServiceModule extends Module {
     this.bind('chartDataService').toInstance(new CachingChartDataService(new FakeChartDataService()));
     this.bind('dashboardsService').toInstance(new FakeDashboardGroupsService());
     this.bind('reportTemplateGroupsService').toInstance(new FakeReportTemplateGroupsService());
-    this.bind('alertDataSourceService').toInstance(new FakeAlertDataSourceService());
+    this.bind('triggerDataSourceService').toInstance(new FakeTriggerDataSourceService());
   }
 }
