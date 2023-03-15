@@ -11,7 +11,7 @@ type Props = {
 const CountBadgeView = ({ className, color, count }: Props) => {
   if (count > 0) {
     return (
-      <Label className={className} color={color as any} horizontal>
+      <Label className={className} circular color={color as any} horizontal>
         {count}
       </Label>
     );

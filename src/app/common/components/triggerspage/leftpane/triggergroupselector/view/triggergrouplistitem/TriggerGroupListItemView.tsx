@@ -43,7 +43,7 @@ const TriggerGroupListItemView = ({
       />
       <CountBadgeView
         className={triggerCountBadge}
-        color={pageStateNamespace === 'goalsPage' ? 'yellow' : 'green'}
+        color={pageStateNamespace === 'goalsPage' ? 'green' : 'yellow'}
         count={bestTriggerCount}
       />
     </List.Item>
