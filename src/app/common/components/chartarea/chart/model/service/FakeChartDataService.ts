@@ -42,9 +42,9 @@ export default class FakeChartDataService implements ChartDataService {
             '3 hours'
           ];
           columnNameToValuesMap['"Alert group"'] = [
+            '5G RAN, gNB 2345, Error: Signalling Congestion',
             '5G RAN, gNB 2345',
-            '5G RAN, gNB 2345',
-            '5G RAN, gNB 2366',
+            '5G RAN, gNB 2366, Error: Signalling Congestion',
             'Alert group 2 very long name very long name long long',
             '4G RAN, eNB 4333',
             'Core Network, AMF 3'
