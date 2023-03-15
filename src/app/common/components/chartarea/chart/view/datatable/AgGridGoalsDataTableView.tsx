@@ -28,7 +28,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
             filter = 'agDateColumnFilter';
           }
 
-          const colDef: object = {
+          const colDef = {
             headerName: name,
             field: sqlColumn.name,
             sortable: true,
@@ -74,7 +74,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
           default:
             color = 'white';
         }
-        return { color, 'background-color': color };
+        return { color, backgroundColor: color };
       }
     }),
     []
@@ -85,11 +85,12 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return (
-    <div className="ag-theme-fresh" style={{ height }}>
+    <div className="ag-theme-balham" style={{ height }}>
       <AgGridReact
         key={key}
         columnDefs={columnDefs}
         rowData={dataRows}
+        rowHeight={19}
         rowSelection="multiple"
         pagination
         enableBrowserTooltips
