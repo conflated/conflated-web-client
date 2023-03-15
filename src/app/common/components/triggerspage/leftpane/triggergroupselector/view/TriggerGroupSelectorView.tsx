@@ -58,7 +58,7 @@ const TriggerGroupSelectorView = ({
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText="ALERT GROUP"
+      titleText={pageStateNamespace === 'goalsPage' ? 'GOAL GROUPS' : 'ALERT GROUPS'}
       position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />

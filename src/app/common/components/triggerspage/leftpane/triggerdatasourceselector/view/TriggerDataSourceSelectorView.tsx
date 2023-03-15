@@ -65,6 +65,11 @@ const TriggerDataSourceSelectorView = ({
           }
           actions={[
             {
+              iconName: 'share',
+              perform: () => {},
+              tooltipText: 'Open in a new browser tab'
+            },
+            {
               iconName: 'star',
               perform: () => {},
               tooltipText: 'Add to favorites'
