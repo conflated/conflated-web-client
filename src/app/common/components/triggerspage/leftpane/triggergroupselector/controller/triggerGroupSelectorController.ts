@@ -1,5 +1,5 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
-import SelectTriggerGroupAction from '../model/actions/SelectTriggerGroupAction';
+import ToggleSelectionAction from '../model/actions/ToggleSelectionAction';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import store from '../../../../../../../store/store';
 import { AppState } from '../../../../../../../store/AppState';
@@ -23,8 +23,7 @@ class TriggerGroupSelectorController extends Controller<TriggersPageStateNamespa
     });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({
-    selectTriggerGroup: (triggerGroup: string) =>
-      this.dispatch(new SelectTriggerGroupAction(stateNamespace, triggerGroup)),
+    toggleSelection: (triggerGroup: string) => this.dispatch(new ToggleSelectionAction(stateNamespace, triggerGroup)),
 
     toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
       selectorWithActionsStateNamespaces[`${stateNamespace}TriggerGroupSelector`]

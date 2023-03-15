@@ -17,7 +17,7 @@ const TriggerGroupSelectorView = ({
   isTriggerSelectorOpen,
   pageStateNamespace,
   selectedTriggerGroups,
-  selectTriggerGroup,
+  toggleSelection,
   toggleMaximizeSelector,
   triggerGroups
 }: Props) => {
@@ -43,14 +43,14 @@ const TriggerGroupSelectorView = ({
           key={triggerGroup.name}
           triggerGroup={triggerGroup.name}
           selectedTriggerGroups={selectedTriggerGroups}
-          selectTriggerGroup={(triggerGroupName: string) => selectTriggerGroup(triggerGroupName)}
+          selectTriggerGroup={(triggerGroupName: string) => toggleSelection(triggerGroupName)}
           worstTriggerCount={triggerGroup.worstTriggerCount}
           intermediateTriggerCount={triggerGroup.intermediateTriggerCount}
           bestTriggerCount={triggerGroup.bestTriggerCount}
           pageStateNamespace={pageStateNamespace}
         />
       )),
-    [triggerGroups, selectedTriggerGroups, pageStateNamespace, selectTriggerGroup]
+    [triggerGroups, selectedTriggerGroups, pageStateNamespace, toggleSelection]
   );
 
   const selectorStateNamespace = `${pageStateNamespace}TriggerGroupSelector`;

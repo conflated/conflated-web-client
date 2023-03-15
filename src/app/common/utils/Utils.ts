@@ -2,6 +2,12 @@
 import _ from 'lodash';
 import Constants from '../Constants';
 
+export function without<T>(item: T) {
+  return function (otherItem: T) {
+    return item !== otherItem;
+  };
+}
+
 export default class Utils {
   static pick<T extends { [key: string]: any }>(items: T[], key: keyof T, wantedValue?: any): T[] {
     return items.filter(
