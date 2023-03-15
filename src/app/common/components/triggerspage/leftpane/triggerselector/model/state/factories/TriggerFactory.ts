@@ -10,13 +10,13 @@ export default class TriggerFactory {
     searchedValue: string,
     stateNamespace: TriggersPageStateNamespace
   ): Trigger[] {
-    const [triggerNames, triggerLabelsData, severitiesOrStatuses] =
+    const [triggerNames, triggerLabelsForTrigger, severitiesOrStatuses] =
       triggersDataTableChart.chartData.getTriggerData(stateNamespace);
 
     const triggerNamesWithSelectedTriggerLabels = triggerNames
       .filter((triggerName: string, index: number) =>
         selectedTriggerLabels.some((selectedTriggerLabel) =>
-          triggerLabelsData[index]
+          triggerLabelsForTrigger[index]
             .split(',')
             .map((triggerLabel: string) => triggerLabel.trim())
             .includes(selectedTriggerLabel)

@@ -49,13 +49,32 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             Info: 1
           };
 
+          if (name !== 'Description') {
+            (colDef as any).cellStyle = () => ({ color: '#aaa' });
+          }
+
           if (name === 'Severity') {
             (colDef as any).comparator = (severity1: string, severity2: string) =>
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
-          }
 
-          if (name !== 'Description') {
-            (colDef as any).cellStyle = () => ({ color: '#aaa' });
+            (colDef as any).cellStyle = (params: any) => {
+              let color;
+              switch (params.value) {
+                case 'Critical':
+                  color = '#E23B3B';
+                  break;
+                case 'Major':
+                  color = '#F47F31';
+                  break;
+                case 'Minor':
+                  color = '#F7B737';
+                  break;
+                default:
+                  color = '#37CC73';
+              }
+
+              return { color };
+            };
           }
 
           return colDef;
@@ -68,7 +87,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
     () => ({
       width: 20,
       field: 'Severity',
-      cellStyle(params: any): object {
+      cellStyle(params: any) {
         let color;
         switch (params.value) {
           case 'Critical':
