@@ -10,28 +10,26 @@ export default class TriggerFactory {
     searchedValue: string,
     stateNamespace: TriggersPageStateNamespace
   ): Trigger[] {
-    const [triggerNameData, triggerGroupData, severityOrStatusData] =
+    const [triggerNames, triggerLabelsData, severitiesOrStatuses] =
       triggersDataTableChart.chartData.getTriggerData(stateNamespace);
 
-    const triggersWithSelectedTriggerLabels = triggerNameData
+    const triggerNamesWithSelectedTriggerLabels = triggerNames
       .filter((triggerName: string, index: number) =>
-        selectedTriggerLabels.some((selectedTriggerGroup) =>
-          triggerGroupData[index]
+        selectedTriggerLabels.some((selectedTriggerLabel) =>
+          triggerLabelsData[index]
             .split(',')
-            .map((label: string) => label.trim())
-            .includes(selectedTriggerGroup)
+            .map((triggerLabel: string) => triggerLabel.trim())
+            .includes(selectedTriggerLabel)
         )
       )
       .filter((triggerName: string) => !searchedValue || (searchedValue && triggerName.includes(searchedValue)));
 
-    console.log(triggersWithSelectedTriggerLabels);
-
-    const triggerNameToTriggerCountMap = _.countBy(triggersWithSelectedTriggerLabels);
+    const triggerNameToTriggerCountMap = _.countBy(triggerNamesWithSelectedTriggerLabels);
 
     return Object.entries(triggerNameToTriggerCountMap).map(([triggerName, triggerCount]) => ({
       name: triggerName,
       count: triggerCount,
-      severity: severityOrStatusData[triggerNameData.indexOf(triggerName)]
+      severity: severitiesOrStatuses[triggerNames.indexOf(triggerName)]
     }));
   }
 }

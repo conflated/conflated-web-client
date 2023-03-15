@@ -50,7 +50,7 @@ export default class FakeChartDataService implements ChartDataService {
             'Core Network, AMF 3'
           ];
           columnNameToValuesMap['"Description"'] = [
-            'High gNB Setup Failure Rate',
+            'Very High gNB Setup Failure Rate',
             'High gNB Drop Call Rate',
             'High gNB Setup Failure Rate',
             'Alert description 2 very long name very long name long long',
