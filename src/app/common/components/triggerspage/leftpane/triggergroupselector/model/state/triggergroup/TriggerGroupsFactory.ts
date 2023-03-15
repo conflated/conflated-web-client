@@ -13,7 +13,7 @@ export default class TriggerGroupsFactory {
       triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
 
     return _.uniq(
-      triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))
+      triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(';').map((tgn) => tgn.trim()))
     )
       .filter(
         (triggerGroupName: string) =>
