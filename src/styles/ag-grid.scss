@@ -5,6 +5,14 @@
       border: none;
     }
 
+    .ag-menu {
+      background-color: #ccc;
+    }
+
+    .ag-menu-header {
+      background-color: #ccc;
+    }
+
     .ag-header-row {
       color: #000;
       font-family: var(--brand-font-family);
@@ -19,8 +27,8 @@
 
     .ag-row {
       border: none;
-
     }
+
     .ag-row-selected {
       .ag-cell {
         @media (prefers-color-scheme: dark) {
