@@ -35,7 +35,8 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
             resizable: true,
             tooltipField: name,
             width: (columnWidthWeights as any)[name] * (width - 22),
-            filter
+            filter,
+            floatingFilter: true
           };
 
           const statusToPriorityValueMap = {

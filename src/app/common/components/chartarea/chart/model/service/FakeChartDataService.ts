@@ -91,22 +91,22 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00'
           ];
           columnNameToValuesMap['"Labels"'] = [
-            'Goal group 1',
-            'Goal group 2 very long name very long name long long',
-            'Goal group 3',
-            'Goal group 4'
+            'RAN, 5G RAN, Southern Finland, Tampere Area',
+            'RAN, 5G RAN, Southern Finland, Tampere Area',
+            'RAN, 5G RAN, Southern Finland, Tampere Area',
+            'RAN, 5G RAN, Southern Finland, Tampere Area'
           ];
           columnNameToValuesMap['"Description"'] = [
-            'Goal name 1',
-            'Goal name 2 very long name very long name long long',
-            'Goal name 3',
-            'Goal name 4'
+            'Tampere Area Average 5G RAN Throughput At Least 80 Mb/s',
+            'Tampere Area 5G RAN Failure Ratio Lower Than 1%',
+            'Tampere Area 5G RAN Coverage Greater Than 75%',
+            'Tampere Area Average 5G RAN Latency Lower Than 5 ms'
           ];
           columnNameToValuesMap['"Trigger values"'] = [
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee',
-            'Measure1 = 45.76, Dimension1 = jee'
+            'Average 5G RAN Throughput: 120.76 Mb/s',
+            '5G RAN Failure Ratio: 0.9%',
+            '5G RAN Coverage: 68%',
+            'Average 5G RAN Latency: 15 ms'
           ];
         } else if (dataSource.name === 'alertstatistics' || dataSource.name === 'goalstatistics') {
           columnNameToValuesMap['"Trigger time COUNT"'] = [3, 5, 6, 4];
