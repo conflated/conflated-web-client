@@ -18,7 +18,7 @@ const TriggerSelectorView = ({
   isTriggerGroupSelectorOpen,
   pageStateNamespace,
   selectedTriggers,
-  selectTrigger,
+  toggleSelection,
   triggers,
   toggleMaximizeSelector
 }: Props) => {
@@ -49,10 +49,10 @@ const TriggerSelectorView = ({
           triggerCount={trigger.count}
           severity={trigger.severity}
           selectedTriggers={selectedTriggers}
-          selectTrigger={() => selectTrigger(trigger.name)}
+          selectTrigger={() => toggleSelection(trigger.name)}
         />
       )),
-    [triggers, selectedTriggers, selectTrigger]
+    [triggers, selectedTriggers, toggleSelection]
   );
 
   const selectorStateNamespace = `${pageStateNamespace}TriggerSelector`;

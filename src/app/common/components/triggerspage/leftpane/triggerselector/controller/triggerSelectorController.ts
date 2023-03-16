@@ -1,6 +1,6 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
-import SelectTriggerAction from '../model/actions/SelectTriggerAction';
+import ToggleTriggerSelectionAction from '../model/actions/ToggleTriggerSelectionAction';
 import store from '../../../../../../../store/store';
 import { AppState } from '../../../../../../../store/AppState';
 import createTriggerSelector from './selector/createTriggerSelector';
@@ -24,7 +24,7 @@ class TriggerSelectorController extends Controller<TriggersPageStateNamespace> {
     });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({
-    selectTrigger: (trigger: string) => this.dispatch(new SelectTriggerAction(stateNamespace, trigger)),
+    toggleSelection: (trigger: string) => this.dispatch(new ToggleTriggerSelectionAction(stateNamespace, trigger)),
 
     toggleMaximizeSelector: selectorWithDefaultActionsController.getActionDispatchers(
       selectorWithActionsStateNamespaces[`${stateNamespace}TriggerSelector`]
