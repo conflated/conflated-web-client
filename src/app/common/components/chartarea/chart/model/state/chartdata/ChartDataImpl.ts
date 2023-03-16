@@ -12,6 +12,7 @@ import type { DimensionVisualizationType } from '../selecteddimension/types/Dime
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DataScopeType } from '../types/DataScopeType';
 import RowComparer from './rowcomparer/RowComparer';
+import { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
 
 export default class ChartDataImpl implements ChartData {
   columnNameToDataMap: ColumnNameToValuesMap;
@@ -195,14 +196,15 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, legendData];
   }
 
-  getTriggerData(): [Array<any>, Array<any>, Array<any>] {
+  getTriggerData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>] {
     const triggerNameData = this.columnNameToDataMap['"Description"'] ?? [];
-    return [triggerNameData, ...this.getTriggerGroupData()];
+    return [triggerNameData, ...this.getTriggerGroupData(pageStateNamespace)];
   }
 
-  getTriggerGroupData(): [Array<any>, Array<any>] {
+  getTriggerGroupData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>] {
     const triggerGroupNameData = this.columnNameToDataMap['"Labels"'] ?? [];
-    const severityOrStatusData = this.columnNameToDataMap.Severity ?? [];
+    const severityOrStatusData =
+      (pageStateNamespace === 'alertsPage' ? this.columnNameToDataMap.Severity : this.columnNameToDataMap.Status) ?? [];
 
     return [triggerGroupNameData, severityOrStatusData];
   }

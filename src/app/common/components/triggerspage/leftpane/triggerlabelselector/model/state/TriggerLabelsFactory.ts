@@ -12,6 +12,8 @@ export default class TriggerLabelsFactory {
     const [triggerGroupNameData, severityOrStatusData] =
       triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
 
+    console.log(triggerGroupNameData, severityOrStatusData);
+
     return _.uniq(
       triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))
     )
@@ -38,7 +40,8 @@ export default class TriggerLabelsFactory {
           (severityOrStatus: string, index: number) =>
             triggerGroupNameData[index].includes(triggerGroupName) &&
             ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Minor') ||
-              (pageStateNamespace === 'goalsPage' && severityOrStatus === 'On target'))
+              (pageStateNamespace === 'goalsPage' &&
+                (severityOrStatus === 'On target' || severityOrStatus === 'Above target')))
         );
 
         return {
