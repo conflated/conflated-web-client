@@ -212,14 +212,14 @@ const initialAlertsPageChartAreaState: ChartAreaState = {
       x: 0,
       y: 0,
       w: Constants.GRID_COLUMN_COUNT,
-      h: (2 * Constants.GRID_ROW_COUNT) / 3
+      h: (3 * Constants.GRID_ROW_COUNT) / 4
     },
     {
       i: '2',
       x: 0,
-      y: (2 * Constants.GRID_ROW_COUNT) / 3,
+      y: (3 * Constants.GRID_ROW_COUNT) / 4,
       w: Constants.GRID_COLUMN_COUNT,
-      h: Constants.GRID_ROW_COUNT / 3
+      h: Constants.GRID_ROW_COUNT / 4
     }
   ],
   charts: [dataTableChart, timelineChart],
