@@ -196,6 +196,11 @@
     padding: 0.1rem 0.6rem;
     min-width: 0;
 
+    &.green {
+      background-color: var(--brand-color-2) !important;
+      color: #000 !important;
+    }
+
     &.orange {
       background-color: #F47F31 !important;
       color: #000 !important;
