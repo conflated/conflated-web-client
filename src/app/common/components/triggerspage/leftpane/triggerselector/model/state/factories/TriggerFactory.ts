@@ -15,12 +15,14 @@ export default class TriggerFactory {
 
     const triggerNamesWithSelectedTriggerLabels = triggerNames
       .filter((triggerName: string, index: number) =>
-        selectedTriggerLabels.some((selectedTriggerLabel) =>
-          triggerLabelsForTrigger[index]
-            .split(',')
-            .map((triggerLabel: string) => triggerLabel.trim())
-            .includes(selectedTriggerLabel)
-        )
+        selectedTriggerLabels.length > 0
+          ? selectedTriggerLabels.some((selectedTriggerLabel) =>
+              triggerLabelsForTrigger[index]
+                .split(',')
+                .map((triggerLabel: string) => triggerLabel.trim())
+                .includes(selectedTriggerLabel)
+            )
+          : true
       )
       .filter((triggerName: string) => !searchedValue || (searchedValue && triggerName.includes(searchedValue)));
 
