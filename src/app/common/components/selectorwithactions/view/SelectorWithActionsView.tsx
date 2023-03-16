@@ -15,6 +15,7 @@ export type OwnProps = {
   additionalContent?: JSX.Element;
   handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  handleSelectAllIconClick?: () => void;
   id: string;
   isPinned?: boolean;
   listItemsContent: JSX.Element | Array<JSX.Element> | null;
@@ -33,6 +34,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   changeSelectorSearchedValue,
   handleMaximizeIconClick,
   handlePinIconClick,
+  handleSelectAllIconClick,
   id,
   isPinned,
   isSearchInputShown,
@@ -65,6 +67,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       addIconTooltipText={addIconTooltipText}
       reorderIconTooltipText={reorderIconTooltipText}
       handleReorderIconClick={toggleListItemReorderMode}
+      handleSelectAllIconClick={handleSelectAllIconClick}
     />
   );
 
@@ -99,6 +102,7 @@ SelectorWithActionsView.defaultProps = {
   addIconTooltipText: undefined,
   additionalContent: undefined,
   handlePinIconClick: undefined,
+  handleSelectAllIconClick: undefined,
   isPinned: undefined,
   reorderIconTooltipText: undefined,
   selectedListItemsContent: undefined

@@ -7,6 +7,7 @@ type Props = {
   addIconTooltipText?: string;
   handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
   handleReorderIconClick: () => void;
+  handleSelectAllIconClick?: () => void;
   iconClassName: string;
   isPinned?: boolean;
   position: 'leftPane' | 'rightPane';
@@ -20,6 +21,7 @@ const ActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
   handleReorderIconClick,
+  handleSelectAllIconClick,
   iconClassName,
   isPinned,
   position,
@@ -28,7 +30,7 @@ const ActionsView: React.FC<Props> = ({
   toggleShowSearchInput,
   toggleMaximizeAccordion
 }: Props) => {
-  let pinIconColor = 'var(--secondary-text-color)';
+  let pinIconColor = '#000';
 
   if (isPinned && position === 'leftPane') {
     pinIconColor = 'var(--secondary-text-color-on-hover)';
@@ -38,6 +40,10 @@ const ActionsView: React.FC<Props> = ({
 
   const addIcon = (
     <Popup inverted trigger={<Icon className={iconClassName} name="plus" />} content={addIconTooltipText} />
+  );
+
+  const selectAllIcon = (
+    <Popup inverted trigger={<Icon className={iconClassName} name="check" />} content="Select all" />
   );
 
   const searchIcon = (
@@ -86,11 +92,12 @@ const ActionsView: React.FC<Props> = ({
 
   return (
     <div>
-      {addIconTooltipText ? addIcon : undefined}
+      {addIconTooltipText && addIcon}
+      {handleSelectAllIconClick && selectAllIcon}
       {searchIcon}
-      {reorderIconTooltipText ? reorderIcon : undefined}
+      {reorderIconTooltipText && reorderIcon}
       {maximizeIcon}
-      {shouldShowPinIcon ? pinIcon : undefined}
+      {shouldShowPinIcon && pinIcon}
     </div>
   );
 };
@@ -98,6 +105,7 @@ const ActionsView: React.FC<Props> = ({
 ActionsView.defaultProps = {
   addIconTooltipText: '',
   handlePinIconClick: _.noop,
+  handleSelectAllIconClick: undefined,
   isPinned: false,
   reorderIconTooltipText: undefined,
   shouldShowPinIcon: false

@@ -64,6 +64,7 @@ const TriggerLabelSelectorView = ({
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
+      handleSelectAllIconClick={() => {}}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );

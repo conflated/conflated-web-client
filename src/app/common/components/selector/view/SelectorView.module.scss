@@ -1,6 +1,6 @@
 .actionIcon {
   align-items: center;
-  color: var(--secondary-text-color);
+  color: #000;
   line-height: var(--body-font-size);
   margin-right: 0.65rem !important;
   visibility: hidden;
@@ -16,7 +16,7 @@
 
 .title {
   align-items: center !important;
-  color: var(--secondary-text-color) !important;
+  color: #000 !important;
   display: flex !important;
   font-size: 1rem !important;
   font-weight: bold;
@@ -55,12 +55,17 @@
 }
 
 .rightPaneSelector {
+  .actionIcon {
+    color: #fff;
+  }
+
   .actionIcon:hover {
     color: var(--brand-color-2) !important;
   }
 
   .title {
     background-color: var(--brand-color-1);
+    color: #fff !important;
 
     &:hover,
     &:focus {

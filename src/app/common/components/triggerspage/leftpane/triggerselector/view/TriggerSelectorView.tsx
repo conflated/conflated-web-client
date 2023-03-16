@@ -65,6 +65,7 @@ const TriggerSelectorView = ({
       position="leftPane"
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}
       handleMaximizeIconClick={handleMaximizeIconClick}
+      handleSelectAllIconClick={() => {}}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />
   );
