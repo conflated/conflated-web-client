@@ -12,8 +12,6 @@ export default class TriggerLabelsFactory {
     const [triggerGroupNameData, severityOrStatusData] =
       triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
 
-    console.log(triggerGroupNameData, severityOrStatusData);
-
     return _.uniq(
       triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))
     )

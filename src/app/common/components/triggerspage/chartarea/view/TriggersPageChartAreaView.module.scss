@@ -4,6 +4,14 @@
   margin-bottom: 4px;
   outline: none;
 
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1025px) and (any-pointer: coarse) {
+    height: calc(100vh - 6rem);
+  }
+
   .gridLayout {
     margin-top: 2px;
   }
