@@ -27,6 +27,10 @@
 
     .ag-row {
       border: none;
+
+      @media (max-width: 1024px) {
+        border-bottom: 1px solid #222;
+      }
     }
 
     .ag-row-selected {
@@ -41,6 +45,11 @@
     .ag-cell {
       font-family: var(--brand-font-family);
       font-size: 1rem;
+
+      @media (max-width: 1024px) {
+        border-right: 1px solid #222;
+        line-height: 38px;
+      }
 
       @media (prefers-color-scheme: dark) {
         background-color: #000;

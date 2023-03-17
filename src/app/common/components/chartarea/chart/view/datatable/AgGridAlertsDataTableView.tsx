@@ -7,19 +7,33 @@ import type { Chart } from '../../model/state/Chart';
 
 type Props = { chart: Chart; height: number; width: number };
 
-const columnWidthWeights = {
-  Severity: 0.06,
-  'Trigger time': 0.1,
-  'Active duration': 0.07,
-  Labels: 0.15,
-  Description: 0.2,
-  'Trigger values': 0.15,
-  Status: 0.07,
-  Assignee: 0.08,
-  'Status last modified': 0.12
+const severityToPriorityValueMap = {
+  Critical: 4,
+  Major: 3,
+  Minor: 2,
+  Info: 1
 };
 
 const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
+  const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
+  const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
+
+  const columnWidthWeights = useMemo(
+    () => ({
+      Severity: isMaxWidth1024px ? 0 : 0.06,
+      'Trigger time': isMaxWidth480px ? 0.5 : 0.1,
+      'Active duration': isMaxWidth480px ? 0.25 : 0.07,
+      Labels: isMaxWidth480px ? 0.75 : 0.15,
+      // eslint-disable-next-line no-nested-ternary
+      Description: isMaxWidth480px ? 0.75 : isMaxWidth1024px ? 0.26 : 0.2,
+      'Trigger values': isMaxWidth480px ? 0.5 : 0.15,
+      Status: isMaxWidth480px ? 0.25 : 0.07,
+      Assignee: isMaxWidth480px ? 0.3 : 0.08,
+      'Status last modified': isMaxWidth480px ? 0.4 : 0.12
+    }),
+    [isMaxWidth1024px, isMaxWidth480px]
+  );
+
   let columnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(
@@ -40,14 +54,8 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             tooltipField: name,
             width: (columnWidthWeights as any)[name] * (width - 22),
             filter,
-            floatingFilter: true
-          };
-
-          const severityToPriorityValueMap = {
-            Critical: 4,
-            Major: 3,
-            Minor: 2,
-            Info: 1
+            floatingFilter: true,
+            hide: isMaxWidth1024px && name === 'Severity'
           };
 
           if (name !== 'Description') {
@@ -55,7 +63,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           }
 
           if (name === 'Severity') {
-            (colDef as any).sort = 'desc';
+            // (colDef as any).sort = 'desc';
 
             (colDef as any).comparator = (severity1: string, severity2: string) =>
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
@@ -83,13 +91,17 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           return colDef;
         }
       ),
-    [chart.selectedDimensions, width]
+    [chart.selectedDimensions, columnWidthWeights, isMaxWidth1024px, width]
   );
 
   const severityIndicatorColumnDef = useMemo(
     () => ({
-      width: 20,
+      width: 30,
       field: 'Severity',
+      sort: isMaxWidth1024px ? 'desc' : undefined,
+      sortable: isMaxWidth1024px,
+      comparator: (severity1: string, severity2: string) =>
+        (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2],
       cellStyle(params: any) {
         let color;
         switch (params.value) {
@@ -105,10 +117,11 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           default:
             color = '#37CC73';
         }
+
         return { color, backgroundColor: color };
       }
     }),
-    []
+    [isMaxWidth1024px]
   );
 
   columnDefs = [severityIndicatorColumnDef, ...columnDefs];
@@ -121,7 +134,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
         key={key}
         columnDefs={columnDefs}
         rowData={dataRows}
-        rowHeight={19}
+        rowHeight={isMaxWidth1024px ? 38 : 19}
         rowSelection="multiple"
         pagination
         enableBrowserTooltips

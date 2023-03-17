@@ -36,7 +36,7 @@ const TriggersPageChartAreaView = ({
   }, [startFetchDataForCharts]);
 
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
-  const headerHeight = 6 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const headerHeight = 2.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
   const chartHeight = document.body.clientHeight - headerHeight;
   const chartWidth = document.body.clientWidth;
 
