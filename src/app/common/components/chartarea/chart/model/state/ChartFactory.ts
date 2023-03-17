@@ -51,6 +51,8 @@ export default class ChartFactory {
         return new MapChart(chartConfiguration);
       case 'statistic':
         return new StatisticChart(chartConfiguration);
+      case 'stepline':
+        return new LineChart(chartConfiguration);
       case 'alertsdatatable':
       case 'goalsdatatable':
       case 'datatable':

@@ -109,14 +109,14 @@ export default class FakeChartDataService implements ChartDataService {
             'Average 5G RAN Latency: 15 ms'
           ];
         } else if (dataSource.name === 'alertstatistics' || dataSource.name === 'goalstatistics') {
-          columnNameToValuesMap['"Trigger time COUNT"'] = [1, 0, 1, 0, 1, 0];
+          columnNameToValuesMap['"Trigger time COUNT"'] = [1, 0, 3, 0, 1, 0];
           columnNameToValuesMap['"Trigger time"'] = [
-            '2019-04-02T12:00:00',
-            '2019-04-02T12:00:00',
+            '2019-04-02T12:02:00',
+            '2019-04-02T12:02:00',
             '2019-04-02T14:00:00',
             '2019-04-02T14:00:00',
-            '2019-04-02T17:00:00',
-            '2019-04-02T17:00:00'
+            '2019-04-02T17:10:00',
+            '2019-04-02T17:10:00'
           ];
         } else {
           const measureColumnCount = columns.filter(({ type }: Column) => type === 'measure').length;
