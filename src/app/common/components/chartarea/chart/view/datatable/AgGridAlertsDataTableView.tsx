@@ -52,7 +52,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             sortable: true,
             resizable: true,
             tooltipField: name,
-            width: (columnWidthWeights as any)[name] * (width - 22),
+            width: (columnWidthWeights as any)[name] * (width - (isMaxWidth1024px ? 32 : 22)),
             filter,
             floatingFilter: true,
             hide: isMaxWidth1024px && name === 'Severity'
@@ -96,7 +96,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
 
   const severityIndicatorColumnDef = useMemo(
     () => ({
-      width: 30,
+      width: isMaxWidth1024px ? 30 : 20,
       field: 'Severity',
       sort: isMaxWidth1024px ? 'desc' : undefined,
       sortable: isMaxWidth1024px,
