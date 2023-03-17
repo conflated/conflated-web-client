@@ -10,4 +10,6 @@ export type DashboardsPageState = {
   readonly dashboardsSlideShowIntervalId: ReturnType<typeof setInterval>;
   readonly dashboardSlideChangeIntervalInSecsStr: string;
   readonly dashboardIndexShownInSlideShow: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  readonly screenWakeLockPromise: Promise<any> | undefined;
 };

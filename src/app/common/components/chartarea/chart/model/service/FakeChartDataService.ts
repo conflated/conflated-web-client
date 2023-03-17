@@ -91,16 +91,16 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00'
           ];
           columnNameToValuesMap['"Labels"'] = [
-            'RAN, 5G RAN, Southern Finland, Tampere Area',
-            'RAN, 5G RAN, Southern Finland, Tampere Area',
-            'RAN, 5G RAN, Southern Finland, Tampere Area',
-            'RAN, 5G RAN, Southern Finland, Tampere Area'
+            'RAN, 5G RAN, Southern, TRE Area',
+            'RAN, 5G RAN, Southern, TRE Area',
+            'RAN, 5G RAN, Southern, TRE Area',
+            'RAN, 5G RAN, Southern, TRE Area'
           ];
           columnNameToValuesMap['"Description"'] = [
-            'Tampere Area Average 5G RAN Throughput At Least 80 Mb/s',
-            'Tampere Area 5G RAN Failure Ratio Lower Than 1%',
-            'Tampere Area 5G RAN Coverage Greater Than 75%',
-            'Tampere Area Average 5G RAN Latency Lower Than 5 ms'
+            'TRE Average 5G RAN Throughput At Least 80 Mb/s',
+            'TRE 5G RAN Failure Ratio Lower Than 1%',
+            'TRE 5G RAN Coverage Greater Than 75%',
+            'TRE Average 5G RAN Latency Lower Than 5 ms'
           ];
           columnNameToValuesMap['"Trigger values"'] = [
             'Average 5G RAN Throughput: 120.76 Mb/s',

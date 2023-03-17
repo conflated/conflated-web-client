@@ -7,15 +7,29 @@ import type { Chart } from '../../model/state/Chart';
 
 type Props = { chart: Chart; height: number; width: number };
 
-const columnWidthWeights = {
-  Status: 0.1,
-  'Trigger time': 0.12,
-  Labels: 0.2,
-  Description: 0.3,
-  'Trigger values': 0.28
+const statusNameToValueMap = {
+  'Far below target': 1,
+  'Below target': 2,
+  'On target': 3,
+  'Above target': 4
 };
 
 const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
+  const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
+  const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
+  const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
+
+  const columnWidthWeights = useMemo(
+    () => ({
+      Status: isMaxWidth1024px ? 0 : 0.1,
+      'Trigger time': isMaxWidth480px ? 0.5 : 0.12,
+      Labels: isMaxWidth480px ? 0.75 : 0.2,
+      Description: isMaxWidth480px ? 0.95 : 0.4,
+      'Trigger values': isMaxWidth480px ? 0.8 : 0.28
+    }),
+    [isMaxWidth1024px, isMaxWidth480px]
+  );
+
   let columnDefs = useMemo(
     () =>
       chart.selectedDimensions.map(
@@ -34,16 +48,10 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
             sortable: true,
             resizable: true,
             tooltipField: name,
-            width: (columnWidthWeights as any)[name] * (width - 22),
+            width: (columnWidthWeights as any)[name] * (width - (isMaxWidth1024px ? 32 : 22)),
             filter,
-            floatingFilter: true
-          };
-
-          const statusToPriorityValueMap = {
-            'Far below target': 4,
-            'Below target': 3,
-            'On target': 2,
-            'Above target': 1
+            floatingFilter: true,
+            hide: isMaxWidth1024px && name === 'Status'
           };
 
           if (name !== 'Description') {
@@ -51,10 +59,10 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
           }
 
           if (name === 'Status') {
-            (colDef as any).sort = 'asc';
+            (colDef as any).sort = 'desc';
 
             (colDef as any).comparator = (status1: string, status2: string) =>
-              (statusToPriorityValueMap as any)[status1] - (statusToPriorityValueMap as any)[status2];
+              (statusNameToValueMap as any)[status1] - (statusNameToValueMap as any)[status2];
 
             (colDef as any).cellStyle = (params: any) => {
               let color;
@@ -79,13 +87,17 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
           return colDef;
         }
       ),
-    [chart.selectedDimensions, width]
+    [chart.selectedDimensions, columnWidthWeights, isMaxWidth1024px, width]
   );
 
   const statusIndicatorColumnDef = useMemo(
     () => ({
-      width: 20,
+      width: isMaxWidth1024px ? 30 : 20,
       field: 'Status',
+      sort: isMaxWidth1024px ? 'desc' : undefined,
+      sortable: isMaxWidth1024px,
+      comparator: (status1: string, status2: string) =>
+        (statusNameToValueMap as any)[status1] - (statusNameToValueMap as any)[status2],
       cellStyle(params: any): object {
         let color;
         switch (params.value) {
@@ -107,7 +119,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
         return { color, backgroundColor: color };
       }
     }),
-    []
+    [isMaxWidth1024px]
   );
 
   columnDefs = [statusIndicatorColumnDef, ...columnDefs];
@@ -120,7 +132,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
         key={key}
         columnDefs={columnDefs}
         rowData={dataRows}
-        rowHeight={19}
+        rowHeight={pointerIsCoarse ? 38 : 19}
         rowSelection="multiple"
         pagination
         enableBrowserTooltips

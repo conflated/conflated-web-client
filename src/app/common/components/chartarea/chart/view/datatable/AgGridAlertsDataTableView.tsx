@@ -17,6 +17,7 @@ const severityToPriorityValueMap = {
 const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
+  const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
 
   const columnWidthWeights = useMemo(
     () => ({
@@ -29,7 +30,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
       'Trigger values': isMaxWidth480px ? 0.5 : 0.15,
       Status: isMaxWidth480px ? 0.25 : 0.07,
       Assignee: isMaxWidth480px ? 0.3 : 0.08,
-      'Status last modified': isMaxWidth480px ? 0.4 : 0.12
+      'Status last modified': isMaxWidth480px ? 0.5 : 0.12
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );
@@ -63,7 +64,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
           }
 
           if (name === 'Severity') {
-            // (colDef as any).sort = 'desc';
+            (colDef as any).sort = 'desc';
 
             (colDef as any).comparator = (severity1: string, severity2: string) =>
               (severityToPriorityValueMap as any)[severity1] - (severityToPriorityValueMap as any)[severity2];
@@ -134,7 +135,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
         key={key}
         columnDefs={columnDefs}
         rowData={dataRows}
-        rowHeight={isMaxWidth1024px ? 38 : 19}
+        rowHeight={pointerIsCoarse ? 38 : 19}
         rowSelection="multiple"
         pagination
         enableBrowserTooltips

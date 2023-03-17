@@ -97,7 +97,7 @@ const dataTableChart = ChartFactory.createChart({
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  chartType: 'line',
+  chartType: 'area',
   dataSource: {
     ...emptyDataSource,
     name: 'goalstatistics'
@@ -117,7 +117,7 @@ const timelineChart = ChartFactory.createChart({
         name: '"Trigger time COUNT"',
         expression: 'COUNT("Trigger time")'
       },
-      visualizationType: 'line',
+      visualizationType: 'area',
       visualizationColor: ''
     }
   ],

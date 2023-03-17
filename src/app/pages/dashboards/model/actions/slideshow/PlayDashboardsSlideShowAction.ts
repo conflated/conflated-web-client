@@ -6,6 +6,10 @@ import type { DashboardsPageState } from '../../state/DashboardsPageState';
 
 export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPageAction {
   perform(currentState: DashboardsPageState): DashboardsPageState {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const screenWakeLockPromise = navigator.wakeLock?.request('screen');
+
     clearInterval(currentState.dashboardsSlideShowIntervalId);
 
     const dashboardSlideChangeIntervalInMillis = Utils.secsToMillis(
@@ -17,6 +21,7 @@ export default class PlayDashboardsSlideShowAction extends AbstractDashboardsPag
 
     const newState = {
       ...currentState,
+      screenWakeLockPromise,
       isDashboardsSlideShowPlaying: true,
       dashboardsSlideShowIntervalId: setInterval(
         () => this.dispatch(new ShowNextDashboardInSlideShowAction()),

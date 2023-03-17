@@ -25,9 +25,8 @@ const DashboardsSlideShowPlayOrPauseButtonView = ({
     content={
       isDashboardsSlideShowPlaying
         ? 'Stop dashboards slide show'
-        : 'Start slide show of dashboards in current dashboard group'
+        : 'Start dashboards slide show for the current dashboard group'
     }
   />
 );
-
 export default DashboardsSlideShowPlayOrPauseButtonView;

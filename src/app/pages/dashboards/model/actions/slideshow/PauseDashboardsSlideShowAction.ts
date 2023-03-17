@@ -4,12 +4,11 @@ import type { DashboardsPageState } from '../../state/DashboardsPageState';
 export default class PauseDashboardsSlideShowAction extends AbstractDashboardsPageAction {
   perform(currentState: DashboardsPageState): DashboardsPageState {
     clearInterval(currentState.dashboardsSlideShowIntervalId);
+    currentState.screenWakeLockPromise?.then((screenWakeLock) => screenWakeLock.release());
 
-    const newState = {
+    return {
       ...currentState,
       isDashboardsSlideShowPlaying: false
     };
-
-    return newState;
   }
 }

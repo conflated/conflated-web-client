@@ -11,7 +11,8 @@ const initialDashboardsState: DashboardsPageState = {
   isDashboardsSlideShowPlaying: false,
   dashboardsSlideShowIntervalId: setInterval(() => _.noop(), Number.MAX_SAFE_INTEGER),
   dashboardSlideChangeIntervalInSecsStr: '90',
-  dashboardIndexShownInSlideShow: 0
+  dashboardIndexShownInSlideShow: 0,
+  screenWakeLockPromise: undefined
 };
 
 export default OOReduxUtils.createStateReducer<DashboardsPageState>(
