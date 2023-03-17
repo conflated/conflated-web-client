@@ -106,7 +106,7 @@ const timelineChart = ChartFactory.createChart({
     {
       aggregationFunction: 'COUNT',
       measure: {
-        name: 'Trigger time',
+        name: 'Triggered Goal Count',
         expression: '',
         isString: false,
         isTimestamp: false,

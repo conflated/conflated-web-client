@@ -157,7 +157,7 @@ const dataTableChart = ChartFactory.createChart({
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  chartType: 'area',
+  chartType: 'line',
   dataSource: {
     ...emptyDataSource,
     name: 'alertstatistics'
@@ -166,7 +166,7 @@ const timelineChart = ChartFactory.createChart({
     {
       aggregationFunction: 'COUNT',
       measure: {
-        name: 'Trigger time',
+        name: 'Triggered Alert Count',
         expression: '',
         isString: false,
         isTimestamp: false,
@@ -177,7 +177,7 @@ const timelineChart = ChartFactory.createChart({
         name: '"Trigger time COUNT"',
         expression: 'COUNT("Trigger time")'
       },
-      visualizationType: 'area',
+      visualizationType: 'line',
       visualizationColor: ''
     }
   ],
