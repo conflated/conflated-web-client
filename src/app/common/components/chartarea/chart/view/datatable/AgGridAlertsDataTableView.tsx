@@ -21,16 +21,17 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
 
   const columnWidthWeights = useMemo(
     () => ({
-      Severity: isMaxWidth1024px ? 0 : 0.06,
-      'Trigger time': isMaxWidth480px ? 0.5 : 0.1,
-      'Active duration': isMaxWidth480px ? 0.25 : 0.07,
+      Severity: isMaxWidth1024px ? 0 : 0.05,
+      'Trigger time': isMaxWidth480px ? 0.5 : 0.09,
+      'Active duration': isMaxWidth480px ? 0.25 : 0.05,
       Labels: isMaxWidth480px ? 0.75 : 0.15,
       // eslint-disable-next-line no-nested-ternary
       Description: isMaxWidth480px ? 0.75 : isMaxWidth1024px ? 0.26 : 0.2,
-      'Trigger values': isMaxWidth480px ? 0.5 : 0.15,
+      'Data source': isMaxWidth480px ? 0.5 : 0.11,
+      'Trigger values': isMaxWidth480px ? 0.5 : 0.11,
       Status: isMaxWidth480px ? 0.25 : 0.07,
       Assignee: isMaxWidth480px ? 0.3 : 0.08,
-      'Status last modified': isMaxWidth480px ? 0.5 : 0.12
+      'Status last modified': isMaxWidth480px ? 0.5 : 0.09
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );
@@ -56,7 +57,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             width: (columnWidthWeights as any)[name] * (width - (isMaxWidth1024px ? 32 : 22)),
             filter,
             floatingFilter: true,
-            hide: isMaxWidth1024px && name === 'Severity'
+            hide: (isMaxWidth1024px && name === 'Severity') || (!isMaxWidth1024px && name === 'Data Source')
           };
 
           if (name !== 'Description') {

@@ -57,6 +57,14 @@ export default class FakeChartDataService implements ChartDataService {
             'High 5G-4G Handover Failure Rate',
             'High Nbr of Paging Failures'
           ];
+          columnNameToValuesMap['"Data source"'] = [
+            'Active CNI Alerts',
+            'Active CNI Alerts',
+            'Active CNI Alerts',
+            'Active CNI Alerts',
+            'Active CNI Alerts',
+            'Active CNI Alerts'
+          ];
           columnNameToValuesMap['"Trigger values"'] = [
             'Setup Failure Rate: 18%',
             'Drop Call Rate: 11%',
@@ -101,6 +109,14 @@ export default class FakeChartDataService implements ChartDataService {
             'TRE 5G RAN Failure Ratio Lower Than 1%',
             'TRE 5G RAN Coverage Greater Than 75%',
             'TRE Average 5G RAN Latency Lower Than 5 ms'
+          ];
+          columnNameToValuesMap['"Data source"'] = [
+            'RAN Goals',
+            'RAN Goals',
+            'RAN Goals',
+            'RAN Goals',
+            'RAN Goals',
+            'RAN Goals'
           ];
           columnNameToValuesMap['"Trigger values"'] = [
             'Average 5G RAN Throughput: 120.76 Mb/s',

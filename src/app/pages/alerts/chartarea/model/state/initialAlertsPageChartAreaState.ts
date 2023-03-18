@@ -44,6 +44,21 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
+        name: 'Data source',
+        expression: '',
+        isTimestamp: false,
+        isString: true,
+        isDate: false,
+        unit: 'none'
+      },
+      sqlColumn: {
+        name: '"Data source"',
+        expression: '"Data source"'
+      },
+      visualizationType: 'none'
+    },
+    {
+      dimension: {
         name: 'Trigger time',
         expression: '',
         isTimestamp: true,

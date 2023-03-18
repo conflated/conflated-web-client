@@ -23,6 +23,12 @@
       @media (prefers-color-scheme: dark) {
         background-color: #ccc;
       }
+
+      .ag-header-cell {
+        @media (prefers-color-scheme: dark) {
+          border-right: 1px solid #bbb;
+        }
+      }
     }
 
     .ag-row {
