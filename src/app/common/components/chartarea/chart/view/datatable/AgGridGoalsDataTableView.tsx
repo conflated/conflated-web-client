@@ -37,7 +37,9 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
         ({ dimension: { name, isString, isTimestamp }, sqlColumn }: SelectedDimension): object => {
           let filter = 'agNumberColumnFilter';
 
-          if (isString) {
+          if (name === 'Data source') {
+            filter = 'agSetColumnFilter';
+          } else if (isString) {
             filter = 'agTextColumnFilter';
           } else if (isTimestamp) {
             filter = 'agDateColumnFilter';
