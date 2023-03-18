@@ -33,7 +33,7 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00'
           ];
-          columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '', '3 hours', ''];
+          columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '3 hours', '3 hours', ''];
           columnNameToValuesMap['"Labels"'] = [
             '5G RAN, gNB 2345, Error: Signalling Congestion',
             '5G RAN, gNB 2345',
