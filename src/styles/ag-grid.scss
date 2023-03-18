@@ -43,7 +43,7 @@
       .ag-cell {
         @media (prefers-color-scheme: dark) {
           background-color: var(--brand-color-1);
-          color: #fff;
+          color: #fff !important;
         }
       }
     }
