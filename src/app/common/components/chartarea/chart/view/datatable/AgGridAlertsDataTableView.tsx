@@ -42,10 +42,18 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
         ({ dimension: { name, isDate, isString, isTimestamp }, sqlColumn }: SelectedDimension): object => {
           let filter = 'agNumberColumnFilter';
 
-          if (isString) {
+          if (name === 'Data source') {
+            filter = 'agSetColumnFilter';
+          } else if (isString) {
             filter = 'agTextColumnFilter';
           } else if (isDate || isTimestamp) {
             filter = 'agDateColumnFilter';
+          }
+
+          let finalWidth = width;
+
+          if (width > 480) {
+            finalWidth = 2 * width;
           }
 
           const colDef = {
@@ -54,7 +62,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
             sortable: true,
             resizable: true,
             tooltipField: name,
-            width: (columnWidthWeights as any)[name] * (width - (isMaxWidth1024px ? 32 : 22)),
+            width: (columnWidthWeights as any)[name] * (finalWidth - (isMaxWidth1024px ? 32 : 22)),
             filter,
             floatingFilter: true,
             hide: (isMaxWidth1024px && name === 'Severity') || (!isMaxWidth1024px && name === 'Data Source')
