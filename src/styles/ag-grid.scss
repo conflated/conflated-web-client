@@ -40,7 +40,7 @@
     }
 
     .ag-row-selected {
-      .ag-cell {
+      .ag-cell:not(:first-child) {
         @media (prefers-color-scheme: dark) {
           background-color: var(--brand-color-1);
           color: #fff !important;
