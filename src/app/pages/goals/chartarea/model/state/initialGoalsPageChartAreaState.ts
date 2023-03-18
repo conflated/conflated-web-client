@@ -44,6 +44,21 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
+        name: 'Data source',
+        expression: '',
+        isTimestamp: false,
+        isString: true,
+        isDate: false,
+        unit: 'none'
+      },
+      sqlColumn: {
+        name: '"Data source"',
+        expression: '"Data source"'
+      },
+      visualizationType: 'none'
+    },
+    {
+      dimension: {
         name: 'Trigger time',
         expression: '',
         isTimestamp: true,
@@ -97,7 +112,7 @@ const dataTableChart = ChartFactory.createChart({
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  chartType: 'area',
+  chartType: 'stepline',
   dataSource: {
     ...emptyDataSource,
     name: 'goalstatistics'
@@ -106,7 +121,7 @@ const timelineChart = ChartFactory.createChart({
     {
       aggregationFunction: 'COUNT',
       measure: {
-        name: 'Triggered Goal Count',
+        name: 'Goal Count',
         expression: '',
         isString: false,
         isTimestamp: false,
@@ -117,7 +132,7 @@ const timelineChart = ChartFactory.createChart({
         name: '"Trigger time COUNT"',
         expression: 'COUNT("Trigger time")'
       },
-      visualizationType: 'area',
+      visualizationType: 'line',
       visualizationColor: ''
     }
   ],

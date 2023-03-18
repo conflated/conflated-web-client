@@ -33,14 +33,7 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00'
           ];
-          columnNameToValuesMap['"Active duration"'] = [
-            '3 hours',
-            '3 hours',
-            '3 hours',
-            '3 hours',
-            '3 hours',
-            '3 hours'
-          ];
+          columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '', '3 hours', ''];
           columnNameToValuesMap['"Labels"'] = [
             '5G RAN, gNB 2345, Error: Signalling Congestion',
             '5G RAN, gNB 2345',
@@ -53,15 +46,15 @@ export default class FakeChartDataService implements ChartDataService {
             'Very High gNB Setup Failure Rate',
             'High gNB Drop Call Rate',
             'High gNB Setup Failure Rate',
-            'Alert description 2 very long name very long name long long',
+            'Alert description very long name very long name long long',
             'High 5G-4G Handover Failure Rate',
-            'High Nbr of Paging Failures'
+            'Successful Software Upgrade'
           ];
           columnNameToValuesMap['"Data source"'] = [
             'Active CNI Alerts',
             'Active CNI Alerts',
             'Active CNI Alerts',
-            'Active CNI Alerts',
+            'Active FNI Alerts',
             'Active CNI Alerts',
             'Active CNI Alerts'
           ];
@@ -71,16 +64,16 @@ export default class FakeChartDataService implements ChartDataService {
             'Setup Failure Rate: 12%',
             'Measure1: 45.76',
             'Handover Failure Rate: 25%',
-            'Paging Failures: 34'
+            ''
           ];
-          columnNameToValuesMap.Status = ['New', 'New', 'New', 'New', 'New', 'New'];
+          columnNameToValuesMap.Status = ['New', 'New', 'New', 'New', 'New', ''];
           columnNameToValuesMap.Assignee = [
             'Petri Silen',
             'Petri Silen',
             'Petri Silen',
             'Petri Silen',
             'Petri Silen',
-            'Petri Silen'
+            ''
           ];
           columnNameToValuesMap['"Status last modified"'] = [
             '2019-04-01 12:00:00',
@@ -88,7 +81,7 @@ export default class FakeChartDataService implements ChartDataService {
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
-            '2019-04-01 12:00:00'
+            ''
           ];
         } else if (dataSource.name === 'goalsdata') {
           columnNameToValuesMap.Status = ['Above target', 'On target', 'Below target', 'Far below target'];

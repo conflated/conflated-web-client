@@ -22,10 +22,11 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
   const columnWidthWeights = useMemo(
     () => ({
       Status: isMaxWidth1024px ? 0 : 0.1,
-      'Trigger time': isMaxWidth480px ? 0.5 : 0.12,
+      'Trigger time': isMaxWidth480px ? 0.5 : 0.1,
       Labels: isMaxWidth480px ? 0.75 : 0.2,
-      Description: isMaxWidth480px ? 0.95 : 0.4,
-      'Trigger values': isMaxWidth480px ? 0.8 : 0.28
+      Description: isMaxWidth480px ? 0.95 : 0.27,
+      'Data source': isMaxWidth480px ? 0.5 : 0.13,
+      'Trigger values': isMaxWidth480px ? 0.8 : 0.2
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );
@@ -59,7 +60,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
           }
 
           if (name === 'Status') {
-            (colDef as any).sort = 'desc';
+            (colDef as any).sort = 'asc';
 
             (colDef as any).comparator = (status1: string, status2: string) =>
               (statusNameToValueMap as any)[status1] - (statusNameToValueMap as any)[status2];
@@ -94,7 +95,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
     () => ({
       width: isMaxWidth1024px ? 30 : 20,
       field: 'Status',
-      sort: isMaxWidth1024px ? 'desc' : undefined,
+      sort: isMaxWidth1024px ? 'asc' : undefined,
       sortable: isMaxWidth1024px,
       comparator: (status1: string, status2: string) =>
         (statusNameToValueMap as any)[status1] - (statusNameToValueMap as any)[status2],
