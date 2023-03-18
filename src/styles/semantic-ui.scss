@@ -32,6 +32,8 @@
   }
 
   &.form {
+    padding: 0rem 0.2rem;
+
     .accordion .title {
       padding: 0;
       @media (prefers-color-scheme: dark) {
@@ -81,6 +83,14 @@
       }
     }
 
+    .field {
+      margin-bottom: -0.75rem;
+
+      @media screen and (max-width: 1024px) {
+        margin-bottom: 2rem;
+      }
+    }
+
     .fields {
       align-items: center;
 
@@ -90,7 +100,7 @@
     }
 
     input {
-      padding: 0.1rem 0rem !important;
+      padding: 0.2rem 0 !important;
 
       @media (prefers-color-scheme: dark) {
         background-color: var(--dialog-content-background-color) !important;
@@ -107,6 +117,15 @@
           transition: none !important;
         }
       }
+
+      &.borderless {
+        padding: 0 0 !important;
+        border-bottom: none !important;
+      }
+
+      &.large {
+        font-size: 1.25rem !important;
+      }
     }
 
     input[readOnly] {
@@ -116,8 +135,11 @@
     }
 
     label {
+      white-space: nowrap;
+      width: 12rem;
+
       @media (prefers-color-scheme: dark) {
-        color: #999 !important;
+        color: #888 !important;
       }
     }
 
@@ -242,6 +264,10 @@
       padding-left: 1rem !important;
       padding-top: 0 !important;
 
+      &.withBackButton {
+        padding-left: 0.1rem !important;
+      }
+
       @media (prefers-color-scheme: dark) {
         border-bottom: 1px solid var(--dialog-header-and-footer-border-color);
       }
@@ -251,6 +277,7 @@
       background-color: var(--dialog-content-background-color);
       border-radius: 0;
       color: var(--dialog-color);
+      line-height: 1.25rem !important;
     }
 
     & > .actions {
