@@ -5,17 +5,19 @@ import diContainer from '../../../../../../di/diContainer';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import { OwnProps } from '../view/TriggersPageChartAreaView';
+import OpenTriggerDetailsDialogAction from '../../model/actions/OpenTriggerDetailsDialogAction';
+import { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 
 class TriggersPageChartAreaController extends Controller<ChartAreaPageStateNamespace> {
   getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState[pageStateNamespace].chartAreaState;
 
-  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
-    startFetchDataForCharts: () => {
+  getActionDispatchers = (pageStateNamespace: TriggersPageStateNamespace) => ({
+    openTriggerDetailsDialog: () => this.dispatch(new OpenTriggerDetailsDialogAction(pageStateNamespace)),
+    startFetchDataForCharts: () =>
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
         chart: null,
         pageStateNamespace
-      });
-    }
+      })
   });
 }
 

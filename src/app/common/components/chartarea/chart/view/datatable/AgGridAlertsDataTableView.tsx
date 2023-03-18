@@ -5,7 +5,10 @@ import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
 import type { Chart } from '../../model/state/Chart';
 
-type Props = { chart: Chart; height: number; width: number };
+export type Actions = {
+  handleRowDoubleClick: () => void;
+};
+type Props = { actions: Actions; chart: Chart; height: number; width: number };
 
 const severityToPriorityValueMap = {
   Critical: 4,
@@ -14,7 +17,7 @@ const severityToPriorityValueMap = {
   Info: 1
 };
 
-const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
+const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => {
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
   const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
@@ -148,6 +151,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
         rowSelection="multiple"
         pagination
         enableBrowserTooltips
+        onRowDoubleClicked={actions.handleRowDoubleClick}
       />
     </div>
   );

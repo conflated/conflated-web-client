@@ -26,6 +26,7 @@ import dashboardGroupSelectorStateReducer from '../app/pages/dashboards/leftpane
 import reportsPageStateReducer from '../app/pages/reports/model/state/reportsPageStateReducer';
 import reportTemplateGroupSelectorStateReducer from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/reportTemplateGroupSelectorStateReducer';
 import generateReportDialogStateReducer from '../app/pages/reports/generatereportdialog/model/state/generateReportDialogStateReducer';
+import createTriggersPageStateReducer from '../app/common/components/triggerspage/model/state/createTriggersPageStateReducer';
 
 const appStateReducer = combineReducers({
   common: combineReducers({
@@ -60,12 +61,14 @@ const appStateReducer = combineReducers({
     generateReportDialogState: generateReportDialogStateReducer
   }),
   alertsPage: combineReducers({
+    triggersPageState: createTriggersPageStateReducer('alertsPage'),
     triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('alertsPage'),
     triggerGroupSelectorState: createTriggerGroupSelectorStateReducer('alertsPage'),
     triggerSelectorState: createTriggerSelectorStateReducer('alertsPage'),
     chartAreaState: createTriggersPageChartAreaStateReducer('alertsPage')
   }),
   goalsPage: combineReducers({
+    triggersPageState: createTriggersPageStateReducer('goalsPage'),
     triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('goalsPage'),
     triggerGroupSelectorState: createTriggerGroupSelectorStateReducer('goalsPage'),
     triggerSelectorState: createTriggerSelectorStateReducer('goalsPage'),

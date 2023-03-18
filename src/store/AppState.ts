@@ -22,6 +22,7 @@ import { DashboardGroupSelectorState } from '../app/pages/dashboards/leftpane/da
 import { ReportsPageState } from '../app/pages/reports/model/state/ReportsPageState';
 import { ReportTemplateGroupSelectorState } from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/ReportTemplateGroupSelectorState';
 import { GenerateReportDialogState } from '../app/pages/reports/generatereportdialog/model/state/GenerateReportDialogState';
+import { TriggersPageState } from '../app/common/components/triggerspage/model/state/TriggersPageState';
 
 export type AppState = {
   common: {
@@ -56,12 +57,14 @@ export type AppState = {
     generateReportDialogState: GenerateReportDialogState;
   };
   alertsPage: {
+    triggersPageState: TriggersPageState;
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
     triggerGroupSelectorState: TriggerLabelSelectorState;
     triggerSelectorState: TriggerSelectorState;
     chartAreaState: ChartAreaState;
   };
   goalsPage: {
+    triggersPageState: TriggersPageState;
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
     triggerGroupSelectorState: TriggerLabelSelectorState;
     triggerSelectorState: TriggerSelectorState;

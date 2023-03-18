@@ -28,6 +28,7 @@ const TriggersPageChartAreaView = ({
   layout,
   pageStateNamespace,
   size: { width: triggersAreaWidth, height: triggersAreaHeight },
+  openTriggerDetailsDialog,
   startFetchDataForCharts,
   charts
 }: Props) => {
@@ -39,7 +40,15 @@ const TriggersPageChartAreaView = ({
   const headerHeight = 2.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
   const chartHeight = document.body.clientHeight - headerHeight;
   const chartWidth = document.body.clientWidth;
-  const firstChart = <div key="1">{charts[0].createChartView(chartWidth, chartHeight, pageStateNamespace, {})}</div>;
+
+  const firstChart = (
+    <div key="1">
+      {charts[0].createChartView(chartWidth, chartHeight, pageStateNamespace, {
+        handleRowDoubleClick: openTriggerDetailsDialog
+      })}
+    </div>
+  );
+
   let secondChartHeight = chartHeight / 2;
   const isPortrait = window.matchMedia && window.matchMedia('screen and (orientation: portrait)').matches;
 

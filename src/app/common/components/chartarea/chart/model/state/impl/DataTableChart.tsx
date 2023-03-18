@@ -5,7 +5,7 @@ import AgGridDataTableView from '../../../view/datatable/AgGridDataTableView';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
-import AgGridAlertsDataTableView from '../../../view/datatable/AgGridAlertsDataTableView';
+import AgGridAlertsDataTableView, { Actions } from '../../../view/datatable/AgGridAlertsDataTableView';
 import AgGridGoalsDataTableView from '../../../view/datatable/AgGridGoalsDataTableView';
 
 export default class DataTableChart extends AbstractDrillDownChart {
@@ -27,9 +27,14 @@ export default class DataTableChart extends AbstractDrillDownChart {
   }
 
   // eslint-disable-next-line no-unused-vars
-  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element {
+  createChartView(
+    width: number,
+    height: number,
+    stateNamespace: ChartAreaPageStateNamespace,
+    actions: any
+  ): JSX.Element {
     if (stateNamespace === 'alertsPage') {
-      return <AgGridAlertsDataTableView chart={this} width={width} height={height} />;
+      return <AgGridAlertsDataTableView actions={actions} chart={this} width={width} height={height} />;
     } else if (stateNamespace === 'goalsPage') {
       return <AgGridGoalsDataTableView chart={this} width={width} height={height} />;
     }
