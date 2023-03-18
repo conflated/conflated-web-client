@@ -24,7 +24,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
       Status: isMaxWidth1024px ? 0 : 0.1,
       'Trigger time': isMaxWidth480px ? 0.5 : 0.1,
       Labels: isMaxWidth480px ? 0.75 : 0.2,
-      Description: isMaxWidth480px ? 0.95 : 0.27,
+      Description: isMaxWidth480px ? 0.92 : 0.27,
       'Data source': isMaxWidth480px ? 0.5 : 0.13,
       'Trigger values': isMaxWidth480px ? 0.8 : 0.2
     }),
@@ -45,13 +45,19 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
             filter = 'agDateColumnFilter';
           }
 
+          let finalWidth = width;
+
+          if (width > 480) {
+            finalWidth = 2 * width;
+          }
+
           const colDef = {
             headerName: name,
             field: sqlColumn.name,
             sortable: true,
             resizable: true,
             tooltipField: name,
-            width: (columnWidthWeights as any)[name] * (width - (isMaxWidth1024px ? 32 : 22)),
+            width: (columnWidthWeights as any)[name] * (finalWidth - (isMaxWidth1024px ? 32 : 22)),
             filter,
             floatingFilter: true,
             hide: isMaxWidth1024px && name === 'Status'
@@ -95,7 +101,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
 
   const statusIndicatorColumnDef = useMemo(
     () => ({
-      width: isMaxWidth1024px ? 30 : 20,
+      width: isMaxWidth1024px ? 32 : 20,
       field: 'Status',
       sort: isMaxWidth1024px ? 'asc' : undefined,
       sortable: isMaxWidth1024px,
