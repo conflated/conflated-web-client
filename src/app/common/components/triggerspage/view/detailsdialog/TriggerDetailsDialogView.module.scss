@@ -1,0 +1,23 @@
+.modal {
+  margin: 0 !important;
+  min-width: 100vw;
+  min-height: 100vh;
+  top: 0 !important;
+
+  .header {
+    display: flex !important;
+
+    .icon {
+      line-height: 3rem !important;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .text {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+}

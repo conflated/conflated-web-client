@@ -1,13 +1,24 @@
-import { Form, Modal } from 'semantic-ui-react';
+import { Form, Icon, Modal } from 'semantic-ui-react';
 import React from 'react';
 import stopEventPropagation from '../../../../utils/stopEventPropagation';
+import styles from './TriggerDetailsDialogView.module.scss';
 
 type Props = {
-  handleCloseDialog: () => void;
+  closeDialog: () => void;
 };
-const TriggerDetailsDialogView = ({ handleCloseDialog }: Props) => (
-  <Modal closeOnEscape closeOnDimmerClick onClose={handleCloseDialog} onKeyDown={stopEventPropagation} open>
-    <Modal.Header>ALERT DETAILS</Modal.Header>
+const TriggerDetailsDialogView = ({ closeDialog }: Props) => (
+  <Modal
+    className={styles.modal}
+    closeOnEscape
+    closeOnDimmerClick
+    onClose={closeDialog}
+    onKeyDown={stopEventPropagation}
+    open
+  >
+    <Modal.Header className={styles.header}>
+      <Icon className={styles.icon} name="angle left" onClick={closeDialog} size="big" />
+      <div className={styles.text}> ALERT DETAILS</div>
+    </Modal.Header>
     <Modal.Content>
       <Form>
         <Form.Group>

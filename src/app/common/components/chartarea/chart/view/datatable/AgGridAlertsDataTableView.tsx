@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
+import _ from 'lodash';
 import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
 import type { Chart } from '../../model/state/Chart';
@@ -149,6 +150,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
         pagination
         enableBrowserTooltips
         onRowDoubleClicked={actions.handleRowDoubleClick}
+        onRowClicked={pointerIsCoarse ? actions.handleRowDoubleClick : _.noop}
       />
     </div>
   );

@@ -223,6 +223,7 @@
   }
 
   &.modal {
+    background-color: var(--dialog-content-background-color);
     width: auto;
 
     @media (prefers-color-scheme: dark) {
@@ -238,8 +239,8 @@
       font-size: 1rem !important;
       height: 3rem;
       line-height: 3rem !important;
-      padding-left: 1rem;
-      padding-top: 0;
+      padding-left: 1rem !important;
+      padding-top: 0 !important;
 
       @media (prefers-color-scheme: dark) {
         border-bottom: 1px solid var(--dialog-header-and-footer-border-color);

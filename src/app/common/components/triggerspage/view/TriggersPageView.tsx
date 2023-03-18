@@ -22,7 +22,7 @@ const TriggersPageView = ({ closeTriggerDetailsDialog, pageStateNamespace, shoul
       pageStateNamespace={pageStateNamespace}
       showPaneActivatorHintsOnComponentMount
     />
-    {shouldShowTriggerDetailsDialog && <TriggerDetailsDialogView handleCloseDialog={closeTriggerDetailsDialog} />}
+    {shouldShowTriggerDetailsDialog && <TriggerDetailsDialogView closeDialog={closeTriggerDetailsDialog} />}
   </>
 );
 
