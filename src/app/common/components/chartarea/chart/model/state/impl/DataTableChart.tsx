@@ -5,7 +5,7 @@ import AgGridDataTableView from '../../../view/datatable/AgGridDataTableView';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
-import AgGridAlertsDataTableView, { Actions } from '../../../view/datatable/AgGridAlertsDataTableView';
+import AgGridAlertsDataTableView from '../../../view/datatable/AgGridAlertsDataTableView';
 import AgGridGoalsDataTableView from '../../../view/datatable/AgGridGoalsDataTableView';
 
 export default class DataTableChart extends AbstractDrillDownChart {
@@ -31,7 +31,8 @@ export default class DataTableChart extends AbstractDrillDownChart {
     width: number,
     height: number,
     stateNamespace: ChartAreaPageStateNamespace,
-    actions: any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    actions: Record<string, (...args: any[]) => void>
   ): JSX.Element {
     if (stateNamespace === 'alertsPage') {
       return <AgGridAlertsDataTableView actions={actions} chart={this} width={width} height={height} />;

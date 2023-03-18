@@ -6,6 +6,7 @@ import type { TriggersPageStateNamespace } from '../model/state/TriggersPageStat
 import TriggersPageLeftPaneView from '../leftpane/view/TriggersPageLeftPaneView';
 import TriggersPageChartAreaView from '../chartarea/view/TriggersPageChartAreaView';
 import { ActionDispatchers, controller, State } from '../controller/triggersPageController';
+import TriggerDetailsDialogView from './detailsdialog/TriggerDetailsDialogView';
 
 export type OwnProps = {
   pageStateNamespace: TriggersPageStateNamespace;
@@ -21,7 +22,7 @@ const TriggersPageView = ({ closeTriggerDetailsDialog, pageStateNamespace, shoul
       pageStateNamespace={pageStateNamespace}
       showPaneActivatorHintsOnComponentMount
     />
-    {shouldShowTriggerDetailsDialog && <TriggerDetailsDialogView onCloseDialog={closeTriggerDetailsDialog} />}
+    {shouldShowTriggerDetailsDialog && <TriggerDetailsDialogView handleCloseDialog={closeTriggerDetailsDialog} />}
   </>
 );
 

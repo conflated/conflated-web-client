@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, Reducer } from 'redux';
 import { createNamespacedReducers } from 'oo-redux-utils2';
 import headerStateReducer from '../app/header/model/state/headerStateReducer';
 import layoutSelectorStateReducer from '../app/pages/dataexplorer/leftpane/layoutselector/model/state/layoutSelectorStateReducer';
@@ -27,8 +27,9 @@ import reportsPageStateReducer from '../app/pages/reports/model/state/reportsPag
 import reportTemplateGroupSelectorStateReducer from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/reportTemplateGroupSelectorStateReducer';
 import generateReportDialogStateReducer from '../app/pages/reports/generatereportdialog/model/state/generateReportDialogStateReducer';
 import createTriggersPageStateReducer from '../app/common/components/triggerspage/model/state/createTriggersPageStateReducer';
+import { AppState } from './AppState';
 
-const appStateReducer = combineReducers({
+const appStateReducer: Reducer<AppState> = combineReducers({
   common: combineReducers({
     selectorStates: combineReducers(createNamespacedReducers(selectorStateNamespaces, createSelectorStateReducer)),
     selectorWithDefaultActionsStates: combineReducers(

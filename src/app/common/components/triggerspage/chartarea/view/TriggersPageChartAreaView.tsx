@@ -92,7 +92,7 @@ const TriggersPageChartAreaView = ({
               triggersAreaWidth,
               (layout[0].h / Constants.GRID_ROW_COUNT) * triggersAreaHeight,
               pageStateNamespace,
-              {}
+              { handleRowDoubleClick: openTriggerDetailsDialog }
             )}
           </div>
           <div key="2">

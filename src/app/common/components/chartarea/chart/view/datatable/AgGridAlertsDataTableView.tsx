@@ -5,10 +5,7 @@ import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
 import type { Chart } from '../../model/state/Chart';
 
-export type Actions = {
-  handleRowDoubleClick: () => void;
-};
-type Props = { actions: Actions; chart: Chart; height: number; width: number };
+type Props = { actions: Record<string, (...args: any[]) => void>; chart: Chart; height: number; width: number };
 
 const severityToPriorityValueMap = {
   Critical: 4,
