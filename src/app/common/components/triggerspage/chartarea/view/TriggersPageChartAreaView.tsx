@@ -39,17 +39,22 @@ const TriggersPageChartAreaView = ({
   const headerHeight = 2.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
   const chartHeight = document.body.clientHeight - headerHeight;
   const chartWidth = document.body.clientWidth;
-
   const firstChart = <div key="1">{charts[0].createChartView(chartWidth, chartHeight, pageStateNamespace, {})}</div>;
+  let secondChartHeight = chartHeight / 2;
+  const isPortrait = window.matchMedia && window.matchMedia('screen and (orientation: portrait)').matches;
+
+  if (isPortrait) {
+    secondChartHeight = chartHeight / 3;
+  }
 
   const secondChart = (
-    <div key="2">
+    <div key="2" style={{ height: `${secondChartHeight}px`, width: `${chartWidth}px` }}>
       <ChartView
         chart={charts[1]}
         isSelectedChart={false}
         width={chartWidth}
         pageStateNamespace={pageStateNamespace}
-        height={chartHeight / 4}
+        height={secondChartHeight}
       />
     </div>
   );
