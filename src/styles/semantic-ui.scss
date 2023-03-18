@@ -248,6 +248,7 @@
 
     & > .content {
       background-color: var(--dialog-content-background-color);
+      border-radius: 0;
       color: var(--dialog-color);
     }
 
