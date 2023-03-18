@@ -52,7 +52,7 @@ const AgGridAlertsDataTableView = ({ chart, height, width }: Props) => {
 
           let finalWidth = width;
 
-          if (width > 480) {
+          if (width > 480 && width <= 1024) {
             finalWidth = 2 * width;
           }
 
