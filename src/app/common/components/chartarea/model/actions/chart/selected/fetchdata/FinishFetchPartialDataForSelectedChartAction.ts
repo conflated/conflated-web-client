@@ -1,11 +1,11 @@
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 
 export default class FinishFetchPartialDataForSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chartData: ColumnNameToValuesMap) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chartData: ColumnNameToValuesMap) {
     super(stateNamespace);
   }
 

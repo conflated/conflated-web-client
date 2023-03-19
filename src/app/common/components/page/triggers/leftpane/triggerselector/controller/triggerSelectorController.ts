@@ -1,5 +1,4 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
-import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import ToggleTriggerSelectionAction from '../model/actions/ToggleTriggerSelectionAction';
 import store from '../../../../../../../../store/store';
 import { AppState } from '../../../../../../../../store/AppState';
@@ -8,19 +7,19 @@ import selectorStateNamespaces from '../../../../../selector/model/state/types/S
 import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithDefaultActionsController } from '../../../../../selector/withactions/controller/selectorWithActionsController';
 import { OwnProps } from '../view/TriggerSelectorView';
+import { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 
 class TriggerSelectorController extends Controller<TriggersPageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-    OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].triggerSelectorState, {
-      triggers: createTriggerSelector(pageStateNamespace)(appState),
+  getState = (appState: AppState, { stateNamespace }: OwnProps) =>
+    OOReduxUtils.mergeOwnAndForeignState(appState[stateNamespace].triggerSelectorState, {
+      triggers: createTriggerSelector(stateNamespace)(appState),
 
       isTriggerDataSourceSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]]
           .isSelectorOpen,
 
       isTriggerGroupSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]]
-          .isSelectorOpen
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]].isSelectorOpen
     });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({

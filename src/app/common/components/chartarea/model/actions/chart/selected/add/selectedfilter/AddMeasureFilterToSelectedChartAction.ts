@@ -2,18 +2,18 @@ import type { Measure } from '../../../../../../../../../pages/dataexplorer/left
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class AddMeasureFilterToSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly measure: Measure) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly measure: Measure) {
     super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForFilterAddedToSelectedChartAction, diContainer, {
-      pageStateNamespace: this.stateNamespace
+      stateNamespace: this.stateNamespace
     });
 
     const { selectedChart } = currentState;

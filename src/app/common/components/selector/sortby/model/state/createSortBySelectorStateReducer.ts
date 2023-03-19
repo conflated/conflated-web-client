@@ -1,7 +1,7 @@
 import OOReduxUtils from 'oo-redux-utils2';
 import type { SortBySelectorState } from './SortBySelectorState';
 import AbstractSortBySelectorAction from '../actions/AbstractSortBySelectorAction';
-import type { SortBySelectorPageStateNamespace } from './types/SortBySelectorPageStateNamespace';
+import type { SortBySelectorStateNamespace } from './types/SortBySelectorStateNamespace';
 
 const initialSortBySelectorState: SortBySelectorState = {
   timeSortOptions: [
@@ -27,8 +27,8 @@ const initialSortBySelectorState: SortBySelectorState = {
   areSelectedSortBysShown: true
 };
 
-export default (stateNamespace: SortBySelectorPageStateNamespace) =>
-  OOReduxUtils.createNamespacedStateReducer<SortBySelectorState, SortBySelectorPageStateNamespace>(
+export default (stateNamespace: SortBySelectorStateNamespace) =>
+  OOReduxUtils.createNamespacedStateReducer<SortBySelectorState, SortBySelectorStateNamespace>(
     initialSortBySelectorState,
     AbstractSortBySelectorAction,
     stateNamespace

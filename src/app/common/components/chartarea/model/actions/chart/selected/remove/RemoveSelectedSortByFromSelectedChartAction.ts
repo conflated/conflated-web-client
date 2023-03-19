@@ -2,12 +2,12 @@ import type { SelectedSortBy } from '../../../../../chart/model/state/selectedso
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../di/diContainer';
 
 export default class RemoveSelectedSortByFromSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedSortBy: SelectedSortBy) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedSortBy: SelectedSortBy) {
     super(stateNamespace);
     this.selectedSortBy = selectedSortBy;
   }
@@ -15,7 +15,7 @@ export default class RemoveSelectedSortByFromSelectedChartAction extends Abstrac
   perform(currentState: ChartAreaState): ChartAreaState {
     if (this.selectedSortBy.dataScopeType === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        pageStateNamespace: this.stateNamespace
+        stateNamespace: this.stateNamespace
       });
     }
 

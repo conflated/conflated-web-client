@@ -3,7 +3,7 @@ import StartFetchDashboardGroupsAction from '../model/actions/fetchdata/StartFet
 import diContainer from '../../../../di/diContainer';
 import type { Dashboard } from '../model/state/types/Dashboard';
 import type { DashboardGroup } from '../model/state/types/DashboardGroup';
-import { ChartAreaPageStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
+import { ChartAreaStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 import selectedNextDashboard from './selectors/selectedNextDashboard';
@@ -16,7 +16,7 @@ import ShowDashboardGroupAction from '../model/actions/show/ShowDashboardGroupAc
 import ShowDashboardAction from '../model/actions/show/ShowDashboardAction';
 import ShowDashboardsPageHeaderBrieflyAction from '../header/model/actions/show/ShowHeaderBrieflyAction';
 
-class DashboardsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
+class DashboardsPageController extends Controller<ChartAreaStateNamespace | ''> {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dashboardsPage.dashboardsState, {
       firstDashboard: selectFirstDashboard(appState),

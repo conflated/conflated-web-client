@@ -5,7 +5,7 @@ import type { PageStateNamespace } from '../../../common/components/page/model/s
 import styles from './NavigationView.module.scss';
 
 type Props = {
-  selectPage: (pageStateNamespace: PageStateNamespace) => void;
+  selectPage: (stateNamespace: PageStateNamespace) => void;
 };
 
 const NavigationView = ({ selectPage }: Props) => {

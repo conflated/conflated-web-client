@@ -6,12 +6,12 @@ import SelectDataSourceToBeConfirmedAction from '../model/actions/SelectDataSour
 import diContainer from '../../../../../../di/diContainer';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import store from '../../../../../../store/store';
-import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDataSources from './selectors/selectShownDataSources';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 
-class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespace | ''> {
+class DataSourceSelectorController extends Controller<ChartAreaStateNamespace | ''> {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dataSourceSelectorState, {
       selectedChart: appState.dataExplorerPage.chartAreaState.selectedChart,

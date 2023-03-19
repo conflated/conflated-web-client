@@ -38,7 +38,7 @@ import type { GridItem } from '../../../../model/state/types/GridItem';
 import type { Layout } from '../../../../model/state/types/Layout';
 import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
-import { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 
 export default abstract class AbstractChart implements Chart {
   id = '1';
@@ -168,7 +168,7 @@ export default abstract class AbstractChart implements Chart {
   abstract createChartView(
     width: number,
     height: number,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element;
 
@@ -507,7 +507,7 @@ export default abstract class AbstractChart implements Chart {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     data: object,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     actions: Record<string, (...args: any[]) => void>
   ): void {
@@ -518,7 +518,7 @@ export default abstract class AbstractChart implements Chart {
     event: object,
     chartContext: object,
     params: object,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
   ): void;
 

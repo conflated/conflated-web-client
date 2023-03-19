@@ -19,7 +19,7 @@ const ReportsPageView = ({ startFetchReportTemplateGroups }: Props) => {
       <PageView
         leftPane={<ReportsPageLeftPaneView />}
         middlePane={<ChartAreaTabsView />}
-        pageStateNamespace="reportsPage"
+        stateNamespace="reportsPage"
         showPaneActivatorHintsOnComponentMount
       />
       <GenerateReportDialogView />

@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { Controller } from 'oo-redux-utils2';
-import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
 import SelectChartAction from '../../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../../model/actions/chart/datapointselection/DeselectChartDataPointAction';
 import SelectChartDataPointAction from '../../model/actions/chart/datapointselection/SelectChartDataPointAction';
@@ -16,32 +15,33 @@ import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/action
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
+import { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 
-export default class ChartController extends Controller<ChartAreaPageStateNamespace> {
+export default class ChartController extends Controller<ChartAreaStateNamespace> {
   selectChart = _.debounce(
-    (stateNamespace: ChartAreaPageStateNamespace, chart: Chart) =>
+    (stateNamespace: ChartAreaStateNamespace, chart: Chart) =>
       this.dispatch(new SelectChartAction(stateNamespace, chart)),
     150
   );
 
-  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
-    selectChart: (chart: Chart) => this.selectChart(pageStateNamespace, chart),
+  getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
+    selectChart: (chart: Chart) => this.selectChart(stateNamespace, chart),
 
     deselectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
-      this.dispatch(new DeselectChartDataPointAction(pageStateNamespace, chart, dataPoint)),
+      this.dispatch(new DeselectChartDataPointAction(stateNamespace, chart, dataPoint)),
 
     selectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
-      this.dispatch(new SelectChartDataPointAction(pageStateNamespace, chart, dataPoint)),
+      this.dispatch(new SelectChartDataPointAction(stateNamespace, chart, dataPoint)),
 
     setSelectedDataPointIndexForChart: (chart: Chart, selectedDataPointIndex: number | undefined) =>
-      this.dispatch(new SetSelectedDataPointIndexForChartAction(pageStateNamespace, chart, selectedDataPointIndex)),
+      this.dispatch(new SetSelectedDataPointIndexForChartAction(stateNamespace, chart, selectedDataPointIndex)),
 
     drillDownChart: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
-      this.dispatch(new DrillDownChartAction(pageStateNamespace, chart, drillDown, newDrillDownSelectedDimension));
+      this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension));
     },
 
     removeSelectionFilterFromNotSelectedCharts: (chart: Chart) =>
-      this.dispatch(new RemoveSelectionFilterFromNotSelectedChartsAction(pageStateNamespace, chart)),
+      this.dispatch(new RemoveSelectionFilterFromNotSelectedChartsAction(stateNamespace, chart)),
 
     addSelectionFilterToNotSelectedChartsAction: (
       chart: Chart,
@@ -49,17 +49,17 @@ export default class ChartController extends Controller<ChartAreaPageStateNamesp
       filterExpression: string
     ) => {
       this.dispatch(
-        new AddSelectionFilterToNotSelectedChartsAction(pageStateNamespace, chart, selectedDimension, filterExpression)
+        new AddSelectionFilterToNotSelectedChartsAction(stateNamespace, chart, selectedDimension, filterExpression)
       );
     },
 
     startFetchDataForOtherCharts: (chart: Chart) =>
-      this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, pageStateNamespace }),
+      this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, stateNamespace }),
 
     startFetchDataForSelectedChart: () =>
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { pageStateNamespace }),
+      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, { stateNamespace }),
 
     changeXAxisScrollPosition: (chart: Chart, xAxisScrollPosition: number) =>
-      this.dispatch(new ChangeXAxisScrollPositionForSelectedChartAction(pageStateNamespace, chart, xAxisScrollPosition))
+      this.dispatch(new ChangeXAxisScrollPositionForSelectedChartAction(stateNamespace, chart, xAxisScrollPosition))
   });
 }

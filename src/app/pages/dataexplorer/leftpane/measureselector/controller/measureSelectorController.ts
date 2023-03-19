@@ -9,14 +9,14 @@ import type { Dimension } from '../../dimensionselector/model/state/types/Dimens
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction from '../../../../../common/components/chartarea/model/actions/chart/selected/change/selectedmeasure/ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction';
-import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDimensions from '../../dimensionselector/controller/selectors/createShownDimensionsSelector';
 import selectShownMeasures from './selectors/selectShownMeasures';
 import { controller as selectorWithActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 
-export default class MeasureSelectorController extends Controller<ChartAreaPageStateNamespace> {
+export default class MeasureSelectorController extends Controller<ChartAreaStateNamespace> {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.measureSelectorState, {
       shownDimensions: selectShownDimensions(false)(appState),

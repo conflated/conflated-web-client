@@ -5,13 +5,13 @@ import type { SortDirection } from '../../../../../../chart/model/state/selected
 import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForSortByAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
+import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 
 export default class AddSortByTimeToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly dimension: Dimension | Measure,
     private readonly timeSortOption: TimeSortOption,
     private readonly sortDirection: SortDirection
@@ -21,7 +21,7 @@ export default class AddSortByTimeToSelectedChartAction extends AbstractChartAre
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, {
-      pageStateNamespace: this.stateNamespace
+      stateNamespace: this.stateNamespace
     });
 
     const { selectedChart } = currentState;

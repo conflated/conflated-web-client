@@ -7,11 +7,11 @@ import store from '../../../../../../store/store';
 import CloseTriggerDetailsDialogAction from '../model/actions/CloseTriggerDetailsDialogAction';
 
 class TriggersPageController extends Controller<TriggersPageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState[pageStateNamespace].triggersPageState;
+  getState = (appState: AppState, { stateNamespace }: OwnProps) => appState[stateNamespace].triggersPageState;
 
-  getActionDispatchers = (pageStateNamespace: TriggersPageStateNamespace) => ({
-    closeTriggerDetailsDialog: () => this.dispatch(new CloseTriggerDetailsDialogAction(pageStateNamespace)),
-    openTriggerDetailsDialog: () => this.dispatch(new OpenTriggerDetailsDialogAction(pageStateNamespace))
+  getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({
+    closeTriggerDetailsDialog: () => this.dispatch(new CloseTriggerDetailsDialogAction(stateNamespace)),
+    openTriggerDetailsDialog: () => this.dispatch(new OpenTriggerDetailsDialogAction(stateNamespace))
   });
 }
 

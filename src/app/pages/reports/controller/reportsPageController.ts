@@ -1,11 +1,11 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import diContainer from '../../../../di/diContainer';
-import { ChartAreaPageStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import store from '../../../../store/store';
 import { AppState } from '../../../../store/AppState';
 import StartFetchReportTemplateGroupsAction from '../model/actions/StartFetchReportTemplateGroupsAction';
+import { ChartAreaStateNamespace } from '../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 
-class ReportsPageController extends Controller<ChartAreaPageStateNamespace | ''> {
+class ReportsPageController extends Controller<ChartAreaStateNamespace | ''> {
   getState = (appState: AppState) => OOReduxUtils.mergeOwnAndForeignState(appState.reportsPage.reportsState, {});
 
   readonly actionDispatchers = {

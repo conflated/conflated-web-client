@@ -1,5 +1,5 @@
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import Utils from '../../../../../../../../utils/Utils';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
@@ -7,7 +7,7 @@ import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchData
 import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeFetchedRowCountForSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly fetchedRowCountStr: string) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly fetchedRowCountStr: string) {
     super(stateNamespace);
   }
 

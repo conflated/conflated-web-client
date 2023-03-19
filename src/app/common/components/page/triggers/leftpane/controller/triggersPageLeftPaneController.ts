@@ -8,25 +8,24 @@ import selectorStateNamespaces from '../../../../selector/model/state/types/Sele
 import { OwnProps } from '../view/TriggersPageLeftPaneView';
 
 class TriggersPageLeftPaneController extends Controller<PageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
+  getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
-    triggersPageLeftPaneGutterOffset: appState.common.pageStates[pageStateNamespace].pagePaneGutterOffset.leftPane,
+    triggersPageLeftPaneGutterOffset: appState.common.pageStates[stateNamespace].pagePaneGutterOffset.leftPane,
 
-    shouldShowTriggersPageLeftPane: appState.common.pageStates[pageStateNamespace].shouldShowPagePane.leftPane,
+    shouldShowTriggersPageLeftPane: appState.common.pageStates[stateNamespace].shouldShowPagePane.leftPane,
 
     shouldShowTriggersPageLeftPanePermanently:
-      appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.leftPane,
+      appState.common.pageStates[stateNamespace].shouldShowPagePanePermanently.leftPane,
 
     isTriggerDataSourceSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
+      appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]]
         .isSelectorOpen,
 
     isTriggerGroupSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]]
-        .isSelectorOpen,
+      appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]].isSelectorOpen,
 
     isTriggerSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]].isSelectorOpen
+      appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerSelector`]].isSelectorOpen
   });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({

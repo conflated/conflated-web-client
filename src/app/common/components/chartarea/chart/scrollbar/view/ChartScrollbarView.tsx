@@ -5,7 +5,7 @@ import React from 'react';
 import Scrollbar from 'semantic-ui-react-scrollbar';
 import { connect } from 'react-redux';
 import type { Chart } from '../../model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import { ActionDispatchers, controller } from '../controller/chartScrollbarController';
 
 type OwnProps = {
@@ -13,7 +13,7 @@ type OwnProps = {
   chart: Chart;
   className: string;
   // eslint-disable-next-line react/no-unused-prop-types
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
 };
 
 type Props = OwnProps & ActionDispatchers;
@@ -37,7 +37,7 @@ const ChartScrollbarView = ({ allowKeyControls, changeXAxisScrollPosition, chart
 export default connect(
   null,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(ChartScrollbarView);

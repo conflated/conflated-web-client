@@ -1,13 +1,13 @@
 import { Controller } from 'oo-redux-utils2';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
 import store from '../../../../../../../store/store';
 import { Chart } from '../../model/state/Chart';
 
-class ChartScrollbarController extends Controller<ChartAreaPageStateNamespace> {
-  getActionDispatchers = (pageStateNamespace: ChartAreaPageStateNamespace) => ({
+class ChartScrollbarController extends Controller<ChartAreaStateNamespace> {
+  getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
     changeXAxisScrollPosition: (chart: Chart, xAxisScrollPosition: number) =>
-      this.dispatch(new ChangeXAxisScrollPositionForSelectedChartAction(pageStateNamespace, chart, xAxisScrollPosition))
+      this.dispatch(new ChangeXAxisScrollPositionForSelectedChartAction(stateNamespace, chart, xAxisScrollPosition))
   });
 }
 

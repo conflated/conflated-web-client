@@ -3,13 +3,13 @@ import type { DataScopeType } from '../../../../../../chart/model/state/types/Da
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeSelectedSortByDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly selectedSortBy: SelectedSortBy,
     private readonly dataScopeType: DataScopeType
   ) {
@@ -19,7 +19,7 @@ export default class ChangeSelectedSortByDataScopeTypeForSelectedChartAction ext
   perform(currentState: ChartAreaState): ChartAreaState {
     if (this.selectedSortBy.dataScopeType === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        pageStateNamespace: this.stateNamespace
+        stateNamespace: this.stateNamespace
       });
     }
 

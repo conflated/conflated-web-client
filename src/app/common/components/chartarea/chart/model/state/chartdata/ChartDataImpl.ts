@@ -196,15 +196,15 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, legendData];
   }
 
-  getTriggerData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>] {
+  getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>] {
     const triggerNameData = this.columnNameToDataMap['"Description"'] ?? [];
-    return [triggerNameData, ...this.getTriggerGroupData(pageStateNamespace)];
+    return [triggerNameData, ...this.getTriggerGroupData(stateNamespace)];
   }
 
-  getTriggerGroupData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>] {
+  getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>] {
     const triggerGroupNameData = this.columnNameToDataMap['"Labels"'] ?? [];
     const severityOrStatusData =
-      (pageStateNamespace === 'alertsPage' ? this.columnNameToDataMap.Severity : this.columnNameToDataMap.Status) ?? [];
+      (stateNamespace === 'alertsPage' ? this.columnNameToDataMap.Severity : this.columnNameToDataMap.Status) ?? [];
 
     return [triggerGroupNameData, severityOrStatusData];
   }

@@ -3,12 +3,12 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import styles from './ChartMenuView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../model/state/Chart';
 import { ActionDispatchers, controller } from '../controller/chartMenuController';
 
 // eslint-disable-next-line react/no-unused-prop-types
-type OwnProps = { chart: Chart; className: string; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = { chart: Chart; className: string; stateNamespace: ChartAreaStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const ChartMenuView = ({
@@ -156,7 +156,7 @@ const ChartMenuView = ({
 export default connect(
   null,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(ChartMenuView);

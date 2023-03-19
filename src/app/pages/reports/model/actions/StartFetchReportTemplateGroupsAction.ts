@@ -47,7 +47,7 @@ class StartFetchReportTemplateGroupsAction extends AbstractReportsPageAction {
       );
 
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-        pageStateNamespace: 'reportsPage',
+        stateNamespace: 'reportsPage',
         chart: null
       });
     });

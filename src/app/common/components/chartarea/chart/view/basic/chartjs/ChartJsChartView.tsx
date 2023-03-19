@@ -4,18 +4,18 @@ import 'chartjs-chart-box-and-violin-plot';
 import React, { useEffect, useRef, useState } from 'react';
 import { Chart as ChartJsChart } from 'chart.js';
 import styles from './ChartJsChartView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ChartJsChartBaseOptionsFactory from './ChartJsChartBaseOptionsFactory';
 
 type OwnProps = {
   chart: Chart;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
 };
 
 type Props = OwnProps;
 
-const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
+const ChartJsChartView = ({ chart, stateNamespace, ...actions }: Props) => {
   // eslint-disable-next-line react/prefer-exact-props
   const chartCanvasRef: { current: any } = useRef(null);
   const [chartJsChart, setChartJsChart] = useState<ChartJsChart | null>(null);
@@ -28,7 +28,7 @@ const ChartJsChartView = ({ chart, pageStateNamespace, ...actions }: Props) => {
       const options = {
         ...ChartJsChartBaseOptionsFactory.createBaseOptions(),
         onClick: (event: any, activeElements: object[]) =>
-          chart.handleChartJsClick(event, activeElements, data, pageStateNamespace, actions as any)
+          chart.handleChartJsClick(event, activeElements, data, stateNamespace, actions as any)
       };
 
       if (chartJsChart) {

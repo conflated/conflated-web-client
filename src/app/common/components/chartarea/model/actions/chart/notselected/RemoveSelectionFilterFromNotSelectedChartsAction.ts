@@ -2,10 +2,10 @@ import _ from 'lodash';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 
 export default class RemoveSelectionFilterFromNotSelectedChartsAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedChart: Chart | null | undefined) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedChart: Chart | null | undefined) {
     super(stateNamespace);
   }
 

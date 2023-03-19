@@ -87,11 +87,11 @@ const DashboardsPageView = ({
       middlePane={
         <ChartAreaView
           className={shouldShowDashboardsPageHeaderPermanently ? styles.withHeader : ''}
-          pageStateNamespace="dashboardsPage"
+          stateNamespace="dashboardsPage"
         />
       }
       rightPane={<DashboardsPageRightPaneView />}
-      pageStateNamespace="dashboardsPage"
+      stateNamespace="dashboardsPage"
       showPaneActivatorHintsOnComponentMount
     />
   );

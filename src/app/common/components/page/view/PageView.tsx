@@ -13,7 +13,7 @@ export type OwnProps = {
   leftPane: JSX.Element;
   middlePane: JSX.Element;
   // eslint-disable-next-line react/no-unused-prop-types
-  pageStateNamespace: PageStateNamespace;
+  stateNamespace: PageStateNamespace;
   rightPane?: JSX.Element;
   showPaneActivatorHintsOnComponentMount?: boolean;
 };
@@ -117,7 +117,7 @@ PageView.defaultProps = {
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(PageView);

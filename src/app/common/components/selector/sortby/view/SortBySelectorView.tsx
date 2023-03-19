@@ -11,7 +11,7 @@ import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsV
 import MeasureListItemView from '../../../../view/listitems/listitem/measure/MeasureListItemView';
 import DimensionListItemView from '../../../../view/listitems/listitem/dimension/DimensionListItemView';
 import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
-import type { SortBySelectorPageStateNamespace } from '../model/state/types/SortBySelectorPageStateNamespace';
+import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
@@ -19,7 +19,7 @@ import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsand
 import { ActionDispatchers, controller, State } from '../controller/sortBySelectorController';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 
-export type OwnProps = { pageStateNamespace: SortBySelectorPageStateNamespace };
+export type OwnProps = { stateNamespace: SortBySelectorStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 const { hidden, selectedSortBysSection, visible } = styles;
 
@@ -34,7 +34,7 @@ const SortBySelectorView = ({
   isDataPointsCountSelectorOpen,
   isFilterSelectorOpen,
   lastUsedSortDirection,
-  pageStateNamespace,
+  stateNamespace,
   removeSelectedSortByFromSelectedChart,
   selectedChart,
   shownDimensions,
@@ -49,15 +49,15 @@ const SortBySelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isFilterSelectorOpen,
-          selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}FilterSelector`]
         },
         {
           isOpen: isDataPointsCountSelectorOpen,
-          selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}DataPointsCountSelector`]
         }
       ]);
     },
-    [isDataPointsCountSelectorOpen, isFilterSelectorOpen, pageStateNamespace, toggleMaximizeSelector]
+    [isDataPointsCountSelectorOpen, isFilterSelectorOpen, stateNamespace, toggleMaximizeSelector]
   );
 
   // store previous selectedsortbys in state and compare to see if default selected sort by is changed
@@ -110,7 +110,7 @@ const SortBySelectorView = ({
     </List.Item>
   ));
 
-  const selectorStateNamespace = `${pageStateNamespace}SortBySelector`;
+  const selectorStateNamespace = `${stateNamespace}SortBySelector`;
 
   return (
     <SelectorWithActionsView
@@ -139,7 +139,7 @@ const SortBySelectorView = ({
 export default connect(
   () => controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(SortBySelectorView);

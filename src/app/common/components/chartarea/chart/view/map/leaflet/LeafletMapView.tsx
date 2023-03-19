@@ -3,11 +3,11 @@ import React from 'react';
 import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import type { Chart } from '../../../model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapCircleGeometriesFactory from './LeafletCircleGeometriesFactory';
 
 // eslint-disable-next-line react/no-unused-prop-types
-type Props = { chart: Chart; stateNamespace: ChartAreaPageStateNamespace };
+type Props = { chart: Chart; stateNamespace: ChartAreaStateNamespace };
 
 const LeafletMapView = ({ chart }: Props) => {
   let mapBounds;

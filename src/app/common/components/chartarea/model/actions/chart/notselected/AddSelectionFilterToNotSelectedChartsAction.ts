@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import StartFetchDataForOtherChartsAction from '../fetchdata/StartFetchDataForOtherChartsAction';
@@ -9,7 +9,7 @@ import diContainer from '../../../../../../../../di/diContainer';
 
 export default class AddSelectionFilterToNotSelectedChartsAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly chart: Chart,
     private readonly selectedDimension: SelectedDimension,
     private readonly filterExpression: string
@@ -20,7 +20,7 @@ export default class AddSelectionFilterToNotSelectedChartsAction extends Abstrac
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
       chart: this.chart,
-      pageStateNamespace: this.stateNamespace
+      stateNamespace: this.stateNamespace
     });
 
     const { charts } = currentState;

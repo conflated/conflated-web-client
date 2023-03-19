@@ -8,7 +8,7 @@ import type { Dimension } from '../../../../../../../../../pages/dataexplorer/le
 import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
-import type { ChartAreaPageStateNamespace } from '../../../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../../model/state/types/ChartAreaStateNamespace';
 import ApexChartView from '../../../../../view/basic/apex/ApexChartView';
 
 export default class StatisticChart extends AbstractTimelineChart {
@@ -29,7 +29,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element {
+  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     if (this.selectedDimensions.length === 0) {
       const statisticElements = this.selectedMeasures.map((selectedMeasure: SelectedMeasure): JSX.Element => {
         const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
@@ -46,7 +46,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     } else if (this.selectedMeasures.length === 1 && this.selectedDimensions.length === 1) {
       return (
         <div key={this.id}>
-          <ApexChartView chart={this} width={0} height={0} pageStateNamespace={stateNamespace} />
+          <ApexChartView chart={this} width={0} height={0} stateNamespace={stateNamespace} />
         </div>
       );
     }

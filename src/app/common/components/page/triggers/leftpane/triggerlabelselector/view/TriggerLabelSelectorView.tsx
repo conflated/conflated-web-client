@@ -9,13 +9,13 @@ import AllAndFavoritesTabView from '../../../../../../view/tab/allandfavorites/A
 import type { TriggerLabel } from '../model/state/types/TriggerLabel';
 import { ActionDispatchers, controller, State } from '../controller/triggerLabelSelectorController';
 
-export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerLabelSelectorView = ({
   isTriggerDataSourceSelectorOpen,
   isTriggerSelectorOpen,
-  pageStateNamespace,
+  stateNamespace,
   selectedTriggerGroups,
   toggleSelection,
   toggleMaximizeSelector,
@@ -27,11 +27,11 @@ const TriggerLabelSelectorView = ({
     toggleMaximizeSelector([
       {
         isOpen: isTriggerDataSourceSelectorOpen,
-        selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
+        selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
       },
       {
         isOpen: isTriggerSelectorOpen,
-        selectorStateNamespace: selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+        selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerSelector`]
       }
     ]);
   };
@@ -47,18 +47,18 @@ const TriggerLabelSelectorView = ({
           worstTriggerCount={triggerGroup.worstTriggerCount}
           intermediateTriggerCount={triggerGroup.intermediateTriggerCount}
           bestTriggerCount={triggerGroup.bestTriggerCount}
-          pageStateNamespace={pageStateNamespace}
+          stateNamespace={stateNamespace}
         />
       )),
-    [triggerGroups, selectedTriggerGroups, pageStateNamespace, toggleSelection]
+    [triggerGroups, selectedTriggerGroups, stateNamespace, toggleSelection]
   );
 
-  const selectorStateNamespace = `${pageStateNamespace}TriggerGroupSelector`;
+  const selectorStateNamespace = `${stateNamespace}TriggerGroupSelector`;
 
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText={pageStateNamespace === 'goalsPage' ? 'GOAL LABELS' : 'ALERT LABELS'}
+      titleText={stateNamespace === 'goalsPage' ? 'GOAL LABELS' : 'ALERT LABELS'}
       position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />
@@ -73,7 +73,7 @@ const TriggerLabelSelectorView = ({
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(TriggerLabelSelectorView);

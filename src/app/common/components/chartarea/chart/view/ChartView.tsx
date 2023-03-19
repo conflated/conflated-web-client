@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import type { ChartAreaPageStateNamespace } from '../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import styles from './ChartView.module.scss';
 import type { Chart } from '../model/state/Chart';
 import ChartMenuView from '../menu/view/ChartMenuView';
@@ -16,7 +16,7 @@ type OwnProps = {
   chart: Chart;
   height: number;
   isSelectedChart: boolean;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   width: number;
 };
 
@@ -31,12 +31,12 @@ const ChartView = ({
   height,
   isSelectedChart,
   selectChart,
-  pageStateNamespace,
+  stateNamespace,
   width
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
   const className = classNames(styles.scrollableChart, { [styles.selectedChart]: isSelectedChart });
-  const chartView = chart.createChartView(width, height, pageStateNamespace, { selectChart });
+  const chartView = chart.createChartView(width, height, stateNamespace, { selectChart });
 
   function onTouchStart(event: React.TouchEvent) {
     setTouchStartX(event.changedTouches[0].screenX);
@@ -58,14 +58,14 @@ const ChartView = ({
   return (
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
-      <ChartMenuView chart={chart} className={styles.menu} pageStateNamespace={pageStateNamespace} />
+      <ChartMenuView chart={chart} className={styles.menu} stateNamespace={stateNamespace} />
       <ChartScrollbarView
         allowKeyControls={isSelectedChart}
         chart={chart}
         className={`${styles.scrollbar} ${isSelectedChart ? styles.selected : ''}`}
-        pageStateNamespace={pageStateNamespace}
+        stateNamespace={stateNamespace}
       />
-      <DrillUpIconView chart={chart} pageStateNamespace={pageStateNamespace} />
+      <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />
       <ChartConfigHintsView chart={chart} />
     </div>
   );
@@ -74,7 +74,7 @@ const ChartView = ({
 export default connect(
   null,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(ChartView);

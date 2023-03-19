@@ -9,17 +9,17 @@ import { ActionDispatchers, controller, State } from '../controller/triggersPage
 import TriggerDetailsDialogView from './detailsdialog/TriggerDetailsDialogView';
 
 export type OwnProps = {
-  pageStateNamespace: TriggersPageStateNamespace;
+  stateNamespace: TriggersPageStateNamespace;
 };
 
 type Props = OwnProps & State & ActionDispatchers;
 
-const TriggersPageView = ({ closeTriggerDetailsDialog, pageStateNamespace, shouldShowTriggerDetailsDialog }: Props) => (
+const TriggersPageView = ({ closeTriggerDetailsDialog, stateNamespace, shouldShowTriggerDetailsDialog }: Props) => (
   <>
     <PageView
-      leftPane={<TriggersPageLeftPaneView pageStateNamespace={pageStateNamespace} />}
-      middlePane={<TriggersPageChartAreaView pageStateNamespace={pageStateNamespace} />}
-      pageStateNamespace={pageStateNamespace}
+      leftPane={<TriggersPageLeftPaneView stateNamespace={stateNamespace} />}
+      middlePane={<TriggersPageChartAreaView stateNamespace={stateNamespace} />}
+      stateNamespace={stateNamespace}
       showPaneActivatorHintsOnComponentMount
     />
     {shouldShowTriggerDetailsDialog && <TriggerDetailsDialogView closeDialog={closeTriggerDetailsDialog} />}
@@ -29,7 +29,7 @@ const TriggersPageView = ({ closeTriggerDetailsDialog, pageStateNamespace, shoul
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(TriggersPageView);

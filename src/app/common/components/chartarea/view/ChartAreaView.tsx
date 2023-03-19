@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../model/state/types/ChartAreaStateNamespace';
 import Constants from '../../../Constants';
 import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
@@ -19,7 +19,7 @@ type SizeAwareComponent = {
 };
 
 export type OwnProps = SizeAwareComponent & {
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   className?: string;
 };
 
@@ -74,7 +74,7 @@ class ChartAreaView extends React.Component<Props> {
       className,
       isLayoutLocked,
       layout,
-      pageStateNamespace,
+      stateNamespace,
       selectedChart,
       size: { width: chartAreaWidth, height: chartAreaHeight }
     }: Props = this.props;
@@ -105,7 +105,7 @@ class ChartAreaView extends React.Component<Props> {
             isSelectedChart={chart === selectedChart}
             height={chartHeight}
             width={chartWidth}
-            pageStateNamespace={pageStateNamespace}
+            stateNamespace={stateNamespace}
           />
         </div>
       );
@@ -125,8 +125,8 @@ class ChartAreaView extends React.Component<Props> {
             containerPadding={[0, 0]}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
             width={chartAreaWidth}
-            isDraggable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
-            isResizable={pageStateNamespace === 'dataExplorerPage' && !isLayoutLocked}
+            isDraggable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
+            isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
           >
             {chartElements}
           </GridLayout>
@@ -140,8 +140,8 @@ export default sizeMe({ monitorHeight: true, monitorWidth: true })(
   connect(
     controller.getState,
     _.memoize(
-      (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-      (...args) => args[1].pageStateNamespace
+      (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+      (...args) => args[1].stateNamespace
     )
   )(ChartAreaView)
 );

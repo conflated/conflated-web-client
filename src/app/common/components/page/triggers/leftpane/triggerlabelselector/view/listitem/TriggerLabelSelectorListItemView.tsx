@@ -9,7 +9,7 @@ import type { TriggersPageStateNamespace } from '../../../../model/state/Trigger
 type Props = {
   bestTriggerCount: number;
   intermediateTriggerCount: number;
-  pageStateNamespace: TriggersPageStateNamespace;
+  stateNamespace: TriggersPageStateNamespace;
   selectedTriggerGroups: string[];
   selectTriggerGroup: (triggerGroup: string) => void;
   triggerGroup: string;
@@ -22,7 +22,7 @@ const { actionIcon, triggerCountBadge, triggerGroupText, triggerGroupListItem } 
 const TriggerLabelSelectorListItemView = ({
   bestTriggerCount,
   intermediateTriggerCount,
-  pageStateNamespace,
+  stateNamespace,
   selectedTriggerGroups,
   selectTriggerGroup,
   triggerGroup,
@@ -43,12 +43,12 @@ const TriggerLabelSelectorListItemView = ({
       <CountBadgeView className={triggerCountBadge} color="red" count={worstTriggerCount} />
       <CountBadgeView
         className={triggerCountBadge}
-        color={pageStateNamespace === 'alertsPage' ? 'orange' : 'yellow'}
+        color={stateNamespace === 'alertsPage' ? 'orange' : 'yellow'}
         count={intermediateTriggerCount}
       />
       <CountBadgeView
         className={triggerCountBadge}
-        color={pageStateNamespace === 'goalsPage' ? 'green' : 'yellow'}
+        color={stateNamespace === 'goalsPage' ? 'green' : 'yellow'}
         count={bestTriggerCount}
       />
     </List.Item>

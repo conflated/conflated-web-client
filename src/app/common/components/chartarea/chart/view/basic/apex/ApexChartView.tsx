@@ -2,7 +2,7 @@
 import React from 'react';
 import { default as ApexChart } from 'react-apexcharts';
 import HashValueCalculator from '../../../../../../utils/HashValueCalculator';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../model/state/Chart';
 import ApexChartGeneralOptionsFactory from './optionfactories/ApexChartGeneralOptionsFactory';
 import ApexChartEventOptionsFactory from './optionfactories/ApexChartEventOptionsFactory';
@@ -24,17 +24,17 @@ import ApexChartYAxisOptionsFactory from './optionfactories/ApexChartYAxisOption
 type OwnProps = {
   chart: Chart;
   height: number;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   width: number;
 };
 
 type Props = OwnProps;
 
-const ApexChartView = ({ chart, height, width, pageStateNamespace, ...actions }: Props) => {
+const ApexChartView = ({ chart, height, width, stateNamespace, ...actions }: Props) => {
   const chartOptions = {
     chart: {
       ...ApexChartGeneralOptionsFactory.createGeneralOptions(chart),
-      events: ApexChartEventOptionsFactory.createEventOptions(chart, pageStateNamespace, actions as any),
+      events: ApexChartEventOptionsFactory.createEventOptions(chart, stateNamespace, actions as any),
       toolbar: {
         tools: {
           download: false

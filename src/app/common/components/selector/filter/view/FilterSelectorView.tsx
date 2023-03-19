@@ -10,7 +10,7 @@ import MeasureListItemView from '../../../../view/listitems/listitem/measure/Mea
 import DimensionListItemView from '../../../../view/listitems/listitem/dimension/DimensionListItemView';
 import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
-import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
+import type { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
@@ -20,7 +20,7 @@ import MeasuresAndDimensionsTabView from '../../../../view/tab/measuresanddimens
 import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 
-export type OwnProps = { pageStateNamespace: FilterSelectorPageStateNamespace };
+export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
 
 type Props = OwnProps & ActionDispatchers & State;
 
@@ -33,7 +33,7 @@ const FilterSelectorView = ({
   changeSelectedFilterDataScopeTypeForSelectedChart,
   isDataPointsCountSelectorOpen,
   isSortBySelectorOpen,
-  pageStateNamespace,
+  stateNamespace,
   removeSelectedFilterFromSelectedChart,
   selectedChart,
   shouldShowPageRightPanePermanently,
@@ -48,11 +48,11 @@ const FilterSelectorView = ({
     toggleMaximizeSelector([
       {
         isOpen: isSortBySelectorOpen,
-        selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]
+        selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}SortBySelector`]
       },
       {
         isOpen: isDataPointsCountSelectorOpen,
-        selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]
+        selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}DataPointsCountSelector`]
       }
     ]);
   };
@@ -116,7 +116,7 @@ const FilterSelectorView = ({
     />
   ));
 
-  const selectorStateNamespace = `${pageStateNamespace}FilterSelector`;
+  const selectorStateNamespace = `${stateNamespace}FilterSelector`;
 
   return (
     <SelectorWithActionsView
@@ -143,7 +143,7 @@ const FilterSelectorView = ({
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(FilterSelectorView);

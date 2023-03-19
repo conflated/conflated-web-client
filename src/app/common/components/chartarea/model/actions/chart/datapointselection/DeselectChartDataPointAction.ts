@@ -1,13 +1,13 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { DataPoint } from '../../../../chart/model/state/types/DataPoint';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
 
 export default class DeselectChartDataPointAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly chart: Chart,
     private readonly dataPoint: DataPoint
   ) {

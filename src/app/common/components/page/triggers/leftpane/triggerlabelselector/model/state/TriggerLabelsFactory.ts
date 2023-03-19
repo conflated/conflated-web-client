@@ -7,10 +7,10 @@ export default class TriggerLabelsFactory {
   static createTriggerLabels(
     triggersDataTableChart: Chart,
     searchedValue: string,
-    pageStateNamespace: TriggersPageStateNamespace
+    stateNamespace: TriggersPageStateNamespace
   ): TriggerLabel[] {
     const [triggerGroupNameData, severityOrStatusData] =
-      triggersDataTableChart.chartData.getTriggerGroupData(pageStateNamespace);
+      triggersDataTableChart.chartData.getTriggerGroupData(stateNamespace);
 
     return _.uniq(
       triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))
@@ -23,22 +23,22 @@ export default class TriggerLabelsFactory {
         const worstTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
             triggerGroupNameData[index].includes(triggerGroupName) &&
-            ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Critical') ||
-              (pageStateNamespace === 'goalsPage' && severityOrStatus === 'Far below target'))
+            ((stateNamespace === 'alertsPage' && severityOrStatus === 'Critical') ||
+              (stateNamespace === 'goalsPage' && severityOrStatus === 'Far below target'))
         );
 
         const intermediateTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
             triggerGroupNameData[index].includes(triggerGroupName) &&
-            ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Major') ||
-              (pageStateNamespace === 'goalsPage' && severityOrStatus === 'Below target'))
+            ((stateNamespace === 'alertsPage' && severityOrStatus === 'Major') ||
+              (stateNamespace === 'goalsPage' && severityOrStatus === 'Below target'))
         );
 
         const bestTriggers = severityOrStatusData.filter(
           (severityOrStatus: string, index: number) =>
             triggerGroupNameData[index].includes(triggerGroupName) &&
-            ((pageStateNamespace === 'alertsPage' && severityOrStatus === 'Minor') ||
-              (pageStateNamespace === 'goalsPage' &&
+            ((stateNamespace === 'alertsPage' && severityOrStatus === 'Minor') ||
+              (stateNamespace === 'goalsPage' &&
                 (severityOrStatus === 'On target' || severityOrStatus === 'Above target')))
         );
 

@@ -7,19 +7,19 @@ import { connect } from 'react-redux';
 import NumberInput from 'semantic-ui-react-numberinput';
 import styles from './DataPointsCountSelectorView.module.scss';
 import SelectorView from '../../view/SelectorView';
-import type { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
+import type { DataPointsCountSelectorStateNamespace } from '../model/state/DataPointsCountSelectorStateNamespace';
 import Constants from '../../../../Constants';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/dataPointsCountSelectorController';
 
-export type OwnProps = { pageStateNamespace: DataPointsCountSelectorPageStateNamespace };
+export type OwnProps = { stateNamespace: DataPointsCountSelectorStateNamespace };
 type Props = OwnProps & State & ActionDispatchers;
 
 const DataPointsCountSelectorView = ({
   changeFetchedRowCountForSelectedChart,
   changeXAxisCategoriesShownCountForSelectedChart,
   selectedChart,
-  pageStateNamespace
+  stateNamespace
 }: Props) => {
   let xAxisCategoriesShownCountInput;
 
@@ -40,7 +40,7 @@ const DataPointsCountSelectorView = ({
     );
   }
 
-  const selectorStateNamespace = `${pageStateNamespace}DataPointsCountSelector`;
+  const selectorStateNamespace = `${stateNamespace}DataPointsCountSelector`;
 
   return (
     <SelectorView
@@ -72,7 +72,7 @@ const DataPointsCountSelectorView = ({
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(DataPointsCountSelectorView);

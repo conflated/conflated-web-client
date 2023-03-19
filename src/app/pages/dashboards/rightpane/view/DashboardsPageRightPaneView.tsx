@@ -24,8 +24,8 @@ const DashboardsPageRightPaneView = ({
     shouldShowPagePane={shouldShowDashboardsPageRightPane}
     shouldShowPagePanePermanently={shouldShowDashboardsPageRightPanePermanently}
   >
-    <FilterSelectorView pageStateNamespace="dashboardsPage" />
-    <SortBySelectorView pageStateNamespace="dashboardsPage" />
+    <FilterSelectorView stateNamespace="dashboardsPage" />
+    <SortBySelectorView stateNamespace="dashboardsPage" />
   </PagePaneView>
 );
 

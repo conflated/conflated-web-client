@@ -3,12 +3,12 @@ import ChangeChartAreaLayoutAndStorePreviousLayoutAction from './ChangeChartArea
 import Constants from '../../../../../Constants';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { GridItem } from '../../state/types/GridItem';
-import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
 import type { DragType } from '../../../../../../header/model/state/types/DragType';
 import Utils from '../../../../../utils/Utils';
+import { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
 
 export default class EnterChartAreaWithDraggedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly dragType: DragType) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly dragType: DragType) {
     super(stateNamespace);
   }
 

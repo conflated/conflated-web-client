@@ -22,32 +22,31 @@ import { PageStateNamespace } from '../../../page/model/state/types/PageStateNam
 import store from '../../../../../../store/store';
 import { controller as selectorWithActionsController } from '../../withactions/controller/selectorWithActionsController';
 import { OwnProps } from '../view/FilterSelectorView';
-import { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
+import { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
-    selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart,
+  getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
+    selectedChart: appState[stateNamespace].chartAreaState.selectedChart,
     shownDimensions: selectShownDimensions(false)(appState),
     shownMeasures: selectShownMeasures(appState),
 
     shouldShowPageRightPanePermanently:
-      appState.common.pageStates[pageStateNamespace].shouldShowPagePanePermanently.rightPane,
+      appState.common.pageStates[stateNamespace].shouldShowPagePanePermanently.rightPane,
 
     isSortBySelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}SortBySelector`]].isSelectorOpen,
+      appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}SortBySelector`]].isSelectorOpen,
 
     isDataPointsCountSelectorOpen:
-      appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]]
-        .isSelectorOpen
+      appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}DataPointsCountSelector`]].isSelectorOpen
   });
 
-  getActionDispatchers = (pageStateNamespace: FilterSelectorPageStateNamespace) => ({
+  getActionDispatchers = (stateNamespace: FilterSelectorStateNamespace) => ({
     addDimensionFilterToSelectedChart: (dimension: Dimension) => {
-      this.dispatch(new AddDimensionFilterToSelectedChartAction(pageStateNamespace, dimension));
+      this.dispatch(new AddDimensionFilterToSelectedChartAction(stateNamespace, dimension));
     },
 
     addMeasureFilterToSelectedChart: (measure: Measure) => {
-      this.dispatch(new AddMeasureFilterToSelectedChartAction(pageStateNamespace, measure));
+      this.dispatch(new AddMeasureFilterToSelectedChartAction(stateNamespace, measure));
     },
 
     changeSelectedFilterAggregationFunctionForSelectedChart: (
@@ -56,7 +55,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     ) => {
       this.dispatch(
         new ChangeSelectedFilterAggregationFunctionForSelectedChartAction(
-          pageStateNamespace,
+          stateNamespace,
           selectedFilter,
           aggregationFunction
         )
@@ -65,7 +64,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
 
     changeSelectedFilterExpressionForSelectedChart: (selectedFilter: SelectedFilter, expression: string) => {
       this.dispatch(
-        new ChangeSelectedFilterExpressionForSelectedChartAction(pageStateNamespace, selectedFilter, expression)
+        new ChangeSelectedFilterExpressionForSelectedChartAction(stateNamespace, selectedFilter, expression)
       );
     },
 
@@ -74,7 +73,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       filterInputType: FilterInputType
     ) => {
       this.dispatch(
-        new ChangeSelectedFilterInputTypeForSelectedChartAction(pageStateNamespace, selectedFilter, filterInputType)
+        new ChangeSelectedFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType)
       );
     },
 
@@ -83,19 +82,19 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       dataScopeType: DataScopeType
     ) => {
       this.dispatch(
-        new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(pageStateNamespace, selectedFilter, dataScopeType)
+        new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType)
       );
     },
 
     removeSelectedFilterFromSelectedChart: (selectedFilter: SelectedFilter) => {
-      this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(pageStateNamespace, selectedFilter));
+      this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(stateNamespace, selectedFilter));
     },
 
     toggleShouldShowPageRightPanePermanently: () =>
-      this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(pageStateNamespace, 'rightPane')),
+      this.dispatch(new ToggleShouldShowPagePanePermanentlyAction(stateNamespace, 'rightPane')),
 
     toggleMaximizeSelector: selectorWithActionsController.getActionDispatchers(
-      selectorWithActionsStateNamespaces[`${pageStateNamespace}FilterSelector`]
+      selectorWithActionsStateNamespaces[`${stateNamespace}FilterSelector`]
     ).toggleMaximizeSelector
   });
 }

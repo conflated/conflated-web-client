@@ -1,5 +1,5 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
@@ -7,14 +7,14 @@ import StartFetchDataForSelectedChartAction from '../selected/fetchdata/StartFet
 import diContainer from '../../../../../../../../di/diContainer';
 
 export default class DrillUpChartAction extends AbstractChartAreaAction {
-  constructor(pageStateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
-    super(pageStateNamespace);
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart) {
+    super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
       chart: this.chart,
-      pageStateNamespace: this.stateNamespace
+      stateNamespace: this.stateNamespace
     });
 
     this.chart.drillUp();

@@ -7,13 +7,13 @@ import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { Measure } from '../../measureselector/model/state/types/Measure';
 import store from '../../../../../../store/store';
-import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownMeasures from '../../measureselector/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from './selectors/createShownDimensionsSelector';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 
-export default class DimensionSelectorController extends Controller<ChartAreaPageStateNamespace> {
+export default class DimensionSelectorController extends Controller<ChartAreaStateNamespace> {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dimensionSelectorState, {
       shownMeasures: selectShownMeasures(appState),

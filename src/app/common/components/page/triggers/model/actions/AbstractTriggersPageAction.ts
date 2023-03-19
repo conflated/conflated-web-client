@@ -7,7 +7,7 @@ export default abstract class AbstractTriggersPageAction extends AbstractComposi
   TriggersPageState,
   TriggersPageStateNamespace
 > {
-  constructor(triggersPageStateNamespace: TriggersPageStateNamespace) {
-    super(triggersPageStateNamespace, createActionDispatcher(store.dispatch));
+  constructor(triggersStateNamespace: TriggersPageStateNamespace) {
+    super(triggersStateNamespace, createActionDispatcher(store.dispatch));
   }
 }

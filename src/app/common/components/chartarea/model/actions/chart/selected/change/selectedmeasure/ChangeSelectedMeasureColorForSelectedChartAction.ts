@@ -1,12 +1,12 @@
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { SelectedMeasure } from '../../../../../../chart/model/state/selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 
 export default class ChangeSelectedMeasureColorForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly selectedMeasure: SelectedMeasure,
     private readonly color: string
   ) {

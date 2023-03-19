@@ -1,12 +1,12 @@
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import { Chart } from '../../../../../../chart/model/state/Chart';
 
 export default class ChangeXAxisScrollPositionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly chart: Chart,
     private readonly xAxisScrollPosition: number
   ) {

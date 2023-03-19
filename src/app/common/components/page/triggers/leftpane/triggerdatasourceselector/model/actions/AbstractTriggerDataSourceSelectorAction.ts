@@ -7,7 +7,7 @@ export default abstract class AbstractTriggerDataSourceSelectorAction extends Ab
   TriggerDataSourceSelectorState,
   TriggersPageStateNamespace
 > {
-  constructor(triggersPageStateNamespace: TriggersPageStateNamespace) {
-    super(triggersPageStateNamespace, createActionDispatcher(store.dispatch));
+  constructor(triggersStateNamespace: TriggersPageStateNamespace) {
+    super(triggersStateNamespace, createActionDispatcher(store.dispatch));
   }
 }

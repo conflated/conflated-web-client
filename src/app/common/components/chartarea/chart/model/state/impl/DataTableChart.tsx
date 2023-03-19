@@ -3,7 +3,7 @@ import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureV
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
 import AgGridDataTableView from '../../../view/datatable/AgGridDataTableView';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 import AgGridAlertsDataTableView from '../../../view/datatable/AgGridAlertsDataTableView';
 import AgGridGoalsDataTableView from '../../../view/datatable/AgGridGoalsDataTableView';
@@ -30,7 +30,7 @@ export default class DataTableChart extends AbstractDrillDownChart {
   createChartView(
     width: number,
     height: number,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element {

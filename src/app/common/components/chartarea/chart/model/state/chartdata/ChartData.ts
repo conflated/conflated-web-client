@@ -50,8 +50,8 @@ export interface ChartData {
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[]];
 
-  getTriggerData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
-  getTriggerGroupData(pageStateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
+  getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
+  getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
 
   sortChartData(selectedSortBys: SelectedSortBy[], dataScopeType?: DataScopeType): void;
 }

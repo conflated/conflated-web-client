@@ -5,13 +5,13 @@ import type { DataSource } from '../../../../../../chartarea/chart/model/state/d
 import selectorWithActionsStateNamespaces from '../../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
-export default function (pageStateNamespace: TriggersPageStateNamespace) {
+export default function (stateNamespace: TriggersPageStateNamespace) {
   const triggerDataSourcesSelector = (appState: AppState) =>
-    appState[pageStateNamespace].triggerDataSourceSelectorState.dataSources;
+    appState[stateNamespace].triggerDataSourceSelectorState.dataSources;
 
   const searchedValueSelector = (appState: AppState) =>
     appState.common.selectorWithDefaultActionsStates[
-      selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]
+      selectorWithActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
     ].searchedValue;
 
   return createSelector(

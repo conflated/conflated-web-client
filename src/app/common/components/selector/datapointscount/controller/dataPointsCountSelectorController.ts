@@ -1,25 +1,25 @@
 import { Controller } from 'oo-redux-utils2';
 import ChangeXAxisCategoriesShownCountForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeXAxisCategoriesShownCountForSelectedChartAction';
-import type { ChartAreaPageStateNamespace } from '../../../chartarea/model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../chartarea/model/state/types/ChartAreaStateNamespace';
 import ChangeFetchedRowCountForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeFetchedRowCountForSelectedChartAction';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import { OwnProps } from '../view/DataPointsCountSelectorView';
-import { DataPointsCountSelectorPageStateNamespace } from '../model/state/DataPointsCountSelectorPageStateNamespace';
+import { DataPointsCountSelectorStateNamespace } from '../model/state/DataPointsCountSelectorStateNamespace';
 
-class DataPointsCountSelectorController extends Controller<ChartAreaPageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => ({
-    selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart
+class DataPointsCountSelectorController extends Controller<ChartAreaStateNamespace> {
+  getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
+    selectedChart: appState[stateNamespace].chartAreaState.selectedChart
   });
 
-  getActionDispatchers = (pageStateNamespace: DataPointsCountSelectorPageStateNamespace) => ({
+  getActionDispatchers = (stateNamespace: DataPointsCountSelectorStateNamespace) => ({
     changeFetchedRowCountForSelectedChart: (fetchedRowCount: string) => {
-      this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(pageStateNamespace, fetchedRowCount));
+      this.dispatch(new ChangeFetchedRowCountForSelectedChartAction(stateNamespace, fetchedRowCount));
     },
 
     changeXAxisCategoriesShownCountForSelectedChart: (xAxisCategoriesShownCount: string) =>
       this.dispatch(
-        new ChangeXAxisCategoriesShownCountForSelectedChartAction(pageStateNamespace, xAxisCategoriesShownCount)
+        new ChangeXAxisCategoriesShownCountForSelectedChartAction(stateNamespace, xAxisCategoriesShownCount)
       )
   });
 }

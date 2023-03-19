@@ -18,7 +18,7 @@ type SizeAwareComponent = {
 };
 
 export type OwnProps = {
-  pageStateNamespace: TriggersPageStateNamespace;
+  stateNamespace: TriggersPageStateNamespace;
 };
 
 type Props = SizeAwareComponent & OwnProps & State & ActionDispatchers;
@@ -26,7 +26,7 @@ const { chartArea, gridLayout } = styles;
 
 const TriggersPageChartAreaView = ({
   layout,
-  pageStateNamespace,
+  stateNamespace,
   size: { width: triggersAreaWidth, height: triggersAreaHeight },
   openTriggerDetailsDialog,
   startFetchDataForCharts,
@@ -43,7 +43,7 @@ const TriggersPageChartAreaView = ({
 
   const firstChart = (
     <div key="1">
-      {charts[0].createChartView(chartWidth, chartHeight, pageStateNamespace, {
+      {charts[0].createChartView(chartWidth, chartHeight, stateNamespace, {
         handleRowDoubleClick: openTriggerDetailsDialog
       })}
     </div>
@@ -62,7 +62,7 @@ const TriggersPageChartAreaView = ({
         chart={charts[1]}
         isSelectedChart={false}
         width={chartWidth}
-        pageStateNamespace={pageStateNamespace}
+        stateNamespace={stateNamespace}
         height={secondChartHeight}
       />
     </div>
@@ -91,7 +91,7 @@ const TriggersPageChartAreaView = ({
             {charts[0].createChartView(
               triggersAreaWidth,
               (layout[0].h / Constants.GRID_ROW_COUNT) * triggersAreaHeight,
-              pageStateNamespace,
+              stateNamespace,
               { handleRowDoubleClick: openTriggerDetailsDialog }
             )}
           </div>
@@ -100,7 +100,7 @@ const TriggersPageChartAreaView = ({
               chart={charts[1]}
               isSelectedChart={false}
               width={triggersAreaWidth}
-              pageStateNamespace={pageStateNamespace}
+              stateNamespace={stateNamespace}
               height={(layout[1].h / Constants.GRID_ROW_COUNT) * triggersAreaHeight}
             />
           </div>
@@ -117,8 +117,8 @@ export default sizeMe({
   connect(
     controller.getState,
     _.memoize(
-      (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-      (...args) => args[1].pageStateNamespace
+      (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+      (...args) => args[1].stateNamespace
     )
   )(TriggersPageChartAreaView)
 );

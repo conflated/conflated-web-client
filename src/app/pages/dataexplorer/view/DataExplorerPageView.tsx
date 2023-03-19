@@ -13,9 +13,9 @@ const DataExplorerPageView = ({ isFullScreenModeActive }: Props) => (
   <PageView
     className={isFullScreenModeActive ? styles.fullScreenMode : ''}
     leftPane={<DataExplorerPageLeftPaneView />}
-    middlePane={<ChartAreaView pageStateNamespace="dataExplorerPage" />}
+    middlePane={<ChartAreaView stateNamespace="dataExplorerPage" />}
     rightPane={<DataExplorerPageRightPaneView />}
-    pageStateNamespace="dataExplorerPage"
+    stateNamespace="dataExplorerPage"
     showPaneActivatorHintsOnComponentMount={false}
   />
 );

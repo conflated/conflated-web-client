@@ -1,12 +1,12 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
 
 export default class SetSelectedDataPointIndexForChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly chart: Chart,
     private readonly selectedDataPointIndex: number | undefined
   ) {

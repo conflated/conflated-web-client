@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../model/state/Chart';
 
 export default class ApexChartEventOptionsFactory {
   static createEventOptions(
     chart: Chart,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => any>
   ): object {
     return {

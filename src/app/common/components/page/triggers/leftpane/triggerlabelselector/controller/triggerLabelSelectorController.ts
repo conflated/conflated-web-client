@@ -10,16 +10,16 @@ import { controller as selectorWithDefaultActionsController } from '../../../../
 import { OwnProps } from '../view/TriggerLabelSelectorView';
 
 class TriggerLabelSelectorController extends Controller<TriggersPageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-    OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].triggerGroupSelectorState, {
-      triggerGroups: createTriggerLabelSelector(pageStateNamespace)(appState),
+  getState = (appState: AppState, { stateNamespace }: OwnProps) =>
+    OOReduxUtils.mergeOwnAndForeignState(appState[stateNamespace].triggerGroupSelectorState, {
+      triggerGroups: createTriggerLabelSelector(stateNamespace)(appState),
 
       isTriggerDataSourceSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerDataSourceSelector`]]
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]]
           .isSelectorOpen,
 
       isTriggerSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]].isSelectorOpen
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}TriggerSelector`]].isSelectorOpen
     });
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({

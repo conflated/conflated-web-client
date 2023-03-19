@@ -19,7 +19,7 @@ const ChartAreaTabsView = () => {
       ),
       render: () => (
         <Tab.Pane>
-          <ChartAreaView className={styles.chartArea} pageStateNamespace="reportsPage" />
+          <ChartAreaView className={styles.chartArea} stateNamespace="reportsPage" />
         </Tab.Pane>
       )
     },
@@ -33,7 +33,7 @@ const ChartAreaTabsView = () => {
       ),
       render: () => (
         <Tab.Pane>
-          <ChartAreaView className={styles.chartArea} pageStateNamespace="reportsPage" />
+          <ChartAreaView className={styles.chartArea} stateNamespace="reportsPage" />
         </Tab.Pane>
       )
     }

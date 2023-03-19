@@ -3,21 +3,21 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import DataSourceListItem from '../../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
-import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../../view/tab/allandfavorites/AllAndFavoritesTabView';
 import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/triggerDataSourceSelectorController';
+import { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 
-export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggerDataSourceSelectorView = ({
   isTriggerGroupSelectorOpen,
   isTriggerSelectorOpen,
-  pageStateNamespace,
+  stateNamespace,
   selectedDataSources,
   shouldShowTriggersPageLeftPanePermanently,
   shownDataSources,
@@ -37,15 +37,15 @@ const TriggerDataSourceSelectorView = ({
       toggleMaximizeSelector([
         {
           isOpen: isTriggerGroupSelectorOpen,
-          selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerGroupSelector`]
+          selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
         },
         {
           isOpen: isTriggerSelectorOpen,
-          selectorStateNamespace: selectorStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+          selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerSelector`]
         }
       ]);
     },
-    [toggleMaximizeSelector, isTriggerGroupSelectorOpen, pageStateNamespace, isTriggerSelectorOpen]
+    [toggleMaximizeSelector, isTriggerGroupSelectorOpen, stateNamespace, isTriggerSelectorOpen]
   );
 
   const handlePinIconClick = (event: React.SyntheticEvent<HTMLElement>) => {
@@ -86,12 +86,12 @@ const TriggerDataSourceSelectorView = ({
     [shownDataSources, selectedDataSources, toggleTriggerDataSourceSelection]
   );
 
-  const selectorStateNamespace = `${pageStateNamespace}TriggerDataSourceSelector`;
+  const selectorStateNamespace = `${stateNamespace}TriggerDataSourceSelector`;
 
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText={pageStateNamespace === 'goalsPage' ? 'GOAL DATA SOURCES' : 'ALERT DATA SOURCES'}
+      titleText={stateNamespace === 'goalsPage' ? 'GOAL DATA SOURCES' : 'ALERT DATA SOURCES'}
       addIconTooltipText="Add new data source"
       position="leftPane"
       listItemsContent={
@@ -108,7 +108,7 @@ const TriggerDataSourceSelectorView = ({
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(TriggerDataSourceSelectorView);

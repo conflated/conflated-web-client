@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import { actionButtons, emptyArea, geometrySelector, mapHeader, subtitle, title, titles } from './MapView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapView from './leaflet/LeafletMapView';
 import type { Chart } from '../../model/state/Chart';
 import MapGeometryOptionsFactory from './factories/MapGeometryOptionsFactory';
 
 type Props = {
   chart: Chart;
-  stateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
 };
 
 const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {

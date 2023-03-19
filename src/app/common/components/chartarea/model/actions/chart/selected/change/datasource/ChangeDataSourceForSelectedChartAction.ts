@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import type { DataSource } from '../../../../../../chart/model/state/datasource/DataSource';
 import ChartFactory from '../../../../../../chart/model/state/ChartFactory';
 
 export default class ChangeDataSourceForSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly dataSource: DataSource) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly dataSource: DataSource) {
     super(stateNamespace);
   }
 

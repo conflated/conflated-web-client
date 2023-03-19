@@ -1,6 +1,6 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
-import type { SortBySelectorPageStateNamespace } from '../model/state/types/SortBySelectorPageStateNamespace';
+import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
 import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
 import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
@@ -28,22 +28,22 @@ import { OwnProps } from '../view/SortBySelectorView';
 import FlashSelectedSortBysBrieflyAction from '../model/actions/FlashSelectedSortBysBrieflyAction';
 
 class SortBySelectorController extends Controller<PageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) =>
-    OOReduxUtils.mergeOwnAndForeignState(appState[pageStateNamespace].sortBySelectorState, {
-      selectedChart: appState[pageStateNamespace].chartAreaState.selectedChart,
+  getState = (appState: AppState, { stateNamespace }: OwnProps) =>
+    OOReduxUtils.mergeOwnAndForeignState(appState[stateNamespace].sortBySelectorState, {
+      selectedChart: appState[stateNamespace].chartAreaState.selectedChart,
       shownDimensions: createShownDimensionsSelector(false)(appState),
       shownMeasures: selectShownMeasures(appState),
-      shownTimeSortOptions: createShownTimeSortOptionsSelector(pageStateNamespace)(appState),
+      shownTimeSortOptions: createShownTimeSortOptionsSelector(stateNamespace)(appState),
 
       isFilterSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}FilterSelector`]].isSelectorOpen,
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}FilterSelector`]].isSelectorOpen,
 
       isDataPointsCountSelectorOpen:
-        appState.common.selectorStates[selectorStateNamespaces[`${pageStateNamespace}DataPointsCountSelector`]]
+        appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}DataPointsCountSelector`]]
           .isSelectorOpen
     });
 
-  getActionDispatchers = (stateNamespace: SortBySelectorPageStateNamespace) => ({
+  getActionDispatchers = (stateNamespace: SortBySelectorStateNamespace) => ({
     flashSelectedSortBysBriefly: () => {
       this.dispatch(new FlashSelectedSortBysBrieflyAction(stateNamespace));
     },

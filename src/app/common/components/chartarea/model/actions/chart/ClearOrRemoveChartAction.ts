@@ -1,4 +1,4 @@
-import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../chart/model/state/Chart';
 import ClearChartAction from './ClearChartAction';
 import DeleteChartAction from './RemoveChartAction';
@@ -7,7 +7,7 @@ import HideChartMenuClearOrDeleteConfirmationAction from './menu/confirm/HideCha
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 
 export default class ClearOrRemoveChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart) {
     super(stateNamespace);
   }
 

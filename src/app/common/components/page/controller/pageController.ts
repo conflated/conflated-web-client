@@ -10,17 +10,17 @@ import { OwnProps } from '../view/PageView';
 import FlashBrieflyPaneActivatorHintsAction from '../model/actions/paneactivatorhints/FlashBrieflyPaneActivatorHintsAction';
 
 class PageController extends Controller<PageStateNamespace> {
-  getState = (appState: AppState, { pageStateNamespace }: OwnProps) => appState.common.pageStates[pageStateNamespace];
+  getState = (appState: AppState, { stateNamespace }: OwnProps) => appState.common.pageStates[stateNamespace];
 
-  getActionDispatchers = (pageStateNamespace: PageStateNamespace) => ({
+  getActionDispatchers = (stateNamespace: PageStateNamespace) => ({
     dragPagePaneGutter: (pane: Pane, pagePaneGutterPosition: number) =>
-      this.dispatch(new PagePaneGutterDragAction(pageStateNamespace, pane, pagePaneGutterPosition)),
+      this.dispatch(new PagePaneGutterDragAction(stateNamespace, pane, pagePaneGutterPosition)),
 
-    flashBrieflyPaneActivatorHints: () => this.dispatch(new FlashBrieflyPaneActivatorHintsAction(pageStateNamespace)),
-    showPane: (pane: Pane) => this.dispatch(new ShowPagePaneAction(pageStateNamespace, pane)),
+    flashBrieflyPaneActivatorHints: () => this.dispatch(new FlashBrieflyPaneActivatorHintsAction(stateNamespace)),
+    showPane: (pane: Pane) => this.dispatch(new ShowPagePaneAction(stateNamespace, pane)),
 
     startPaneGutterDrag: (pane: Pane, pagePaneGutterPositionOnDragStart: number) =>
-      this.dispatch(new StartPaneGutterDragAction(pageStateNamespace, pane, pagePaneGutterPositionOnDragStart))
+      this.dispatch(new StartPaneGutterDragAction(stateNamespace, pane, pagePaneGutterPositionOnDragStart))
   });
 }
 

@@ -3,13 +3,13 @@ import type { SelectedFilter } from '../../../../../../chart/model/state/selecte
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
 export default class ChangeSelectedFilterDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly selectedFilter: SelectedFilter,
     private readonly dataScopeType: DataScopeType
   ) {
@@ -19,7 +19,7 @@ export default class ChangeSelectedFilterDataScopeTypeForSelectedChartAction ext
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
       selectedFilter: this.selectedFilter,
-      pageStateNamespace: this.stateNamespace
+      stateNamespace: this.stateNamespace
     });
 
     const { selectedChart } = currentState;

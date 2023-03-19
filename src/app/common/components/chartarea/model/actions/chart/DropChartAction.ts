@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import AddChartAction from './AddChartAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
 import Constants from '../../../../../Constants';
 import type { ChartType } from '../../../chart/model/state/types/ChartType';
 import Utils from '../../../../../utils/Utils';
@@ -9,7 +9,7 @@ import ChartFactory from '../../../chart/model/state/ChartFactory';
 import ChangeChartAreaLayoutAction from '../layout/ChangeChartAreaLayoutAction';
 
 export default class DropChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chartType: ChartType) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chartType: ChartType) {
     super(stateNamespace);
   }
 

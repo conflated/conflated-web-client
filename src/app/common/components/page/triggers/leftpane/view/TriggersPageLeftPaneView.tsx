@@ -9,7 +9,7 @@ import TriggerGroupSelectorView from '../triggerlabelselector/view/TriggerLabelS
 import TriggerSelectorView from '../triggerselector/view/TriggerSelectorView';
 import { ActionDispatchers, controller, State } from '../controller/triggersPageLeftPaneController';
 
-export type OwnProps = { pageStateNamespace: TriggersPageStateNamespace };
+export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggersPageLeftPaneView = ({
@@ -18,7 +18,7 @@ const TriggersPageLeftPaneView = ({
   isTriggerDataSourceSelectorOpen,
   isTriggerGroupSelectorOpen,
   isTriggerSelectorOpen,
-  pageStateNamespace,
+  stateNamespace,
   shouldShowTriggersPageLeftPane,
   shouldShowTriggersPageLeftPanePermanently,
   triggersPageLeftPaneGutterOffset
@@ -26,13 +26,13 @@ const TriggersPageLeftPaneView = ({
   const updateSelectorContentHeights = useCallback(
     () =>
       _.before(2, () =>
-        TriggersPageLeftPaneViewUtils.updateSelectorContentHeights(pageStateNamespace, {
+        TriggersPageLeftPaneViewUtils.updateSelectorContentHeights(stateNamespace, {
           isTriggerDataSourceSelectorOpen,
           isTriggerGroupSelectorOpen,
           isTriggerSelectorOpen
         })
       )(),
-    [pageStateNamespace, isTriggerDataSourceSelectorOpen, isTriggerGroupSelectorOpen, isTriggerSelectorOpen]
+    [stateNamespace, isTriggerDataSourceSelectorOpen, isTriggerGroupSelectorOpen, isTriggerSelectorOpen]
   );
 
   useEffect(() => updateSelectorContentHeights());
@@ -43,7 +43,7 @@ const TriggersPageLeftPaneView = ({
 
   return (
     <PagePaneView
-      id={`${pageStateNamespace}LeftPane`}
+      id={`${stateNamespace}LeftPane`}
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={() => hideTriggersPageLeftPane()}
       pane="leftPane"
@@ -52,9 +52,9 @@ const TriggersPageLeftPaneView = ({
       shouldShowPagePane={shouldShowTriggersPageLeftPane}
       shouldShowPagePanePermanently={shouldShowTriggersPageLeftPanePermanently}
     >
-      <TriggerDataSourceSelectorView pageStateNamespace={pageStateNamespace} />
-      <TriggerGroupSelectorView pageStateNamespace={pageStateNamespace} />
-      <TriggerSelectorView pageStateNamespace={pageStateNamespace} />
+      <TriggerDataSourceSelectorView stateNamespace={stateNamespace} />
+      <TriggerGroupSelectorView stateNamespace={stateNamespace} />
+      <TriggerSelectorView stateNamespace={stateNamespace} />
     </PagePaneView>
   );
 };
@@ -62,7 +62,7 @@ const TriggersPageLeftPaneView = ({
 export default connect(
   controller.getState,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(TriggersPageLeftPaneView);

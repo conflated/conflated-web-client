@@ -4,7 +4,7 @@ import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureV
 import type { ChartType } from '../types/ChartType';
 import type { Chart } from '../Chart';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
-import type { ChartAreaPageStateNamespace } from '../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapView from '../../../view/map/leaflet/LeafletMapView';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
@@ -67,7 +67,7 @@ export default class MapChart extends AbstractDrillDownChart {
     );
   }
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaPageStateNamespace): JSX.Element {
+  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     return <LeafletMapView chart={this} stateNamespace={stateNamespace} />;
   }
 

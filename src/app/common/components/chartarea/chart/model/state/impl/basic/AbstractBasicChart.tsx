@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
-import type { ChartAreaPageStateNamespace } from '../../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../model/state/types/ChartAreaStateNamespace';
 import ApexChartView from '../../../../view/basic/apex/ApexChartView';
 import type { DataSeries } from '../../types/DataSeries';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
@@ -27,12 +27,10 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
   createChartView(
     width: number,
     height: number,
-    pageStateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element {
-    return (
-      <ApexChartView chart={this} width={width} height={height} pageStateNamespace={pageStateNamespace} {...actions} />
-    );
+    return <ApexChartView chart={this} width={width} height={height} stateNamespace={stateNamespace} {...actions} />;
   }
 
   exportToPdf = () => {
@@ -243,7 +241,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     event: object,
     chartContext: object,
     params: object,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => any>
   ) {
     const { dataPointIndex, seriesIndex: dataSeriesIndex } = params as any;

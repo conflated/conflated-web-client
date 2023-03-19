@@ -2,7 +2,7 @@ import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageS
 
 export default class TriggersPageLeftPaneViewUtils {
   static updateSelectorContentHeights(
-    pageStateNamespace: TriggersPageStateNamespace,
+    stateNamespace: TriggersPageStateNamespace,
     {
       isTriggerDataSourceSelectorOpen,
       isTriggerGroupSelectorOpen,
@@ -11,30 +11,30 @@ export default class TriggersPageLeftPaneViewUtils {
       [K in string]: boolean;
     }
   ) {
-    const leftPaneElem = document.getElementById(`${pageStateNamespace}LeftPane`);
+    const leftPaneElem = document.getElementById(`${stateNamespace}LeftPane`);
 
     const triggerDataSourceSelectorTitleElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerDataSourceSelector .title`
+      `#${stateNamespace}TriggerDataSourceSelector .title`
     );
 
     const triggerDataSourceSelectorContentElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerDataSourceSelector .content`
+      `#${stateNamespace}TriggerDataSourceSelector .content`
     );
 
     const triggerGroupSelectorTitleElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerGroupSelector .title`
+      `#${stateNamespace}TriggerGroupSelector .title`
     );
 
     const triggerGroupSelectorContentElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerGroupSelector .content`
+      `#${stateNamespace}TriggerGroupSelector .content`
     );
 
     const triggerSelectorTitleElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerSelector .title`
+      `#${stateNamespace}TriggerSelector .title`
     );
 
     const triggerSelectorContentElem: HTMLElement | null = document.querySelector(
-      `#${pageStateNamespace}TriggerSelector .content`
+      `#${stateNamespace}TriggerSelector .content`
     );
 
     // noinspection OverlyComplexBooleanExpressionJS

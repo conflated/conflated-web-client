@@ -2,14 +2,10 @@ import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { Layout } from '../../state/types/Layout';
-import type { ChartAreaPageStateNamespace } from '../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
 
 export default class AddChartAction extends AbstractChartAreaAction {
-  constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
-    private readonly chart: Chart,
-    private readonly layout: Layout
-  ) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart, private readonly layout: Layout) {
     super(stateNamespace);
     this.chart = chart;
     this.layout = layout;

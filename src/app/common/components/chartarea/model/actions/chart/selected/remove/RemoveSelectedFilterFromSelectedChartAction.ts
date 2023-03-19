@@ -2,19 +2,19 @@ import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater
 import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../di/diContainer';
 
 export default class RemoveSelectedFilterFromSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly selectedFilter: SelectedFilter) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedFilter: SelectedFilter) {
     super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
     if (this.selectedFilter.dataScopeType === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        pageStateNamespace: this.stateNamespace
+        stateNamespace: this.stateNamespace
       });
     }
 

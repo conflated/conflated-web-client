@@ -20,7 +20,7 @@ export default class ShowDashboardAction extends AbstractDashboardsPageAction {
       );
 
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-        pageStateNamespace: 'dashboardsPage',
+        stateNamespace: 'dashboardsPage',
         chart: null
       });
     }

@@ -3,12 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react';
 import styles from './DrillUpIconView.module.scss';
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import { ActionDispatchers, controller } from '../controller/drillUpIconController';
 import type { Chart } from '../../model/state/Chart';
 
 // eslint-disable-next-line react/no-unused-prop-types
-type OwnProps = { chart: Chart; pageStateNamespace: ChartAreaPageStateNamespace };
+type OwnProps = { chart: Chart; stateNamespace: ChartAreaStateNamespace };
 type Props = OwnProps & ActionDispatchers;
 
 const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
@@ -21,7 +21,7 @@ const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
 export default connect(
   null,
   _.memoize(
-    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
-    (...args) => args[1].pageStateNamespace
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
   )
 )(DrillUpIconView);

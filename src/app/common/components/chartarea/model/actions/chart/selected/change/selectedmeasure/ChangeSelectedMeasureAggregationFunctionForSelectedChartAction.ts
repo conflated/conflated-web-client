@@ -3,13 +3,13 @@ import type { AggregationFunction } from '../../../../../../chart/model/state/se
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
+import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 
 export default class ChangeSelectedMeasureAggregationFunctionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly selectedMeasure: SelectedMeasure,
     private readonly aggregationFunction: AggregationFunction
   ) {

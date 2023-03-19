@@ -1,12 +1,12 @@
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { SelectedDimension } from '../../../../../../chart/model/state/selecteddimension/SelectedDimension';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 
 export default class ChangeSelectedDimensionColorForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     private readonly selectedDimension: SelectedDimension,
     private readonly color: string
   ) {

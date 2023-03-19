@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ChartAreaPageStateNamespace } from '../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import type { DimensionVisualizationType } from './selecteddimension/types/DimensionVisualizationType';
 import type { SelectedMeasure } from './selectedmeasure/SelectedMeasure';
 import type { MeasureVisualizationType } from './selectedmeasure/types/MeasureVisualizationType';
@@ -69,7 +69,7 @@ export interface Chart {
   createChartView(
     width: number,
     height: number,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element;
 
@@ -182,7 +182,7 @@ export interface Chart {
     event: object,
     chartContext: object,
     params: object,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
   ): void;
 
@@ -190,7 +190,7 @@ export interface Chart {
     event: any,
     activeElements: object[],
     data: object,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => any>
   ): void;
 

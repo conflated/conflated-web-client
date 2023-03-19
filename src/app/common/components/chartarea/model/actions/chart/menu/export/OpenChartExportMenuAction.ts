@@ -1,12 +1,12 @@
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import type { Chart } from '../../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import UpdateChartExportMenuCloseTimeoutIdAction from './UpdateChartExportMenuCloseTimeoutIdAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 
 export default class OpenChartExportMenuAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart) {
     super(stateNamespace);
   }
 

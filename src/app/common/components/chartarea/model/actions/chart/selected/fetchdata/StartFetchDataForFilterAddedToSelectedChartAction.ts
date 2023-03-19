@@ -2,21 +2,21 @@ import _ from 'lodash';
 import { Inject } from 'noicejs';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
 };
 
 @Inject('chartDataService')
 class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  constructor({ chartDataService, pageStateNamespace }: ConstructorArgs) {
-    super(pageStateNamespace);
+  constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
   }
 
@@ -28,7 +28,7 @@ class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAre
       return this.performAction(
         new StartFetchDataForSelectedChartAction({
           chartDataService: this.chartDataService,
-          pageStateNamespace: this.stateNamespace
+          stateNamespace: this.stateNamespace
         }),
         currentState
       );

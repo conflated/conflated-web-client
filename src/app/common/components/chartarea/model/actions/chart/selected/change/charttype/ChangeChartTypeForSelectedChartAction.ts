@@ -2,12 +2,12 @@ import _ from 'lodash';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartType } from '../../../../../../chart/model/state/types/ChartType';
-import type { ChartAreaPageStateNamespace } from '../../../../../state/types/ChartAreaPageStateNamespace';
+import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 
 export default class ChangeChartTypeForSelectedChartAction extends AbstractChartAreaAction {
   readonly chartType: ChartType;
 
-  constructor(stateNamespace: ChartAreaPageStateNamespace, chartType: ChartType) {
+  constructor(stateNamespace: ChartAreaStateNamespace, chartType: ChartType) {
     super(stateNamespace);
     this.chartType = chartType;
   }

@@ -5,7 +5,7 @@ import React from 'react';
 import ChartJsChartView from '../../../../../../view/basic/chartjs/ChartJsChartView';
 import AbstractXAxisChart from './AbstractXAxisChart';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
-import type { ChartAreaPageStateNamespace } from '../../../../../../../model/state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../../../../model/state/types/ChartAreaStateNamespace';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import type { DataPoint } from '../../../../types/DataPoint';
 import type { DrillDown } from '../../../../types/DrillDown';
@@ -18,8 +18,8 @@ export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
     labelIndex: -1
   };
 
-  createChartView(width: number, height: number, pageStateNamespace: ChartAreaPageStateNamespace): JSX.Element {
-    return <ChartJsChartView chart={this} pageStateNamespace={pageStateNamespace} />;
+  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+    return <ChartJsChartView chart={this} stateNamespace={stateNamespace} />;
   }
 
   getChartJsDataSetsAndLabels(): object {
@@ -148,7 +148,7 @@ export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
     event: any,
     activeElements: any[],
     data: object,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => any>
   ) {
     if (activeElements.length === 1) {
@@ -187,7 +187,7 @@ export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
   handleSelectJsChartDataPoint(
     clickedDataPoint: DataPoint,
     data: any,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     {
       addSelectionFilterToNotSelectedChartsAction,
       deselectChartDataPoint,
@@ -237,7 +237,7 @@ export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
   handleDrillDown(
     clickedDataPoint: DataPoint,
     data: any,
-    stateNamespace: ChartAreaPageStateNamespace,
+    stateNamespace: ChartAreaStateNamespace,
     { drillDownChart }: Record<string, (...args: any[]) => any>
   ) {
     const drillDown: DrillDown = {

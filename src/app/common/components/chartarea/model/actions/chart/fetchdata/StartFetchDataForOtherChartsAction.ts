@@ -5,12 +5,12 @@ import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartDataService } from '../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   chart: Chart;
 };
 
@@ -20,8 +20,8 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaAction {
 
   readonly chart: Chart;
 
-  constructor({ chartDataService, pageStateNamespace, chart }: ConstructorArgs) {
-    super(pageStateNamespace);
+  constructor({ chartDataService, stateNamespace, chart }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
     this.chart = chart;
   }

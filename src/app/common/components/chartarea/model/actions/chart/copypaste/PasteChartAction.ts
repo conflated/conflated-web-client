@@ -2,10 +2,10 @@ import _ from 'lodash';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 
 export default class PasteChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaPageStateNamespace, private readonly chart: Chart) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart) {
     super(stateNamespace);
   }
 

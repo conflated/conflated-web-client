@@ -1,7 +1,7 @@
 import { Inject } from 'noicejs';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
-import type { ChartAreaPageStateNamespace } from '../../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
 import StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction from './StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction';
 import StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction from './StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction';
@@ -10,7 +10,7 @@ import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   selectedFilter: SelectedFilter;
 };
 
@@ -20,8 +20,8 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
 
   private readonly selectedFilter: SelectedFilter;
 
-  constructor({ chartDataService, pageStateNamespace, selectedFilter }: ConstructorArgs) {
-    super(pageStateNamespace);
+  constructor({ chartDataService, stateNamespace, selectedFilter }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
     this.selectedFilter = selectedFilter;
   }
@@ -45,7 +45,7 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
       return this.performAction(
         new ActionClass({
           chartDataService: this.chartDataService,
-          pageStateNamespace: this.stateNamespace
+          stateNamespace: this.stateNamespace
         }),
         currentState
       );

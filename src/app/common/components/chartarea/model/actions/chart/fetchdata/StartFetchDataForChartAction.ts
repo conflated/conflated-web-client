@@ -1,5 +1,5 @@
 import { Inject } from 'noicejs';
-import type { ChartAreaPageStateNamespace } from '../../../state/types/ChartAreaPageStateNamespace';
+import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
@@ -10,7 +10,7 @@ import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
-  pageStateNamespace: ChartAreaPageStateNamespace;
+  stateNamespace: ChartAreaStateNamespace;
   chart: Chart;
 };
 
@@ -20,8 +20,8 @@ class StartFetchDataForChartAction extends AbstractChartAreaAction {
 
   private readonly chart: Chart;
 
-  constructor({ chartDataService, pageStateNamespace, chart }: ConstructorArgs) {
-    super(pageStateNamespace);
+  constructor({ chartDataService, stateNamespace, chart }: ConstructorArgs) {
+    super(stateNamespace);
     this.chartDataService = chartDataService;
     this.chart = chart;
   }

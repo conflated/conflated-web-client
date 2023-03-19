@@ -52,9 +52,9 @@ const DataExplorerPageRightPaneView = ({
       shouldShowPagePanePermanently={shouldShowDataExplorerPageRightPanePermanently}
     >
       <DataExplorerPageActionIconsView />
-      <FilterSelectorView pageStateNamespace="dataExplorerPage" />
-      <SortBySelectorView pageStateNamespace="dataExplorerPage" />
-      <DataPointsCountSelectorView pageStateNamespace="dataExplorerPage" />
+      <FilterSelectorView stateNamespace="dataExplorerPage" />
+      <SortBySelectorView stateNamespace="dataExplorerPage" />
+      <DataPointsCountSelectorView stateNamespace="dataExplorerPage" />
     </PagePaneView>
   );
 };

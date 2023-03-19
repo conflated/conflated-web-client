@@ -5,21 +5,21 @@ import selectorWithActionsStateNamespaces from '../../../../../../selector/witha
 import type { AppState } from '../../../../../../../../../store/AppState';
 import TriggerFactory from '../../model/state/factories/TriggerFactory';
 
-export default function createTriggerSelector(pageStateNamespace: TriggersPageStateNamespace) {
+export default function createTriggerSelector(stateNamespace: TriggersPageStateNamespace) {
   const triggersDataTableChartSelector = (appState: AppState): Chart =>
-    appState[pageStateNamespace].chartAreaState.charts[0];
+    appState[stateNamespace].chartAreaState.charts[0];
 
   const selectedTriggerGroupsSelector = (appState: AppState) =>
-    appState[pageStateNamespace].triggerGroupSelectorState.selectedTriggerGroups;
+    appState[stateNamespace].triggerGroupSelectorState.selectedTriggerGroups;
 
   const searchedValueSelector = (appState: AppState): string =>
     appState.common.selectorWithDefaultActionsStates[
-      selectorWithActionsStateNamespaces[`${pageStateNamespace}TriggerSelector`]
+      selectorWithActionsStateNamespaces[`${stateNamespace}TriggerSelector`]
     ].searchedValue;
 
   return createSelector(
     [triggersDataTableChartSelector, selectedTriggerGroupsSelector, searchedValueSelector],
     (triggersDataTableChart: Chart, selectedTriggerGroups: string[], searchedValue: string) =>
-      TriggerFactory.createTriggers(triggersDataTableChart, selectedTriggerGroups, searchedValue, pageStateNamespace)
+      TriggerFactory.createTriggers(triggersDataTableChart, selectedTriggerGroups, searchedValue, stateNamespace)
   );
 }
