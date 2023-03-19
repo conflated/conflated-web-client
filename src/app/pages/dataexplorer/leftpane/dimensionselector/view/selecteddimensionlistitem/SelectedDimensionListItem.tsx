@@ -3,7 +3,7 @@ import { Icon, List } from 'semantic-ui-react';
 import styles from './SelectedDimensionListItem.module.scss';
 import type { Theme } from '../../../../model/state/types/Theme';
 import type { SelectedDimension } from '../../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
-import VisualizationColorPickerView from '../../../../../../common/view/visualizationcolorpicker/VisualizationColorPickerView';
+import VisualizationColorPickerView from '../../../../../../common/view/picker/visualizationcolor/VisualizationColorPickerView';
 
 type Props = {
   changeVisualizationColor: (visualizationColor: string) => void;

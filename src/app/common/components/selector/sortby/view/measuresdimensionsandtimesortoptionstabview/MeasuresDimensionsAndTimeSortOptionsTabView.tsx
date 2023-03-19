@@ -1,5 +1,5 @@
 import React from 'react';
-import MeasuresAndDimensionsTabView from '../../../../../view/measuresanddimensionstabview/MeasuresAndDimensionsTabView';
+import MeasuresAndDimensionsTabView from '../../../../../view/tab/measuresanddimensions/MeasuresAndDimensionsTabView';
 
 type Props = {
   measureListItems: Array<JSX.Element>;

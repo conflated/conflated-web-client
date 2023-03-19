@@ -5,7 +5,7 @@ import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './ReportTemplateGroupSelectorView.module.scss';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
-import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 import stopEventPropagation from '../../../../../common/utils/stopEventPropagation';
 import { ActionDispatchers, controller, State } from '../controller/reportTemplateGroupSelectorController';
 import { ReportTemplateGroup } from '../../../model/state/types/ReportTemplateGroup';

@@ -7,7 +7,7 @@ import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPa
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../../selector/model/state/types/SelectorStateNamespace';
-import AllAndFavoritesTabView from '../../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../../view/tab/allandfavorites/AllAndFavoritesTabView';
 import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/triggerDataSourceSelectorController';
 

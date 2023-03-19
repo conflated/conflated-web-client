@@ -7,7 +7,7 @@ import styles from './DashboardGroupSelectorView.module.scss';
 import DashboardGroupSelectorListItem from './listitem/DashboardGroupSelectorListItem';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { DashboardGroup } from '../../../model/state/types/DashboardGroup';
-import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dashboardGroupSelectorController';
 import stopEventPropagation from '../../../../../common/utils/stopEventPropagation';
 

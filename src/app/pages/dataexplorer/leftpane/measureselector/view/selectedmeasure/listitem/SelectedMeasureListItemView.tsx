@@ -6,8 +6,8 @@ import type { Theme } from '../../../../../model/state/types/Theme';
 import type { AggregationFunction } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import type { Chart } from '../../../../../../../common/components/chartarea/chart/model/state/Chart';
-import VisualizationColorPickerView from '../../../../../../../common/view/visualizationcolorpicker/VisualizationColorPickerView';
-import AggregationFunctionPickerView from '../../../../../../../common/view/aggregationfunctionpicker/AggregationFunctionPickerView';
+import VisualizationColorPickerView from '../../../../../../../common/view/picker/visualizationcolor/VisualizationColorPickerView';
+import AggregationFunctionPickerView from '../../../../../../../common/view/picker/aggregationfunction/AggregationFunctionPickerView';
 import SelectedMeasureVisualizationTypeDropdownView from '../visualizationtype/dropdown/SelectedMeasureVisualizationTypeDropdownView';
 
 type Props = {

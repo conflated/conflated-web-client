@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styles from './AggregationFunctionPickerView.module.scss';
-import type { AggregationFunction } from '../../components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
+import type { AggregationFunction } from '../../../components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 
 type Props = {
   aggregationFunctions: AggregationFunction[];

@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectorTabView from '../selectortabview/SelectorTabView';
+import SelectorTabView from '../selector/SelectorTabView';
 
 type Props = {
   firstTabPaneListItems: Array<JSX.Element>;

@@ -6,7 +6,7 @@ import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPa
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../../../../selector/model/state/types/SelectorStateNamespace';
-import AllAndFavoritesTabView from '../../../../../../view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../../view/tab/allandfavorites/AllAndFavoritesTabView';
 import type { Trigger } from '../model/state/types/Trigger';
 import { ActionDispatchers, controller, State } from '../controller/triggerSelectorController';
 

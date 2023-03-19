@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
-import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/reportTemplateSelectorController';
 import ReportTemplateSelectorListItemView from './listitem/ReportTemplateSelectorListItemView';
 import { ReportTemplate } from '../../../model/state/types/ReportTemplate';

@@ -6,8 +6,8 @@ import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
-import MeasureListItemView from '../../../../view/measurelistitem/MeasureListItemView';
-import DimensionListItemView from '../../../../view/dimensionlistitem/DimensionListItemView';
+import MeasureListItemView from '../../../../view/listitems/listitem/measure/MeasureListItemView';
+import DimensionListItemView from '../../../../view/listitems/listitem/dimension/DimensionListItemView';
 import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { FilterSelectorPageStateNamespace } from '../model/state/FilterSelectorPageStateNamespace';
@@ -16,7 +16,7 @@ import selectorStateNamespaces from '../../model/state/types/SelectorStateNamesp
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
-import MeasuresAndDimensionsTabView from '../../../../view/measuresanddimensionstabview/MeasuresAndDimensionsTabView';
+import MeasuresAndDimensionsTabView from '../../../../view/tab/measuresanddimensions/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 

@@ -5,9 +5,9 @@ import type { AggregationFunction } from '../../../../chartarea/chart/model/stat
 import type { SortDirection } from '../../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
 import type { SelectedSortBy } from '../../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DataScopeType } from '../../../../chartarea/chart/model/state/types/DataScopeType';
-import AggregationFunctionPickerView from '../../../../../view/aggregationfunctionpicker/AggregationFunctionPickerView';
+import AggregationFunctionPickerView from '../../../../../view/picker/aggregationfunction/AggregationFunctionPickerView';
 import type { Chart } from '../../../../chartarea/chart/model/state/Chart';
-import DataScopePickerView from '../../../../../view/datascopepicker/DataScopePickerView';
+import DataScopePickerView from '../../../../../view/picker/datascope/DataScopePickerView';
 
 const { icon, listItem, measureOrDimensionOrTimeSortOptionName, sortDirectionSelector } = styles;
 

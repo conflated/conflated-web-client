@@ -4,7 +4,7 @@ import _ from 'lodash';
 import React from 'react';
 import { List, Tab } from 'semantic-ui-react';
 import styles from './SelectorTabView.module.scss';
-import ListItemsView from '../listitems/ListItemsView';
+import ListItemsView from '../../listitems/ListItemsView';
 
 type Props = {
   firstNoContentLineText?: string;

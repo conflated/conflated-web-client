@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DashboardSelectorListItemView from './listitem/DashboardSelectorListItemView';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { Dashboard } from '../../../model/state/types/Dashboard';
-import AllAndFavoritesTabView from '../../../../../common/view/allandfavoritestabview/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dahboardSelectorController';
 
 type Props = ActionDispatchers & State;
