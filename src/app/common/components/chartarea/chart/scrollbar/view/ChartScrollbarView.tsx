@@ -36,5 +36,8 @@ const ChartScrollbarView = ({ allowKeyControls, changeXAxisScrollPosition, chart
 
 export default connect(
   null,
-  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  _.memoize(
+    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
+    (...args) => args[1].pageStateNamespace
+  )
 )(ChartScrollbarView);
