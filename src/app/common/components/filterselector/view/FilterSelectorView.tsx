@@ -121,7 +121,7 @@ const FilterSelectorView = ({
   return (
     <SelectorWithActionsView
       id={selectorStateNamespace}
-      titleText="FILTER"
+      titleText="FILTERS"
       addIconTooltipText="Add new filter"
       position="rightPane"
       selectedListItemsContent={

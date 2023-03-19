@@ -144,7 +144,7 @@ const DimensionSelectorView = ({
   return (
     <SelectorWithActionsView
       id="dimensionSelector"
-      titleText="DIMENSION"
+      titleText="DIMENSIONS"
       position="leftPane"
       addIconTooltipText="Add new dimension"
       selectedListItemsContent={

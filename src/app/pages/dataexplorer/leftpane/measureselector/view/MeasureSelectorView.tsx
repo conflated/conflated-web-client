@@ -119,7 +119,7 @@ const MeasureSelectorView = ({
   return (
     <SelectorWithDefaultActionsView
       id="measureSelector"
-      titleText="MEASURE"
+      titleText="MEASURES"
       addIconTooltipText="Add new measure"
       position="leftPane"
       selectedListItemsContent={
