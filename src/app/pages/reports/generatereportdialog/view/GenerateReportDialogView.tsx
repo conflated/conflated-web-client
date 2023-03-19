@@ -42,7 +42,7 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
 
   const tabPanes = [
     {
-      menuItem: 'Relative reporting period',
+      menuItem: 'Relative',
       render: () => (
         <Tab.Pane className={styles.tabPane}>
           <Form.Group className={styles.formGroup}>
@@ -64,31 +64,45 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
       )
     },
     {
-      menuItem: 'Absolute reporting period',
+      menuItem: 'Absolute',
       render: () => <Tab.Pane>Empty</Tab.Pane>
     }
   ];
 
   return (
-    <Modal closeOnEscape closeOnDimmerClick={false} onClose={close} onKeyDown={stopEventPropagation} open={isOpen}>
+    <Modal
+      className={styles.modal}
+      closeOnEscape
+      closeOnDimmerClick={false}
+      onClose={close}
+      onKeyDown={stopEventPropagation}
+      open={isOpen}
+    >
       <Modal.Header>GENERATE REPORT</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Field>
-            <label>Report template name</label>
-            <input readOnly value="Subscriber Failures" />
+            <Form.Group>
+              <label>Report template name</label>
+              <input readOnly value="Subscriber Failures" />
+            </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <label>Report name</label>
-            <input value="Subs {{Subscriber MSISDN}} Failures" />
+            <Form.Group>
+              <label>Report name</label>
+              <input value="Subs {{Subscriber MSISDN}} Failures" />
+            </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <Tab
-              activeIndex={activePaneIndex}
-              menu={{ secondary: true, pointing: true }}
-              onTabChange={changeActivePane}
-              panes={tabPanes}
-            />
+            <Form.Group>
+              <label>Reporting period</label>
+              <Tab
+                activeIndex={activePaneIndex}
+                menu={{ secondary: true, pointing: true }}
+                onTabChange={changeActivePane}
+                panes={tabPanes}
+              />
+            </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Accordion>

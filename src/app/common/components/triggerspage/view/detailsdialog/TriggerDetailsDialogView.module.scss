@@ -1,8 +1,13 @@
 .modal {
-  margin: 0 !important;
-  min-width: 100vw;
-  min-height: 100vh;
-  top: 0 !important;
+  min-width: 50vw;
+  min-height: 90vh;
+
+  @media screen and (min-width: 1024) {
+    margin: 0 !important;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 0 !important;
+  }
 
   .header {
     display: flex !important;
@@ -23,7 +28,7 @@
   }
 
   .label {
-    width: 12rem !important;
+    width: 14rem !important;
   }
 
   input {
@@ -35,5 +40,9 @@
     font-size: 1.5rem !important;
     font-weight: bold !important;
     padding-left: 0.5rem !important;
+  }
+
+  .textArea {
+    min-height: 30rem;
   }
 }
