@@ -1,5 +1,5 @@
 import React from 'react';
-import TriggersPageView from '../../../common/components/triggerspage/view/TriggersPageView';
+import TriggersPageView from '../../../common/components/page/triggers/view/TriggersPageView';
 
 const AlertsPageView = () => <TriggersPageView pageStateNamespace="alertsPage" />;
 

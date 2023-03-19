@@ -5,7 +5,7 @@ import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../common/view/dimensionlistitem/DimensionListItemView';
 import MeasureListItemView from '../../../../../common/view/measurelistitem/MeasureListItemView';
-import SelectorWithDefaultActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithDefaultActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Measure } from '../model/state/types/Measure';
 import type { Dimension } from '../../dimensionselector/model/state/types/Dimension';

@@ -6,7 +6,7 @@ import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedS
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import type { DataScopeType } from '../types/DataScopeType';
-import type { TriggersPageStateNamespace } from '../../../../../triggerspage/model/state/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 
 export interface ChartData {

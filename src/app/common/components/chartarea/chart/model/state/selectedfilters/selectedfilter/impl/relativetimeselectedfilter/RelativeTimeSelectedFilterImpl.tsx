@@ -5,7 +5,7 @@ import moment from 'moment';
 import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
 import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
 import type { ChartData } from '../../../../chartdata/ChartData';
-import RelativeTimeFilterInputView from '../../../../../../../../filterselector/view/selectedfilter/filterinput/relativetime/RelativeTimeFilterInputView';
+import RelativeTimeFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/relativetime/RelativeTimeFilterInputView';
 
 export default class RelativeTimeSelectedFilterImpl extends AbstractSelectedFilterImpl {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

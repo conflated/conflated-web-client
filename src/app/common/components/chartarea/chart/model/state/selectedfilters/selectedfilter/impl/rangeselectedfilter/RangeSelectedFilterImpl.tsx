@@ -5,7 +5,7 @@ import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
 import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
 import NumberRangesParser from '../../numberrange/NumberRangesParser';
 import type { ChartData } from '../../../../chartdata/ChartData';
-import SliderFilterInputView from '../../../../../../../../filterselector/view/selectedfilter/filterinput/slider/SliderFilterInputView';
+import SliderFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/slider/SliderFilterInputView';
 
 export default class RangeSelectedFilterImpl extends AbstractSelectedFilterImpl {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

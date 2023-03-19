@@ -9,24 +9,24 @@ import dimensionSelectorStateReducer from '../app/pages/dataexplorer/leftpane/di
 import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/createChartAreaStateReducer';
 import dataExplorerSettingsStateReducer from '../app/pages/dataexplorer/model/state/dataExplorerStateReducer';
 import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/pages/dataexplorer/saveasdashboardorreporttemplatedialog/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
-import createSortBySelectorStateReducer from '../app/common/components/sortbyselector/model/state/createSortBySelectorStateReducer';
+import createSortBySelectorStateReducer from '../app/common/components/selector/sortby/model/state/createSortBySelectorStateReducer';
 import dashboardsPageStateReducer from '../app/pages/dashboards/model/state/dashboardsPageStateReducer';
-import createTriggerDataSourceSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerdatasourceselector/model/state/createTriggerDataSourceSelectorStateReducer';
-import createTriggerGroupSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerlabelselector/model/state/createTriggerLabelSelectorStateReducer';
-import createTriggerSelectorStateReducer from '../app/common/components/triggerspage/leftpane/triggerselector/model/state/createTriggerSelectorStateReducer';
+import createTriggerDataSourceSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/state/createTriggerDataSourceSelectorStateReducer';
+import createTriggerGroupSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerlabelselector/model/state/createTriggerLabelSelectorStateReducer';
+import createTriggerSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerselector/model/state/createTriggerSelectorStateReducer';
 import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/createSelectorStateReducer';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
-import selectorWithActionsStateNamespaces from '../app/common/components/selectorwithactions/model/state/types/SelectorWithActionsStateNamespace';
-import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selectorwithactions/model/state/createSelectorWithDefaultActionsStateReducer';
+import selectorWithActionsStateNamespaces from '../app/common/components/selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
+import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selector/withactions/model/state/createSelectorWithDefaultActionsStateReducer';
 import dashboardsPageHeaderStateReducer from '../app/pages/dashboards/header/model/state/dashboardsPageHeaderStateReducer';
-import createTriggersPageChartAreaStateReducer from '../app/common/components/triggerspage/chartarea/model/state/createTriggersPageChartAreaStateReducer';
+import createTriggersPageChartAreaStateReducer from '../app/common/components/page/triggers/chartarea/model/state/createTriggersPageChartAreaStateReducer';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 import dashboardGroupSelectorStateReducer from '../app/pages/dashboards/leftpane/dashboardgroupselector/model/state/dashboardGroupSelectorStateReducer';
 import reportsPageStateReducer from '../app/pages/reports/model/state/reportsPageStateReducer';
 import reportTemplateGroupSelectorStateReducer from '../app/pages/reports/leftpane/reporttemplategroupselector/model/state/reportTemplateGroupSelectorStateReducer';
 import generateReportDialogStateReducer from '../app/pages/reports/generatereportdialog/model/state/generateReportDialogStateReducer';
-import createTriggersPageStateReducer from '../app/common/components/triggerspage/model/state/createTriggersPageStateReducer';
+import createTriggersPageStateReducer from '../app/common/components/page/triggers/model/state/createTriggersPageStateReducer';
 import { AppState } from './AppState';
 
 const appStateReducer: Reducer<AppState> = combineReducers({

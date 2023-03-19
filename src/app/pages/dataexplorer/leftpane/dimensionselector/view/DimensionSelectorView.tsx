@@ -4,7 +4,7 @@ import { List } from 'semantic-ui-react';
 import styles from './DimensionSelectorView.module.scss';
 import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
 import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
-import SelectorWithActionsView from '../../../../../common/components/selectorwithactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';

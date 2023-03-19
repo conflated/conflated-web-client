@@ -1,4 +1,4 @@
-import type { TriggersPageStateNamespace } from '../../../../triggerspage/model/state/TriggersPageStateNamespace';
+import type { TriggersPageStateNamespace } from '../../../../page/triggers/model/state/TriggersPageStateNamespace';
 
 export type ChartAreaPageStateNamespace =
   | 'dataExplorerPage'

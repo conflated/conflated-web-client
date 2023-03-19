@@ -9,7 +9,7 @@ import store from '../../../../../../store/store';
 import { ChartAreaPageStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaPageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDataSources from './selectors/selectShownDataSources';
-import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
 
 class DataSourceSelectorController extends Controller<ChartAreaPageStateNamespace | ''> {
   getState = (appState: AppState) =>

@@ -14,7 +14,7 @@ import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDimensions from '../../dimensionselector/controller/selectors/createShownDimensionsSelector';
 import selectShownMeasures from './selectors/selectShownMeasures';
-import { controller as selectorWithActionsController } from '../../../../../common/components/selectorwithactions/controller/selectorWithActionsController';
+import { controller as selectorWithActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
 
 export default class MeasureSelectorController extends Controller<ChartAreaPageStateNamespace> {
   getState = (appState: AppState) =>

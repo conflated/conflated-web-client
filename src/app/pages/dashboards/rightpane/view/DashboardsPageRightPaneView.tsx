@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PagePaneView from '../../../../common/view/pagepane/PagePaneView';
-import FilterSelectorView from '../../../../common/components/filterselector/view/FilterSelectorView';
-import SortBySelectorView from '../../../../common/components/sortbyselector/view/SortBySelectorView';
+import FilterSelectorView from '../../../../common/components/selector/filter/view/FilterSelectorView';
+import SortBySelectorView from '../../../../common/components/selector/sortby/view/SortBySelectorView';
 import { ActionDispatchers, controller, State } from '../controller/dashboardsPageRightPaneController';
 
 type Props = ActionDispatchers & State;
