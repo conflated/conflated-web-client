@@ -54,7 +54,7 @@
     --body-font-size: 0.9rem;
     --small-font-size: 0.7rem;
     --small-font-color: rgb(70 70 70);
-    --drop-zone-font-color: rgb(120 120 120);
+    --drop-zone-font-color: #555;
     --notification-z-index: 900;
     --topmost-z-index: 999;
     --on-top-of-map-z-index: 1000;
