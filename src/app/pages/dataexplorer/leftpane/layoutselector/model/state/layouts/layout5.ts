@@ -20,7 +20,7 @@ const layout5: Layout = [
     i: '3',
     x: (2 * Constants.GRID_COLUMN_COUNT) / 3,
     y: 0,
-    w: Constants.GRID_COLUMN_COUNT,
+    w: Constants.GRID_COLUMN_COUNT / 3,
     h: Constants.GRID_ROW_COUNT
   }
 ];
