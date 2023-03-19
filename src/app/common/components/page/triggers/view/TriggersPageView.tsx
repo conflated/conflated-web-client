@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import PageView from '../../view/PageView';
 import type { TriggersPageStateNamespace } from '../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneView from '../leftpane/view/TriggersPageLeftPaneView';
@@ -25,6 +26,10 @@ const TriggersPageView = ({ closeTriggerDetailsDialog, pageStateNamespace, shoul
   </>
 );
 
-export default connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
+export default connect(
+  controller.getState,
+  _.memoize(
+    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
+    (...args) => args[1].pageStateNamespace
+  )
 )(TriggersPageView);

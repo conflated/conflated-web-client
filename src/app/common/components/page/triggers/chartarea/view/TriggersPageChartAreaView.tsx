@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
+import _ from 'lodash';
 import styles from './TriggersPageChartAreaView.module.scss';
 import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import Constants from '../../../../../Constants';
@@ -113,7 +114,11 @@ export default sizeMe({
   monitorHeight: true,
   monitorWidth: true
 })(
-  connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
-    controller.getActionDispatchers(pageStateNamespace)
+  connect(
+    controller.getState,
+    _.memoize(
+      (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
+      (...args) => args[1].pageStateNamespace
+    )
   )(TriggersPageChartAreaView)
 );

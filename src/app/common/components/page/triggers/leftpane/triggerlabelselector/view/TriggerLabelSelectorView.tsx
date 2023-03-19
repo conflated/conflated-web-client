@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import TriggerLabelSelectorListItemView from './listitem/TriggerLabelSelectorListItemView';
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
@@ -69,6 +70,10 @@ const TriggerLabelSelectorView = ({
   );
 };
 
-export default connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
-  controller.getActionDispatchers(pageStateNamespace)
+export default connect(
+  controller.getState,
+  _.memoize(
+    (__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace),
+    (...args) => args[1].pageStateNamespace
+  )
 )(TriggerLabelSelectorView);
