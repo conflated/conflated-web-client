@@ -8,6 +8,7 @@ export default class AreaChart extends AbstractLineOrAreaChart {
   }
 
   getFillType(): FillType {
-    return 'gradient';
+    const darkModeIsActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return darkModeIsActive ? 'solid' : 'gradient';
   }
 }

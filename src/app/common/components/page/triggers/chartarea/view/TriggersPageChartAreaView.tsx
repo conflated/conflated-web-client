@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import GridLayout from 'react-grid-layout';
@@ -114,8 +113,7 @@ export default sizeMe({
   monitorHeight: true,
   monitorWidth: true
 })(
-  connect(
-    controller.getState,
-    _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+  connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
+    controller.getActionDispatchers(pageStateNamespace)
   )(TriggersPageChartAreaView)
 );

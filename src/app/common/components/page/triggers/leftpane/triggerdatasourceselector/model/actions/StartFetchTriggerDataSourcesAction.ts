@@ -8,9 +8,9 @@ import type { DataSource } from '../../../../../../chartarea/chart/model/state/d
 class FinishFetchTriggerDataSourcesAction extends AbstractTriggerDataSourceSelectorAction {
   triggerDataSources: DataSource[];
 
-  constructor(stateNamespace: TriggersPageStateNamespace, alertDataSources: DataSource[]) {
+  constructor(stateNamespace: TriggersPageStateNamespace, triggerDataSources: DataSource[]) {
     super(stateNamespace);
-    this.triggerDataSources = alertDataSources;
+    this.triggerDataSources = triggerDataSources;
   }
 
   perform(currentState: TriggerDataSourceSelectorState): TriggerDataSourceSelectorState {

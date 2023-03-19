@@ -8,16 +8,12 @@ export default class ApexChartFillOptionsFactory {
     const gradientFill = {
       type: gradientFillType,
       gradient: {
-        shade: 'light',
-        type: 'vertical',
-        shadeIntensity: 0.2,
+        shadeIntensity: 1,
         inverseColors: false,
-        gradientToColors: ['#ffffff', '#ffffff', '#ffffff', '#ffffff'],
-        opacityFrom: 1,
-        opacityTo: 0.7,
-        stops: [0, 100]
-      },
-      opacity
+        opacityFrom: 0.95,
+        opacityTo: 0.2,
+        stops: [60, 100]
+      }
     };
 
     const solidFill = {

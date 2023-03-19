@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import DataSourceListItem from '../../../../../../../pages/dataexplorer/leftpane/datasourceselector/view/datasourcelistitem/DataSourceListItem';
@@ -105,7 +104,6 @@ const TriggerDataSourceSelectorView = ({
   );
 };
 
-export default connect(
-  controller.getState,
-  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+export default connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
+  controller.getActionDispatchers(pageStateNamespace)
 )(TriggerDataSourceSelectorView);

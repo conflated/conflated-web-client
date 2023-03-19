@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import TriggerSelectorListItemView from './listitem/TriggerSelectorListItemView';
@@ -71,7 +70,6 @@ const TriggerSelectorView = ({
   );
 };
 
-export default connect(
-  controller.getState,
-  _.memoize((__, { pageStateNamespace }: OwnProps) => controller.getActionDispatchers(pageStateNamespace))
+export default connect(controller.getState, (__, { pageStateNamespace }: OwnProps) =>
+  controller.getActionDispatchers(pageStateNamespace)
 )(TriggerSelectorView);
