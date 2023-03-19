@@ -34,7 +34,7 @@ const LayoutSelectorView = ({
   return (
     <SelectorView
       id="layoutSelector"
-      titleText="LAYOUT"
+      titleText="LAYOUTS"
       position="leftPane"
       titleContent={
         <LayoutSelectorTitleView

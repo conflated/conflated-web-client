@@ -9,7 +9,7 @@ type Props = ActionDispatchers & State;
 const ChartTypeSelectorView = ({ notifyDragEnd, notifyDragStart, selectChartType, selectedChart }: Props) => (
   <SelectorView
     id="chartTypeSelector"
-    titleText="CHART TYPE"
+    titleText="CHART TYPES"
     position="leftPane"
     selectorContent={
       <ChartIconsView

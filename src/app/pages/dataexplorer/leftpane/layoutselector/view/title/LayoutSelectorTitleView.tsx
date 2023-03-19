@@ -23,12 +23,15 @@ const LayoutSelectorTitleView = ({
           className={styles.actionIcon}
           name={isLayoutLocked ? 'lock' : 'lock open'}
           onClick={handleLockIconClick}
+          style={{
+            color: isLayoutLocked ? 'var(--secondary-text-color-on-hover)' : '#000'
+          }}
         />
       }
       content={
         isLayoutLocked
-          ? 'Click to enable dragging and resizing charts in chart area'
-          : 'Click to disable dragging and resizing charts in chart area'
+          ? 'Click to enable dragging and resizing charts in the chart area'
+          : 'Click to disable dragging and resizing charts in the chart area'
       }
     />
     <Popup
@@ -37,9 +40,7 @@ const LayoutSelectorTitleView = ({
         <Icon
           className={styles.actionIcon}
           style={{
-            color: shouldShowDataExplorerPageLeftPanePermanently
-              ? 'var(--secondary-text-color-on-hover)'
-              : 'var(--secondary-text-color)'
+            color: shouldShowDataExplorerPageLeftPanePermanently ? 'var(--secondary-text-color-on-hover)' : '#000'
           }}
           name="pin"
           onClick={handlePinIconClick}

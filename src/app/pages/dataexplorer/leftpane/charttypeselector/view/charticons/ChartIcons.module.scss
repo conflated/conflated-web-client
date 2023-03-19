@@ -243,7 +243,7 @@
     line-height: 2rem;
 
     @media (prefers-color-scheme: dark) {
-      color: var(--primary-text-color);
+      color: var(--list-item-color);
     }
 
     &.selected,

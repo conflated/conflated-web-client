@@ -83,7 +83,7 @@ const DataSourceSelectorView = ({
   return (
     <SelectorWithActionsView
       id="dataSourceSelector"
-      titleText="DATA SOURCE"
+      titleText="DATA SOURCES"
       addIconTooltipText="Add new data source"
       position="leftPane"
       listItemsContent={
