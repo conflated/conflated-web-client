@@ -1,8 +1,10 @@
 .modal {
   margin: 0 !important;
-  min-width: 100vw;
-  min-height: 100vh;
-  top: 0 !important;
+  min-width: 33vw;
+}
+
+label {
+  min-width: 12rem !important;
 }
 
 .formField {
@@ -16,11 +18,8 @@
     margin: 0 !important;
 
     .reportingPeriodValue {
-      width: 3rem !important;
+      width: 2rem !important;
     }
   }
 }
 
-td:last-child {
-  padding-left: 1rem;
-}

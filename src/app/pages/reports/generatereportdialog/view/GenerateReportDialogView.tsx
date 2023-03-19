@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Accordion, Button, Form, Icon, Modal, Tab } from 'semantic-ui-react';
+import { Button, Form, Modal, Tab } from 'semantic-ui-react';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
@@ -9,7 +9,6 @@ import { ActionDispatchers, controller, State } from '../controller/generateRepo
 type Props = State & ActionDispatchers;
 
 const GenerateReportDialogView = ({ close, isOpen }: Props) => {
-  const [parametersShouldBeShown, setParametersShouldBeShown] = useState(true);
   const [activePaneIndex, setActivePaneIndex] = useState(0);
   const [reportingRelativity, setReportingRelativity] = useState('last');
   const [reportingTimeUnit, setReportingTimeUnit] = useState('minutes');
@@ -25,6 +24,7 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
     { key: 'm', text: 'Minutes', value: 'minutes' },
     { key: 'h', text: 'Hours', value: 'hours' },
     { key: 'd', text: 'Days', value: 'days' },
+    { key: '2', text: 'Weeks', value: 'weeks' },
     { key: 'mo', text: 'Months', value: 'months' },
     { key: 'y', text: 'Years', value: 'years' }
   ];
@@ -52,7 +52,9 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
               onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingRelativity(value)}
               value={reportingRelativity}
             />
-            {reportingRelativity === 'last' && <Form.Input className={styles.reportingPeriodValue} value="15" />}
+            {reportingRelativity === 'last' && (
+              <input className={`${styles.reportingPeriodValue} borderless`} value="15" />
+            )}
             <Form.Select
               fluid
               onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingTimeUnit(value)}
@@ -84,13 +86,13 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
           <Form.Field>
             <Form.Group>
               <label>Report template name</label>
-              <input readOnly value="Subscriber Failures" />
+              <input className="borderless large" value="Subscriber Failures" />
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Form.Group>
               <label>Report name</label>
-              <input value="Subs {{Subscriber MSISDN}} Failures" />
+              <input value="Subscriber {{Subscriber MSISDN}} Failures" />
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
@@ -105,45 +107,22 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <Accordion>
-              <Accordion.Title active={parametersShouldBeShown} index={0}>
-                <Icon name="dropdown" onClick={() => setParametersShouldBeShown(!parametersShouldBeShown)} />
-                Parameters
-              </Accordion.Title>
-              <Accordion.Content active={parametersShouldBeShown}>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>
-                        {' '}
-                        <label>Subscriber MSISDN</label>
-                      </td>
-                      <td>
-                        <input />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {' '}
-                        <label>Parameter 2</label>
-                      </td>
-                      <td>
-                        <input />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {' '}
-                        <label>Parameter 3</label>
-                      </td>
-                      <td>
-                        <input />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </Accordion.Content>
-            </Accordion>
+            <Form.Group>
+              <label>Subscriber MSISDN</label>
+              <input value="0504877334" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Form.Group>
+              <label>Parameter 2</label>
+              <input value="" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Form.Group>
+              <label>Parameter 3</label>
+              <input value="" />
+            </Form.Group>
           </Form.Field>
         </Form>
       </Modal.Content>
