@@ -81,6 +81,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
 
             (colDef as any).cellStyle = (params: any) => {
               let color;
+
               switch (params.value) {
                 case 'Critical':
                   color = '#E23B3B';
