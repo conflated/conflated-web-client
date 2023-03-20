@@ -11,8 +11,8 @@ export default class ApexChartFillOptionsFactory {
         shadeIntensity: 1,
         inverseColors: false,
         opacityFrom: 0.95,
-        opacityTo: 0.2,
-        stops: [60, 100]
+        opacityTo: 0.5,
+        stops: [20, 100, 100, 100]
       }
     };
 
