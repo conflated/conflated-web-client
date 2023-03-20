@@ -19,6 +19,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
   const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
+  const isLightModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 
   const columnWidthWeights = useMemo(
     () => ({
@@ -32,7 +33,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
       'Trigger values': isMaxWidth480px ? 0.5 : 0.11,
       Status: isMaxWidth480px ? 0.25 : 0.07,
       Assignee: isMaxWidth480px ? 0.3 : 0.08,
-      'Status last modified': isMaxWidth480px ? 0.5 : 0.09
+      'Status last modified': isMaxWidth480px ? 0.5 : 0.088
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );
@@ -70,7 +71,13 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
           };
 
           if (name !== 'Description') {
-            (colDef as any).cellStyle = () => ({ color: '#aaa' });
+            if (isLightModeActive) {
+              (colDef as any).cellStyle = () => ({ color: '#333' });
+            } else {
+              (colDef as any).cellStyle = () => ({ color: '#aaa' });
+            }
+          } else if (isLightModeActive) {
+            (colDef as any).cellStyle = () => ({ fontWeight: 'bold' });
           }
 
           if (name === 'Severity') {
@@ -96,14 +103,14 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
                   color = '#37CC73';
               }
 
-              return { color };
+              return { color, fontWeight: isLightModeActive ? 'bold' : 'normal' };
             };
           }
 
           return colDef;
         }
       ),
-    [chart.selectedDimensions, columnWidthWeights, isMaxWidth1024px, width]
+    [chart.selectedDimensions, columnWidthWeights, isLightModeActive, isMaxWidth1024px, width]
   );
 
   const severityIndicatorColumnDef = useMemo(
