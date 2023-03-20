@@ -27,7 +27,7 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
       Labels: isMaxWidth480px ? 0.75 : 0.2,
       Description: isMaxWidth480px ? 0.92 : 0.27,
       'Data source': isMaxWidth480px ? 0.5 : 0.13,
-      'Trigger values': isMaxWidth480px ? 0.8 : 0.2
+      'Trigger values': isMaxWidth480px ? 0.8 : 0.198
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );

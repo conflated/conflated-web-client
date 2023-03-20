@@ -22,11 +22,12 @@
       color: #000;
       font-family: var(--brand-font-family);
       font-size: 1rem;
-      font-weight: normal;
+      font-weight: bold;
       height: 10px;
 
       @media (prefers-color-scheme: dark) {
         background-color: #ccc;
+        font-weight: normal;
       }
 
       .ag-header-cell {
