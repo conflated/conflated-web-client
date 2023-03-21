@@ -67,14 +67,7 @@ export default class FakeChartDataService implements ChartDataService {
             ''
           ];
           columnNameToValuesMap.Status = ['New', 'New', 'New', 'New', 'New', ''];
-          columnNameToValuesMap.Assignee = [
-            'Petri Silen',
-            'Petri Silen',
-            'Petri Silen',
-            'Petri Silen',
-            'Petri Silen',
-            ''
-          ];
+          columnNameToValuesMap.Assignee = ['', '', '', '', '', ''];
           columnNameToValuesMap['"Status last modified"'] = [
             '2019-04-01 12:00:00',
             '2019-04-01 12:00:00',
