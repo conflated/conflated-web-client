@@ -1,12 +1,12 @@
-import { AlertChartDataService } from './AlertChartDataService';
 import { ColumnNameToValuesMap } from '../../../../../common/components/chartarea/chart/model/state/chartdata/ColumnNameToValuesMap';
 import ChartDataImpl from '../../../../../common/components/chartarea/chart/model/state/chartdata/ChartDataImpl';
+import { TriggerChartDataService } from '../../../../../common/components/page/triggers/chartarea/model/services/TriggerChartDataService';
 
-export default class FakeAlertChartDataService implements AlertChartDataService {
+export default class FakeAlertChartDataService implements TriggerChartDataService {
   private readonly latency = 1000;
 
   // noinspection JSMethodCanBeStatic
-  fetchAlertsDataTableData(): Promise<ColumnNameToValuesMap> {
+  fetchTriggerDataTableData(): Promise<ColumnNameToValuesMap> {
     return new Promise<ColumnNameToValuesMap>((resolve) => {
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
@@ -77,7 +77,7 @@ export default class FakeAlertChartDataService implements AlertChartDataService 
     });
   }
 
-  fetchAlertStatisticsChartData(): Promise<ColumnNameToValuesMap> {
+  fetchTriggerStatisticsChartData(): Promise<ColumnNameToValuesMap> {
     return new Promise<ColumnNameToValuesMap>((resolve) => {
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
