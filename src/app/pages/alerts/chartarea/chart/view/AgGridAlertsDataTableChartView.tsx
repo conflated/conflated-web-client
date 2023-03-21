@@ -3,9 +3,9 @@ import React, { useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { CellDoubleClickedEvent } from 'ag-grid-community';
 import _ from 'lodash';
-import HashValueCalculator from '../../../../../utils/HashValueCalculator';
-import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
-import type { Chart } from '../../model/state/Chart';
+import HashValueCalculator from '../../../../../common/utils/HashValueCalculator';
+import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
+import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
 
 type Props = { actions: Record<string, (...args: any[]) => void>; chart: Chart; height: number; width: number };
 
@@ -16,7 +16,7 @@ const severityToPriorityValueMap = {
   Info: 1
 };
 
-const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => {
+const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props) => {
   const agGridRef = useRef(null);
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
@@ -173,4 +173,4 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
   );
 };
 
-export default AgGridAlertsDataTableView;
+export default AgGridAlertsDataTableChartView;

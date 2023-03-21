@@ -1,12 +1,12 @@
 import React from 'react';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
-import AgGridDataTableView from '../../../view/datatable/AgGridDataTableView';
+import AgGridDataTableChartView from '../../../view/datatable/AgGridDataTableChartView';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
-import AgGridAlertsDataTableView from '../../../view/datatable/AgGridAlertsDataTableView';
-import AgGridGoalsDataTableView from '../../../view/datatable/AgGridGoalsDataTableView';
+import AgGridAlertsDataTableChartView from '../../../../../../../pages/alerts/chartarea/chart/view/AgGridAlertsDataTableChartView';
+import AgGridGoalsDataTableChartView from '../../../../../../../pages/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
 
 export default class DataTableChart extends AbstractDrillDownChart {
   handleChartJsClick(): void {
@@ -35,12 +35,12 @@ export default class DataTableChart extends AbstractDrillDownChart {
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element {
     if (stateNamespace === 'alertsPage') {
-      return <AgGridAlertsDataTableView actions={actions} chart={this} width={width} height={height} />;
+      return <AgGridAlertsDataTableChartView actions={actions} chart={this} width={width} height={height} />;
     } else if (stateNamespace === 'goalsPage') {
-      return <AgGridGoalsDataTableView chart={this} width={width} height={height} />;
+      return <AgGridGoalsDataTableChartView chart={this} width={width} height={height} />;
     }
 
-    return <AgGridDataTableView chart={this} />;
+    return <AgGridDataTableChartView chart={this} />;
   }
 
   getNextDimensionVisualizationType(): DimensionVisualizationType {

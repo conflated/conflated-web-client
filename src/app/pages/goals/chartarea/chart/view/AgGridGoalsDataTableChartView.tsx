@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import HashValueCalculator from '../../../../../utils/HashValueCalculator';
-import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
-import type { Chart } from '../../model/state/Chart';
+import HashValueCalculator from '../../../../../common/utils/HashValueCalculator';
+import type { SelectedDimension } from '../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
+import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
 
 type Props = { chart: Chart; height: number; width: number };
 
@@ -14,7 +14,7 @@ const statusNameToValueMap = {
   'Above target': 4
 };
 
-const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
+const AgGridGoalsDataTableChartView = ({ chart, height, width }: Props) => {
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
   const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
@@ -158,4 +158,4 @@ const AgGridGoalsDataTableView = ({ chart, height, width }: Props) => {
   );
 };
 
-export default AgGridGoalsDataTableView;
+export default AgGridGoalsDataTableChartView;
