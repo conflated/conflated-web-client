@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
+import { CellDoubleClickedEvent } from 'ag-grid-community';
 import _ from 'lodash';
 import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
@@ -61,6 +62,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
           const colDef = {
             headerName: name,
             field: sqlColumn.name,
+            editable: name === 'Assignee',
             sortable: true,
             resizable: true,
             tooltipField: name,
@@ -157,7 +159,9 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
         rowSelection="multiple"
         pagination
         enableBrowserTooltips
-        onRowDoubleClicked={actions.handleRowDoubleClick}
+        onCellDoubleClicked={(event: CellDoubleClickedEvent) =>
+          event.colDef.field !== 'Assignee' ? actions.handleRowDoubleClick() : _.noop()
+        }
         onRowClicked={pointerIsCoarse ? actions.handleRowDoubleClick : _.noop}
       />
     </div>
