@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { CellDoubleClickedEvent } from 'ag-grid-community';
 import _ from 'lodash';
@@ -17,6 +17,7 @@ const severityToPriorityValueMap = {
 };
 
 const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => {
+  const agGridRef = useRef(null);
   const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
   const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
   const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
@@ -69,7 +70,8 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
             width: (columnWidthWeights as any)[name] * (finalWidth - (isMaxWidth1024px ? 32 : 22)),
             filter,
             floatingFilter: true,
-            hide: (isMaxWidth1024px && name === 'Severity') || (!isMaxWidth1024px && name === 'Data Source')
+            hide: (isMaxWidth1024px && name === 'Severity') || (!isMaxWidth1024px && name === 'Data Source'),
+            valueGetter: name === 'Status' && ((params: any) => (params.data.Assignee ? 'Investigating' : 'New'))
           };
 
           if (name !== 'Description') {
@@ -79,10 +81,8 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
               (colDef as any).cellStyle = () => ({ color: '#aaa' });
             }
           } else {
-            (colDef as any).cellStyle = (params: any) => {
-              console.log(params.data.Assignee);
-              return params.data.Assignee || params.data.Severity === 'Info' ? {} : { fontWeight: 'bold' };
-            };
+            (colDef as any).cellStyle = (params: any) =>
+              params.data.Assignee || params.data.Severity === 'Info' ? {} : { fontWeight: 'bold' };
           }
 
           if (name === 'Severity') {
@@ -157,6 +157,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
       <AgGridReact
         key={key}
         columnDefs={columnDefs}
+        ref={agGridRef}
         rowData={dataRows}
         rowHeight={pointerIsCoarse ? 38 : 19}
         rowSelection="multiple"
@@ -165,6 +166,7 @@ const AgGridAlertsDataTableView = ({ actions, chart, height, width }: Props) => 
         onCellDoubleClicked={(event: CellDoubleClickedEvent) =>
           event.colDef.field !== 'Assignee' ? actions.handleRowDoubleClick() : _.noop()
         }
+        onCellValueChanged={() => (agGridRef.current as any)?.api?.setColumnDefs(columnDefs)}
         onRowClicked={pointerIsCoarse ? actions.handleRowDoubleClick : _.noop}
       />
     </div>
