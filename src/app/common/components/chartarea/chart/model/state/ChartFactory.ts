@@ -6,7 +6,7 @@ import LineChart from './impl/basic/nontimeline/xaxis/mixed/lineorarea/LineChart
 import BubbleChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/BubbleChart';
 import ScatterChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/ScatterChart';
 import CandlestickChart from './impl/basic/timeline/CandlestickChart';
-import BoxPlotOrViolinChart from './impl/basic/nontimeline/xaxis/BoxPlotOrViolinChart';
+import BoxPlotChart from './impl/basic/nontimeline/xaxis/BoxPlotChart';
 import RadarChart from './impl/basic/nontimeline/xaxis/RadarChart';
 import HeatmapChart from './impl/basic/nontimeline/xaxis/HeatmapChart';
 import DataTableChart from './impl/DataTableChart';
@@ -42,7 +42,7 @@ export default class ChartFactory {
         return new CandlestickChart(chartConfiguration);
       case 'boxplot':
       case 'violin':
-        return new BoxPlotOrViolinChart(chartConfiguration);
+        return new BoxPlotChart(chartConfiguration);
       case 'radar':
         return new RadarChart(chartConfiguration);
       case 'heatmap':

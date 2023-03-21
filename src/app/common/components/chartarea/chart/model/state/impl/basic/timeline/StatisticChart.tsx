@@ -9,7 +9,7 @@ import type { Measure } from '../../../../../../../../../pages/dataexplorer/left
 import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import type { ChartAreaStateNamespace } from '../../../../../../model/state/types/ChartAreaStateNamespace';
-import ApexChartView from '../../../../../view/basic/apex/ApexChartView';
+import ApexChartView from '../../../../../view/basic/ApexChartView';
 
 export default class StatisticChart extends AbstractTimelineChart {
   handleChartJsClick(): void {

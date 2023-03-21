@@ -4,7 +4,7 @@ import _ from 'lodash';
 import FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
 import type { ChartAreaStateNamespace } from '../../../../../model/state/types/ChartAreaStateNamespace';
-import ApexChartView from '../../../../view/basic/apex/ApexChartView';
+import ApexChartView from '../../../../view/basic/ApexChartView';
 import type { DataSeries } from '../../types/DataSeries';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';

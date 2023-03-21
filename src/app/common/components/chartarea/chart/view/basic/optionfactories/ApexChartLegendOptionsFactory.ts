@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Chart } from '../../../../model/state/Chart';
+import type { Chart } from '../../../model/state/Chart';
 
 export default class ApexChartLegendOptionsFactory {
   static createLegendOptions(chart: Chart): object {

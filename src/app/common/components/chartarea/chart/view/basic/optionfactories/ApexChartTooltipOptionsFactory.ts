@@ -1,4 +1,4 @@
-import type { Chart } from '../../../../model/state/Chart';
+import type { Chart } from '../../../model/state/Chart';
 
 export default class ApexChartTooltipOptionsFactory {
   static createTooltipOptions(chart: Chart): object {

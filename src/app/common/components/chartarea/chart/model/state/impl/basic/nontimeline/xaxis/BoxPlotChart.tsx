@@ -2,15 +2,15 @@
 import _ from 'lodash';
 import Color from 'color';
 import React from 'react';
-import ChartJsChartView from '../../../../../../view/basic/chartjs/ChartJsChartView';
 import AbstractXAxisChart from './AbstractXAxisChart';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import type { ChartAreaStateNamespace } from '../../../../../../../model/state/types/ChartAreaStateNamespace';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import type { DataPoint } from '../../../../types/DataPoint';
 import type { DrillDown } from '../../../../types/DrillDown';
+import ApexChartView from '../../../../../../view/basic/ApexChartView';
 
-export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
+export default class BoxPlotChart extends AbstractXAxisChart {
   timeoutId: ReturnType<typeof setTimeout> | 0 = 0;
 
   lastSelectedDataPoint: DataPoint = {
@@ -19,7 +19,7 @@ export default class BoxPlotOrViolinChart extends AbstractXAxisChart {
   };
 
   createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
-    return <ChartJsChartView chart={this} stateNamespace={stateNamespace} />;
+    return <ApexChartView chart={this} height={height} stateNamespace={stateNamespace} width={width} />;
   }
 
   getChartJsDataSetsAndLabels(): object {
