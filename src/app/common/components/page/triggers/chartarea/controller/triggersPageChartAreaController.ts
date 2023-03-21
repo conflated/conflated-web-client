@@ -13,6 +13,7 @@ class TriggersPageChartAreaController extends Controller<ChartAreaStateNamespace
 
   getActionDispatchers = (stateNamespace: TriggersPageStateNamespace) => ({
     openTriggerDetailsDialog: () => this.dispatch(new OpenTriggerDetailsDialogAction(stateNamespace)),
+
     startFetchDataForCharts: () =>
       this.dispatchWithDi(StartFetchDataForTriggerChartsAction, diContainer, {
         stateNamespace
