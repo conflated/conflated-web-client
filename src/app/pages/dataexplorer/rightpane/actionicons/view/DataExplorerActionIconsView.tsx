@@ -22,7 +22,7 @@ const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog
           onClick={openSaveAsDashboardOrReportTemplateDialog}
         />
       }
-      content="Save charts as new dashboard"
+      content="Save charts as a new dashboard or report template"
       inverted
     />
     <Popup
@@ -30,11 +30,7 @@ const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog
       content="Clear charts"
       inverted
     />
-    <Popup
-      trigger={<Icon className={styles.actionIcon} name="external share" size="large" />}
-      content="Export"
-      inverted
-    />
+    <Popup trigger={<Icon className={styles.actionIcon} name="upload" size="large" />} content="Export" inverted />
     <Popup trigger={<Icon className={styles.actionIcon} name="setting" size="large" />} content="Settings" inverted />
   </section>
 );
