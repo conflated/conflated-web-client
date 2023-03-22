@@ -62,11 +62,11 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'Drop Call %',
+            name: 'Dropped Call %',
             isDate: false
           } as Measure,
           sqlColumn: {
-            name: 'Cell',
+            name: 'measure1',
             expression: ''
           },
           visualizationColor: '#23ABB6',
@@ -77,7 +77,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'Cell'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
