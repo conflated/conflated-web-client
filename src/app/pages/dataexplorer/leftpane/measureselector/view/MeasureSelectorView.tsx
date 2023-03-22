@@ -7,7 +7,6 @@ import DimensionListItemView from '../../../../../common/view/listitems/listitem
 import MeasureListItemView from '../../../../../common/view/listitems/listitem/measure/MeasureListItemView';
 import SelectorWithDefaultActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { SelectedMeasure } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
-import type { Measure } from '../model/state/types/Measure';
 import type { Dimension } from '../../dimensionselector/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
@@ -95,14 +94,18 @@ const MeasureSelectorView = ({
   );
 
   const measureAndDimensionListItems = useMemo(() => {
-    const measureListItems = shownMeasures.map((measure: Measure) => (
-      <MeasureListItemView
-        key={measure.name}
-        iconClassName=""
-        item={measure}
-        onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
-      />
-    ));
+    const measureListItems = shownMeasures
+      .filter(
+        (measure) => !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure)
+      )
+      .map((measure) => (
+        <MeasureListItemView
+          key={measure.name}
+          iconClassName=""
+          item={measure}
+          onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+        />
+      ));
 
     const dimensionListItems = shownDimensions.map((dimension: Dimension) => (
       <DimensionListItemView
@@ -114,7 +117,7 @@ const MeasureSelectorView = ({
     ));
 
     return [...measureListItems, ...dimensionListItems];
-  }, [addSelectedMeasureToSelectedChart, shownDimensions, shownMeasures]);
+  }, [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownDimensions, shownMeasures]);
 
   return (
     <SelectorWithDefaultActionsView
