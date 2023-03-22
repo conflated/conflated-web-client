@@ -35,7 +35,7 @@ export default class FakeChartDataService implements ChartDataService {
         const hasTimestamp = columns.filter(({ name }: Column) => name === 'timestamp').length > 0;
 
         columns
-          .filter(({ name }: Column) => name.includes('measure'))
+          .filter(({ type }: Column) => type === 'measure')
           .forEach(({ name }: Column) => {
             if (dimensionColumnCount === 0) {
               columnNameToValuesMap[name] = Array(1)

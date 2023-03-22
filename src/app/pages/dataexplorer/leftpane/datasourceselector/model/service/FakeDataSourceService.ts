@@ -10,7 +10,7 @@ export default class FakeDataSourceService implements DataSourceService {
       setTimeout(() => {
         resolve([
           {
-            name: 'CNI 5G RAN Counters',
+            name: 'CNI Call Reports',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -20,7 +20,7 @@ export default class FakeDataSourceService implements DataSourceService {
             sqlStatement: ''
           },
           {
-            name: 'CNI 4G RAN Counters',
+            name: 'CNI RAN Counters',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
