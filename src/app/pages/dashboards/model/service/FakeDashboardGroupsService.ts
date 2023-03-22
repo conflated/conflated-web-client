@@ -140,7 +140,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'measure1',
+            name: 'Dropped Call %',
             isDate: false
           } as Measure,
           sqlColumn: {
@@ -155,7 +155,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'eNB'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
@@ -179,7 +179,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'measure1',
+            name: 'Dropped Call %',
             isDate: false
           } as Measure,
           sqlColumn: {
@@ -194,7 +194,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'Cell'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
@@ -218,7 +218,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'measure1',
+            name: 'Handover Failure %',
             isDate: false
           } as Measure,
           sqlColumn: {
@@ -233,7 +233,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'eNB'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
@@ -257,7 +257,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'measure1',
+            name: 'Setup Failure %',
             isDate: false
           } as Measure,
           sqlColumn: {
@@ -272,7 +272,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'eNB'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
@@ -296,7 +296,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedMeasures: [
         {
           measure: {
-            name: 'measure1',
+            name: 'Handover Failure %',
             isDate: false
           } as Measure,
           sqlColumn: {
@@ -311,7 +311,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       selectedDimensions: [
         {
           dimension: {
-            name: 'dimension1'
+            name: 'Cell'
           } as Dimension,
           sqlColumn: {
             name: 'dimension1',
