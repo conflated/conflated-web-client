@@ -134,6 +134,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   changeSelectedMeasureAggregationFunction(selectedMeasure: SelectedMeasure, aggregationFunction: AggregationFunction) {
+    console.log('kee');
     Utils.merge(this.selectedMeasures, selectedMeasure, {
       aggregationFunction,
       sqlColumn: {

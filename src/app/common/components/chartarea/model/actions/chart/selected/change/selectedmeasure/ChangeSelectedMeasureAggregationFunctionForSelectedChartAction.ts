@@ -23,6 +23,7 @@ export default class ChangeSelectedMeasureAggregationFunctionForSelectedChartAct
 
     const { selectedChart } = currentState;
     selectedChart.changeSelectedMeasureAggregationFunction(this.selectedMeasure, this.aggregationFunction);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    const chart = ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return chart;
   }
 }
