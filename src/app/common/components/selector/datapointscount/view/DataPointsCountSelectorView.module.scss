@@ -4,6 +4,10 @@
   margin-bottom: 0.5em;
   padding-left: 0.2em;
   padding-right: 0.2em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #fff;
+  }
 }
 
 .fetchedRowCount {
@@ -12,6 +16,10 @@
   padding-bottom: 0.5em;
   padding-left: 0.2em;
   padding-right: 0.2em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #fff;
+  }
 }
 
 .label {
@@ -22,4 +30,15 @@
 
 .numberInput input {
   width: 5.5em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+}
+
+.numberInput button {
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: #ccc !important;
+  }
 }
