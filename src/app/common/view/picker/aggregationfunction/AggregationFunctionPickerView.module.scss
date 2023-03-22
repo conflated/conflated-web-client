@@ -3,4 +3,10 @@
   border-radius: 0.4rem;
   margin-right: 0.3rem;
   padding: 0.2rem;
+
+  :global(.menu) {
+    @media screen and (prefers-color-scheme: dark) {
+      background-color: #ccc !important;
+    }
+  }
 }
