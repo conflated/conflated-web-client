@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Icon, Popup } from 'semantic-ui-react';
-import styles from './ActionsIconsView.module.scss';
-import { ActionDispatchers, controller } from '../controller/actionIconsController';
+import styles from './DataExplorerActionsIconsView.module.scss';
+import { ActionDispatchers, controller } from '../controller/dataExplorerActionIconsController';
 
 type Props = ActionDispatchers;
 
-const ActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog }: Props) => (
+const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog }: Props) => (
   <section id="dataExplorerPageActionIcons" className={styles.actionIcons}>
     <Popup
       trigger={<Icon className={styles.actionIcon} name="refresh" size="large" />}
@@ -39,4 +39,4 @@ const ActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog }: Props) =
   </section>
 );
 
-export default connect(null, () => controller.actionDispatchers)(ActionIconsView);
+export default connect(null, () => controller.actionDispatchers)(DataExplorerActionIconsView);

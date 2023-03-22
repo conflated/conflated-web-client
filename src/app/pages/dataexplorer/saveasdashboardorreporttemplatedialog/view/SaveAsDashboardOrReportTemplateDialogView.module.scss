@@ -1,3 +1,14 @@
 .dashboardGroupField {
   margin-top: 2rem !important;
 }
+
+.message {
+  bottom: 1rem;
+  left: -25rem;
+  position: absolute !important;
+  transition: left 1s !important;
+
+  &.visible {
+    left: 0.6rem;
+  }
+}

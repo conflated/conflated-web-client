@@ -6,18 +6,22 @@ import DataExplorerPageLeftPaneView from '../leftpane/view/DataExplorerPageLeftP
 import DataExplorerPageRightPaneView from '../rightpane/view/DataExplorerPageRightPaneView';
 import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
 import { controller, State } from '../controller/dataExplorerPageController';
+import SaveAsDashboardOrReportTemplateDialogView from '../saveasdashboardorreporttemplatedialog/view/SaveAsDashboardOrReportTemplateDialogView';
 
 type Props = State;
 
 const DataExplorerPageView = ({ isFullScreenModeActive }: Props) => (
-  <PageView
-    className={isFullScreenModeActive ? styles.fullScreenMode : ''}
-    leftPane={<DataExplorerPageLeftPaneView />}
-    middlePane={<ChartAreaView stateNamespace="dataExplorerPage" />}
-    rightPane={<DataExplorerPageRightPaneView />}
-    stateNamespace="dataExplorerPage"
-    showPaneActivatorHintsOnComponentMount={false}
-  />
+  <>
+    <PageView
+      className={isFullScreenModeActive ? styles.fullScreenMode : ''}
+      leftPane={<DataExplorerPageLeftPaneView />}
+      middlePane={<ChartAreaView stateNamespace="dataExplorerPage" />}
+      rightPane={<DataExplorerPageRightPaneView />}
+      stateNamespace="dataExplorerPage"
+      showPaneActivatorHintsOnComponentMount={false}
+    />
+    <SaveAsDashboardOrReportTemplateDialogView />
+  </>
 );
 
 export default connect(controller.getState)(DataExplorerPageView);

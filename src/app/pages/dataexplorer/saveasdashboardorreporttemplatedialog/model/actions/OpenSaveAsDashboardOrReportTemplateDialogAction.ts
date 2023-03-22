@@ -3,11 +3,9 @@ import AbstractSaveAsDashboardOrReportTemplateDialogAction from './AbstractSaveA
 
 export default class OpenSaveAsDashboardOrReportTemplateDialogAction extends AbstractSaveAsDashboardOrReportTemplateDialogAction {
   perform(currentState: SaveAsDashboardOrReportTemplateDialogState): SaveAsDashboardOrReportTemplateDialogState {
-    const newState = {
+    return {
       ...currentState,
       isOpen: true
     };
-
-    return newState;
   }
 }

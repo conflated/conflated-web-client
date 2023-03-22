@@ -1,7 +1,11 @@
 .actionIcons {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  padding: 0.4rem;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #a9a9a9;
+  }
 
   .actionIcon {
     padding-right: 2rem;

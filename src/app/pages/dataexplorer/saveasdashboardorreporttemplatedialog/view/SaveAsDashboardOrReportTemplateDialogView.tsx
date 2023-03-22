@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
-import { Button, Dropdown, DropdownProps, Form, Input, Modal, Radio } from 'semantic-ui-react';
-import { Notification } from 'react-notification';
-import { dashboardGroupField } from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
+import { Button, Dropdown, DropdownProps, Form, Icon, Input, Message, Modal, Radio } from 'semantic-ui-react';
+import styles from './SaveAsDashboardOrReportTemplateDialogView.module.scss';
 import type { DashboardGroup } from '../../../dashboards/model/state/types/DashboardGroup';
 import { ActionDispatchers, controller, State } from '../controller/saveAsDashboardOrReportTemplateDialogController';
 
@@ -12,7 +11,7 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
   charts,
   closeDialog,
   dashboardGroups,
-  hideSavedSuccessfullyNotification,
+  // hideSavedSuccessfullyNotification,
   isOpen,
   layout,
   saveDashboard,
@@ -22,25 +21,11 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
   const [dashboardGroupName, setDashboardGroupName] = useState('');
   const [dashboardName, setDashboardName] = useState('');
 
-  useEffect((): (() => void) => {
-    function handleKeyDown(keyboardEvent: KeyboardEvent) {
-      if (keyboardEvent.code === 'Escape') {
-        keyboardEvent.preventDefault();
-        keyboardEvent.stopPropagation();
-        closeDialog();
-      }
-    }
-
+  useEffect(() => {
     if (dashboardGroups.length === 0) {
       // noinspection JSIgnoredPromiseFromCall
       startFetchDashboardGroups();
     }
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return function cleanup() {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
   }, [closeDialog, dashboardGroups.length, startFetchDashboardGroups]);
 
   const selectDashboardGroup = useCallback((event: React.SyntheticEvent, { value }: DropdownProps) => {
@@ -63,8 +48,8 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
   );
 
   return (
-    <div>
-      <Modal open={isOpen}>
+    <>
+      <Modal closeOnEscape onClose={closeDialog} open={isOpen}>
         <Modal.Header content="SAVE AS DASHBOARD" />
         <Modal.Content>
           <Form>
@@ -74,7 +59,7 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
             <Form.Field>
               <Radio disabled label="Save as new report template" name="radioGroup" value="that" />
             </Form.Field>
-            <Form.Field className={dashboardGroupField}>
+            <Form.Field className={styles.dashboardGroupField}>
               <label>Dashboard group</label>
               <Dropdown
                 placeholder="Type to add new dashboard group"
@@ -111,13 +96,14 @@ const SaveAsDashboardOrReportTemplateDialogView = ({
           </Button>
         </Modal.Actions>
       </Modal>
-      <Notification
-        isActive={shouldShowSavedSuccessfullyNotification}
-        message="Dashboard saved successfully"
-        onDismiss={hideSavedSuccessfullyNotification}
-        dismissAfter={5000}
-      />
-    </div>
+      <Message
+        className={`${styles.message} ${shouldShowSavedSuccessfullyNotification ? styles.visible : ''}`}
+        positive
+      >
+        <Icon name="info circle" size="big" />
+        Dashboard saved successfully.
+      </Message>
+    </>
   );
 };
 
