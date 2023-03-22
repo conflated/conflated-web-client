@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Icon, Popup } from 'semantic-ui-react';
-import styles from './DataExplorerActionsIconsView.module.scss';
+import styles from './DataExplorerActionIconsView.module.scss';
 import { ActionDispatchers, controller } from '../controller/dataExplorerActionIconsController';
 
 type Props = ActionDispatchers;
