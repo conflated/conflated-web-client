@@ -1,5 +1,13 @@
-.dashboardGroupField {
-  margin-top: 2rem !important;
+label {
+  min-width: 11rem !important;
+}
+
+.formField {
+  margin-top: 3rem !important;
+}
+
+.noLeftPadding {
+  padding-left: 0 !important;
 }
 
 .message {
