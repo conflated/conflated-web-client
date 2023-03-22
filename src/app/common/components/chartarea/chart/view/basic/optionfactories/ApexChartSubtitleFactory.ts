@@ -7,11 +7,11 @@ export default class ApexChartSubtitleFactory {
     return {
       text: chart.getSubtitleText(),
       floating: chart.hasFloatingSubtitle(),
-      offsetY: chart.hasLargerTitle() ? 23 : 14,
+      offsetY: chart.hasLargerTitle() ? 25 : 16,
       offsetX: (chart.drillDowns ?? []).length > 0 ? 25 : 0,
       style: {
         fontSize: chart.hasLargerTitle() ? '14px' : '12px',
-        color: isDarkModeActive ? 'rgb(180, 180, 180)' : 'rgb(150, 150, 150)'
+        color: isDarkModeActive ? '#999' : 'rgb(150, 150, 150)'
       }
     };
   }
