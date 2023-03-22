@@ -22,7 +22,6 @@ export default class FakeChartDataService implements ChartDataService {
     return new Promise<ColumnNameToValuesMap>((resolve) => {
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
-
         const measureColumnCount = columns.filter(({ type }: Column) => type === 'measure').length;
 
         if (measureColumnCount === 0) {
@@ -79,7 +78,7 @@ export default class FakeChartDataService implements ChartDataService {
             } else {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
-                .map((value: number, index: number): string => String.fromCharCode('A'.charCodeAt(0) + index));
+                .map((value, index) => (1000 + index).toString());
             }
           });
 
