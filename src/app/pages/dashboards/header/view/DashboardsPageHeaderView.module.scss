@@ -1,7 +1,6 @@
 .header {
   align-items: center;
   background-color: var(--dashboards-page-header-background-color);
-  border-top: 2px rgb(150, 150, 150) solid;
   display: none;
   height: 3rem;
   justify-content: space-between;
@@ -11,6 +10,10 @@
   top: 3rem;
   width: 100%;
   z-index: var(--topmost-z-index);
+
+  @media screen and (prefers-color-scheme: light) {
+    border-top: 2px rgb(150, 150, 150) solid;
+  }
 
   @media screen and (any-pointer: coarse) {
     display: flex;

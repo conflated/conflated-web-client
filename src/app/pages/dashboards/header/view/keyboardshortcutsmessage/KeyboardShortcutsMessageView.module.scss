@@ -5,8 +5,10 @@
   right: 1rem;
   top: 3rem;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #CCCCCC !important;
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: #000 !important;
+    border: 1px solid #ddd;
+    color: #ddd !important;
   }
 }
 
@@ -26,6 +28,10 @@
       line-height: 0.9rem;
       padding: 0.5rem;
 
+      @media screen and (prefers-color-scheme: dark) {
+        color: #ddd;
+      }
+
       .keyboardShortcutIcon {
         margin: 0;
       }
@@ -41,6 +47,12 @@
         box-shadow: 1px 1px 1px rgba(80 80 80 / 90%);
         border-radius: 0.5rem;
         padding: 0.25rem;
+
+        @media screen and (prefers-color-scheme: dark) {
+          background-color: rgba(40 40 40 / 80%);
+          border: 1px solid #666;
+          box-shadow: none;
+        }
 
         &.first {
           margin-right: 0.3rem;
