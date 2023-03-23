@@ -68,7 +68,11 @@
 
           &.selected {
             font-weight: bold;
-            border-bottom: 2px solid #000000;
+            border-bottom: 2px solid #000;
+
+            @media screen and (prefers-color-scheme: dark) {
+              border-bottom: 2px solid #fff;
+            }
           }
 
           &:last-child {
@@ -81,8 +85,15 @@
         max-height: calc(100vh - 8rem);
         max-width: 80vw;
 
-        @media (prefers-color-scheme: dark) {
-          background-color: #333;
+        @media screen and (prefers-color-scheme: dark) {
+          background-color: #222;
+        }
+
+        :global(.icon) {
+          @media screen and (prefers-color-scheme: dark) {
+            color: #fff !important;
+            opacity: 1;
+          }
         }
 
         input {
@@ -92,11 +103,21 @@
           padding-top: 0.4rem;
 
           @media screen and (prefers-color-scheme: dark) {
-            background-color: #333 !important;
+            background-color: #222 !important;
+            border: 1px solid #fff;
+            color: #fff;
           }
         }
 
         & > :global(.item) {
+          @media screen and (prefers-color-scheme: dark) {
+            color: #fff;
+
+            &:hover {
+              background-color: #333;
+            }
+          }
+
           @media screen and (any-pointer: fine) {
             padding-top: 0.3rem !important;
             padding-bottom: 0.3rem !important;
