@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { Icon, Menu, Tab } from 'semantic-ui-react';
 import ChartAreaView from '../../../../common/components/chartarea/view/ChartAreaView';
-import styles from './ChartAreaTabsView.module.scss';
+import styles from './ReportsChartAreaTabsView.module.scss';
 
-const ChartAreaTabsView = () => {
+const ReportsChartAreaTabsView = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const changeActiveTab = (_: React.SyntheticEvent, { activeIndex }: any) => setActiveTabIndex(activeIndex);
 
@@ -42,4 +42,4 @@ const ChartAreaTabsView = () => {
   return <Tab activeIndex={activeTabIndex} className={styles.tab} onTabChange={changeActiveTab} panes={panes} />;
 };
 
-export default ChartAreaTabsView;
+export default ReportsChartAreaTabsView;

@@ -70,6 +70,8 @@
     }
 
     .ag-text-field-input {
+      color: #000;
+
       @media (prefers-color-scheme: dark) {
         background-color: #ccc !important;
       }

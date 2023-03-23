@@ -1,0 +1,26 @@
+.tab {
+  width: 100%;
+
+  :global(.menu) {
+    align-items: center !important;
+  }
+
+  :global(.tab) {
+    border: none !important;
+  }
+
+  :global(.item) {
+    .closeIcon {
+      display: none;
+      padding-left: 0.5rem;
+    }
+
+    &:hover .closeIcon {
+      display: inline-block;
+    }
+  }
+
+  .chartArea {
+    height: calc(100vh - 3rem - 2.85714286em - 4px);
+  }
+}

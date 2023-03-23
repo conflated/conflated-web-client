@@ -4,9 +4,9 @@ import styles from './DataExplorerPageView.module.scss';
 import PageView from '../../../common/components/page/view/PageView';
 import DataExplorerPageLeftPaneView from '../leftpane/view/DataExplorerPageLeftPaneView';
 import DataExplorerPageRightPaneView from '../rightpane/view/DataExplorerPageRightPaneView';
-import ChartAreaView from '../../../common/components/chartarea/view/ChartAreaView';
 import { controller, State } from '../controller/dataExplorerPageController';
 import SaveAsDashboardOrReportTemplateDialogView from '../saveasdashboardorreporttemplatedialog/view/SaveAsDashboardOrReportTemplateDialogView';
+import DataExplorerChartAreaTabsView from '../chartareatabs/view/DataExplorerChartAreaTabsView';
 
 type Props = State;
 
@@ -15,7 +15,7 @@ const DataExplorerPageView = ({ isFullScreenModeActive }: Props) => (
     <PageView
       className={isFullScreenModeActive ? styles.fullScreenMode : ''}
       leftPane={<DataExplorerPageLeftPaneView />}
-      middlePane={<ChartAreaView stateNamespace="dataExplorerPage" />}
+      middlePane={<DataExplorerChartAreaTabsView />}
       rightPane={<DataExplorerPageRightPaneView />}
       stateNamespace="dataExplorerPage"
       showPaneActivatorHintsOnComponentMount={false}
