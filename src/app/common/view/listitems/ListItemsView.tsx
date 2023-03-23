@@ -42,7 +42,9 @@ const ListItemsView: React.FC<Props> = ({
     }
   })();
 
-  return <div className={`${styles.list} ${className ?? ''}`}>{listItemsContent}</div>;
+  return (
+    <div className={`${styles.list} ${listItems.length > 0 && className ? className : ''}`}>{listItemsContent}</div>
+  );
 };
 
 ListItemsView.defaultProps = {
