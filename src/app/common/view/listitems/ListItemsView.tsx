@@ -5,6 +5,7 @@ import { Draggable } from 'react-drag-reorder';
 import styles from './ListItemsView.module.scss';
 
 type Props = {
+  className?: string;
   listItems: Array<JSX.Element>;
   itemsAreReorderable?: boolean;
   noContentFirstLineText: string;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const ListItemsView: React.FC<Props> = ({
+  className,
   listItems,
   itemsAreReorderable,
   noContentFirstLineText,
@@ -40,10 +42,11 @@ const ListItemsView: React.FC<Props> = ({
     }
   })();
 
-  return <div className={styles.list}>{listItemsContent}</div>;
+  return <div className={`${styles.list} ${className ?? ''}`}>{listItemsContent}</div>;
 };
 
 ListItemsView.defaultProps = {
+  className: undefined,
   itemsAreReorderable: false
 };
 

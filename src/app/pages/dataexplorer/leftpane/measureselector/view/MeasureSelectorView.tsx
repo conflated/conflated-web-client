@@ -93,31 +93,35 @@ const MeasureSelectorView = ({
     ]
   );
 
-  const measureAndDimensionListItems = useMemo(() => {
-    const measureListItems = shownMeasures
-      .filter(
-        (measure) => !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure)
-      )
-      .map((measure) => (
-        <MeasureListItemView
-          key={measure.name}
+  const measureListItems = useMemo(
+    () =>
+      shownMeasures
+        .filter(
+          (measure) => !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure)
+        )
+        .map((measure) => (
+          <MeasureListItemView
+            key={measure.name}
+            iconClassName=""
+            item={measure}
+            onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+          />
+        )),
+    [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownMeasures]
+  );
+
+  const dimensionListItems = useMemo(
+    () =>
+      shownDimensions.map((dimension: Dimension) => (
+        <DimensionListItemView
+          key={dimension.name}
           iconClassName=""
-          item={measure}
-          onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+          item={dimension}
+          onItemClick={() => addSelectedMeasureToSelectedChart(dimension, 'SUM')}
         />
-      ));
-
-    const dimensionListItems = shownDimensions.map((dimension: Dimension) => (
-      <DimensionListItemView
-        key={dimension.name}
-        iconClassName=""
-        item={dimension}
-        onItemClick={() => addSelectedMeasureToSelectedChart(dimension, 'SUM')}
-      />
-    ));
-
-    return [...measureListItems, ...dimensionListItems];
-  }, [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownDimensions, shownMeasures]);
+      )),
+    [addSelectedMeasureToSelectedChart, shownDimensions]
+  );
 
   return (
     <SelectorWithDefaultActionsView
@@ -131,11 +135,19 @@ const MeasureSelectorView = ({
         </section>
       }
       listItemsContent={
-        <ListItemsView
-          listItems={measureAndDimensionListItems}
-          noContentFirstLineText="No measures"
-          noContentSecondLineText="Select data source first"
-        />
+        <>
+          <ListItemsView
+            listItems={measureListItems}
+            noContentFirstLineText="No measures"
+            noContentSecondLineText="Select data source first"
+          />
+          <ListItemsView
+            className={styles.divider}
+            listItems={dimensionListItems}
+            noContentFirstLineText=""
+            noContentSecondLineText=""
+          />
+        </>
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace="measureSelector"
