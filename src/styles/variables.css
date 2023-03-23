@@ -53,14 +53,15 @@
     --large-font-size: 1rem;
     --body-font-size: 0.9rem;
     --small-font-size: 0.7rem;
-    --small-font-color: rgb(70 70 70);
+    --small-font-color: #b9b9b9;
     --drop-zone-font-color: #555;
     --notification-z-index: 900;
     --topmost-z-index: 999;
     --on-top-of-map-z-index: 1000;
     --data-explorer-page-left-pane-default-width: 22rem;
     --data-explorer-page-right-pane-default-width: 22rem;
-    --dashboards-page-header-background-color: #CCCCCC;
+    --dashboards-page-header-background-color: #333;
+    --dashboards-page-header-foreground-color: #fff;
     --dashboards-page-left-pane-default-width: 25rem;
     --dashboards-page-right-pane-default-width: 25rem;
     --reports-page-left-pane-default-width: 30rem;

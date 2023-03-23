@@ -42,6 +42,10 @@
     %abstractSelector {
       color: #000000;
 
+      @media screen and (prefers-color-scheme: dark) {
+        color: #fff;
+      }
+
       @media screen and (any-pointer: coarse) {
         padding-bottom: 0.25rem;
       }
@@ -75,7 +79,7 @@
         max-width: 80vw;
 
         @media (prefers-color-scheme: dark) {
-          background-color: #cccccc;
+          background-color: #333;
         }
 
         input {
@@ -85,7 +89,7 @@
           padding-top: 0.4rem;
 
           @media screen and (prefers-color-scheme: dark) {
-            background-color: #cccccc !important;
+            background-color: #333 !important;
           }
         }
 
@@ -106,7 +110,10 @@
       @extend %abstractSelector;
 
       font-size: 1.1rem;
-      font-weight: bold;
+
+      @media screen and (prefers-color-scheme: light) {
+        font-weight: bold;
+      }
     }
 
     .dashboardGroupSelector {
@@ -118,6 +125,10 @@
   }
 
   .actionIcon {
+    @media screen and (prefers-color-scheme: dark) {
+      color: #fff;
+    }
+
     cursor: pointer;
     line-height: 0.9 !important;
     margin-right: 1rem;

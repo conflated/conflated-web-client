@@ -25,7 +25,7 @@ const DashboardsSlideShowSlideChangeIntervalInputView = ({
       }
       content="Slide change interval for dashboards slide show"
     />
-    <span style={{ color: '#000000', verticalAlign: '0.08rem' }}>secs</span>
+    <span style={{ color: 'var(--dashboards-page-header-foreground-color)', verticalAlign: '0.08rem' }}>secs</span>
   </>
 );
 

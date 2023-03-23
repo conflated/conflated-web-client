@@ -8,7 +8,9 @@
     padding-top: 0.4em !important;
 
     @media screen and (prefers-color-scheme: dark) {
-      background-color: #ccc !important;
+      background-color: var(--dashboards-page-header-background-color) !important;
+      border: 1px solid #fff !important;
+      color: #fff !important;
     }
   }
 }
