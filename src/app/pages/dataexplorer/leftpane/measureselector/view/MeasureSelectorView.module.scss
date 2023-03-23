@@ -6,4 +6,8 @@
 .divider {
   border-top: 1px solid #ddd;
   padding-top: 0.4rem;
+
+  @media screen and (prefers-color-scheme: dark) {
+    border-top: 1px solid #333;
+  }
 }
