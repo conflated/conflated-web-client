@@ -15,7 +15,7 @@ class DashboardSelectorController extends Controller<PageStateNamespace> {
 
   actionDispatchers = {
     toggleMaximizeSelector:
-      selectorWithDefaultActionsController.getActionDispatchers('dashboardGroupSelector').toggleMaximizeSelector,
+      selectorWithDefaultActionsController.getActionDispatchers('dashboardSelector').toggleMaximizeSelector,
 
     showDashboard: dashboardsPageController.actionDispatchers.showDashboard
   };
