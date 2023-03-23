@@ -121,25 +121,29 @@ const DimensionSelectorView = ({
     return selectedChart.getDimensionDropZoneListItemViews(dimensionDropZoneListItemViewFactory);
   }, [dropDimension, leaveDropZone, selectedChart]);
 
-  const dimensionAndMeasureListItems = useMemo(() => {
-    const dimensionListItems = shownDimensions.map((dimension: Dimension) => (
-      <DraggableDimensionListItemView
-        key={dimension.name}
-        item={dimension}
-        onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
-      />
-    ));
+  const dimensionListItems = useMemo(
+    () =>
+      shownDimensions.map((dimension: Dimension) => (
+        <DraggableDimensionListItemView
+          key={dimension.name}
+          item={dimension}
+          onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
+        />
+      )),
+    [addSelectedDimensionToSelectedChart, shownDimensions]
+  );
 
-    const measureListItems = shownMeasures.map((measure: Measure) => (
-      <DraggableMeasureAsDimensionListItemView
-        key={measure.name}
-        item={measure}
-        onItemClick={() => addSelectedDimensionToSelectedChart(measure)}
-      />
-    ));
-
-    return [...dimensionListItems, ...measureListItems];
-  }, [addSelectedDimensionToSelectedChart, shownDimensions, shownMeasures]);
+  const measureListItems = useMemo(
+    () =>
+      shownMeasures.map((measure: Measure) => (
+        <DraggableMeasureAsDimensionListItemView
+          key={measure.name}
+          item={measure}
+          onItemClick={() => addSelectedDimensionToSelectedChart(measure)}
+        />
+      )),
+    [addSelectedDimensionToSelectedChart, shownMeasures]
+  );
 
   return (
     <SelectorWithActionsView
@@ -154,11 +158,19 @@ const DimensionSelectorView = ({
         </section>
       }
       listItemsContent={
-        <ListItemsView
-          listItems={dimensionAndMeasureListItems}
-          noContentFirstLineText="No dimensions"
-          noContentSecondLineText="Select data source first"
-        />
+        <>
+          <ListItemsView
+            listItems={dimensionListItems}
+            noContentFirstLineText="No dimensions"
+            noContentSecondLineText="Select data source first"
+          />
+          <ListItemsView
+            className={styles.divider}
+            listItems={measureListItems}
+            noContentFirstLineText=""
+            noContentSecondLineText=""
+          />
+        </>
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace="dimensionSelector"
