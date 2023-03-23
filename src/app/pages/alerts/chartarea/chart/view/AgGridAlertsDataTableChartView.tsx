@@ -78,11 +78,16 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
             if (isLightModeActive) {
               (colDef as any).cellStyle = () => ({ color: '#333' });
             } else {
-              (colDef as any).cellStyle = () => ({ color: '#aaa' });
+              (colDef as any).cellStyle = () => ({ color: '#999' });
             }
-          } else {
+          } else if (isLightModeActive) {
             (colDef as any).cellStyle = (params: any) =>
               params.data.Assignee || params.data.Severity === 'Info' ? {} : { fontWeight: 'bold' };
+          } else {
+            (colDef as any).cellStyle = (params: any) =>
+              params.data.Assignee || params.data.Severity === 'Info'
+                ? { color: '#999', fontWeight: 'normal' }
+                : { fontWeight: 'bold' };
           }
 
           if (name === 'Severity') {
