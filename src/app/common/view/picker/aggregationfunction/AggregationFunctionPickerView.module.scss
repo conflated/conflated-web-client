@@ -4,9 +4,19 @@
   margin-right: 0.3rem;
   padding: 0.2rem;
 
+  @media screen and (prefers-color-scheme: dark) {
+    border: 1px solid #ccc;
+  }
+
   :global(.menu) {
     @media screen and (prefers-color-scheme: dark) {
-      background-color: #ccc !important;
+      background-color: #333 !important;
+    }
+
+    :global(.item) {
+      @media screen and (prefers-color-scheme: dark) {
+        color: #fff !important;
+      }
     }
   }
 }
