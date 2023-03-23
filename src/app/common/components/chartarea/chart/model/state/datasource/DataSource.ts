@@ -1,4 +1,7 @@
+type DataSourceType = 'raw' | 'aggregated';
+
 export type DataSource = {
+  type: DataSourceType;
   name: string;
   jdbcDriverClass: string;
   jdbcUrl: string;

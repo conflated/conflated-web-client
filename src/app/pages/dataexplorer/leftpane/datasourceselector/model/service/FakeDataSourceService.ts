@@ -10,6 +10,7 @@ export default class FakeDataSourceService implements DataSourceService {
       setTimeout(() => {
         resolve([
           {
+            type: 'raw',
             name: 'CNI Call Reports',
             jdbcDriverClass: '',
             jdbcUrl: '',
@@ -20,6 +21,7 @@ export default class FakeDataSourceService implements DataSourceService {
             sqlStatement: ''
           },
           {
+            type: 'aggregated',
             name: 'CNI RAN Counters',
             jdbcDriverClass: '',
             jdbcUrl: '',
@@ -30,6 +32,7 @@ export default class FakeDataSourceService implements DataSourceService {
             sqlStatement: ''
           },
           {
+            type: 'aggregated',
             name: 'CNI 5G Core Counters',
             jdbcDriverClass: '',
             jdbcUrl: '',
@@ -40,6 +43,7 @@ export default class FakeDataSourceService implements DataSourceService {
             sqlStatement: ''
           },
           {
+            type: 'aggregated',
             name: 'CNI 4G Core Counters',
             jdbcDriverClass: '',
             jdbcUrl: '',
@@ -50,6 +54,7 @@ export default class FakeDataSourceService implements DataSourceService {
             sqlStatement: ''
           },
           {
+            type: 'aggregated',
             name: 'FNI Counters',
             jdbcDriverClass: '',
             jdbcUrl: '',

@@ -1,4 +1,7 @@
+import { DataSource } from './DataSource';
+
 const emptyDataSource = {
+  type: 'aggregated',
   name: '',
   jdbcDriverClass: '',
   jdbcUrl: '',
@@ -7,6 +10,6 @@ const emptyDataSource = {
     password: ''
   },
   sqlStatement: ''
-};
+} as DataSource;
 
 export default emptyDataSource;

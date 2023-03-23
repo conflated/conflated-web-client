@@ -74,6 +74,7 @@ const DataSourceSelectorView = ({
       <DataSourceListItem
         key={dataSource.name}
         item={dataSource}
+        iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
         selectedItem={selectedChart.dataSource}
         onItemClick={() => handleDataSourceClick(dataSource)}
       />
