@@ -1,4 +1,6 @@
 .ag-theme-balham {
+  --ag-border-color: #222;
+
   .ag-root-wrapper {
     @media (prefers-color-scheme: dark) {
       background-color: #000;
@@ -17,6 +19,13 @@
       }
     }
 
+    .ag-header {
+      @media (prefers-color-scheme: dark) {
+        background-color: #222 !important;
+        border: none !important;
+      }
+    }
+
     .ag-header-row {
       background-color: #e9ebec;
       color: #000;
@@ -26,13 +35,14 @@
       height: 10px;
 
       @media (prefers-color-scheme: dark) {
-        background-color: #ccc;
+        background-color: #222;
+        color: #fff;
         font-weight: normal;
       }
 
-      .ag-header-cell {
+      .ag-icon {
         @media (prefers-color-scheme: dark) {
-          border-right: 1px solid #bbb;
+          color: #fff;
         }
       }
     }
@@ -73,7 +83,17 @@
       color: #000;
 
       @media (prefers-color-scheme: dark) {
-        background-color: #ccc !important;
+        background-color: #222 !important;
+        color: #fff;
+      }
+    }
+
+    .ag-number-field-input {
+      color: #000;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #222 !important;
+        color: #fff;
       }
     }
   }
@@ -85,7 +105,15 @@
     font-size: 1rem;
 
     @media (prefers-color-scheme: dark) {
-      background-color: #ccc;
+      background-color: #222;
+      border: none !important;
+      color: #fff;
+    }
+
+    .ag-icon {
+      @media (prefers-color-scheme: dark) {
+        color: #fff;
+      }
     }
   }
 }
