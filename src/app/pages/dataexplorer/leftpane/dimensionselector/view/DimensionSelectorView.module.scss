@@ -4,6 +4,10 @@
   padding-left: 0.4rem;
   padding-top: 0.4rem;
 
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: #222;
+  }
+
   .list {
     margin: 0;
 

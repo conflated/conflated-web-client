@@ -6,12 +6,16 @@
   padding-top: 0.2rem !important;
 
   @media screen and (prefers-color-scheme: dark) {
-    background-color: #ccc;
+    background-color: #222;
   }
 
   .removeIcon {
-    color: rgb(0 0 0);
+    color: #000;
     visibility: hidden;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: #fff;
+    }
 
     &:hover,
     &:focus {
@@ -32,11 +36,21 @@
     flex-shrink: 0;
     font-size: var(--large-font-size);
     margin-right: 0.4rem;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: #fff;
+      font-weight: normal;
+    }
   }
 
   .visualizationType {
     color: var(--small-font-color);
     flex-grow: 1;
     font-size: var(--small-font-size);
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: #ddd;
+      font-weight: normal;
+    }
   }
 }
