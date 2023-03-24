@@ -4,6 +4,7 @@ import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
 import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import type { Measure } from '../state/types/Measure';
+import { Dimension } from '../../../dimensionselector/model/state/types/Dimension';
 
 class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
   constructor(private readonly measures: Measure[]) {
@@ -24,6 +25,7 @@ class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
 type ConstructorArgs = {
   measureService: MeasureService;
   dataSource: DataSource;
+  dimension: Dimension | undefined;
 };
 
 @Inject('measureService')
@@ -32,15 +34,18 @@ class StartFetchMeasuresAction extends AbstractMeasureSelectorAction {
 
   readonly dataSource: DataSource;
 
-  constructor({ measureService, dataSource }: ConstructorArgs) {
+  readonly dimension: Dimension | undefined;
+
+  constructor({ measureService, dataSource, dimension }: ConstructorArgs) {
     super();
     this.measureService = measureService;
     this.dataSource = dataSource;
+    this.dimension = dimension;
   }
 
   perform(currentState: MeasureSelectorState): MeasureSelectorState {
     this.measureService
-      .fetchMeasures(this.dataSource)
+      .fetchMeasures(this.dataSource, this.dimension)
       .then((measures: Measure[]) => this.dispatch(new FinishFetchMeasuresAction(measures)));
 
     const newState = {

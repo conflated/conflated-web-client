@@ -1,14 +1,34 @@
 import { MeasureService } from './MeasureService';
 import type { Measure } from '../state/types/Measure';
 import { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
+import { Dimension } from '../../../dimensionselector/model/state/types/Dimension';
 
 export default class MeasureServiceImpl implements MeasureService {
   latency = 1000;
 
-  fetchMeasures(dataSource: DataSource): Promise<Measure[]> {
+  fetchMeasures(dataSource: DataSource, dimension: Dimension | undefined): Promise<Measure[]> {
     return new Promise<Measure[]>((resolve) => {
       setTimeout(() => {
-        if (dataSource.name === 'CNI Call Reports') {
+        if (dataSource.type === 'aggregated' && (dimension?.name === 'Cell' || dimension?.name === 'eNodeB name')) {
+          resolve([
+            {
+              name: 'Handovers',
+              expression: 'measure',
+              isString: false,
+              isTimestamp: false,
+              isDate: false,
+              unit: 'percent'
+            },
+            {
+              name: 'Failed handovers',
+              expression: 'measure',
+              isString: false,
+              isTimestamp: false,
+              isDate: false,
+              unit: 'percent'
+            }
+          ]);
+        } else if (dataSource.name === 'CNI Call Reports') {
           resolve([
             {
               name: 'Call duration',

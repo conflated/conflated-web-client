@@ -11,9 +11,11 @@ import { AppState } from '../../../../../../store/AppState';
 import selectShownMeasures from '../../measureselector/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from './selectors/createShownDimensionsSelector';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
-import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
+import { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
+import StartFetchMeasuresAction from '../../measureselector/model/actions/StartFetchMeasuresAction';
+import diContainer from '../../../../../../di/diContainer';
 
-export default class DimensionSelectorController extends Controller<ChartAreaStateNamespace> {
+export default class DimensionSelectorController extends Controller {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dimensionSelectorState, {
       shownMeasures: selectShownMeasures(appState),
@@ -31,6 +33,9 @@ export default class DimensionSelectorController extends Controller<ChartAreaSta
       dimension: Dimension | Measure,
       visualizationType?: DimensionVisualizationType
     ) => this.dispatch(new AddSelectDimensionToSelectedChartAction('dataExplorerPage', dimension, visualizationType)),
+
+    startFetchMeasures: (dataSource: DataSource, dimension: Dimension) =>
+      this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { dataSource, dimension }),
 
     removeSelectedDimensionFromSelectedChart: (selectedDimension: SelectedDimension) =>
       this.dispatch(new RemoveSelectedDimensionFromSelectedChartAction('dataExplorerPage', selectedDimension)),

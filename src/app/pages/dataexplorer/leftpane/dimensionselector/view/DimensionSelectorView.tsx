@@ -29,6 +29,7 @@ const DimensionSelectorView = ({
   selectedChart,
   shownDimensions,
   shownMeasures,
+  startFetchMeasures,
   theme,
   toggleMaximizeSelector
 }: Props) => {
@@ -128,7 +129,8 @@ const DimensionSelectorView = ({
         <DraggableDimensionListItemView
           key={dimension.name}
           item={dimension}
-          onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
+          onItemClick={() => startFetchMeasures(selectedChart.dataSource, dimension)}
+          onItemDblClick={() => addSelectedDimensionToSelectedChart(dimension)}
         />
       )),
     [addSelectedDimensionToSelectedChart, shownDimensions]
@@ -165,12 +167,14 @@ const DimensionSelectorView = ({
             noContentFirstLineText="No dimensions"
             noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
           />
-          <ListItemsView
-            className={styles.divider}
-            listItems={measureListItems}
-            noContentFirstLineText=""
-            noContentSecondLineText=""
-          />
+          {selectedChart.dataSource.type === 'raw' && (
+            <ListItemsView
+              className={styles.divider}
+              listItems={measureListItems}
+              noContentFirstLineText=""
+              noContentSecondLineText=""
+            />
+          )}
         </>
       }
       handleMaximizeIconClick={handleMaximizeIconClick}

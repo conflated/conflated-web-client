@@ -150,12 +150,14 @@ const MeasureSelectorView = ({
             noContentFirstLineText="No measures"
             noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
           />
-          <ListItemsView
-            className={styles.divider}
-            listItems={dimensionListItems}
-            noContentFirstLineText=""
-            noContentSecondLineText=""
-          />
+          {selectedChart.dataSource.type === 'raw' && (
+            <ListItemsView
+              className={styles.divider}
+              listItems={dimensionListItems}
+              noContentFirstLineText=""
+              noContentSecondLineText=""
+            />
+          )}
         </>
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
