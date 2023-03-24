@@ -1,7 +1,4 @@
-Reports:
- -Left pane
-    -Report template groups
-    -Report templates
+https://github.com/NoJsJa/react-treeview
 
 Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
