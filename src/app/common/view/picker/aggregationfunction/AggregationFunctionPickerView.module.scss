@@ -2,10 +2,10 @@
   border: 1px solid rgb(50, 50, 50);
   border-radius: 0.4rem;
   margin-right: 0.3rem;
-  padding: 0.2rem;
+  padding: 0.2rem !important;
 
   @media screen and (prefers-color-scheme: dark) {
-    border: 1px solid #ccc;
+    border: 1px solid #ccc !important;
   }
 
   :global(.menu) {
@@ -18,5 +18,9 @@
         color: #fff !important;
       }
     }
+  }
+
+  :global(.divider.text) {
+    padding-right: 0 !important;
   }
 }
