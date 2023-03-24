@@ -4,9 +4,9 @@ import { Confirm } from 'semantic-ui-react';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { ActionDispatchers, controller, State } from '../controller/dataSourceSelectorController';
+import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 
 type Props = ActionDispatchers & State;
 
@@ -72,6 +72,19 @@ const DataSourceSelectorView = ({
 
     return shownDataSources.map((dataSource: DataSource) => (
       <DataSourceListItem
+        actions={[
+          {
+            iconName: 'star',
+            perform: () => {},
+            tooltipText: 'Add to favorites'
+          },
+          { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+          {
+            iconName: 'trash alternate outline',
+            perform: () => {},
+            tooltipText: 'Delete'
+          }
+        ]}
         key={dataSource.name}
         item={dataSource}
         iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
@@ -88,10 +101,10 @@ const DataSourceSelectorView = ({
       addIconTooltipText="Add new data source"
       position="leftPane"
       listItemsContent={
-        <ListItemsView
-          listItems={dataSourceListItems}
-          noContentFirstLineText="No data sources"
-          noContentSecondLineText=" Add new data source first"
+        <AllAndFavoritesTabView
+          firstTabPaneListItems={dataSourceListItems}
+          isListItemReorderModeActive={false}
+          secondTabPaneListItems={[]}
         />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
