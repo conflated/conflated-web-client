@@ -29,6 +29,7 @@ const MeasureSelectorView = ({
   selectedChart,
   shownDimensions,
   shownMeasures,
+  startFetchDimensions,
   theme,
   toggleMaximizeSelector
 }: Props) => {
@@ -105,10 +106,17 @@ const MeasureSelectorView = ({
             key={measure.name}
             iconClassName=""
             item={measure}
-            onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+            onItemClick={() => startFetchDimensions(selectedChart.dataSource, measure)}
+            onItemDblClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
           />
         )),
-    [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownMeasures]
+    [
+      addSelectedMeasureToSelectedChart,
+      selectedChart.dataSource,
+      selectedChart.selectedMeasures,
+      shownMeasures,
+      startFetchDimensions
+    ]
   );
 
   const dimensionListItems = useMemo(

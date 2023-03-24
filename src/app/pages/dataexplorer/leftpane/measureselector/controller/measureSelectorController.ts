@@ -14,9 +14,11 @@ import { AppState } from '../../../../../../store/AppState';
 import selectShownDimensions from '../../dimensionselector/controller/selectors/createShownDimensionsSelector';
 import selectShownMeasures from './selectors/selectShownMeasures';
 import { controller as selectorWithActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
-import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
+import { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
+import diContainer from '../../../../../../di/diContainer';
+import StartFetchDimensionsAction from '../../dimensionselector/model/actions/StartFetchDimensionsAction';
 
-export default class MeasureSelectorController extends Controller<ChartAreaStateNamespace> {
+export default class MeasureSelectorController extends Controller {
   getState = (appState: AppState) =>
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.measureSelectorState, {
       shownDimensions: selectShownDimensions(false)(appState),
@@ -37,6 +39,12 @@ export default class MeasureSelectorController extends Controller<ChartAreaState
       this.dispatch(
         new AddSelectedMeasureToSelectedChartAction('dataExplorerPage', measureOrDimension, aggregationFunction)
       ),
+
+    startFetchDimensions: (dataSource: DataSource, measure: Measure) =>
+      this.dispatchWithDi(StartFetchDimensionsAction, diContainer, {
+        dataSource,
+        measure
+      }),
 
     removeSelectedMeasureFromSelectedChart: (selectedMeasure: SelectedMeasure) =>
       this.dispatch(new RemoveSelectedMeasureFromSelectedChartAction('dataExplorerPage', selectedMeasure)),

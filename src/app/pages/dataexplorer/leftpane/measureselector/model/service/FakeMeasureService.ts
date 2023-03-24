@@ -46,7 +46,7 @@ export default class MeasureServiceImpl implements MeasureService {
         } else {
           resolve([
             {
-              name: 'measure1',
+              name: 'Setup attempts',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -54,7 +54,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'percent'
             },
             {
-              name: 'measure2',
+              name: 'Setup failures',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -62,7 +62,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'percent'
             },
             {
-              name: 'measure3',
+              name: 'Dropped calls',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -70,7 +70,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure4',
+              name: 'Handovers',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -78,7 +78,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure5',
+              name: 'Failed handovers',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -86,7 +86,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure6',
+              name: 'SMS deliveries',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -94,7 +94,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure7',
+              name: 'Failed SMS deliveries',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -102,7 +102,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure8',
+              name: 'Throughput',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -110,7 +110,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'measure9',
+              name: 'Latency',
               expression: '',
               isString: false,
               isTimestamp: false,
