@@ -57,7 +57,7 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('Cell'))
+          .filter(({ type }: Column) => type === 'dimension')
           .forEach(({ name }: Column) => {
             if (hasDimension1 && hasTimestamp) {
               columnNameToValuesMap[name] = [];
@@ -104,7 +104,7 @@ export default class FakeChartDataService implements ChartDataService {
             } else {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
-                .map(() => `eNodeB ${Math.floor(Math.random() * 1000)}, Cell ${Math.floor(Math.random() * 10000)}`);
+                .map(() => `${Math.floor(Math.random() * 1000)}, ${1000 + Math.floor(Math.random() * 10000)}`);
             }
           });
 
