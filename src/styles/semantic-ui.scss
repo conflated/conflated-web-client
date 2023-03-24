@@ -228,12 +228,31 @@
     }
   }
 
-  &.menu {
+  &.menu.tabular {
     font-family: var(--brand-font-family);
     font-size: var(--body-font-size);
 
+    .item {
+      color: var(--primary-text-color) !important;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: #ccc !important;
+      }
+
+      &:hover {
+        @media screen and (prefers-color-scheme: dark) {
+          color: #fff !important;
+        }
+      }
+    }
+
     .item.active {
       background-color: transparent !important;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: #fff !important;
+        font-weight: normal;
+      }
     }
   }
 
@@ -379,6 +398,4 @@ i.icon.teal {
   }
 }
 
-.ui.menu .item {
-  color: var(--primary-text-color) !important;
-}
+
