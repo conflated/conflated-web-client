@@ -50,6 +50,14 @@ export default class DimensionServiceImpl implements DimensionService {
               unit: 'none'
             },
             {
+              name: 'eNodeB, Cell',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
               name: 'Product category',
               expression: '',
               isTimestamp: false,

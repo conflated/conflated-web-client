@@ -83,6 +83,32 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
+          .filter(({ name }: Column) => name.includes('eNodeB, Cell'))
+          .forEach(({ name }: Column) => {
+            if (hasDimension1 && hasTimestamp) {
+              columnNameToValuesMap[name] = [];
+              for (let index = 0; index < 20; index++) {
+                const dimensionValuesForIndex = Array(10)
+                  .fill(0)
+                  .map(() => String.fromCharCode('A'.charCodeAt(0) + index));
+                columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
+              }
+            } else if (hasDimension1 && hasProductCategory) {
+              columnNameToValuesMap[name] = [];
+              for (let index = 0; index < 20; index++) {
+                const dimensionValuesForIndex = Array(4)
+                  .fill(0)
+                  .map(() => String.fromCharCode('A'.charCodeAt(0) + index));
+                columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
+              }
+            } else {
+              columnNameToValuesMap[name] = Array(20)
+                .fill(0)
+                .map(() => `eNodeB ${Math.floor(Math.random() * 1000)}, Cell ${Math.floor(Math.random() * 10000)}`);
+            }
+          });
+
+        columns
           .filter(({ name }: Column) => name.includes('Product category'))
           .forEach(({ name }: Column) => {
             if (!hasDimension1) {
