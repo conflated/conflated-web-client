@@ -8,7 +8,10 @@
 
   &.selected {
     color: var(--selected-list-item-color);
-    font-weight: bold !important;
+
+    @media screen and (prefers-color-scheme: light) {
+      font-weight: bold !important;
+    }
   }
 
   &:hover {

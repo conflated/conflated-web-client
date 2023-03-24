@@ -8,8 +8,9 @@ export default class ApexChartTitleFactory {
       text: chart.getTitleText(),
       floating: chart.hasFloatingTitle(),
       style: {
+        color: isDarkModeActive ? '#FFFFFF' : '#000000',
         fontSize: chart.hasLargerTitle() ? '23px' : '13px',
-        color: isDarkModeActive ? '#FFFFFF' : '#000000'
+        fontWeight: isDarkModeActive ? 'normal' : 'bold'
       },
       offsetX: (chart.drillDowns ?? []).length > 0 ? 25 : 0
     };

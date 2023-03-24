@@ -77,7 +77,7 @@ const HeaderView = ({
       <MobileNavigationView />
       <img className={styles.appLogo} height="60%" src="/images/nokia-logo.svg" alt="" />
       <div className={styles.productName}>
-        <b>CNI</b> Real-Time Monitoring
+        <b>AVA</b> Real-Time Monitoring
       </div>
       <NavigationView selectPage={selectPage} />
       <UserMenuView />

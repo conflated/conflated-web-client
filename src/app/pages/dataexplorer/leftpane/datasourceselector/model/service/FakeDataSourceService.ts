@@ -22,7 +22,7 @@ export default class FakeDataSourceService implements DataSourceService {
           },
           {
             type: 'aggregated',
-            name: 'CNI RAN Counters',
+            name: 'CNI 5G RAN Counters 30 x 1d',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -33,7 +33,7 @@ export default class FakeDataSourceService implements DataSourceService {
           },
           {
             type: 'aggregated',
-            name: 'CNI 5G Core Counters',
+            name: 'CNI 5G RAN Counters 24 x 1h',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -44,7 +44,7 @@ export default class FakeDataSourceService implements DataSourceService {
           },
           {
             type: 'aggregated',
-            name: 'CNI 4G Core Counters',
+            name: 'CNI 5G RAN Counters 30 x 1min',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
@@ -55,7 +55,7 @@ export default class FakeDataSourceService implements DataSourceService {
           },
           {
             type: 'aggregated',
-            name: 'FNI Counters',
+            name: 'FNI Counters 30 x 1min',
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
