@@ -21,6 +21,11 @@
       display: none !important;
     }
 
+    &.vertical {
+      width: auto !important;
+      margin-right: 0;
+    }
+
     @media (prefers-color-scheme: dark) {
       :global(.button) {
         color: #bbb;

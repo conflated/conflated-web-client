@@ -63,6 +63,7 @@ const ChartView = ({
         allowKeyControls={isSelectedChart}
         chart={chart}
         className={`${styles.scrollbar} ${isSelectedChart ? styles.selected : ''}`}
+        orientation={chart.chartType === 'bar' ? 'vertical' : 'horizontal'}
         stateNamespace={stateNamespace}
       />
       <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />
