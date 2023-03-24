@@ -47,7 +47,7 @@ export default class SelectedFiltersImpl implements SelectedFilters {
   }
 
   changeSelectedFilterAggregationFunction(selectedFilter: SelectedFilter, aggregationFunction: AggregationFunction) {
-    Utils.merge(this.selectedFilters, selectedFilter, {
+    this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       aggregationFunction,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(selectedFilter.measureOrDimension, aggregationFunction),
@@ -59,13 +59,13 @@ export default class SelectedFiltersImpl implements SelectedFilters {
   }
 
   changeSelectedFilterDataScopeType(selectedFilter: SelectedFilter, dataScopeType: DataScopeType) {
-    Utils.merge(this.selectedFilters, selectedFilter, {
+    this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       dataScopeType
     });
   }
 
   changeSelectedFilterExpression(selectedFilter: SelectedFilter, filterExpression: string) {
-    Utils.merge(this.selectedFilters, selectedFilter, {
+    this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       filterExpression
     });
   }

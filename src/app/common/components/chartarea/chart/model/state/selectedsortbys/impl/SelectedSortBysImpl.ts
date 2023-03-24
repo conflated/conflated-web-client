@@ -93,7 +93,7 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
   }
 
   changeSelectedSortByAggregationFunction(selectedSortBy: SelectedSortBy, aggregationFunction: AggregationFunction) {
-    Utils.merge(this.selectedSortBys, selectedSortBy, {
+    this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       aggregationFunction,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(selectedSortBy.measureOrDimension, aggregationFunction),
@@ -103,13 +103,13 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
   }
 
   changeSelectedSortByDataScopeType(selectedSortBy: SelectedSortBy, dataScopeType: DataScopeType) {
-    Utils.merge(this.selectedSortBys, selectedSortBy, {
+    this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       dataScopeType
     });
   }
 
   changeSelectedSortByDirection(selectedSortBy: SelectedSortBy, sortDirection: SortDirection) {
-    Utils.merge(this.selectedSortBys, selectedSortBy, {
+    this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       sortDirection
     });
   }

@@ -128,7 +128,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   changeSelectedDimensionColor(selectedDimension: SelectedDimension, color: string) {
-    Utils.merge(this.selectedDimensions, selectedDimension, {
+    this.selectedDimensions = Utils.merge(this.selectedDimensions, selectedDimension, {
       visualizationColor: color
     });
   }
@@ -149,7 +149,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   changeSelectedMeasureColor(selectedMeasure: SelectedMeasure, color: string) {
-    Utils.merge(this.selectedMeasures, selectedMeasure, {
+    this.selectedMeasures = Utils.merge(this.selectedMeasures, selectedMeasure, {
       visualizationColor: color
     });
   }
@@ -159,7 +159,7 @@ export default abstract class AbstractChart implements Chart {
     visualizationType: MeasureVisualizationType,
     visualizationColor: string
   ) {
-    Utils.merge(this.selectedMeasures, selectedMeasure, {
+    this.selectedMeasures = Utils.merge(this.selectedMeasures, selectedMeasure, {
       visualizationType,
       visualizationColor
     });
