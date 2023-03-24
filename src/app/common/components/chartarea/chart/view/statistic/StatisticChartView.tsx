@@ -21,5 +21,8 @@ const StatisticChartView = ({ chart, selectChart, stateNamespace }: Props) => (
 
 export default connect(
   null,
-  _.memoize((__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace))
+  _.memoize(
+    (__, { stateNamespace }: OwnProps) => controller.getActionDispatchers(stateNamespace),
+    (...args) => args[1].stateNamespace
+  )
 )(StatisticChartView);
