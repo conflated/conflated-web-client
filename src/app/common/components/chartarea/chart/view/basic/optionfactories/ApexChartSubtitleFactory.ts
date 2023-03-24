@@ -11,7 +11,7 @@ export default class ApexChartSubtitleFactory {
       offsetX: (chart.drillDowns ?? []).length > 0 ? 25 : 0,
       style: {
         fontSize: chart.hasLargerTitle() ? '15px' : '13px',
-        color: isDarkModeActive ? '#bbb' : 'rgb(150, 150, 150)'
+        color: isDarkModeActive ? '#a9a9a9' : 'rgb(150, 150, 150)'
       }
     };
   }
