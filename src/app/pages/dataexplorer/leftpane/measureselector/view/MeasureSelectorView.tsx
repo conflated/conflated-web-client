@@ -12,6 +12,7 @@ import type { AggregationFunction } from '../../../../../common/components/chart
 import type { MeasureVisualizationType } from '../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import { ActionDispatchers, controller, State } from '../controller/measureSelectorController';
+import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 
 type Props = ActionDispatchers & State;
 
@@ -139,7 +140,7 @@ const MeasureSelectorView = ({
           <ListItemsView
             listItems={measureListItems}
             noContentFirstLineText="No measures"
-            noContentSecondLineText="Select data source first"
+            noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
           />
           <ListItemsView
             className={styles.divider}

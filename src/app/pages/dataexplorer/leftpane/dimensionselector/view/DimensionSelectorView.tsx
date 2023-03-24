@@ -13,6 +13,7 @@ import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistite
 import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import { ActionDispatchers, controller, State } from '../controller/dimensionSelectorController';
+import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 
 type Props = ActionDispatchers & State;
 
@@ -162,7 +163,7 @@ const DimensionSelectorView = ({
           <ListItemsView
             listItems={dimensionListItems}
             noContentFirstLineText="No dimensions"
-            noContentSecondLineText="Select data source first"
+            noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
           />
           <ListItemsView
             className={styles.divider}
