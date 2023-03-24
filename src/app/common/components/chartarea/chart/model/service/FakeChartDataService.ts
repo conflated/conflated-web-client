@@ -57,7 +57,7 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('dimension'))
+          .filter(({ name }: Column) => name.includes('Cell'))
           .forEach(({ name }: Column) => {
             if (hasDimension1 && hasTimestamp) {
               columnNameToValuesMap[name] = [];
@@ -97,7 +97,7 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('timestamp'))
+          .filter(({ name }: Column) => name.includes('Timestamp'))
           .forEach(({ name }: Column) => {
             if (hasDimension1 && hasTimestamp) {
               columnNameToValuesMap[name] = [];
@@ -167,7 +167,7 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('latitude'))
+          .filter(({ name }: Column) => name.includes('Latitude'))
           .forEach(({ name }: Column) => {
             columnNameToValuesMap[name] = [
               51.505, 51.501, 51.501, 51.505, 51.505, 51.504, 51.502, 51.502, 51.502, 51.502, 51.508, 51.505, 51.507,
@@ -176,7 +176,7 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('longitude'))
+          .filter(({ name }: Column) => name.includes('Longitude'))
           .forEach(({ name }: Column) => {
             columnNameToValuesMap[name] = [
               -0.009, 0.004, 0.003, 0.006, -0.004, 0.006, -0.002, -0.006, 0.003, -0.003, -0.007, 0.001, 0.003, 0.002,

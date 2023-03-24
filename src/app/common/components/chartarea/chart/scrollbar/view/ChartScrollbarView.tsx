@@ -37,7 +37,7 @@ const ChartScrollbarView: React.FC<Props> = ({
       changeScrollPosition={(scrollPosition: number) => changeXAxisScrollPosition(chart, scrollPosition)}
       className={`${className} ${orientation === 'vertical' ? styles.vertical : ''}`}
       maxScrollPosition={maxScrollPosition}
-      orientation="vertical"
+      orientation={orientation}
       pageSize={chart.xAxisCategoriesShownCount}
     />
   ) : null;

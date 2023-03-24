@@ -9,7 +9,7 @@ export default class DimensionServiceImpl implements DimensionService {
       setTimeout(() => {
         resolve([
           {
-            name: 'dimension1',
+            name: 'Cell',
             expression: '',
             isTimestamp: false,
             isDate: false,
@@ -25,7 +25,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'timestamp',
+            name: 'Timestamp',
             expression: '',
             isTimestamp: true,
             isDate: false,
@@ -33,7 +33,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'latitude',
+            name: 'Latitude',
             expression: '',
             isTimestamp: false,
             isDate: false,
@@ -41,7 +41,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'longitude',
+            name: 'Longitude',
             expression: '',
             isTimestamp: false,
             isDate: false,
@@ -57,7 +57,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'date',
+            name: 'Date',
             expression: '',
             isTimestamp: false,
             isDate: true,
@@ -65,7 +65,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'dimension8',
+            name: 'Dimension8',
             expression: '',
             isTimestamp: false,
             isDate: false,
@@ -73,7 +73,7 @@ export default class DimensionServiceImpl implements DimensionService {
             unit: 'none'
           },
           {
-            name: 'dimension9',
+            name: 'Dimension9',
             expression: '',
             isTimestamp: false,
             isDate: false,
