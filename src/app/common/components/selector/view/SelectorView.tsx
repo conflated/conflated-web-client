@@ -57,5 +57,8 @@ SelectorView.defaultProps = {
 
 export default connect(
   controller.getState,
-  _.memoize((__, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace))
+  _.memoize(
+    (__, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace),
+    (...args) => args[1].selectorStateNamespace
+  )
 )(SelectorView);

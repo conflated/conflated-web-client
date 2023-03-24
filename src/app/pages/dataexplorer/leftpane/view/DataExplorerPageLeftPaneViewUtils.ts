@@ -47,9 +47,9 @@ export default class DataExplorerPageLeftPaneViewUtils {
 
       // noinspection IfStatementWithTooManyBranchesJS
       if (isDataSourceSelectorOpen && isMeasureSelectorOpen && isDimensionSelectorOpen) {
-        dataSourceSelectorContentElem.style.height = `${0.33 * availableHeight}px`;
-        measureSelectorContentElem.style.height = `${0.33 * availableHeight}px`;
-        dimensionSelectorContentElem.style.height = `${0.33 * availableHeight}px`;
+        dataSourceSelectorContentElem.style.height = `${0.4 * availableHeight}px`;
+        measureSelectorContentElem.style.height = `${0.3 * availableHeight}px`;
+        dimensionSelectorContentElem.style.height = `${0.3 * availableHeight}px`;
       } else if (isDataSourceSelectorOpen && isMeasureSelectorOpen && !isDimensionSelectorOpen) {
         dataSourceSelectorContentElem.style.height = `${0.33 * availableHeight}px`;
         measureSelectorContentElem.style.height = `${0.66 * availableHeight}px`;
