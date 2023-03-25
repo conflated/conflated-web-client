@@ -133,7 +133,7 @@ const DimensionSelectorView = ({
           onItemDblClick={() => addSelectedDimensionToSelectedChart(dimension)}
         />
       )),
-    [addSelectedDimensionToSelectedChart, shownDimensions]
+    [addSelectedDimensionToSelectedChart, selectedChart.dataSource, shownDimensions, startFetchMeasures]
   );
 
   const measureListItems = useMemo(
