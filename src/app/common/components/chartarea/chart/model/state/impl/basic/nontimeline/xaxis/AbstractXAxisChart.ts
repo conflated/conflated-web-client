@@ -118,17 +118,15 @@ export default abstract class AbstractXAxisChart extends AbstractNonTimelineChar
         );
       }
 
-      if (this.supportsTooltipSelectedDimension() && this.dataSource.type === 'raw') {
+      if (this.supportsTooltipSelectedDimension()) {
         dimensionDropZoneListItemViews.push(
           dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('2', 'Tooltip')
         );
       }
 
-      if (this.dataSource.type === 'raw') {
-        dimensionDropZoneListItemViews.push(
-          dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Drilldown')
-        );
-      }
+      dimensionDropZoneListItemViews.push(
+        dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Drilldown')
+      );
     } else {
       dimensionDropZoneListItemViews.push(
         dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('1', 'X-axis categories')

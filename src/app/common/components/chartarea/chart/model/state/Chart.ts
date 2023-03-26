@@ -141,7 +141,7 @@ export interface Chart {
 
   getSubtitleText(): string;
 
-  getTitleText(): string | null;
+  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null;
 
   getValidAggregationFunction(aggregationFunction: AggregationFunction): AggregationFunction;
 

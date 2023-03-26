@@ -38,7 +38,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
         ({ visualizationType }: SelectedDimension, index: number) =>
           index > currentDrillDownSelectedDimensionIndex && visualizationType === 'Drilldown'
       );
-      // $FlowFixMe
+
       return nextDrillDownSelectedDimension ?? this.currentDrillDownSelectedDimension;
     } else {
       const firstDrillDownSelectedDimension = this.getSelectedDimensionOfType('Drilldown');

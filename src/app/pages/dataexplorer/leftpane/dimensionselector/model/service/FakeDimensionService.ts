@@ -23,6 +23,14 @@ export default class DimensionServiceImpl implements DimensionService {
               unit: 'none'
             },
             {
+              name: 'Cell ➜ Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
               name: 'eNodeB',
               expression: '',
               isTimestamp: false,
@@ -31,7 +39,55 @@ export default class DimensionServiceImpl implements DimensionService {
               unit: 'none'
             },
             {
-              name: 'eNodeB name',
+              name: 'eNodeB ➜ Cell',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'eNodeB ➜ Cell ➜ Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'eNodeB ➜ Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Chart 1 ➜ Cell',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Chart 1 ➜ Cell ➜ Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Chart 1 ➜ Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Error cause',
               expression: '',
               isTimestamp: false,
               isDate: false,
