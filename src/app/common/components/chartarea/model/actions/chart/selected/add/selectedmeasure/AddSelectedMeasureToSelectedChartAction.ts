@@ -7,6 +7,7 @@ import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
+import StartFetchDimensionsAction from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/actions/StartFetchDimensionsAction';
 
 export default class AddSelectedMeasureToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -24,6 +25,7 @@ export default class AddSelectedMeasureToSelectedChartAction extends AbstractCha
 
     const { selectedChart } = currentState;
     selectedChart.addSelectedMeasure(this.measureOrDimension, this.aggregationFunction);
+    this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart });
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

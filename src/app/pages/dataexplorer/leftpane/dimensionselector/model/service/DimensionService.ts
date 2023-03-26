@@ -1,7 +1,6 @@
-import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import type { Dimension } from '../state/types/Dimension';
-import { Measure } from '../../../measureselector/model/state/types/Measure';
+import { Chart } from '../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 export interface DimensionService {
-  fetchDimensions(dataSource: DataSource, measure: Measure | undefined): Promise<Dimension[]>;
+  fetchDimensions(selectedChart: Chart): Promise<Dimension[]>;
 }

@@ -1,17 +1,57 @@
 import { DimensionService } from './DimensionService';
 import type { Dimension } from '../state/types/Dimension';
-import { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import { Measure } from '../../../measureselector/model/state/types/Measure';
+import { Chart } from '../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 export default class DimensionServiceImpl implements DimensionService {
   latency = 1000;
 
-  fetchDimensions(dataSource: DataSource, measure: Measure | undefined): Promise<Dimension[]> {
+  fetchDimensions(selectedChart: Chart): Promise<Dimension[]> {
     return new Promise<Dimension[]>((resolve) => {
       setTimeout(() => {
         if (
-          (dataSource.type === 'aggregated' && measure?.name === 'Handovers') ||
-          measure?.name === 'Failed handovers'
+          (selectedChart.dataSource.type === 'aggregated' &&
+            ((selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+              selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Cell' &&
+              selectedChart.drillDowns?.[1].selectedDimension.dimension.name === 'Error cause') ||
+              (selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+                selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Error cause') ||
+              (selectedChart.selectedDimensions[0].dimension.name === 'Cell' &&
+                selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Error cause'))) ||
+          selectedChart.selectedDimensions[0].dimension.name === 'Error cause'
+        ) {
+          resolve([]);
+        } else if (
+          selectedChart.dataSource.type === 'aggregated' &&
+          selectedChart.selectedDimensions[0].dimension.name === 'Cell'
+        ) {
+          resolve([
+            {
+              name: 'Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            }
+          ]);
+        } else if (
+          selectedChart.dataSource.type === 'aggregated' &&
+          selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+          selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Cell'
+        ) {
+          resolve([
+            {
+              name: 'Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            }
+          ]);
+        } else if (
+          selectedChart.dataSource.type === 'aggregated' &&
+          selectedChart.selectedDimensions[0].dimension.name === 'eNodeB'
         ) {
           resolve([
             {
@@ -23,7 +63,22 @@ export default class DimensionServiceImpl implements DimensionService {
               unit: 'none'
             },
             {
-              name: 'Cell ➜ Error cause',
+              name: 'Error cause',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            }
+          ]);
+        } else if (
+          (selectedChart.dataSource.type === 'aggregated' &&
+            selectedChart.selectedMeasures[0].measure?.name === 'Handovers') ||
+          selectedChart.selectedMeasures[0].measure?.name === 'Failed handovers'
+        ) {
+          resolve([
+            {
+              name: 'Cell',
               expression: '',
               isTimestamp: false,
               isDate: false,
@@ -32,54 +87,6 @@ export default class DimensionServiceImpl implements DimensionService {
             },
             {
               name: 'eNodeB',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'eNodeB ➜ Cell',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'eNodeB ➜ Cell ➜ Error cause',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'eNodeB ➜ Error cause',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'Chart 1 ➜ Cell',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'Chart 1 ➜ Cell ➜ Error cause',
-              expression: '',
-              isTimestamp: false,
-              isDate: false,
-              isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'Chart 1 ➜ Error cause',
               expression: '',
               isTimestamp: false,
               isDate: false,

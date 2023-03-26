@@ -7,6 +7,8 @@ import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
+import StartFetchMeasuresAction from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/actions/StartFetchMeasuresAction';
+import StartFetchDimensionsAction from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/actions/StartFetchDimensionsAction';
 
 export default class AddSelectDimensionToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -25,6 +27,8 @@ export default class AddSelectDimensionToSelectedChartAction extends AbstractCha
     const { selectedChart } = currentState;
     const visualizationType = this.visualizationType || selectedChart.getNextDimensionVisualizationType();
     selectedChart.addSelectedDimension(this.dimension, visualizationType);
+    this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { selectedChart });
+    this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart });
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

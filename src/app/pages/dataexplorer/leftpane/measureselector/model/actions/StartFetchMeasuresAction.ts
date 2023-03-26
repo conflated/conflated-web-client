@@ -2,9 +2,8 @@ import { Inject } from 'noicejs';
 import AbstractMeasureSelectorAction from './AbstractMeasureSelectorAction';
 import type { MeasureService } from '../service/MeasureService';
 import type { MeasureSelectorState } from '../state/MeasureSelectorState';
-import type { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import type { Measure } from '../state/types/Measure';
-import { Dimension } from '../../../dimensionselector/model/state/types/Dimension';
+import { Chart } from '../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
   constructor(private readonly measures: Measure[]) {
@@ -24,28 +23,24 @@ class FinishFetchMeasuresAction extends AbstractMeasureSelectorAction {
 
 type ConstructorArgs = {
   measureService: MeasureService;
-  dataSource: DataSource;
-  dimension: Dimension | undefined;
+  selectedChart: Chart;
 };
 
 @Inject('measureService')
 class StartFetchMeasuresAction extends AbstractMeasureSelectorAction {
   readonly measureService: MeasureService;
 
-  readonly dataSource: DataSource;
+  readonly selectedChart: Chart;
 
-  readonly dimension: Dimension | undefined;
-
-  constructor({ measureService, dataSource, dimension }: ConstructorArgs) {
+  constructor({ measureService, selectedChart }: ConstructorArgs) {
     super();
     this.measureService = measureService;
-    this.dataSource = dataSource;
-    this.dimension = dimension;
+    this.selectedChart = selectedChart;
   }
 
   perform(currentState: MeasureSelectorState): MeasureSelectorState {
     this.measureService
-      .fetchMeasures(this.dataSource, this.dimension)
+      .fetchMeasures(this.selectedChart)
       .then((measures: Measure[]) => this.dispatch(new FinishFetchMeasuresAction(measures)));
 
     const newState = {

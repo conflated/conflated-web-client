@@ -1,15 +1,18 @@
 import { MeasureService } from './MeasureService';
 import type { Measure } from '../state/types/Measure';
-import { DataSource } from '../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import { Dimension } from '../../../dimensionselector/model/state/types/Dimension';
+import { Chart } from '../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 export default class MeasureServiceImpl implements MeasureService {
   latency = 1000;
 
-  fetchMeasures(dataSource: DataSource, dimension: Dimension | undefined): Promise<Measure[]> {
+  fetchMeasures(selectedChart: Chart): Promise<Measure[]> {
     return new Promise<Measure[]>((resolve) => {
       setTimeout(() => {
-        if (dataSource.type === 'aggregated' && (dimension?.name === 'Cell' || dimension?.name === 'eNodeB name')) {
+        if (
+          selectedChart.dataSource.type === 'aggregated' &&
+          (selectedChart.selectedDimensions[0].dimension?.name === 'Cell' ||
+            selectedChart.selectedDimensions[0].dimension?.name === 'eNodeB')
+        ) {
           resolve([
             {
               name: 'Handovers',
@@ -28,7 +31,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'percent'
             }
           ]);
-        } else if (dataSource.name === 'CNI Call Reports') {
+        } else if (selectedChart.dataSource.name === 'CNI Call Reports') {
           resolve([
             {
               name: 'Call duration',

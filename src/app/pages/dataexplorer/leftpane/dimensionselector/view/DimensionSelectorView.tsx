@@ -29,7 +29,6 @@ const DimensionSelectorView = ({
   selectedChart,
   shownDimensions,
   shownMeasures,
-  startFetchMeasures,
   theme,
   toggleMaximizeSelector
 }: Props) => {
@@ -129,11 +128,10 @@ const DimensionSelectorView = ({
         <DraggableDimensionListItemView
           key={dimension.name}
           item={dimension}
-          onItemClick={() => startFetchMeasures(selectedChart.dataSource, dimension)}
-          onItemDblClick={() => addSelectedDimensionToSelectedChart(dimension)}
+          onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
         />
       )),
-    [addSelectedDimensionToSelectedChart, selectedChart.dataSource, shownDimensions, startFetchMeasures]
+    [addSelectedDimensionToSelectedChart, shownDimensions]
   );
 
   const measureListItems = useMemo(
