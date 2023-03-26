@@ -14,6 +14,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Active CNI Alerts',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -25,6 +26,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Active FNI Alerts',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -36,6 +38,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Active Detected Anomalies',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -47,6 +50,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Active CNI Core Alerts',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -58,6 +62,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Active CNI RAN Alerts',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -69,6 +74,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'All Alerts',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -83,6 +89,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Executive Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -94,6 +101,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Customer Experience Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -105,6 +113,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Service Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -116,6 +125,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Network Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -127,6 +137,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'Core Network Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
@@ -138,6 +149,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
             {
               type: 'raw',
               name: 'RAN Goals',
+              labels: [],
               jdbcDriverClass: '',
               jdbcUrl: '',
               authentication: {
