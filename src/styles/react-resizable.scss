@@ -1,3 +1,8 @@
 .react-resizable-handle {
   z-index: calc(var(--on-top-of-map-z-index) + 1);
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #fff;
+    filter: invert(1);
+  }
 }
