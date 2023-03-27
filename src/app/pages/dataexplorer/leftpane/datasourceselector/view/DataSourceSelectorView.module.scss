@@ -1,0 +1,21 @@
+.accordion {
+
+  .listItems {
+    margin-left: 1rem !important;
+    margin-top: 0 !important;
+  }
+
+  :global(.title) {
+    color: var(--list-item-color) !important;
+    padding: 0 !important;
+  }
+
+  :global(.content) {
+    padding: 0 !important;
+  }
+
+  :global(.list) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}

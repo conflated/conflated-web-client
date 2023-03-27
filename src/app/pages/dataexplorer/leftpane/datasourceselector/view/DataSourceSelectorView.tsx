@@ -10,6 +10,7 @@ import emptyDataSource from '../../../../../common/components/chartarea/chart/mo
 import { ActionDispatchers, controller, State } from '../controller/dataSourceSelectorController';
 import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
+import styles from './DataSourceSelectorView.module.scss';
 
 type Props = ActionDispatchers & State;
 
@@ -80,6 +81,7 @@ const DataSourceSelectorView = ({
         content: {
           content: (
             <ListItemsView
+              className={styles.listItems}
               listItems={shownDataSources
                 .filter((shownDataSource) => shownDataSource.labels.includes(dataSourceLabel))
                 .map((dataSource) => (
@@ -111,7 +113,7 @@ const DataSourceSelectorView = ({
         }
       }));
 
-      return <Accordion exclusive inverted panels={panels} />;
+      return <Accordion className={styles.accordion} exclusive inverted panels={panels} />;
     }
 
     const sortedUniqueDataSourceLabels = _.sortedUniq(
