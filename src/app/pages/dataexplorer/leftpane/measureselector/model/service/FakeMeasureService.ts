@@ -10,8 +10,9 @@ export default class MeasureServiceImpl implements MeasureService {
       setTimeout(() => {
         if (
           selectedChart.dataSource.type === 'aggregated' &&
-          (selectedChart.selectedDimensions?.[0].dimension?.name === 'Cell' ||
-            selectedChart.selectedDimensions?.[0].dimension?.name === 'eNodeB')
+          selectedChart.selectedDimensions.length === 1 &&
+          (selectedChart.selectedDimensions[0].dimension.name === 'Cell' ||
+            selectedChart.selectedDimensions[0].dimension.name === 'eNodeB')
         ) {
           resolve([
             {
