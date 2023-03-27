@@ -33,6 +33,11 @@ h1 {
 
 .react-grid-item.react-grid-placeholder {
   background: none;
-  border: 6px dashed rgb(0, 0, 0);
+  border: 6px dashed #000;
   opacity: 0.3;
+
+  @media screen and (prefers-color-scheme: dark) {
+    border: 6px dashed #ccc;
+    opacity: 1;
+  }
 }
