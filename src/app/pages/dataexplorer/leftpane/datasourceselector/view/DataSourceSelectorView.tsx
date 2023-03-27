@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Accordion, Confirm } from 'semantic-ui-react';
@@ -8,6 +9,7 @@ import type { DataSource } from '../../../../../common/components/chartarea/char
 import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { ActionDispatchers, controller, State } from '../controller/dataSourceSelectorController';
 import AllAndFavoritesTabView from '../../../../../common/view/tab/allandfavorites/AllAndFavoritesTabView';
+import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 
 type Props = ActionDispatchers & State;
 
@@ -71,43 +73,52 @@ const DataSourceSelectorView = ({
       }
     }
 
-    function createAccordionsFor(dataSourceLabels: string[], shownDataSources: DataSource[]) {
+    function createAccordionFor(dataSourceLabels: string[]) {
+      const panels = dataSourceLabels.map((dataSourceLabel) => ({
+        title: dataSourceLabel,
+        key: dataSourceLabel,
+        content: {
+          content: (
+            <ListItemsView
+              listItems={shownDataSources
+                .filter((shownDataSource) => shownDataSource.labels.includes(dataSourceLabel))
+                .map((dataSource) => (
+                  <DataSourceListItem
+                    actions={[
+                      {
+                        iconName: 'star',
+                        perform: () => {},
+                        tooltipText: 'Add to favorites'
+                      },
+                      { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+                      {
+                        iconName: 'trash alternate outline',
+                        perform: () => {},
+                        tooltipText: 'Delete'
+                      }
+                    ]}
+                    key={dataSource.name}
+                    item={dataSource}
+                    iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
+                    selectedItem={selectedChart.dataSource}
+                    onItemClick={() => handleDataSourceClick(dataSource)}
+                  />
+                ))}
+              noContentFirstLineText=""
+              noContentSecondLineText=""
+            />
+          )
+        }
+      }));
 
-      return dataSourceLabels.filter(dataSourceLabel => shownDataSources.some(shownDataSource => shownDataSource.labels.includes(dataSourceLabel))).map((dataSourceLabel) => {
-        const panels = dataSourceLabels.filter(dataSourceLabel => data).map()
-
-        <Accordion panels={panels} />;
-      });
+      return <Accordion exclusive inverted panels={panels} />;
     }
 
     const sortedUniqueDataSourceLabels = _.sortedUniq(
       shownDataSources.flatMap((shownDataSource) => shownDataSource.labels).sort()
     );
 
-    return createAccordionsFor(sortedUniqueDataSourceLabels, shownDataSources);
-
-    return shownDataSources.map((dataSource: DataSource) => (
-      <DataSourceListItem
-        actions={[
-          {
-            iconName: 'star',
-            perform: () => {},
-            tooltipText: 'Add to favorites'
-          },
-          { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
-          {
-            iconName: 'trash alternate outline',
-            perform: () => {},
-            tooltipText: 'Delete'
-          }
-        ]}
-        key={dataSource.name}
-        item={dataSource}
-        iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
-        selectedItem={selectedChart.dataSource}
-        onItemClick={() => handleDataSourceClick(dataSource)}
-      />
-    ));
+    return createAccordionFor(sortedUniqueDataSourceLabels);
   }, [shownDataSources, selectedChart, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
 
   return (
@@ -118,7 +129,7 @@ const DataSourceSelectorView = ({
       position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView
-          firstTabPaneListItems={dataSourceListItems}
+          firstTabPaneListItems={[dataSourceListItems, <div />]}
           isListItemReorderModeActive={false}
           secondTabPaneListItems={[]}
         />

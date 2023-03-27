@@ -8,7 +8,7 @@ import ListItemsView from '../../listitems/ListItemsView';
 
 type Props = {
   firstNoContentLineText?: string;
-  firstTabPaneListItems: Array<JSX.Element>;
+  firstTabPaneListItems: Array<JSX.Element> | JSX.Element;
   firstTabPaneName: string;
   listItemsAreReorderable?: boolean;
   secondNoContentLineText?: string;
@@ -29,13 +29,15 @@ const SelectorTabView: React.FC<Props> = ({
   thirdTabPaneListItems,
   thirdTabPaneName
 }: Props) => {
-  let firstTabPaneContent = (
+  let firstTabPaneContent = Array.isArray(firstTabPaneListItems) ? (
     <ListItemsView
       listItems={firstTabPaneListItems}
       itemsAreReorderable={listItemsAreReorderable}
       noContentFirstLineText=""
       noContentSecondLineText=""
     />
+  ) : (
+    firstTabPaneListItems
   );
 
   if (_.isEmpty(firstTabPaneListItems) && firstNoContentLineText) {

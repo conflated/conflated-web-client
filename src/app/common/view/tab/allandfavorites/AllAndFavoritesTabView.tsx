@@ -2,7 +2,7 @@ import React from 'react';
 import SelectorTabView from '../selector/SelectorTabView';
 
 type Props = {
-  firstTabPaneListItems: Array<JSX.Element>;
+  firstTabPaneListItems: Array<JSX.Element> | JSX.Element;
   isListItemReorderModeActive?: boolean;
   secondTabPaneListItems: Array<JSX.Element>;
 };
