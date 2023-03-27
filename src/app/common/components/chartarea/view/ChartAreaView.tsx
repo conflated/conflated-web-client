@@ -121,7 +121,6 @@ class ChartAreaView extends React.Component<Props> {
             cols={Constants.GRID_COLUMN_COUNT}
             containerPadding={[0, 0]}
             isDraggable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
-            isDroppable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             layout={layout as any}
             margin={[0, 0]}

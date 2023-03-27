@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
-import { Confirm } from 'semantic-ui-react';
+import { Accordion, Confirm } from 'semantic-ui-react';
+import _ from 'lodash';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
 import SelectorWithActionsView from '../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
@@ -69,6 +70,21 @@ const DataSourceSelectorView = ({
         selectDataSourceToBeConfirmed(dataSource);
       }
     }
+
+    function createAccordionsFor(dataSourceLabels: string[], shownDataSources: DataSource[]) {
+
+      return dataSourceLabels.filter(dataSourceLabel => shownDataSources.some(shownDataSource => shownDataSource.labels.includes(dataSourceLabel))).map((dataSourceLabel) => {
+        const panels = dataSourceLabels.filter(dataSourceLabel => data).map()
+
+        <Accordion panels={panels} />;
+      });
+    }
+
+    const sortedUniqueDataSourceLabels = _.sortedUniq(
+      shownDataSources.flatMap((shownDataSource) => shownDataSource.labels).sort()
+    );
+
+    return createAccordionsFor(sortedUniqueDataSourceLabels, shownDataSources);
 
     return shownDataSources.map((dataSource: DataSource) => (
       <DataSourceListItem
