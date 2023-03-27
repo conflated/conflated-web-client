@@ -10,6 +10,7 @@ import { AppState } from '../../../../../../store/AppState';
 import selectShownDataSources from './selectors/selectShownDataSources';
 import { controller as selectorWithDefaultActionsController } from '../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
 import { ChartAreaStateNamespace } from '../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
+import { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
 
 class DataSourceSelectorController extends Controller<ChartAreaStateNamespace | ''> {
   getState = (appState: AppState) =>
@@ -29,8 +30,8 @@ class DataSourceSelectorController extends Controller<ChartAreaStateNamespace | 
     selectDataSourceToBeConfirmed: (dataSource: DataSource) =>
       this.dispatch(new SelectDataSourceToBeConfirmedAction(dataSource)),
 
-    confirmDataSourceSelection: (dataSource: DataSource | null) =>
-      this.dispatch(new ConfirmDataSourceSelectionAction(dataSource)),
+    confirmDataSourceSelection: (dataSource: DataSource | null, selectedChart: Chart) =>
+      this.dispatch(new ConfirmDataSourceSelectionAction(dataSource, selectedChart)),
 
     toggleMaximizeSelector:
       selectorWithDefaultActionsController.getActionDispatchers('dataSourceSelector').toggleMaximizeSelector

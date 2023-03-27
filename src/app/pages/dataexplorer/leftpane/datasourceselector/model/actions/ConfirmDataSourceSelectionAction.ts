@@ -5,25 +5,24 @@ import ChangeDataSourceForSelectedChartAction from '../../../../../../common/com
 import StartFetchDimensionsAction from '../../../dimensionselector/model/actions/StartFetchDimensionsAction';
 import diContainer from '../../../../../../../di/diContainer';
 import StartFetchMeasuresAction from '../../../measureselector/model/actions/StartFetchMeasuresAction';
+import { Chart } from '../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 export default class ConfirmDataSourceSelectionAction extends AbstractDataSourceSelectorAction {
-  constructor(private readonly dataSource: DataSource | null) {
+  constructor(private readonly dataSource: DataSource | null, private readonly selectedChart: Chart) {
     super();
   }
 
   perform(currentState: DataSourceSelectorState): DataSourceSelectorState {
     if (this.dataSource) {
       this.dispatch(new ChangeDataSourceForSelectedChartAction('dataExplorerPage', this.dataSource));
-      this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { dataSource: this.dataSource });
-      this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { dataSource: this.dataSource });
+      this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart: this.selectedChart });
+      this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { selectedChart: this.selectedChart });
 
-      const newState = {
+      return {
         ...currentState,
         selectedDataSourceToConfirm: null,
         isDataSourceChangeConfirmationShown: false
       };
-
-      return newState;
     }
 
     return currentState;

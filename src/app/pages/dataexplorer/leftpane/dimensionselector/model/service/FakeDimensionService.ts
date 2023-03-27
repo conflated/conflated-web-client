@@ -10,19 +10,19 @@ export default class DimensionServiceImpl implements DimensionService {
       setTimeout(() => {
         if (
           (selectedChart.dataSource.type === 'aggregated' &&
-            ((selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+            ((selectedChart.selectedDimensions?.[0].dimension.name === 'eNodeB' &&
               selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Cell' &&
               selectedChart.drillDowns?.[1].selectedDimension.dimension.name === 'Error cause') ||
-              (selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+              (selectedChart.selectedDimensions?.[0].dimension.name === 'eNodeB' &&
                 selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Error cause') ||
-              (selectedChart.selectedDimensions[0].dimension.name === 'Cell' &&
+              (selectedChart.selectedDimensions?.[0].dimension.name === 'Cell' &&
                 selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Error cause'))) ||
-          selectedChart.selectedDimensions[0].dimension.name === 'Error cause'
+          selectedChart.selectedDimensions?.[0].dimension.name === 'Error cause'
         ) {
           resolve([]);
         } else if (
           selectedChart.dataSource.type === 'aggregated' &&
-          selectedChart.selectedDimensions[0].dimension.name === 'Cell'
+          selectedChart.selectedDimensions?.[0].dimension.name === 'Cell'
         ) {
           resolve([
             {
@@ -36,7 +36,7 @@ export default class DimensionServiceImpl implements DimensionService {
           ]);
         } else if (
           selectedChart.dataSource.type === 'aggregated' &&
-          selectedChart.selectedDimensions[0].dimension.name === 'eNodeB' &&
+          selectedChart.selectedDimensions?.[0].dimension.name === 'eNodeB' &&
           selectedChart.drillDowns?.[0].selectedDimension.dimension.name === 'Cell'
         ) {
           resolve([
@@ -51,7 +51,7 @@ export default class DimensionServiceImpl implements DimensionService {
           ]);
         } else if (
           selectedChart.dataSource.type === 'aggregated' &&
-          selectedChart.selectedDimensions[0].dimension.name === 'eNodeB'
+          selectedChart.selectedDimensions?.[0].dimension.name === 'eNodeB'
         ) {
           resolve([
             {
@@ -73,8 +73,8 @@ export default class DimensionServiceImpl implements DimensionService {
           ]);
         } else if (
           (selectedChart.dataSource.type === 'aggregated' &&
-            selectedChart.selectedMeasures[0].measure?.name === 'Handovers') ||
-          selectedChart.selectedMeasures[0].measure?.name === 'Failed handovers'
+            selectedChart.selectedMeasures?.[0].measure?.name === 'Handovers') ||
+          selectedChart.selectedMeasures?.[0].measure?.name === 'Failed handovers'
         ) {
           resolve([
             {

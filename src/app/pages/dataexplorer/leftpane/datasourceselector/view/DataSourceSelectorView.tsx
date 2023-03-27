@@ -64,7 +64,7 @@ const DataSourceSelectorView = ({
   const dataSourceListItems = useMemo(() => {
     function handleDataSourceClick(dataSource: DataSource) {
       if (selectedChart.dataSource === emptyDataSource) {
-        confirmDataSourceSelection(dataSource);
+        confirmDataSourceSelection(dataSource, selectedChart);
       } else {
         selectDataSourceToBeConfirmed(dataSource);
       }
@@ -92,7 +92,7 @@ const DataSourceSelectorView = ({
         onItemClick={() => handleDataSourceClick(dataSource)}
       />
     ));
-  }, [shownDataSources, selectedChart.dataSource, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
+  }, [shownDataSources, selectedChart, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
 
   return (
     <SelectorWithActionsView
@@ -118,7 +118,7 @@ const DataSourceSelectorView = ({
           confirmButton="CHANGE"
           cancelButton="CANCEL"
           onCancel={hideDataSourceChangeConfirmation}
-          onConfirm={() => confirmDataSourceSelection(selectedChart.dataSource)}
+          onConfirm={() => confirmDataSourceSelection(selectedChart.dataSource, selectedChart)}
         />
       }
     />
