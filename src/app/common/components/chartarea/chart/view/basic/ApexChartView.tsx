@@ -46,7 +46,7 @@ const ApexChartView = ({ chart, height, width, stateNamespace, ...actions }: Pro
     colors: ApexChartColorOptionsFactory.createColorOptions(chart),
     grid: ApexChartGridOptionsFactory.createGridOptions(chart),
     states: ApexChartStateOptionsFactory.createStateOptions(),
-    title: ApexChartTitleFactory.createTitle(chart, stateNamespace),
+    title: ApexChartTitleFactory.createTitle(chart),
     subtitle: ApexChartSubtitleFactory.createSubtitle(chart),
     xaxis: ApexChartXAxisOptionsFactory.createXAxisOptions(chart),
     labels: ApexChartLabelsFactory.createLabels(chart),

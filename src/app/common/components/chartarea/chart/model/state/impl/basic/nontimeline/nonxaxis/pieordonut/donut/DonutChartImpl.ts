@@ -40,7 +40,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
     return super.getApexChartType();
   }
 
-  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+  getTitleText(): string | null {
     if (
       this.selectedMeasures.length === 1 &&
       this.selectedMeasures[0].measure.unit === 'percent' &&
@@ -49,7 +49,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
       return null;
     }
 
-    return super.getTitleText(stateNamespace);
+    return super.getTitleText();
   }
 
   supportsMeasureVisualizationColor(): boolean {

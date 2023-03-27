@@ -44,7 +44,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
         // eslint-disable-next-line new-cap
         const pdf = new jsPDF({ orientation: 'landscape' });
         pdf.addImage(uri, 'PNG', 0, 0, 200, 200);
-        const title = this.getTitleText('dashboardsPage') || '';
+        const title = this.getTitleText() || '';
         pdf.save(`${title} ${this.getSubtitleText()}.pdf`);
       });
     }
@@ -58,7 +58,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
     if (foundChartInstance) {
       foundChartInstance.chart.dataURI().then((uri: string) => {
-        const title = this.getTitleText('dashboardsPage') || '';
+        const title = this.getTitleText() || '';
         FileSaver.saveAs(uri, `${title} ${this.getSubtitleText()}.png`);
       });
     }
@@ -72,7 +72,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
     if (foundChartInstance) {
       const svgString = foundChartInstance.chart.paper().svg();
-      const title = this.getTitleText('dashboardsPage') || '';
+      const title = this.getTitleText() || '';
       FileSaver.saveAs(new Blob([svgString]), `${title} ${this.getSubtitleText()}.svg`);
     }
   };

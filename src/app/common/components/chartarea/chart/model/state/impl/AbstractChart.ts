@@ -467,10 +467,10 @@ export default abstract class AbstractChart implements Chart {
     return [];
   }
 
-  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+  getTitleText(): string | null {
     return this.selectedMeasures.reduce((accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
       if (accumulatedTitle === '') {
-        return stateNamespace === 'dataExplorerPage' ? `${this.id}. ${name}` : name;
+        return name;
       } else {
         return `${accumulatedTitle}, ${name}`;
       }
