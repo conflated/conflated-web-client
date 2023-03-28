@@ -58,6 +58,7 @@ export default abstract class AbstractXAxisChart extends AbstractNonTimelineChar
       }
 
       const hasContinuousTimestampXAxis = this.hasContinuousXAxis() && this.hasTimestampXAxis();
+
       return {
         ...commonOptions,
         type: hasContinuousTimestampXAxis ? 'datetime' : 'category',
@@ -68,7 +69,10 @@ export default abstract class AbstractXAxisChart extends AbstractNonTimelineChar
     return {
       ...commonOptions,
       type: 'category',
-      categories: [this.selectedMeasures.length > 0 && this.supportsAllDimension() ? 'ALL' : '']
+      categories: [this.selectedMeasures.length > 0 && this.supportsAllDimension() ? 'ALL' : ''],
+      axisTicks: {
+        show: this.selectedMeasures.length > 0
+      }
     };
   }
 
