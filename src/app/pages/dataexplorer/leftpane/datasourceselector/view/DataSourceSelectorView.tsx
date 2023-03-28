@@ -135,7 +135,7 @@ const DataSourceSelectorView = ({
       position="leftPane"
       listItemsContent={
         <AllAndFavoritesTabView
-          firstTabPaneListItems={[dataSourceListItems, <div />]}
+          firstTabPaneListItems={dataSourceListItems}
           isListItemReorderModeActive={false}
           secondTabPaneListItems={[]}
         />
