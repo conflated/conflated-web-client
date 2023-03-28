@@ -1,4 +1,5 @@
 - Chart types
+- Chart menu styles
 - Chart Copy + Paste
 - Chart drag + drop
 - Automatic Sort by

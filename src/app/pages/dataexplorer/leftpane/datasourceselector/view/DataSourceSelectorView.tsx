@@ -75,45 +75,47 @@ const DataSourceSelectorView = ({
     }
 
     function createAccordionFor(dataSourceLabels: string[]) {
-      const panels = dataSourceLabels.map((dataSourceLabel) => ({
-        title: dataSourceLabel,
-        key: dataSourceLabel,
-        content: {
-          content: (
-            <ListItemsView
-              className={styles.listItems}
-              listItems={shownDataSources
-                .filter(
-                  (shownDataSource) => dataSourceLabel === 'All' || shownDataSource.labels.includes(dataSourceLabel)
-                )
-                .map((dataSource) => (
-                  <DataSourceListItem
-                    actions={[
-                      {
-                        iconName: 'star',
-                        perform: () => {},
-                        tooltipText: 'Add to favorites'
-                      },
-                      { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
-                      {
-                        iconName: 'trash alternate outline',
-                        perform: () => {},
-                        tooltipText: 'Delete'
-                      }
-                    ]}
-                    key={dataSource.name}
-                    item={dataSource}
-                    iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
-                    selectedItem={selectedChart.dataSource}
-                    onItemClick={() => handleDataSourceClick(dataSource)}
-                  />
-                ))}
-              noContentFirstLineText=""
-              noContentSecondLineText=""
-            />
-          )
-        }
-      }));
+      const panels = dataSourceLabels
+        .filter(() => shownDataSources.length > 0)
+        .map((dataSourceLabel) => ({
+          title: dataSourceLabel,
+          key: dataSourceLabel,
+          content: {
+            content: (
+              <ListItemsView
+                className={styles.listItems}
+                listItems={shownDataSources
+                  .filter(
+                    (shownDataSource) => dataSourceLabel === 'All' || shownDataSource.labels.includes(dataSourceLabel)
+                  )
+                  .map((dataSource) => (
+                    <DataSourceListItem
+                      actions={[
+                        {
+                          iconName: 'star',
+                          perform: () => {},
+                          tooltipText: 'Add to favorites'
+                        },
+                        { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+                        {
+                          iconName: 'trash alternate outline',
+                          perform: () => {},
+                          tooltipText: 'Delete'
+                        }
+                      ]}
+                      key={dataSource.name}
+                      item={dataSource}
+                      iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
+                      selectedItem={selectedChart.dataSource}
+                      onItemClick={() => handleDataSourceClick(dataSource)}
+                    />
+                  ))}
+                noContentFirstLineText=""
+                noContentSecondLineText=""
+              />
+            )
+          }
+        }));
 
       return <Accordion className={styles.accordion} exclusive inverted panels={panels} />;
     }
