@@ -120,7 +120,7 @@ export default class FakeDataSourceService implements DataSourceService {
           {
             type: 'aggregated',
             name: 'CNI 5G Core 30 x 1min',
-            labels: ['Data, aggregated', 'Product, CNI', 'Network, 4G', 'Network, radio', 'Time, 30 x 1min'],
+            labels: ['Data, aggregated', 'Product, CNI', 'Network, 5G', 'Network, core', 'Time, 30 x 1min'],
             jdbcDriverClass: '',
             jdbcUrl: '',
             authentication: {
