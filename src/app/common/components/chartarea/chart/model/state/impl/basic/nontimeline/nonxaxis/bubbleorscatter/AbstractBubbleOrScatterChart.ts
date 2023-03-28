@@ -8,9 +8,44 @@ import type { LegendPosition } from '../../../../../types/LegendPosition';
 
 export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineChart {
   getApexXAxisOptions(): object {
+    let xAxisTitle;
+
+    if (this.selectedMeasures[0]?.visualizationType === 'x-axis') {
+      xAxisTitle = this.selectedMeasures[0].measure.name;
+    } else if (this.selectedMeasures[1]?.visualizationType === 'x-axis') {
+      xAxisTitle = this.selectedMeasures[1].measure.name;
+    } else if (this.selectedMeasures[2]?.visualizationType === 'x-axis') {
+      xAxisTitle = this.selectedMeasures[2].measure.name;
+    }
+
     return {
       type: 'category',
-      axisBorder: { show: this.selectedMeasures.length > 0 }
+      axisBorder: { show: this.selectedMeasures.length > 0 },
+      title: {
+        text: xAxisTitle,
+        style: {
+          fontWeight: 'normal'
+        }
+      }
+    };
+  }
+
+  getApexYAxisTitleOptions(): object {
+    let yAxisTitle;
+
+    if (this.selectedMeasures[0]?.visualizationType === 'y-axis') {
+      yAxisTitle = this.selectedMeasures[0].measure.name;
+    } else if (this.selectedMeasures[1]?.visualizationType === 'y-axis') {
+      yAxisTitle = this.selectedMeasures[1].measure.name;
+    } else if (this.selectedMeasures[2]?.visualizationType === 'y-axis') {
+      yAxisTitle = this.selectedMeasures[2].measure.name;
+    }
+
+    return {
+      text: yAxisTitle,
+      style: {
+        fontWeight: 'normal'
+      }
     };
   }
 

@@ -95,4 +95,17 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
       xAxisData.length === yAxisData.length
     );
   }
+
+  getTitleText(): string | null {
+    return this.selectedMeasures.reduce(
+      (accumulatedTitle: string, { measure: { name }, visualizationType }: SelectedMeasure): string => {
+        if (accumulatedTitle === '') {
+          return `${visualizationType === 'x-axis' ? 'x' : 'y'}: ${name}`;
+        } else {
+          return `${accumulatedTitle}, ${visualizationType === 'x-axis' ? 'x' : 'y'}: ${name}`;
+        }
+      },
+      ''
+    );
+  }
 }

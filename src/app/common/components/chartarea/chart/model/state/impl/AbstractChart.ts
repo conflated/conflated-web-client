@@ -464,7 +464,7 @@ export default abstract class AbstractChart implements Chart {
       return ['tooltip'];
     }
 
-    return [];
+    return [...(supportedMeasureVisualizationTypes || [])];
   }
 
   getTitleText(): string | null {
@@ -475,6 +475,10 @@ export default abstract class AbstractChart implements Chart {
         return `${accumulatedTitle}, ${name}`;
       }
     }, '');
+  }
+
+  getApexYAxisTitleOptions(): object {
+    return {};
   }
 
   getTooltipXValueFormatter(): ((value: any, params: object) => string) | null | undefined {

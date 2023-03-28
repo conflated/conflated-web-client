@@ -6,7 +6,8 @@ export default class ApexChartYAxisOptionsFactory {
       show: chart.hasData(),
       tooltip: {
         enabled: chart.shouldShowYAxisTooltip()
-      }
+      },
+      title: chart.getApexYAxisTitleOptions()
     };
   }
 }

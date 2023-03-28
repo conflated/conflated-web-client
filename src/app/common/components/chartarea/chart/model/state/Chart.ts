@@ -103,6 +103,8 @@ export interface Chart {
 
   getApexXAxisOptions(): object;
 
+  getApexYAxisTitleOptions(): object;
+
   getChartConfigHintSubtitle(): string;
 
   getChartConfigHintTitle(): string;
