@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
+import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import { FillType } from '../../../../types/FillType';
 
 export default class RadarChart extends AbstractXAxisCategoriesChart {
   override handleChartJsClick(): void {
@@ -8,7 +10,7 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
   }
 
   override getFillOpacity(): number {
-    return 0.4;
+    return 0.8;
   }
 
   override getLabels(): any[] | null | undefined {
@@ -29,5 +31,13 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
 
   override getStrokeWidth(): number {
     return 3.0;
+  }
+
+  override getFillType(): FillType {
+    return 'solid';
+  }
+
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
+    return 'area';
   }
 }
