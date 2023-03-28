@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import AbstractXAxisChart from './AbstractXAxisChart';
+import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 
-export default class HeatmapChart extends AbstractXAxisChart {
+export default class HeatmapChart extends AbstractXAxisCategoriesChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

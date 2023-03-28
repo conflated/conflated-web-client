@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import Color from 'color';
 import React from 'react';
-import AbstractXAxisChart from './AbstractXAxisChart';
+import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import type { ChartAreaStateNamespace } from '../../../../../../../model/state/types/ChartAreaStateNamespace';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
@@ -10,7 +10,7 @@ import type { DataPoint } from '../../../../types/DataPoint';
 import type { DrillDown } from '../../../../types/DrillDown';
 import ApexChartView from '../../../../../../view/basic/ApexChartView';
 
-export default class BoxPlotChart extends AbstractXAxisChart {
+export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
   timeoutId: ReturnType<typeof setTimeout> | 0 = 0;
 
   lastSelectedDataPoint: DataPoint = {

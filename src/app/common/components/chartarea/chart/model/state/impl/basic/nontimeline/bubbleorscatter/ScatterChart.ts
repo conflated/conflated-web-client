@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AbstractBubbleOrScatterChart from './AbstractBubbleOrScatterChart';
-import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
-import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
-import type { DataSeries } from '../../../../../types/DataSeries';
+import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
+import type { DataSeries } from '../../../../types/DataSeries';
 
 export default class ScatterChart extends AbstractBubbleOrScatterChart {
   getConvertSelectedMeasures(): SelectedMeasure[] {

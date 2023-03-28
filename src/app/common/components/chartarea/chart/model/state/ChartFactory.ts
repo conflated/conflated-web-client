@@ -1,19 +1,19 @@
 import type { Chart } from './Chart';
-import ColumnChart from './impl/basic/nontimeline/xaxis/mixed/ColumnChart';
-import AreaChart from './impl/basic/nontimeline/xaxis/mixed/lineorarea/AreaChart';
-import PieOrDonutChartImpl from './impl/basic/nontimeline/nonxaxis/pieordonut/PieOrDonutChartImpl';
-import LineChart from './impl/basic/nontimeline/xaxis/mixed/lineorarea/LineChart';
-import BubbleChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/BubbleChart';
-import ScatterChart from './impl/basic/nontimeline/nonxaxis/bubbleorscatter/ScatterChart';
+import ColumnChart from './impl/basic/nontimeline/xaxiscategories/mixed/ColumnChart';
+import AreaChart from './impl/basic/nontimeline/xaxiscategories/mixed/lineorarea/AreaChart';
+import PieOrDonutChartImpl from './impl/basic/nontimeline/pieordonut/PieOrDonutChartImpl';
+import LineChart from './impl/basic/nontimeline/xaxiscategories/mixed/lineorarea/LineChart';
+import BubbleChart from './impl/basic/nontimeline/bubbleorscatter/BubbleChart';
+import ScatterChart from './impl/basic/nontimeline/bubbleorscatter/ScatterChart';
 import CandlestickChart from './impl/basic/timeline/CandlestickChart';
-import BoxPlotChart from './impl/basic/nontimeline/xaxis/BoxPlotChart';
-import RadarChart from './impl/basic/nontimeline/xaxis/RadarChart';
-import HeatmapChart from './impl/basic/nontimeline/xaxis/HeatmapChart';
+import BoxPlotChart from './impl/basic/nontimeline/xaxiscategories/BoxPlotChart';
+import RadarChart from './impl/basic/nontimeline/xaxiscategories/RadarChart';
+import HeatmapChart from './impl/basic/nontimeline/xaxiscategories/HeatmapChart';
 import DataTableChart from './impl/DataTableChart';
 import MapChart from './impl/MapChart';
 import StatisticChart from './impl/basic/timeline/StatisticChart';
 import type { ChartConfiguration } from './ChartConfiguration';
-import BarChart from './impl/basic/nontimeline/xaxis/BarChart';
+import BarChart from './impl/basic/nontimeline/xaxiscategories/BarChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS

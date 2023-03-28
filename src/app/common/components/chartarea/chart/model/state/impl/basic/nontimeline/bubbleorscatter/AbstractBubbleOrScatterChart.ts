@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { DimensionVisualizationType } from '../../../../../selecteddimension/types/DimensionVisualizationType';
-import type { FillType } from '../../../../../types/FillType';
-import type { SelectedDimension } from '../../../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
-import AbstractNonTimelineChart from '../../AbstractNonTimelineChart';
-import type { LegendPosition } from '../../../../../types/LegendPosition';
+import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
+import type { FillType } from '../../../../types/FillType';
+import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
+import type { LegendPosition } from '../../../../types/LegendPosition';
 
 export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineChart {
   getApexXAxisOptions(): object {

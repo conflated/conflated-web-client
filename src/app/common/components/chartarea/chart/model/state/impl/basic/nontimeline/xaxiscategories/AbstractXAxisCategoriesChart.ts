@@ -8,7 +8,7 @@ import type { SelectedDimension } from '../../../../selecteddimension/SelectedDi
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 
-export default abstract class AbstractXAxisChart extends AbstractNonTimelineChart {
+export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTimelineChart {
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.selectedDimensions.length === 1 && visualizationType === 'Legend') {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);

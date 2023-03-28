@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import AbstractXAxisChart from './AbstractXAxisChart';
+import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 
-export default class RadarChart extends AbstractXAxisChart {
+export default class RadarChart extends AbstractXAxisCategoriesChart {
   handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }

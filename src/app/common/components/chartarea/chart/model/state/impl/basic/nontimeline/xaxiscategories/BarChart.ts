@@ -1,7 +1,7 @@
-import AbstractXAxisChart from './AbstractXAxisChart';
+import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
-export default class BarChart extends AbstractXAxisChart {
+export default class BarChart extends AbstractXAxisCategoriesChart {
   getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'column';
   }
