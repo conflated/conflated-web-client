@@ -10,14 +10,14 @@ import type { DataSeries } from '../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 
 export default abstract class AbstractTimelineChart extends AbstractBasicChart {
-  addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
+  override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedDimensions = [];
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }
 
   // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
-  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
+  override getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     const timeValues = this.getChartDataForSelectedDimensionOfType('Timeline');
 
     if (this.selectedMeasures.length > 0) {
@@ -44,7 +44,7 @@ export default abstract class AbstractTimelineChart extends AbstractBasicChart {
     return this.getEmptyDataSeries();
   }
 
-  getConvertedSelectedDimensions(): SelectedDimension[] {
+  override getConvertedSelectedDimensions(): SelectedDimension[] {
     const convertedSelectedDimensions: SelectedDimension[] = [];
 
     if (
@@ -60,7 +60,7 @@ export default abstract class AbstractTimelineChart extends AbstractBasicChart {
     return convertedSelectedDimensions;
   }
 
-  getApexXAxisOptions(): object {
+  override getApexXAxisOptions(): object {
     return {
       type: 'datetime',
       labels: {
@@ -88,11 +88,11 @@ export default abstract class AbstractTimelineChart extends AbstractBasicChart {
   }
 
   // noinspection JSMethodCanBeStatic
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     return 'Timeline';
   }
 
-  isTimelineChart(): boolean {
+  override isTimelineChart(): boolean {
     return true;
   }
 }

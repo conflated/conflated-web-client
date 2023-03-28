@@ -4,7 +4,7 @@ import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import BasicChartSelectedSortBysImpl from './BasicChartSelectedSortBysImpl';
 
 export default class NonTimelineChartSelectedSortBysImpl extends BasicChartSelectedSortBysImpl {
-  updateSelectedSortBysWhenAddingSelectedMeasure(
+  override updateSelectedSortBysWhenAddingSelectedMeasure(
     measureOrDimension: Measure | Dimension,
     selectedMeasures: SelectedMeasure[]
   ) {
@@ -16,7 +16,7 @@ export default class NonTimelineChartSelectedSortBysImpl extends BasicChartSelec
     }
   }
 
-  updateSelectedSortBysWhenAddingSelectedDimension(): void {
+  override updateSelectedSortBysWhenAddingSelectedDimension(): void {
     // Intentionally no operation
   }
 }

@@ -2,11 +2,11 @@ import type { MeasureVisualizationType } from '../../../../../../selectedmeasure
 import AbstractLineOrAreaChart from './AbstractLineOrAreaChart';
 
 export default class LineChart extends AbstractLineOrAreaChart {
-  getNextMeasureVisualizationType(): MeasureVisualizationType {
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'line';
   }
 
-  shouldShowDataLabels(): boolean {
+  override shouldShowDataLabels(): boolean {
     return this.chartType === 'stepline' ? false : super.shouldShowDataLabels();
   }
 }

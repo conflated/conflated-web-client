@@ -4,11 +4,11 @@ import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 
 export default class HeatmapChart extends AbstractXAxisCategoriesChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  getApexChartDataSeries(): DataSeries[] | any[] {
+  override getApexChartDataSeries(): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0) {
       const dataSeries: DataSeries[] = [];
       const xAxisValues = this.getChartDataForSelectedDimensionOfType('X-axis categories');
@@ -35,7 +35,7 @@ export default class HeatmapChart extends AbstractXAxisCategoriesChart {
     return this.getEmptyDataSeries();
   }
 
-  getEmptyDataSeries(): DataSeries[] {
+  override getEmptyDataSeries(): DataSeries[] {
     return [
       {
         name: '',
@@ -44,15 +44,15 @@ export default class HeatmapChart extends AbstractXAxisCategoriesChart {
     ];
   }
 
-  getColors(): string[] {
+  override getColors(): string[] {
     return [this.selectedMeasures[0]?.visualizationColor ?? super.getAllColors()[0]];
   }
 
-  hasFollowCursorTooltip(): boolean {
+  override hasFollowCursorTooltip(): boolean {
     return true;
   }
 
-  supportsLegend(): boolean {
+  override supportsLegend(): boolean {
     return false;
   }
 }

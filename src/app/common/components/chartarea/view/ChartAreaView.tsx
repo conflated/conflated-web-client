@@ -32,11 +32,11 @@ class ChartAreaView extends React.Component<Props> {
     className: undefined
   };
 
-  componentDidMount() {
+  override componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown);
   }
 
-  componentWillUnmount() {
+  override componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown);
   }
 
@@ -68,7 +68,7 @@ class ChartAreaView extends React.Component<Props> {
     }
   };
 
-  render() {
+  override render() {
     const {
       charts,
       className,

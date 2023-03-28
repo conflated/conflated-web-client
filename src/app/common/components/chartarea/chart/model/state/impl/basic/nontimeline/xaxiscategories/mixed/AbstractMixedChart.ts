@@ -4,11 +4,11 @@ import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMea
 import Utils from '../../../../../../../../../../utils/Utils';
 
 export default class AbstractMixedChart extends AbstractXAxisCategoriesChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  getApexChartType(): string {
+  override getApexChartType(): string {
     if (this.selectedMeasures.length === 1) {
       return this.selectedMeasures[0].visualizationType === 'column'
         ? 'bar'
@@ -18,11 +18,11 @@ export default class AbstractMixedChart extends AbstractXAxisCategoriesChart {
     return super.getApexChartType();
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['column', 'line', 'area']);
   }
 
-  hasSharedTooltip(): boolean {
+  override hasSharedTooltip(): boolean {
     const columnSelectedMeasures = Utils.pick(this.selectedMeasures, 'visualizationType', 'column');
     const areAllSelectedMeasuresOfTypeColumn = columnSelectedMeasures.length === this.selectedMeasures.length;
 

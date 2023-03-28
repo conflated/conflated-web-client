@@ -3,6 +3,7 @@ export type MeasureVisualizationType =
   | 'column'
   | 'area'
   | 'line'
+  | 'pieOrDonut'
   | 'radius'
   | 'color'
   | 'tooltip'

@@ -6,7 +6,7 @@ export default class FakeTriggerDataSourceService extends TriggerDataSourceServi
   latency = 1000;
 
   // TODO: encrypt user, password and sqlStatement in config service and decrypt in data service
-  fetchTriggerDataSources(stateNamespace: TriggersPageStateNamespace): Promise<DataSource[]> {
+  override fetchTriggerDataSources(stateNamespace: TriggersPageStateNamespace): Promise<DataSource[]> {
     return new Promise<DataSource[]>((resolve) => {
       setTimeout(() => {
         if (stateNamespace === 'alertsPage') {

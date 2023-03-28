@@ -11,7 +11,7 @@ import FakeAlertChartDataService from '../../app/pages/alerts/chartarea/model/se
 import FakeGoalChartDataService from '../../app/pages/goals/chartarea/model/services/FakeGoalChartDataService';
 
 export default class ServiceModule extends Module {
-  async configure() {
+  override async configure() {
     this.bind('dataSourceService').toInstance(new FakeDataSourceService());
     this.bind('measureService').toInstance(new FakeMeasureServiceImpl());
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());

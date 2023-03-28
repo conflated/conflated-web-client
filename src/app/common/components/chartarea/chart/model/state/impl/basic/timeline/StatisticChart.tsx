@@ -12,16 +12,16 @@ import type { ChartAreaStateNamespace } from '../../../../../../model/state/type
 import ApexChartView from '../../../../../view/basic/ApexChartView';
 
 export default class StatisticChart extends AbstractTimelineChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
+  override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
     if (this.selectedDimensions.length >= 1) {
       this.selectedMeasures = [];
     }
@@ -29,7 +29,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+  override createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     if (this.selectedDimensions.length === 0) {
       const statisticElements = this.selectedMeasures.map((selectedMeasure: SelectedMeasure): JSX.Element => {
         const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
@@ -54,7 +54,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     return <div />;
   }
 
-  getApexChartType(): string {
+  override getApexChartType(): string {
     if (this.selectedMeasures.length === 1) {
       const { visualizationType } = this.selectedMeasures[0];
       return visualizationType === 'column' ? 'bar' : visualizationType;
@@ -63,7 +63,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     }
   }
 
-  getConvertSelectedMeasures(): SelectedMeasure[] {
+  override getConvertSelectedMeasures(): SelectedMeasure[] {
     if (this.selectedDimensions.length > 0) {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     }
@@ -71,17 +71,19 @@ export default class StatisticChart extends AbstractTimelineChart {
     return super.getConvertSelectedMeasures();
   }
 
-  getFillType(): FillType {
+  override getFillType(): FillType {
     return 'gradient';
   }
 
-  getGradientFillType(): FillType | FillType[] {
+  override getGradientFillType(): FillType | FillType[] {
     return this.selectedMeasures.map(({ visualizationType }: SelectedMeasure) =>
       visualizationType === 'area' ? 'gradient' : 'solid'
     );
   }
 
-  getNextMeasureVisualizationType(measureVisualizationType?: MeasureVisualizationType): MeasureVisualizationType {
+  override getNextMeasureVisualizationType(
+    measureVisualizationType?: MeasureVisualizationType
+  ): MeasureVisualizationType {
     if (measureVisualizationType === 'line' || measureVisualizationType === 'area') {
       return measureVisualizationType;
     }
@@ -89,7 +91,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     return 'column';
   }
 
-  getStrokeWidth(): number | number[] {
+  override getStrokeWidth(): number | number[] {
     if (this.selectedDimensions.length === 1) {
       return this.selectedMeasures.map(({ visualizationType }: SelectedMeasure) =>
         visualizationType === 'column' ? 0 : 3
@@ -99,7 +101,7 @@ export default class StatisticChart extends AbstractTimelineChart {
     return 0;
   }
 
-  getSubtitleText(): string {
+  override getSubtitleText(): string {
     if (this.selectedMeasures.length === 1) {
       return this.selectedMeasures[0].measure.name;
     }
@@ -107,11 +109,11 @@ export default class StatisticChart extends AbstractTimelineChart {
     return super.getSubtitleText();
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['column', 'line', 'area']);
   }
 
-  getTitleText(): string | null {
+  override getTitleText(): string | null {
     if (this.selectedMeasures.length === 1) {
       const measureData = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
       const title = measureData.length > 0 ? measureData[measureData.length - 1] : '';
@@ -133,23 +135,23 @@ export default class StatisticChart extends AbstractTimelineChart {
     return super.getTitleText();
   }
 
-  hasFloatingTitle(): boolean {
+  override hasFloatingTitle(): boolean {
     return true;
   }
 
-  hasLargerTitle(): boolean {
+  override hasLargerTitle(): boolean {
     return true;
   }
 
-  shouldShowAsSparkline(): boolean {
+  override shouldShowAsSparkline(): boolean {
     return true;
   }
 
-  shouldShowDataLabels(): boolean {
+  override shouldShowDataLabels(): boolean {
     return false;
   }
 
-  shouldShowStroke(): boolean {
+  override shouldShowStroke(): boolean {
     return true;
   }
 

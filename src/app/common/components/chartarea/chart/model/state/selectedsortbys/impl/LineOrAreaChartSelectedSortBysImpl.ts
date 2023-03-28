@@ -6,7 +6,7 @@ import type { SelectedDimension } from '../../selecteddimension/SelectedDimensio
 import type { SelectedSortBy } from '../selectedsortby/SelectedSortBy';
 
 export default class LineOrAreaChartSelectedSortBysImpl extends XAxisChartSelectedSortBysImpl {
-  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
+  override getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
     if (
       this.selectedSortBys.length >= 1 &&
       this.selectedSortBys[0].defaultType === 'measure' &&
@@ -31,7 +31,7 @@ export default class LineOrAreaChartSelectedSortBysImpl extends XAxisChartSelect
     return this.selectedSortBys;
   }
 
-  updateSelectedSortBysWhenAddingSelectedDimension(dimension: Dimension | Measure) {
+  override updateSelectedSortBysWhenAddingSelectedDimension(dimension: Dimension | Measure) {
     if (this.selectedSortBys.length === 1 && this.selectedSortBys[0].defaultType === 'measure') {
       this.selectedSortBys = [];
       this.addSelectedSortBy(dimension, 'dimension', 'ASC', 'x-axis categories');

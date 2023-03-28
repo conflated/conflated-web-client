@@ -33,7 +33,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     return <ApexChartView chart={this} width={width} height={height} stateNamespace={stateNamespace} {...actions} />;
   }
 
-  exportToPdf = () => {
+  override exportToPdf = () => {
     // eslint-disable-next-line no-undef,no-underscore-dangle
     const foundChartInstance: any = (window as any).Apex._chartInstances.find(
       (chartInstance: any) => chartInstance.id === this.id
@@ -50,7 +50,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     }
   };
 
-  exportToPng = () => {
+  override exportToPng = () => {
     // eslint-disable-next-line no-undef,no-underscore-dangle
     const foundChartInstance: any = (window as any).Apex._chartInstances.find(
       (chartInstance: any) => chartInstance.id === this.id
@@ -64,7 +64,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     }
   };
 
-  exportToSvg = () => {
+  override exportToSvg = () => {
     // eslint-disable-next-line no-undef,no-underscore-dangle
     const foundChartInstance: any = (window as any).Apex._chartInstances.find(
       (chartInstance: any) => chartInstance.id === this.id
@@ -77,7 +77,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     }
   };
 
-  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
+  override getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0 && !this.hasSelectedDimensionOfType('Legend')) {
       return this.getApexChartNonLegendDataSeries();
     } else if (this.selectedMeasures.length >= 1 && this.hasSelectedDimensionOfType('Legend')) {
@@ -189,7 +189,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     return dataSeriesType;
   }
 
-  getTooltipXValueFormatter(): ((value: any, params: object) => string) | null | undefined {
+  override getTooltipXValueFormatter(): ((value: any, params: object) => string) | null | undefined {
     if (this.hasSelectedMeasureOfType('tooltip')) {
       return (value: any, { dataPointIndex }: any): string =>
         this.selectedMeasures.reduce(
@@ -213,7 +213,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     return null;
   }
 
-  getTooltipYValueFormatter(): ((value: any, params: object) => string) | null | undefined {
+  override getTooltipYValueFormatter(): ((value: any, params: object) => string) | null | undefined {
     if (this.hasSelectedDimensionOfType('Tooltip')) {
       return (value: any, { dataPointIndex }: any): string =>
         this.selectedDimensions.reduce(
@@ -328,7 +328,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     }
   }
 
-  hasNonTimestampLegend(): boolean {
+  override hasNonTimestampLegend(): boolean {
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
 
     return (
@@ -338,7 +338,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     );
   }
 
-  hasTimestampLegend(): boolean {
+  override hasTimestampLegend(): boolean {
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
 
     return (
@@ -347,19 +347,19 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     );
   }
 
-  removeSelectedDimension(selectedDimension: SelectedDimension) {
+  override removeSelectedDimension(selectedDimension: SelectedDimension) {
     this.selectedSortBys.updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
 
     super.removeSelectedDimension(selectedDimension);
   }
 
-  removeSelectedMeasure(selectedMeasure: SelectedMeasure) {
+  override removeSelectedMeasure(selectedMeasure: SelectedMeasure) {
     this.selectedSortBys.updateSelectedSortBysWhenRemovingSelectedMeasure(selectedMeasure, this.selectedMeasures);
 
     super.removeSelectedMeasure(selectedMeasure);
   }
 
-  shouldShowDataLabels(): boolean {
+  override shouldShowDataLabels(): boolean {
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
     const uniqueLegendDataValues = _.uniq(this.chartData.getForSelectedDimension(legendSelectedDimension));
 
@@ -372,7 +372,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     );
   }
 
-  shouldShowLegend(): [boolean, LegendPosition] {
+  override shouldShowLegend(): [boolean, LegendPosition] {
     const shouldShowLegend = this.hasTimestampLegend() ? false : this.hasSelectedDimensionOfType('Legend');
     return [shouldShowLegend, 'bottom'];
   }

@@ -9,7 +9,7 @@ import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../
 import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 
 export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTimelineChart {
-  addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
+  override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.selectedDimensions.length === 1 && visualizationType === 'Legend') {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     }
@@ -18,7 +18,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
     const selectedMeasureCountBeforeAdd = this.selectedMeasures.length;
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
 
@@ -35,7 +35,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     }
   }
 
-  getApexXAxisOptions(): object {
+  override getApexXAxisOptions(): object {
     const commonOptions = {
       labels: {
         maxHeight: 180
@@ -76,7 +76,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     };
   }
 
-  getConvertedSelectedDimensions(): SelectedDimension[] {
+  override getConvertedSelectedDimensions(): SelectedDimension[] {
     const convertedSelectedDimensions = [];
 
     if (this.selectedDimensions.length >= 1) {
@@ -140,17 +140,17 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     return dimensionDropZoneListItemViews;
   }
 
-  getLegendType(): string {
+  override getLegendType(): string {
     return 'legend';
   }
 
-  getMaxScrollPosition(): number {
+  override getMaxScrollPosition(): number {
     const xAxisValues = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
     return this.isXAxisScrollable() && xAxisValues.length > 0 ? _.uniq(xAxisValues).length - 1 : 0;
   }
 
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     if (!this.hasSelectedDimensionOfType('X-axis categories')) {
       return 'X-axis categories';
     } else if (!this.hasSelectedDimensionOfType('Legend')) {
@@ -162,11 +162,11 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     return super.getNextDimensionVisualizationType();
   }
 
-  getPrimarySelectedDimensionType(): DimensionVisualizationType {
+  override getPrimarySelectedDimensionType(): DimensionVisualizationType {
     return 'X-axis categories';
   }
 
-  hasTimestampXAxis(): boolean {
+  override hasTimestampXAxis(): boolean {
     const xAxisCategoriesSelectedDimension =
       this.currentDrillDownSelectedDimension ?? this.getSelectedDimensionOfType('X-axis categories');
 
@@ -176,11 +176,11 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     );
   }
 
-  isXAxisScrollable(): boolean {
+  override isXAxisScrollable(): boolean {
     return !this.hasTimestampXAxis();
   }
 
-  removeSelectedDimension(selectedDimension: SelectedDimension) {
+  override removeSelectedDimension(selectedDimension: SelectedDimension) {
     this.selectedSortBys.updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
 
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
@@ -192,19 +192,19 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     super.removeSelectedDimension(selectedDimension);
   }
 
-  supportsDataPointsCount(): boolean {
+  override supportsDataPointsCount(): boolean {
     return true;
   }
 
-  supportsLegend(): boolean {
+  override supportsLegend(): boolean {
     return true;
   }
 
-  supportsSelectedMeasureVisualizationColor(): boolean {
+  override supportsSelectedMeasureVisualizationColor(): boolean {
     return !this.hasSelectedDimensionOfType('Legend') || this.hasTimestampLegend();
   }
 
-  supportsTooltipSelectedDimension(): boolean {
+  override supportsTooltipSelectedDimension(): boolean {
     return true;
   }
 }

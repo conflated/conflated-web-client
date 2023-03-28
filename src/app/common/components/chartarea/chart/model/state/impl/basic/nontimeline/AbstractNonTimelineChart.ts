@@ -4,7 +4,7 @@ import type { AggregationFunction } from '../../../selectedmeasure/types/Aggrega
 import AbstractBasicChart from '../AbstractBasicChart';
 
 export default abstract class AbstractNonTimelineChart extends AbstractBasicChart {
-  addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }

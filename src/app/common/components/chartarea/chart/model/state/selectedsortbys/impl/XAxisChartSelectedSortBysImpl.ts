@@ -6,7 +6,7 @@ import type { Chart } from '../../Chart';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 
 export default class XAxisChartSelectedSortBysImpl extends BasicChartSelectedSortBysImpl {
-  updateSelectedSortBysWhenAddingSelectedDimension(
+  override updateSelectedSortBysWhenAddingSelectedDimension(
     dimension: Dimension | Measure,
     visualizationType: DimensionVisualizationType,
     chart: Chart
@@ -37,13 +37,13 @@ export default class XAxisChartSelectedSortBysImpl extends BasicChartSelectedSor
     }
   }
 
-  updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension: SelectedDimension) {
+  override updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension: SelectedDimension) {
     if (this.getDefaultOfType('x-axis categories') && selectedDimension.visualizationType === 'X-axis categories') {
       this.selectedSortBys = [];
     }
   }
 
-  updateSelectedSortBysWhenAddingSelectedMeasure(): void {
+  override updateSelectedSortBysWhenAddingSelectedMeasure(): void {
     // Intentionally no operation
   }
 }

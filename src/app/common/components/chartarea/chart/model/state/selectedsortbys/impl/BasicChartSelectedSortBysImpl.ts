@@ -4,7 +4,7 @@ import type { SelectedDimension } from '../../selecteddimension/SelectedDimensio
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 
 export default abstract class BasicChartSelectedSortBysImpl extends SelectedSortBysImpl {
-  updateSelectedSortBysWhenRemovingSelectedDimension(
+  override updateSelectedSortBysWhenRemovingSelectedDimension(
     selectedDimension: SelectedDimension,
     selectedMeasures: SelectedMeasure[]
   ) {
@@ -29,7 +29,7 @@ export default abstract class BasicChartSelectedSortBysImpl extends SelectedSort
     }
   }
 
-  updateSelectedSortBysWhenRemovingSelectedMeasure(
+  override updateSelectedSortBysWhenRemovingSelectedMeasure(
     selectedMeasure: SelectedMeasure,
     selectedMeasures: SelectedMeasure[]
   ) {

@@ -9,7 +9,7 @@ import AgGridAlertsDataTableChartView from '../../../../../../../pages/alerts/ch
 import AgGridGoalsDataTableChartView from '../../../../../../../pages/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
 
 export default class DataTableChart extends AbstractDrillDownChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
@@ -43,19 +43,19 @@ export default class DataTableChart extends AbstractDrillDownChart {
     return <AgGridDataTableChartView chart={this} />;
   }
 
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     return 'Column';
   }
 
-  getNextMeasureVisualizationType(): MeasureVisualizationType {
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'text';
   }
 
-  getPrimarySelectedDimensionType(): DimensionVisualizationType | null {
+  override getPrimarySelectedDimensionType(): DimensionVisualizationType | null {
     return 'Column';
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['text']);
   }
 }

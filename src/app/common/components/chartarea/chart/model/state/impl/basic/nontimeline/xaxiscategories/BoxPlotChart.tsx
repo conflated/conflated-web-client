@@ -13,16 +13,16 @@ import ApexChartView from '../../../../../../view/basic/ApexChartView';
 export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
   timeoutId: ReturnType<typeof setTimeout> | 0 = 0;
 
-  lastSelectedDataPoint: DataPoint = {
+  override lastSelectedDataPoint: DataPoint = {
     dataSeriesIndex: -1,
     labelIndex: -1
   };
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+  override createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     return <ApexChartView chart={this} height={height} stateNamespace={stateNamespace} width={width} />;
   }
 
-  getChartJsDataSetsAndLabels(): object {
+  override getChartJsDataSetsAndLabels(): object {
     const labelSelectedDimension =
       this.currentDrillDownSelectedDimension ?? this.getSelectedDimensionOfType('X-axis categories');
 
@@ -132,19 +132,19 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     };
   }
 
-  getValidAggregationFunction(): AggregationFunction {
+  override getValidAggregationFunction(): AggregationFunction {
     return 'NONE';
   }
 
-  supportsTooltipSelectedDimension(): boolean {
+  override supportsTooltipSelectedDimension(): boolean {
     return false;
   }
 
-  getSupportedAggregationFunctions(): AggregationFunction[] {
+  override getSupportedAggregationFunctions(): AggregationFunction[] {
     return ['NONE'];
   }
 
-  handleChartJsClick(
+  override handleChartJsClick(
     event: any,
     activeElements: any[],
     data: object,

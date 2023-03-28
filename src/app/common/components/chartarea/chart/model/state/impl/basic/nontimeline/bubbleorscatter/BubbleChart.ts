@@ -6,12 +6,12 @@ import type { DataSeries } from '../../../../types/DataSeries';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
 export default class BubbleChart extends ScatterChart {
-  getConvertSelectedMeasures(): SelectedMeasure[] {
+  override getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 3);
     return super.getConvertSelectedMeasures();
   }
 
-  getApexChartDataSeries(): DataSeries[] {
+  override getApexChartDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
@@ -60,7 +60,7 @@ export default class BubbleChart extends ScatterChart {
     return dataSeries;
   }
 
-  getChartConfigHintTitle(): string {
+  override getChartConfigHintTitle(): string {
     if (this.selectedMeasures.length === 1) {
       return 'Add two more measures';
     } else if (this.selectedMeasures.length === 2) {
@@ -70,7 +70,7 @@ export default class BubbleChart extends ScatterChart {
     return super.getChartConfigHintTitle();
   }
 
-  getDimensionDropZoneListItemViews(
+  override getDimensionDropZoneListItemViews(
     dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
   ): Array<JSX.Element> {
     const dimensionDropZoneListItemViews = super.getDimensionDropZoneListItemViews(
@@ -88,7 +88,7 @@ export default class BubbleChart extends ScatterChart {
     return dimensionDropZoneListItemViews;
   }
 
-  getNextMeasureVisualizationType(
+  override getNextMeasureVisualizationType(
     measureVisualizationType?: MeasureVisualizationType,
     selectedMeasureIndex?: number
   ): MeasureVisualizationType {
@@ -97,11 +97,11 @@ export default class BubbleChart extends ScatterChart {
       : super.getNextMeasureVisualizationType(measureVisualizationType, selectedMeasureIndex);
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['x-axis', 'y-axis', 'radius']);
   }
 
-  hasData(): boolean {
+  override hasData(): boolean {
     const [xAxisData, yAxisData, radiusData] = this.chartData.getBubbleChartData(
       this.selectedMeasures,
       this.selectedDimensions
@@ -117,7 +117,7 @@ export default class BubbleChart extends ScatterChart {
     );
   }
 
-  getTitleText(): string | null {
+  override getTitleText(): string | null {
     const xAxisMeasureName = this.selectedMeasures.reduce(
       (measureName, selectedMeasure) =>
         selectedMeasure.visualizationType === 'x-axis' ? selectedMeasure.measure.name : measureName,

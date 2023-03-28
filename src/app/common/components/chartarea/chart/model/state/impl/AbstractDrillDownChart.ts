@@ -10,7 +10,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
     this.selectedFilters.addDrillDownFilter(drillDown);
   }
 
-  drillUp(): boolean {
+  override drillUp(): boolean {
     const newDrillDownSelectedDimension = this.getPreviousDrillDownSelectedDimension();
 
     if (this.currentDrillDownSelectedDimension !== newDrillDownSelectedDimension) {
@@ -28,7 +28,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
     return false;
   }
 
-  getNextDrillDownSelectedDimension(): SelectedDimension {
+  override getNextDrillDownSelectedDimension(): SelectedDimension {
     if (this.currentDrillDownSelectedDimension) {
       const currentDrillDownSelectedDimensionIndex = this.selectedDimensions.indexOf(
         this.currentDrillDownSelectedDimension
@@ -46,7 +46,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
     }
   }
 
-  getPreviousDrillDownSelectedDimension(): SelectedDimension {
+  override getPreviousDrillDownSelectedDimension(): SelectedDimension {
     if (this.currentDrillDownSelectedDimension) {
       const currentDrillDownSelectedDimensionIndex = this.selectedDimensions.indexOf(
         this.currentDrillDownSelectedDimension
@@ -64,7 +64,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
     }
   }
 
-  getSubtitleText(): string {
+  override getSubtitleText(): string {
     const { drillDowns, selectedDimensions, selectedMeasures } = this;
     let text = '';
 

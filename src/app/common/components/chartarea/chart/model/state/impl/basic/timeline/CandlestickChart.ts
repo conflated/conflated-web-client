@@ -4,11 +4,11 @@ import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../types/DataSeries';
 
 export default class CandlestickChart extends AbstractTimelineChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  getConvertSelectedMeasures(): SelectedMeasure[] {
+  override getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 4);
     return super.getConvertSelectedMeasures();
   }
@@ -58,7 +58,7 @@ export default class CandlestickChart extends AbstractTimelineChart {
     return dataSeries;
   }
 
-  getNextMeasureVisualizationType(
+  override getNextMeasureVisualizationType(
     measureVisualizationType?: MeasureVisualizationType,
     selectedMeasureIndex?: number
   ): MeasureVisualizationType {
@@ -76,23 +76,23 @@ export default class CandlestickChart extends AbstractTimelineChart {
     }
   }
 
-  getStrokeWidth(): number {
+  override getStrokeWidth(): number {
     return 1.5;
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['open', 'high', 'low', 'close']);
   }
 
-  isZoomable(): boolean {
+  override isZoomable(): boolean {
     return true;
   }
 
-  shouldShowStroke(): boolean {
+  override shouldShowStroke(): boolean {
     return true;
   }
 
-  shouldShowYAxisTooltip(): boolean {
+  override shouldShowYAxisTooltip(): boolean {
     return true;
   }
 }

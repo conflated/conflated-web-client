@@ -23,6 +23,8 @@ export default class ApexChartPlotOptionsFactory {
       }
     }
 
+    const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     return {
       bar: {
         horizontal: chart.chartType === 'bar'
@@ -49,19 +51,19 @@ export default class ApexChartPlotOptionsFactory {
         track: {
           startAngle: shouldShowRadialBarAsGauge ? -90 : 0,
           endAngle: shouldShowRadialBarAsGauge ? 90 : 360,
-          background: '#eeeeee'
+          background: isDarkModeActive ? '#222' : '#eee'
         },
         dataLabels: {
           showOn: 'always',
           name: {
             offsetY: nameOffsetY,
             show: true,
-            color: '#888',
+            color: isDarkModeActive ? '#ccc' : '#888',
             fontSize: nameFontSize
           },
           value: {
             offsetY: valueOffsetY,
-            color: '#111',
+            color: isDarkModeActive ? '#eee' : '#111',
             fontSize: valueFontSize,
             show: true
           },

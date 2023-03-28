@@ -5,7 +5,7 @@ import type { Measure } from '../../../../../../../../../../../../pages/dataexpl
 import AbstractMixedChart from '../AbstractMixedChart';
 
 export default class AbstractLineOrAreaChart extends AbstractMixedChart {
-  addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
+  override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.hasTimestampXAxis()) {
       this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
     }
@@ -13,7 +13,7 @@ export default class AbstractLineOrAreaChart extends AbstractMixedChart {
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  getStrokeWidth(): number | number[] {
+  override getStrokeWidth(): number | number[] {
     if (this.selectedDimensions.length === 1) {
       return this.selectedMeasures.map(({ visualizationType }: SelectedMeasure) =>
         visualizationType === 'column' ? 0 : 3
@@ -29,11 +29,11 @@ export default class AbstractLineOrAreaChart extends AbstractMixedChart {
     return 3.0;
   }
 
-  hasContinuousXAxis(): boolean {
+  override hasContinuousXAxis(): boolean {
     return true;
   }
 
-  shouldShowStroke(): boolean {
+  override shouldShowStroke(): boolean {
     return true;
   }
 }

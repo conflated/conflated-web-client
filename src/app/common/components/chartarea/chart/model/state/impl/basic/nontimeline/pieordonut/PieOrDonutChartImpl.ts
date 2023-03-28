@@ -9,7 +9,7 @@ import type { MeasureVisualizationType } from '../../../../selectedmeasure/types
 import type { LegendPosition } from '../../../../types/LegendPosition';
 
 export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
-  getApexChartDataSeries(): DataSeries[] | any[] {
+  override getApexChartDataSeries(): DataSeries[] | any[] {
     const emptyData: any[] = [0];
 
     if (this.selectedMeasures.length === 1) {
@@ -24,11 +24,11 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
     return emptyData;
   }
 
-  getColors(): string[] {
+  override getColors(): string[] {
     return super.getAllColors();
   }
 
-  getConvertedSelectedDimensions(): SelectedDimension[] {
+  override getConvertedSelectedDimensions(): SelectedDimension[] {
     const convertedSelectedDimensions: SelectedDimension[] = [];
 
     if (this.selectedDimensions.length >= 1) {
@@ -60,7 +60,7 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
     }
   }
 
-  getLabels(): string[] {
+  override getLabels(): string[] {
     if (this.selectedDimensions.length === 0) {
       if (this.selectedMeasures.length === 1) {
         return [this.selectedMeasures[0].measure.name];
@@ -76,43 +76,43 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
     return [''];
   }
 
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     return this.hasSelectedDimensionOfType('Legend') ? super.getNextDimensionVisualizationType() : 'Legend';
   }
 
-  getNextMeasureVisualizationType(): MeasureVisualizationType {
-    return 'none';
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
+    return 'pieOrDonut';
   }
 
-  getPrimarySelectedDimensionType(): DimensionVisualizationType {
+  override getPrimarySelectedDimensionType(): DimensionVisualizationType {
     return 'Legend';
   }
 
-  hasFloatingSubtitle(): boolean {
+  override hasFloatingSubtitle(): boolean {
     return true;
   }
 
-  hasFloatingTitle(): boolean {
+  override hasFloatingTitle(): boolean {
     return true;
   }
 
-  isPieOrDonutWithMultipleMeasuresOnly(): boolean {
+  override isPieOrDonutWithMultipleMeasuresOnly(): boolean {
     return this.selectedDimensions.length === 0 && this.selectedMeasures.length > 1;
   }
 
-  shouldShowDataLabels(): boolean {
+  override shouldShowDataLabels(): boolean {
     return true;
   }
 
-  shouldShowDataLabelsDropShadow(): boolean {
+  override shouldShowDataLabelsDropShadow(): boolean {
     return true;
   }
 
-  shouldShowLegend(): [boolean, LegendPosition] {
+  override shouldShowLegend(): [boolean, LegendPosition] {
     return [!(this.selectedDimensions.length === 0 && this.selectedMeasures.length === 1), 'right'];
   }
 
-  supportsDataPointsCount(): boolean {
+  override supportsDataPointsCount(): boolean {
     return true;
   }
 }

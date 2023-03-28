@@ -5,12 +5,12 @@ import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasur
 import type { DataSeries } from '../../../../types/DataSeries';
 
 export default class ScatterChart extends AbstractBubbleOrScatterChart {
-  getConvertSelectedMeasures(): SelectedMeasure[] {
+  override getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 2);
     return super.getConvertSelectedMeasures();
   }
 
-  getApexChartDataSeries(): DataSeries[] {
+  override getApexChartDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
@@ -55,7 +55,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     return dataSeries;
   }
 
-  getChartConfigHintTitle(): string {
+  override getChartConfigHintTitle(): string {
     if (this.selectedMeasures.length === 1) {
       return 'Add one more measure';
     }
@@ -63,7 +63,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     return super.getChartConfigHintTitle();
   }
 
-  getNextMeasureVisualizationType(
+  override getNextMeasureVisualizationType(
     selectedMeasureType?: MeasureVisualizationType,
     selectedMeasureIndex?: number
   ): MeasureVisualizationType {
@@ -77,7 +77,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     }
   }
 
-  getSupportedMeasureVisualizationTypes(
+  override getSupportedMeasureVisualizationTypes(
     selectedMeasure: SelectedMeasure,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     supportedMeasureVisualizationTypes?: MeasureVisualizationType[]
@@ -85,7 +85,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['x-axis', 'y-axis']);
   }
 
-  hasData(): boolean {
+  override hasData(): boolean {
     const [xAxisData, yAxisData] = this.chartData.getScatterChartData(this.selectedMeasures, this.selectedDimensions);
 
     return (
@@ -96,7 +96,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     );
   }
 
-  getTitleText(): string | null {
+  override getTitleText(): string | null {
     const xAxisMeasureName = this.selectedMeasures.reduce(
       (measureName, selectedMeasure) =>
         selectedMeasure.visualizationType === 'x-axis' ? selectedMeasure.measure.name : measureName,

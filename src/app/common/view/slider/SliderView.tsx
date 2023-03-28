@@ -60,7 +60,7 @@ export default class SliderView extends React.Component<SliderProps> {
     }
   };
 
-  render() {
+  override render() {
     const { className, sliderMinValue, sliderMaxValue } = this.props;
     let { selectedMinValue, selectedMaxValue } = this.props;
 

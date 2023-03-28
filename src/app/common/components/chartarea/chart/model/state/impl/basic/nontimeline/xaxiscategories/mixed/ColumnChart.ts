@@ -3,15 +3,15 @@ import AbstractMixedChart from './AbstractMixedChart';
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class ColumnChart extends AbstractMixedChart {
-  getLegendType(): string {
+  override getLegendType(): string {
     return 'timestamp or legend';
   }
 
-  getNextMeasureVisualizationType(): MeasureVisualizationType {
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'column';
   }
 
-  handleSelectDataPoint(params: any, actions: Record<string, (...args: any[]) => void>) {
+  override handleSelectDataPoint(params: any, actions: Record<string, (...args: any[]) => void>) {
     const { dataPointIndex, selectedDataPoints, w } = params;
     const { setSelectedDataPointIndexForChart } = actions;
 
@@ -96,15 +96,15 @@ export default class ColumnChart extends AbstractMixedChart {
     super.handleSelectDataPoint(params, actions);
   }
 
-  isXAxisScrollable(): boolean {
+  override isXAxisScrollable(): boolean {
     return this.selectedDimensions.length > 0;
   }
 
-  shouldShowStroke(): boolean {
+  override shouldShowStroke(): boolean {
     return true;
   }
 
-  supportsAllDimension(): boolean {
+  override supportsAllDimension(): boolean {
     return true;
   }
 }

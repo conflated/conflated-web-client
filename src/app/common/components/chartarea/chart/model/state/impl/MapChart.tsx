@@ -11,7 +11,7 @@ import type { DimensionVisualizationType } from '../selecteddimension/types/Dime
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 
 export default class MapChart extends AbstractDrillDownChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
@@ -48,7 +48,7 @@ export default class MapChart extends AbstractDrillDownChart {
     return dimensionDropZoneListItemViews;
   }
 
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     if (!this.hasSelectedDimensionOfType('Latitude')) {
       return 'Latitude';
     } else if (!this.hasSelectedDimensionOfType('Longitude')) {
@@ -60,7 +60,7 @@ export default class MapChart extends AbstractDrillDownChart {
     return super.getNextDimensionVisualizationType();
   }
 
-  hasData(): boolean {
+  override hasData(): boolean {
     return (
       this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Latitude').length > 0 &&
       this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Longitude').length > 0
@@ -71,17 +71,17 @@ export default class MapChart extends AbstractDrillDownChart {
     return <LeafletMapView chart={this} stateNamespace={stateNamespace} />;
   }
 
-  getNewChartOfType(newChartType: ChartType): Chart {
+  override getNewChartOfType(newChartType: ChartType): Chart {
     this.chartType = newChartType;
     this.selectedDimensions = [];
     return ChartFactory.createChart(this.getChartConfiguration());
   }
 
-  getNextMeasureVisualizationType(): MeasureVisualizationType {
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'color';
   }
 
-  getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
+  override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['color', 'radius', 'tooltip']);
   }
 

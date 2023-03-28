@@ -7,7 +7,7 @@ import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 import type { LegendPosition } from '../../../../types/LegendPosition';
 
 export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineChart {
-  getApexXAxisOptions(): object {
+  override getApexXAxisOptions(): object {
     let xAxisTitle;
 
     if (this.selectedMeasures[0]?.visualizationType === 'x-axis') {
@@ -30,7 +30,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
     };
   }
 
-  getApexYAxisTitleOptions(): object {
+  override getApexYAxisTitleOptions(): object {
     let yAxisTitle;
 
     if (this.selectedMeasures[0]?.visualizationType === 'y-axis') {
@@ -49,7 +49,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
     };
   }
 
-  getColors(): string[] {
+  override getColors(): string[] {
     const dataPointsSelectedDimension = this.getSelectedDimensionOfType('Data points');
 
     return this.hasSelectedDimensionOfType('Legend')
@@ -57,7 +57,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
       : [dataPointsSelectedDimension?.visualizationColor ?? super.getAllColors()[0]];
   }
 
-  getConvertedSelectedDimensions(): SelectedDimension[] {
+  override getConvertedSelectedDimensions(): SelectedDimension[] {
     const convertedSelectedDimensions: SelectedDimension[] = [];
 
     if (this.selectedDimensions.length >= 1) {
@@ -89,23 +89,23 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
     return [];
   }
 
-  getFillOpacity(): number {
+  override getFillOpacity(): number {
     return 0.8;
   }
 
-  getFillType(): FillType {
+  override getFillType(): FillType {
     return 'solid';
   }
 
-  getNextDimensionVisualizationType(): DimensionVisualizationType {
+  override getNextDimensionVisualizationType(): DimensionVisualizationType {
     return this.hasSelectedDimensionOfType('Data points') ? super.getNextDimensionVisualizationType() : 'Data points';
   }
 
-  getPrimarySelectedDimensionType(): DimensionVisualizationType {
+  override getPrimarySelectedDimensionType(): DimensionVisualizationType {
     return 'Data points';
   }
 
-  getTooltipXValueFormatter(): (value: any, params: object) => string {
+  override getTooltipXValueFormatter(): (value: any, params: object) => string {
     return (value: any, { dataPointIndex }: any): string => {
       const dataPointsData = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Data points');
 
@@ -117,7 +117,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
     };
   }
 
-  getTooltipYValueFormatter(): (value: any, params: object) => string {
+  override getTooltipYValueFormatter(): (value: any, params: object) => string {
     return (value: any, { dataPointIndex }: any): string => {
       const xAxisData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'x-axis');
 
@@ -129,31 +129,31 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
     };
   }
 
-  hasFollowCursorTooltip(): boolean {
+  override hasFollowCursorTooltip(): boolean {
     return true;
   }
 
-  hasIntersectTooltip(): boolean {
+  override hasIntersectTooltip(): boolean {
     return true;
   }
 
-  isZoomable(): boolean {
+  override isZoomable(): boolean {
     return true;
   }
 
-  shouldShowDataLabels(): boolean {
+  override shouldShowDataLabels(): boolean {
     return false;
   }
 
-  shouldShowLegend(): [boolean, LegendPosition] {
+  override shouldShowLegend(): [boolean, LegendPosition] {
     return [this.hasSelectedDimensionOfType('Legend'), 'bottom'];
   }
 
-  supportsDataPointsCount(): boolean {
+  override supportsDataPointsCount(): boolean {
     return true;
   }
 
-  supportsSelectedDimensionVisualizationColor(): boolean {
+  override supportsSelectedDimensionVisualizationColor(): boolean {
     return !this.hasSelectedDimensionOfType('Legend');
   }
 }

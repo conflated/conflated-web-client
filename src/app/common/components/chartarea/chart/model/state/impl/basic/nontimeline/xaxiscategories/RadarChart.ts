@@ -3,15 +3,15 @@
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 
 export default class RadarChart extends AbstractXAxisCategoriesChart {
-  handleChartJsClick(): void {
+  override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  getFillOpacity(): number {
+  override getFillOpacity(): number {
     return 0.4;
   }
 
-  getLabels(): any[] | null | undefined {
+  override getLabels(): any[] | null | undefined {
     const xAxisCategoriesSelectedDimension = this.getSelectedDimensionOfType('X-axis categories');
 
     if (xAxisCategoriesSelectedDimension && this.selectedMeasures.length > 0) {
@@ -27,7 +27,7 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
     return undefined;
   }
 
-  getStrokeWidth(): number {
+  override getStrokeWidth(): number {
     return 3.0;
   }
 }

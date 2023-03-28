@@ -1,7 +1,6 @@
 import type { Chart } from './Chart';
 import ColumnChart from './impl/basic/nontimeline/xaxiscategories/mixed/ColumnChart';
 import AreaChart from './impl/basic/nontimeline/xaxiscategories/mixed/lineorarea/AreaChart';
-import PieOrDonutChartImpl from './impl/basic/nontimeline/pieordonut/PieOrDonutChartImpl';
 import LineChart from './impl/basic/nontimeline/xaxiscategories/mixed/lineorarea/LineChart';
 import BubbleChart from './impl/basic/nontimeline/bubbleorscatter/BubbleChart';
 import ScatterChart from './impl/basic/nontimeline/bubbleorscatter/ScatterChart';
@@ -14,6 +13,8 @@ import MapChart from './impl/MapChart';
 import StatisticChart from './impl/basic/timeline/StatisticChart';
 import type { ChartConfiguration } from './ChartConfiguration';
 import BarChart from './impl/basic/nontimeline/xaxiscategories/BarChart';
+import PieChartImpl from './impl/basic/nontimeline/pieordonut/PieChartImpl';
+import DonutChartImpl from './impl/basic/nontimeline/pieordonut/DonutChartImpl';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
@@ -32,8 +33,9 @@ export default class ChartFactory {
       case 'line':
         return new LineChart(chartConfiguration);
       case 'donut':
+        return new DonutChartImpl(chartConfiguration);
       case 'pie':
-        return new PieOrDonutChartImpl(chartConfiguration);
+        return new PieChartImpl(chartConfiguration);
       case 'bubble':
         return new BubbleChart(chartConfiguration);
       case 'scatter':
