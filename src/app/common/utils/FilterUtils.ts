@@ -1,4 +1,9 @@
 export default class FilterUtils {
-  static filterNamedObjectsByName = <T extends { readonly name: string }>(namedObjects: T[], name: string): T[] =>
-    namedObjects.filter((namedObject: T) => name.length === 0 || (name.length > 0 && namedObject.name.includes(name)));
+  static filterNamedObjectsByName = <T extends { readonly name: string }>(namedObjects: T[], keywords: string): T[] =>
+    namedObjects.filter(
+      (namedObject: T) =>
+        keywords.length === 0 ||
+        (keywords.length > 0 &&
+          keywords.split(' ').every((keyword) => namedObject.name.toLowerCase().includes(keyword.toLowerCase())))
+    );
 }

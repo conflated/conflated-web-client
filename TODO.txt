@@ -1,4 +1,11 @@
-
+- Chart types
+- Chart Copy + Paste
+- Chart drag + drop
+- Automatic Sort by
+- Sort bys
+- Filters
+- Quick filters
+- Drill-down vertical
 
 Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
