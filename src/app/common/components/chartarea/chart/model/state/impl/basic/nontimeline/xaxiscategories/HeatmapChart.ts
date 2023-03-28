@@ -2,6 +2,7 @@
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
+import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class HeatmapChart extends AbstractXAxisCategoriesChart {
   override handleChartJsClick(): void {
@@ -54,5 +55,9 @@ export default class HeatmapChart extends AbstractXAxisCategoriesChart {
 
   override supportsLegend(): boolean {
     return false;
+  }
+
+  override getNextMeasureVisualizationType(): MeasureVisualizationType {
+    return 'area';
   }
 }
