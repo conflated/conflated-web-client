@@ -116,4 +116,26 @@ export default class BubbleChart extends ScatterChart {
       yAxisData.length === radiusData.length
     );
   }
+
+  getTitleText(): string | null {
+    const xAxisMeasureName = this.selectedMeasures.reduce(
+      (measureName, selectedMeasure) =>
+        selectedMeasure.visualizationType === 'x-axis' ? selectedMeasure.measure.name : measureName,
+      ''
+    );
+
+    const yAxisMeasureName = this.selectedMeasures.reduce(
+      (measureName, selectedMeasure) =>
+        selectedMeasure.visualizationType === 'y-axis' ? selectedMeasure.measure.name : measureName,
+      ''
+    );
+
+    const radiusAxisMeasureName = this.selectedMeasures.reduce(
+      (measureName, selectedMeasure) =>
+        selectedMeasure.visualizationType === 'radius' ? selectedMeasure.measure.name : measureName,
+      ''
+    );
+
+    return `x: ${xAxisMeasureName}, y: ${yAxisMeasureName}, size: ${radiusAxisMeasureName}`;
+  }
 }
