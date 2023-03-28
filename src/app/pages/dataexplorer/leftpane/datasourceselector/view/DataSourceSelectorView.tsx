@@ -83,7 +83,9 @@ const DataSourceSelectorView = ({
             <ListItemsView
               className={styles.listItems}
               listItems={shownDataSources
-                .filter((shownDataSource) => shownDataSource.labels.includes(dataSourceLabel))
+                .filter(
+                  (shownDataSource) => dataSourceLabel === 'All' || shownDataSource.labels.includes(dataSourceLabel)
+                )
                 .map((dataSource) => (
                   <DataSourceListItem
                     actions={[
@@ -120,7 +122,7 @@ const DataSourceSelectorView = ({
       shownDataSources.flatMap((shownDataSource) => shownDataSource.labels).sort()
     );
 
-    return createAccordionFor(sortedUniqueDataSourceLabels);
+    return createAccordionFor(['All', ...sortedUniqueDataSourceLabels]);
   }, [shownDataSources, selectedChart, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
 
   return (
