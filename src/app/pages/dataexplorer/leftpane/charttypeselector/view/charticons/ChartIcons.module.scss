@@ -15,7 +15,7 @@
   .columnChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/column_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/column_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/column_chart_icon.svg');
@@ -31,7 +31,7 @@
   .barChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/bar_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/bar_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/bar_chart_icon.svg');
@@ -47,7 +47,7 @@
   .areaChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/area_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/area_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/area_chart_icon.svg');
@@ -63,7 +63,7 @@
   .lineChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/line_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/line_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/line_chart_icon.svg');
@@ -79,7 +79,7 @@
   .donutChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/donut_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/donut_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/donut_chart_icon.svg');
@@ -95,7 +95,7 @@
   .pieChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/pie_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/pie_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/pie_chart_icon.svg');
@@ -111,7 +111,7 @@
   .bubbleChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/bubble_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/bubble_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/bubble_chart_icon.svg');
@@ -127,7 +127,7 @@
   .scatterPlotIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/scatter_plot_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/scatter_plot_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/scatter_plot_icon.svg');
@@ -143,7 +143,7 @@
   .candlestickChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/candlestick_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/candlestick_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/candlestick_chart_icon.svg');
@@ -159,7 +159,7 @@
   .boxPlotIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/box_plot_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/box_plot_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/box_plot_icon.svg');
@@ -175,7 +175,7 @@
   .radarChartIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/radar_chart_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/radar_chart_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/radar_chart_icon.svg');
@@ -191,7 +191,7 @@
   .heatmapIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/heatmap_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/heatmap_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/heatmap_icon.svg');
@@ -223,7 +223,7 @@
   .mapIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/map_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/map_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/map_icon.svg');
@@ -239,7 +239,7 @@
   .sparklineIcon {
     @extend %abstract-chart-icon;
 
-    background-image: url('../../../../../../../assets/images/icons/chart/sparkline_icon.svg');
+    background-image: url('../../../../../../../assets/images/icons/chart/lightmode/sparkline_icon.svg');
 
     @media (prefers-color-scheme: dark) {
       background-image: url('../../../../../../../assets/images/icons/chart/darkmode/sparkline_icon.svg');
