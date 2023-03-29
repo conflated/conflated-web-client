@@ -7,14 +7,23 @@ import type { ChartAreaStateNamespace } from '../../../../model/state/types/Char
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 import AgGridAlertsDataTableChartView from '../../../../../../../pages/alerts/chartarea/chart/view/AgGridAlertsDataTableChartView';
 import AgGridGoalsDataTableChartView from '../../../../../../../pages/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
 export default class DataTableChart extends AbstractDrillDownChart {
   override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
 
-  getDimensionDropZoneListItemViews(): JSX.Element[] {
-    throw new Error('Method not implemented.');
+  getDimensionDropZoneListItemViews(
+    dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
+  ): JSX.Element[] {
+    const dimensionDropZoneListItemViews = [];
+
+    dimensionDropZoneListItemViews.push(
+      dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Tooltip')
+    );
+
+    return dimensionDropZoneListItemViews;
   }
 
   handleDataPointSelection(): void {
