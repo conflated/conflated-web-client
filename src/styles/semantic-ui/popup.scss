@@ -1,0 +1,9 @@
+.ui.popup {
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: #333 !important;
+
+    &:before {
+      background: #333 !important;
+    }
+  }
+}

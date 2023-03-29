@@ -35,6 +35,7 @@ const ChartIconView: React.FC<Props> = ({
 
   return (
     <Popup
+      mouseEnterDelay={1000}
       trigger={
         <span
           className={className}
