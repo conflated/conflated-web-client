@@ -1,4 +1,6 @@
 - Chart types
+- Maximize/Restore chart
+- Implement Statistic chart
 - Chart menu styles
 - Chart Copy + Paste
 - Chart drag + drop
