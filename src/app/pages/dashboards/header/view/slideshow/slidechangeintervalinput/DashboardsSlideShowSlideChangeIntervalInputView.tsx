@@ -14,6 +14,7 @@ const DashboardsSlideShowSlideChangeIntervalInputView = ({
   <>
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={
         <Input
           className={styles.slideChangeIntervalInput}

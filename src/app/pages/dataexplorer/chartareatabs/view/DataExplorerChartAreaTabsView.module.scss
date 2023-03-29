@@ -10,6 +10,9 @@
   }
 
   :global(.item) {
+    font-size: 1.1rem;
+    height: 2.4rem;
+
     .closeIcon {
       display: none;
       padding-left: 0.5rem;
@@ -21,6 +24,6 @@
   }
 
   .chartArea {
-    height: calc(100vh - 3rem - 2.85714286em - 4px);
+    height: calc(100vh - 3rem - 2.55rem - 4px);
   }
 }

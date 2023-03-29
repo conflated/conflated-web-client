@@ -38,6 +38,7 @@ const TriggerLabelSelectorListItemView = ({
       <Popup
         content="Add to favorites"
         inverted
+        mouseEnterDelay={1000}
         trigger={<List.Icon className={`${styles.listItemActionIcon} ${actionIcon}`} name="star" onClick={() => {}} />}
       />
       <CountBadgeView className={triggerCountBadge} color="red" count={worstTriggerCount} />

@@ -45,6 +45,7 @@ const SelectedMeasureVisualizationTypeDropdownView = ({ changeVisualizationType,
   } else if (visualizationTypeDropdownMenuItems.length > 0) {
     return (
       <Popup
+        mouseEnterDelay={1000}
         trigger={
           <Dropdown icon={visualizationTypeIcon}>
             <Dropdown.Menu>{visualizationTypeDropdownMenuItems}</Dropdown.Menu>

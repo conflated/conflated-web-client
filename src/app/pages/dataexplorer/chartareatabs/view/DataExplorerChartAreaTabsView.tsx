@@ -10,7 +10,12 @@ const DataExplorerChartAreaTabsView = () => {
       menuItem: (
         <Menu.Item key="My Playground 1">
           My Playground 1
-          <Popup inverted trigger={<Icon className={styles.closeIcon} name="close" />} content="Close tab" />
+          <Popup
+            inverted
+            mouseEnterDelay={1000}
+            trigger={<Icon className={styles.closeIcon} name="close" />}
+            content="Close tab"
+          />
         </Menu.Item>
       ),
       render: () => (
@@ -23,7 +28,12 @@ const DataExplorerChartAreaTabsView = () => {
       menuItem: (
         <Menu.Item key="My Playground 2">
           My Playground 2
-          <Popup inverted trigger={<Icon className={styles.closeIcon} name="close" />} content="Close tab" />
+          <Popup
+            inverted
+            mouseEnterDelay={1000}
+            trigger={<Icon className={styles.closeIcon} name="close" />}
+            content="Close tab"
+          />
         </Menu.Item>
       ),
       render: () => <Tab.Pane />
@@ -31,7 +41,7 @@ const DataExplorerChartAreaTabsView = () => {
     {
       menuItem: (
         <Menu.Item key="Add new">
-          <Popup inverted trigger={<Icon name="plus" />} content="Add new tab" />
+          <Popup inverted mouseEnterDelay={1000} trigger={<Icon name="plus" />} content="Add new tab" />
         </Menu.Item>
       ),
       render: () => <Tab.Pane />

@@ -10,6 +10,7 @@ type Props = {
 const FullScreenIconView = ({ requestFullScreenMode }: Props) => (
   <section className={styles2.fullScreen}>
     <Popup
+      mouseEnterDelay={1000}
       trigger={<span className={`${styles.headerIcon} ${styles2.fullScreenIcon}`} onClick={requestFullScreenMode} />}
       content="Switch to full screen mode"
       inverted

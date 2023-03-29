@@ -205,6 +205,7 @@ const DashboardsPageHeaderView = ({
         <Popup
           content="Show keyboard shortcuts"
           inverted
+          mouseEnterDelay={1000}
           trigger={
             <Icon className={styles.actionIcon} name="keyboard" onClick={showKeyboardShortcutsMessage} size="large" />
           }

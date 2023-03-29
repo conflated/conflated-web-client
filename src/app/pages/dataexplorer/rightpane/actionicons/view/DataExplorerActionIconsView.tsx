@@ -9,11 +9,13 @@ type Props = ActionDispatchers;
 const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog }: Props) => (
   <section id="dataExplorerPageActionIcons" className={styles.actionIcons}>
     <Popup
+      mouseEnterDelay={1000}
       trigger={<Icon className={styles.actionIcon} name="refresh" size="large" />}
       content="Refresh chart data"
       inverted
     />
     <Popup
+      mouseEnterDelay={1000}
       trigger={
         <Icon
           className={styles.actionIcon}
@@ -26,12 +28,23 @@ const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog
       inverted
     />
     <Popup
+      mouseEnterDelay={1000}
       trigger={<Icon className={styles.actionIcon} name="trash alternate" size="large" />}
       content="Clear charts"
       inverted
     />
-    <Popup trigger={<Icon className={styles.actionIcon} name="upload" size="large" />} content="Export" inverted />
-    <Popup trigger={<Icon className={styles.actionIcon} name="setting" size="large" />} content="Settings" inverted />
+    <Popup
+      mouseEnterDelay={1000}
+      trigger={<Icon className={styles.actionIcon} name="upload" size="large" />}
+      content="Export"
+      inverted
+    />
+    <Popup
+      mouseEnterDelay={1000}
+      trigger={<Icon className={styles.actionIcon} name="setting" size="large" />}
+      content="Settings"
+      inverted
+    />
   </section>
 );
 

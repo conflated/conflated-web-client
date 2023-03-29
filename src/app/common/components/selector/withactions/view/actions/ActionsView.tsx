@@ -39,16 +39,27 @@ const ActionsView: React.FC<Props> = ({
   }
 
   const addIcon = (
-    <Popup inverted trigger={<Icon className={iconClassName} name="plus" />} content={addIconTooltipText} />
+    <Popup
+      inverted
+      mouseEnterDelay={1000}
+      trigger={<Icon className={iconClassName} name="plus" />}
+      content={addIconTooltipText}
+    />
   );
 
   const selectAllIcon = (
-    <Popup inverted trigger={<Icon className={iconClassName} name="check" />} content="Select all" />
+    <Popup
+      inverted
+      mouseEnterDelay={1000}
+      trigger={<Icon className={iconClassName} name="check" />}
+      content="Select all"
+    />
   );
 
   const searchIcon = (
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={<Icon className={iconClassName} name="search" onClick={toggleShowSearchInput} />}
       content="Show or hide search bar"
     />
@@ -57,6 +68,7 @@ const ActionsView: React.FC<Props> = ({
   const maximizeIcon = (
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={<Icon className={iconClassName} name="resize vertical" onClick={toggleMaximizeAccordion} />}
       content="Maximize vertically"
     />
@@ -65,6 +77,7 @@ const ActionsView: React.FC<Props> = ({
   const pinIcon = (
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={
         <Icon
           className={iconClassName}
@@ -83,6 +96,7 @@ const ActionsView: React.FC<Props> = ({
   const reorderIcon = (
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={
         <Icon className={iconClassName} name="bars" onClick={_.flow(stopEventPropagation, handleReorderIconClick)} />
       }

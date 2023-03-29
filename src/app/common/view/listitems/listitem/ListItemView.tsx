@@ -76,6 +76,7 @@ const ListItemView = <T extends { readonly name: string }>({
             content={action.tooltipText}
             inverted
             key={action.iconName}
+            mouseEnterDelay={1000}
             trigger={
               <List.Icon
                 className={listItemActionIcon}

@@ -18,6 +18,7 @@ const LayoutSelectorTitleView = ({
   <>
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={
         <Icon
           className={styles.actionIcon}
@@ -36,6 +37,7 @@ const LayoutSelectorTitleView = ({
     />
     <Popup
       inverted
+      mouseEnterDelay={1000}
       trigger={
         <Icon
           className={styles.actionIcon}
