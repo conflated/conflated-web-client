@@ -8,11 +8,16 @@ export default class ApexChartDataLabelOptionsFactory {
       offsetX: 1,
       offsetY: -5,
       style: {
-        fontSize: '0.7rem',
+        fontSize: '0.8rem',
         fontFamily: 'Arimo, sans-serif',
         fontWeight: 'normal',
         colors:
-          chart.chartType !== 'line' && chart.chartType !== 'area' && chart.chartType !== 'radar' ? ['#fff'] : ['#000']
+          chart.chartType !== 'line' &&
+          chart.chartType !== 'area' &&
+          chart.chartType !== 'radar' &&
+          chart.chartType !== 'heatmap'
+            ? ['#fff']
+            : ['#000']
       }
     };
   }
