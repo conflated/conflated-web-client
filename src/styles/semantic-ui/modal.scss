@@ -1,0 +1,53 @@
+.ui {
+  &.modal {
+    background-color: var(--dialog-content-background-color);
+    width: auto;
+
+    @media (prefers-color-scheme: dark) {
+      border: 1px solid #333;
+      border-radius: 0;
+    }
+
+    & > .header {
+      background-color: var(--dialog-header-background-color);
+      border-radius: 0 !important;
+      color: var(--dialog-color);
+      font-family: var(--brand-font-family);
+      font-size: 1rem !important;
+      height: 3rem;
+      line-height: 3rem !important;
+      padding-left: 1rem !important;
+      padding-top: 0 !important;
+
+      &.withBackButton {
+        padding-left: 0.1rem !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        border-bottom: 1px solid var(--dialog-header-and-footer-border-color);
+      }
+    }
+
+    & > .content {
+      background-color: var(--dialog-content-background-color);
+      border-radius: 0;
+      color: var(--dialog-color);
+      line-height: 1.25rem !important;
+    }
+
+    & > .actions {
+      background-color: var(--dialog-footer-background-color);
+      border-radius: 0 !important;
+      color: var(--dialog-color);
+      height: 5rem;
+      line-height: 5rem !important;
+      padding: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      @media (prefers-color-scheme: dark) {
+        border-top: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.ui {
+  &.dropdown {
+    @media (prefers-color-scheme: dark) {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      min-height: 0;
+      padding: 0;
+
+      .icon {
+        border: none;
+        padding: 0;
+      }
+
+      .divider.text {
+        color: #fff !important;
+        padding: 0;
+        padding-right: 1.5rem;
+      }
+
+      .menu {
+        background-color: var(--dialog-content-background-color) !important;
+        border: 1px solid #333 !important;
+        color: #fff;
+        margin-top: 0.25rem;
+        width: auto !important;
+
+        .item {
+          background-color: var(--dialog-content-background-color) !important;
+          border: none !important;
+          color: #fff;
+          padding-top: 0.3rem !important;
+          padding-bottom: 0.3rem !important;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

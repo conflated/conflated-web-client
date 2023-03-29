@@ -1,0 +1,13 @@
+.ui {
+  &.message {
+    &.positive {
+      @media screen and (prefers-color-scheme: dark) {
+        background-color: #37CC73 !important;
+      }
+
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import 'button';
+@import 'dimmer';
+@import 'dropdown';
+@import 'form';
+@import 'message';
+@import 'label';
+@import 'menu';
+@import 'modal';
+@import 'segment';
+@import 'statistic';
+@import 'icon';
+
+.dates-range-input .ui.input {
+  padding-right: 5px;
+  width: 100%;
+}
+
+.small-checkboxes {
+  .ui.checkbox {
+    label {
+      color: var(--small-font-color);
+      font-size: var(--body-font-size);
+    }
+
+    &.checked {
+      label {
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}
+
+.confirm {
+  button.ui.button:first-child:hover {
+    background-color: #27292a !important;
+    color: #fff !important;
+    text-shadow: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ui.secondary.pointing.menu {
+    border-bottom: 2px solid #333333;
+
+    .item:hover:not(.active) {
+      color: var(--selected-list-item-color) !important;
+    }
+
+    .active.item {
+      border-color: #ffffff !important;
+    }
+  }
+}

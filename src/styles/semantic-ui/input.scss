@@ -1,0 +1,20 @@
+.ui {
+  &.input > input {
+    background-color: #e9ebec;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #cccccc;
+      border-color: #909090;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #e9ebec;
+      border-color: var(--brand-color-1);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #cccccc;
+      }
+    }
+  }
+}
