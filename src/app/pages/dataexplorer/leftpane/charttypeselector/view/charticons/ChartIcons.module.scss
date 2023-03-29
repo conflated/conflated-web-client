@@ -236,8 +236,25 @@
     }
   }
 
+  .sparklineIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../assets/images/icons/chart/sparkline_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/chart/darkmode/sparkline_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../assets/images/icons/chart/onfocusorhover/sparkline_icon.svg');
+    }
+  }
+
   .statisticIcon {
     cursor: pointer;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 0;
     line-height: 2rem;

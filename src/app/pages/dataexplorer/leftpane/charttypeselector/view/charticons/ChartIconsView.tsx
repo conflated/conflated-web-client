@@ -39,6 +39,12 @@ const ChartIconsView = (props: Props) => (
     <ChartIconView
       {...props}
       chartType="statistic"
+      iconClassName={styles.sparklineIcon}
+      tooltipText="Statistic + Sparkline"
+    />
+    <ChartIconView
+      {...props}
+      chartType="statistic-without-sparkline"
       iconClassName={styles.statisticIcon}
       tooltipText="Statistic"
       content="123"

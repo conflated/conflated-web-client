@@ -15,6 +15,7 @@ export type ChartType =
   | 'datatable'
   | 'map'
   | 'statistic'
+  | 'statistic-without-sparkline'
   | 'stepline'
   | 'alertsdatatable'
   | 'goalsdatatable';
