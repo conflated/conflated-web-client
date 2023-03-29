@@ -4,10 +4,15 @@
   padding: 0.4rem;
 
   @media screen and (prefers-color-scheme: dark) {
-    color: #a9a9a9;
+    color: var(--list-item-color);
   }
 
   .actionIcon {
+    cursor: pointer;
     padding-right: 2rem;
+
+    &:hover {
+      color: var(--brand-color-2);
+    }
   }
 }
