@@ -47,7 +47,7 @@
     --header-background-color: linear-gradient(90deg, rgba(0,90,255,1) 0%, rgba(55,204,115,1) 100%);
     --header-foreground-color: var(--secondary-text-color);
     --list-item-color: #c0c0c0;
-    --selected-list-item-color: #f2f2f2;
+    --selected-list-item-color: #F47F31;
     --app-title-font-size: 2rem;
     --app-navigation-font-size: 1rem;
     --large-font-size: 1rem;
