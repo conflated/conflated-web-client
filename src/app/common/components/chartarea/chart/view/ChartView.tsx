@@ -36,7 +36,10 @@ const ChartView = ({
   width
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
-  const className = classNames(styles.scrollableChart, { [styles.selectedChart]: isSelectedChart });
+  const className = classNames(styles.chart, {
+    [styles.selectedChart]: isSelectedChart,
+    [styles.scrollable]: chart.isXAxisScrollable()
+  });
   const chartView = chart.createChartView(width, height, stateNamespace, { selectChart });
 
   function onTouchStart(event: React.TouchEvent) {
@@ -59,12 +62,14 @@ const ChartView = ({
   return (
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
-      <Popup
-        inverted
-        mouseEnterDelay={1000}
-        trigger={<Icon className={styles.searchIcon} inverted name="search" />}
-        content="Quick filter"
-      />
+      {chart.chartType !== 'map' && (
+        <Popup
+          inverted
+          mouseEnterDelay={1000}
+          trigger={<Icon className={styles.searchIcon} inverted name="search" />}
+          content="Quick filter"
+        />
+      )}
       <Popup
         inverted
         mouseEnterDelay={1000}

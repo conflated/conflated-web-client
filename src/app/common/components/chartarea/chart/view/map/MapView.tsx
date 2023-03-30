@@ -19,7 +19,7 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
       <header className={styles.mapHeader}>
         <div className={styles.titles}>
           <span className={styles.title}>{chart.getTitleText()}</span>
-          <span className={styles.subtitle}>{chart.getSubtitleText()}</span>
+          <span className={styles.subtitle}>Cell</span>
         </div>
         <div className={styles.emptyArea} />
         <div className={styles.geometrySelector}>
@@ -29,6 +29,7 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
           <Icon className={styles.icon} inverted name="home" size="large" />
           <Icon className={styles.icon} inverted name="plus" size="large" />
           <Icon className={styles.icon} inverted name="minus" size="large" />
+          <Icon className={styles.icon} inverted name="search" size="large" />
         </div>
       </header>
       <LeafletMapView chart={chart} stateNamespace={stateNamespace} />

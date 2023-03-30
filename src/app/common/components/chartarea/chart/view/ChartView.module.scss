@@ -1,10 +1,13 @@
-.scrollableChart {
+.chart {
   @media (any-pointer: fine) {
     border: 3px solid transparent;
   }
 
   height: 100%;
-  padding-bottom: 1rem !important;
+
+  &.scrollable {
+    padding-bottom: 1rem !important;
+  }
 
   & > div {
     min-height: auto !important;
