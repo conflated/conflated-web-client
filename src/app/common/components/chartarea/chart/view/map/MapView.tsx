@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Dropdown, Icon } from 'semantic-ui-react';
-import { actionButtons, emptyArea, geometrySelector, mapHeader, subtitle, title, titles } from './MapView.module.scss';
+import styles from './MapView.module.scss';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapView from './leaflet/LeafletMapView';
 import type { Chart } from '../../model/state/Chart';
@@ -24,16 +24,16 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
 
   return (
     <>
-      <header className={mapHeader}>
-        <div className={titles}>
-          <span className={title}>Title</span>
-          <span className={subtitle}>Subtitle</span>
+      <header className={styles.mapHeader}>
+        <div className={styles.titles}>
+          <span className={styles.title}>Title</span>
+          <span className={styles.subtitle}>Subtitle</span>
         </div>
-        <div className={emptyArea} />
-        <div className={geometrySelector}>
+        <div className={styles.emptyArea} />
+        <div className={styles.geometrySelector}>
           <Dropdown selection placeholder="Select geometry" options={geometryOptions} />
         </div>
-        <div className={actionButtons}>
+        <div className={styles.actionButtons}>
           <Button icon>
             <Icon name="home" />
           </Button>
