@@ -67,7 +67,7 @@ const ChartView = ({
       {quickFilterIsShown && (
         <div className={styles.search}>
           <div className={styles.searchInputLabel}>Filter: </div>
-          <Input className={styles.searchInput} placeholder="Measure or dimension values..." />
+          <Input className={styles.searchInput} placeholder="Measure and/or dimension values..." />
         </div>
       )}
       {chart.chartType !== 'map' && (
@@ -82,7 +82,7 @@ const ChartView = ({
               onClick={_.flow(stopEventPropagation, () => setQuickFilterIsShown(!quickFilterIsShown))}
             />
           }
-          content="Quick filter"
+          content={quickFilterIsShown ? 'Hide quick filter' : 'Show quick filter'}
         />
       )}
       <Popup
