@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dropdown, Icon } from 'semantic-ui-react';
+import { Dropdown, Icon } from 'semantic-ui-react';
 import styles from './MapView.module.scss';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapView from './leaflet/LeafletMapView';
@@ -12,14 +12,6 @@ type Props = {
 };
 
 const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
-  const zoomIn = () => {
-    // TODO: Not implemented?
-  };
-
-  const zoomOut = () => {
-    // TODO: Not implemented?
-  };
-
   const geometryOptions = MapGeometryOptionsFactory.createMapGeometryOptions();
 
   return (
@@ -34,15 +26,9 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
           <Dropdown selection placeholder="Select geometry" options={geometryOptions} />
         </div>
         <div className={styles.actionButtons}>
-          <Button icon>
-            <Icon name="home" />
-          </Button>
-          <Button icon onClick={zoomIn}>
-            <Icon name="plus" />
-          </Button>
-          <Button icon onClick={zoomOut}>
-            <Icon name="minus" />
-          </Button>
+          <Icon className={styles.icon} inverted name="home" size="large" />
+          <Icon className={styles.icon} inverted name="plus" size="large" />
+          <Icon className={styles.icon} inverted name="minus" size="large" />
         </div>
       </header>
       <LeafletMapView chart={chart} stateNamespace={stateNamespace} />

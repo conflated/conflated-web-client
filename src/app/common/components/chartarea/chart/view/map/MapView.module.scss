@@ -14,8 +14,8 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 1;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
     margin-left: 0.5rem;
 
     .title {
@@ -34,15 +34,51 @@
   }
 
   .emptyArea {
-    flex-grow: 1;
+    flex-grow: 0;
   }
 
   .geometrySelector {
     flex-shrink: 1;
+    margin-left: 1rem;
     margin-right: 1rem;
+
+    :global(.dropdown) {
+      @media screen and (prefers-color-scheme: dark) {
+        background-color: transparent !important;
+        border: 1px solid #ccc;
+        min-height: 2rem !important;
+        padding-top: 0.1rem !important;
+        padding-bottom: 0.1rem !important;
+      }
+
+      :global(.divider.text) {
+        line-height: 2rem !important;
+
+      }
+
+      &:global(.icon) {
+        line-height: 2rem !important;
+      }
+
+      & :global(.icon) {
+        @media screen and (prefers-color-scheme: dark) {
+          color: #f2f2f2 !important;
+          border: none !important;
+        }
+      }
+    }
   }
 
   .actionButtons {
     flex-shrink: 1;
+
+    .icon {
+      cursor: pointer;
+      margin-left: 0.5rem;
+
+      &:hover {
+        color: var(--brand-color-2);
+      }
+    }
   }
 }
