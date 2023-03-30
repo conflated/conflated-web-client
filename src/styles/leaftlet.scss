@@ -5,5 +5,9 @@
 .leaflet-tile-container {
   img {
     filter: grayscale(100%) hue-rotate(90deg);
+
+    @media screen and (prefers-color-scheme: dark) {
+      filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg) saturate(0.1) brightness(0.9);
+    }
   }
 }

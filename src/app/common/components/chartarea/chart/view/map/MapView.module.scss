@@ -6,6 +6,10 @@
   width: 100%;
   z-index: 900;
 
+  @media screen and (prefers-color-scheme: dark) {
+    background: linear-gradient(rgba(0,0,0, 1), rgba(0, 0, 0, 0.5));
+  }
+
   .titles {
     display: flex;
     flex-direction: column;
@@ -17,11 +21,15 @@
     .title {
       font-size: var(--large-font-size);
       font-weight: bold;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: #f2f2f2;
+      }
     }
 
     .subtitle {
       color: var(--small-font-color);
-      font-size: var(--body-font-size);
+      font-size: 1rem;
     }
   }
 

@@ -26,8 +26,8 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
     <>
       <header className={styles.mapHeader}>
         <div className={styles.titles}>
-          <span className={styles.title}>Title</span>
-          <span className={styles.subtitle}>Subtitle</span>
+          <span className={styles.title}>{chart.getTitleText()}</span>
+          <span className={styles.subtitle}>{chart.getSubtitleText()}</span>
         </div>
         <div className={styles.emptyArea} />
         <div className={styles.geometrySelector}>
