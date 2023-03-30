@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Icon, Popup } from 'semantic-ui-react';
+import { Icon, Input, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import type { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import styles from './ChartView.module.scss';
@@ -62,6 +62,10 @@ const ChartView = ({
   return (
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
+      <div className={styles.search}>
+        <div className={styles.searchInputLabel}>Filter: </div>
+        <Input className={styles.searchInput} placeholder="Measure or dimension values..." />
+      </div>
       {chart.chartType !== 'map' && (
         <Popup
           inverted
