@@ -63,9 +63,11 @@
   }
 
   .searchIcon {
+    color: #f2f2f2;
+    font-size: 1.1rem;
     position: absolute;
-    right: 3.1rem;
-    top: 7px;
+    right: 3.6rem;
+    top: 8px;
     visibility: hidden;
     z-index: var(--topmost-z-index);
 
@@ -80,9 +82,11 @@
   }
 
   .windowIcon {
+    color: #f2f2f2;
+    font-size: 1.1rem;
     position: absolute;
-    right: 1.5rem;
-    top: 7px;
+    right: 1.7rem;
+    top: 8px;
     visibility: hidden;
     z-index: var(--topmost-z-index);
 
@@ -97,9 +101,11 @@
   }
 
   .menu {
+    color: #f2f2f2;
+    font-size: 1.1rem;
     position: absolute;
     right: 0;
-    top: 7px;
+    top: 8px;
     visibility: hidden;
     z-index: var(--topmost-z-index);
   }

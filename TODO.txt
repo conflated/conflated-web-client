@@ -6,7 +6,7 @@
 - Chart drag + drop
 - Automatic Sort by
 - Sort bys
-- Filters
+- Filters (charts tab to filter selector to implement drilldowns)
 - Quick filters
 - Drill-down vertical
 
