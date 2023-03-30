@@ -10,7 +10,7 @@ export default class ApexChartDataLabelOptionsFactory {
       style: {
         fontSize: '0.8rem',
         fontFamily: 'Arimo, sans-serif',
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         colors:
           chart.chartType !== 'line' &&
           chart.chartType !== 'area' &&
