@@ -12,6 +12,7 @@ import ChartScrollbarView from '../scrollbar/view/ChartScrollbarView';
 import DrillUpIconView from '../drillupicon/view/DrillUpIconView';
 import ChartController from '../controller/chartController';
 import store from '../../../../../../store/store';
+import stopEventPropagation from '../../../../utils/stopEventPropagation';
 
 type OwnProps = {
   chart: Chart;
@@ -36,6 +37,7 @@ const ChartView = ({
   width
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
+  const [quickFilterIsShown, setQuickFilterIsShown] = useState(false);
   const className = classNames(styles.chart, {
     [styles.selectedChart]: isSelectedChart,
     [styles.scrollable]: chart.isXAxisScrollable()
@@ -62,15 +64,24 @@ const ChartView = ({
   return (
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
-      <div className={styles.search}>
-        <div className={styles.searchInputLabel}>Filter: </div>
-        <Input className={styles.searchInput} placeholder="Measure or dimension values..." />
-      </div>
+      {quickFilterIsShown && (
+        <div className={styles.search}>
+          <div className={styles.searchInputLabel}>Filter: </div>
+          <Input className={styles.searchInput} placeholder="Measure or dimension values..." />
+        </div>
+      )}
       {chart.chartType !== 'map' && (
         <Popup
           inverted
           mouseEnterDelay={1000}
-          trigger={<Icon className={styles.searchIcon} inverted name="search" />}
+          trigger={
+            <Icon
+              className={styles.searchIcon}
+              inverted
+              name="search"
+              onClick={_.flow(stopEventPropagation, () => setQuickFilterIsShown(!quickFilterIsShown))}
+            />
+          }
           content="Quick filter"
         />
       )}
