@@ -49,7 +49,7 @@ export default class DataTableChart extends AbstractDrillDownChart {
       return <AgGridGoalsDataTableChartView chart={this} width={width} height={height} />;
     }
 
-    return <AgGridDataTableChartView chart={this} />;
+    return <AgGridDataTableChartView chart={this} height={height} />;
   }
 
   override getNextDimensionVisualizationType(): DimensionVisualizationType {

@@ -4,8 +4,10 @@ import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { SelectedDimension } from '../../model/state/selecteddimension/SelectedDimension';
 import type { SelectedMeasure } from '../../model/state/selectedmeasure/SelectedMeasure';
 import type { Chart } from '../../model/state/Chart';
+import SqlUtils from '../../../../../utils/SqlUtils';
 
-type Props = { chart: Chart };
+// eslint-disable-next-line react/no-unused-prop-types
+type Props = { chart: Chart; height: number };
 
 const AgGridDataTableChartView = ({ chart }: Props) => {
   const dimensionColumnDefs = useMemo(
@@ -33,12 +35,12 @@ const AgGridDataTableChartView = ({ chart }: Props) => {
 
   const measureColumnDefs = useMemo(
     () =>
-      chart.selectedMeasures.map(({ measure: { name } }: SelectedMeasure): object => ({
-        headerName: name,
-        field: name,
+      chart.selectedMeasures.map(({ aggregationFunction, measure }: SelectedMeasure): object => ({
+        headerName: measure.name,
+        field: SqlUtils.getSqlColumnName(measure, aggregationFunction),
         sortable: true,
         resizable: true,
-        tooltipField: name,
+        tooltipField: measure.name,
         filter: 'agNumberColumnFilter'
       })),
     [chart.selectedMeasures]
@@ -49,7 +51,7 @@ const AgGridDataTableChartView = ({ chart }: Props) => {
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return (
-    <div key={chart.id} className="ag-theme-fresh">
+    <div key={chart.id} className="ag-theme-balham" style={{ height: '100%' }}>
       <AgGridReact
         key={key}
         columnDefs={columnDefs}

@@ -50,6 +50,7 @@ export default class FakeChartDataService implements ChartDataService {
               } else if (hasProductCategory && hasDimension1) {
                 size = 20 * 4;
               }
+
               columnNameToValuesMap[name] = Array(size)
                 .fill(0)
                 .map(() => Math.floor(100 * Math.random()));
