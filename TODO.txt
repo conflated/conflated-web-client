@@ -1,5 +1,5 @@
+- Corridor chart
 - Chart types
-- Maximize/Restore chart (chart double click)
 - Implement Statistic chart
 - Chart menu styles
 - Chart Copy + Paste

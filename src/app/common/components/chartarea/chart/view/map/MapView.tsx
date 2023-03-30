@@ -26,6 +26,7 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
           <Dropdown selection placeholder="Select geometry" options={geometryOptions} />
         </div>
         <div className={styles.actionButtons}>
+          <Icon className={styles.icon} inverted name="tint" size="large" />
           <Icon className={styles.icon} inverted name="home" size="large" />
           <Icon className={styles.icon} inverted name="plus" size="large" />
           <Icon className={styles.icon} inverted name="minus" size="large" />
