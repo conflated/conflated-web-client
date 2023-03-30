@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import { Button, Dropdown, Icon } from 'semantic-ui-react';
+import { Button, Dropdown, Icon, Popup } from 'semantic-ui-react';
 import styles from './ChartMenuView.module.scss';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../model/state/Chart';
@@ -70,7 +70,14 @@ const ChartMenuView = ({
         size="large"
         floating
         direction="left"
-        icon={<Icon className={styles.icon} name="ellipsis vertical" size="large" />}
+        icon={
+          <Popup
+            inverted
+            mouseEnterDelay={1000}
+            trigger={<Icon className={styles.icon} name="ellipsis vertical" />}
+            content="Open chart menu"
+          />
+        }
       >
         <Dropdown.Menu>
           <Dropdown.Item

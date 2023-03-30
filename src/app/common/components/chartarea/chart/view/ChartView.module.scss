@@ -59,10 +59,44 @@
     }
   }
 
+  .searchIcon {
+    position: absolute;
+    right: 3rem;
+    top: 7px;
+    visibility: hidden;
+    z-index: var(--topmost-z-index);
+
+    &:hover {
+      color: var(--brand-color-2);
+      cursor: pointer;
+    }
+  }
+
+  &:hover .searchIcon {
+    visibility: visible;
+  }
+
+  .windowIcon {
+    position: absolute;
+    right: 1.5rem;
+    top: 7px;
+    visibility: hidden;
+    z-index: var(--topmost-z-index);
+
+    &:hover {
+      color: var(--brand-color-2);
+      cursor: pointer;
+    }
+  }
+
+  &:hover .windowIcon {
+    visibility: visible;
+  }
+
   .menu {
     position: absolute;
     right: 0;
-    top: 5px;
+    top: 7px;
     visibility: hidden;
     z-index: var(--topmost-z-index);
   }

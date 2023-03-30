@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Icon, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import type { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import styles from './ChartView.module.scss';
@@ -58,6 +59,18 @@ const ChartView = ({
   return (
     <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
       {chartView}
+      <Popup
+        inverted
+        mouseEnterDelay={1000}
+        trigger={<Icon className={styles.searchIcon} inverted name="search" />}
+        content="Quick filter"
+      />
+      <Popup
+        inverted
+        mouseEnterDelay={1000}
+        trigger={<Icon className={styles.windowIcon} inverted name="window maximize outline" />}
+        content="Maximize chart window"
+      />
       <ChartMenuView chart={chart} className={styles.menu} stateNamespace={stateNamespace} />
       <ChartScrollbarView
         allowKeyControls={isSelectedChart}
