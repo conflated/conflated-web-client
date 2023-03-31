@@ -145,6 +145,8 @@ export interface Chart {
 
   getTitleText(): string | null;
 
+  getName(): string;
+
   getValidAggregationFunction(aggregationFunction: AggregationFunction): AggregationFunction;
 
   getChartConfiguration(): ChartConfiguration;

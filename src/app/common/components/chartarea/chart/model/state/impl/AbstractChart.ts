@@ -467,6 +467,20 @@ export default abstract class AbstractChart implements Chart {
     return [...(supportedMeasureVisualizationTypes || [])];
   }
 
+  getName(): string {
+    let name = '';
+
+    if (this.getTitleText()) {
+      if (this.getSubtitleText()) {
+        name = `${this.id}. ${this.getTitleText()}, ${this.getSubtitleText()}`;
+      } else {
+        name = `${this.id}. ${this.getTitleText()}`;
+      }
+    }
+
+    return name;
+  }
+
   getTitleText(): string | null {
     return this.selectedMeasures.reduce((accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
       if (accumulatedTitle === '') {

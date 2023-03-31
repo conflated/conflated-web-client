@@ -5,7 +5,7 @@ export default class ApexChartTitleFactory {
     const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     return {
-      text: chart.getTitleText(),
+      text: `${chart.id}. ${chart.getTitleText()}`,
       floating: chart.hasFloatingTitle(),
       style: {
         color: isDarkModeActive ? '#FFFFFF' : '#000000',
