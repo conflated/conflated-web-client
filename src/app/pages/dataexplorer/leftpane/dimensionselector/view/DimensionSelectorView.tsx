@@ -119,7 +119,13 @@ const DimensionSelectorView = ({
       dropDimension
     );
 
-    return selectedChart.getDimensionDropZoneListItemViews(dimensionDropZoneListItemViewFactory);
+    const chartFilteringDimensionDropZOneListItem =
+      dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('0', 'X-axis categories', 'filtering chart');
+
+    return [
+      chartFilteringDimensionDropZOneListItem,
+      ...selectedChart.getDimensionDropZoneListItemViews(dimensionDropZoneListItemViewFactory)
+    ];
   }, [dropDimension, leaveDropZone, selectedChart]);
 
   const dimensionListItems = useMemo(
@@ -132,6 +138,18 @@ const DimensionSelectorView = ({
         />
       )),
     [addSelectedDimensionToSelectedChart, shownDimensions]
+  );
+
+  const chartListItems = useMemo(
+    () =>
+      shownMeasures.map((measure: Measure) => (
+        <DraggableMeasureAsDimensionListItemView
+          key={measure.name}
+          item={measure}
+          onItemClick={() => addSelectedDimensionToSelectedChart(measure)}
+        />
+      )),
+    [addSelectedDimensionToSelectedChart, shownMeasures]
   );
 
   const measureListItems = useMemo(
