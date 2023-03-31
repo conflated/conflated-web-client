@@ -99,7 +99,7 @@ const ListItemView = <T extends { readonly name: string }>({
     });
   }
 
-  return (
+  return item.name ? (
     <div key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
       <List.Item className={className} onClick={() => onItemClick(item)}>
         {listIcon}
@@ -114,6 +114,8 @@ const ListItemView = <T extends { readonly name: string }>({
         <div className={styles.actionIcons}>{actionIcons}</div>
       </List.Item>
     </div>
+  ) : (
+    <div />
   );
 };
 

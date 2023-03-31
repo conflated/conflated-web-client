@@ -123,7 +123,7 @@ const FilterSelectorView = ({
     .map((chart) => (
       <ChartListItemView
         key={chart.id}
-        item={{ name: `${chart.id}. ${chart.getTitleText()}, ${chart.getSubtitleText()}` }}
+        item={{ name: chart.hasData() ? `${chart.id}. ${chart.getTitleText()}, ${chart.getSubtitleText()}` : '' }}
         onItemClick={() => {}}
       />
     ));
