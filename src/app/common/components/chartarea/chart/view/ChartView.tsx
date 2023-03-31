@@ -84,7 +84,7 @@ const ChartView = ({
             <Icon
               className={styles.searchIcon}
               inverted
-              name="search"
+              name="filter"
               onClick={_.flow(stopEventPropagation, () => setQuickFilterIsShown(!quickFilterIsShown))}
             />
           }

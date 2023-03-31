@@ -22,7 +22,6 @@ Implement filters/sortbys in dashboards
 Implement clearing data point selection when measure/dimension/charttype.... is changed
 When alert/goal data source is changed start fetch alert groups and alert defs
 Implement selection color to darken(1)?
-Implement ESC cancel dialogs
 Implement storing data explorer state (eg. gutter offsets) to localstorage, use redux-persist
 
 Implement dialog to create/edit/remove data sources in data explorer (show Add new data source hint text as a link to create new)
