@@ -26,6 +26,7 @@ import { FilterSelectorStateNamespace } from '../model/state/FilterSelectorState
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
+    charts: appState[stateNamespace].chartAreaState.charts,
     selectedChart: appState[stateNamespace].chartAreaState.selectedChart,
     shownDimensions: selectShownDimensions(false)(appState),
     shownMeasures: selectShownMeasures(appState),

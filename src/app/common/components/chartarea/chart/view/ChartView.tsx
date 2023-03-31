@@ -62,7 +62,13 @@ const ChartView = ({
   }
 
   return (
-    <div className={className} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={() => selectChart(chart)}>
+    <div
+      className={className}
+      draggable
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      onClick={() => selectChart(chart)}
+    >
       {chartView}
       {quickFilterIsShown && (
         <div className={styles.search}>

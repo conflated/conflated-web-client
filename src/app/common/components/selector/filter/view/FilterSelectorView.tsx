@@ -6,8 +6,8 @@ import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
-import MeasureListItemView from '../../../../view/listitems/listitem/measure/MeasureListItemView';
-import DimensionListItemView from '../../../../view/listitems/listitem/dimension/DimensionListItemView';
+import MeasureListItemView from '../../../../view/listitems/listitem/MeasureListItemView';
+import DimensionListItemView from '../../../../view/listitems/listitem/DimensionListItemView';
 import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
 import type { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
@@ -19,6 +19,7 @@ import type { DataScopeType } from '../../../chartarea/chart/model/state/types/D
 import MeasuresAndDimensionsTabView from '../../../../view/tab/measuresanddimensions/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
+import ChartListItemView from '../../../../view/listitems/listitem/ChartListItemView';
 
 export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
 
@@ -31,6 +32,7 @@ const FilterSelectorView = ({
   changeSelectedFilterExpressionForSelectedChart,
   changeSelectedFilterInputTypeForSelectedChart,
   changeSelectedFilterDataScopeTypeForSelectedChart,
+  charts,
   isDataPointsCountSelectorOpen,
   isSortBySelectorOpen,
   stateNamespace,
@@ -116,6 +118,16 @@ const FilterSelectorView = ({
     />
   ));
 
+  const chartListItems = charts
+    .filter((chart) => chart !== selectedChart)
+    .map((chart) => (
+      <ChartListItemView
+        key={chart.id}
+        item={{ name: `${chart.id}. ${chart.getTitleText()}, ${chart.getSubtitleText()}` }}
+        onItemClick={() => {}}
+      />
+    ));
+
   const selectorStateNamespace = `${stateNamespace}FilterSelector`;
 
   return (
@@ -130,7 +142,12 @@ const FilterSelectorView = ({
         </section>
       }
       listItemsContent={
-        <MeasuresAndDimensionsTabView measureListItems={measureListItems} dimensionListItems={dimensionListItems} />
+        <MeasuresAndDimensionsTabView
+          dimensionListItems={dimensionListItems}
+          measureListItems={measureListItems}
+          thirdTabPaneListItems={chartListItems}
+          thirdTabPaneName="CHARTS"
+        />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       isPinned={shouldShowPageRightPanePermanently}

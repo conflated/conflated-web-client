@@ -21,14 +21,14 @@ const MeasuresAndDimensionsTabView: React.FC<Props> = ({
     secondTabPaneName="DIMENSIONS"
     secondTabPaneListItems={dimensionListItems}
     secondNoContentLineText="Select a data source first"
-    thirdTabPaneListItems={thirdTabPaneListItems}
     thirdTabPaneName={thirdTabPaneName}
+    thirdTabPaneListItems={thirdTabPaneListItems}
   />
 );
 
 MeasuresAndDimensionsTabView.defaultProps = {
-  thirdTabPaneListItems: [],
-  thirdTabPaneName: ''
+  thirdTabPaneListItems: undefined,
+  thirdTabPaneName: undefined
 };
 
 export default MeasuresAndDimensionsTabView;

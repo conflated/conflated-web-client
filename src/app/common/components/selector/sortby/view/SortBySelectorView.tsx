@@ -8,8 +8,8 @@ import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measure
 import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
 import type { SelectedSortBy } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
-import MeasureListItemView from '../../../../view/listitems/listitem/measure/MeasureListItemView';
-import DimensionListItemView from '../../../../view/listitems/listitem/dimension/DimensionListItemView';
+import MeasureListItemView from '../../../../view/listitems/listitem/MeasureListItemView';
+import DimensionListItemView from '../../../../view/listitems/listitem/DimensionListItemView';
 import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
 import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
