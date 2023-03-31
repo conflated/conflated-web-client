@@ -14,12 +14,14 @@ import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemvie
 import ListItemsView from '../../../../../common/view/listitems/ListItemsView';
 import { ActionDispatchers, controller, State } from '../controller/dimensionSelectorController';
 import emptyDataSource from '../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
+import DraggableChartListItemView from './draggabledimensionlistitem/DraggableChartListItemView';
 
 type Props = ActionDispatchers & State;
 
 const DimensionSelectorView = ({
   addSelectedDimensionToSelectedChart,
   changeSelectedDimensionColorForSelectedChart,
+  charts,
   dimensions,
   isChartTypeSelectorOpen,
   isDataSourceSelectorOpen,
@@ -142,14 +144,12 @@ const DimensionSelectorView = ({
 
   const chartListItems = useMemo(
     () =>
-      shownMeasures.map((measure: Measure) => (
-        <DraggableMeasureAsDimensionListItemView
-          key={measure.name}
-          item={measure}
-          onItemClick={() => addSelectedDimensionToSelectedChart(measure)}
-        />
-      )),
-    [addSelectedDimensionToSelectedChart, shownMeasures]
+      charts
+        .filter((chart) => chart !== selectedChart)
+        .map((chart) => (
+          <DraggableChartListItemView key={chart.getName()} item={{ name: chart.getName() }} onItemClick={() => {}} />
+        )),
+    [charts, selectedChart]
   );
 
   const measureListItems = useMemo(
@@ -182,6 +182,12 @@ const DimensionSelectorView = ({
             listItems={dimensionListItems}
             noContentFirstLineText="No dimensions"
             noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
+          />
+          <ListItemsView
+            className={styles.divider}
+            listItems={chartListItems}
+            noContentFirstLineText=""
+            noContentSecondLineText=""
           />
           {selectedChart.dataSource.type === 'raw' && (
             <ListItemsView

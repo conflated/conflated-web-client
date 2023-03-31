@@ -20,6 +20,7 @@ export default class DimensionSelectorController extends Controller {
     OOReduxUtils.mergeOwnAndForeignState(appState.dataExplorerPage.dimensionSelectorState, {
       shownMeasures: selectShownMeasures(appState),
       shownDimensions: createShownDimensionsSelector(true)(appState),
+      charts: appState.dataExplorerPage.chartAreaState.charts,
       selectedChart: appState.dataExplorerPage.chartAreaState.selectedChart,
       isLayoutSelectorOpen: appState.common.selectorStates.layoutSelector.isSelectorOpen,
       isChartTypeSelectorOpen: appState.common.selectorStates.chartTypeSelector.isSelectorOpen,
