@@ -125,7 +125,7 @@ const DimensionSelectorView = ({
       dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('0', 'X-axis categories', 'filtering chart');
 
     return [
-      chartFilteringDimensionDropZOneListItem,
+      selectedChart.selectedDimensions.length === 0 ? chartFilteringDimensionDropZOneListItem : [],
       ...selectedChart.getDimensionDropZoneListItemViews(dimensionDropZoneListItemViewFactory)
     ];
   }, [dropDimension, leaveDropZone, selectedChart]);
@@ -183,12 +183,14 @@ const DimensionSelectorView = ({
             noContentFirstLineText="No dimensions"
             noContentSecondLineText={selectedChart.dataSource === emptyDataSource ? 'Select data source first' : ''}
           />
-          <ListItemsView
-            className={styles.divider}
-            listItems={chartListItems}
-            noContentFirstLineText=""
-            noContentSecondLineText=""
-          />
+          {selectedChart.selectedDimensions.length === 0 && (
+            <ListItemsView
+              className={styles.divider}
+              listItems={chartListItems}
+              noContentFirstLineText=""
+              noContentSecondLineText=""
+            />
+          )}
           {selectedChart.dataSource.type === 'raw' && (
             <ListItemsView
               className={styles.divider}
