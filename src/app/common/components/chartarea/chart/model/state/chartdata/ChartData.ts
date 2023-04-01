@@ -50,6 +50,11 @@ export interface ChartData {
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[]];
 
+  getAreaRangeChartData(
+    selectedMeasures: SelectedMeasure[],
+    selectedDimensions: SelectedDimension[]
+  ): [any[], any[], any[], any[], any[]];
+
   getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
   getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
 

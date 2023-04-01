@@ -15,6 +15,7 @@ import type { ChartConfiguration } from './ChartConfiguration';
 import BarChart from './impl/basic/nontimeline/xaxiscategories/BarChart';
 import PieChartImpl from './impl/basic/nontimeline/pieordonut/PieChartImpl';
 import DonutChartImpl from './impl/basic/nontimeline/pieordonut/DonutChartImpl';
+import RangeAreaChart from './impl/basic/nontimeline/xaxiscategories/mixed/RangeAreaChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
@@ -30,6 +31,8 @@ export default class ChartFactory {
         return new BarChart(chartConfiguration);
       case 'area':
         return new AreaChart(chartConfiguration);
+      case 'rangeArea':
+        return new RangeAreaChart(chartConfiguration);
       case 'line':
         return new LineChart(chartConfiguration);
       case 'donut':

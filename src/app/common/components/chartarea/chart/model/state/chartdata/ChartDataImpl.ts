@@ -196,6 +196,20 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, legendData];
   }
 
+  getAreaRangeChartData(
+    selectedMeasures: SelectedMeasure[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    selectedDimensions: SelectedDimension[]
+  ): [any[], any[], any[], any[], any[]] {
+    const lineData = this.getForSelectedMeasureOfType(selectedMeasures, 'line');
+    const lowerBoundData = this.getForSelectedMeasureOfType(selectedMeasures, 'lowerBound');
+    const upperBoundData = this.getForSelectedMeasureOfType(selectedMeasures, 'upperBound');
+    const xAxisData = this.getForSelectedDimensionOfType(selectedDimensions, 'X-axis categories');
+    // const legendData = this.getForSelectedDimensionOfType(selectedDimensions, 'Legend');
+
+    return [lineData, lowerBoundData, upperBoundData, xAxisData, []];
+  }
+
   getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>] {
     const triggerNameData = this.columnNameToDataMap['"Description"'] ?? [];
     return [triggerNameData, ...this.getTriggerGroupData(stateNamespace)];

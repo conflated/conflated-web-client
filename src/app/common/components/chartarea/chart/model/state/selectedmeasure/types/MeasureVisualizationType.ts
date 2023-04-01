@@ -10,6 +10,8 @@ export type MeasureVisualizationType =
   | 'text'
   | 'x-axis'
   | 'y-axis'
+  | 'upperBound'
+  | 'lowerBound'
   | 'open'
   | 'high'
   | 'low'
