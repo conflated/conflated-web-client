@@ -4,7 +4,7 @@ import type { MeasureVisualizationType } from '../../../../../selectedmeasure/ty
 
 export default class ColumnChart extends AbstractMixedChart {
   override getLegendType(): string {
-    return 'timestamp or legend';
+    return 'legend, e.g. timestamp';
   }
 
   override getNextMeasureVisualizationType(): MeasureVisualizationType {

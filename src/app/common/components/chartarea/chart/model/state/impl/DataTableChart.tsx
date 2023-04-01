@@ -10,20 +10,20 @@ import AgGridGoalsDataTableChartView from '../../../../../../../pages/goals/char
 import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
 export default class DataTableChart extends AbstractDrillDownChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   getDimensionDropZoneListItemViews(
     dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
   ): JSX.Element[] {
     const dimensionDropZoneListItemViews = [];
 
     dimensionDropZoneListItemViews.push(
-      dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Tooltip')
+      dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Drilldown', 'In-place drilldown')
     );
 
     return dimensionDropZoneListItemViews;
+  }
+
+  override handleChartJsClick(): void {
+    throw new Error('Method not implemented.');
   }
 
   handleDataPointSelection(): void {

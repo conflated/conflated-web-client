@@ -122,14 +122,8 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
         );
       }
 
-      if (this.supportsTooltipSelectedDimension()) {
-        dimensionDropZoneListItemViews.push(
-          dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('2', 'Tooltip')
-        );
-      }
-
       dimensionDropZoneListItemViews.push(
-        dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Drilldown')
+        dimensionDropZoneListItemViewFactory.createDimensionDropZoneListItem('3', 'Drilldown', 'In-place drilldown')
       );
     } else {
       dimensionDropZoneListItemViews.push(
@@ -156,7 +150,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     } else if (!this.hasSelectedDimensionOfType('Legend')) {
       return 'Legend';
     } else if (this.hasSelectedDimensionOfType('X-axis categories') && this.hasSelectedDimensionOfType('Legend')) {
-      return 'Tooltip';
+      return 'Drilldown';
     }
 
     return super.getNextDimensionVisualizationType();
@@ -205,6 +199,6 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
   }
 
   override supportsTooltipSelectedDimension(): boolean {
-    return true;
+    return false;
   }
 }
