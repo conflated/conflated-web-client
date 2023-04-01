@@ -250,4 +250,20 @@
       background-image: url('../../../../../../../assets/images/icons/layout/onfocusorhover/layout_icon_15.svg');
     }
   }
+
+  .layoutIcon15 {
+    @extend %abstract-layout-icon;
+
+    background-image: url('../../../../../../../assets/images/icons/layout/lightmode/scrolling_layout_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../assets/images/icons/layout/darkmode/scrolling_layout_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../assets/images/icons/layout/onfocusorhover/scrolling_layout_icon.svg');
+    }
+  }
 }

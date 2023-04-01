@@ -40,6 +40,7 @@ const LayoutIconsView = (props: Props) => (
     <LayoutIcon {...props} iconClassName={styles.layoutIcon13} layout={layout13} />
     <LayoutIcon {...props} iconClassName={styles.layoutIcon14} layout={layout14} />
     <LayoutIcon {...props} iconClassName={styles.layoutIcon15} layout={layout15} />
+    <LayoutIcon {...props} iconClassName={styles.scrollingLayoutIcon} layout={layout4} />
   </div>
 );
 
