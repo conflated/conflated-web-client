@@ -5,7 +5,7 @@ import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../di/diContainer';
-import StartFetchDimensionsAction from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/actions/StartFetchDimensionsAction';
+import StartFetchDimensionsAction from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/actions/StartFetchDimensionsAction';
 
 export default class RemoveSelectedMeasureFromSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedMeasure: SelectedMeasure) {

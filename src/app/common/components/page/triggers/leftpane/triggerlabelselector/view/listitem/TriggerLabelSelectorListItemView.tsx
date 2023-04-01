@@ -1,9 +1,9 @@
 import React from 'react';
 import { List, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
-import styles from '../../../../../../../view/listitems/listitem/ListItemView.module.scss';
+import styles from '../../../../../../../views/list/item/ListItemView.module.scss';
 import styles2 from './TriggerLabelSelectorListItemView.module.scss';
-import CountBadgeView from '../../../../../../../view/countbadge/CountBadgeView';
+import CountBadgeView from '../../../../../../../views/countbadge/CountBadgeView';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
 type Props = {

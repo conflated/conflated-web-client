@@ -5,9 +5,9 @@ import AgGridDataTableChartView from '../../../view/datatable/AgGridDataTableCha
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
-import AgGridAlertsDataTableChartView from '../../../../../../../pages/alerts/chartarea/chart/view/AgGridAlertsDataTableChartView';
-import AgGridGoalsDataTableChartView from '../../../../../../../pages/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import AgGridAlertsDataTableChartView from '../../../../../../../page/alerts/chartarea/chart/view/AgGridAlertsDataTableChartView';
+import AgGridGoalsDataTableChartView from '../../../../../../../page/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
 export default class DataTableChart extends AbstractDrillDownChart {
   getDimensionDropZoneListItemViews(

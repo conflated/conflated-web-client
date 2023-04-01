@@ -3,7 +3,7 @@ import type { MeasureVisualizationType } from '../../../../selectedmeasure/types
 import ScatterChart from './ScatterChart';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../../types/DataSeries';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 
 export default class BubbleChart extends ScatterChart {
   override getConvertSelectedMeasures(): SelectedMeasure[] {

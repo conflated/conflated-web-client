@@ -6,20 +6,20 @@ import styles from './FilterSelectorView.module.scss';
 import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
-import MeasureListItemView from '../../../../view/listitems/listitem/MeasureListItemView';
-import DimensionListItemView from '../../../../view/listitems/listitem/DimensionListItemView';
-import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
+import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
+import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
+import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
+import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
-import MeasuresAndDimensionsTabView from '../../../../view/tab/measuresanddimensions/MeasuresAndDimensionsTabView';
+import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
 import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
-import ChartListItemView from '../../../../view/listitems/listitem/ChartListItemView';
+import ChartListItemView from '../../../../views/list/item/ChartListItemView';
 
 export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
 

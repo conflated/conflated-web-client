@@ -1,0 +1,293 @@
+.chartIcons {
+  display: flex;
+  flex-wrap: wrap;
+
+  %abstract-chart-icon {
+    background-repeat: no-repeat;
+    background-size: 2rem 2rem;
+    cursor: pointer;
+    display: inline-block;
+    height: 2rem;
+    margin-bottom: 0.2rem;
+    margin-right: 0.2rem;
+    width: 2rem;
+  }
+
+  .columnChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/column_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/column_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/column_chart_icon.svg');
+    }
+  }
+
+  .barChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/bar_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/bar_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/bar_chart_icon.svg');
+    }
+  }
+
+  .areaChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/area_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/area_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/area_chart_icon.svg');
+    }
+  }
+
+  .lineChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/line_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/line_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/line_chart_icon.svg');
+    }
+  }
+
+  .corridorChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/corridor_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/corridor_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/corridor_chart_icon.svg');
+    }
+  }
+
+  .donutChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/donut_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/donut_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/donut_chart_icon.svg');
+    }
+  }
+
+  .pieChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/pie_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/pie_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/pie_chart_icon.svg');
+    }
+  }
+
+  .bubbleChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/bubble_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/bubble_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/bubble_chart_icon.svg');
+    }
+  }
+
+  .scatterPlotIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/scatter_plot_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/scatter_plot_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/scatter_plot_icon.svg');
+    }
+  }
+
+  .candlestickChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/candlestick_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/candlestick_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/candlestick_chart_icon.svg');
+    }
+  }
+
+  .boxPlotIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/box_plot_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/box_plot_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/box_plot_icon.svg');
+    }
+  }
+
+  .radarChartIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/radar_chart_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/radar_chart_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/radar_chart_icon.svg');
+    }
+  }
+
+  .heatmapIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/heatmap_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/heatmap_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/heatmap_icon.svg');
+    }
+  }
+
+  .dataTableIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/data_table_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/data_table_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/data_table_icon.svg');
+    }
+  }
+
+  .mapIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/map_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/map_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/map_icon.svg');
+    }
+  }
+
+  .sparklineIcon {
+    @extend %abstract-chart-icon;
+
+    background-image: url('../../../../../../../../../assets/images/icons/chart/lightmode/sparkline_icon.svg');
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/darkmode/sparkline_icon.svg');
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      background-image: url('../../../../../../../../../assets/images/icons/chart/onfocusorhover/sparkline_icon.svg');
+    }
+  }
+
+  .statisticIcon {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 2rem;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--list-item-color);
+    }
+
+    &.selected,
+    &:hover,
+    &:focus {
+      color: var(--brand-color-1);
+
+      @media (prefers-color-scheme: dark) {
+        color: #F47F31
+      }
+    }
+  }
+}

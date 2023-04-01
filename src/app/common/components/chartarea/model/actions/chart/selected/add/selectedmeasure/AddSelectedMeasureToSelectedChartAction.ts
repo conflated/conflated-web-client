@@ -1,5 +1,5 @@
-import type { Measure } from '../../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
-import type { Dimension } from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
+import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
+import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
@@ -7,7 +7,7 @@ import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import StartFetchDimensionsAction from '../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/actions/StartFetchDimensionsAction';
+import StartFetchDimensionsAction from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/actions/StartFetchDimensionsAction';
 
 export default class AddSelectedMeasureToSelectedChartAction extends AbstractChartAreaAction {
   constructor(

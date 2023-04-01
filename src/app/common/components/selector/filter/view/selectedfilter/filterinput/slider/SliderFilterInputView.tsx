@@ -1,5 +1,5 @@
 import React from 'react';
-import SliderView from '../../../../../../../view/slider/SliderView';
+import SliderView from '../../../../../../../views/slider/SliderView';
 import type { ChartData } from '../../../../../../chartarea/chart/model/state/chartdata/ChartData';
 import type { SelectedFilter } from '../../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import NumberRangesParser from '../../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/numberrange/NumberRangesParser';

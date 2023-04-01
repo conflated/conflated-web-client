@@ -1,6 +1,6 @@
 import OOReduxUtils from 'oo-redux-utils2';
 import type { ChartAreaState } from './ChartAreaState';
-import layout1 from '../../../../../pages/dataexplorer/leftpane/layoutselector/model/state/layouts/layout1';
+import layout1 from '../../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/layout1';
 import AbstractChartAreaAction from '../actions/AbstractChartAreaAction';
 import type { ChartAreaStateNamespace } from './types/ChartAreaStateNamespace';
 import ChartFactory from '../../chart/model/state/ChartFactory';

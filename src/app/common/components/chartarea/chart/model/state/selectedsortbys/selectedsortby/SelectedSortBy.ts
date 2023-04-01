@@ -1,5 +1,5 @@
-import type { Measure } from '../../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
-import type { Dimension } from '../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
+import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
+import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { TimeSortOption } from './types/TimeSortOption';
 import type { SortDirection } from './types/SortDirection';
 import type { DefaultSelectedSortByType } from './types/DefaultSelectedSortByType';

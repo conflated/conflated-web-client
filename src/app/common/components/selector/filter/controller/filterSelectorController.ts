@@ -3,8 +3,8 @@ import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/acti
 import RemoveSelectedFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveSelectedFilterFromSelectedChartAction';
 import ChangeSelectedFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterAggregationFunctionForSelectedChartAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
-import type { Dimension } from '../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
+import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
+import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
@@ -15,8 +15,8 @@ import ChangeSelectedFilterExpressionForSelectedChartAction from '../../../chart
 import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
-import selectShownDimensions from '../../../../../pages/dataexplorer/leftpane/dimensionselector/controller/selectors/createShownDimensionsSelector';
-import selectShownMeasures from '../../../../../pages/dataexplorer/leftpane/measureselector/controller/selectors/selectShownMeasures';
+import selectShownDimensions from '../../../../../page/dataexplorer/pane/left/selector/dimension/controller/selectors/createShownDimensionsSelector';
+import selectShownMeasures from '../../../../../page/dataexplorer/pane/left/selector/measure/controller/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../../store/store';

@@ -5,7 +5,7 @@ import TriggerLabelSelectorListItemView from './listitem/TriggerLabelSelectorLis
 import type { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
 import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
-import AllAndFavoritesTabView from '../../../../../../view/tab/allandfavorites/AllAndFavoritesTabView';
+import AllAndFavoritesTabView from '../../../../../../views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import type { TriggerLabel } from '../model/state/types/TriggerLabel';
 import { ActionDispatchers, controller, State } from '../controller/triggerLabelSelectorController';
 

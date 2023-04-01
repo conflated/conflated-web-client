@@ -3,6 +3,7 @@ export type ChartType =
   | 'bar'
   | 'area'
   | 'line'
+  | 'rangeArea'
   | 'donut'
   | 'pie'
   | 'bubble'

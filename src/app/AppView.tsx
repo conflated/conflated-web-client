@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store/store';
-import DashboardsPageView from './pages/dashboards/view/DashboardsPageView';
-import DataExplorerPageView from './pages/dataexplorer/view/DataExplorerPageView';
+import DashboardsPageView from './page/dashboards/view/DashboardsPageView';
+import DataExplorerPageView from './page/dataexplorer/view/DataExplorerPageView';
 import HeaderView from './header/view/HeaderView';
-import AlertsPageView from './pages/alerts/view/AlertsPageView';
-import GoalsPageView from './pages/goals/view/GoalsPageView';
-import ReportsPageView from './pages/reports/view/ReportsPageView';
+import AlertsPageView from './page/alerts/view/AlertsPageView';
+import GoalsPageView from './page/goals/view/GoalsPageView';
+import ReportsPageView from './page/reports/view/ReportsPageView';
 
 const AppView = () => (
   <Provider store={store}>

@@ -4,9 +4,9 @@ import styles from '../SelectedFilterView.module.scss';
 import type { AggregationFunction } from '../../../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
 import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
-import AggregationFunctionPickerView from '../../../../../../view/picker/aggregationfunction/AggregationFunctionPickerView';
+import AggregationFunctionPickerView from '../../../../../../views/picker/aggregationfunction/AggregationFunctionPickerView';
 import type { Chart } from '../../../../../chartarea/chart/model/state/Chart';
-import DataScopePickerView from '../../../../../../view/picker/datascope/DataScopePickerView';
+import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
 import type { SelectedFilter } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 
 type Props = {

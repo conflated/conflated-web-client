@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles2 from './SelectorWithActionsView.module.scss';
 import styles from '../../view/SelectorView.module.scss';
-import SearchInputView from '../../../../view/searchinput/SearchInputView';
+import SearchInputView from '../../../../views/input/searchinput/SearchInputView';
 import ActionsView from './actions/ActionsView';
 import SelectorView from '../../view/SelectorView';
 import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';

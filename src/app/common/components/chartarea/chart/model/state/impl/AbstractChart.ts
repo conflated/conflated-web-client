@@ -20,10 +20,10 @@ import ChartFactory from '../ChartFactory';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import ChartDataImpl from '../chartdata/ChartDataImpl';
 import type { ChartData } from '../chartdata/ChartData';
-import type { Dimension } from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/model/state/types/Dimension';
-import type { Measure } from '../../../../../../../pages/dataexplorer/leftpane/measureselector/model/state/types/Measure';
+import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
+import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import SelectedDimensionFactory from '../selecteddimension/factory/SelectedDimensionFactory';
-import type { Theme } from '../../../../../../../pages/dataexplorer/model/state/types/Theme';
+import type { Theme } from '../../../../../../../page/dataexplorer/model/state/types/Theme';
 import SelectedMeasureFactory from '../selectedmeasure/factory/SelectedMeasureFactory';
 import Utils from '../../../../../../utils/Utils';
 import SqlUtils from '../../../../../../utils/SqlUtils';
@@ -37,7 +37,7 @@ import Constants from '../../../../../../Constants';
 import type { GridItem } from '../../../../model/state/types/GridItem';
 import type { Layout } from '../../../../model/state/types/Layout';
 import type { Column } from '../types/Column';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 
 export default abstract class AbstractChart implements Chart {

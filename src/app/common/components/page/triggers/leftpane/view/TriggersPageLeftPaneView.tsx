@@ -3,7 +3,7 @@ import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
-import PagePaneView from '../../../../../view/pagepane/PagePaneView';
+import PagePaneView from '../../../../../views/pagepane/PagePaneView';
 import TriggerDataSourceSelectorView from '../triggerdatasourceselector/view/TriggerDataSourceSelectorView';
 import TriggerGroupSelectorView from '../triggerlabelselector/view/TriggerLabelSelectorView';
 import TriggerSelectorView from '../triggerselector/view/TriggerSelectorView';

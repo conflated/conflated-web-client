@@ -4,7 +4,7 @@ import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../pages/dataexplorer/leftpane/dimensionselector/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { LegendPosition } from '../../../../types/LegendPosition';
 

@@ -3,7 +3,7 @@ import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from '../SelectedFilterView.module.scss';
 import type { FilterInputType } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
 import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
-import DataScopePickerView from '../../../../../../view/picker/datascope/DataScopePickerView';
+import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
 import type { ChartData } from '../../../../../chartarea/chart/model/state/chartdata/ChartData';
 import type { SelectedFilter } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
 
