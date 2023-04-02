@@ -51,7 +51,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     const xAxisValues = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
     if (xAxisValues.length > 0) {
-      let categories = this.sliceOrFillXAxisData(xAxisValues);
+      let categories = this.sliceOrFillXAxisData(_.uniq(xAxisValues));
 
       if (!this.hasContinuousXAxis() && this.hasTimestampXAxis()) {
         categories = categories.map((category: string) => moment(category).format('MMM DD HH:mm'));

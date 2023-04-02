@@ -30,9 +30,9 @@ export default class FakeChartDataService implements ChartDataService {
         }
 
         const dimensionColumnCount = columns.filter(({ type }: Column) => type === 'dimension').length;
-        const hasProductCategory = columns.filter(({ name }: Column) => name === '"Product category"').length > 0;
-        const hasDimension1 = columns.filter(({ name }: Column) => name === 'dimension1').length > 0;
-        const hasTimestamp = columns.filter(({ name }: Column) => name === 'timestamp').length > 0;
+        const hasErrorCategory = columns.filter(({ name }: Column) => name === '"Error category"').length > 0;
+        const hasCellDimension = columns.filter(({ name }: Column) => name === 'Cell').length > 0;
+        const hasTimestamp = columns.filter(({ name }: Column) => name === 'Timestamp').length > 0;
 
         columns
           .filter(({ type }: Column) => type === 'measure')
@@ -43,11 +43,11 @@ export default class FakeChartDataService implements ChartDataService {
                 .map(() => Math.floor(100 * Math.random()));
             } else {
               let size = 20;
-              if (hasDimension1 && hasTimestamp) {
+              if (hasCellDimension && hasTimestamp) {
                 size = 200;
-              } else if (hasProductCategory && !hasDimension1) {
+              } else if (hasErrorCategory && !hasCellDimension) {
                 size = 4;
-              } else if (hasProductCategory && hasDimension1) {
+              } else if (hasErrorCategory && hasCellDimension) {
                 size = 20 * 4;
               }
 
@@ -60,20 +60,20 @@ export default class FakeChartDataService implements ChartDataService {
         columns
           .filter(({ type }: Column) => type === 'dimension')
           .forEach(({ name }: Column) => {
-            if (hasDimension1 && hasTimestamp) {
+            if (hasCellDimension && hasTimestamp) {
               columnNameToValuesMap[name] = [];
               for (let index = 0; index < 20; index++) {
                 const dimensionValuesForIndex = Array(10)
                   .fill(0)
-                  .map(() => String.fromCharCode('A'.charCodeAt(0) + index));
+                  .map(() => (1000 + index).toString());
                 columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
               }
-            } else if (hasDimension1 && hasProductCategory) {
+            } else if (hasCellDimension && hasErrorCategory) {
               columnNameToValuesMap[name] = [];
               for (let index = 0; index < 20; index++) {
                 const dimensionValuesForIndex = Array(4)
                   .fill(0)
-                  .map(() => String.fromCharCode('A'.charCodeAt(0) + index));
+                  .map(() => (1000 + index).toString());
                 columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
               }
             } else {
@@ -86,7 +86,7 @@ export default class FakeChartDataService implements ChartDataService {
         columns
           .filter(({ name }: Column) => name.includes('eNodeB, Cell'))
           .forEach(({ name }: Column) => {
-            if (hasDimension1 && hasTimestamp) {
+            if (hasCellDimension && hasTimestamp) {
               columnNameToValuesMap[name] = [];
               for (let index = 0; index < 20; index++) {
                 const dimensionValuesForIndex = Array(10)
@@ -94,7 +94,7 @@ export default class FakeChartDataService implements ChartDataService {
                   .map(() => String.fromCharCode('A'.charCodeAt(0) + index));
                 columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
               }
-            } else if (hasDimension1 && hasProductCategory) {
+            } else if (hasCellDimension && hasErrorCategory) {
               columnNameToValuesMap[name] = [];
               for (let index = 0; index < 20; index++) {
                 const dimensionValuesForIndex = Array(4)
@@ -110,14 +110,19 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
-          .filter(({ name }: Column) => name.includes('Product category'))
+          .filter(({ name }: Column) => name.includes('Error category'))
           .forEach(({ name }: Column) => {
-            if (!hasDimension1) {
-              columnNameToValuesMap[name] = ['Desktop computers', 'Mobile phones', 'Monitors', 'Laptops'];
+            if (!hasCellDimension) {
+              columnNameToValuesMap[name] = [
+                'Normal release',
+                'Radio signalling error',
+                'Core signalling error',
+                'Error'
+              ];
             } else {
               columnNameToValuesMap[name] = [];
               for (let i = 0; i < 20; i++) {
-                const dimensionValues = ['Desktop computers', 'Mobile phones', 'Monitors', 'Laptops'];
+                const dimensionValues = ['Normal release', 'Radio signalling error', 'Core signalling error', 'Error'];
                 columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValues];
               }
             }
@@ -126,7 +131,7 @@ export default class FakeChartDataService implements ChartDataService {
         columns
           .filter(({ name }: Column) => name.includes('Timestamp'))
           .forEach(({ name }: Column) => {
-            if (hasDimension1 && hasTimestamp) {
+            if (hasCellDimension && hasTimestamp) {
               columnNameToValuesMap[name] = [];
               for (let i = 0; i < 20; i++) {
                 const dimensionValues = Array(10)

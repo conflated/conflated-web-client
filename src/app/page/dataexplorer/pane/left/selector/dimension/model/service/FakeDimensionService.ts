@@ -23,7 +23,16 @@ export default class DimensionServiceImpl implements DimensionService {
           (selectedChart.selectedDimensions.length === 1 &&
             selectedChart.selectedDimensions[0].dimension.name === 'Error cause')
         ) {
-          resolve([]);
+          resolve([
+            {
+              name: 'Timestamp',
+              expression: '',
+              isTimestamp: true,
+              isDate: false,
+              isString: false,
+              unit: 'none'
+            }
+          ]);
         } else if (
           selectedChart.dataSource.type === 'aggregated' &&
           selectedChart.selectedDimensions.length === 1 &&
@@ -36,6 +45,14 @@ export default class DimensionServiceImpl implements DimensionService {
               isTimestamp: false,
               isDate: false,
               isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Timestamp',
+              expression: '',
+              isTimestamp: true,
+              isDate: false,
+              isString: false,
               unit: 'none'
             }
           ]);
@@ -52,6 +69,14 @@ export default class DimensionServiceImpl implements DimensionService {
               isTimestamp: false,
               isDate: false,
               isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Timestamp',
+              expression: '',
+              isTimestamp: true,
+              isDate: false,
+              isString: false,
               unit: 'none'
             }
           ]);
@@ -74,6 +99,14 @@ export default class DimensionServiceImpl implements DimensionService {
               isTimestamp: false,
               isDate: false,
               isString: true,
+              unit: 'none'
+            },
+            {
+              name: 'Timestamp',
+              expression: '',
+              isTimestamp: true,
+              isDate: false,
+              isString: false,
               unit: 'none'
             }
           ]);
@@ -106,6 +139,14 @@ export default class DimensionServiceImpl implements DimensionService {
               isDate: false,
               isString: true,
               unit: 'none'
+            },
+            {
+              name: 'Timestamp',
+              expression: '',
+              isTimestamp: true,
+              isDate: false,
+              isString: false,
+              unit: 'none'
             }
           ]);
         } else {
@@ -127,7 +168,7 @@ export default class DimensionServiceImpl implements DimensionService {
               unit: 'none'
             },
             {
-              name: 'Product category',
+              name: 'Error category',
               expression: '',
               isTimestamp: false,
               isDate: false,
@@ -164,14 +205,6 @@ export default class DimensionServiceImpl implements DimensionService {
               isTimestamp: false,
               isDate: false,
               isString: true,
-              unit: 'none'
-            },
-            {
-              name: 'Date',
-              expression: '',
-              isTimestamp: false,
-              isDate: true,
-              isString: false,
               unit: 'none'
             },
             {
