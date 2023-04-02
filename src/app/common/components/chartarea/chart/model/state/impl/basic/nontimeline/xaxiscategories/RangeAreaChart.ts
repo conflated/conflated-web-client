@@ -1,11 +1,24 @@
-import { DataSeries } from '../../../../../types/DataSeries';
-import { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
-import { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
-import AbstractXAxisCategoriesChart from '../AbstractXAxisCategoriesChart';
+import { DataSeries } from '../../../../types/DataSeries';
+import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
+import { FillType } from '../../../../types/FillType';
+import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 
 export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
   override shouldShowDataLabels(): boolean {
     return false;
+  }
+
+  override getStrokeWidth(): number | number[] {
+    return 3.0;
+  }
+
+  override shouldShowStroke(): boolean {
+    return true;
+  }
+
+  override getFillType(): FillType {
+    return 'solid';
   }
 
   override getNextMeasureVisualizationType(
@@ -57,7 +70,7 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
 
         dataSeries.push({
           type: 'line',
-          name: '',
+          name: 'line',
           data: lineData
         });
 
@@ -68,7 +81,7 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
 
         dataSeries.push({
           type: 'rangeArea',
-          name: '',
+          name: 'rangeArea',
           data: rangeAreaData
         });
       }

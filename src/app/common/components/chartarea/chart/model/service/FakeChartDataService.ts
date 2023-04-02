@@ -75,7 +75,7 @@ export default class FakeChartDataService implements ChartDataService {
           .filter(({ name }: Column) => name.includes('Throughput lower bound'))
           .forEach(({ name }: Column) => {
             columnNameToValuesMap[name] = [
-              50, 52, 55, 51, 52, 60, 62, 59, 55, 54, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
+              49, 52, 55, 51, 52, 60, 62, 59, 55, 54, 48, 52, 57, 55, 50, 62, 60, 55, 59, 52
             ];
           });
 
@@ -83,7 +83,7 @@ export default class FakeChartDataService implements ChartDataService {
           .filter(({ name }: Column) => name.includes('Throughput upper bound'))
           .forEach(({ name }: Column) => {
             columnNameToValuesMap[name] = [
-              55, 60, 62, 60, 62, 74, 69, 62, 64, 60, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
+              55, 60, 62, 60, 62, 74, 69, 62, 64, 60, 59, 60, 63, 60, 64, 72, 69, 63, 65, 60
             ];
           });
 
@@ -172,7 +172,7 @@ export default class FakeChartDataService implements ChartDataService {
             } else {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
-                .map((value: number, index: number) => moment().add(index, 'hours').format('hh:mm'));
+                .map((value: number, index: number) => moment().add(index, 'hours').toISOString());
             }
           });
 
