@@ -1,5 +1,5 @@
-- Corridor chart
-- Chart types
+- Scrolling chart area layout
+- All dimension
 - Implement Statistic chart
 - Chart menu styles
 - Chart Copy + Paste
@@ -7,7 +7,7 @@
 - Automatic Sort by
 - Sort bys
 - Filters
-- Scrolling chart area layout
+- Go through chart types
 
 Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"

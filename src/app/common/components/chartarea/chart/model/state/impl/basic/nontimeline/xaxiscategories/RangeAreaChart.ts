@@ -9,8 +9,17 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
     return false;
   }
 
+  override getColors(): string[] {
+    const colors = super.getColors();
+    return [colors[0], colors[0]];
+  }
+
+  override hasContinuousXAxis(): boolean {
+    return true;
+  }
+
   override getStrokeWidth(): number | number[] {
-    return 3.0;
+    return [3.0, 0];
   }
 
   override shouldShowStroke(): boolean {
@@ -19,6 +28,11 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
 
   override getFillType(): FillType {
     return 'solid';
+  }
+
+  override getFillOpacity(): number {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return [1, 0.2] as any;
   }
 
   override getNextMeasureVisualizationType(
