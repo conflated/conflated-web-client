@@ -4,6 +4,10 @@ import { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure'
 import AbstractXAxisCategoriesChart from '../AbstractXAxisCategoriesChart';
 
 export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
+  override shouldShowDataLabels(): boolean {
+    return false;
+  }
+
   override getNextMeasureVisualizationType(
     selectedMeasureType?: MeasureVisualizationType,
     selectedMeasureIndex?: number

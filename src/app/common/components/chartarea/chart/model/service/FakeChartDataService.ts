@@ -63,17 +63,29 @@ export default class FakeChartDataService implements ChartDataService {
             }
           });
 
-        columnNameToValuesMap.Throughput = [
-          50, 55, 60, 55, 60, 70, 65, 60, 62, 58, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
-        ];
+        columns
+          .filter(({ name }: Column) => name.includes('Throughput'))
+          .forEach(({ name }: Column) => {
+            columnNameToValuesMap[name] = [
+              50, 55, 60, 55, 60, 70, 65, 60, 62, 58, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
+            ];
+          });
 
-        columnNameToValuesMap['Throughput lower bound'] = [
-          50, 52, 55, 51, 52, 60, 62, 59, 55, 54, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
-        ];
+        columns
+          .filter(({ name }: Column) => name.includes('Throughput lower bound'))
+          .forEach(({ name }: Column) => {
+            columnNameToValuesMap[name] = [
+              50, 52, 55, 51, 52, 60, 62, 59, 55, 54, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
+            ];
+          });
 
-        columnNameToValuesMap['Throughput upper bound'] = [
-          55, 60, 62, 60, 62, 74, 69, 62, 64, 60, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
-        ];
+        columns
+          .filter(({ name }: Column) => name.includes('Throughput upper bound'))
+          .forEach(({ name }: Column) => {
+            columnNameToValuesMap[name] = [
+              55, 60, 62, 60, 62, 74, 69, 62, 64, 60, 50, 55, 60, 55, 60, 70, 65, 60, 62, 58
+            ];
+          });
 
         columns
           .filter(({ type }: Column) => type === 'dimension')
