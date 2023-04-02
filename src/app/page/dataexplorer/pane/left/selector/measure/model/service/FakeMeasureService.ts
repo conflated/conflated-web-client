@@ -134,7 +134,15 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'Latency',
+              name: 'Throughput lower bound',
+              expression: '',
+              isString: false,
+              isTimestamp: false,
+              isDate: false,
+              unit: 'none'
+            },
+            {
+              name: 'Throughput upper bound',
               expression: '',
               isString: false,
               isTimestamp: false,
