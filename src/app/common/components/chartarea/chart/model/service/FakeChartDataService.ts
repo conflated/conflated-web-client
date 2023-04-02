@@ -45,6 +45,12 @@ export default class FakeChartDataService implements ChartDataService {
               let size = 20;
               if (hasCellDimension && hasTimestamp) {
                 size = 200;
+
+                columnNameToValuesMap[name] = Array(size)
+                  .fill(0)
+                  .map((_, index) => Math.floor(100 - 0.4 * index - 5 * Math.random()));
+
+                return;
               } else if (hasErrorCategory && !hasCellDimension) {
                 size = 4;
               } else if (hasErrorCategory && hasCellDimension) {
