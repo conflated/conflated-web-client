@@ -73,8 +73,11 @@ class ChartAreaView extends React.Component<Props> {
     const {
       charts,
       className,
+      enterChartAreaWithDraggedChart,
       isLayoutLocked,
+      lastDragType,
       layout,
+      leaveChartAreaWithDraggedChart,
       stateNamespace,
       selectedChart,
       size: { width: chartAreaWidth, height: chartAreaHeight }
@@ -115,6 +118,9 @@ class ChartAreaView extends React.Component<Props> {
     return (
       <section
         className={`${styles.chartArea} ${className || ''} ${layout === scrollingLayout ? styles.scrollable : ''}`}
+        onDragOver={() => enterChartAreaWithDraggedChart(lastDragType)}
+        onDragLeave={leaveChartAreaWithDraggedChart}
+        onDrop={() => {}}
         tabIndex={0}
       >
         {isMaxWidth1024px ? (

@@ -6,7 +6,8 @@ const initialHeaderState: HeaderState = {
   currentPage: 'dashboardsPage',
   isFullScreenModeActive: false,
   isFullScreenModeNotificationDismissed: false,
-  shouldShowFullScreenModeNotification: false
+  shouldShowFullScreenModeNotification: false,
+  lastDragType: ''
 };
 
 export default OOReduxUtils.createStateReducer<HeaderState>(initialHeaderState, AbstractHeaderAction);

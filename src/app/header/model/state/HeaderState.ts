@@ -6,5 +6,5 @@ export type HeaderState = {
   readonly isFullScreenModeActive: boolean;
   readonly isFullScreenModeNotificationDismissed: boolean;
   readonly shouldShowFullScreenModeNotification: boolean;
-  readonly lastDragType?: DragType;
+  readonly lastDragType: DragType;
 };

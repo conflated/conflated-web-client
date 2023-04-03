@@ -1,5 +1,4 @@
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
-import ChangeChartAreaLayoutAndStorePreviousLayoutAction from './ChangeChartAreaLayoutAndStorePreviousLayoutAction';
 import Constants from '../../../../../Constants';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { GridItem } from '../../state/types/GridItem';
@@ -42,10 +41,11 @@ export default class EnterChartAreaWithDraggedChartAction extends AbstractChartA
 
         const newLayout = [...nonFirstRowCharts, ...modifiedFirstRowCharts, chartPlaceholderGridItem];
 
-        return this.performAction(
-          new ChangeChartAreaLayoutAndStorePreviousLayoutAction(this.stateNamespace, newLayout),
-          currentState
-        );
+        return {
+          ...currentState,
+          previousLayout: currentState.layout,
+          layout: newLayout
+        };
       }
     }
 
