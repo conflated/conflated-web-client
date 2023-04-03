@@ -10,6 +10,7 @@ import Constants from '../../../Constants';
 import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
+import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
 
 type SizeAwareComponent = {
   size: {
@@ -125,7 +126,7 @@ class ChartAreaView extends React.Component<Props> {
             layout={layout as any}
             margin={[0, 0]}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
-            verticalCompact
+            verticalCompact={layout !== scrollingLayout}
             width={chartAreaWidth}
           >
             {chartElements}

@@ -17,6 +17,7 @@ import layout13 from '../../model/state/layouts/layout13';
 import layout14 from '../../model/state/layouts/layout14';
 import layout15 from '../../model/state/layouts/layout15';
 import type { Layout } from '../../../../../../../../common/components/chartarea/model/state/types/Layout';
+import scrollingLayout from '../../model/state/layouts/scrollingLayout';
 
 type Props = {
   selectedLayout: Layout;
@@ -40,7 +41,7 @@ const LayoutIconsView = (props: Props) => (
     <LayoutIcon {...props} iconClassName={styles.layoutIcon13} layout={layout13} />
     <LayoutIcon {...props} iconClassName={styles.layoutIcon14} layout={layout14} />
     <LayoutIcon {...props} iconClassName={styles.layoutIcon15} layout={layout15} />
-    <LayoutIcon {...props} iconClassName={styles.scrollingLayoutIcon} layout={layout4} />
+    <LayoutIcon {...props} iconClassName={styles.scrollingLayoutIcon} layout={scrollingLayout} />
   </div>
 );
 
