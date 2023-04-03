@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import LayoutIconsView from './layouticons/LayoutIconsView';
+import LayoutIconsView from './icons/LayoutIconsView';
 import SelectorView from '../../../../../../../common/components/selector/view/SelectorView';
 import LayoutSelectorTitleView from './title/LayoutSelectorTitleView';
 import { ActionDispatchers, controller, State } from '../controller/layoutSelectorController';

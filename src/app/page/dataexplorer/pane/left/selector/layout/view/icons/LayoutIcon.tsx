@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from '../LayoutIcons.module.scss';
-import type { Layout } from '../../../../../../../../../common/components/chartarea/model/state/types/Layout';
+import styles from './LayoutIcons.module.scss';
+import type { Layout } from '../../../../../../../../common/components/chartarea/model/state/types/Layout';
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LayoutIcons.module.scss';
-import LayoutIcon from './layouticon/LayoutIcon';
+import LayoutIcon from './LayoutIcon';
 import layout1 from '../../model/state/layouts/layout1';
 import layout2 from '../../model/state/layouts/layout2';
 import layout3 from '../../model/state/layouts/layout3';
