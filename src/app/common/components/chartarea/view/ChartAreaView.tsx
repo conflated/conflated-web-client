@@ -113,7 +113,10 @@ class ChartAreaView extends React.Component<Props> {
     });
 
     return (
-      <section className={`${styles.chartArea} ${className || ''}`} tabIndex={0}>
+      <section
+        className={`${styles.chartArea} ${className || ''} ${layout === scrollingLayout ? styles.scrollable : ''}`}
+        tabIndex={0}
+      >
         {isMaxWidth1024px ? (
           chartElements
         ) : (
