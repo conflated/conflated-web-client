@@ -11,6 +11,7 @@ import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
 import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
+import preventDefault from '../../../utils/preventDefault';
 
 type SizeAwareComponent = {
   size: {
@@ -74,6 +75,7 @@ class ChartAreaView extends React.Component<Props> {
       charts,
       className,
       enterChartAreaWithDraggedChart,
+      dropChart,
       isLayoutLocked,
       lastDragType,
       layout,
@@ -118,9 +120,9 @@ class ChartAreaView extends React.Component<Props> {
     return (
       <section
         className={`${styles.chartArea} ${className || ''} ${layout === scrollingLayout ? styles.scrollable : ''}`}
-        onDragOver={() => enterChartAreaWithDraggedChart(lastDragType)}
+        onDragOver={_.flow(preventDefault, () => enterChartAreaWithDraggedChart(lastDragType))}
         onDragLeave={leaveChartAreaWithDraggedChart}
-        onDrop={() => {}}
+        onDrop={(event: React.DragEvent) => dropChart(event.dataTransfer.getData('chartType') as any)}
         tabIndex={0}
       >
         {isMaxWidth1024px ? (
