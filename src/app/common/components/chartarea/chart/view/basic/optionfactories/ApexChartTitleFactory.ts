@@ -1,11 +1,12 @@
 import type { Chart } from '../../../model/state/Chart';
+import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
 
 export default class ApexChartTitleFactory {
-  static createTitle(chart: Chart): object {
+  static createTitle(chart: Chart, stateNamespace: ChartAreaStateNamespace): object {
     const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     return {
-      text: `${chart.id}. ${chart.getTitleText()}`,
+      text: stateNamespace === 'dataExplorerPage' ? `${chart.id}. ${chart.getTitleText()}` : chart.getTitleText(),
       floating: chart.hasFloatingTitle(),
       style: {
         color: isDarkModeActive ? '#FFFFFF' : '#000000',
