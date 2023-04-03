@@ -1,13 +1,12 @@
-- Scrolling chart area layout
 - All dimension
 - Implement Statistic chart
 - Chart menu styles
 - Chart Copy + Paste
-- Chart drag + drop
 - Automatic Sort by
 - Sort bys
 - Filters
 - Go through chart types
+- Chart drag + drop improvements
 
 Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
