@@ -129,7 +129,7 @@ class ChartAreaView extends React.Component<Props> {
             layout={layout as any}
             margin={[0, 0]}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
-            verticalCompact={layout !== scrollingLayout}
+            compactType={layout === scrollingLayout ? 'vertical' : undefined}
             width={chartAreaWidth}
           >
             {chartElements}
