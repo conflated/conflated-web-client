@@ -12,6 +12,7 @@ const DashboardsSlideShowSlideChangeIntervalInputView = ({
   slideChangeIntervalInSecsStr
 }: Props) => (
   <>
+    <span className={styles.label}>Slide change interval: </span>
     <Popup
       inverted
       mouseEnterDelay={1000}
