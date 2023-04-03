@@ -36,6 +36,7 @@
   .dashboardSelectors {
     display: flex;
     flex-direction: column;
+    padding-top: 0.2rem;
 
     @media screen and (any-pointer: coarse) {
       flex-grow: 1;
@@ -147,8 +148,11 @@
     .dashboardGroupSelector {
       @extend %abstractSelector;
 
-      color: var(--small-font-color);
       font-size: 0.85rem;
+
+      :global(.divider.text) {
+       color: #ccc !important;
+      }
     }
   }
 
