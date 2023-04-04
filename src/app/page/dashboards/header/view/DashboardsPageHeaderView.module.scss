@@ -151,7 +151,11 @@
       font-size: 0.85rem;
 
       :global(.divider.text) {
-       color: #ccc !important;
+        color: #555 !important;
+
+        @media screen and (prefers-color-scheme: dark) {
+          color: #ccc !important;
+        }
       }
     }
   }
@@ -163,7 +167,7 @@
 
     font-size: 1.1rem !important;
     cursor: pointer;
-    line-height: 0.9 !important;
+    line-height: 0.7 !important;
     margin-right: 1rem;
 
     @media screen and (any-pointer: coarse) {
