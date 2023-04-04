@@ -140,9 +140,9 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
             chart={chart}
             isSelectedChart={chart === selectedChart}
             height={chartHeight}
-            heightInRows={gridItem.heightInRows}
+            heightInRows={gridItem?.heightInRows}
             width={chartWidth}
-            widthInCols={gridItem.widthInCols}
+            widthInCols={gridItem?.widthInCols}
             stateNamespace={stateNamespace}
           />
         </div>
