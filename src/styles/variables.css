@@ -10,8 +10,8 @@
     --secondary-text-color-on-hover:  #005AFF;
     --header-background-color: linear-gradient(90deg, rgba(0,90,255,1) 0%, rgba(55,204,115,1) 100%);
     --header-foreground-color: var(--secondary-text-color);
-    --list-item-color: #333;
-    --selected-list-item-color: rgb(0 0 0);
+    --list-item-color: #000;
+    --selected-list-item-color: #F47F31;
     --app-title-font-size: 2rem;
     --app-navigation-font-size: 1rem;
     --large-font-size: 1rem;
