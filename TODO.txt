@@ -1,3 +1,4 @@
+- Chart drag + drop improvements
 - All dimension
 - Implement Statistic chart
 - Chart menu styles
@@ -6,7 +7,6 @@
 - Sort bys
 - Filters
 - Go through chart types
-- Chart drag + drop improvements
 
 Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
