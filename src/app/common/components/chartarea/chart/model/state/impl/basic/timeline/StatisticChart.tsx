@@ -45,7 +45,7 @@ export default class StatisticChart extends AbstractTimelineChart {
       return <>{statisticElements}</>;
     } else if (this.selectedMeasures.length === 1 && this.selectedDimensions.length === 1) {
       return (
-        <div key={this.id}>
+        <div key={this.id} style={{ height: '100%' }}>
           <ApexChartView chart={this} width={0} height={0} stateNamespace={stateNamespace} />
         </div>
       );
@@ -136,7 +136,7 @@ export default class StatisticChart extends AbstractTimelineChart {
   }
 
   override hasFloatingTitle(): boolean {
-    return true;
+    return false;
   }
 
   override hasLargerTitle(): boolean {

@@ -3,7 +3,7 @@ import type { Chart } from '../../../model/state/Chart';
 export default class ApexChartYAxisOptionsFactory {
   static createYAxisOptions(chart: Chart): object {
     return {
-      show: chart.hasData(),
+      show: chart.hasData() && chart.chartType !== 'statistic',
       tooltip: {
         enabled: chart.shouldShowYAxisTooltip()
       },
