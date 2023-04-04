@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import GridLayout from 'react-grid-layout';
+import GridLayout, { Layout } from 'react-grid-layout';
 import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
 import type { ChartAreaStateNamespace } from '../model/state/types/ChartAreaStateNamespace';
@@ -29,11 +29,28 @@ export type OwnProps = SizeAwareComponent & {
 type Props = OwnProps & State & ActionDispatchers;
 
 // eslint-disable-next-line react/prefer-stateless-function
-class ChartAreaView extends React.Component<Props> {
+class ChartAreaView extends React.Component<Props, Record<string, any>> {
   // eslint-disable-next-line react/static-property-placement
   static defaultProps = {
     className: undefined
   };
+
+  constructor(props: Props) {
+    super(props);
+    this.state = props.charts.reduce((gridItems, chart) => {
+      const gridItem = Utils.findElem(props.layout, 'i', chart.id);
+
+      return {
+        ...gridItems,
+        [chart.id]: {
+          heightInRows: gridItem?.h,
+          widthInCols: gridItem?.w
+        }
+      };
+    }, {});
+
+    console.log(this.state);
+  }
 
   override componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown);
@@ -71,6 +88,16 @@ class ChartAreaView extends React.Component<Props> {
     }
   };
 
+  updateChartSize = (layout: Layout[], oldItem: Layout, newItem: Layout) => {
+    this.setState((currentState: State) => ({
+      ...currentState,
+      [newItem.i]: {
+        heightInRows: newItem.h,
+        widthInCols: newItem.w
+      }
+    }));
+  };
+
   override render() {
     const {
       charts,
@@ -104,7 +131,8 @@ class ChartAreaView extends React.Component<Props> {
       }
 
       const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
-      const gridItem = Utils.findElem(layout, 'i', chart.id);
+      // eslint-disable-next-line react/destructuring-assignment
+      const gridItem = this.state[chart.id];
 
       return (
         <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
@@ -112,9 +140,9 @@ class ChartAreaView extends React.Component<Props> {
             chart={chart}
             isSelectedChart={chart === selectedChart}
             height={chartHeight}
-            heightInRows={gridItem?.h}
+            heightInRows={gridItem.heightInRows}
             width={chartWidth}
-            widthInCols={gridItem?.w}
+            widthInCols={gridItem.widthInCols}
             stateNamespace={stateNamespace}
           />
         </div>
@@ -140,6 +168,7 @@ class ChartAreaView extends React.Component<Props> {
             isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             layout={layout as any}
             margin={[0, 0]}
+            onResize={this.updateChartSize}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
             compactType={layout === scrollingLayout ? 'vertical' : undefined}
             width={chartAreaWidth}
