@@ -5,6 +5,7 @@
   height: 100%;
   justify-content: center;
   left: 0;
+  overflow: hidden;
   padding: 10px;
   position: absolute;
   top: 0;
@@ -13,6 +14,8 @@
   .uiHints {
     color: #c0c0c0;
     font-size: 2rem;
+    line-height: 1.7rem;
+    white-space: break-spaces;
 
     @media screen and (prefers-color-scheme: dark) {
       color: rgb(140, 140, 140);
@@ -22,7 +25,9 @@
   .smallText {
     color: #c9c9c9;
     font-size: 1.1rem;
+    line-height: 1rem;
     margin-top: 5px;
+    white-space: break-spaces;
 
     @media screen and (prefers-color-scheme: dark) {
       color: rgb(180, 180, 180);
