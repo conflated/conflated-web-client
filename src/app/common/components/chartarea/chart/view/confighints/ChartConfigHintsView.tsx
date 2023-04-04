@@ -15,9 +15,18 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
   if (chartConfigHintTitle) {
     return (
       <div className={styles.uiHintsContainer}>
-        <div className={styles.uiHints}>{chartConfigHintTitle}</div>
-        {chartConfigHintSubtitle ? <div className={styles.smallText}>{chartConfigHintSubtitle}</div> : undefined}
-        w: {widthInCols}, h: {heightInRows}
+        <div className={styles.chartSize}>
+          <span>w:</span>
+          {widthInCols} x <span>h:</span>
+          {heightInRows}
+        </div>
+
+        {heightInRows && heightInRows >= 2 && (
+          <>
+            <div className={styles.uiHints}>{chartConfigHintTitle}</div>
+            {chartConfigHintSubtitle ? <div className={styles.smallText}>{chartConfigHintSubtitle}</div> : undefined}
+          </>
+        )}
       </div>
     );
   }

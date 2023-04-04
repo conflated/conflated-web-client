@@ -11,6 +11,16 @@
   top: 0;
   width: 100%;
 
+  .chartSize {
+    color: #c0c0c0;
+    font-size: 3rem;
+    line-height: 3rem;
+
+    span {
+      font-size: 1.25rem;
+    }
+  }
+
   .uiHints {
     color: #c0c0c0;
     font-size: 2rem;
