@@ -1,9 +1,22 @@
 .chart {
-  @media (any-pointer: fine) {
-    border: 3px solid transparent;
+  border: 1px solid #e9e9e9;
+
+  @media (prefers-color-scheme: dark) {
+    border: 1px solid #222;
   }
 
   height: 100%;
+
+  &:hover {
+    @media (any-pointer: fine) {
+      background-color: var(--transparent-brand-color-1);
+      border: 1px solid var(--brand-color-1);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #131313;
+      }
+    }
+  }
 
   &.scrollable {
     padding-bottom: 1rem !important;
@@ -54,7 +67,7 @@
   &.selectedChart {
     @media (any-pointer: fine) {
       background-color: var(--transparent-brand-color-1);
-      border: 3px solid var(--brand-color-1);
+      border: 1px solid var(--brand-color-1);
 
       @media (prefers-color-scheme: dark) {
         background-color: #131313;
