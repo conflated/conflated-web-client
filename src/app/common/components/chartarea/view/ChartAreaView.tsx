@@ -12,6 +12,7 @@ import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
 import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
 import preventDefault from '../../../utils/preventDefault';
+import Utils from '../../../utils/Utils';
 
 type SizeAwareComponent = {
   size: {
@@ -103,6 +104,7 @@ class ChartAreaView extends React.Component<Props> {
       }
 
       const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
+      const gridItem = Utils.findElem(layout, 'i', chart.id);
 
       return (
         <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
@@ -110,7 +112,9 @@ class ChartAreaView extends React.Component<Props> {
             chart={chart}
             isSelectedChart={chart === selectedChart}
             height={chartHeight}
+            heightInRows={gridItem?.h}
             width={chartWidth}
+            widthInCols={gridItem?.w}
             stateNamespace={stateNamespace}
           />
         </div>

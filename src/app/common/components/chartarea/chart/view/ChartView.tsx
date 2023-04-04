@@ -17,9 +17,11 @@ import stopEventPropagation from '../../../../utils/stopEventPropagation';
 type OwnProps = {
   chart: Chart;
   height: number;
+  heightInRows?: number;
   isSelectedChart: boolean;
   stateNamespace: ChartAreaStateNamespace;
   width: number;
+  widthInCols?: number;
 };
 
 const controller = new ChartController(store.dispatch);
@@ -27,14 +29,16 @@ type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
 
 type Props = OwnProps & ActionDispatchers;
 
-const ChartView = ({
+const ChartView: React.FC<Props> = ({
   chart,
   changeXAxisScrollPosition,
   height,
+  heightInRows,
   isSelectedChart,
   selectChart,
   stateNamespace,
-  width
+  width,
+  widthInCols
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
   const [quickFilterIsShown, setQuickFilterIsShown] = useState(false);
@@ -106,9 +110,14 @@ const ChartView = ({
         stateNamespace={stateNamespace}
       />
       <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />
-      <ChartConfigHintsView chart={chart} />
+      <ChartConfigHintsView chart={chart} heightInRows={heightInRows} widthInCols={widthInCols} />
     </div>
   );
+};
+
+ChartView.defaultProps = {
+  heightInRows: undefined,
+  widthInCols: undefined
 };
 
 export default connect(

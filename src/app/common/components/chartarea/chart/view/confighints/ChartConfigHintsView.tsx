@@ -4,9 +4,11 @@ import type { Chart } from '../../model/state/Chart';
 
 type Props = {
   chart: Chart;
+  heightInRows?: number;
+  widthInCols?: number;
 };
 
-const ChartConfigHintsView = ({ chart }: Props) => {
+const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCols }: Props) => {
   const chartConfigHintTitle = chart.getChartConfigHintTitle();
   const chartConfigHintSubtitle = chart.getChartConfigHintSubtitle();
 
@@ -15,11 +17,17 @@ const ChartConfigHintsView = ({ chart }: Props) => {
       <div className={styles.uiHintsContainer}>
         <div className={styles.uiHints}>{chartConfigHintTitle}</div>
         {chartConfigHintSubtitle ? <div className={styles.smallText}>{chartConfigHintSubtitle}</div> : undefined}
+        w: {widthInCols}, h: {heightInRows}
       </div>
     );
   }
 
   return null;
+};
+
+ChartConfigHintsView.defaultProps = {
+  heightInRows: undefined,
+  widthInCols: undefined
 };
 
 export default ChartConfigHintsView;
