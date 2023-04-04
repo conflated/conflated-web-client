@@ -16,8 +16,8 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
     return (
       <div className={styles.uiHintsContainer}>
         <div className={styles.chartSize}>
-          <span>w:</span>
-          {widthInCols} x <span>h:</span>
+          <span className={styles.widthOrHeight}>w:</span>
+          {widthInCols} <span className={styles.timesChar}>x</span> <span className={styles.widthOrHeight}>h:</span>
           {heightInRows}
         </div>
 
