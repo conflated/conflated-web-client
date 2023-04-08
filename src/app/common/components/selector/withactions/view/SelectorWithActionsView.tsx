@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles2 from './SelectorWithActionsView.module.scss';
 import styles from '../../view/SelectorView.module.scss';
 import SearchInputView from '../../../../views/input/searchinput/SearchInputView';
-import ActionsView from './actions/ActionsView';
+import SelectorActionsView from './actions/SelectorActionsView';
 import SelectorView from '../../view/SelectorView';
 import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/selectorWithActionsController';
@@ -56,7 +56,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   }
 
   const titleContent = (
-    <ActionsView
+    <SelectorActionsView
       iconClassName={styles.actionIcon}
       position={position}
       toggleShowSearchInput={_.flow(stopEventPropagation, toggleShowSearchInput)}

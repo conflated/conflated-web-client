@@ -17,7 +17,7 @@ type Props = {
   toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-const ActionsView: React.FC<Props> = ({
+const SelectorActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
   handleReorderIconClick,
@@ -116,7 +116,7 @@ const ActionsView: React.FC<Props> = ({
   );
 };
 
-ActionsView.defaultProps = {
+SelectorActionsView.defaultProps = {
   addIconTooltipText: '',
   handlePinIconClick: _.noop,
   handleSelectAllIconClick: undefined,
@@ -125,4 +125,4 @@ ActionsView.defaultProps = {
   shouldShowPinIcon: false
 };
 
-export default ActionsView;
+export default SelectorActionsView;

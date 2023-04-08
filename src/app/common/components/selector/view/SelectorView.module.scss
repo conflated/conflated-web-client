@@ -20,6 +20,7 @@
   display: flex !important;
   font-size: 1rem !important;
   font-weight: bold;
+  white-space: nowrap;
 
   &:hover .actionIcon {
     visibility: visible;
@@ -28,6 +29,7 @@
 
 .titleSpan {
   flex-grow: 1;
+  padding-right: 1rem;
 }
 
 .content {
