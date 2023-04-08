@@ -34,9 +34,13 @@ const PagePaneView = ({
     [styles.fullScreen]: isFullScreenModeActive
   });
 
+  const adjustedWidth = `calc(var(--${paneDefaultWidthCssVarName}) ${
+    pane === 'leftPane' ? '+' : '-'
+  } ${paneGutterOffset}px)`;
+
   const style = {
-    flexBasis: `calc(var(--${paneDefaultWidthCssVarName}) ${pane === 'leftPane' ? '+' : '-'} ${paneGutterOffset}px)`,
-    width: `var(--${paneDefaultWidthCssVarName})`
+    width: shouldShowPagePanePermanently ? adjustedWidth : `var(--${paneDefaultWidthCssVarName})`,
+    minWidth: '23rem'
   };
 
   return (
