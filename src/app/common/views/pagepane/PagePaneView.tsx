@@ -38,7 +38,7 @@ const PagePaneView = ({
     [styles.fullScreen]: isFullScreenModeActive
   });
 
-  const currentWidth = dragStartPosition ? `${dragStartPosition}px` : `var(--${paneDefaultWidthCssVarName})`;
+  const currentWidth = dragStartPosition >= 0 ? `${dragStartPosition}px` : `var(--${paneDefaultWidthCssVarName})`;
   const adjustedWidth = `calc(${currentWidth} ${pane === 'leftPane' ? '+' : '-'} ${paneGutterOffset}px)`;
 
   const style = {
