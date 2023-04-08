@@ -52,7 +52,7 @@ const PageView = ({
     if (event.pageX !== 0) {
       dragPagePaneGutter(pane, event.pageX);
     }
-  }, 10);
+  }, 100);
 
   const createDraggableGutter = (pane: Pane) => {
     if (shouldShowPagePanePermanently[pane]) {

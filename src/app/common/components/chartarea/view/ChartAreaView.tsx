@@ -145,7 +145,6 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
       // eslint-disable-next-line react/destructuring-assignment
       const gridItem = this.state[chart.id];
-      console.log(this.state);
 
       return (
         <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
