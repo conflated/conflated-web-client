@@ -9,10 +9,9 @@
 
   .draggableGutter {
     cursor: ew-resize;
-    flex-basis: 2px;
+    flex-basis: 3px;
     flex-shrink: 0;
     height: 100%;
-    opacity: 0;
 
     @media screen and (any-pointer: coarse) {
       display: none;

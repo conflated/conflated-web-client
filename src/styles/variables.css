@@ -22,8 +22,8 @@
     --notification-z-index: 900;
     --topmost-z-index: 999;
     --on-top-of-map-z-index: 1000;
-    --data-explorer-page-left-pane-default-width: 30rem;
-    --data-explorer-page-right-pane-default-width: 28rem;
+    --data-explorer-page-left-pane-default-width: 25rem;
+    --data-explorer-page-right-pane-default-width: 25rem;
     --dashboards-page-header-background-color: #e9ebec;
     --dashboards-page-left-pane-default-width: 28rem;
     --reports-page-left-pane-default-width: 28rem;
@@ -58,8 +58,8 @@
     --notification-z-index: 900;
     --topmost-z-index: 999;
     --on-top-of-map-z-index: 1000;
-    --data-explorer-page-left-pane-default-width: 30rem;
-    --data-explorer-page-right-pane-default-width: 28rem;
+    --data-explorer-page-left-pane-default-width: 25rem;
+    --data-explorer-page-right-pane-default-width: 25rem;
     --dashboards-page-header-background-color: #222;
     --dashboards-page-header-foreground-color: #fff;
     --dashboards-page-left-pane-default-width: 28rem;
