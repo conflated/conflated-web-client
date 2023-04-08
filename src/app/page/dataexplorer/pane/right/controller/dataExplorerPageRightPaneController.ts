@@ -7,6 +7,7 @@ import { AppState } from '../../../../../../store/AppState';
 export default class DataExplorerPageRightPaneController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+    dragStartPosition: appState.common.pageStates.dataExplorerPage.pagePaneGutterPositionOnDragStart.rightPane,
     dataExplorerPageRightPaneGutterOffset: appState.common.pageStates.dataExplorerPage.pagePaneGutterOffset.rightPane,
     isFilterSelectorOpen: appState.common.selectorStates.dataExplorerPageFilterSelector.isSelectorOpen,
     isSortBySelectorOpen: appState.common.selectorStates.dataExplorerPageSortBySelector.isSelectorOpen,

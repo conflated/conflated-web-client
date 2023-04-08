@@ -7,6 +7,7 @@ import { AppState } from '../../../../../../store/AppState';
 class DashboardsPageLeftPaneController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+    dragStartPosition: appState.common.pageStates.dashboardsPage.pagePaneGutterPositionOnDragStart.leftPane,
     dashboardsPageLeftPaneGutterOffset: appState.common.pageStates.dashboardsPage.pagePaneGutterOffset.leftPane,
     shouldShowDashboardsPageLeftPane: appState.common.pageStates.dashboardsPage.shouldShowPagePane.leftPane,
     isDashboardGroupSelectorOpen: appState.common.selectorStates.dashboardGroupSelector.isSelectorOpen,

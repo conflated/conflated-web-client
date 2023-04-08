@@ -10,6 +10,7 @@ import { OwnProps } from '../view/TriggersPageLeftPaneView';
 class TriggersPageLeftPaneController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+    dragStartPosition: appState.common.pageStates[stateNamespace].pagePaneGutterPositionOnDragStart.leftPane,
     triggersPageLeftPaneGutterOffset: appState.common.pageStates[stateNamespace].pagePaneGutterOffset.leftPane,
 
     shouldShowTriggersPageLeftPane: appState.common.pageStates[stateNamespace].shouldShowPagePane.leftPane,

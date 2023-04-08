@@ -12,6 +12,7 @@ import { ActionDispatchers, controller, State } from '../controller/dataExplorer
 type Props = ActionDispatchers & State;
 
 const DataExplorerPageRightPaneView = ({
+  dragStartPosition,
   hideDataExplorerPageRightPane,
   isDataPointsCountSelectorOpen,
   isFilterSelectorOpen,
@@ -42,9 +43,11 @@ const DataExplorerPageRightPaneView = ({
 
   return (
     <PagePaneView
+      dragStartPosition={dragStartPosition}
       id="dataExplorerPageRightPane"
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={hideDataExplorerPageRightPane}
+      minWidth="20rem"
       pane="rightPane"
       paneDefaultWidthCssVarName="data-explorer-page-right-pane-default-width"
       paneGutterOffset={dataExplorerPageRightPaneGutterOffset}

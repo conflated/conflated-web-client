@@ -17,10 +17,11 @@ export default class StartPaneGutterDragAction extends AbstractPageAction {
       ...currentState,
       pagePaneGutterPositionOnDragStart: {
         ...currentState.pagePaneGutterPositionOnDragStart,
-        [this.pane]:
-          currentState.pagePaneGutterPositionOnDragStart[this.pane] === -1
-            ? this.pagePaneGutterPositionOnDragStart
-            : currentState.pagePaneGutterPositionOnDragStart[this.pane]
+        [this.pane]: this.pagePaneGutterPositionOnDragStart
+      },
+      pagePaneGutterOffset: {
+        ...currentState.pagePaneGutterOffset,
+        [this.pane]: 0
       }
     };
   }

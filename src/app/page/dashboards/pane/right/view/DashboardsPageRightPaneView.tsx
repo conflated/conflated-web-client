@@ -8,6 +8,7 @@ import { ActionDispatchers, controller, State } from '../controller/dashboardsPa
 type Props = ActionDispatchers & State;
 
 const DashboardsPageRightPaneView = ({
+  dragStartPosition,
   hideDashboardsPageRightPane,
   isFullScreenModeActive,
   dashboardsPageRightPaneGutterOffset,
@@ -15,9 +16,11 @@ const DashboardsPageRightPaneView = ({
   shouldShowDashboardsPageRightPanePermanently
 }: Props) => (
   <PagePaneView
+    dragStartPosition={dragStartPosition}
     id="dashboardsPageRightPane"
     isFullScreenModeActive={isFullScreenModeActive}
     hidePagePane={hideDashboardsPageRightPane}
+    minWidth="20rem"
     pane="rightPane"
     paneDefaultWidthCssVarName="dashboards-page-right-pane-default-width"
     paneGutterOffset={dashboardsPageRightPaneGutterOffset}

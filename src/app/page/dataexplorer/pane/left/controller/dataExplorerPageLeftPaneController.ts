@@ -9,6 +9,7 @@ class DataExplorerPageLeftPaneController extends Controller<PageStateNamespace> 
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
     shouldShowDataExplorerPageLeftPane: appState.common.pageStates.dataExplorerPage.shouldShowPagePane.leftPane,
     dataExplorerPageLeftPaneGutterOffset: appState.common.pageStates.dataExplorerPage.pagePaneGutterOffset.leftPane,
+    dragStartPosition: appState.common.pageStates.dataExplorerPage.pagePaneGutterPositionOnDragStart.leftPane,
     isDataSourceSelectorOpen: appState.common.selectorStates.dataSourceSelector.isSelectorOpen,
     isMeasureSelectorOpen: appState.common.selectorStates.measureSelector.isSelectorOpen,
     isDimensionSelectorOpen: appState.common.selectorStates.dimensionSelector.isSelectorOpen,

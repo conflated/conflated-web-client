@@ -7,6 +7,7 @@ import store from '../../../../../../store/store';
 class DashboardsPageRightPaneController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+    dragStartPosition: appState.common.pageStates.dashboardsPage.pagePaneGutterPositionOnDragStart.rightPane,
     dashboardsPageRightPaneGutterOffset: appState.common.pageStates.dashboardsPage.pagePaneGutterOffset.rightPane,
     shouldShowDashboardsPageRightPane: appState.common.pageStates.dashboardsPage.shouldShowPagePane.rightPane,
 

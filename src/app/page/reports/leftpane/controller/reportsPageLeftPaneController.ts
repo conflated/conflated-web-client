@@ -7,6 +7,7 @@ import { AppState } from '../../../../../store/AppState';
 class ReportsPageLeftPaneController extends Controller<PageStateNamespace> {
   getState = (appState: AppState) => ({
     isFullScreenModeActive: appState.headerState.isFullScreenModeActive,
+    dragStartPosition: appState.common.pageStates.reportsPage.pagePaneGutterPositionOnDragStart.leftPane,
     leftPaneGutterOffset: appState.common.pageStates.reportsPage.pagePaneGutterOffset.leftPane,
     shouldShowLeftPane: appState.common.pageStates.reportsPage.shouldShowPagePane.leftPane,
     isReportTemplateGroupSelectorOpen: appState.common.selectorStates.reportTemplateGroupSelector.isSelectorOpen,

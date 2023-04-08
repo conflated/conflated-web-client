@@ -5,9 +5,11 @@ import type { Pane } from '../../components/page/model/state/types/Pane';
 
 type Props = {
   children: Array<JSX.Element>;
+  dragStartPosition: number;
   hidePagePane: () => void;
   id: string;
   isFullScreenModeActive: boolean;
+  minWidth: string;
   pane: Pane;
   paneDefaultWidthCssVarName: string;
   paneGutterOffset: number;
@@ -17,9 +19,11 @@ type Props = {
 
 const PagePaneView = ({
   children,
+  dragStartPosition,
   hidePagePane,
   id,
   isFullScreenModeActive,
+  minWidth,
   pane,
   paneDefaultWidthCssVarName,
   paneGutterOffset,
@@ -34,13 +38,12 @@ const PagePaneView = ({
     [styles.fullScreen]: isFullScreenModeActive
   });
 
-  const adjustedWidth = `calc(var(--${paneDefaultWidthCssVarName}) ${
-    pane === 'leftPane' ? '+' : '-'
-  } ${paneGutterOffset}px)`;
+  const currentWidth = dragStartPosition ? `${dragStartPosition}px` : `var(--${paneDefaultWidthCssVarName})`;
+  const adjustedWidth = `calc(${currentWidth} ${pane === 'leftPane' ? '+' : '-'} ${paneGutterOffset}px)`;
 
   const style = {
     width: shouldShowPagePanePermanently ? adjustedWidth : `var(--${paneDefaultWidthCssVarName})`,
-    minWidth: '23rem'
+    minWidth
   };
 
   return (

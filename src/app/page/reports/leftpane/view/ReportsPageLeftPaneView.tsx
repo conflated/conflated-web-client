@@ -10,6 +10,7 @@ import ReportTemplateSelectorView from '../selector/reporttemplate/view/ReportTe
 type Props = ActionDispatchers & State;
 
 const ReportsPageLeftPaneView = ({
+  dragStartPosition,
   hideLeftPane,
   isReportTemplateGroupSelectorOpen,
   isReportTemplateSelectorOpen,
@@ -38,9 +39,11 @@ const ReportsPageLeftPaneView = ({
 
   return (
     <PagePaneView
+      dragStartPosition={dragStartPosition}
       id="reportsPageLeftPane"
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={hideLeftPane}
+      minWidth="23rem"
       pane="leftPane"
       paneDefaultWidthCssVarName="reports-page-left-pane-default-width"
       paneGutterOffset={leftPaneGutterOffset}

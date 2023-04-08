@@ -13,6 +13,7 @@ export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const TriggersPageLeftPaneView = ({
+  dragStartPosition,
   hideTriggersPageLeftPane,
   isFullScreenModeActive,
   isTriggerDataSourceSelectorOpen,
@@ -43,9 +44,11 @@ const TriggersPageLeftPaneView = ({
 
   return (
     <PagePaneView
+      dragStartPosition={dragStartPosition}
       id={`${stateNamespace}LeftPane`}
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={() => hideTriggersPageLeftPane()}
+      minWidth="23rem"
       pane="leftPane"
       paneDefaultWidthCssVarName="triggers-page-left-pane-default-width"
       paneGutterOffset={triggersPageLeftPaneGutterOffset}

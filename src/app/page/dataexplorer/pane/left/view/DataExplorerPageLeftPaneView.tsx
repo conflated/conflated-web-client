@@ -14,6 +14,7 @@ type Props = ActionDispatchers & State;
 
 const DataExplorerPageLeftPaneView = ({
   dataExplorerPageLeftPaneGutterOffset,
+  dragStartPosition,
   hideDataExplorerPageLeftPane,
   isDataSourceSelectorOpen,
   isDimensionSelectorOpen,
@@ -43,9 +44,11 @@ const DataExplorerPageLeftPaneView = ({
 
   return (
     <PagePaneView
+      dragStartPosition={dragStartPosition}
       id="dataExplorerPageLeftPane"
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={hideDataExplorerPageLeftPane}
+      minWidth="18rem"
       pane="leftPane"
       paneDefaultWidthCssVarName="data-explorer-page-left-pane-default-width"
       paneGutterOffset={dataExplorerPageLeftPaneGutterOffset}

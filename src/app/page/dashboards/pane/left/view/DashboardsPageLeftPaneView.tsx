@@ -10,6 +10,7 @@ import { ActionDispatchers, controller, State } from '../controller/dashboardsPa
 type Props = ActionDispatchers & State;
 
 const DashboardsPageLeftPaneView = ({
+  dragStartPosition,
   hideDashboardsPageLeftPane,
   isDashboardGroupSelectorOpen,
   isDashboardSelectorOpen,
@@ -41,9 +42,11 @@ const DashboardsPageLeftPaneView = ({
       id="dashboardsPageLeftPane"
       isFullScreenModeActive={isFullScreenModeActive}
       hidePagePane={hideDashboardsPageLeftPane}
+      minWidth="23rem"
       pane="leftPane"
       paneDefaultWidthCssVarName="dashboards-page-left-pane-default-width"
       paneGutterOffset={dashboardsPageLeftPaneGutterOffset}
+      dragStartPosition={dragStartPosition}
       shouldShowPagePane={shouldShowDashboardsPageLeftPane}
       shouldShowPagePanePermanently={shouldShowDashboardsPageLeftPanePermanently}
     >
