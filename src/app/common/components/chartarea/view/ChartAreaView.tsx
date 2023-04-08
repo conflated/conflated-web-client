@@ -37,19 +37,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
   constructor(props: Props) {
     super(props);
-    this.state = props.charts.reduce((gridItems, chart) => {
-      const gridItem = Utils.findElem(props.layout, 'i', chart.id);
-
-      return {
-        ...gridItems,
-        [chart.id]: {
-          heightInRows: gridItem?.h,
-          widthInCols: gridItem?.w
-        }
-      };
-    }, {});
-
-    console.log(this.state);
+    this.state = {};
   }
 
   override componentDidMount() {
@@ -88,6 +76,24 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
     }
   };
 
+  showChartSizes = () => {
+    const { charts, layout } = this.props;
+
+    this.setState(
+      charts.reduce((gridItems, chart) => {
+        const gridItem = Utils.findElem(layout, 'i', chart.id);
+
+        return {
+          ...gridItems,
+          [chart.id]: {
+            heightInRows: gridItem?.h,
+            widthInCols: gridItem?.w
+          }
+        };
+      }, {})
+    );
+  };
+
   updateChartSize = (layout: Layout[], oldItem: Layout, newItem: Layout) => {
     this.setState((currentState: State) => ({
       ...currentState,
@@ -96,6 +102,12 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
         widthInCols: newItem.w
       }
     }));
+  };
+
+  hideChartSizes = () => {
+    this.setState((currentState) =>
+      Object.keys(currentState).reduce((newState, key) => ({ ...newState, [key]: undefined }), {})
+    );
   };
 
   override render() {
@@ -133,6 +145,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
       // eslint-disable-next-line react/destructuring-assignment
       const gridItem = this.state[chart.id];
+      console.log(this.state);
 
       return (
         <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
@@ -168,7 +181,9 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
             isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             layout={layout as any}
             margin={[0, 0]}
+            onResizeStart={this.showChartSizes}
             onResize={this.updateChartSize}
+            onResizeStop={this.hideChartSizes}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
             compactType={layout === scrollingLayout ? 'vertical' : undefined}
             width={chartAreaWidth}
