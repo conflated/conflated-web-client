@@ -39,16 +39,13 @@ const ReportTemplateGroupSelectorView = ({
   useEffect(() => confirmationDialogCancelButtonRef.current?.focus());
 
   const handleMaximizeIconClick = useCallback(
-    (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-
+    () =>
       toggleMaximizeSelector([
         {
           isOpen: isReportTemplateSelectorOpen,
           selectorStateNamespace: 'reportTemplateSelector'
         }
-      ]);
-    },
+      ]),
     [isReportTemplateSelectorOpen, toggleMaximizeSelector]
   );
 
@@ -156,7 +153,7 @@ const ReportTemplateGroupSelectorView = ({
             secondTabPaneListItems={[]}
           />
         }
-        handleMaximizeIconClick={handleMaximizeIconClick}
+        handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
         handlePinIconClick={_.flow(stopEventPropagation, toggleShouldShowLeftPanePermanently)}
         selectorStateNamespace="reportTemplateGroupSelector"
         isPinned={shouldShowLeftPanePermanently}

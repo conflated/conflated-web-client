@@ -17,6 +17,7 @@ export type OwnProps = {
   selectorStateNamespace: SelectorStateNamespace;
   titleText: string;
   titleContent?: JSX.Element | null;
+  toggleMaximizeSelector?: () => void;
 };
 
 type Props = OwnProps & ActionDispatchers & State;
@@ -31,16 +32,26 @@ const SelectorView: React.FC<Props> = ({
   selectorContentClassName,
   titleContent,
   titleText,
+  toggleMaximizeSelector,
   toggleSelectorOpen
 }: Props) => (
   <section id={id} className={position === 'leftPane' ? styles.leftPaneSelector : styles.rightPaneSelector}>
     <Accordion className={isSelectorMaximized && isSelectorOpen ? styles.maximizedSelector : ''}>
-      <Accordion.Title className={styles.title} active={isSelectorOpen} index={0} onClick={toggleSelectorOpen}>
+      <Accordion.Title
+        className={styles.title}
+        active={isSelectorOpen}
+        index={0}
+        onClick={toggleSelectorOpen ?? _.noop}
+      >
         <Icon name="dropdown" />
         <span className={styles.titleSpan}>{titleText}</span>
         {titleContent}
       </Accordion.Title>
-      <Accordion.Content className={`${selectorContentClassName} ${styles.content}`} active={isSelectorOpen}>
+      <Accordion.Content
+        className={`${selectorContentClassName} ${styles.content}`}
+        active={isSelectorOpen}
+        onDoubleClick={toggleMaximizeSelector}
+      >
         <div id={`${id}Content`}>{selectorContent}</div>
       </Accordion.Content>
     </Accordion>
@@ -52,7 +63,8 @@ SelectorView.defaultProps = {
   additionalContent: undefined,
   isSelectorMaximized: true,
   selectorContentClassName: '',
-  titleContent: undefined
+  titleContent: undefined,
+  toggleMaximizeSelector: undefined
 };
 
 export default connect(

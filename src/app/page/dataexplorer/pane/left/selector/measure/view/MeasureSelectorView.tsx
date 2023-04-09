@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
+import _ from 'lodash';
 import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../../../common/views/list/item/DimensionListItemView';
@@ -14,6 +15,7 @@ import ListView from '../../../../../../../common/views/list/ListView';
 import { ActionDispatchers, controller, State } from '../controller/measureSelectorController';
 import emptyDataSource from '../../../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { Measure } from '../model/state/types/Measure';
+import stopEventPropagation from '../../../../../../../common/utils/stopEventPropagation';
 
 type Props = ActionDispatchers & State;
 
@@ -34,9 +36,7 @@ const MeasureSelectorView = ({
   toggleMaximizeSelector
 }: Props) => {
   const handleMaximizeIconClick = useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      event.stopPropagation();
-
+    () =>
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
@@ -54,8 +54,7 @@ const MeasureSelectorView = ({
           isOpen: isDataSourceSelectorOpen,
           selectorStateNamespace: 'dataSourceSelector'
         }
-      ]);
-    },
+      ]),
     [
       isChartTypeSelectorOpen,
       isDataSourceSelectorOpen,
@@ -96,20 +95,21 @@ const MeasureSelectorView = ({
   );
 
   const measureListItems = useMemo(() => {
-    const notSelectedMeasure = (measure: Measure) =>
-      !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure);
+    const isSelectedMeasure = (measure: Measure) =>
+      selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure);
 
     return shownMeasures
-      .filter(notSelectedMeasure)
+      .filter((measure: Measure) => !isSelectedMeasure(measure))
       .map((measure) => (
         <MeasureListItemView
           key={measure.name}
           iconClassName=""
           item={measure}
           onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+          onItemDblClick={handleMaximizeIconClick}
         />
       ));
-  }, [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownMeasures]);
+  }, [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, selectedChart.selectedMeasures, shownMeasures]);
 
   const dimensionListItems = useMemo(
     () =>
@@ -152,7 +152,7 @@ const MeasureSelectorView = ({
           )}
         </>
       }
-      handleMaximizeIconClick={handleMaximizeIconClick}
+      handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
       selectorStateNamespace="measureSelector"
     />
   );

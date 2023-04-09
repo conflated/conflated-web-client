@@ -13,8 +13,8 @@ import stopEventPropagation from '../../../../utils/stopEventPropagation';
 export type OwnProps = {
   addIconTooltipText?: string;
   additionalContent?: JSX.Element;
-  handleMaximizeIconClick: (event: React.MouseEvent<HTMLElement>) => void;
-  handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  handleMaximizeIconClick: (...args: never[]) => void;
+  handlePinIconClick?: (...args: never[]) => void;
   handleSelectAllIconClick?: () => void;
   id: string;
   isPinned?: boolean;
@@ -60,7 +60,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       iconClassName={styles.actionIcon}
       position={position}
       toggleShowSearchInput={_.flow(stopEventPropagation, toggleShowSearchInput)}
-      toggleMaximizeAccordion={handleMaximizeIconClick}
+      toggleMaximizeSelector={handleMaximizeIconClick}
       shouldShowPinIcon={isPinned !== undefined}
       isPinned={isPinned}
       handlePinIconClick={handlePinIconClick}
@@ -94,6 +94,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
       selectorContentClassName={styles2.content}
       additionalContent={additionalContent}
       selectorStateNamespace={selectorStateNamespace}
+      toggleMaximizeSelector={handleMaximizeIconClick}
     />
   );
 };

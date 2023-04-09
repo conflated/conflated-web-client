@@ -5,7 +5,7 @@ import stopEventPropagation from '../../../../../utils/stopEventPropagation';
 
 type Props = {
   addIconTooltipText?: string;
-  handlePinIconClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  handlePinIconClick?: (...args: never[]) => void;
   handleReorderIconClick: () => void;
   handleSelectAllIconClick?: () => void;
   iconClassName: string;
@@ -13,8 +13,8 @@ type Props = {
   position: 'leftPane' | 'rightPane';
   reorderIconTooltipText?: string;
   shouldShowPinIcon?: boolean;
-  toggleShowSearchInput: (event: React.MouseEvent<HTMLElement>) => void;
-  toggleMaximizeAccordion: (event: React.MouseEvent<HTMLElement>) => void;
+  toggleShowSearchInput: (...args: never[]) => void;
+  toggleMaximizeSelector: (...args: never[]) => void;
 };
 
 const SelectorActionsView: React.FC<Props> = ({
@@ -28,7 +28,7 @@ const SelectorActionsView: React.FC<Props> = ({
   reorderIconTooltipText,
   shouldShowPinIcon,
   toggleShowSearchInput,
-  toggleMaximizeAccordion
+  toggleMaximizeSelector
 }: Props) => {
   let pinIconColor = '#000';
 
@@ -69,7 +69,7 @@ const SelectorActionsView: React.FC<Props> = ({
     <Popup
       inverted
       mouseEnterDelay={1000}
-      trigger={<Icon className={iconClassName} name="resize vertical" onClick={toggleMaximizeAccordion} />}
+      trigger={<Icon className={iconClassName} name="resize vertical" onClick={toggleMaximizeSelector} />}
       content="Maximize vertically"
     />
   );
