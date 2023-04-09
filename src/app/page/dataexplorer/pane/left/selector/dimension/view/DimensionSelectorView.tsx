@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
+import _ from 'lodash';
 import styles from './DimensionSelectorView.module.scss';
 import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
 import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
@@ -34,28 +35,30 @@ const DimensionSelectorView = ({
   theme,
   toggleMaximizeSelector
 }: Props) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      event.stopPropagation();
-      toggleMaximizeSelector([
-        {
-          isOpen: isLayoutSelectorOpen,
-          selectorStateNamespace: 'layoutSelector'
-        },
-        {
-          isOpen: isChartTypeSelectorOpen,
-          selectorStateNamespace: 'chartTypeSelector'
-        },
-        {
-          isOpen: isMeasureSelectorOpen,
-          selectorStateNamespace: 'measureSelector'
-        },
-        {
-          isOpen: isDataSourceSelectorOpen,
-          selectorStateNamespace: 'dataSourceSelector'
-        }
-      ]);
-    },
+    _.debounce(
+      () =>
+        toggleMaximizeSelector([
+          {
+            isOpen: isLayoutSelectorOpen,
+            selectorStateNamespace: 'layoutSelector'
+          },
+          {
+            isOpen: isChartTypeSelectorOpen,
+            selectorStateNamespace: 'chartTypeSelector'
+          },
+          {
+            isOpen: isMeasureSelectorOpen,
+            selectorStateNamespace: 'measureSelector'
+          },
+          {
+            isOpen: isDataSourceSelectorOpen,
+            selectorStateNamespace: 'dataSourceSelector'
+          }
+        ]),
+      150
+    ),
     [
       isChartTypeSelectorOpen,
       isDataSourceSelectorOpen,
@@ -137,9 +140,10 @@ const DimensionSelectorView = ({
           key={dimension.name}
           item={dimension}
           onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
+          onItemDblClick={handleMaximizeIconClick}
         />
       )),
-    [addSelectedDimensionToSelectedChart, shownDimensions]
+    [addSelectedDimensionToSelectedChart, handleMaximizeIconClick, shownDimensions]
   );
 
   const chartListItems = useMemo(
@@ -147,9 +151,14 @@ const DimensionSelectorView = ({
       charts
         .filter((chart) => chart !== selectedChart)
         .map((chart) => (
-          <DraggableChartListItemView key={chart.getName()} item={{ name: chart.getName() }} onItemClick={() => {}} />
+          <DraggableChartListItemView
+            key={chart.getName()}
+            item={{ name: chart.getName() }}
+            onItemDblClick={handleMaximizeIconClick}
+            onItemClick={() => {}}
+          />
         )),
-    [charts, selectedChart]
+    [charts, handleMaximizeIconClick, selectedChart]
   );
 
   const measureListItems = useMemo(
@@ -159,9 +168,10 @@ const DimensionSelectorView = ({
           key={measure.name}
           item={measure}
           onItemClick={() => addSelectedDimensionToSelectedChart(measure)}
+          onItemDblClick={handleMaximizeIconClick}
         />
       )),
-    [addSelectedDimensionToSelectedChart, shownMeasures]
+    [addSelectedDimensionToSelectedChart, handleMaximizeIconClick, shownMeasures]
   );
 
   return (

@@ -37,25 +37,27 @@ const MeasureSelectorView = ({
 }: Props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    _.debounce(() =>
-      toggleMaximizeSelector([
-        {
-          isOpen: isLayoutSelectorOpen,
-          selectorStateNamespace: 'layoutSelector'
-        },
-        {
-          isOpen: isChartTypeSelectorOpen,
-          selectorStateNamespace: 'chartTypeSelector'
-        },
-        {
-          isOpen: isDimensionSelectorOpen,
-          selectorStateNamespace: 'dimensionSelector'
-        },
-        {
-          isOpen: isDataSourceSelectorOpen,
-          selectorStateNamespace: 'dataSourceSelector'
-        }
-      ])
+    _.debounce(
+      () =>
+        toggleMaximizeSelector([
+          {
+            isOpen: isLayoutSelectorOpen,
+            selectorStateNamespace: 'layoutSelector'
+          },
+          {
+            isOpen: isChartTypeSelectorOpen,
+            selectorStateNamespace: 'chartTypeSelector'
+          },
+          {
+            isOpen: isDimensionSelectorOpen,
+            selectorStateNamespace: 'dimensionSelector'
+          },
+          {
+            isOpen: isDataSourceSelectorOpen,
+            selectorStateNamespace: 'dataSourceSelector'
+          }
+        ]),
+      150
     ),
     [
       isChartTypeSelectorOpen,
@@ -121,9 +123,10 @@ const MeasureSelectorView = ({
           iconClassName=""
           item={dimension}
           onItemClick={() => addSelectedMeasureToSelectedChart(dimension, 'SUM')}
+          onItemDblClick={handleMaximizeIconClick}
         />
       )),
-    [addSelectedMeasureToSelectedChart, shownDimensions]
+    [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, shownDimensions]
   );
 
   return (
