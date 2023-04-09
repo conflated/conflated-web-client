@@ -35,7 +35,6 @@ const ReportTemplateSelectorView = ({
           item={reportTemplate}
           key={reportTemplate.name}
           onItemClick={openGenerateReportDialog}
-          onItemDblClick={() => window.open('http://localhost:3000/reports', '_blank')}
           actions={[
             {
               iconName: 'play',
