@@ -29,26 +29,30 @@ const DataSourceSelectorView = ({
   startFetchDataSources,
   toggleMaximizeSelector
 }: Props) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    () =>
-      toggleMaximizeSelector([
-        {
-          isOpen: isLayoutSelectorOpen,
-          selectorStateNamespace: 'layoutSelector'
-        },
-        {
-          isOpen: isChartTypeSelectorOpen,
-          selectorStateNamespace: 'chartTypeSelector'
-        },
-        {
-          isOpen: isMeasureSelectorOpen,
-          selectorStateNamespace: 'measureSelector'
-        },
-        {
-          isOpen: isDimensionSelectorOpen,
-          selectorStateNamespace: 'dimensionSelector'
-        }
-      ]),
+    _.debounce(
+      () =>
+        toggleMaximizeSelector([
+          {
+            isOpen: isLayoutSelectorOpen,
+            selectorStateNamespace: 'layoutSelector'
+          },
+          {
+            isOpen: isChartTypeSelectorOpen,
+            selectorStateNamespace: 'chartTypeSelector'
+          },
+          {
+            isOpen: isMeasureSelectorOpen,
+            selectorStateNamespace: 'measureSelector'
+          },
+          {
+            isOpen: isDimensionSelectorOpen,
+            selectorStateNamespace: 'dimensionSelector'
+          }
+        ]),
+      150
+    ),
     [
       isChartTypeSelectorOpen,
       isDimensionSelectorOpen,
@@ -116,7 +120,15 @@ const DataSourceSelectorView = ({
           }
         }));
 
-      return <Accordion className={styles.accordion} exclusive inverted panels={panels} />;
+      return (
+        <Accordion
+          className={styles.accordion}
+          exclusive
+          inverted
+          onDoubleClick={handleMaximizeIconClick}
+          panels={panels}
+        />
+      );
     }
 
     const sortedUniqueDataSourceLabels = _.sortedUniq(

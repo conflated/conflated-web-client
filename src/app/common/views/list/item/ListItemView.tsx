@@ -111,9 +111,13 @@ const ListItemView = <T extends { readonly name: string }>({
 
   return item.name ? (
     <div key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
-      <List.Item className={className} onClick={handleItemClick}>
+      <List.Item className={className} onClick={_.flow(stopEventPropagation, handleItemClick)}>
         {listIcon}
-        <List.Content className={listItemContent} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+        <List.Content
+          className={listItemContent}
+          onMouseDown={_.flow(stopEventPropagation, handleMouseDown)}
+          onMouseUp={_.flow(stopEventPropagation, handleMouseUp)}
+        >
           {item.name}
         </List.Content>
         <div className={styles.actionIcons}>{actionIcons}</div>
