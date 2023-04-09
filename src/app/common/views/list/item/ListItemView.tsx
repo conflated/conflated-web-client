@@ -26,7 +26,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   actions?: ListItemAction[];
 };
 
-const { listItem, listItemContent, listItemIcon, listItemActionIcon, selected } = styles;
+const { listItem, listItemContent, listItemActionIcon, selected } = styles;
 
 const ListItemView = <T extends { readonly name: string }>({
   actions,
@@ -79,7 +79,7 @@ const ListItemView = <T extends { readonly name: string }>({
 
   let listIcon: any;
   if (iconName) {
-    listIcon = <List.Icon className={iconClassName || listItemIcon} name={iconName as any} />;
+    listIcon = <List.Icon className={iconClassName || ''} name={iconName as any} />;
   }
 
   let actionIcons: any;
