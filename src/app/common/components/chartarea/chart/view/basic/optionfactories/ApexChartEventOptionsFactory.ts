@@ -9,7 +9,7 @@ export default class ApexChartEventOptionsFactory {
     actions: Record<string, (...args: any[]) => any>
   ): object {
     return {
-      click: () => actions.selectChart(chart),
+      // click: () => actions.selectChart(chart),
       dataPointSelection: (event: object, chartContext: object, params: object) =>
         chart.handleDataPointSelection(event, chartContext, params, stateNamespace, actions)
     };

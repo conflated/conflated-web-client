@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Controller } from 'oo-redux-utils2';
 import SelectChartAction from '../../model/actions/chart/SelectChartAction';
 import DeselectChartDataPointAction from '../../model/actions/chart/datapointselection/DeselectChartDataPointAction';
@@ -20,14 +19,9 @@ import MaximizeChartSizeAction from '../../model/actions/chart/sizing/MaximizeCh
 import RestoreChartOriginalSizeAction from '../../model/actions/chart/sizing/RestoreChartOriginalSizeAction';
 
 export default class ChartController extends Controller<ChartAreaStateNamespace> {
-  selectChart = _.debounce(
-    (stateNamespace: ChartAreaStateNamespace, chart: Chart) =>
-      this.dispatch(new SelectChartAction(stateNamespace, chart)),
-    150
-  );
-
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
-    selectChart: (chart: Chart) => this.selectChart(stateNamespace, chart),
+    selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
+
     maximizeChartSize: (chart: Chart) => this.dispatch(new MaximizeChartSizeAction(stateNamespace, chart)),
     restoreChartOriginalSize: () => this.dispatch(new RestoreChartOriginalSizeAction(stateNamespace)),
 

@@ -46,10 +46,12 @@ const ChartView: React.FC<Props> = ({
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
   const [quickFilterIsShown, setQuickFilterIsShown] = useState(false);
+
   const className = classNames(styles.chart, {
     [styles.selectedChart]: isSelectedChart,
     [styles.scrollable]: chart.isXAxisScrollable()
   });
+
   const chartView = chart.createChartView(width, height, stateNamespace, { selectChart });
 
   function onTouchStart(event: React.TouchEvent) {
@@ -76,6 +78,7 @@ const ChartView: React.FC<Props> = ({
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       onClick={() => selectChart(chart)}
+      onDoubleClick={() => maximizeChartSize(chart)}
     >
       {chartView}
       {quickFilterIsShown && (
@@ -107,7 +110,10 @@ const ChartView: React.FC<Props> = ({
             className={`${styles.windowIcon} ${isMaximized ? styles.maximized : ''}`}
             inverted
             name="window maximize outline"
-            onClick={isMaximized ? () => restoreChartOriginalSize() : () => maximizeChartSize(chart)}
+            onClick={_.flow(
+              stopEventPropagation,
+              isMaximized ? () => restoreChartOriginalSize() : () => maximizeChartSize(chart)
+            )}
           />
         }
         content={isMaximized ? "Restore chart's original size" : 'Maximize chart size'}

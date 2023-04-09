@@ -10,6 +10,8 @@ export default class SelectChartAction extends AbstractChartAreaAction {
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
+    console.log(currentState.selectedChart === this.chart);
+
     const newState = {
       ...currentState,
       selectedChart: currentState.selectedChart === this.chart ? nullChart : this.chart
