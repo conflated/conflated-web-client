@@ -35,8 +35,9 @@ const MeasureSelectorView = ({
   theme,
   toggleMaximizeSelector
 }: Props) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    () =>
+    _.debounce(() =>
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
@@ -54,7 +55,8 @@ const MeasureSelectorView = ({
           isOpen: isDataSourceSelectorOpen,
           selectorStateNamespace: 'dataSourceSelector'
         }
-      ]),
+      ])
+    ),
     [
       isChartTypeSelectorOpen,
       isDataSourceSelectorOpen,
