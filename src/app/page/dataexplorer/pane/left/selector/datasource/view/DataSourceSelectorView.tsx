@@ -11,6 +11,7 @@ import { ActionDispatchers, controller, State } from '../controller/dataSourceSe
 import AllAndFavoritesTabView from '../../../../../../../common/views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import ListView from '../../../../../../../common/views/list/ListView';
 import styles from './DataSourceSelectorView.module.scss';
+import stopEventPropagation from '../../../../../../../common/utils/stopEventPropagation';
 
 type Props = ActionDispatchers & State;
 
@@ -29,9 +30,7 @@ const DataSourceSelectorView = ({
   toggleMaximizeSelector
 }: Props) => {
   const handleMaximizeIconClick = useCallback(
-    (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-
+    () =>
       toggleMaximizeSelector([
         {
           isOpen: isLayoutSelectorOpen,
@@ -49,8 +48,7 @@ const DataSourceSelectorView = ({
           isOpen: isDimensionSelectorOpen,
           selectorStateNamespace: 'dimensionSelector'
         }
-      ]);
-    },
+      ]),
     [
       isChartTypeSelectorOpen,
       isDimensionSelectorOpen,
@@ -108,6 +106,7 @@ const DataSourceSelectorView = ({
                       iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
                       selectedItem={selectedChart.dataSource}
                       onItemClick={() => handleDataSourceClick(dataSource)}
+                      onItemDblClick={handleMaximizeIconClick}
                     />
                   ))}
                 noContentFirstLineText=""
@@ -125,7 +124,13 @@ const DataSourceSelectorView = ({
     );
 
     return createAccordionFor(['All', ...sortedUniqueDataSourceLabels]);
-  }, [shownDataSources, selectedChart, confirmDataSourceSelection, selectDataSourceToBeConfirmed]);
+  }, [
+    shownDataSources,
+    selectedChart,
+    confirmDataSourceSelection,
+    selectDataSourceToBeConfirmed,
+    handleMaximizeIconClick
+  ]);
 
   return (
     <SelectorWithActionsView
@@ -140,7 +145,7 @@ const DataSourceSelectorView = ({
           secondTabPaneListItems={[]}
         />
       }
-      handleMaximizeIconClick={handleMaximizeIconClick}
+      handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
       selectorStateNamespace="dataSourceSelector"
       additionalContent={
         <Confirm

@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { List, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
+import _ from 'lodash';
 import styles from './ListItemView.module.scss';
+import stopEventPropagation from '../../../utils/stopEventPropagation';
 
 export type ListItemAction = {
   iconName: string;
@@ -18,7 +20,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   item: T;
   key: string;
   onItemClick: (item: T | undefined) => void;
-  onItemDblClick?: () => void;
+  onItemDblClick?: (...args: any[]) => void;
   onItemLongClick?: () => void;
   selectedItem?: T | null;
   actions?: ListItemAction[];
@@ -40,6 +42,8 @@ const ListItemView = <T extends { readonly name: string }>({
   selectedItem
 }: ListItemViewProps<T>) => {
   const [lastMouseDownTimestampInMs, setLastMouseDownTimestampInMs] = useState(0);
+  const [clickCount, setClickCount] = useState(1);
+  const [clickTimerId, setClickTimerId] = useState(undefined as NodeJS.Timeout | undefined);
   const onDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     event.dataTransfer.setData(dragEventDataKey ?? '', event.currentTarget.id);
   };
@@ -48,16 +52,27 @@ const ListItemView = <T extends { readonly name: string }>({
     setLastMouseDownTimestampInMs(Date.now());
   };
 
+  const handleItemClick = () => {
+    setClickCount(clickCount + 1);
+
+    if (clickCount === 1) {
+      setClickTimerId(
+        setTimeout(() => {
+          setClickCount(1);
+          onItemClick(item);
+        }, 250)
+      );
+    } else if (clickCount === 2) {
+      clearTimeout(clickTimerId);
+      setClickCount(1);
+      onItemDblClick?.();
+    }
+  };
+
   const handleMouseUp = () => {
     if (lastMouseDownTimestampInMs && Date.now() - lastMouseDownTimestampInMs > 1000) {
       onItemLongClick?.();
     }
-  };
-
-  const performAction = (event: React.MouseEvent, action: ListItemAction) => {
-    event.stopPropagation();
-    event.preventDefault();
-    action.perform();
   };
 
   const className = classNames(listItem, { [selected]: item.name === (selectedItem?.name ?? '') });
@@ -70,6 +85,14 @@ const ListItemView = <T extends { readonly name: string }>({
   let actionIcons: any;
   if (actions) {
     actionIcons = actions.map((action) => {
+      const iconElem = (
+        <List.Icon
+          className={listItemActionIcon}
+          name={action.iconName as any}
+          onClick={_.flow(stopEventPropagation, action.perform)}
+        />
+      );
+
       if (action.tooltipText) {
         return (
           <Popup
@@ -77,39 +100,21 @@ const ListItemView = <T extends { readonly name: string }>({
             inverted
             key={action.iconName}
             mouseEnterDelay={1000}
-            trigger={
-              <List.Icon
-                className={listItemActionIcon}
-                name={action.iconName as any}
-                onClick={(event: React.MouseEvent) => performAction(event, action)}
-              />
-            }
+            trigger={iconElem}
           />
         );
       } else {
-        return (
-          <List.Icon
-            className={listItemActionIcon}
-            key={action.iconName}
-            name={action.iconName as any}
-            onClick={(event: React.MouseEvent) => performAction(event, action)}
-          />
-        );
+        return iconElem;
       }
     });
   }
 
   return item.name ? (
     <div key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
-      <List.Item className={className} onClick={() => onItemClick(item)}>
+      <List.Item className={className} onClick={handleItemClick}>
         {listIcon}
-        <List.Content
-          className={listItemContent}
-          onDoubleClick={onItemDblClick}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-        >
-          {item.name}{' '}
+        <List.Content className={listItemContent} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+          {item.name}
         </List.Content>
         <div className={styles.actionIcons}>{actionIcons}</div>
       </List.Item>
