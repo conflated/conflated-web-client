@@ -10,7 +10,6 @@ import Constants from '../../../Constants';
 import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
 import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
-import preventDefault from '../../../utils/preventDefault';
 import Utils from '../../../utils/Utils';
 
 type SizeAwareComponent = {
@@ -113,12 +112,9 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
     const {
       charts,
       className,
-      enterChartAreaWithDraggedChart,
       dropChart,
       isLayoutLocked,
-      lastDragType,
       layout,
-      leaveChartAreaWithDraggedChart,
       maximizedChart,
       stateNamespace,
       selectedChart,
@@ -167,9 +163,6 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
     return (
       <section
         className={`${styles.chartArea} ${className || ''} ${layout === scrollingLayout ? styles.scrollable : ''}`}
-        onDragOver={_.flow(preventDefault, () => enterChartAreaWithDraggedChart(lastDragType))}
-        onDragLeave={leaveChartAreaWithDraggedChart}
-        onDrop={(event: React.DragEvent) => dropChart(event.dataTransfer.getData('chartType') as any)}
         tabIndex={0}
       >
         {isMaxWidth1024px ? (
@@ -180,9 +173,12 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
             cols={Constants.GRID_COLUMN_COUNT}
             containerPadding={[0, 0]}
             isDraggable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
+            isDroppable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             layout={layout as any}
             margin={[0, 0]}
+            onDrop={(newLayout) => dropChart(newLayout, 'column')}
+            onDropDragOver={() => ({ h: 3, w: 3 })}
             onResizeStart={this.showChartSizes}
             onResize={this.updateChartSize}
             onResizeStop={this.hideChartSizes}
