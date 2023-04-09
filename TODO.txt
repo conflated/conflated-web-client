@@ -1,4 +1,3 @@
-- Maximize chart
 - Double click selector to maximize it
 - Chart drag + drop improvements
 - All dimension

@@ -46,6 +46,7 @@ const ChartView: React.FC<Props> = ({
 }: Props) => {
   const [touchStartX, setTouchStartX] = useState(-1);
   const [quickFilterIsShown, setQuickFilterIsShown] = useState(false);
+  const [lastClickTimestampInMillis, setLastClickTimestampInMillis] = useState(0);
 
   const className = classNames(styles.chart, {
     [styles.selectedChart]: isSelectedChart,
@@ -71,15 +72,22 @@ const ChartView: React.FC<Props> = ({
     }
   }
 
+  function handleClickEvent() {
+    const now = Date.now();
+
+    if (now - lastClickTimestampInMillis > 250) {
+      selectChart(chart);
+    } else if (isMaximized) {
+      restoreChartOriginalSize();
+    } else {
+      maximizeChartSize(chart);
+    }
+
+    setLastClickTimestampInMillis(now);
+  }
+
   return (
-    <div
-      className={className}
-      draggable
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-      onClick={() => selectChart(chart)}
-      onDoubleClick={() => maximizeChartSize(chart)}
-    >
+    <div className={className} draggable onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onClick={handleClickEvent}>
       {chartView}
       {quickFilterIsShown && (
         <div className={styles.search}>
