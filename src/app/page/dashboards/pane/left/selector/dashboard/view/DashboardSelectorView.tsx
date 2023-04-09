@@ -37,7 +37,6 @@ const DashboardSelectorView = ({
           item={dashboard}
           selectedItem={selectedDashboard}
           onItemClick={showDashboard}
-          onItemDblClick={() => window.open('http://localhost:3000/dashboards', '_blank')}
           actions={[
             {
               iconName: 'share',
