@@ -3,7 +3,7 @@ import { createStore, combineReducers, Reducer } from 'redux';
 import { createNamespacedReducers } from 'oo-redux-utils2';
 import headerStateReducer from '../app/header/model/state/headerStateReducer';
 import layoutSelectorStateReducer from '../app/page/dataexplorer/pane/left/selector/layout/model/state/layoutSelectorStateReducer';
-import dataSourceSelectorStateReducer from '../app/page/dataexplorer/pane/left/view/datasourceselector/model/state/dataSourceSelectorStateReducer';
+import dataSourceSelectorStateReducer from '../app/page/dataexplorer/pane/left/selector/datasource/model/state/dataSourceSelectorStateReducer';
 import measureSelectorStateReducer from '../app/page/dataexplorer/pane/left/selector/measure/model/state/measureSelectorStateReducer';
 import dimensionSelectorStateReducer from '../app/page/dataexplorer/pane/left/selector/dimension/model/state/dimensionSelectorStateReducer';
 import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/createChartAreaStateReducer';

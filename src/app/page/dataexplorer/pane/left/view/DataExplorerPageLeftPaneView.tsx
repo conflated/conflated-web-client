@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ChartTypeSelector from '../selector/charttype/view/ChartTypeSelectorView';
-import DataSourceSelector from './datasourceselector/view/DataSourceSelectorView';
+import DataSourceSelector from '../selector/datasource/view/DataSourceSelectorView';
 import DimensionSelector from '../selector/dimension/view/DimensionSelectorView';
 import LayoutSelector from '../selector/layout/view/LayoutSelectorView';
 import MeasureSelector from '../selector/measure/view/MeasureSelectorView';

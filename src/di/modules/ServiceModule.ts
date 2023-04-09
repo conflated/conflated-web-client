@@ -1,5 +1,5 @@
 import { Module } from 'noicejs';
-import FakeDataSourceService from '../../app/page/dataexplorer/pane/left/view/datasourceselector/model/service/FakeDataSourceService';
+import FakeDataSourceService from '../../app/page/dataexplorer/pane/left/selector/datasource/model/service/FakeDataSourceService';
 import FakeMeasureServiceImpl from '../../app/page/dataexplorer/pane/left/selector/measure/model/service/FakeMeasureService';
 import FakeDimensionServiceImpl from '../../app/page/dataexplorer/pane/left/selector/dimension/model/service/FakeDimensionService';
 import FakeChartDataService from '../../app/common/components/chartarea/chart/model/service/FakeChartDataService';

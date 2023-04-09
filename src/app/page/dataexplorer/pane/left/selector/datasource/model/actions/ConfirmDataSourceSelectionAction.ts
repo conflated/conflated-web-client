@@ -2,9 +2,9 @@ import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 import { DataSource } from '../../../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import ChangeDataSourceForSelectedChartAction from '../../../../../../../../common/components/chartarea/model/actions/chart/selected/change/datasource/ChangeDataSourceForSelectedChartAction';
-import StartFetchDimensionsAction from '../../../../selector/dimension/model/actions/StartFetchDimensionsAction';
+import StartFetchDimensionsAction from '../../../dimension/model/actions/StartFetchDimensionsAction';
 import diContainer from '../../../../../../../../../di/diContainer';
-import StartFetchMeasuresAction from '../../../../selector/measure/model/actions/StartFetchMeasuresAction';
+import StartFetchMeasuresAction from '../../../measure/model/actions/StartFetchMeasuresAction';
 import { Chart } from '../../../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 export default class ConfirmDataSourceSelectionAction extends AbstractDataSourceSelectorAction {

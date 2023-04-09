@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import DataSourceListItem from '../../../../../../../page/dataexplorer/pane/left/view/datasourceselector/view/datasourcelistitem/DataSourceListItem';
+import DataSourceListItem from '../../../../../../../page/dataexplorer/pane/left/selector/datasource/view/datasourcelistitem/DataSourceListItem';
 import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
 import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../../selector/model/state/types/SelectorStateNamespace';

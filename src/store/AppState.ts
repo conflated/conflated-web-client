@@ -1,5 +1,5 @@
 import type { HeaderState } from '../app/header/model/state/HeaderState';
-import type { DataSourceSelectorState } from '../app/page/dataexplorer/pane/left/view/datasourceselector/model/state/DataSourceSelectorState';
+import type { DataSourceSelectorState } from '../app/page/dataexplorer/pane/left/selector/datasource/model/state/DataSourceSelectorState';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../app/page/dataexplorer/dialog/saveasdashboardorreporttemplate/model/state/SaveAsDashboardOrReportTemplateDialogState';
 import type { TriggerLabelSelectorState } from '../app/common/components/page/triggers/leftpane/triggerlabelselector/model/state/TriggerLabelSelectorState';
 import type { DashboardsPageState } from '../app/page/dashboards/model/state/DashboardsPageState';
