@@ -13,6 +13,7 @@ import type { MeasureVisualizationType } from '../../../../../../../common/compo
 import ListView from '../../../../../../../common/views/list/ListView';
 import { ActionDispatchers, controller, State } from '../controller/measureSelectorController';
 import emptyDataSource from '../../../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
+import { Measure } from '../model/state/types/Measure';
 
 type Props = ActionDispatchers & State;
 
@@ -94,22 +95,21 @@ const MeasureSelectorView = ({
     ]
   );
 
-  const measureListItems = useMemo(
-    () =>
-      shownMeasures
-        .filter(
-          (measure) => !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure)
-        )
-        .map((measure) => (
-          <MeasureListItemView
-            key={measure.name}
-            iconClassName=""
-            item={measure}
-            onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
-          />
-        )),
-    [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownMeasures]
-  );
+  const measureListItems = useMemo(() => {
+    const notSelectedMeasure = (measure: Measure) =>
+      !selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure);
+
+    return shownMeasures
+      .filter(notSelectedMeasure)
+      .map((measure) => (
+        <MeasureListItemView
+          key={measure.name}
+          iconClassName=""
+          item={measure}
+          onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+        />
+      ));
+  }, [addSelectedMeasureToSelectedChart, selectedChart.selectedMeasures, shownMeasures]);
 
   const dimensionListItems = useMemo(
     () =>
