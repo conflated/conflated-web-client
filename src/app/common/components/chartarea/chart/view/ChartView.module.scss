@@ -157,6 +157,10 @@
       color: var(--brand-color-2) !important;
       cursor: pointer;
     }
+
+    &.maximized {
+      color: var(--brand-color-2) !important;
+    }
   }
 
   &:hover .windowIcon {

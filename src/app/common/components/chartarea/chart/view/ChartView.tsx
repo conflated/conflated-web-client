@@ -104,13 +104,13 @@ const ChartView: React.FC<Props> = ({
         mouseEnterDelay={1000}
         trigger={
           <Icon
-            className={styles.windowIcon}
+            className={`${styles.windowIcon} ${isMaximized ? styles.maximized : ''}`}
             inverted
             name="window maximize outline"
             onClick={isMaximized ? () => restoreChartOriginalSize() : () => maximizeChartSize(chart)}
           />
         }
-        content={isMaximized ? 'Restore original chart size' : 'Maximize chart size'}
+        content={isMaximized ? "Restore chart's original size" : 'Maximize chart size'}
       />
       <ChartMenuView chart={chart} className={styles.menu} stateNamespace={stateNamespace} />
       <ChartScrollbarView
