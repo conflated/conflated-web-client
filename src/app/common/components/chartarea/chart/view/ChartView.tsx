@@ -18,6 +18,7 @@ type OwnProps = {
   chart: Chart;
   height: number;
   heightInRows?: number;
+  isMaximized?: boolean;
   isSelectedChart: boolean;
   stateNamespace: ChartAreaStateNamespace;
   width: number;
@@ -34,7 +35,10 @@ const ChartView: React.FC<Props> = ({
   changeXAxisScrollPosition,
   height,
   heightInRows,
+  isMaximized,
   isSelectedChart,
+  maximizeChartSize,
+  restoreChartOriginalSize,
   selectChart,
   stateNamespace,
   width,
@@ -98,8 +102,15 @@ const ChartView: React.FC<Props> = ({
       <Popup
         inverted
         mouseEnterDelay={1000}
-        trigger={<Icon className={styles.windowIcon} inverted name="window maximize outline" />}
-        content="Maximize chart window"
+        trigger={
+          <Icon
+            className={styles.windowIcon}
+            inverted
+            name="window maximize outline"
+            onClick={isMaximized ? () => restoreChartOriginalSize() : () => maximizeChartSize(chart)}
+          />
+        }
+        content={isMaximized ? 'Restore original chart size' : 'Maximize chart size'}
       />
       <ChartMenuView chart={chart} className={styles.menu} stateNamespace={stateNamespace} />
       <ChartScrollbarView
@@ -117,6 +128,7 @@ const ChartView: React.FC<Props> = ({
 
 ChartView.defaultProps = {
   heightInRows: undefined,
+  isMaximized: false,
   widthInCols: undefined
 };
 

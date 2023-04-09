@@ -178,7 +178,8 @@ const initialGoalsPageChartAreaState: ChartAreaState = {
     }
   ],
   charts: [dataTableChart, timelineChart],
-  selectedChart: dataTableChart
+  selectedChart: dataTableChart,
+  maximizedChart: null
 };
 
 export default initialGoalsPageChartAreaState;

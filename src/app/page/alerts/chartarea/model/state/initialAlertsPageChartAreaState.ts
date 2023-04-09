@@ -238,6 +238,7 @@ const initialAlertsPageChartAreaState: ChartAreaState = {
     }
   ],
   charts: [dataTableChart, timelineChart],
+  maximizedChart: null,
   selectedChart: dataTableChart
 };
 

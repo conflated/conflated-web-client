@@ -11,7 +11,8 @@ const initialChartAreaState: ChartAreaState = {
   layout: layout1,
   selectedChart: nullChart,
   charts: [nullChart],
-  copiedChart: null
+  copiedChart: null,
+  maximizedChart: null
 };
 
 export default (stateNamespace: ChartAreaStateNamespace) =>

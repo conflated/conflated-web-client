@@ -8,16 +8,13 @@ export default class AddChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart, private readonly layout: Layout) {
     super(stateNamespace);
     this.chart = chart;
-    this.layout = layout;
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    const newState = {
+    return {
       ...currentState,
       layout: this.layout,
       charts: [...currentState.charts, this.chart]
     };
-
-    return newState;
   }
 }

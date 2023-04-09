@@ -16,6 +16,8 @@ import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
 import { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
+import MaximizeChartSizeAction from '../../model/actions/chart/sizing/MaximizeChartSizeAction';
+import RestoreChartOriginalSizeAction from '../../model/actions/chart/sizing/RestoreChartOriginalSizeAction';
 
 export default class ChartController extends Controller<ChartAreaStateNamespace> {
   selectChart = _.debounce(
@@ -26,6 +28,8 @@ export default class ChartController extends Controller<ChartAreaStateNamespace>
 
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
     selectChart: (chart: Chart) => this.selectChart(stateNamespace, chart),
+    maximizeChartSize: (chart: Chart) => this.dispatch(new MaximizeChartSizeAction(stateNamespace, chart)),
+    restoreChartOriginalSize: () => this.dispatch(new RestoreChartOriginalSizeAction(stateNamespace)),
 
     deselectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
       this.dispatch(new DeselectChartDataPointAction(stateNamespace, chart, dataPoint)),

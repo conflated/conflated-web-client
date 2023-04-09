@@ -7,4 +7,5 @@ export type ChartAreaState = {
   readonly charts: Chart[];
   readonly previousLayout?: Layout;
   readonly copiedChart?: Chart | null;
+  readonly maximizedChart: Chart | null;
 };

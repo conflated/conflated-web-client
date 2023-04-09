@@ -7,7 +7,6 @@ import sizeMe from 'react-sizeme';
 import styles from './ChartAreaView.module.scss';
 import type { ChartAreaStateNamespace } from '../model/state/types/ChartAreaStateNamespace';
 import Constants from '../../../Constants';
-import type { Chart } from '../chart/model/state/Chart';
 import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
 import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
@@ -120,6 +119,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       lastDragType,
       layout,
       leaveChartAreaWithDraggedChart,
+      maximizedChart,
       stateNamespace,
       selectedChart,
       size: { width: chartAreaWidth, height: chartAreaHeight }
@@ -128,38 +128,41 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
     const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
     const isPortrait = window.matchMedia && window.matchMedia('screen and (orientation: portrait)').matches;
 
-    const chartElements = charts.map((chart: Chart) => {
-      let chartHeight;
+    const chartElements = charts
+      .filter((chart) => Utils.findElem(layout, 'i', chart.id))
+      .map((chart) => {
+        let chartHeight;
 
-      if (isMaxWidth1024px) {
-        const headerHeight = 6 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-        if (isPortrait) {
-          chartHeight = (document.body.clientHeight - headerHeight) / 2;
+        if (isMaxWidth1024px) {
+          const headerHeight = 6 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+          if (isPortrait) {
+            chartHeight = (document.body.clientHeight - headerHeight) / 2;
+          } else {
+            chartHeight = document.body.clientHeight - headerHeight;
+          }
         } else {
-          chartHeight = document.body.clientHeight - headerHeight;
+          chartHeight = chart.getHeight(layout, chartAreaHeight);
         }
-      } else {
-        chartHeight = chart.getHeight(layout, chartAreaHeight);
-      }
 
-      const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
-      // eslint-disable-next-line react/destructuring-assignment
-      const gridItem = this.state[chart.id];
+        const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
+        // eslint-disable-next-line react/destructuring-assignment
+        const gridItem = this.state[chart.id];
 
-      return (
-        <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
-          <ChartView
-            chart={chart}
-            isSelectedChart={chart === selectedChart}
-            height={chartHeight}
-            heightInRows={gridItem?.heightInRows}
-            width={chartWidth}
-            widthInCols={gridItem?.widthInCols}
-            stateNamespace={stateNamespace}
-          />
-        </div>
-      );
-    });
+        return (
+          <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
+            <ChartView
+              chart={chart}
+              isMaximized={maximizedChart === chart}
+              isSelectedChart={chart === selectedChart}
+              height={chartHeight}
+              heightInRows={gridItem?.heightInRows}
+              width={chartWidth}
+              widthInCols={gridItem?.widthInCols}
+              stateNamespace={stateNamespace}
+            />
+          </div>
+        );
+      });
 
     return (
       <section
