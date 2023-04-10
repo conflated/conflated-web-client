@@ -18,11 +18,9 @@ export default class PasteChartAction extends AbstractChartAreaAction {
 
     copiedChart.id = this.chart.id;
 
-    const newState = {
+    return {
       ...currentState,
       charts: [..._.without(charts, this.chart), copiedChart]
     };
-
-    return newState;
   }
 }

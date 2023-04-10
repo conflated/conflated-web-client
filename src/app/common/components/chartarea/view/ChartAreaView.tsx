@@ -71,6 +71,16 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
       event.preventDefault();
       event.stopPropagation();
+    } else if (event.ctrlKey && event.key === 'C') {
+      const { copyChart, selectedChart } = this.props;
+      copyChart(selectedChart);
+    } else if (event.ctrlKey && event.key === 'V') {
+      const { pasteChart, selectedChart } = this.props;
+      pasteChart(selectedChart);
+    } else if (event.ctrlKey && event.key === 'X') {
+      const { clearChart, copyChart, selectedChart } = this.props;
+      copyChart(selectedChart);
+      clearChart(selectedChart);
     }
   };
 
