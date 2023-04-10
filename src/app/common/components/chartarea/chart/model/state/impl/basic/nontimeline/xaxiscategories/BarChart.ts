@@ -15,7 +15,7 @@ export default class BarChart extends AbstractXAxisCategoriesChart {
   }
 
   override isXAxisScrollable(): boolean {
-    return true;
+    return this.selectedDimensions.length > 0 && this.selectedDimensions[0].dimension.name !== 'All';
   }
 
   override supportsAllDimension(): boolean {

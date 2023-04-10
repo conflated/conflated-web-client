@@ -97,7 +97,7 @@ export default class ColumnChart extends AbstractMixedChart {
   }
 
   override isXAxisScrollable(): boolean {
-    return this.selectedDimensions.length > 0;
+    return this.selectedDimensions.length > 0 && this.selectedDimensions[0].dimension.name !== 'All';
   }
 
   override shouldShowStroke(): boolean {

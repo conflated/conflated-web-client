@@ -29,7 +29,7 @@ export default class FakeChartDataService implements ChartDataService {
           return;
         }
 
-        const dimensionColumnCount = columns.filter(({ type }: Column) => type === 'dimension').length;
+        const hasAllDimension = columns.filter(({ name }: Column) => name === 'All');
         const hasErrorCategory = columns.filter(({ name }: Column) => name === '"Error category"').length > 0;
         const hasCellDimension = columns.filter(({ name }: Column) => name === 'Cell').length > 0;
         const hasTimestamp = columns.filter(({ name }: Column) => name === 'Timestamp').length > 0;
@@ -37,7 +37,7 @@ export default class FakeChartDataService implements ChartDataService {
         columns
           .filter(({ type }: Column) => type === 'measure')
           .forEach(({ name }: Column) => {
-            if (dimensionColumnCount === 0) {
+            if (hasAllDimension) {
               columnNameToValuesMap[name] = Array(1)
                 .fill(0)
                 .map(() => Math.floor(100 * Math.random()));
@@ -106,6 +106,8 @@ export default class FakeChartDataService implements ChartDataService {
                   .map(() => (1000 + index).toString());
                 columnNameToValuesMap[name] = [...(columnNameToValuesMap[name] ?? []), ...dimensionValuesForIndex];
               }
+            } else if (hasAllDimension) {
+              columnNameToValuesMap[name] = ['All'];
             } else {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
