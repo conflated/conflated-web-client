@@ -59,7 +59,7 @@ export default class FakeChartDataService implements ChartDataService {
 
               columnNameToValuesMap[name] = Array(size)
                 .fill(0)
-                .map(() => Math.floor(100 * Math.random()));
+                .map(() => Math.floor(name.includes('%') ? 100 * Math.random() : 10000 * Math.random()));
             }
           });
 

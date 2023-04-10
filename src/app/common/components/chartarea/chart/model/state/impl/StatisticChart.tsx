@@ -51,16 +51,35 @@ export default class StatisticChart extends AbstractDrillDownChart {
 
       return (
         <Statistic key={this.id + selectedMeasure.measure.name}>
-          <Statistic.Label style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#666' }}>
+          <Statistic.Label
+            style={{ color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#666' }}
+          >
             {selectedMeasure.measure.name}
           </Statistic.Label>
           <Statistic.Value>
-            <span style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000' }}>{measureValues[0] ?? 0}</span>
-            <span style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000', fontSize: '1.75rem' }}>.1</span>
             <span
-              style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000', fontSize: '1.25rem', paddingLeft: '0.3rem' }}
+              style={{
+                color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#000'
+              }}
             >
-              {unit}
+              {measureValues[0] ?? 0}
+            </span>
+            <span
+              style={{
+                color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#000',
+                fontSize: '1.75rem'
+              }}
+            >
+              {selectedMeasure.measure.unit === 'percent' ? `.${Math.floor(Math.random() * 10).toString()}` : ''}
+            </span>
+            <span
+              style={{
+                color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#000',
+                fontSize: '1.25rem',
+                paddingLeft: '0.3rem'
+              }}
+            >
+              {selectedMeasure.measure.unit !== 'none' ? unit : ''}
             </span>
           </Statistic.Value>
         </Statistic>

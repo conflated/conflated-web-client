@@ -107,7 +107,7 @@ export default class MeasureServiceImpl implements MeasureService {
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'none'
+              unit: 'percent'
             },
             {
               name: 'SMS deliveries',
