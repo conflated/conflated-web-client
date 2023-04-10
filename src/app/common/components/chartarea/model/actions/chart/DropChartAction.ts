@@ -18,8 +18,8 @@ export default class DropChartAction extends AbstractChartAreaAction {
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { charts, layout, selectedChart } = currentState;
-    const largestId = parseInt(_.maxBy(layout, 'i')?.i ?? '0', 10);
-    const newId = (largestId + 1).toString();
+    const largestIdValue = parseInt(_.maxBy(layout, 'i')?.i ?? '0', 10);
+    const newId = (largestIdValue + 1).toString();
 
     const droppedChartConfig: ChartConfiguration = {
       id: newId,

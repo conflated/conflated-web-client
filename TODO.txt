@@ -1,4 +1,3 @@
-- Drop chart, set chart type, calculate new chart id as max of current ids + 1
 - Remove chart, changes chart ids
 - All dimension
 - Implement Statistic chart
