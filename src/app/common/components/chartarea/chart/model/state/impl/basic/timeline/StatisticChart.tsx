@@ -35,8 +35,12 @@ export default class StatisticChart extends AbstractTimelineChart {
         const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
         return (
           <Statistic key={this.id + selectedMeasure.measure.name}>
-            <Statistic.Value>{measureValues[0] ?? 0}</Statistic.Value>
-            <Statistic.Label>{selectedMeasure.measure.name.toUpperCase()}</Statistic.Label>
+            <Statistic.Label>{selectedMeasure.measure.name}</Statistic.Label>
+            <Statistic.Value>
+              {measureValues[0] ?? 0}
+              <span style={{ fontSize: '1.75rem' }}>.1</span>
+              <span style={{ fontSize: '1.25rem', paddingLeft: '0.3rem' }}>%</span>
+            </Statistic.Value>
           </Statistic>
         );
       });
