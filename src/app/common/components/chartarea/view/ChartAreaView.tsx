@@ -81,7 +81,6 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       const { clearChart, copyChart, selectedChart } = this.props;
       copyChart(selectedChart);
       clearChart(selectedChart);
-    } else if (event.key === 'Delete' || event.key === 'Backspace') {
     }
   };
 
