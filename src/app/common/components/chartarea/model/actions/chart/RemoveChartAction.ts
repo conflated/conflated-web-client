@@ -12,13 +12,23 @@ export default class RemoveChartAction extends AbstractChartAreaAction {
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    const newCharts = _.without(currentState.charts, this.chart);
+    const { charts, layout } = currentState;
+
+    const newCharts = _.without(charts, this.chart).map((chart, index) => {
+      const chartConfig = chart.getChartConfiguration();
+      chartConfig.id = (index + 1).toString();
+      return ChartFactory.createChart(chartConfig);
+    });
+
     const emptyChart = ChartFactory.createChart();
     const selectedChart = newCharts.length > 0 ? newCharts[0] : emptyChart;
 
     const newState = {
       ...currentState,
-      layout: Utils.without(currentState.layout, 'i', this.chart.id),
+      layout: Utils.without(layout, 'i', this.chart.id).map((gridItem, index) => ({
+        ...gridItem,
+        i: (index + 1).toString()
+      })),
       charts: newCharts,
       selectedChart
     };

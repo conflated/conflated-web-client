@@ -1,7 +1,7 @@
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import AbstractTriggerLabelSelectorAction from './AbstractTriggerLabelSelectorAction';
 import type { TriggerLabelSelectorState } from '../state/TriggerLabelSelectorState';
-import { without } from '../../../../../../../utils/Utils';
+import { isNot } from '../../../../../../../utils/Utils';
 
 export default class ToggleSelectionAction extends AbstractTriggerLabelSelectorAction {
   constructor(stateNamespace: TriggersPageStateNamespace, private readonly triggerGroup: string) {
@@ -15,7 +15,7 @@ export default class ToggleSelectionAction extends AbstractTriggerLabelSelectorA
     if (selectedTriggerGroups.includes(this.triggerGroup)) {
       newState = {
         ...currentState,
-        selectedTriggerGroups: selectedTriggerGroups.filter(without(this.triggerGroup))
+        selectedTriggerGroups: selectedTriggerGroups.filter(isNot(this.triggerGroup))
       };
     } else {
       newState = {

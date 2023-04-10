@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import Constants from '../Constants';
 
-export function without<T>(item: T) {
+export function isNot<T>(item: T) {
   return function (otherItem: T) {
     return item !== otherItem;
   };

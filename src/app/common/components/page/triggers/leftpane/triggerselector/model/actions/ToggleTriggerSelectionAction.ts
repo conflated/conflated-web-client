@@ -1,7 +1,7 @@
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import AbstractTriggerSelectorAction from './AbstractTriggerSelectorAction';
 import type { TriggerSelectorState } from '../state/TriggerSelectorState';
-import { without } from '../../../../../../../utils/Utils';
+import { isNot } from '../../../../../../../utils/Utils';
 
 export default class ToggleTriggerSelectionAction extends AbstractTriggerSelectorAction {
   constructor(stateNamespace: TriggersPageStateNamespace, private readonly trigger: string) {
@@ -15,7 +15,7 @@ export default class ToggleTriggerSelectionAction extends AbstractTriggerSelecto
     if (selectedTriggers.includes(this.trigger)) {
       newState = {
         ...currentState,
-        selectedTriggers: selectedTriggers.filter(without(this.trigger))
+        selectedTriggers: selectedTriggers.filter(isNot(this.trigger))
       };
     } else {
       newState = {
