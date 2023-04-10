@@ -21,10 +21,10 @@ export default class MeasureServiceImpl implements MeasureService {
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'percent'
+              unit: 'none'
             },
             {
-              name: 'Failed handovers',
+              name: 'Failed handover %',
               expression: 'measure',
               isString: false,
               isTimestamp: false,
@@ -40,7 +40,7 @@ export default class MeasureServiceImpl implements MeasureService {
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'percent'
+              unit: 'none'
             },
             {
               name: 'Setup duration',
@@ -48,7 +48,7 @@ export default class MeasureServiceImpl implements MeasureService {
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'percent'
+              unit: 'none'
             },
             {
               name: 'Handovers',
@@ -75,23 +75,23 @@ export default class MeasureServiceImpl implements MeasureService {
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'percent'
-            },
-            {
-              name: 'Setup failures',
-              expression: '',
-              isString: false,
-              isTimestamp: false,
-              isDate: false,
-              unit: 'percent'
-            },
-            {
-              name: 'Dropped calls',
-              expression: '',
-              isString: false,
-              isTimestamp: false,
-              isDate: false,
               unit: 'none'
+            },
+            {
+              name: 'Setup failure %',
+              expression: '',
+              isString: false,
+              isTimestamp: false,
+              isDate: false,
+              unit: 'percent'
+            },
+            {
+              name: 'Call drop %',
+              expression: '',
+              isString: false,
+              isTimestamp: false,
+              isDate: false,
+              unit: 'percent'
             },
             {
               name: 'Handovers',
@@ -102,7 +102,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'Failed handovers',
+              name: 'Handover failure %',
               expression: '',
               isString: false,
               isTimestamp: false,
@@ -118,12 +118,12 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'Failed SMS deliveries',
+              name: 'SMS delivery failure %',
               expression: '',
               isString: false,
               isTimestamp: false,
               isDate: false,
-              unit: 'none'
+              unit: 'percent'
             },
             {
               name: 'Throughput',
