@@ -2,6 +2,7 @@
 - Automatic Sort by
 - Filters
 - Implement quick filter
+- Measure color ranges
 - Go through chart types
 
 - Chart menu styles in dark mode
