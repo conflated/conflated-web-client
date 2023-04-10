@@ -1,6 +1,4 @@
-- All dimension
 - Implement Statistic chart
-- Chart Copy + Paste
 - Automatic Sort by
 - Sort bys
 - Filters

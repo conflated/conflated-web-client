@@ -152,6 +152,14 @@ export default class DimensionServiceImpl implements DimensionService {
         } else {
           resolve([
             {
+              name: 'All',
+              expression: '',
+              isTimestamp: false,
+              isDate: false,
+              isString: true,
+              unit: 'none'
+            },
+            {
               name: 'Cell',
               expression: '',
               isTimestamp: false,

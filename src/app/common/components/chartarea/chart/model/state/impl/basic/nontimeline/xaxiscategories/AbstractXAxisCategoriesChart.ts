@@ -69,9 +69,9 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     return {
       ...commonOptions,
       type: 'category',
-      categories: [this.selectedMeasures.length > 0 && this.supportsAllDimension() ? 'ALL' : ''],
+      categories: undefined,
       axisTicks: {
-        show: this.selectedMeasures.length > 0
+        show: this.selectedMeasures.length && this.selectedDimensions.length > 0
       }
     };
   }
