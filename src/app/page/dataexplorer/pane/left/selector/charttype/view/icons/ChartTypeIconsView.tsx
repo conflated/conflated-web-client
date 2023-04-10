@@ -60,13 +60,13 @@ const ChartTypeIconsView = (props: Props) => (
     <ChartTypeIconView {...props} chartType="map" iconClassName={styles.mapIcon} tooltipText="Map" />
     <ChartTypeIconView
       {...props}
-      chartType="statistic"
+      chartType="sparkline"
       iconClassName={styles.sparklineIcon}
       tooltipText="Statistic + Sparkline"
     />
     <ChartTypeIconView
       {...props}
-      chartType="statistic-without-sparkline"
+      chartType="statistic"
       iconClassName={styles.statisticIcon}
       tooltipText="Statistic"
       content="123"

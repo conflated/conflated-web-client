@@ -10,12 +10,13 @@ import RadarChart from './impl/basic/nontimeline/xaxiscategories/RadarChart';
 import HeatmapChart from './impl/basic/nontimeline/xaxiscategories/HeatmapChart';
 import DataTableChart from './impl/DataTableChart';
 import MapChart from './impl/MapChart';
-import StatisticChart from './impl/basic/timeline/StatisticChart';
+import SparklineChart from './impl/basic/timeline/SparklineChart';
 import type { ChartConfiguration } from './ChartConfiguration';
 import BarChart from './impl/basic/nontimeline/xaxiscategories/BarChart';
 import PieChartImpl from './impl/basic/nontimeline/pieordonut/PieChartImpl';
 import DonutChartImpl from './impl/basic/nontimeline/pieordonut/DonutChartImpl';
 import RangeAreaChart from './impl/basic/nontimeline/xaxiscategories/RangeAreaChart';
+import StatisticChart from './impl/basic/StatisticChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
@@ -54,6 +55,8 @@ export default class ChartFactory {
         return new HeatmapChart(chartConfiguration);
       case 'map':
         return new MapChart(chartConfiguration);
+      case 'sparkline':
+        return new SparklineChart(chartConfiguration);
       case 'statistic':
         return new StatisticChart(chartConfiguration);
       case 'stepline':

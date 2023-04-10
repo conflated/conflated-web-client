@@ -15,8 +15,8 @@ export type ChartType =
   | 'heatmap'
   | 'datatable'
   | 'map'
+  | 'sparkline'
   | 'statistic'
-  | 'statistic-without-sparkline'
   | 'stepline'
   | 'alertsdatatable'
   | 'goalsdatatable';

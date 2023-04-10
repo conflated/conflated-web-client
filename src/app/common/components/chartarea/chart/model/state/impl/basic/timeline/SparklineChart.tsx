@@ -1,5 +1,4 @@
 import React from 'react';
-import { Statistic } from 'semantic-ui-react';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import AbstractTimelineChart from './AbstractTimelineChart';
 import type { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
@@ -11,7 +10,7 @@ import type { AggregationFunction } from '../../../selectedmeasure/types/Aggrega
 import type { ChartAreaStateNamespace } from '../../../../../../model/state/types/ChartAreaStateNamespace';
 import ApexChartView from '../../../../../view/basic/ApexChartView';
 
-export default class StatisticChart extends AbstractTimelineChart {
+export default class SparklineChart extends AbstractTimelineChart {
   override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
   }
@@ -30,24 +29,7 @@ export default class StatisticChart extends AbstractTimelineChart {
   }
 
   override createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
-    if (this.selectedDimensions.length === 0) {
-      const statisticElements = this.selectedMeasures.map((selectedMeasure: SelectedMeasure): JSX.Element => {
-        const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
-        return (
-          <Statistic key={this.id + selectedMeasure.measure.name}>
-            <Statistic.Label>{selectedMeasure.measure.name}</Statistic.Label>
-            <Statistic.Value>
-              {measureValues[0] ?? 0}
-              <span style={{ fontSize: '1.75rem' }}>.1</span>
-              <span style={{ fontSize: '1.25rem', paddingLeft: '0.3rem' }}>%</span>
-            </Statistic.Value>
-          </Statistic>
-        );
-      });
-
-      // eslint-disable-next-line react/jsx-no-useless-fragment
-      return <>{statisticElements}</>;
-    } else if (this.selectedMeasures.length === 1 && this.selectedDimensions.length === 1) {
+    if (this.selectedMeasures.length === 1 && this.selectedDimensions.length === 1) {
       return (
         <div key={this.id} style={{ height: '100%' }}>
           <ApexChartView chart={this} width={0} height={0} stateNamespace={stateNamespace} />
