@@ -2,6 +2,7 @@ import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
+import ChartFactory from '../../../../chart/model/state/ChartFactory';
 
 export default class PasteChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly chart: Chart) {
@@ -15,11 +16,14 @@ export default class PasteChartAction extends AbstractChartAreaAction {
       return currentState;
     }
 
-    copiedChart.id = this.chart.id;
+    const pastedChart = ChartFactory.createChart(copiedChart.getChartConfiguration());
+    pastedChart.id = this.chart.id;
+    const newCharts = charts.map((chart) => (chart === this.chart ? pastedChart : chart));
 
     return {
       ...currentState,
-      charts: charts.map((chart) => (chart === this.chart ? copiedChart : chart))
+      charts: newCharts,
+      selectedChart: pastedChart
     };
   }
 }
