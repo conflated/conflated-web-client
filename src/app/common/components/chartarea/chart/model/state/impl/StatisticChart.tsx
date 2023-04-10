@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Statistic } from 'semantic-ui-react';
-import { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
-import { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
@@ -12,19 +8,6 @@ import AbstractDrillDownChart from './AbstractDrillDownChart';
 export default class StatisticChart extends AbstractDrillDownChart {
   override handleChartJsClick(): void {
     throw new Error('Method not implemented.');
-  }
-
-  override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
-    this.selectedMeasures = this.selectedMeasures.slice(0, 1);
-    super.addSelectedDimension(dimension, visualizationType);
-  }
-
-  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
-    if (this.selectedDimensions.length >= 1) {
-      this.selectedMeasures = [];
-    }
-
-    super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }
 
   override createChartView(): JSX.Element {
@@ -52,7 +35,9 @@ export default class StatisticChart extends AbstractDrillDownChart {
       return (
         <Statistic key={this.id + selectedMeasure.measure.name}>
           <Statistic.Label
-            style={{ color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#666' }}
+            style={{
+              color: selectedMeasure.measure.unit === 'percent' && measureValues[0] > 80 ? '#E23B3B' : '#999'
+            }}
           >
             {selectedMeasure.measure.name}
           </Statistic.Label>

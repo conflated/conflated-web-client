@@ -1,5 +1,6 @@
 .ui {
-  &.statistic + &.statistic {
-    margin: 0rem 1rem;
+
+  &.statistic {
+    margin: 0rem 1rem !important;
   }
 }
