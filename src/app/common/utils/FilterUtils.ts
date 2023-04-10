@@ -4,6 +4,12 @@ export default class FilterUtils {
       (namedObject: T) =>
         keywords.length === 0 ||
         (keywords.length > 0 &&
-          keywords.split(' ').every((keyword) => namedObject.name.toLowerCase().includes(keyword.toLowerCase())))
+          keywords.split(' ').every((keyword) => {
+            if (keyword.startsWith('-')) {
+              return !namedObject.name.toLowerCase().includes(keyword.slice(1).toLowerCase());
+            } else {
+              return namedObject.name.toLowerCase().includes(keyword.toLowerCase());
+            }
+          }))
     );
 }
