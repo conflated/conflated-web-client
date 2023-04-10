@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Statistic } from 'semantic-ui-react';
-import { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
-import { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
-import { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import { MeasureVisualizationType } from '../../selectedmeasure/types/MeasureVisualizationType';
-import AbstractDrillDownChart from '../AbstractDrillDownChart';
+import { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
+import { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
+import { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
+import { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
+import { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
+import AbstractDrillDownChart from './AbstractDrillDownChart';
 
 export default class StatisticChart extends AbstractDrillDownChart {
   override handleChartJsClick(): void {
@@ -51,11 +51,17 @@ export default class StatisticChart extends AbstractDrillDownChart {
 
       return (
         <Statistic key={this.id + selectedMeasure.measure.name}>
-          <Statistic.Label>{selectedMeasure.measure.name}</Statistic.Label>
+          <Statistic.Label style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#666' }}>
+            {selectedMeasure.measure.name}
+          </Statistic.Label>
           <Statistic.Value>
-            {measureValues[0] ?? 0}
-            <span style={{ fontSize: '1.75rem' }}>.1</span>
-            <span style={{ fontSize: '1.25rem', paddingLeft: '0.3rem' }}>{unit}</span>
+            <span style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000' }}>{measureValues[0] ?? 0}</span>
+            <span style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000', fontSize: '1.75rem' }}>.1</span>
+            <span
+              style={{ color: measureValues[0] > 80 ? '#E23B3B' : '#000', fontSize: '1.25rem', paddingLeft: '0.3rem' }}
+            >
+              {unit}
+            </span>
           </Statistic.Value>
         </Statistic>
       );

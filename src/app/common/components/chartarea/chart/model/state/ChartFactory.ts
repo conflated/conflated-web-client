@@ -16,7 +16,7 @@ import BarChart from './impl/basic/nontimeline/xaxiscategories/BarChart';
 import PieChartImpl from './impl/basic/nontimeline/pieordonut/PieChartImpl';
 import DonutChartImpl from './impl/basic/nontimeline/pieordonut/DonutChartImpl';
 import RangeAreaChart from './impl/basic/nontimeline/xaxiscategories/RangeAreaChart';
-import StatisticChart from './impl/basic/StatisticChart';
+import StatisticChart from './impl/StatisticChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
