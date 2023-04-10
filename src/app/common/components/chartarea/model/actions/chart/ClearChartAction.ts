@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
@@ -11,14 +10,13 @@ export default class ClearChartAction extends AbstractChartAreaAction {
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    const newChart = ChartFactory.createChart();
-    newChart.id = this.chart.id;
+    const { charts } = currentState;
+    const emptyChart = ChartFactory.createChart();
+    emptyChart.id = this.chart.id;
 
-    const newState = {
+    return {
       ...currentState,
-      charts: [..._.without(currentState.charts, this.chart), newChart]
+      charts: charts.map((chart) => (chart === this.chart ? emptyChart : chart))
     };
-
-    return newState;
   }
 }

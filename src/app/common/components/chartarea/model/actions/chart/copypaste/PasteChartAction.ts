@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
@@ -20,7 +19,7 @@ export default class PasteChartAction extends AbstractChartAreaAction {
 
     return {
       ...currentState,
-      charts: [..._.without(charts, this.chart), copiedChart]
+      charts: charts.map((chart) => (chart === this.chart ? copiedChart : chart))
     };
   }
 }
