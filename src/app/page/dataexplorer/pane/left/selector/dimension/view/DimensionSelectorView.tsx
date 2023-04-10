@@ -135,15 +135,21 @@ const DimensionSelectorView = ({
 
   const dimensionListItems = useMemo(
     () =>
-      shownDimensions.map((dimension: Dimension) => (
-        <DraggableDimensionListItemView
-          key={dimension.name}
-          item={dimension}
-          onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
-          onItemDblClick={handleMaximizeIconClick}
-        />
-      )),
-    [addSelectedDimensionToSelectedChart, handleMaximizeIconClick, shownDimensions]
+      shownDimensions
+        .filter(
+          (shownDimension) =>
+            selectedChart.chartType !== 'statistic' ||
+            (selectedChart.chartType === 'statistic' && shownDimension.name === 'All')
+        )
+        .map((dimension: Dimension) => (
+          <DraggableDimensionListItemView
+            key={dimension.name}
+            item={dimension}
+            onItemClick={() => addSelectedDimensionToSelectedChart(dimension)}
+            onItemDblClick={handleMaximizeIconClick}
+          />
+        )),
+    [addSelectedDimensionToSelectedChart, handleMaximizeIconClick, selectedChart.chartType, shownDimensions]
   );
 
   const chartListItems = useMemo(

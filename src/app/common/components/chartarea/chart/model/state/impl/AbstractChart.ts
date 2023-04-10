@@ -228,7 +228,7 @@ export default abstract class AbstractChart implements Chart {
       return 'Add a measure or dimension';
     } else if (this.selectedMeasures.length === 0) {
       return 'Add a measure';
-    } else if (this.selectedDimensions.length === 0 && !this.supportsAllDimension()) {
+    } else if (this.selectedDimensions.length === 0) {
       return 'Add a dimension';
     }
 

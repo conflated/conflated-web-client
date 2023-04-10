@@ -1,4 +1,3 @@
-- Implement Statistic chart
 - Sort bys
 - Automatic Sort by
 - Filters

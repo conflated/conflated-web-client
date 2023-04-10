@@ -16,7 +16,7 @@ export default class ServiceModule extends Module {
     this.bind('measureService').toInstance(new FakeMeasureServiceImpl());
     this.bind('dimensionService').toInstance(new FakeDimensionServiceImpl());
     this.bind('chartDataService').toInstance(new CachingChartDataService(new FakeChartDataService()));
-    this.bind('chartDataService').toInstance(new FakeChartDataService());
+    // this.bind('chartDataService').toInstance(new FakeChartDataService());
     this.bind('dashboardsService').toInstance(new FakeDashboardGroupsService());
     this.bind('reportTemplateGroupsService').toInstance(new FakeReportTemplateGroupsService());
     this.bind('triggerDataSourceService').toInstance(new FakeTriggerDataSourceService());

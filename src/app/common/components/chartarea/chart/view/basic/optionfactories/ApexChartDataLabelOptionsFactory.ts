@@ -2,6 +2,9 @@ import type { Chart } from '../../../model/state/Chart';
 
 export default class ApexChartDataLabelOptionsFactory {
   static createDataLabelOptions(chart: Chart): object {
+    const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const color = isDarkModeActive ? '#f2f2f2' : '#000';
+
     return {
       enabled: chart.shouldShowDataLabels(),
       textAnchor: 'middle',
@@ -10,13 +13,13 @@ export default class ApexChartDataLabelOptionsFactory {
       style: {
         fontSize: '0.8rem',
         fontFamily: 'Arimo, sans-serif',
-        fontWeight: 'bold',
+        fontWeight: 'normal',
         colors:
           chart.chartType !== 'line' &&
           chart.chartType !== 'area' &&
           chart.chartType !== 'radar' &&
           chart.chartType !== 'heatmap'
-            ? ['#fff']
+            ? [color]
             : ['#000']
       }
     };

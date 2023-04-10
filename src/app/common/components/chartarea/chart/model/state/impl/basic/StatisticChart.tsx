@@ -74,7 +74,7 @@ export default class StatisticChart extends AbstractDrillDownChart {
   }
 
   override getNextMeasureVisualizationType(): MeasureVisualizationType {
-    return 'none';
+    return 'color';
   }
 
   override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {

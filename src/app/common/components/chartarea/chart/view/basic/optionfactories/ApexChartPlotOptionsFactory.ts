@@ -27,7 +27,10 @@ export default class ApexChartPlotOptionsFactory {
 
     return {
       bar: {
-        horizontal: chart.chartType === 'bar'
+        horizontal: chart.chartType === 'bar',
+        dataLabels: {
+          position: 'top'
+        }
       },
       candlestick: {
         colors: {
