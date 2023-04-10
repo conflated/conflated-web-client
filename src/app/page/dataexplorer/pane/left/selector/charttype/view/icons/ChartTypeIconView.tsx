@@ -3,6 +3,7 @@ import { Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import styles from './ChartTypeIcons.module.scss';
 import type { ChartType } from '../../../../../../../../common/components/chartarea/chart/model/state/types/ChartType';
+import { Chart } from '../../../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 type Props = {
   chartType: ChartType;
@@ -11,7 +12,7 @@ type Props = {
   iconClassName: any;
   notifyDragEnd: () => void;
   notifyDragStart: () => void;
-  selectedChartType: ChartType;
+  selectedChart: Chart;
   selectChartType: (chartType: ChartType) => void;
   tooltipText: string;
 };
@@ -23,7 +24,7 @@ const ChartTypeIconView: React.FC<Props> = ({
   notifyDragEnd,
   notifyDragStart,
   selectChartType,
-  selectedChartType,
+  selectedChart,
   tooltipText
 }: Props) => {
   function onDragStart(event: React.DragEvent<HTMLSpanElement>) {
@@ -31,7 +32,7 @@ const ChartTypeIconView: React.FC<Props> = ({
     notifyDragStart();
   }
 
-  const className = classNames(iconClassName, { [styles.selected]: chartType === selectedChartType });
+  const className = classNames(iconClassName, { [styles.selected]: chartType === selectedChart.chartType });
 
   return (
     <Popup

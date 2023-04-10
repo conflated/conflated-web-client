@@ -177,7 +177,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
             isResizable={stateNamespace === 'dataExplorerPage' && !isLayoutLocked}
             layout={layout as any}
             margin={[0, 0]}
-            onDrop={(newLayout) => dropChart(newLayout, 'column')}
+            onDrop={(newLayout, _2, event) => dropChart(newLayout, (event as any).dataTransfer.getData('chartType'))}
             onDropDragOver={() => ({ h: 3, w: 3 })}
             onResizeStart={this.showChartSizes}
             onResize={this.updateChartSize}

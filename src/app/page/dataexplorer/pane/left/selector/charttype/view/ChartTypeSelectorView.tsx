@@ -13,7 +13,7 @@ const ChartTypeSelectorView = ({ notifyDragEnd, notifyDragStart, selectChartType
     position="leftPane"
     selectorContent={
       <ChartTypeIconsView
-        selectedChartType={selectedChart.chartType}
+        selectedChart={selectedChart}
         selectChartType={selectChartType}
         notifyDragStart={notifyDragStart}
         notifyDragEnd={notifyDragEnd}

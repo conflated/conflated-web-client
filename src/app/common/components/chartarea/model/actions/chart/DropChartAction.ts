@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
@@ -5,7 +6,6 @@ import { Layout } from '../../state/types/Layout';
 import { ChartType } from '../../../chart/model/state/types/ChartType';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 import { ChartConfiguration } from '../../../chart/model/state/ChartConfiguration';
-import emptyDataSource from '../../../chart/model/state/datasource/emptyDataSource';
 
 export default class DropChartAction extends AbstractChartAreaAction {
   constructor(
@@ -17,12 +17,14 @@ export default class DropChartAction extends AbstractChartAreaAction {
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    const { charts } = currentState;
+    const { charts, layout, selectedChart } = currentState;
+    const largestId = parseInt(_.maxBy(layout, 'i')?.i ?? '0', 10);
+    const newId = (largestId + 1).toString();
 
     const droppedChartConfig: ChartConfiguration = {
-      id: this.newLayout.length.toString(),
+      id: newId,
       chartType: this.chartType,
-      dataSource: emptyDataSource,
+      dataSource: selectedChart.dataSource,
       selectedMeasures: [],
       selectedDimensions: [],
       selectedFilters: [],
@@ -32,12 +34,10 @@ export default class DropChartAction extends AbstractChartAreaAction {
       fetchedRowCount: 100
     };
 
-    console.log(this.newLayout);
-
     return {
       ...currentState,
       layout: this.newLayout.map((gridItem) =>
-        gridItem.i === '__dropping-elem__' ? { ...gridItem, i: this.newLayout.length.toString() } : gridItem
+        gridItem.i === '__dropping-elem__' ? { ...gridItem, i: newId } : gridItem
       ),
       charts: [...charts, ChartFactory.createChart(droppedChartConfig)]
     };

@@ -2,12 +2,13 @@ import React from 'react';
 import styles from './ChartTypeIcons.module.scss';
 import ChartTypeIconView from './ChartTypeIconView';
 import type { ChartType } from '../../../../../../../../common/components/chartarea/chart/model/state/types/ChartType';
+import { Chart } from '../../../../../../../../common/components/chartarea/chart/model/state/Chart';
 
 type Props = {
   notifyDragEnd: () => void;
   notifyDragStart: () => void;
   selectChartType: (chartType: ChartType) => void;
-  selectedChartType: ChartType;
+  selectedChart: Chart;
 };
 
 const ChartTypeIconsView = (props: Props) => (
