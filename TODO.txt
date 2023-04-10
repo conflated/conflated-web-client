@@ -1,6 +1,6 @@
 - Implement Statistic chart
-- Automatic Sort by
 - Sort bys
+- Automatic Sort by
 - Filters
 - Implement quick filter
 - Go through chart types

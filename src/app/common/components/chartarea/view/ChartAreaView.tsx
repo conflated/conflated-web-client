@@ -98,8 +98,6 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       };
     }, {});
 
-    console.log(newState);
-
     this.setState(newState);
   };
 

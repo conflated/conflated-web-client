@@ -29,7 +29,7 @@ export default class FakeChartDataService implements ChartDataService {
           return;
         }
 
-        const hasAllDimension = columns.filter(({ name }: Column) => name === 'All');
+        const hasAllDimension = columns.filter(({ name }: Column) => name === 'All').length > 0;
         const hasErrorCategory = columns.filter(({ name }: Column) => name === '"Error category"').length > 0;
         const hasCellDimension = columns.filter(({ name }: Column) => name === 'Cell').length > 0;
         const hasTimestamp = columns.filter(({ name }: Column) => name === 'Timestamp').length > 0;
