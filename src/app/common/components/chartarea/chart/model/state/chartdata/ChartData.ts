@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
-import type { SelectedFilter } from '../selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../filters/filter/Filter';
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
-import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import type { DataScopeType } from '../types/DataScopeType';
 import type { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 
 export interface ChartData {
-  filterChartData(selectedFilters: SelectedFilter[], dataScopeType?: DataScopeType): void;
+  filterChartData(selectedFilters: Filter[], dataScopeType?: DataScopeType): void;
 
-  getAllValues(selectedFilter: SelectedFilter): Array<any>;
+  getAllValues(selectedFilter: Filter): Array<any>;
 
   getBubbleChartData(
     selectedMeasures: SelectedMeasure[],
@@ -37,11 +37,11 @@ export interface ChartData {
     visualizationType: DimensionVisualizationType
   ): Array<any>;
 
-  getForSelectedFilter(selectedFilter: SelectedFilter | null | undefined): Array<any>;
+  getForSelectedFilter(selectedFilter: Filter | null | undefined): Array<any>;
 
   getForSelectedSortBy(selectedSortBy: SelectedSortBy | null | undefined): Array<any>;
 
-  getMinAndMaxValueForSelectedFilter(selectedFilter: SelectedFilter): [number, number];
+  getMinAndMaxValueForSelectedFilter(selectedFilter: Filter): [number, number];
 
   getMapLocationData(selectedDimensions: SelectedDimension[]): [Array<any>, Array<any>];
 

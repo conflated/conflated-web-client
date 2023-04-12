@@ -4,12 +4,12 @@ import React from 'react';
 import { Checkbox } from 'semantic-ui-react';
 import styles from './CheckboxesFilterInputView.module.scss';
 import type { ChartData } from '../../../../../../chartarea/chart/model/state/chartdata/ChartData';
-import type { SelectedFilter } from '../../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   chartData: ChartData;
   className: string;
-  selectedFilter: SelectedFilter;
+  selectedFilter: Filter;
   changeFilterExpression: (filterExpression: string) => void;
 };
 

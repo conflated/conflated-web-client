@@ -3,7 +3,7 @@ import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
-import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
@@ -27,8 +27,8 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
     const selectedFilters = selectedChart.getSelectedFilters();
 
     const minMaxMeasureColumns = selectedFilters
-      .filter(({ type, filterInputType }: SelectedFilter) => type === 'measure' && filterInputType === 'Range filter')
-      .map(({ dataScopeType, sqlColumn: { name, expression } }: SelectedFilter) => ({
+      .filter(({ type, filterInputType }: Filter) => type === 'measure' && filterInputType === 'Range filter')
+      .map(({ dataScopeType, sqlColumn: { name, expression } }: Filter) => ({
         name,
         expression,
         fetchedRowCount: dataScopeType === 'already fetched' ? selectedChart.fetchedRowCount : 0

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import moment from 'moment';
-import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../selecteddimension/DimensionVisualizationType';
 import type { Dimension } from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
@@ -14,6 +14,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     }
 
+    console.log(this.selectedSortBys);
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }

@@ -5,7 +5,7 @@ import type { MeasureVisualizationType } from '../../../selectedmeasure/types/Me
 import type { FillType } from '../../../types/FillType';
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../selecteddimension/DimensionVisualizationType';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import type { ChartAreaStateNamespace } from '../../../../../../model/state/types/ChartAreaStateNamespace';
 import ApexChartView from '../../../../../view/basic/ApexChartView';

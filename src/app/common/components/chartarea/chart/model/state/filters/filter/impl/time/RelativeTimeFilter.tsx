@@ -2,12 +2,12 @@
 import React from 'react';
 import _ from 'lodash';
 import moment from 'moment';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
+import AbstractFilter from '../AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
 import type { ChartData } from '../../../../chartdata/ChartData';
 import RelativeTimeFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/relativetime/RelativeTimeFilterInputView';
 
-export default class RelativeTimeSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class RelativeTimeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
-import type { DimensionVisualizationType } from './selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from './selecteddimension/DimensionVisualizationType';
 import type { SelectedMeasure } from './selectedmeasure/SelectedMeasure';
 import type { MeasureVisualizationType } from './selectedmeasure/types/MeasureVisualizationType';
 import type { FillType } from './types/FillType';
@@ -8,7 +8,7 @@ import type { AggregationFunction } from './selectedmeasure/types/AggregationFun
 import type { ChartType } from './types/ChartType';
 import type { ChartConfiguration } from './ChartConfiguration';
 import type { DataSource } from './datasource/DataSource';
-import type { SelectedFilters } from './selectedfilters/SelectedFilters';
+import type { ChartFilters } from './filters/ChartFilters';
 import type { SelectedSortBys } from './selectedsortbys/SelectedSortBys';
 import type { DrillDown } from './types/DrillDown';
 import type { DataPoint } from './types/DataPoint';
@@ -21,7 +21,7 @@ import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DataSeries } from './types/DataSeries';
 import DimensionDropZoneListItemViewFactory from '../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import type { LegendPosition } from './types/LegendPosition';
-import type { SelectedFilter } from './selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from './filters/filter/Filter';
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
 import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
 import type { Layout } from '../../../model/state/types/Layout';
@@ -33,7 +33,7 @@ export interface Chart {
   dataSource: DataSource;
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
-  selectedFilters: SelectedFilters;
+  selectedFilters: ChartFilters;
   selectedSortBys: SelectedSortBys;
   chartData: ChartData;
   xAxisCategoriesShownCount: number;
@@ -165,7 +165,7 @@ export interface Chart {
 
   getPrimarySelectedDimensionType(): DimensionVisualizationType | null;
 
-  getSelectedFilters(): SelectedFilter[];
+  getSelectedFilters(): Filter[];
 
   getSelectedSortBys(): SelectedSortBy[];
 

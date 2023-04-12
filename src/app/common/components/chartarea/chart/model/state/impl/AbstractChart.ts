@@ -5,16 +5,16 @@ import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { Chart } from '../Chart';
 import type { ChartType } from '../types/ChartType';
 import type { DataSource } from '../datasource/DataSource';
-import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import type { ChartMenuConfirmationType } from '../types/ChartMenuConfirmationType';
 import type { ChartConfiguration } from '../ChartConfiguration';
 import type { DataPoint } from '../types/DataPoint';
 import type { DrillDown } from '../types/DrillDown';
-import SelectedFiltersImpl from '../selectedfilters/SelectedFiltersImpl';
+import ChartFiltersImpl from '../filters/ChartFiltersImpl';
 import SelectedSortBysImpl from '../selectedsortbys/impl/SelectedSortBysImpl';
 import type { SelectedSortBys } from '../selectedsortbys/SelectedSortBys';
-import type { SelectedFilters } from '../selectedfilters/SelectedFilters';
+import type { ChartFilters } from '../filters/ChartFilters';
 import type { FillType } from '../types/FillType';
 import ChartFactory from '../ChartFactory';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
@@ -22,13 +22,13 @@ import ChartDataImpl from '../chartdata/ChartDataImpl';
 import type { ChartData } from '../chartdata/ChartData';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import SelectedDimensionFactory from '../selecteddimension/factory/SelectedDimensionFactory';
+import SelectedDimensionFactory from '../selecteddimension/SelectedDimensionFactory';
 import type { Theme } from '../../../../../../../page/dataexplorer/model/state/types/Theme';
-import SelectedMeasureFactory from '../selectedmeasure/factory/SelectedMeasureFactory';
+import SelectedMeasureFactory from '../selectedmeasure/SelectedMeasureFactory';
 import Utils from '../../../../../../utils/Utils';
 import SqlUtils from '../../../../../../utils/SqlUtils';
 import type { DataSeries } from '../types/DataSeries';
-import type { SelectedFilter } from '../selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../filters/filter/Filter';
 import type { ColumnNameToValuesMap } from '../chartdata/ColumnNameToValuesMap';
 import emptyDataSource from '../datasource/emptyDataSource';
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
@@ -51,7 +51,7 @@ export default abstract class AbstractChart implements Chart {
 
   selectedDimensions: SelectedDimension[] = [];
 
-  selectedFilters: SelectedFilters = new SelectedFiltersImpl([], new ChartDataImpl());
+  selectedFilters: ChartFilters = new ChartFiltersImpl([], new ChartDataImpl());
 
   selectedSortBys: SelectedSortBys = new SelectedSortBysImpl([]);
 
@@ -87,7 +87,7 @@ export default abstract class AbstractChart implements Chart {
       this.selectedMeasures = chartConfiguration.selectedMeasures;
       this.selectedDimensions = chartConfiguration.selectedDimensions;
       this.chartData = new ChartDataImpl(chartConfiguration.chartData);
-      this.selectedFilters = new SelectedFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
+      this.selectedFilters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
       this.selectedSortBys = new SelectedSortBysImpl(chartConfiguration.selectedSortBys);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
@@ -424,7 +424,7 @@ export default abstract class AbstractChart implements Chart {
     return Utils.findElem(this.selectedDimensions, 'visualizationType', visualizationType);
   }
 
-  getSelectedFilters(): SelectedFilter[] {
+  getSelectedFilters(): Filter[] {
     return this.selectedFilters.getSelectedFilters();
   }
 
@@ -720,12 +720,12 @@ export default abstract class AbstractChart implements Chart {
 
     const filterDimensionColumns: Column[] = selectedFilters
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: SelectedFilter) =>
+        ({ dataScopeType, measureOrDimension, type }: Filter) =>
           type === 'dimension' &&
           dataScopeType === 'already fetched' &&
           dimensionColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
-      .map(({ sqlColumn: { name, expression } }: SelectedFilter) => ({
+      .map(({ sqlColumn: { name, expression } }: Filter) => ({
         name,
         expression,
         type: 'dimension'
@@ -733,12 +733,12 @@ export default abstract class AbstractChart implements Chart {
 
     const filterMeasureColumns: Column[] = selectedFilters
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: SelectedFilter) =>
+        ({ dataScopeType, measureOrDimension, type }: Filter) =>
           type === 'measure' &&
           dataScopeType === 'already fetched' &&
           measureColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
-      .map(({ sqlColumn: { name, expression } }: SelectedFilter) => ({
+      .map(({ sqlColumn: { name, expression } }: Filter) => ({
         name,
         expression,
         type: 'measure'

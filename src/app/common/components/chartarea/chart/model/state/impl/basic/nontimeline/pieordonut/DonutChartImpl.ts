@@ -1,7 +1,7 @@
 import type { Measure } from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
-import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../selecteddimension/DimensionVisualizationType';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import PieOrDonutChartImpl from './PieOrDonutChartImpl';
 import { ChartAreaStateNamespace } from '../../../../../../../model/state/types/ChartAreaStateNamespace';

@@ -1,4 +1,4 @@
-import type { SelectedFilter } from '../../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
@@ -9,7 +9,7 @@ import diContainer from '../../../../../../../../../../di/diContainer';
 export default class ChangeSelectedFilterExpressionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: SelectedFilter,
+    private readonly selectedFilter: Filter,
     private readonly expression: string
   ) {
     super(stateNamespace);

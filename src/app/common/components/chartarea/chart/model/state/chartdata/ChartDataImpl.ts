@@ -3,15 +3,15 @@ import _ from 'lodash';
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 import type { ChartData } from './ChartData';
 import Constants from '../../../../../../Constants';
-import type { SelectedFilter } from '../selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../filters/filter/Filter';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import Utils from '../../../../../../utils/Utils';
-import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
 import type { DataScopeType } from '../types/DataScopeType';
-import RowComparer from './rowcomparer/RowComparer';
+import RowComparer from './RowComparer';
 import { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 
 export default class ChartDataImpl implements ChartData {
@@ -21,17 +21,17 @@ export default class ChartDataImpl implements ChartData {
     this.columnNameToDataMap = columnNameToDataMap ?? {};
   }
 
-  filterChartData(selectedFilters: SelectedFilter[], dataScopeType: DataScopeType = 'already fetched') {
+  filterChartData(selectedFilters: Filter[], dataScopeType: DataScopeType = 'already fetched') {
     this.setUnfilteredChartData();
 
     selectedFilters
-      .filter((selectedFilter: SelectedFilter) => selectedFilter.dataScopeType === dataScopeType)
-      .forEach((selectedFilter: SelectedFilter) => {
+      .filter((selectedFilter: Filter) => selectedFilter.dataScopeType === dataScopeType)
+      .forEach((selectedFilter: Filter) => {
         this.columnNameToDataMap = selectedFilter.applyFilter(this.columnNameToDataMap);
       });
   }
 
-  getAllValues(selectedFilter: SelectedFilter): Array<any> {
+  getAllValues(selectedFilter: Filter): Array<any> {
     return this.columnNameToDataMap[`${selectedFilter.sqlColumn.name}___all___`] ?? [];
   }
 
@@ -96,7 +96,7 @@ export default class ChartDataImpl implements ChartData {
     return selectedDimension ? this.getForSelectedDimension(selectedDimension) : [];
   }
 
-  getForSelectedFilter(selectedFilter: SelectedFilter | null): Array<any> {
+  getForSelectedFilter(selectedFilter: Filter | null): Array<any> {
     if (selectedFilter) {
       if (selectedFilter.dataScopeType === 'all') {
         return this.columnNameToDataMap[`${selectedFilter.sqlColumn.name}___all___`] ?? [];
@@ -133,7 +133,7 @@ export default class ChartDataImpl implements ChartData {
     return [];
   }
 
-  getMinAndMaxValueForSelectedFilter(selectedFilter: SelectedFilter): [number, number] {
+  getMinAndMaxValueForSelectedFilter(selectedFilter: Filter): [number, number] {
     let minValue = 0;
     let maxValue = Constants.SLIDER_MAX_VALUE;
     const columnName = selectedFilter.sqlColumn.name;

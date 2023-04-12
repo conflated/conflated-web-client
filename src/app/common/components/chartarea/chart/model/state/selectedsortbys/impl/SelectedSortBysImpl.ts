@@ -14,7 +14,7 @@ import type { SelectedDimension } from '../../selecteddimension/SelectedDimensio
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 import SqlUtils from '../../../../../../../utils/SqlUtils';
-import { DimensionVisualizationType } from '../../selecteddimension/types/DimensionVisualizationType';
+import { DimensionVisualizationType } from '../../selecteddimension/DimensionVisualizationType';
 import { Chart } from '../../Chart';
 
 export default class SelectedSortBysImpl implements SelectedSortBys {

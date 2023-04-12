@@ -2,12 +2,12 @@ import React from 'react';
 import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from '../SelectedFilterView.module.scss';
 import type { AggregationFunction } from '../../../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { FilterInputType } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
+import type { FilterInputType } from '../../../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
 import AggregationFunctionPickerView from '../../../../../../views/picker/aggregationfunction/AggregationFunctionPickerView';
 import type { Chart } from '../../../../../chartarea/chart/model/state/Chart';
 import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
-import type { SelectedFilter } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   changeSelectedFilterAggregationFunction: (aggregationFunction: AggregationFunction) => void;
@@ -16,7 +16,7 @@ type Props = {
   changeSelectedFilterDataScopeType: (dataScopeType: DataScopeType) => void;
   chart: Chart;
   removeSelectedFilter: () => void;
-  selectedFilter: SelectedFilter;
+  selectedFilter: Filter;
 };
 
 const MeasureSelectedFilterView = ({

@@ -1,5 +1,5 @@
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { FilterInputType } from '../types/FilterInputType';
+import type { FilterInputType } from './FilterInputType';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 
 export default class FilterInputTypeFactory {

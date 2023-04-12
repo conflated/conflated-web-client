@@ -9,7 +9,7 @@ import type { DataScopeType } from '../types/DataScopeType';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
-import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { Chart } from '../Chart';
 
 export interface SelectedSortBys {

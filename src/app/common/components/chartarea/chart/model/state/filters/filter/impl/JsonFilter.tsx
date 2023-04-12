@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
-import CheckboxesFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/checkboxes/CheckboxesFilterInputView';
-import DropdownFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/dropdown/DropdownFilterInputView';
-import type { ChartData } from '../../../../chartdata/ChartData';
+import AbstractFilter from './AbstractFilter';
+import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import CheckboxesFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/checkboxes/CheckboxesFilterInputView';
+import DropdownFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/dropdown/DropdownFilterInputView';
+import type { ChartData } from '../../../chartdata/ChartData';
 
-export default class JsonSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class JsonFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;

@@ -7,12 +7,12 @@ import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selec
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
-import type { FilterInputType } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
+import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import ChangeSelectedFilterDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterDataScopeTypeForSelectedChartAction';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedfilter/AddDimensionFilterToSelectedChartAction';
 import ChangeSelectedFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterExpressionForSelectedChartAction';
-import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDimensions from '../../../../../page/dataexplorer/pane/left/selector/dimension/controller/selectors/createShownDimensionsSelector';
@@ -51,7 +51,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     },
 
     changeSelectedFilterAggregationFunctionForSelectedChart: (
-      selectedFilter: SelectedFilter,
+      selectedFilter: Filter,
       aggregationFunction: AggregationFunction
     ) => {
       this.dispatch(
@@ -63,31 +63,25 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       );
     },
 
-    changeSelectedFilterExpressionForSelectedChart: (selectedFilter: SelectedFilter, expression: string) => {
+    changeSelectedFilterExpressionForSelectedChart: (selectedFilter: Filter, expression: string) => {
       this.dispatch(
         new ChangeSelectedFilterExpressionForSelectedChartAction(stateNamespace, selectedFilter, expression)
       );
     },
 
-    changeSelectedFilterInputTypeForSelectedChart: (
-      selectedFilter: SelectedFilter,
-      filterInputType: FilterInputType
-    ) => {
+    changeSelectedFilterInputTypeForSelectedChart: (selectedFilter: Filter, filterInputType: FilterInputType) => {
       this.dispatch(
         new ChangeSelectedFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType)
       );
     },
 
-    changeSelectedFilterDataScopeTypeForSelectedChart: (
-      selectedFilter: SelectedFilter,
-      dataScopeType: DataScopeType
-    ) => {
+    changeSelectedFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScopeType) => {
       this.dispatch(
         new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType)
       );
     },
 
-    removeSelectedFilterFromSelectedChart: (selectedFilter: SelectedFilter) => {
+    removeSelectedFilterFromSelectedChart: (selectedFilter: Filter) => {
       this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(stateNamespace, selectedFilter));
     },
 

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from 'lodash';
-import NumberRangesParser from '../../../numberrange/NumberRangesParser';
-import type { NumberRange } from '../../../numberrange/NumberRange';
-import type { ColumnNameToValuesMap } from '../../../../../chartdata/ColumnNameToValuesMap';
-import InputSelectedFilterImpl from '../InputSelectedFilterImpl';
+import NumberRangesParser from '../../../../../../../../../utils/numberrange/NumberRangesParser';
+import type { NumberRange } from '../../../../../../../../../utils/numberrange/NumberRange';
+import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
+import InputFilter from './InputFilter';
 
-export default class MeasureInputSelectedFilterImpl extends InputSelectedFilterImpl {
+export default class MeasureInputFilter extends InputFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;

@@ -1,52 +1,52 @@
 import _ from 'lodash';
-import type { SelectedFilters } from './SelectedFilters';
+import type { ChartFilters } from './ChartFilters';
 import type { DataScopeType } from '../types/DataScopeType';
-import type { SelectedFilter } from './selectedfilter/SelectedFilter';
+import type { Filter } from './filter/Filter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import Utils from '../../../../../../utils/Utils';
 import SqlUtils from '../../../../../../utils/SqlUtils';
 import type { ChartData } from '../chartdata/ChartData';
-import type { FilterInputType } from './selectedfilter/types/FilterInputType';
-import SelectedFilterFactory from './selectedfilter/factory/SelectedFilterFactory';
+import type { FilterInputType } from './filter/inputtype/FilterInputType';
+import FilterFactory from './filter/FilterFactory';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 
-export default class SelectedFiltersImpl implements SelectedFilters {
-  selectedFilters: SelectedFilter[];
+export default class ChartFiltersImpl implements ChartFilters {
+  selectedFilters: Filter[];
 
   chartData: ChartData;
 
-  constructor(selectedFilters: SelectedFilter[], chartData: ChartData) {
+  constructor(selectedFilters: Filter[], chartData: ChartData) {
     this.selectedFilters = selectedFilters;
     this.chartData = chartData;
   }
 
-  addDimensionSelectedFilter(dimension: Dimension): SelectedFilter {
-    const selectedFilter = SelectedFilterFactory.createDimensionSelectedFilter(dimension);
+  addDimensionSelectedFilter(dimension: Dimension): Filter {
+    const selectedFilter = FilterFactory.createDimensionSelectedFilter(dimension);
     this.selectedFilters = [...this.selectedFilters, selectedFilter];
     return selectedFilter;
   }
 
   addDrillDownFilter(drillDown: DrillDown) {
-    const drillDownFilter = SelectedFilterFactory.createDrillDownFilter(drillDown, drillDown.value);
+    const drillDownFilter = FilterFactory.createDrillDownFilter(drillDown, drillDown.value);
     this.selectedFilters = [...this.selectedFilters, drillDownFilter];
   }
 
-  addMeasureSelectedFilter(measure: Measure): SelectedFilter {
-    const selectedFilter = SelectedFilterFactory.createMeasureSelectedFilter(measure);
+  addMeasureSelectedFilter(measure: Measure): Filter {
+    const selectedFilter = FilterFactory.createMeasureSelectedFilter(measure);
     this.selectedFilters = [...this.selectedFilters, selectedFilter];
     return selectedFilter;
   }
 
   addSelectionFilter(chartId: string, selectedDimension: SelectedDimension, filterExpression: string) {
-    const selectedFilter = SelectedFilterFactory.createSelectionFilter(chartId, selectedDimension, filterExpression);
+    const selectedFilter = FilterFactory.createSelectionFilter(chartId, selectedDimension, filterExpression);
 
     this.selectedFilters = [...this.selectedFilters, selectedFilter];
   }
 
-  changeSelectedFilterAggregationFunction(selectedFilter: SelectedFilter, aggregationFunction: AggregationFunction) {
+  changeSelectedFilterAggregationFunction(selectedFilter: Filter, aggregationFunction: AggregationFunction) {
     this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       aggregationFunction,
       sqlColumn: {
@@ -58,19 +58,19 @@ export default class SelectedFiltersImpl implements SelectedFilters {
     this.chartData.filterChartData(this.selectedFilters, selectedFilter.dataScopeType);
   }
 
-  changeSelectedFilterDataScopeType(selectedFilter: SelectedFilter, dataScopeType: DataScopeType) {
+  changeSelectedFilterDataScopeType(selectedFilter: Filter, dataScopeType: DataScopeType) {
     this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       dataScopeType
     });
   }
 
-  changeSelectedFilterExpression(selectedFilter: SelectedFilter, filterExpression: string) {
+  changeSelectedFilterExpression(selectedFilter: Filter, filterExpression: string) {
     this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
       filterExpression
     });
   }
 
-  changeSelectedFilterInputType(selectedFilter: SelectedFilter, filterInputType: FilterInputType): SelectedFilter {
+  changeSelectedFilterInputType(selectedFilter: Filter, filterInputType: FilterInputType): Filter {
     const filterExpression = filterInputType === 'Relative time filter' ? ' Minutes' : '';
 
     const newSelectedFilterConfiguration = {
@@ -79,27 +79,27 @@ export default class SelectedFiltersImpl implements SelectedFilters {
       filterInputType
     };
 
-    const newSelectedFilter = SelectedFilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
+    const newSelectedFilter = FilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
     Utils.replace(this.selectedFilters, selectedFilter, newSelectedFilter);
     return newSelectedFilter;
   }
 
-  getSelectedFilters(): SelectedFilter[] {
+  getSelectedFilters(): Filter[] {
     return this.selectedFilters;
   }
 
-  getLastDrillDownFilter(): SelectedFilter | null | undefined {
+  getLastDrillDownFilter(): Filter | null | undefined {
     return Utils.findLastElem(this.selectedFilters, 'isDrillDownFilter');
   }
 
-  removeSelectedFilter(selectedFilter: SelectedFilter) {
+  removeSelectedFilter(selectedFilter: Filter) {
     this.selectedFilters = _.without(this.selectedFilters, selectedFilter);
     this.chartData.filterChartData(this.selectedFilters);
   }
 
   removeSelectionFilter(selectionChartId: string) {
     this.selectedFilters = this.selectedFilters.filter(
-      ({ chartId, isSelectionFilter }: SelectedFilter) => !isSelectionFilter || chartId !== selectionChartId
+      ({ chartId, isSelectionFilter }: Filter) => !isSelectionFilter || chartId !== selectionChartId
     );
 
     this.chartData.filterChartData(this.selectedFilters);

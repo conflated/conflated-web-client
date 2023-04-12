@@ -3,15 +3,15 @@ import _ from 'lodash';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
-import type { FilterType } from '../types/FilterType';
-import type { FilterInputType } from '../types/FilterInputType';
+import type { FilterType } from '../FilterType';
+import type { FilterInputType } from '../inputtype/FilterInputType';
 import type { DataScopeType } from '../../../types/DataScopeType';
-import type { SelectedFilter } from '../SelectedFilter';
-import type { SelectedFilterConfiguration } from '../SelectedFilterConfiguration';
+import type { Filter } from '../Filter';
+import type { FilterConfiguration } from '../FilterConfiguration';
 import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
 import type { ChartData } from '../../../chartdata/ChartData';
 
-export default abstract class AbstractSelectedFilterImpl implements SelectedFilter {
+export default abstract class AbstractFilter implements Filter {
   readonly measureOrDimension: Measure | Dimension;
 
   readonly sqlColumn: {
@@ -37,7 +37,7 @@ export default abstract class AbstractSelectedFilterImpl implements SelectedFilt
 
   readonly isDrillDownFilter: boolean;
 
-  constructor(selectedFilterConfiguration: SelectedFilterConfiguration) {
+  constructor(selectedFilterConfiguration: FilterConfiguration) {
     this.measureOrDimension = selectedFilterConfiguration.measureOrDimension;
     this.sqlColumn = selectedFilterConfiguration.sqlColumn;
     this.aggregationFunction = selectedFilterConfiguration.aggregationFunction;
@@ -51,7 +51,7 @@ export default abstract class AbstractSelectedFilterImpl implements SelectedFilt
     this.isDrillDownFilter = selectedFilterConfiguration.isDrillDownFilter;
   }
 
-  getConfiguration(): SelectedFilterConfiguration {
+  getConfiguration(): FilterConfiguration {
     return {
       measureOrDimension: this.measureOrDimension,
       sqlColumn: this.sqlColumn,

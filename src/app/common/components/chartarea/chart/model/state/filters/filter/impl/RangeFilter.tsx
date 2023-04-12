@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import _ from 'lodash';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
-import NumberRangesParser from '../../numberrange/NumberRangesParser';
-import type { ChartData } from '../../../../chartdata/ChartData';
-import SliderFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/slider/SliderFilterInputView';
+import AbstractFilter from './AbstractFilter';
+import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import NumberRangesParser from '../../../../../../../../utils/numberrange/NumberRangesParser';
+import type { ChartData } from '../../../chartdata/ChartData';
+import SliderFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/slider/SliderFilterInputView';
 
-export default class RangeSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class RangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     const filteredInIndexes: any[] = [];
     const newChartData = chartData;

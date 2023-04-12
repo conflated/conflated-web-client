@@ -1,6 +1,6 @@
 import React from 'react';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
-import type { DimensionVisualizationType } from '../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import AgGridDataTableChartView from '../../../view/datatable/AgGridDataTableChartView';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';

@@ -1,9 +1,9 @@
 import React from 'react';
 import type { ChartData } from '../../../../chartdata/ChartData';
 import InputFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/input/InputFilterInputView';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
+import AbstractFilter from '../AbstractFilter';
 
-export default abstract class InputSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default abstract class InputFilter extends AbstractFilter {
   getFilterInputView(
     className: string,
     chartData: ChartData,

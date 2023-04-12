@@ -7,7 +7,7 @@ import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DrillDown } from './types/DrillDown';
 import type { DataPoint } from './types/DataPoint';
 import type { ChartMenuConfirmationType } from './types/ChartMenuConfirmationType';
-import type { SelectedFilter } from './selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from './filters/filter/Filter';
 
 export type ChartConfiguration = {
   id: string;
@@ -15,7 +15,7 @@ export type ChartConfiguration = {
   dataSource: DataSource;
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
-  selectedFilters: SelectedFilter[];
+  selectedFilters: Filter[];
   selectedSortBys: SelectedSortBy[];
   chartData: ColumnNameToValuesMap;
   xAxisCategoriesShownCount: number;

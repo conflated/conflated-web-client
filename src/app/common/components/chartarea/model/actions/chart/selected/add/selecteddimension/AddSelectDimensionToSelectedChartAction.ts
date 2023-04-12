@@ -1,5 +1,5 @@
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { DimensionVisualizationType } from '../../../../../../chart/model/state/selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../../../chart/model/state/selecteddimension/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';

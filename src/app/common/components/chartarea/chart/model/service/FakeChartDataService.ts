@@ -3,10 +3,10 @@ import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValue
 import { ChartDataService } from './ChartDataService';
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
-import type { SelectedFilterConfiguration } from '../state/selectedfilters/selectedfilter/SelectedFilterConfiguration';
+import type { FilterConfiguration } from '../state/filters/filter/FilterConfiguration';
 import type { DataSource } from '../state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
-import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../state/filters/filter/Filter';
 import ChartDataImpl from '../state/chartdata/ChartDataImpl';
 
 export default class FakeChartDataService implements ChartDataService {
@@ -16,7 +16,7 @@ export default class FakeChartDataService implements ChartDataService {
   fetchChartData(
     dataSource: DataSource,
     columns: Column[],
-    selectedFilters: SelectedFilter[],
+    selectedFilters: Filter[],
     selectedSortBys: SelectedSortBy[]
   ): Promise<ColumnNameToValuesMap> {
     return new Promise<ColumnNameToValuesMap>((resolve) => {
@@ -179,8 +179,8 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         selectedFilters
-          .filter(({ type }: SelectedFilterConfiguration) => type === 'measure')
-          .forEach(({ sqlColumn: { name } }: SelectedFilterConfiguration) => {
+          .filter(({ type }: FilterConfiguration) => type === 'measure')
+          .forEach(({ sqlColumn: { name } }: FilterConfiguration) => {
             if (!columnNameToValuesMap[name]) {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
@@ -189,8 +189,8 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         selectedFilters
-          .filter(({ type }: SelectedFilterConfiguration) => type === 'dimension')
-          .forEach(({ sqlColumn: { name } }: SelectedFilterConfiguration) => {
+          .filter(({ type }: FilterConfiguration) => type === 'dimension')
+          .forEach(({ sqlColumn: { name } }: FilterConfiguration) => {
             if (!columnNameToValuesMap[name]) {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)

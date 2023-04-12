@@ -5,20 +5,20 @@ import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaS
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
 import StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction from './StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction';
 import StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction from './StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction';
-import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
   stateNamespace: ChartAreaStateNamespace;
-  selectedFilter: SelectedFilter;
+  selectedFilter: Filter;
 };
 
 @Inject('chartDataService')
 class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
-  private readonly selectedFilter: SelectedFilter;
+  private readonly selectedFilter: Filter;
 
   constructor({ chartDataService, stateNamespace, selectedFilter }: ConstructorArgs) {
     super(stateNamespace);

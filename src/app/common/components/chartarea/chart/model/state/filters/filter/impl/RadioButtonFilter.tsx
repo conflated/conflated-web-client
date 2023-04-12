@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
-import type { ChartData } from '../../../../chartdata/ChartData';
-import RadioButtonsFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/radiobuttons/RadioButtonsFilterInputView';
+import AbstractFilter from './AbstractFilter';
+import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import type { ChartData } from '../../../chartdata/ChartData';
+import RadioButtonsFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/radiobuttons/RadioButtonsFilterInputView';
 
-export default class RadioButtonSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class RadioButtonFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     const filteredInIndexes: number[] = [];
     const newChartData = chartData;

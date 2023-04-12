@@ -2,7 +2,7 @@
 import AbstractBasicChart from '../AbstractBasicChart';
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { DimensionVisualizationType } from '../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../selecteddimension/DimensionVisualizationType';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import Utils from '../../../../../../../../utils/Utils';

@@ -2,13 +2,13 @@
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import type { ChartData } from '../../../../../../chartarea/chart/model/state/chartdata/ChartData';
-import type { SelectedFilter } from '../../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   changeFilterExpression: (filterExpression: string) => void;
   chartData: ChartData;
   className: string;
-  selectedFilter: SelectedFilter;
+  selectedFilter: Filter;
 };
 
 const DropdownFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {

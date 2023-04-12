@@ -3,13 +3,13 @@ import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { DataSource } from '../state/datasource/DataSource';
 import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
-import type { SelectedFilter } from '../state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../state/filters/filter/Filter';
 
 export interface ChartDataService {
   fetchChartData(
     dataSource: DataSource,
     columns: Column[],
-    filters: SelectedFilter[],
+    filters: Filter[],
     sortBys: SelectedSortBy[]
   ): Promise<ColumnNameToValuesMap>;
 
@@ -17,7 +17,7 @@ export interface ChartDataService {
     dataSource: DataSource,
     minMaxMeasureColumns: MinMaxMeasureColumn[],
     dimensionColumns: Column[],
-    filters: SelectedFilter[]
+    filters: Filter[]
   ): Promise<ColumnNameToValuesMap>;
 
   fetchDimensionValues(dataSource: DataSource, dimensionColumns: Column[]): Promise<ColumnNameToValuesMap>;

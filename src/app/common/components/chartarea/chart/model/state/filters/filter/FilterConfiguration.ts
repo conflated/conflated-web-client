@@ -1,11 +1,11 @@
-import type { FilterType } from './types/FilterType';
-import type { FilterInputType } from './types/FilterInputType';
+import type { FilterType } from './FilterType';
+import type { FilterInputType } from './inputtype/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { DataScopeType } from '../../types/DataScopeType';
 
-export type SelectedFilterConfiguration = {
+export type FilterConfiguration = {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
   readonly aggregationFunction: AggregationFunction;
   readonly chartId: string;

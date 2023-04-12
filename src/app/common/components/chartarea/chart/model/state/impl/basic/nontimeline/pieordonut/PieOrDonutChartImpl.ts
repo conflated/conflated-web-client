@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../selecteddimension/DimensionVisualizationType';
 import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import type { DataSeries } from '../../../../types/DataSeries';

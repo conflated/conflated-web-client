@@ -2,7 +2,7 @@ import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSelectDimensionToSelectedChartAction from '../../../../../../../common/components/chartarea/model/actions/chart/selected/add/selecteddimension/AddSelectDimensionToSelectedChartAction';
 import RemoveSelectedDimensionFromSelectedChartAction from '../../../../../../../common/components/chartarea/model/actions/chart/selected/remove/RemoveSelectedDimensionFromSelectedChartAction';
 import ChangeSelectedDimensionColorForSelectedChartAction from '../../../../../../../common/components/chartarea/model/actions/chart/selected/change/selecteddimension/ChangeSelectedDimensionColorForSelectedChartAction';
-import type { DimensionVisualizationType } from '../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/DimensionVisualizationType';
 import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { Measure } from '../../measure/model/state/types/Measure';

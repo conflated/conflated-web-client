@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../selecteddimension/DimensionVisualizationType';
 import type { FillType } from '../../../../types/FillType';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';

@@ -1,14 +1,14 @@
-import type { SelectedFilterConfiguration } from './SelectedFilterConfiguration';
+import type { FilterConfiguration } from './FilterConfiguration';
 import type { ColumnNameToValuesMap } from '../../chartdata/ColumnNameToValuesMap';
 import type { ChartData } from '../../chartdata/ChartData';
-import type { FilterInputType } from './types/FilterInputType';
+import type { FilterInputType } from './inputtype/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 import type { DataScopeType } from '../../types/DataScopeType';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { FilterType } from './types/FilterType';
+import type { FilterType } from './FilterType';
 
-export interface SelectedFilter {
+export interface Filter {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
   readonly aggregationFunction: AggregationFunction;
   readonly chartId: string;
@@ -24,7 +24,7 @@ export interface SelectedFilter {
   };
   readonly type: FilterType;
 
-  getConfiguration(): SelectedFilterConfiguration;
+  getConfiguration(): FilterConfiguration;
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap;
   getFilterInputView(
     className: string,

@@ -1,6 +1,6 @@
-import type { FilterInputType } from '../../../../../../chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
+import type { FilterInputType } from '../../../../../../chart/model/state/filters/filter/inputtype/FilterInputType';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { SelectedFilter } from '../../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
@@ -10,7 +10,7 @@ import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaSta
 export default class ChangeSelectedFilterInputTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: SelectedFilter,
+    private readonly selectedFilter: Filter,
     private readonly filterInputType: FilterInputType
   ) {
     super(stateNamespace);

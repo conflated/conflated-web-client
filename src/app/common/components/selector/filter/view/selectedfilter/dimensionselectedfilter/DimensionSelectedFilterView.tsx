@@ -1,11 +1,11 @@
 import React from 'react';
 import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from '../SelectedFilterView.module.scss';
-import type { FilterInputType } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
+import type { FilterInputType } from '../../../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
 import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
 import type { ChartData } from '../../../../../chartarea/chart/model/state/chartdata/ChartData';
-import type { SelectedFilter } from '../../../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   changeSelectedFilterExpression: (expression: string) => void;
@@ -13,7 +13,7 @@ type Props = {
   changeSelectedFilterDataScopeType: (dataScopeType: DataScopeType) => void;
   chartData: ChartData;
   removeSelectedFilter: () => void;
-  selectedFilter: SelectedFilter;
+  selectedFilter: Filter;
 };
 
 // noinspection FunctionWithMoreThanThreeNegationsJS

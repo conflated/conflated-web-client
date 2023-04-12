@@ -3,7 +3,7 @@ import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
-import type { SelectedFilter } from '../../../../../chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 import { Column } from '../../../../../chart/model/state/types/Column';
@@ -29,12 +29,12 @@ class StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction extends Ab
     const dimensionColumns: Column[] = selectedChart
       .getSelectedFilters()
       .filter(
-        ({ type, filterInputType }: SelectedFilter) =>
+        ({ type, filterInputType }: Filter) =>
           (type === 'dimension' && filterInputType === 'Dropdown filter') ||
           filterInputType === 'Checkboxes filter' ||
           filterInputType === 'Radio buttons filter'
       )
-      .map(({ sqlColumn: { name, expression } }: SelectedFilter) => ({
+      .map(({ sqlColumn: { name, expression } }: Filter) => ({
         name,
         expression,
         type: 'dimension'

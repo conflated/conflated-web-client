@@ -1,6 +1,6 @@
 import React from 'react';
 import { List } from 'semantic-ui-react';
-import type { DimensionVisualizationType } from '../../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/types/DimensionVisualizationType';
+import type { DimensionVisualizationType } from '../../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/DimensionVisualizationType';
 
 export default class DimensionDropZoneListItemViewFactory {
   constructor(

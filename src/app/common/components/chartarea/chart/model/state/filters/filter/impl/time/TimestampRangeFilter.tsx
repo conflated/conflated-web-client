@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import moment from 'moment';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
+import AbstractFilter from '../AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
 import type { ChartData } from '../../../../chartdata/ChartData';
 import TimestampRangeFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/timestamprange/TimestampRangeFilterInputView';
 
-export default class TimestampRangeSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class TimestampRangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;

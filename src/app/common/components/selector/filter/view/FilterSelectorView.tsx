@@ -14,10 +14,10 @@ import type { FilterSelectorStateNamespace } from '../model/state/FilterSelector
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { FilterInputType } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/types/FilterInputType';
+import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
-import type { SelectedFilter } from '../../../chartarea/chart/model/state/selectedfilters/selectedfilter/SelectedFilter';
+import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 import ChartListItemView from '../../../../views/list/item/ChartListItemView';
 
@@ -59,7 +59,7 @@ const FilterSelectorView = ({
     ]);
   };
 
-  const selectedFilterListItems = selectedChart.getSelectedFilters().map((selectedFilter: SelectedFilter) => {
+  const selectedFilterListItems = selectedChart.getSelectedFilters().map((selectedFilter: Filter) => {
     if (selectedFilter.type === 'measure') {
       return (
         <MeasureSelectedFilterView

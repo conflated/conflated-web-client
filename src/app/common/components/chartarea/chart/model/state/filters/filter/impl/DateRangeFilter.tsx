@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import moment from 'moment';
 import React from 'react';
-import AbstractSelectedFilterImpl from '../AbstractSelectedFilterImpl';
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
+import AbstractFilter from './AbstractFilter';
+import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
 
-export default class DateRangeSelectedFilterImpl extends AbstractSelectedFilterImpl {
+export default class DateRangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;
