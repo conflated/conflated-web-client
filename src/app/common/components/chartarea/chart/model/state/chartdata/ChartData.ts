@@ -2,7 +2,7 @@
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import type { Filter } from '../filters/filter/Filter';
-import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../sorts/sort/Sort';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import type { DataScopeType } from '../types/DataScopeType';
@@ -39,7 +39,7 @@ export interface ChartData {
 
   getForSelectedFilter(selectedFilter: Filter | null | undefined): Array<any>;
 
-  getForSelectedSortBy(selectedSortBy: SelectedSortBy | null | undefined): Array<any>;
+  getForSelectedSortBy(selectedSortBy: Sort | null | undefined): Array<any>;
 
   getMinAndMaxValueForSelectedFilter(selectedFilter: Filter): [number, number];
 
@@ -58,5 +58,5 @@ export interface ChartData {
   getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
   getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
 
-  sortChartData(selectedSortBys: SelectedSortBy[], dataScopeType?: DataScopeType): void;
+  sortChartData(selectedSortBys: Sort[], dataScopeType?: DataScopeType): void;
 }

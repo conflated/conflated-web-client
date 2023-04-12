@@ -6,14 +6,14 @@ import styles from './SortBySelectorView.module.scss';
 import SelectedSortByListItemView from './selectedsortbylistitem/SelectedSortByListItemView';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { SelectedSortBy } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
-import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
+import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/sort/types/TimeSortOption';
 import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { SortDirection } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
+import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortBySelectorController';
@@ -67,7 +67,7 @@ const SortBySelectorView = ({
 
   const selectedSortByListItems = selectedChart
     .getSelectedSortBys()
-    .map((selectedSortBy: SelectedSortBy) => (
+    .map((selectedSortBy: Sort) => (
       <SelectedSortByListItemView
         key={selectedSortBy.measureOrDimension.name}
         selectedSortBy={selectedSortBy}

@@ -9,7 +9,7 @@ import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import Utils from '../../../../../../utils/Utils';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
-import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../sorts/sort/Sort';
 import type { DataScopeType } from '../types/DataScopeType';
 import RowComparer from './RowComparer';
 import { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
@@ -125,7 +125,7 @@ export default class ChartDataImpl implements ChartData {
     return selectedMeasure ? this.getForSelectedMeasure(selectedMeasure) : [];
   }
 
-  getForSelectedSortBy(selectedSortBy: SelectedSortBy | null): Array<any> {
+  getForSelectedSortBy(selectedSortBy: Sort | null): Array<any> {
     if (selectedSortBy) {
       return this.columnNameToDataMap[selectedSortBy.sqlColumn.name] ?? [];
     }
@@ -235,19 +235,17 @@ export default class ChartDataImpl implements ChartData {
       });
   }
 
-  sort(selectedSortBys: SelectedSortBy[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScopeType) {
-    Utils.pick(selectedSortBys, 'dataScopeType', dataScopeType).forEach(
-      ({ sqlColumn, sortDirection }: SelectedSortBy) => {
-        if (chartDataRows.length > 0 && chartDataRows[0][sqlColumn.name]) {
-          chartDataRows.sort((chartDataRow1: { [key: string]: any }, chartDataRow2: { [key: string]: any }) =>
-            RowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
-          );
-        }
+  sort(selectedSortBys: Sort[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScopeType) {
+    Utils.pick(selectedSortBys, 'dataScopeType', dataScopeType).forEach(({ sqlColumn, sortDirection }: Sort) => {
+      if (chartDataRows.length > 0 && chartDataRows[0][sqlColumn.name]) {
+        chartDataRows.sort((chartDataRow1: { [key: string]: any }, chartDataRow2: { [key: string]: any }) =>
+          RowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
+        );
       }
-    );
+    });
   }
 
-  sortChartData(selectedSortBys: SelectedSortBy[], dataScopeType: DataScopeType = 'already fetched') {
+  sortChartData(selectedSortBys: Sort[], dataScopeType: DataScopeType = 'already fetched') {
     if (_.isEmpty(selectedSortBys) || !Utils.has(selectedSortBys, 'dataScopeType', dataScopeType)) {
       return;
     }

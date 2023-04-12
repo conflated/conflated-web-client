@@ -14,7 +14,6 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     }
 
-    console.log(this.selectedSortBys);
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }

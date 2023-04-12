@@ -1,8 +1,8 @@
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { SelectedSortByType } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SelectedfSortByType';
+import type { SelectedSortByType } from '../../../../../../chart/model/state/sorts/sort/types/SortType';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { SortDirection } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
+import type { SortDirection } from '../../../../../../chart/model/state/sorts/sort/types/SortDirection';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';

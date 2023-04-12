@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { SortDirection } from '../selectedsortbys/selectedsortby/types/SortDirection';
+import type { SortDirection } from '../sorts/sort/types/SortDirection';
 
 export default class RowComparer {
   static compareRows(

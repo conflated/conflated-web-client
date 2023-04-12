@@ -1,10 +1,10 @@
-import type { SelectedSortBy } from './selectedsortby/SelectedSortBy';
-import type { DefaultSelectedSortByType } from './selectedsortby/types/DefaultSelectedSortByType';
+import type { Sort } from './sort/Sort';
+import type { DefaultSortType } from './sort/types/DefaultSortType';
 import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { SelectedSortByType } from './selectedsortby/types/SelectedfSortByType';
-import type { SortDirection } from './selectedsortby/types/SortDirection';
-import type { TimeSortOption } from './selectedsortby/types/TimeSortOption';
+import type { SelectedSortByType } from './sort/types/SortType';
+import type { SortDirection } from './sort/types/SortDirection';
+import type { TimeSortOption } from './sort/types/TimeSortOption';
 import type { DataScopeType } from '../types/DataScopeType';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
@@ -12,44 +12,41 @@ import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { Chart } from '../Chart';
 
-export interface SelectedSortBys {
+export interface ChartSorts {
   addSelectedSortBy(
     measureOrDimension: Measure | Dimension,
     type: SelectedSortByType,
     sortDirection: SortDirection,
-    defaultSortByType?: DefaultSelectedSortByType,
+    defaultSortByType?: DefaultSortType,
     aggregationFunction?: AggregationFunction
-  ): SelectedSortBy | null | undefined;
+  ): Sort | null | undefined;
 
-  addSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): SelectedSortBy | null | undefined;
+  addSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): Sort | null | undefined;
 
   addSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
     dimension: Dimension | Measure,
     xAxisCategoriesSelectedDimension: SelectedDimension
-  ): SelectedSortBy | null | undefined;
+  ): Sort | null | undefined;
 
   addSelectedSortByTime(
     dimension: Dimension | Measure,
     timeSortOption: TimeSortOption,
     sortDirection: SortDirection
-  ): SelectedSortBy | null | undefined;
+  ): Sort | null | undefined;
 
-  changeSelectedSortByAggregationFunction(
-    selectedSortBy: SelectedSortBy,
-    aggregationFunction: AggregationFunction
-  ): void;
+  changeSelectedSortByAggregationFunction(selectedSortBy: Sort, aggregationFunction: AggregationFunction): void;
 
-  changeSelectedSortByDataScopeType(selectedSortBy: SelectedSortBy, dataScopeType: DataScopeType): void;
+  changeSelectedSortByDataScopeType(selectedSortBy: Sort, dataScopeType: DataScopeType): void;
 
-  changeSelectedSortByDirection(selectedSortBy: SelectedSortBy, sortDirection: SortDirection): void;
+  changeSelectedSortByDirection(selectedSortBy: Sort, sortDirection: SortDirection): void;
 
-  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[];
+  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): Sort[];
 
-  getDefaultOfType(defaultType: DefaultSelectedSortByType): SelectedSortBy | null | undefined;
+  getDefaultOfType(defaultType: DefaultSortType): Sort | null | undefined;
 
-  getSelectedSortBys(): SelectedSortBy[];
+  getSelectedSortBys(): Sort[];
 
-  removeSelectedSortBy(selectedSortBy: SelectedSortBy): void;
+  removeSelectedSortBy(selectedSortBy: Sort): void;
 
   updateSelectedSortBysWhenAddingSelectedDimension(
     measureOrDimension: Dimension | Measure,

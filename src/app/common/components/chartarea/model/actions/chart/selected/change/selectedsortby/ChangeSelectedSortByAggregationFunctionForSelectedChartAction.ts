@@ -1,4 +1,4 @@
-import type { SelectedSortBy } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../../../../../../chart/model/state/sorts/sort/Sort';
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
@@ -10,7 +10,7 @@ import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaSta
 export default class ChangeSelectedSortByAggregationFunctionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedSortBy: SelectedSortBy,
+    private readonly selectedSortBy: Sort,
     private readonly aggregationFunction: AggregationFunction
   ) {
     super(stateNamespace);

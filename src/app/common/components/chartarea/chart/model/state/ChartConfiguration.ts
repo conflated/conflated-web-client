@@ -1,5 +1,5 @@
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
-import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from './sorts/sort/Sort';
 import type { ChartType } from './types/ChartType';
 import type { DataSource } from './datasource/DataSource';
 import type { SelectedMeasure } from './selectedmeasure/SelectedMeasure';
@@ -16,7 +16,7 @@ export type ChartConfiguration = {
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
   selectedFilters: Filter[];
-  selectedSortBys: SelectedSortBy[];
+  selectedSortBys: Sort[];
   chartData: ColumnNameToValuesMap;
   xAxisCategoriesShownCount: number;
   fetchedRowCount: number;

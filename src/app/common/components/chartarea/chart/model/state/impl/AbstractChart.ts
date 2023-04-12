@@ -12,8 +12,8 @@ import type { ChartConfiguration } from '../ChartConfiguration';
 import type { DataPoint } from '../types/DataPoint';
 import type { DrillDown } from '../types/DrillDown';
 import ChartFiltersImpl from '../filters/ChartFiltersImpl';
-import SelectedSortBysImpl from '../selectedsortbys/impl/SelectedSortBysImpl';
-import type { SelectedSortBys } from '../selectedsortbys/SelectedSortBys';
+import ChartSortsImpl from '../sorts/impl/ChartSortsImpl';
+import type { ChartSorts } from '../sorts/ChartSorts';
 import type { ChartFilters } from '../filters/ChartFilters';
 import type { FillType } from '../types/FillType';
 import ChartFactory from '../ChartFactory';
@@ -31,7 +31,7 @@ import type { DataSeries } from '../types/DataSeries';
 import type { Filter } from '../filters/filter/Filter';
 import type { ColumnNameToValuesMap } from '../chartdata/ColumnNameToValuesMap';
 import emptyDataSource from '../datasource/emptyDataSource';
-import type { SelectedSortBy } from '../selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../sorts/sort/Sort';
 import type { LegendPosition } from '../types/LegendPosition';
 import Constants from '../../../../../../Constants';
 import type { GridItem } from '../../../../model/state/types/GridItem';
@@ -53,7 +53,7 @@ export default abstract class AbstractChart implements Chart {
 
   selectedFilters: ChartFilters = new ChartFiltersImpl([], new ChartDataImpl());
 
-  selectedSortBys: SelectedSortBys = new SelectedSortBysImpl([]);
+  selectedSortBys: ChartSorts = new ChartSortsImpl([]);
 
   chartData: ChartData = new ChartDataImpl();
 
@@ -88,7 +88,7 @@ export default abstract class AbstractChart implements Chart {
       this.selectedDimensions = chartConfiguration.selectedDimensions;
       this.chartData = new ChartDataImpl(chartConfiguration.chartData);
       this.selectedFilters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
-      this.selectedSortBys = new SelectedSortBysImpl(chartConfiguration.selectedSortBys);
+      this.selectedSortBys = new ChartSortsImpl(chartConfiguration.selectedSortBys);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
       this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;
@@ -377,7 +377,7 @@ export default abstract class AbstractChart implements Chart {
 
     newChart.selectedMeasures = newChart.getConvertSelectedMeasures();
 
-    newChart.selectedSortBys = new SelectedSortBysImpl(
+    newChart.selectedSortBys = new ChartSortsImpl(
       newChart.selectedSortBys.getConvertSelectedSortBys(this.selectedDimensions)
     );
 
@@ -436,7 +436,7 @@ export default abstract class AbstractChart implements Chart {
     return Utils.pick(this.selectedMeasures, 'visualizationType', visualizationType);
   }
 
-  getSelectedSortBys(): SelectedSortBy[] {
+  getSelectedSortBys(): Sort[] {
     return this.selectedSortBys.getSelectedSortBys();
   }
 
@@ -748,12 +748,12 @@ export default abstract class AbstractChart implements Chart {
 
     const sortByDimensionColumns: Column[] = selectedSortBys
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: SelectedSortBy) =>
+        ({ dataScopeType, measureOrDimension, type }: Sort) =>
           type === 'dimension' &&
           dataScopeType === 'already fetched' &&
           dimensionColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
-      .map(({ sqlColumn: { name, expression } }: SelectedSortBy) => ({
+      .map(({ sqlColumn: { name, expression } }: Sort) => ({
         name,
         expression,
         type: 'dimension'
@@ -761,12 +761,12 @@ export default abstract class AbstractChart implements Chart {
 
     const sortByMeasureColumns: Column[] = selectedSortBys
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: SelectedSortBy) =>
+        ({ dataScopeType, measureOrDimension, type }: Sort) =>
           type === 'measure' &&
           dataScopeType === 'already fetched' &&
           measureColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
-      .map(({ sqlColumn: { name, expression } }: SelectedSortBy) => ({
+      .map(({ sqlColumn: { name, expression } }: Sort) => ({
         name,
         expression,
         type: 'measure'

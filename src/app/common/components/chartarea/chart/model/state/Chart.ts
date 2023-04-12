@@ -9,7 +9,7 @@ import type { ChartType } from './types/ChartType';
 import type { ChartConfiguration } from './ChartConfiguration';
 import type { DataSource } from './datasource/DataSource';
 import type { ChartFilters } from './filters/ChartFilters';
-import type { SelectedSortBys } from './selectedsortbys/SelectedSortBys';
+import type { ChartSorts } from './sorts/ChartSorts';
 import type { DrillDown } from './types/DrillDown';
 import type { DataPoint } from './types/DataPoint';
 import type { ChartMenuConfirmationType } from './types/ChartMenuConfirmationType';
@@ -23,7 +23,7 @@ import DimensionDropZoneListItemViewFactory from '../../../../../../page/dataexp
 import type { LegendPosition } from './types/LegendPosition';
 import type { Filter } from './filters/filter/Filter';
 import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
-import type { SelectedSortBy } from './selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from './sorts/sort/Sort';
 import type { Layout } from '../../../model/state/types/Layout';
 import type { Column } from './types/Column';
 
@@ -34,7 +34,7 @@ export interface Chart {
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
   selectedFilters: ChartFilters;
-  selectedSortBys: SelectedSortBys;
+  selectedSortBys: ChartSorts;
   chartData: ChartData;
   xAxisCategoriesShownCount: number;
   fetchedRowCount: number;
@@ -167,7 +167,7 @@ export interface Chart {
 
   getSelectedFilters(): Filter[];
 
-  getSelectedSortBys(): SelectedSortBy[];
+  getSelectedSortBys(): Sort[];
 
   getSupportedAggregationFunctions(): AggregationFunction[];
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from './SelectedSortByListItemView.module.scss';
 import type { AggregationFunction } from '../../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { SortDirection } from '../../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
-import type { SelectedSortBy } from '../../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { SortDirection } from '../../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
+import type { Sort } from '../../../../chartarea/chart/model/state/sorts/sort/Sort';
 import type { DataScopeType } from '../../../../chartarea/chart/model/state/types/DataScopeType';
 import AggregationFunctionPickerView from '../../../../../views/picker/aggregationfunction/AggregationFunctionPickerView';
 import type { Chart } from '../../../../chartarea/chart/model/state/Chart';
@@ -16,7 +16,7 @@ type Props = {
   changeSelectedSortByDataScopeType: (dataScopeType: DataScopeType) => void;
   changeSelectedSortByDirection: (sortDirection: SortDirection) => void;
   chart: Chart;
-  selectedSortBy: SelectedSortBy;
+  selectedSortBy: Sort;
   removeSelectedSortBy: () => void;
 };
 

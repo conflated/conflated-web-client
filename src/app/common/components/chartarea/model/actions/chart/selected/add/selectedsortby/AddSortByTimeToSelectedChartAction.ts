@@ -1,7 +1,7 @@
-import type { TimeSortOption } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
+import type { TimeSortOption } from '../../../../../../chart/model/state/sorts/sort/types/TimeSortOption';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
-import type { SortDirection } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
+import type { SortDirection } from '../../../../../../chart/model/state/sorts/sort/types/SortDirection';
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';

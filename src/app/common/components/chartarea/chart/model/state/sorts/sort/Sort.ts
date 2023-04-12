@@ -2,12 +2,12 @@ import type { Measure } from '../../../../../../../../page/dataexplorer/pane/lef
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { TimeSortOption } from './types/TimeSortOption';
 import type { SortDirection } from './types/SortDirection';
-import type { DefaultSelectedSortByType } from './types/DefaultSelectedSortByType';
-import type { SelectedSortByType } from './types/SelectedfSortByType';
+import type { DefaultSortType } from './types/DefaultSortType';
+import type { SelectedSortByType } from './types/SortType';
 import type { DataScopeType } from '../../types/DataScopeType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 
-export type SelectedSortBy = {
+export type Sort = {
   readonly measureOrDimension: Measure | Dimension;
   readonly sqlColumn: {
     readonly name: string;
@@ -18,5 +18,5 @@ export type SelectedSortBy = {
   readonly type: SelectedSortByType;
   readonly sortDirection: SortDirection;
   readonly dataScopeType: DataScopeType;
-  readonly defaultType: DefaultSelectedSortByType;
+  readonly defaultType: DefaultSortType;
 };

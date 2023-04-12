@@ -1,4 +1,4 @@
-import type { SelectedSortBy } from '../../../../../chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../../../../../chart/model/state/sorts/sort/Sort';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
@@ -7,7 +7,7 @@ import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataFor
 import diContainer from '../../../../../../../../../di/diContainer';
 
 export default class RemoveSelectedSortByFromSelectedChartAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedSortBy: SelectedSortBy) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedSortBy: Sort) {
     super(stateNamespace);
     this.selectedSortBy = selectedSortBy;
   }

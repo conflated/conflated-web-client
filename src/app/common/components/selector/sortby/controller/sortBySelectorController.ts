@@ -1,15 +1,15 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
 import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
-import type { TimeSortOption } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/TimeSortOption';
+import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/sort/types/TimeSortOption';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AddSortByToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByToSelectedChartAction';
 import ChangeSelectedSortByAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByAggregationFunctionForSelectedChartAction';
-import type { SelectedSortBy } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { SelectedSortByType } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SelectedfSortByType';
-import type { SortDirection } from '../../../chartarea/chart/model/state/selectedsortbys/selectedsortby/types/SortDirection';
+import type { SelectedSortByType } from '../../../chartarea/chart/model/state/sorts/sort/types/SortType';
+import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
 import ChangeSelectedSortByDirectionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByDirectionForSelectedChartAction';
 import ChangeSelectedSortByDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedsortby/ChangeSelectedSortByDataScopeTypeForSelectedChartAction';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
@@ -77,7 +77,7 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
     },
 
     changeSelectedSortByAggregationFunctionForSelectedChart: (
-      selectedSortBy: SelectedSortBy,
+      selectedSortBy: Sort,
       aggregationFunction: AggregationFunction
     ) => {
       this.dispatch(
@@ -89,25 +89,19 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
       );
     },
 
-    changeSelectedSortBySortDirectionForSelectedChart: (
-      selectedSortBy: SelectedSortBy,
-      sortDirection: SortDirection
-    ) => {
+    changeSelectedSortBySortDirectionForSelectedChart: (selectedSortBy: Sort, sortDirection: SortDirection) => {
       this.dispatch(
         new ChangeSelectedSortByDirectionForSelectedChartAction(stateNamespace, selectedSortBy, sortDirection)
       );
     },
 
-    changeSelectedSortByDataScopeTypeForSelectedChart: (
-      selectedSortBy: SelectedSortBy,
-      dataScopeType: DataScopeType
-    ) => {
+    changeSelectedSortByDataScopeTypeForSelectedChart: (selectedSortBy: Sort, dataScopeType: DataScopeType) => {
       this.dispatch(
         new ChangeSelectedSortByDataScopeTypeForSelectedChartAction(stateNamespace, selectedSortBy, dataScopeType)
       );
     },
 
-    removeSelectedSortByFromSelectedChart: (selectedSortBy: SelectedSortBy) => {
+    removeSelectedSortByFromSelectedChart: (selectedSortBy: Sort) => {
       this.dispatch(new RemoveSelectedSortByFromSelectedChartAction(stateNamespace, selectedSortBy));
     },
 

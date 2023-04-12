@@ -2,7 +2,7 @@ import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValue
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { DataSource } from '../state/datasource/DataSource';
-import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../state/sorts/sort/Sort';
 import type { Filter } from '../state/filters/filter/Filter';
 
 export interface ChartDataService {
@@ -10,7 +10,7 @@ export interface ChartDataService {
     dataSource: DataSource,
     columns: Column[],
     filters: Filter[],
-    sortBys: SelectedSortBy[]
+    sortBys: Sort[]
   ): Promise<ColumnNameToValuesMap>;
 
   fetchMinAndMaxValues(

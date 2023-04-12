@@ -5,7 +5,7 @@ import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { FilterConfiguration } from '../state/filters/filter/FilterConfiguration';
 import type { DataSource } from '../state/datasource/DataSource';
-import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../state/sorts/sort/Sort';
 import type { Filter } from '../state/filters/filter/Filter';
 import ChartDataImpl from '../state/chartdata/ChartDataImpl';
 
@@ -17,7 +17,7 @@ export default class FakeChartDataService implements ChartDataService {
     dataSource: DataSource,
     columns: Column[],
     selectedFilters: Filter[],
-    selectedSortBys: SelectedSortBy[]
+    selectedSortBys: Sort[]
   ): Promise<ColumnNameToValuesMap> {
     return new Promise<ColumnNameToValuesMap>((resolve) => {
       setTimeout(() => {
@@ -199,8 +199,8 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         selectedSortBys
-          .filter(({ type }: SelectedSortBy) => type === 'measure')
-          .forEach(({ sqlColumn: { name } }: SelectedSortBy) => {
+          .filter(({ type }: Sort) => type === 'measure')
+          .forEach(({ sqlColumn: { name } }: Sort) => {
             if (!columnNameToValuesMap[name]) {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)
@@ -209,8 +209,8 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         selectedSortBys
-          .filter(({ type }: SelectedSortBy) => type === 'dimension')
-          .forEach(({ sqlColumn: { name } }: SelectedSortBy) => {
+          .filter(({ type }: Sort) => type === 'dimension')
+          .forEach(({ sqlColumn: { name } }: Sort) => {
             if (!columnNameToValuesMap[name]) {
               columnNameToValuesMap[name] = Array(20)
                 .fill(0)

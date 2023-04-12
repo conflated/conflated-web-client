@@ -4,7 +4,7 @@ import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import { ChartDataService } from './ChartDataService';
 import HashValueCalculator from '../../../../../utils/HashValueCalculator';
 import type { DataSource } from '../state/datasource/DataSource';
-import type { SelectedSortBy } from '../state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../state/sorts/sort/Sort';
 import type { Filter } from '../state/filters/filter/Filter';
 
 // TODO Encrypt cached data
@@ -19,7 +19,7 @@ export default class CachingChartDataService implements ChartDataService {
     dataSource: DataSource,
     columns: Column[],
     selectedFilters: Filter[],
-    selectedSortBys: SelectedSortBy[]
+    selectedSortBys: Sort[]
   ): Promise<ColumnNameToValuesMap> {
     const chartDataKey = `ChartDataCache-ChartData-${HashValueCalculator.hashObject({
       dataSource,

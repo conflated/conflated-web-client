@@ -1,25 +1,25 @@
-import type { DataScopeType } from '../../../types/DataScopeType';
-import type { SelectedSortBy } from '../SelectedSortBy';
-import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { SortDirection } from '../types/SortDirection';
-import type { TimeSortOption } from '../types/TimeSortOption';
-import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
-import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
-import type { SelectedSortByType } from '../types/SelectedfSortByType';
-import type { DefaultSelectedSortByType } from '../types/DefaultSelectedSortByType';
-import SqlUtils from '../../../../../../../../utils/SqlUtils';
-import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
+import type { DataScopeType } from '../../types/DataScopeType';
+import type { Sort } from './Sort';
+import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
+import type { SortDirection } from './types/SortDirection';
+import type { TimeSortOption } from './types/TimeSortOption';
+import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
+import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
+import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
+import type { SelectedSortByType } from './types/SortType';
+import type { DefaultSortType } from './types/DefaultSortType';
+import SqlUtils from '../../../../../../../utils/SqlUtils';
+import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 
-export default class SelectedSortByFactory {
+export default class SortFactory {
   static createSelectedSortBy(
     measureOrDimension: Measure | Dimension,
     type: SelectedSortByType,
     sortDirection: SortDirection,
     dataScopeType: DataScopeType,
-    defaultType: DefaultSelectedSortByType,
+    defaultType: DefaultSortType,
     aggregationFunction: AggregationFunction = 'SUM'
-  ): SelectedSortBy {
+  ): Sort {
     if (type === 'measure') {
       return {
         dataScopeType,
@@ -51,7 +51,7 @@ export default class SelectedSortByFactory {
     }
   }
 
-  static createSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): SelectedSortBy {
+  static createSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): Sort {
     return {
       measureOrDimension: {
         name: 'Avg of measures',
@@ -79,7 +79,7 @@ export default class SelectedSortByFactory {
     timeSortOption: TimeSortOption,
     sortDirection: SortDirection,
     dataScopeType: DataScopeType
-  ): SelectedSortBy {
+  ): Sort {
     return {
       timeSortOption,
       sortDirection,
@@ -98,8 +98,8 @@ export default class SelectedSortByFactory {
   static createSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
     dimension: Dimension | Measure,
     xAxisCategoriesSelectedDimension: SelectedDimension,
-    selectedSortByMeasure: SelectedSortBy
-  ): SelectedSortBy {
+    selectedSortByMeasure: Sort
+  ): Sort {
     return {
       measureOrDimension: {
         name: `Sum ${selectedSortByMeasure.measureOrDimension.name} over ${dimension.name}`,

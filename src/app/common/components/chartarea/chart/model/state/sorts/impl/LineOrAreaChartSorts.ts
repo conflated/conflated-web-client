@@ -1,12 +1,12 @@
 import _ from 'lodash';
-import XAxisChartSelectedSortBysImpl from './XAxisChartSelectedSortBysImpl';
+import XAxisChartSorts from './XAxisChartSorts';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
-import type { SelectedSortBy } from '../selectedsortby/SelectedSortBy';
+import type { Sort } from '../sort/Sort';
 
-export default class LineOrAreaChartSelectedSortBysImpl extends XAxisChartSelectedSortBysImpl {
-  override getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
+export default class LineOrAreaChartSorts extends XAxisChartSorts {
+  override getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): Sort[] {
     if (
       this.selectedSortBys.length >= 1 &&
       this.selectedSortBys[0].defaultType === 'measure' &&

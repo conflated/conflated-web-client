@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import SelectedSortBysImpl from './SelectedSortBysImpl';
+import ChartSortsImpl from './ChartSortsImpl';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 
-export default abstract class BasicChartSelectedSortBysImpl extends SelectedSortBysImpl {
+export default abstract class BasicChartSorts extends ChartSortsImpl {
   override updateSelectedSortBysWhenRemovingSelectedDimension(
     selectedDimension: SelectedDimension,
     selectedMeasures: SelectedMeasure[]

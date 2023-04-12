@@ -1,14 +1,14 @@
 import _ from 'lodash';
-import type { SelectedSortBys } from '../SelectedSortBys';
-import type { SelectedSortBy } from '../selectedsortby/SelectedSortBy';
-import type { DefaultSelectedSortByType } from '../selectedsortby/types/DefaultSelectedSortByType';
+import type { ChartSorts } from '../ChartSorts';
+import type { Sort } from '../sort/Sort';
+import type { DefaultSortType } from '../sort/types/DefaultSortType';
 import Utils from '../../../../../../../utils/Utils';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { SelectedSortByType } from '../selectedsortby/types/SelectedfSortByType';
-import type { SortDirection } from '../selectedsortby/types/SortDirection';
-import SelectedSortByFactory from '../selectedsortby/factory/SelectedSortByFactory';
-import type { TimeSortOption } from '../selectedsortby/types/TimeSortOption';
+import type { SelectedSortByType } from '../sort/types/SortType';
+import type { SortDirection } from '../sort/types/SortDirection';
+import SortFactory from '../sort/SortFactory';
+import type { TimeSortOption } from '../sort/types/TimeSortOption';
 import type { DataScopeType } from '../../types/DataScopeType';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
@@ -17,10 +17,10 @@ import SqlUtils from '../../../../../../../utils/SqlUtils';
 import { DimensionVisualizationType } from '../../selecteddimension/DimensionVisualizationType';
 import { Chart } from '../../Chart';
 
-export default class SelectedSortBysImpl implements SelectedSortBys {
-  selectedSortBys: SelectedSortBy[];
+export default class ChartSortsImpl implements ChartSorts {
+  selectedSortBys: Sort[];
 
-  constructor(selectedSortBys: SelectedSortBy[]) {
+  constructor(selectedSortBys: Sort[]) {
     this.selectedSortBys = selectedSortBys;
   }
 
@@ -28,13 +28,13 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     measureOrDimension: Measure | Dimension,
     type: SelectedSortByType,
     sortDirection: SortDirection,
-    defaultSortByType: DefaultSelectedSortByType = 'none',
+    defaultSortByType: DefaultSortType = 'none',
     aggregationFunction: AggregationFunction = 'SUM'
-  ): SelectedSortBy | null {
+  ): Sort | null {
     const hasSameSelectedSortByAlready = Utils.has(this.selectedSortBys, 'measureOrDimension', measureOrDimension);
 
     if (!hasSameSelectedSortByAlready) {
-      const newSelectedSortBy = SelectedSortByFactory.createSelectedSortBy(
+      const newSelectedSortBy = SortFactory.createSelectedSortBy(
         measureOrDimension,
         type,
         sortDirection,
@@ -50,8 +50,8 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     return null;
   }
 
-  addSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): SelectedSortBy | null | undefined {
-    const newSelectedSortBy = SelectedSortByFactory.createSelectedSortByAverageOfMeasures(selectedMeasures);
+  addSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): Sort | null | undefined {
+    const newSelectedSortBy = SortFactory.createSelectedSortByAverageOfMeasures(selectedMeasures);
     this.selectedSortBys = [...this.selectedSortBys, newSelectedSortBy];
     return newSelectedSortBy;
   }
@@ -59,8 +59,8 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
   addSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
     dimension: Dimension | Measure,
     xAxisCategoriesSelectedDimension: SelectedDimension
-  ): SelectedSortBy | null | undefined {
-    const newSelectedSortBy = SelectedSortByFactory.createSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
+  ): Sort | null | undefined {
+    const newSelectedSortBy = SortFactory.createSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
       dimension,
       xAxisCategoriesSelectedDimension,
       this.selectedSortBys[0]
@@ -74,11 +74,11 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     dimension: Dimension | Measure,
     timeSortOption: TimeSortOption,
     sortDirection: SortDirection
-  ): SelectedSortBy | null | undefined {
+  ): Sort | null | undefined {
     const hasSameSelectedSortByAlready = Utils.has(this.selectedSortBys, 'timeSortOption', timeSortOption);
 
     if (!hasSameSelectedSortByAlready) {
-      const newSelectedSortBy = SelectedSortByFactory.createSelectedSortByTime(
+      const newSelectedSortBy = SortFactory.createSelectedSortByTime(
         dimension,
         timeSortOption,
         sortDirection,
@@ -92,7 +92,7 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     return null;
   }
 
-  changeSelectedSortByAggregationFunction(selectedSortBy: SelectedSortBy, aggregationFunction: AggregationFunction) {
+  changeSelectedSortByAggregationFunction(selectedSortBy: Sort, aggregationFunction: AggregationFunction) {
     this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       aggregationFunction,
       sqlColumn: {
@@ -102,32 +102,32 @@ export default class SelectedSortBysImpl implements SelectedSortBys {
     });
   }
 
-  changeSelectedSortByDataScopeType(selectedSortBy: SelectedSortBy, dataScopeType: DataScopeType) {
+  changeSelectedSortByDataScopeType(selectedSortBy: Sort, dataScopeType: DataScopeType) {
     this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       dataScopeType
     });
   }
 
-  changeSelectedSortByDirection(selectedSortBy: SelectedSortBy, sortDirection: SortDirection) {
+  changeSelectedSortByDirection(selectedSortBy: Sort, sortDirection: SortDirection) {
     this.selectedSortBys = Utils.merge(this.selectedSortBys, selectedSortBy, {
       sortDirection
     });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): SelectedSortBy[] {
+  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): Sort[] {
     return this.selectedSortBys;
   }
 
-  getDefaultOfType(defaultType: DefaultSelectedSortByType): SelectedSortBy | null | undefined {
+  getDefaultOfType(defaultType: DefaultSortType): Sort | null | undefined {
     return Utils.findElem(this.selectedSortBys, 'defaultType', defaultType);
   }
 
-  getSelectedSortBys(): SelectedSortBy[] {
+  getSelectedSortBys(): Sort[] {
     return this.selectedSortBys;
   }
 
-  removeSelectedSortBy(selectedSortBy: SelectedSortBy) {
+  removeSelectedSortBy(selectedSortBy: Sort) {
     this.selectedSortBys = _.without(this.selectedSortBys, selectedSortBy);
   }
 

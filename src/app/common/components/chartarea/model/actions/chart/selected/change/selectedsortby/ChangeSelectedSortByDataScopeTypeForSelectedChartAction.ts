@@ -1,4 +1,4 @@
-import type { SelectedSortBy } from '../../../../../../chart/model/state/selectedsortbys/selectedsortby/SelectedSortBy';
+import type { Sort } from '../../../../../../chart/model/state/sorts/sort/Sort';
 import type { DataScopeType } from '../../../../../../chart/model/state/types/DataScopeType';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
@@ -10,7 +10,7 @@ import diContainer from '../../../../../../../../../../di/diContainer';
 export default class ChangeSelectedSortByDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedSortBy: SelectedSortBy,
+    private readonly selectedSortBy: Sort,
     private readonly dataScopeType: DataScopeType
   ) {
     super(stateNamespace);
