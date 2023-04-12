@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Inject } from 'noicejs';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
@@ -22,17 +21,9 @@ class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAre
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    const { selectedChart } = currentState;
-    const lastSelectedSortBy = _.last(selectedChart.getSelectedSortBys());
-
-    if (
-      selectedChart.getSelectedSortBys().length === 0 ||
-      selectedChart.chartData.getForSelectedSortBy(lastSelectedSortBy).length === 0
-    ) {
-      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
-        stateNamespace: this.stateNamespace
-      });
-    }
+    this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+      stateNamespace: this.stateNamespace
+    });
 
     return currentState;
   }
