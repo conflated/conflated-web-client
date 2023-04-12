@@ -143,7 +143,7 @@ export interface Chart {
 
   getSubtitleText(): string;
 
-  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null;
+  getTitleText(stateNamespace: ChartAreaStateNamespace): string;
 
   getName(stateNamespace: ChartAreaStateNamespace): string;
 

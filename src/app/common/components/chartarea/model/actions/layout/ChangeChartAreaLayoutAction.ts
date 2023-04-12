@@ -13,31 +13,27 @@ export default class ChangeChartAreaLayoutAction extends AbstractChartAreaAction
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { charts } = currentState;
-    const { newLayout } = this;
 
-    const newState = {
-      ...currentState,
-      layout: newLayout
-    };
-
-    if (newLayout.length <= charts.length) {
+    if (this.newLayout.length <= charts.length) {
       return {
-        ...newState,
-        charts: _.take(charts, newLayout.length)
+        ...currentState,
+        layout: this.newLayout,
+        charts: _.take(charts, this.newLayout.length)
+      };
+    } else {
+      const newCharts: Chart[] = [];
+
+      for (let chartId = charts.length + 1; chartId <= this.newLayout.length; chartId++) {
+        const emptyChart = ChartFactory.createChart();
+        emptyChart.id = chartId.toString();
+        newCharts.push(emptyChart);
+      }
+
+      return {
+        ...currentState,
+        layout: this.newLayout,
+        charts: [...charts, ...newCharts]
       };
     }
-
-    const newCharts: Chart[] = [];
-
-    for (let chartId = charts.length; chartId < newLayout.length; chartId++) {
-      const emptyChart = ChartFactory.createChart();
-      emptyChart.id = (chartId + 1).toString();
-      newCharts.push(emptyChart);
-    }
-
-    return {
-      ...newState,
-      charts: [...charts, ...newCharts]
-    };
   }
 }

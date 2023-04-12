@@ -117,7 +117,7 @@ export default class BubbleChart extends ScatterChart {
     );
   }
 
-  override getTitleText(): string | null {
+  override getTitleText(): string {
     const xAxisMeasureName = this.selectedMeasures.reduce(
       (measureName, selectedMeasure) =>
         selectedMeasure.visualizationType === 'x-axis' ? selectedMeasure.measure.name : measureName,

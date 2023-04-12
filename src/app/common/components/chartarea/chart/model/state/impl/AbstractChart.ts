@@ -481,7 +481,7 @@ export default abstract class AbstractChart implements Chart {
     return name;
   }
 
-  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+  getTitleText(stateNamespace: ChartAreaStateNamespace): string {
     const title = this.selectedMeasures.reduce(
       (accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
         if (accumulatedTitle === '') {

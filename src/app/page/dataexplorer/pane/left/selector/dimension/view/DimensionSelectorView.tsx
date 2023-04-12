@@ -159,7 +159,7 @@ const DimensionSelectorView = ({
         .map((chart) => (
           <DraggableChartListItemView
             key={chart.getName('dataExplorerPage')}
-            item={{ name: chart.getName('dataExplorerPage') }}
+            item={{ name: chart.getTitleText('dataExplorerPage') }}
             onItemDblClick={handleMaximizeIconClick}
             onItemClick={() => {}}
           />

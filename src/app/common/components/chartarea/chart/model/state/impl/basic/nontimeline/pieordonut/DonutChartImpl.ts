@@ -40,7 +40,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
     return super.getApexChartType();
   }
 
-  override getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+  override getTitleText(stateNamespace: ChartAreaStateNamespace): string {
     if (
       this.selectedMeasures.length === 1 &&
       this.selectedMeasures[0].measure.unit === 'percent' &&

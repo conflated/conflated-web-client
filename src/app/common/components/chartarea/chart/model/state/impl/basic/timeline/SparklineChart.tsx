@@ -99,7 +99,7 @@ export default class SparklineChart extends AbstractTimelineChart {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['column', 'line', 'area']);
   }
 
-  override getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+  override getTitleText(stateNamespace: ChartAreaStateNamespace): string {
     if (this.selectedMeasures.length === 1) {
       const measureData = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
       const title = measureData.length > 0 ? measureData[measureData.length - 1] : '';
