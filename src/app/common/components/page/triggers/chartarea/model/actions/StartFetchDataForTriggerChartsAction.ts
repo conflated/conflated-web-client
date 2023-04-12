@@ -3,7 +3,7 @@ import { ChartAreaStateNamespace } from '../../../../../chartarea/model/state/ty
 import AbstractChartAreaAction from '../../../../../chartarea/model/actions/AbstractChartAreaAction';
 import { ChartAreaState } from '../../../../../chartarea/model/state/ChartAreaState';
 import { TriggerChartDataService } from '../services/TriggerChartDataService';
-import { ColumnNameToValuesMap } from '../../../../../chartarea/chart/model/state/chartdata/ColumnNameToValuesMap';
+import { ColumnNameToValuesMap } from '../../../../../chartarea/chart/model/state/data/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from '../../../../../chartarea/model/actions/chart/fetchdata/FinishFetchChartDataAction';
 
 type ConstructorArgs = {

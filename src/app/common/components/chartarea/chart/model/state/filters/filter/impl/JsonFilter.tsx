@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import AbstractFilter from './AbstractFilter';
-import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
 import CheckboxesFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/checkboxes/CheckboxesFilterInputView';
 import DropdownFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/dropdown/DropdownFilterInputView';
-import type { ChartData } from '../../../chartdata/ChartData';
+import type { ChartData } from '../../../data/ChartData';
 
 export default class JsonFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

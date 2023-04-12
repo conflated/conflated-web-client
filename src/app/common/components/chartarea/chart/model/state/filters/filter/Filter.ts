@@ -1,6 +1,6 @@
 import type { FilterConfiguration } from './FilterConfiguration';
-import type { ColumnNameToValuesMap } from '../../chartdata/ColumnNameToValuesMap';
-import type { ChartData } from '../../chartdata/ChartData';
+import type { ColumnNameToValuesMap } from '../../data/ColumnNameToValuesMap';
+import type { ChartData } from '../../data/ChartData';
 import type { FilterInputType } from './inputtype/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 import type { DataScopeType } from '../../types/DataScopeType';

@@ -1,6 +1,6 @@
 import React from 'react';
 import SliderView from '../../../../../../../views/slider/SliderView';
-import type { ChartData } from '../../../../../../chartarea/chart/model/state/chartdata/ChartData';
+import type { ChartData } from '../../../../../../chartarea/chart/model/state/data/ChartData';
 import type { Filter } from '../../../../../../chartarea/chart/model/state/filters/filter/Filter';
 import NumberRangesParser from '../../../../../../../utils/numberrange/NumberRangesParser';
 

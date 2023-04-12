@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import NumberRangesParser from '../../../../../../../../../utils/numberrange/NumberRangesParser';
 import type { NumberRange } from '../../../../../../../../../utils/numberrange/NumberRange';
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
 import InputFilter from './InputFilter';
 
 export default class MeasureInputFilter extends InputFilter {

@@ -4,7 +4,7 @@ import styles from '../SelectedFilterView.module.scss';
 import type { FilterInputType } from '../../../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
 import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
-import type { ChartData } from '../../../../../chartarea/chart/model/state/chartdata/ChartData';
+import type { ChartData } from '../../../../../chartarea/chart/model/state/data/ChartData';
 import type { Filter } from '../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {

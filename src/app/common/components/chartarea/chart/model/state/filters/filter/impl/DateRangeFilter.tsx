@@ -2,7 +2,7 @@
 import moment from 'moment';
 import React from 'react';
 import AbstractFilter from './AbstractFilter';
-import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
 
 export default class DateRangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

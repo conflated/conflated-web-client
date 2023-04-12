@@ -2,7 +2,7 @@ import { Inject } from 'noicejs';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
-import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from '../../fetchdata/FinishFetchChartDataAction';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';

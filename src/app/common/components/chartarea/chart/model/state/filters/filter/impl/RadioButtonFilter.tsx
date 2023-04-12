@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import AbstractFilter from './AbstractFilter';
-import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
-import type { ChartData } from '../../../chartdata/ChartData';
+import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
+import type { ChartData } from '../../../data/ChartData';
 import RadioButtonsFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/radiobuttons/RadioButtonsFilterInputView';
 
 export default class RadioButtonFilter extends AbstractFilter {

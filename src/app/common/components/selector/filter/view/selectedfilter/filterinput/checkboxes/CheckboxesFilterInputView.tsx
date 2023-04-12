@@ -3,7 +3,7 @@ import _ from 'lodash';
 import React from 'react';
 import { Checkbox } from 'semantic-ui-react';
 import styles from './CheckboxesFilterInputView.module.scss';
-import type { ChartData } from '../../../../../../chartarea/chart/model/state/chartdata/ChartData';
+import type { ChartData } from '../../../../../../chartarea/chart/model/state/data/ChartData';
 import type { Filter } from '../../../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {

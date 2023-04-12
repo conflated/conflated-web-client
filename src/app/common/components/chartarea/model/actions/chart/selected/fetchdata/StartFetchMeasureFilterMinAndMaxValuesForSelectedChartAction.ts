@@ -1,7 +1,7 @@
 import { Inject } from 'noicejs';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import { ChartDataService } from '../../../../../chart/model/service/ChartDataService';
-import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../state/data/ColumnNameToValuesMap';
 import { ChartDataService } from './ChartDataService';
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
@@ -7,7 +7,7 @@ import type { FilterConfiguration } from '../state/filters/filter/FilterConfigur
 import type { DataSource } from '../state/datasource/DataSource';
 import type { Sort } from '../state/sorts/sort/Sort';
 import type { Filter } from '../state/filters/filter/Filter';
-import ChartDataImpl from '../state/chartdata/ChartDataImpl';
+import ChartDataImpl from '../state/data/ChartDataImpl';
 
 export default class FakeChartDataService implements ChartDataService {
   private readonly latency = 1000;

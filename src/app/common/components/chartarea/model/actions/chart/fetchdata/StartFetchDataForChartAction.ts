@@ -4,7 +4,7 @@ import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
 import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
-import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/ColumnNameToValuesMap';
 import { ChartDataService } from '../../../../chart/model/service/ChartDataService';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 

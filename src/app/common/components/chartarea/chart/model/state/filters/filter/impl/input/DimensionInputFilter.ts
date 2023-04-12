@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ColumnNameToValuesMap } from '../../../../chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
 import InputFilter from './InputFilter';
 
 export default class DimensionInputFilter extends InputFilter {

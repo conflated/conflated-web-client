@@ -1,5 +1,5 @@
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
-import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';

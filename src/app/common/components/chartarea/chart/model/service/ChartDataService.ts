@@ -1,4 +1,4 @@
-import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../state/data/ColumnNameToValuesMap';
 import type { Column } from '../state/types/Column';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import type { DataSource } from '../state/datasource/DataSource';

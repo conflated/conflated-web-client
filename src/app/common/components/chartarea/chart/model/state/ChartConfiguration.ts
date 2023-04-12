@@ -1,4 +1,4 @@
-import type { ColumnNameToValuesMap } from './chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from './data/ColumnNameToValuesMap';
 import type { Sort } from './sorts/sort/Sort';
 import type { ChartType } from './types/ChartType';
 import type { DataSource } from './datasource/DataSource';

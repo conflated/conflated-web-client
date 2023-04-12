@@ -1,5 +1,5 @@
-import { ColumnNameToValuesMap } from '../../../../../common/components/chartarea/chart/model/state/chartdata/ColumnNameToValuesMap';
-import ChartDataImpl from '../../../../../common/components/chartarea/chart/model/state/chartdata/ChartDataImpl';
+import { ColumnNameToValuesMap } from '../../../../../common/components/chartarea/chart/model/state/data/ColumnNameToValuesMap';
+import ChartDataImpl from '../../../../../common/components/chartarea/chart/model/state/data/ChartDataImpl';
 import { TriggerChartDataService } from '../../../../../common/components/page/triggers/chartarea/model/services/TriggerChartDataService';
 
 export default class FakeGoalChartDataService implements TriggerChartDataService {

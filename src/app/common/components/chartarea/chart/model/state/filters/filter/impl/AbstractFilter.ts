@@ -8,8 +8,8 @@ import type { FilterInputType } from '../inputtype/FilterInputType';
 import type { DataScopeType } from '../../../types/DataScopeType';
 import type { Filter } from '../Filter';
 import type { FilterConfiguration } from '../FilterConfiguration';
-import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
-import type { ChartData } from '../../../chartdata/ChartData';
+import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
+import type { ChartData } from '../../../data/ChartData';
 
 export default abstract class AbstractFilter implements Filter {
   readonly measureOrDimension: Measure | Dimension;

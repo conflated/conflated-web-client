@@ -3,7 +3,7 @@ import _ from 'lodash';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartDataService } from '../../../../chart/model/service/ChartDataService';
-import type { ColumnNameToValuesMap } from '../../../../chart/model/state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';

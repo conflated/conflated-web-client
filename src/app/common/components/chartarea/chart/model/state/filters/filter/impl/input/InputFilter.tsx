@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ChartData } from '../../../../chartdata/ChartData';
+import type { ChartData } from '../../../../data/ChartData';
 import InputFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/input/InputFilterInputView';
 import AbstractFilter from '../AbstractFilter';
 

@@ -2,9 +2,9 @@
 import React from 'react';
 import _ from 'lodash';
 import AbstractFilter from './AbstractFilter';
-import type { ColumnNameToValuesMap } from '../../../chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
 import NumberRangesParser from '../../../../../../../../utils/numberrange/NumberRangesParser';
-import type { ChartData } from '../../../chartdata/ChartData';
+import type { ChartData } from '../../../data/ChartData';
 import SliderFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/slider/SliderFilterInputView';
 
 export default class RangeFilter extends AbstractFilter {

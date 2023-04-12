@@ -1,5 +1,5 @@
 import type { Column } from '../state/types/Column';
-import type { ColumnNameToValuesMap } from '../state/chartdata/ColumnNameToValuesMap';
+import type { ColumnNameToValuesMap } from '../state/data/ColumnNameToValuesMap';
 import type { MinMaxMeasureColumn } from '../state/types/MinMaxMeasureColumn';
 import { ChartDataService } from './ChartDataService';
 import HashValueCalculator from '../../../../../utils/HashValueCalculator';

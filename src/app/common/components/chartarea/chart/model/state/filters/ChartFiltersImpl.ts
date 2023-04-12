@@ -5,7 +5,7 @@ import type { Filter } from './filter/Filter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import Utils from '../../../../../../utils/Utils';
 import SqlUtils from '../../../../../../utils/SqlUtils';
-import type { ChartData } from '../chartdata/ChartData';
+import type { ChartData } from '../data/ChartData';
 import type { FilterInputType } from './filter/inputtype/FilterInputType';
 import FilterFactory from './filter/FilterFactory';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
