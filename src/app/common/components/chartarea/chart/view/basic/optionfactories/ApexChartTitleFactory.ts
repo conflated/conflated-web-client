@@ -6,10 +6,7 @@ export default class ApexChartTitleFactory {
     const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     return {
-      text:
-        stateNamespace === 'dataExplorerPage' && chart.chartType !== 'sparkline'
-          ? `${chart.id}. ${chart.getTitleText()}`
-          : chart.getTitleText(),
+      text: chart.getTitleText(stateNamespace),
       floating: chart.hasFloatingTitle(),
       style: {
         color: isDarkModeActive ? '#FFFFFF' : '#000000',

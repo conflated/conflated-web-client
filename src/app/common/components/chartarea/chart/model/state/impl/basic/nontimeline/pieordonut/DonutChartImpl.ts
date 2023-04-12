@@ -4,6 +4,7 @@ import type { AggregationFunction } from '../../../../selectedmeasure/types/Aggr
 import type { DimensionVisualizationType } from '../../../../selecteddimension/types/DimensionVisualizationType';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import PieOrDonutChartImpl from './PieOrDonutChartImpl';
+import { ChartAreaStateNamespace } from '../../../../../../../model/state/types/ChartAreaStateNamespace';
 
 export default class DonutChartImpl extends PieOrDonutChartImpl {
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
@@ -39,7 +40,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
     return super.getApexChartType();
   }
 
-  override getTitleText(): string | null {
+  override getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
     if (
       this.selectedMeasures.length === 1 &&
       this.selectedMeasures[0].measure.unit === 'percent' &&
@@ -48,7 +49,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
       return '';
     }
 
-    return super.getTitleText();
+    return super.getTitleText(stateNamespace);
   }
 
   supportsMeasureVisualizationColor(): boolean {

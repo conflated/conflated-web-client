@@ -467,28 +467,33 @@ export default abstract class AbstractChart implements Chart {
     return [...(supportedMeasureVisualizationTypes || [])];
   }
 
-  getName(): string {
+  getName(stateNamespace: ChartAreaStateNamespace): string {
     let name = '';
 
-    if (this.getTitleText()) {
+    if (this.getTitleText(stateNamespace)) {
       if (this.getSubtitleText()) {
-        name = `${this.id}. ${this.getTitleText()}, ${this.getSubtitleText()}`;
+        name = `${this.id}. ${this.getTitleText(stateNamespace)}, ${this.getSubtitleText()}`;
       } else {
-        name = `${this.id}. ${this.getTitleText()}`;
+        name = `${this.id}. ${this.getTitleText(stateNamespace)}`;
       }
     }
 
     return name;
   }
 
-  getTitleText(): string | null {
-    return this.selectedMeasures.reduce((accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
-      if (accumulatedTitle === '') {
-        return name;
-      } else {
-        return `${accumulatedTitle}, ${name}`;
-      }
-    }, '');
+  getTitleText(stateNamespace: ChartAreaStateNamespace): string | null {
+    const title = this.selectedMeasures.reduce(
+      (accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
+        if (accumulatedTitle === '') {
+          return name;
+        } else {
+          return `${accumulatedTitle}, ${name}`;
+        }
+      },
+      ''
+    );
+
+    return stateNamespace === 'dataExplorerPage' && this.chartType !== 'sparkline' ? `${this.id}. ${title}` : title;
   }
 
   getApexYAxisTitleOptions(): object {

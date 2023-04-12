@@ -120,7 +120,9 @@ const FilterSelectorView = ({
 
   const chartListItems = charts
     .filter((chart) => chart !== selectedChart)
-    .map((chart) => <ChartListItemView key={chart.id} item={{ name: chart.getName() }} onItemClick={() => {}} />);
+    .map((chart) => (
+      <ChartListItemView key={chart.id} item={{ name: chart.getName(stateNamespace) }} onItemClick={() => {}} />
+    ));
 
   const selectorStateNamespace = `${stateNamespace}FilterSelector`;
 
