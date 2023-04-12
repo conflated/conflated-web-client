@@ -97,7 +97,7 @@ const PageView = ({
       {leftPane}
       {createDraggableGutter('leftPane')}
       {middlePane}
-      {shouldShowPagePane.rightPane && createDraggableGutter('rightPane')}
+      {createDraggableGutter('rightPane')}
       {rightPane}
       {createPaneActivator('leftPane')}
       {createPaneActivator('rightPane')}
