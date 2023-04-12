@@ -1,6 +1,7 @@
 .chartIcons {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0.2rem;
 
   %abstract-chart-icon {
     background-repeat: no-repeat;
