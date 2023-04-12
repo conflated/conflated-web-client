@@ -2,11 +2,52 @@
   align-items: baseline !important;
   display: flex !important;
   font-weight: bold !important;
-  padding-bottom: 0.2rem !important;
-  padding-top: 0.2rem !important;
+  padding-bottom: 0.4rem !important;
 
   @media screen and (prefers-color-scheme: dark) {
     background-color: #222;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: default;
+
+    .removeIcon {
+      visibility: visible;
+    }
+  }
+
+  &:last-child {
+    padding-bottom: 0.5rem !important;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px #ddd solid;
+  }
+
+  .selectedDimension {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .dimensionName {
+      font-size: 0.95rem;
+      margin-right: 0.4rem;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: #eee;
+      }
+    }
+
+    .visualizationType {
+      color: #999;
+      font-size: 0.9rem;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: #ddd;
+        font-weight: normal;
+      }
+    }
   }
 
   .removeIcon {
@@ -19,37 +60,8 @@
 
     &:hover,
     &:focus {
+      color: var(--brand-color-2);
       cursor: pointer;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    cursor: default;
-
-    .removeIcon {
-      visibility: visible;
-    }
-  }
-
-  .dimensionName {
-    flex-shrink: 0;
-    font-size: 0.95rem;
-    margin-right: 0.4rem;
-
-    @media screen and (prefers-color-scheme: dark) {
-      color: #eee;
-    }
-  }
-
-  .visualizationType {
-    color: var(--small-font-color);
-    flex-grow: 1;
-    font-size: var(--small-font-size);
-
-    @media screen and (prefers-color-scheme: dark) {
-      color: #ddd;
-      font-weight: normal;
     }
   }
 }

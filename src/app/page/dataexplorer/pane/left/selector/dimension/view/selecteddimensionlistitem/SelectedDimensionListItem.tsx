@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, List } from 'semantic-ui-react';
+import { Icon, List, Popup } from 'semantic-ui-react';
 import styles from './SelectedDimensionListItem.module.scss';
 import type { Theme } from '../../../../../../model/state/types/Theme';
 import type { SelectedDimension } from '../../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
@@ -37,9 +37,18 @@ const SelectedDimensionListItem = ({
   return (
     <List.Item className={styles.listItem}>
       {visualizationColorPicker}
-      <div className={styles.dimensionName}>{selectedDimension.dimension.name}</div>
-      <div className={styles.visualizationType}>{selectedDimension.visualizationType}</div>
-      <Icon className={styles.removeIcon} name="close" onClick={() => removeSelectedDimension(selectedDimension)} />
+      <div className={styles.selectedDimension}>
+        <div className={styles.dimensionName}>{selectedDimension.dimension.name}</div>
+        <div className={styles.visualizationType}>{selectedDimension.visualizationType}</div>
+      </div>
+      <Popup
+        content="Remove selected dimension"
+        inverted
+        mouseEnterDelay={1250}
+        trigger={
+          <Icon className={styles.removeIcon} name="close" onClick={() => removeSelectedDimension(selectedDimension)} />
+        }
+      />
     </List.Item>
   );
 };
