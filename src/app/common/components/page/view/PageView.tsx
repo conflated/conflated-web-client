@@ -91,6 +91,8 @@ const PageView = ({
     [styles.visible]: shouldShowPagePaneActivatorHint.rightPane
   });
 
+  console.log(shouldShowPagePane.rightPane);
+
   return (
     <div className={`${styles.page} ${className ?? ''}`}>
       {header}
