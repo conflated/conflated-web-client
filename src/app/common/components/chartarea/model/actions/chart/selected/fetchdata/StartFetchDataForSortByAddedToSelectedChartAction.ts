@@ -5,6 +5,7 @@ import { ChartDataService } from '../../../../../chart/model/service/ChartDataSe
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from './StartFetchDataForSelectedChartAction';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
+import diContainer from '../../../../../../../../../di/diContainer';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
@@ -28,13 +29,9 @@ class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAre
       selectedChart.getSelectedSortBys().length === 0 ||
       selectedChart.chartData.getForSelectedSortBy(lastSelectedSortBy).length === 0
     ) {
-      return this.performAction(
-        new StartFetchDataForSelectedChartAction({
-          chartDataService: this.chartDataService,
-          stateNamespace: this.stateNamespace
-        }),
-        currentState
-      );
+      this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
+        stateNamespace: this.stateNamespace
+      });
     }
 
     return currentState;
