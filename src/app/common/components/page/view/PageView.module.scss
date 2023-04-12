@@ -16,6 +16,10 @@
     @media screen and (any-pointer: coarse) {
       display: none;
     }
+
+    &:hover {
+      background-color: var(--brand-color-1);
+    }
   }
 
   .leftPaneActivator {
