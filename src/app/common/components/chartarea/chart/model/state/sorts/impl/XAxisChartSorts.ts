@@ -1,11 +1,11 @@
-import BasicChartSorts from './BasicChartSorts';
+import AbstractBasicChartSorts from './AbstractBasicChartSorts';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { DimensionVisualizationType } from '../../selecteddimension/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Chart } from '../../Chart';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 
-export default class XAxisChartSorts extends BasicChartSorts {
+export default class XAxisChartSorts extends AbstractBasicChartSorts {
   override updateSelectedSortBysWhenAddingSelectedDimension(
     dimension: Dimension | Measure,
     visualizationType: DimensionVisualizationType,

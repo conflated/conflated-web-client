@@ -1,9 +1,9 @@
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
-import BasicChartSorts from './BasicChartSorts';
+import AbstractBasicChartSorts from './AbstractBasicChartSorts';
 
-export default class NonTimelineChartSorts extends BasicChartSorts {
+export default class NonTimelineChartSorts extends AbstractBasicChartSorts {
   override updateSelectedSortBysWhenAddingSelectedMeasure(
     measureOrDimension: Measure | Dimension,
     selectedMeasures: SelectedMeasure[]

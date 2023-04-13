@@ -39,6 +39,7 @@ import type { Layout } from '../../../../model/state/types/Layout';
 import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
+import ChartSortsFactory from '../sorts/ChartSortsFactory';
 
 export default abstract class AbstractChart implements Chart {
   id = '1';
@@ -88,7 +89,7 @@ export default abstract class AbstractChart implements Chart {
       this.selectedDimensions = chartConfiguration.selectedDimensions;
       this.chartData = new ChartDataImpl(chartConfiguration.chartData);
       this.selectedFilters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
-      this.selectedSortBys = new ChartSortsImpl(chartConfiguration.selectedSortBys);
+      this.selectedSortBys = ChartSortsFactory.createChartSorts(this, chartConfiguration.selectedSortBys);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
       this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;

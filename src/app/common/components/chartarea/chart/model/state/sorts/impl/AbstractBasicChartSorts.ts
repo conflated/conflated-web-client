@@ -3,7 +3,7 @@ import ChartSortsImpl from './ChartSortsImpl';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 
-export default abstract class BasicChartSorts extends ChartSortsImpl {
+export default abstract class AbstractBasicChartSorts extends ChartSortsImpl {
   override updateSelectedSortBysWhenRemovingSelectedDimension(
     selectedDimension: SelectedDimension,
     selectedMeasures: SelectedMeasure[]
