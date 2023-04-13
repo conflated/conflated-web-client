@@ -42,10 +42,7 @@ Test font size variation
 
 RELEASE 2
 ==========
-Implement Semantic UI React Reorder list for Dashboard groups/dashboards (Github new project DragDropList)
 Implement Semantic UI React Source/Target list for dashboard => dashboard groups (Github enhance DragDropList)
-Implement multiple tabs on Data Explorer (Possibility to hide tabs from action menu icon toggle)
-Implement vertical scrollbar for horizontal bar chart type
 Chart menu: Apply filter to -> submenu: All charts on page, selected charts, show legend toggle
 In dashboards, drag to header will make filter global. Also when dashboard is changed header is showed for short time
 Implement multiple chart select in dashboard, filter/sortby
@@ -63,9 +60,8 @@ Implement scrolling for heatmap chart
 Implement ROLLUP/CUBE support for data table dimension columns
 Implement Reporting
 Localization
-Implement dark theme
 If measure/dimension/filter/sortBy has expression, show the expression in tooltip on hovering the name
-Implement Login screen
+Implement Login
 
 DOCS
 ====

@@ -7,7 +7,7 @@ export default class ApexChartDataLabelOptionsFactory {
 
     return {
       enabled: chart.shouldShowDataLabels(),
-      formatter: (value: number) => `${value} %`,
+      formatter: chart.selectedMeasures[0]?.measure.unit === 'percent' ? (value: number) => `${value} %` : undefined,
       textAnchor: 'middle',
       offsetX: 1,
       offsetY: chart.chartType === 'bar' ? 5 : -5,

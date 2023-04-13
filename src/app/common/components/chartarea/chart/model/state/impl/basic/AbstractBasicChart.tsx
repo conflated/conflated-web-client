@@ -367,8 +367,8 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       this.selectedMeasures.length > 0 &&
       this.selectedMeasures.length < 6 &&
       this.chartData.getForSelectedMeasure(this.selectedMeasures[0]).length > 0 &&
-      (this.selectedDimensions.length > 0 || (this.selectedDimensions.length === 0 && this.supportsAllDimension())) &&
-      uniqueLegendDataValues.length < 6
+      this.selectedDimensions.length > 0 &&
+      this.xAxisCategoriesShownCount * uniqueLegendDataValues.length <= 50
     );
   }
 
