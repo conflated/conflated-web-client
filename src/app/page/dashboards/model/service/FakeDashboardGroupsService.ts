@@ -24,7 +24,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Setup Failure %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -63,7 +64,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Dropped Call %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -102,7 +104,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Setup Failure %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -141,7 +144,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Dropped Call %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -180,7 +184,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Dropped Call %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -219,7 +224,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Handover Failure %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -258,7 +264,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Setup Failure %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
@@ -297,7 +304,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
         {
           measure: {
             name: 'Handover Failure %',
-            isDate: false
+            isDate: false,
+            unit: 'percent'
           } as Measure,
           sqlColumn: {
             name: 'measure1',
