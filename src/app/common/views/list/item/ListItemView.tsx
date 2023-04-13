@@ -76,13 +76,16 @@ const ListItemView = <T extends { readonly name: string }>({
   };
 
   const className = classNames(listItem, { [selected]: item.name === (selectedItem?.name ?? '') });
-
   let listIcon: any;
+
   if (iconName) {
     listIcon = <List.Icon className={iconClassName || ''} name={iconName as any} />;
+  } else if (iconClassName) {
+    listIcon = <div className={iconClassName} />;
   }
 
   let actionIcons: any;
+
   if (actions) {
     actionIcons = actions.map((action) => {
       const iconElem = (

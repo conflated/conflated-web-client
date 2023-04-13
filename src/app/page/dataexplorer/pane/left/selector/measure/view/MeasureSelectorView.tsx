@@ -107,7 +107,6 @@ const MeasureSelectorView = ({
       .map((measure) => (
         <MeasureListItemView
           key={measure.name}
-          iconClassName=""
           item={measure}
           onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
           onItemDblClick={handleMaximizeIconClick}
