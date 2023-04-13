@@ -59,6 +59,7 @@ const FilterSelectorView = ({
     ]);
   };
 
+  console.log(selectedChart.getSelectedFilters());
   const selectedFilterListItems = selectedChart.getSelectedFilters().map((selectedFilter: Filter) => {
     if (selectedFilter.type === 'measure') {
       return (

@@ -64,10 +64,12 @@ export default class ChartFiltersImpl implements ChartFilters {
     });
   }
 
-  changeSelectedFilterExpression(selectedFilter: Filter, filterExpression: string) {
-    this.selectedFilters = Utils.merge(this.selectedFilters, selectedFilter, {
-      filterExpression
-    });
+  changeSelectedFilterExpression(selectedFilterToChange: Filter, filterExpression: string) {
+    this.selectedFilters = this.selectedFilters.map((selectedFilter) =>
+      selectedFilter === selectedFilterToChange
+        ? FilterFactory.createSelectedFilter({ ...selectedFilterToChange.getConfiguration(), filterExpression })
+        : selectedFilter
+    );
   }
 
   changeSelectedFilterInputType(selectedFilter: Filter, filterInputType: FilterInputType): Filter {
