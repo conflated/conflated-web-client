@@ -12,7 +12,7 @@ type ConstructorArgs = {
 };
 
 @Inject('chartDataService')
-class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAreaAction {
+class StartFetchDataForSortColumnAddedToSelectedChartAction extends AbstractChartAreaAction {
   private readonly chartDataService: ChartDataService;
 
   constructor({ chartDataService, stateNamespace }: ConstructorArgs) {
@@ -29,4 +29,4 @@ class StartFetchDataForSortByAddedToSelectedChartAction extends AbstractChartAre
   }
 }
 
-export default StartFetchDataForSortByAddedToSelectedChartAction;
+export default StartFetchDataForSortColumnAddedToSelectedChartAction;

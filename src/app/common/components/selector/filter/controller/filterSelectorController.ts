@@ -1,17 +1,17 @@
 import { Controller } from 'oo-redux-utils2';
-import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedfilter/AddMeasureFilterToSelectedChartAction';
-import RemoveSelectedFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveSelectedFilterFromSelectedChartAction';
-import ChangeSelectedFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterAggregationFunctionForSelectedChartAction';
+import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddMeasureFilterToSelectedChartAction';
+import RemoveFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveFilterFromSelectedChartAction';
+import ChangeFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterAggregationFunctionForSelectedChartAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import ChangeSelectedFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterInputTypeForSelectedChartAction';
+import ChangeFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
-import ChangeSelectedFilterDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterDataScopeTypeForSelectedChartAction';
+import ChangeFilterDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterDataScopeTypeForSelectedChartAction';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
-import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedfilter/AddDimensionFilterToSelectedChartAction';
-import ChangeSelectedFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/selectedfilter/ChangeSelectedFilterExpressionForSelectedChartAction';
+import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddDimensionFilterToSelectedChartAction';
+import ChangeFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterExpressionForSelectedChartAction';
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
@@ -55,34 +55,24 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       aggregationFunction: AggregationFunction
     ) => {
       this.dispatch(
-        new ChangeSelectedFilterAggregationFunctionForSelectedChartAction(
-          stateNamespace,
-          selectedFilter,
-          aggregationFunction
-        )
+        new ChangeFilterAggregationFunctionForSelectedChartAction(stateNamespace, selectedFilter, aggregationFunction)
       );
     },
 
     changeSelectedFilterExpressionForSelectedChart: (selectedFilter: Filter, expression: string) => {
-      this.dispatch(
-        new ChangeSelectedFilterExpressionForSelectedChartAction(stateNamespace, selectedFilter, expression)
-      );
+      this.dispatch(new ChangeFilterExpressionForSelectedChartAction(stateNamespace, selectedFilter, expression));
     },
 
     changeSelectedFilterInputTypeForSelectedChart: (selectedFilter: Filter, filterInputType: FilterInputType) => {
-      this.dispatch(
-        new ChangeSelectedFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType)
-      );
+      this.dispatch(new ChangeFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType));
     },
 
     changeSelectedFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScopeType) => {
-      this.dispatch(
-        new ChangeSelectedFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType)
-      );
+      this.dispatch(new ChangeFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType));
     },
 
     removeSelectedFilterFromSelectedChart: (selectedFilter: Filter) => {
-      this.dispatch(new RemoveSelectedFilterFromSelectedChartAction(stateNamespace, selectedFilter));
+      this.dispatch(new RemoveFilterFromSelectedChartAction(stateNamespace, selectedFilter));
     },
 
     toggleShouldShowPageRightPanePermanently: () =>

@@ -6,10 +6,10 @@ import type { SortDirection } from '../../../../../../chart/model/state/sorts/so
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import StartFetchDataForSortByAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForSortByAddedToSelectedChartAction';
+import StartFetchDataForSortColumnAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForSortColumnAddedToSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
-export default class AddSortByToSelectedChartAction extends AbstractChartAreaAction {
+export default class AddSortToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly measureOrDimension: Dimension | Measure,
@@ -20,7 +20,7 @@ export default class AddSortByToSelectedChartAction extends AbstractChartAreaAct
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    this.dispatchWithDi(StartFetchDataForSortByAddedToSelectedChartAction, diContainer, {
+    this.dispatchWithDi(StartFetchDataForSortColumnAddedToSelectedChartAction, diContainer, {
       stateNamespace: this.stateNamespace
     });
 

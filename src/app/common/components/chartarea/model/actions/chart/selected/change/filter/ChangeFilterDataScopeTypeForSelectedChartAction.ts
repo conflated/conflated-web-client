@@ -7,7 +7,7 @@ import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAr
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
-export default class ChangeSelectedFilterDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
+export default class ChangeFilterDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly selectedFilter: Filter,

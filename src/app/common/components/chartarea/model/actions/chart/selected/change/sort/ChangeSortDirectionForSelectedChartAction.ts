@@ -1,29 +1,30 @@
-import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
+import type { Sort } from '../../../../../../chart/model/state/sorts/sort/Sort';
+import type { SortDirection } from '../../../../../../chart/model/state/sorts/sort/types/SortDirection';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
+import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
-export default class ChangeSelectedFilterExpressionForSelectedChartAction extends AbstractChartAreaAction {
+export default class ChangeSortDirectionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: Filter,
-    private readonly expression: string
+    private readonly selectedSortBy: Sort,
+    private readonly sortDirection: SortDirection
   ) {
     super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedFilter.dataScopeType === 'all') {
+    if (this.selectedSortBy.dataScopeType === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.changeSelectedFilterExpression(this.selectedFilter, this.expression);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
+    selectedChart.selectedSortBys.changeSelectedSortByDirection(this.selectedSortBy, this.sortDirection);
+    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

@@ -6,7 +6,7 @@ import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaS
 import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../di/diContainer';
 
-export default class RemoveSelectedSortByFromSelectedChartAction extends AbstractChartAreaAction {
+export default class RemoveSortFromSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly selectedSortBy: Sort) {
     super(stateNamespace);
     this.selectedSortBy = selectedSortBy;
