@@ -1,5 +1,5 @@
 .listItem {
-  align-items: baseline !important;
+  align-items: center !important;
   display: flex !important;
   font-weight: bold !important;
   padding-bottom: 0.4rem !important;
@@ -60,7 +60,7 @@
 
     &:hover,
     &:focus {
-      color: var(--brand-color-2);
+      color: #F47F31;
       cursor: pointer;
     }
   }

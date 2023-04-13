@@ -7,8 +7,18 @@ import type { AggregationFunction } from '../../../../selectedmeasure/types/Aggr
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
+import { ChartConfiguration } from '../../../../ChartConfiguration';
+import XAxisChartSorts from '../../../../sorts/impl/XAxisChartSorts';
 
 export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTimelineChart {
+  constructor(chartConfiguration?: ChartConfiguration) {
+    super(chartConfiguration);
+
+    if (chartConfiguration) {
+      this.selectedSortBys = new XAxisChartSorts(chartConfiguration.selectedSortBys);
+    }
+  }
+
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.selectedDimensions.length === 1 && visualizationType === 'Legend') {
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);

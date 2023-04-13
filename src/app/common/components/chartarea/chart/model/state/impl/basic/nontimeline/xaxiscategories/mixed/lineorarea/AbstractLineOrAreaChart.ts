@@ -3,8 +3,17 @@ import type { Dimension } from '../../../../../../../../../../../../page/dataexp
 import type { DimensionVisualizationType } from '../../../../../../selecteddimension/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AbstractMixedChart from '../AbstractMixedChart';
+import { ChartConfiguration } from '../../../../../../ChartConfiguration';
+import LineOrAreaChartSorts from '../../../../../../sorts/impl/LineOrAreaChartSorts';
 
 export default class AbstractLineOrAreaChart extends AbstractMixedChart {
+  constructor(chartConfiguration?: ChartConfiguration) {
+    super(chartConfiguration);
+    if (chartConfiguration) {
+      this.selectedSortBys = new LineOrAreaChartSorts(chartConfiguration.selectedSortBys);
+    }
+  }
+
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.hasTimestampXAxis()) {
       this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);

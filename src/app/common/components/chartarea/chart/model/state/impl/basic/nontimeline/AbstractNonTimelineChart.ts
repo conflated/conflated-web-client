@@ -2,8 +2,17 @@ import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import AbstractBasicChart from '../AbstractBasicChart';
+import { ChartConfiguration } from '../../../ChartConfiguration';
+import NonTimelineChartSorts from '../../../sorts/impl/NonTimelineChartSorts';
 
 export default abstract class AbstractNonTimelineChart extends AbstractBasicChart {
+  constructor(chartConfiguration?: ChartConfiguration) {
+    super(chartConfiguration);
+    if (chartConfiguration) {
+      this.selectedSortBys = new NonTimelineChartSorts(chartConfiguration.selectedSortBys);
+    }
+  }
+
   override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
     this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
