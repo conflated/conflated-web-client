@@ -82,7 +82,7 @@ export default class ChartFiltersImpl implements ChartFilters {
     };
 
     const newSelectedFilter = FilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
-    Utils.replace(this.selectedFilters, selectedFilter, newSelectedFilter);
+    this.selectedFilters = Utils.replace(this.selectedFilters, selectedFilter, newSelectedFilter);
     return newSelectedFilter;
   }
 
