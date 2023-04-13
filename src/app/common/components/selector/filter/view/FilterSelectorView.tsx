@@ -28,15 +28,15 @@ type Props = OwnProps & ActionDispatchers & State;
 const FilterSelectorView = ({
   addDimensionFilterToSelectedChart,
   addMeasureFilterToSelectedChart,
-  changeSelectedFilterAggregationFunctionForSelectedChart,
-  changeSelectedFilterExpressionForSelectedChart,
-  changeSelectedFilterInputTypeForSelectedChart,
-  changeSelectedFilterDataScopeTypeForSelectedChart,
+  changeFilterAggregationFunctionForSelectedChart,
+  changeFilterExpressionForSelectedChart,
+  changeFilterInputTypeForSelectedChart,
+  changeFilterDataScopeTypeForSelectedChart,
   charts,
   isDataPointsCountSelectorOpen,
   isSortBySelectorOpen,
   stateNamespace,
-  removeSelectedFilterFromSelectedChart,
+  removeFilterFromSelectedChart,
   selectedChart,
   shouldShowPageRightPanePermanently,
   shownDimensions,
@@ -66,18 +66,18 @@ const FilterSelectorView = ({
           key={selectedFilter.measureOrDimension.name}
           selectedFilter={selectedFilter}
           chart={selectedChart}
-          removeSelectedFilter={() => removeSelectedFilterFromSelectedChart(selectedFilter)}
+          removeSelectedFilter={() => removeFilterFromSelectedChart(selectedFilter)}
           changeSelectedFilterAggregationFunction={(aggregationFunction: AggregationFunction) =>
-            changeSelectedFilterAggregationFunctionForSelectedChart(selectedFilter, aggregationFunction)
+            changeFilterAggregationFunctionForSelectedChart(selectedFilter, aggregationFunction)
           }
           changeSelectedFilterExpression={(expression: string) =>
-            changeSelectedFilterExpressionForSelectedChart(selectedFilter, expression)
+            changeFilterExpressionForSelectedChart(selectedFilter, expression)
           }
           changeSelectedFilterInputType={(filterInputType: FilterInputType) =>
-            changeSelectedFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
+            changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
           }
           changeSelectedFilterDataScopeType={(dataScopeType: DataScopeType) =>
-            changeSelectedFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
+            changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
           }
         />
       );
@@ -88,15 +88,15 @@ const FilterSelectorView = ({
         key={selectedFilter.measureOrDimension.name}
         selectedFilter={selectedFilter}
         chartData={selectedChart.chartData}
-        removeSelectedFilter={() => removeSelectedFilterFromSelectedChart(selectedFilter)}
+        removeSelectedFilter={() => removeFilterFromSelectedChart(selectedFilter)}
         changeSelectedFilterExpression={(expression: string) =>
-          changeSelectedFilterExpressionForSelectedChart(selectedFilter, expression)
+          changeFilterExpressionForSelectedChart(selectedFilter, expression)
         }
         changeSelectedFilterInputType={(filterInputType: FilterInputType) =>
-          changeSelectedFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
+          changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
         }
         changeSelectedFilterDataScopeType={(dataScopeType: DataScopeType) =>
-          changeSelectedFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
+          changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
         }
       />
     );

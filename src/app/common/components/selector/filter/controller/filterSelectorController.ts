@@ -50,28 +50,25 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(new AddMeasureFilterToSelectedChartAction(stateNamespace, measure));
     },
 
-    changeSelectedFilterAggregationFunctionForSelectedChart: (
-      selectedFilter: Filter,
-      aggregationFunction: AggregationFunction
-    ) => {
+    changeFilterAggregationFunctionForSelectedChart: (filter: Filter, aggregationFunction: AggregationFunction) => {
       this.dispatch(
-        new ChangeFilterAggregationFunctionForSelectedChartAction(stateNamespace, selectedFilter, aggregationFunction)
+        new ChangeFilterAggregationFunctionForSelectedChartAction(stateNamespace, filter, aggregationFunction)
       );
     },
 
-    changeSelectedFilterExpressionForSelectedChart: (selectedFilter: Filter, expression: string) => {
+    changeFilterExpressionForSelectedChart: (selectedFilter: Filter, expression: string) => {
       this.dispatch(new ChangeFilterExpressionForSelectedChartAction(stateNamespace, selectedFilter, expression));
     },
 
-    changeSelectedFilterInputTypeForSelectedChart: (selectedFilter: Filter, filterInputType: FilterInputType) => {
+    changeFilterInputTypeForSelectedChart: (selectedFilter: Filter, filterInputType: FilterInputType) => {
       this.dispatch(new ChangeFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType));
     },
 
-    changeSelectedFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScopeType) => {
+    changeFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScopeType) => {
       this.dispatch(new ChangeFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType));
     },
 
-    removeSelectedFilterFromSelectedChart: (selectedFilter: Filter) => {
+    removeFilterFromSelectedChart: (selectedFilter: Filter) => {
       this.dispatch(new RemoveFilterFromSelectedChartAction(stateNamespace, selectedFilter));
     },
 
