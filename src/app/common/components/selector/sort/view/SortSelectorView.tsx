@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './SortSelectorView.module.scss';
-import SelectedSortByListItemView from './sortlistitem/SelectedSortByListItemView';
+import SortListItemView from './listitem/SortListItemView';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort';
@@ -18,6 +18,7 @@ import type { DataScopeType } from '../../../chartarea/chart/model/state/types/D
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortSelectorController';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
+import TimeSortOptionListItemView from './listitem/TimeSortOptionListItemView';
 
 export type OwnProps = { stateNamespace: SortSelectorStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -68,7 +69,7 @@ const SortSelectorView = ({
   const selectedSortByListItems = selectedChart
     .getSelectedSortBys()
     .map((selectedSortBy: Sort) => (
-      <SelectedSortByListItemView
+      <SortListItemView
         key={selectedSortBy.measureOrDimension.name}
         selectedSortBy={selectedSortBy}
         chart={selectedChart}
@@ -102,12 +103,11 @@ const SortSelectorView = ({
   ));
 
   const timeSortOptionListItems = shownTimeSortOptions.map((timeSortOption: TimeSortOption) => (
-    <List.Item
+    <TimeSortOptionListItemView
       key={timeSortOption}
-      onClick={() => addSortByTimeToSelectedChart(selectedChart, timeSortOption, lastUsedSortDirection)}
-    >
-      {timeSortOption}
-    </List.Item>
+      item={{ name: timeSortOption }}
+      onItemClick={() => addSortByTimeToSelectedChart(selectedChart, timeSortOption, lastUsedSortDirection)}
+    />
   ));
 
   const selectorStateNamespace = `${stateNamespace}SortBySelector`;
