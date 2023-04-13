@@ -28,7 +28,7 @@ const MeasureFilterView = ({
   removeSelectedFilter,
   selectedFilter
 }: Props) => (
-  <List.Item key={selectedFilter.measureOrDimension.name}>
+  <List.Item className={styles.listItem} key={selectedFilter.measureOrDimension.name}>
     <AggregationFunctionPickerView
       aggregationFunctions={chart.getSupportedAggregationFunctions()}
       changeAggregationFunction={changeSelectedFilterAggregationFunction}
@@ -39,7 +39,7 @@ const MeasureFilterView = ({
       changeDataScopeType={changeSelectedFilterDataScopeType}
       selectedDataScopeType={selectedFilter.dataScopeType}
     />
-    <Dropdown className={styles.icon} icon="setting">
+    <Dropdown className={styles.filterInputType} icon="setting">
       <Dropdown.Menu direction="left">
         <Dropdown.Item
           text="Input filter"

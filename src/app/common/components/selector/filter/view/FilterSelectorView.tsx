@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureFilterView from './MeasureFilterView';
-import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
+import DimensionSelectedFilterView from './DimensionFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
