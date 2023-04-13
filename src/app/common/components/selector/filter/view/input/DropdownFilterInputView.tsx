@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
-import type { ChartData } from '../../../../../../chartarea/chart/model/state/data/ChartData';
-import type { Filter } from '../../../../../../chartarea/chart/model/state/filters/filter/Filter';
+import type { ChartData } from '../../../../chartarea/chart/model/state/data/ChartData';
+import type { Filter } from '../../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   changeFilterExpression: (filterExpression: string) => void;

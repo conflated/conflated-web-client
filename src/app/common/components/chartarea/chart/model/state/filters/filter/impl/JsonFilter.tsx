@@ -2,8 +2,8 @@
 import React from 'react';
 import AbstractFilter from './AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
-import CheckboxesFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/checkboxes/CheckboxesFilterInputView';
-import DropdownFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/dropdown/DropdownFilterInputView';
+import CheckboxesFilterInputView from '../../../../../../../selector/filter/view/input/checkboxes/CheckboxesFilterInputView';
+import DropdownFilterInputView from '../../../../../../../selector/filter/view/input/DropdownFilterInputView';
 import type { ChartData } from '../../../data/ChartData';
 
 export default class JsonFilter extends AbstractFilter {

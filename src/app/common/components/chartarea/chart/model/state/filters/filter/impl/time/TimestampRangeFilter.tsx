@@ -4,7 +4,7 @@ import moment from 'moment';
 import AbstractFilter from '../AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
 import type { ChartData } from '../../../../data/ChartData';
-import TimestampRangeFilterInputView from '../../../../../../../../selector/filter/view/selectedfilter/filterinput/timestamprange/TimestampRangeFilterInputView';
+import TimestampRangeFilterInputView from '../../../../../../../../selector/filter/view/input/time/TimestampRangeFilterInputView';
 
 export default class TimestampRangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

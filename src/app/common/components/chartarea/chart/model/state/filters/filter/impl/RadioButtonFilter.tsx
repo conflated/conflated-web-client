@@ -3,7 +3,7 @@ import React from 'react';
 import AbstractFilter from './AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
 import type { ChartData } from '../../../data/ChartData';
-import RadioButtonsFilterInputView from '../../../../../../../selector/filter/view/selectedfilter/filterinput/radiobuttons/RadioButtonsFilterInputView';
+import RadioButtonsFilterInputView from '../../../../../../../selector/filter/view/input/RadioButtonsFilterInputView';
 
 export default class RadioButtonFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {

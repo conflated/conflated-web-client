@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
-import MeasureSelectedFilterView from './selectedfilter/measureselectedfilter/MeasureSelectedFilterView';
+import MeasureFilterView from './MeasureFilterView';
 import DimensionSelectedFilterView from './selectedfilter/dimensionselectedfilter/DimensionSelectedFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
@@ -62,7 +62,7 @@ const FilterSelectorView = ({
   const selectedFilterListItems = selectedChart.getSelectedFilters().map((selectedFilter: Filter) => {
     if (selectedFilter.type === 'measure') {
       return (
-        <MeasureSelectedFilterView
+        <MeasureFilterView
           key={selectedFilter.measureOrDimension.name}
           selectedFilter={selectedFilter}
           chart={selectedChart}

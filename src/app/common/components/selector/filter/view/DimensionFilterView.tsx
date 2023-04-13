@@ -1,11 +1,11 @@
 import React from 'react';
 import { Dropdown, Icon, List } from 'semantic-ui-react';
-import styles from '../SelectedFilterView.module.scss';
-import type { FilterInputType } from '../../../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
-import type { DataScopeType } from '../../../../../chartarea/chart/model/state/types/DataScopeType';
-import DataScopePickerView from '../../../../../../views/picker/datascope/DataScopePickerView';
-import type { ChartData } from '../../../../../chartarea/chart/model/state/data/ChartData';
-import type { Filter } from '../../../../../chartarea/chart/model/state/filters/filter/Filter';
+import styles from './FilterView.module.scss';
+import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
+import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import DataScopePickerView from '../../../../views/picker/datascope/DataScopePickerView';
+import type { ChartData } from '../../../chartarea/chart/model/state/data/ChartData';
+import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
   changeSelectedFilterExpression: (expression: string) => void;
@@ -17,7 +17,7 @@ type Props = {
 };
 
 // noinspection FunctionWithMoreThanThreeNegationsJS
-const DimensionSelectedFilterView = ({
+const DimensionFilterView = ({
   changeSelectedFilterDataScopeType,
   changeSelectedFilterExpression,
   changeSelectedFilterInputType,
@@ -58,4 +58,4 @@ const DimensionSelectedFilterView = ({
   );
 };
 
-export default DimensionSelectedFilterView;
+export default DimensionFilterView;
