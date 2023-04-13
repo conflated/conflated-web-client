@@ -23,7 +23,7 @@ export default class ChangeFilterExpressionForSelectedChartAction extends Abstra
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.changeSelectedFilterExpression(this.selectedFilter, this.expression);
+    selectedChart.selectedFilters.changeFilterExpression(this.selectedFilter, this.expression);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

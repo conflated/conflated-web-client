@@ -8,27 +8,27 @@ import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 
 export interface ChartFilters {
-  addDimensionSelectedFilter(dimension: Dimension): Filter;
+  addDimensionFilter(dimension: Dimension): Filter;
 
   addDrillDownFilter(drillDown: DrillDown): void;
 
-  addMeasureSelectedFilter(measure: Measure): Filter;
+  addMeasureFilter(measure: Measure): Filter;
 
   addSelectionFilter(chartId: string, selectedDimension: SelectedDimension, filterExpression: string): void;
 
-  changeSelectedFilterAggregationFunction(selectedFilter: Filter, aggregationFunction: AggregationFunction): void;
+  changeFilterAggregationFunction(filter: Filter, aggregationFunction: AggregationFunction): void;
 
-  changeSelectedFilterDataScopeType(selectedFilter: Filter, dataScopeType: DataScopeType): void;
+  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScopeType): void;
 
-  changeSelectedFilterExpression(selectedFilter: Filter, filterExpression: string): void;
+  changeFilterExpression(filter: Filter, filterExpression: string): void;
 
-  changeSelectedFilterInputType(selectedFilter: Filter, filterInputType: FilterInputType): Filter;
+  changeFilterInputType(filter: Filter, filterInputType: FilterInputType): Filter;
 
   getLastDrillDownFilter(): Filter | null | undefined;
 
-  getSelectedFilters(): Filter[];
+  getFilters(): Filter[];
 
-  removeSelectedFilter(selectedFilter: Filter): void;
+  removeFilter(selectedFilter: Filter): void;
 
   removeSelectionFilter(chartId: string): void;
 }

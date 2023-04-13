@@ -425,7 +425,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   getSelectedFilters(): Filter[] {
-    return this.selectedFilters.getSelectedFilters();
+    return this.selectedFilters.getFilters();
   }
 
   getSelectedMeasureOfType(visualizationType: MeasureVisualizationType): SelectedMeasure | null | undefined {

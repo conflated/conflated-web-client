@@ -17,7 +17,7 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
       const lastDrillDownFilter = this.selectedFilters.getLastDrillDownFilter();
 
       if (lastDrillDownFilter != null) {
-        this.selectedFilters.removeSelectedFilter(lastDrillDownFilter);
+        this.selectedFilters.removeFilter(lastDrillDownFilter);
       }
 
       this.drillDowns = this.drillDowns?.slice(0, -1);

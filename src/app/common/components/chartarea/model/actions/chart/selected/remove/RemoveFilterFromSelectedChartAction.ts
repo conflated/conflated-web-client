@@ -19,7 +19,7 @@ export default class RemoveFilterFromSelectedChartAction extends AbstractChartAr
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.removeSelectedFilter(this.selectedFilter);
+    selectedChart.selectedFilters.removeFilter(this.selectedFilter);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }
