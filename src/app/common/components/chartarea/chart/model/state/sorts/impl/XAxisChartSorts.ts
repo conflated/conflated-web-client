@@ -43,7 +43,16 @@ export default class XAxisChartSorts extends AbstractBasicChartSorts {
     }
   }
 
-  override updateSelectedSortBysWhenAddingSelectedMeasure(): void {
-    // Intentionally no operation
+  override updateSelectedSortBysWhenAddingSelectedMeasure(measure: Measure | Dimension): void {
+    const sortDirection =
+      measure.name.toLowerCase().includes('error') ||
+      measure.name.toLowerCase().includes('fail') ||
+      measure.name.toLowerCase().includes('fault')
+        ? 'DESC'
+        : 'ASC';
+
+    if (this.selectedSortBys.length === 0) {
+      this.addSelectedSortBy(measure, 'measure', sortDirection, 'measure');
+    }
   }
 }
