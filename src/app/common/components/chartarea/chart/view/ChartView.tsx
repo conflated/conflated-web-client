@@ -89,7 +89,6 @@ const ChartView: React.FC<Props> = ({
   return (
     <div
       className={`${className} ${chart.chartType === 'statistic' ? styles.statistic : ''}`}
-      draggable
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       onClick={handleClickEvent}

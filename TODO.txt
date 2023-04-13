@@ -1,4 +1,3 @@
-- Measure color ranges
 - Filters
 - Implement quick filter
 - Go through chart types

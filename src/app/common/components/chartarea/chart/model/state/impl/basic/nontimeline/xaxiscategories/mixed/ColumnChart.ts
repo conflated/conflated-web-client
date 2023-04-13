@@ -3,6 +3,18 @@ import AbstractMixedChart from './AbstractMixedChart';
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class ColumnChart extends AbstractMixedChart {
+  override getColors(): string[] {
+    const colors = super.getColors();
+
+    return this.selectedMeasures.map((selectedMeasure, index) => {
+      if (selectedMeasure.measure.unit === 'percent') {
+        return (({ value }: any) => (value > 90 ? '#E23B3B' : colors[index])) as any;
+      } else {
+        return colors[index];
+      }
+    });
+  }
+
   override getLegendType(): string {
     return 'legend, e.g. timestamp';
   }
