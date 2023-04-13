@@ -1,6 +1,6 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import AddSortByTimeToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/selectedsortby/AddSortByTimeToSelectedChartAction';
-import type { SortBySelectorStateNamespace } from '../model/state/types/SortBySelectorStateNamespace';
+import type { SortSelectorStateNamespace } from '../model/state/types/SortSelectorStateNamespace';
 import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/sort/types/TimeSortOption';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
@@ -24,10 +24,10 @@ import createShownDimensionsSelector from '../../../../../page/dataexplorer/pane
 import store from '../../../../../../store/store';
 import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
 import { controller as selectorWithActionsController } from '../../withactions/controller/selectorWithActionsController';
-import { OwnProps } from '../view/SortBySelectorView';
-import FlashSelectedSortBysBrieflyAction from '../model/actions/FlashSelectedSortBysBrieflyAction';
+import { OwnProps } from '../view/SortSelectorView';
+import FlashSortsBrieflyAction from '../model/actions/FlashSortsBrieflyAction';
 
-class SortBySelectorController extends Controller<PageStateNamespace> {
+class SortSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) =>
     OOReduxUtils.mergeOwnAndForeignState(appState[stateNamespace].sortBySelectorState, {
       selectedChart: appState[stateNamespace].chartAreaState.selectedChart,
@@ -43,9 +43,9 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
           .isSelectorOpen
     });
 
-  getActionDispatchers = (stateNamespace: SortBySelectorStateNamespace) => ({
+  getActionDispatchers = (stateNamespace: SortSelectorStateNamespace) => ({
     flashSelectedSortBysBriefly: () => {
-      this.dispatch(new FlashSelectedSortBysBrieflyAction(stateNamespace));
+      this.dispatch(new FlashSortsBrieflyAction(stateNamespace));
     },
 
     addSortByTimeToSelectedChart: (
@@ -111,6 +111,6 @@ class SortBySelectorController extends Controller<PageStateNamespace> {
   });
 }
 
-export const controller = new SortBySelectorController(store.dispatch);
+export const controller = new SortSelectorController(store.dispatch);
 export type State = ReturnType<typeof controller.getState>;
 export type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;

@@ -9,7 +9,7 @@ import dimensionSelectorStateReducer from '../app/page/dataexplorer/pane/left/se
 import createChartAreaStateReducer from '../app/common/components/chartarea/model/state/createChartAreaStateReducer';
 import dataExplorerSettingsStateReducer from '../app/page/dataexplorer/model/state/dataExplorerStateReducer';
 import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/page/dataexplorer/dialog/saveasdashboardorreporttemplate/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
-import createSortBySelectorStateReducer from '../app/common/components/selector/sortby/model/state/createSortBySelectorStateReducer';
+import createSortBySelectorStateReducer from '../app/common/components/selector/sort/model/state/createSortSelectorStateReducer';
 import dashboardsPageStateReducer from '../app/page/dashboards/model/state/dashboardsPageStateReducer';
 import createTriggerDataSourceSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/state/createTriggerDataSourceSelectorStateReducer';
 import createTriggerGroupSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerlabelselector/model/state/createTriggerLabelSelectorStateReducer';

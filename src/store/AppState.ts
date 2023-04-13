@@ -7,7 +7,7 @@ import type { LayoutSelectorState } from '../app/page/dataexplorer/pane/left/sel
 import type { MeasureSelectorState } from '../app/page/dataexplorer/pane/left/selector/measure/model/state/MeasureSelectorState';
 import type { DimensionSelectorState } from '../app/page/dataexplorer/pane/left/selector/dimension/model/state/DimensionSelectorState';
 import type { ChartAreaState } from '../app/common/components/chartarea/model/state/ChartAreaState';
-import type { SortBySelectorState } from '../app/common/components/selector/sortby/model/state/SortBySelectorState';
+import type { SortBySelectorState } from '../app/common/components/selector/sort/model/state/SortBySelectorState';
 import type { DataExplorerState } from '../app/page/dataexplorer/model/state/DataExplorerState';
 import type { TriggerSelectorState } from '../app/common/components/page/triggers/leftpane/triggerselector/model/state/TriggerSelectorState';
 import type { TriggerDataSourceSelectorState } from '../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import FilterSelectorView from '../../../../../common/components/selector/filter/view/FilterSelectorView';
-import SortBySelectorView from '../../../../../common/components/selector/sortby/view/SortBySelectorView';
+import SortBySelectorView from '../../../../../common/components/selector/sort/view/SortSelectorView';
 import DataPointsCountSelectorView from '../../../../../common/components/selector/datapointscount/view/DataPointsCountSelectorView';
 import DataExplorerPageRightPaneViewUtils from './DataExplorerPageRightPaneViewUtils';
 import PagePaneView from '../../../../../common/views/pagepane/PagePaneView';

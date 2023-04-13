@@ -1,9 +1,9 @@
 import OOReduxUtils from 'oo-redux-utils2';
 import type { SortBySelectorState } from './SortBySelectorState';
-import AbstractSortBySelectorAction from '../actions/AbstractSortBySelectorAction';
-import type { SortBySelectorStateNamespace } from './types/SortBySelectorStateNamespace';
+import AbstractSortSelectorAction from '../actions/AbstractSortSelectorAction';
+import type { SortSelectorStateNamespace } from './types/SortSelectorStateNamespace';
 
-const initialSortBySelectorState: SortBySelectorState = {
+const initialSortSelectorState: SortBySelectorState = {
   timeSortOptions: [
     'Latest value',
     'Latest increase',
@@ -27,9 +27,9 @@ const initialSortBySelectorState: SortBySelectorState = {
   areSelectedSortBysShown: true
 };
 
-export default (stateNamespace: SortBySelectorStateNamespace) =>
-  OOReduxUtils.createNamespacedStateReducer<SortBySelectorState, SortBySelectorStateNamespace>(
-    initialSortBySelectorState,
-    AbstractSortBySelectorAction,
+export default (stateNamespace: SortSelectorStateNamespace) =>
+  OOReduxUtils.createNamespacedStateReducer<SortBySelectorState, SortSelectorStateNamespace>(
+    initialSortSelectorState,
+    AbstractSortSelectorAction,
     stateNamespace
   );
