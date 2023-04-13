@@ -100,13 +100,15 @@
       flex-grow: 1;
 
       input {
+        background-color: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid #ccc !important;
+        border-radius: 0 !important;
+        color: #666;
         padding: 0.1rem 0 !important;
 
         @media (prefers-color-scheme: dark) {
-          background-color: transparent !important;
-          border: none !important;
           border-bottom: 1px solid #444 !important;
-          border-radius: 0 !important;
           color: #fff !important;
         }
 
