@@ -6,7 +6,7 @@ export default class ApexChartGridOptionsFactory {
 
     return {
       show: chart.shouldShowGrid(),
-      borderColor: isDarkModeActive ? '#222' : '#f2f2f2',
+      borderColor: isDarkModeActive ? '#222' : '#e9e9e9',
       xaxis: {
         lines: {
           show: false

@@ -5,9 +5,14 @@ export default class ApexChartDataLabelOptionsFactory {
     const isDarkModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const color = isDarkModeActive ? '#f2f2f2' : '#000';
 
+    const formatter =
+      chart.selectedMeasures[0]?.measure.unit === 'percent'
+        ? (value: number) => `${value} %`
+        : (value: number) => value;
+
     return {
+      formatter,
       enabled: chart.shouldShowDataLabels(),
-      formatter: chart.selectedMeasures[0]?.measure.unit === 'percent' ? (value: number) => `${value} %` : undefined,
       textAnchor: 'middle',
       offsetX: 1,
       offsetY: chart.chartType === 'bar' ? 5 : -5,
