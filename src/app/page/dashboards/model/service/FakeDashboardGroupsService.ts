@@ -28,7 +28,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Setup Failure %',
             expression: ''
           },
           visualizationColor: '#005AFF',
@@ -68,7 +68,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Dropped Call %',
             expression: ''
           },
           visualizationColor: '#23ABB6',
@@ -108,7 +108,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Setup Failure %',
             expression: ''
           },
           visualizationColor: '#23ABB6',
@@ -148,7 +148,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Dropped Call %',
             expression: ''
           },
           visualizationColor: '#F7B737',
@@ -188,7 +188,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Dropped Call %',
             expression: ''
           },
           visualizationColor: '#F47F31',
@@ -228,7 +228,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Handover Failure %',
             expression: ''
           },
           visualizationColor: '#E03DCD',
@@ -268,7 +268,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Setup Failure %',
             expression: ''
           },
           visualizationColor: '#005AFF',
@@ -308,7 +308,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
             unit: 'percent'
           } as Measure,
           sqlColumn: {
-            name: 'measure1',
+            name: 'Handover Failure %',
             expression: ''
           },
           visualizationColor: '#7D33F2',
