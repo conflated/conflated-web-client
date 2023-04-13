@@ -30,6 +30,7 @@ const DataPointsCountSelectorView = ({
         <NumberInput
           buttonPlacement="right"
           className={styles.numberInput}
+          doubleClickStepAmount={10}
           maxLength={5}
           maxValue={Constants.MAX_X_AXIS_CATEGORIES_SHOWN_COUNT}
           minValue={1}
@@ -56,11 +57,13 @@ const DataPointsCountSelectorView = ({
             <NumberInput
               buttonPlacement="right"
               className={styles.numberInput}
+              doubleClickStepAmount={250}
               maxLength={5}
               maxValue={Constants.MAX_FETCHED_ROWS_COUNT}
               minValue={1}
               value={selectedChart.fetchedRowCount.toString()}
               onChange={(value: string) => changeFetchedRowCountForSelectedChart(value)}
+              stepAmount={100}
             />
           </div>
         </>
