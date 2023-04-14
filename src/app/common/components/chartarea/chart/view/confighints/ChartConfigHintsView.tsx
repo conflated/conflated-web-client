@@ -81,6 +81,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
             <>
               <div className={styles.chartType}>
                 {chartIcon && <div className={chartIcon} />}
+                {!chartIcon && <div className={styles.statistic}>123</div>}
                 <span className={styles.chartTypeName}>
                   {`${chart.chartType[0].toUpperCase() + chart.chartType.slice(1)} Chart`}
                 </span>
