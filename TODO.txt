@@ -1,4 +1,3 @@
-- Relative time filter with number input with steps
 - Map positioning only when data
 - 123 icon
 - Implement quick filter
