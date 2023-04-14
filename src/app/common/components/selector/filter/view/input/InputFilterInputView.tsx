@@ -21,7 +21,6 @@ const InputFilterInputView = ({
     disabled={isSelectionFilter === true}
     placeholder={placeholder}
     onChange={({ currentTarget: { value } }: React.SyntheticEvent<HTMLInputElement>) => changeFilterExpression(value)}
-    size="small"
     value={filterExpression}
   />
 );

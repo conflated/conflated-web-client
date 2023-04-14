@@ -1,8 +1,6 @@
 .selectedDimensionsAndDropZonesSection {
   background-color: #eee;
-  padding-bottom: 0.4rem;
-  padding-left: 0.4rem;
-  padding-top: 0.4rem;
+  padding-bottom: 0.3rem;
 
   @media screen and (prefers-color-scheme: dark) {
     background-color: #222;
@@ -14,7 +12,7 @@
     .dimensionDropZone {
       border: 1px dashed var(--drop-zone-font-color);
       color: var(--drop-zone-font-color);
-      margin-right: 0.3rem;
+      margin: 0.3rem;
       padding: 0.3rem;
 
       &:not(:last-child) {

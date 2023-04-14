@@ -2,6 +2,9 @@
   align-items: center !important;
   display: flex !important;
   font-weight: bold !important;
+  padding-top: 0.4rem !important;
+  padding-right: 0.4rem !important;
+  padding-left: 0.4rem !important;
   padding-bottom: 0.4rem !important;
 
   @media screen and (prefers-color-scheme: dark) {
@@ -10,6 +13,7 @@
 
   &:hover,
   &:focus {
+    background-color: #e6e6e6;
     cursor: default;
 
     .removeIcon {
@@ -19,10 +23,6 @@
 
   &:last-child {
     padding-bottom: 0.5rem !important;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px #ddd solid;
   }
 
   .selectedDimension {
