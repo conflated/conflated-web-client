@@ -2,8 +2,13 @@
   align-items: center !important;
   display: flex !important;
   font-weight: bold !important;
-  padding-bottom: 0.2rem !important;
-  padding-top: 0.2rem !important;
+  padding-left: 0.4rem !important;
+  padding-right: 0.4rem !important;
+  padding-top: 0rem !important;
+
+  &:first-child {
+    padding-top: 0.2rem !important;
+  }
 
   @media screen and (prefers-color-scheme: dark) {
     background-color: #222;
@@ -11,6 +16,7 @@
   }
 
   &:hover {
+    background-color: #e6e6e6;
     cursor: default !important;
   }
 
