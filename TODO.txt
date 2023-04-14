@@ -1,5 +1,4 @@
 - Map positioning only when data
-- 123 icon
 - Implement quick filter
 - Go through chart types
 
