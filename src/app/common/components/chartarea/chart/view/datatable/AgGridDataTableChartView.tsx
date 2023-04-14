@@ -50,7 +50,7 @@ const AgGridDataTableChartView = ({ chart }: Props) => {
   const dataRows = chart.chartData.getChartDataAsRows();
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
-  return (
+  return columnDefs.length > 0 ? (
     <div key={chart.id} className="ag-theme-balham" style={{ height: '100%' }}>
       <AgGridReact
         key={key}
@@ -61,7 +61,7 @@ const AgGridDataTableChartView = ({ chart }: Props) => {
         enableBrowserTooltips
       />
     </div>
-  );
+  ) : null;
 };
 
 export default AgGridDataTableChartView;
