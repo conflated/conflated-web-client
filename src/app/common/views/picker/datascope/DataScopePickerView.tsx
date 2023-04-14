@@ -6,11 +6,12 @@ import type { DataScopeType } from '../../../components/chartarea/chart/model/st
 
 type Props = {
   changeDataScopeType: (dataScopeType: DataScopeType) => void;
+  className: string;
   selectedDataScopeType: DataScopeType;
 };
 
-const DataScopePickerView = ({ changeDataScopeType, selectedDataScopeType }: Props) => (
-  <Dropdown className={styles.icon} icon={selectedDataScopeType === 'all' ? 'database' : 'desktop'}>
+const DataScopePickerView = ({ changeDataScopeType, className, selectedDataScopeType }: Props) => (
+  <Dropdown className={`${styles.icon} ${className}`} icon={selectedDataScopeType === 'all' ? 'database' : 'desktop'}>
     <Dropdown.Menu direction="left">
       <Dropdown.Item
         text="Filter only already fetched data"

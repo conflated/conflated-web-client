@@ -39,12 +39,25 @@
     text-overflow: ellipsis;
   }
 
+  .dataScopePicker {
+    visibility: hidden;
+
+    &:hover {
+      color: #F47F31;
+    }
+  }
+
+  &:hover .dataScopePicker {
+    visibility: visible;
+  }
+
   .icon {
     color: #000;
     height: auto !important;
     visibility: hidden;
 
     &:hover {
+      color: #F47F31;
       cursor: pointer;
     }
   }

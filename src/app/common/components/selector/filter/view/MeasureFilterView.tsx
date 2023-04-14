@@ -35,7 +35,11 @@ const MeasureFilterView = ({
       selectedAggregationFunction={filter.aggregationFunction}
     />
     <div className={styles.measureOrDimensionName}>{filter.measureOrDimension.name}</div>
-    <DataScopePickerView changeDataScopeType={changeFilterDataScopeType} selectedDataScopeType={filter.dataScopeType} />
+    <DataScopePickerView
+      changeDataScopeType={changeFilterDataScopeType}
+      className={styles.dataScopePicker}
+      selectedDataScopeType={filter.dataScopeType}
+    />
     <Dropdown className={styles.filterInputType} icon="setting">
       <Dropdown.Menu direction="left">
         <Dropdown.Item text="Input filter" value="Input filter" onClick={() => changeFilterInputType('Input filter')} />

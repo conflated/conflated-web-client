@@ -53,6 +53,7 @@ const SortListItemView = ({
       <div className={measureOrDimensionOrTimeSortOptionName}>{sortByName}</div>
       <DataScopePickerView
         changeDataScopeType={changeSelectedSortByDataScopeType}
+        className={styles.dataScopePicker}
         selectedDataScopeType={selectedSortBy.dataScopeType}
       />
       <Icon className={icon} name="close" onClick={removeSelectedSortBy} />

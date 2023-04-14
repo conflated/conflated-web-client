@@ -42,6 +42,7 @@ const DimensionFilterView = ({
       <div className={styles.measureOrDimensionName}>{filter.measureOrDimension.name}</div>
       <DataScopePickerView
         changeDataScopeType={changeFilterDataScopeType}
+        className={styles.dataScopePicker}
         selectedDataScopeType={filter.dataScopeType}
       />
       <Dropdown className={styles.filterInputType} icon="setting">

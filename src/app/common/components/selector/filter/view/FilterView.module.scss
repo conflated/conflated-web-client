@@ -30,8 +30,28 @@
     text-overflow: ellipsis;
   }
 
-  .filterInputType {
+  .dataScopePicker {
+    visibility: hidden;
 
+    &:hover {
+      color: #F47F31;
+    }
+  }
+
+  &:hover .dataScopePicker {
+    visibility: visible;
+  }
+
+  .filterInputType {
+    visibility: hidden;
+
+    &:hover {
+      color: #F47F31;
+    }
+  }
+
+  &:hover .filterInputType {
+    visibility: visible;
   }
 
   .icon {
@@ -40,6 +60,7 @@
     visibility: hidden;
 
     &:hover {
+      color: #F47F31;
       cursor: pointer;
     }
   }
