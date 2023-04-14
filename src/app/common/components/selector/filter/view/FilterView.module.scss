@@ -72,6 +72,10 @@
 
     input {
       background-color: transparent;
+
+      &:hover {
+        border-color: var(--brand-color-1) !important;
+      }
     }
   }
 }
