@@ -24,7 +24,7 @@ export default class MeasureServiceImpl implements MeasureService {
               unit: 'none'
             },
             {
-              name: 'Failed handover %',
+              name: 'Handover failure %',
               expression: 'measure',
               isString: false,
               isTimestamp: false,

@@ -23,6 +23,7 @@ export default class MeasureInputFilter extends InputFilter {
               if (_.isFinite(startValue) && _.isFinite(endValue)) {
                 return chartDataValue >= startValue && chartDataValue <= endValue;
               }
+
               return false;
             }
           );
