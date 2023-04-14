@@ -10,51 +10,40 @@ import DataScopePickerView from '../../../../views/picker/datascope/DataScopePic
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
-  changeSelectedFilterAggregationFunction: (aggregationFunction: AggregationFunction) => void;
-  changeSelectedFilterExpression: (expression: string) => void;
-  changeSelectedFilterInputType: (filterInputType: FilterInputType) => void;
-  changeSelectedFilterDataScopeType: (dataScopeType: DataScopeType) => void;
+  changeFilterAggregationFunction: (aggregationFunction: AggregationFunction) => void;
+  changeFilterExpression: (expression: string) => void;
+  changeFilterInputType: (filterInputType: FilterInputType) => void;
+  changeFilterDataScopeType: (dataScopeType: DataScopeType) => void;
   chart: Chart;
-  removeSelectedFilter: () => void;
-  selectedFilter: Filter;
+  removeFilter: () => void;
+  filter: Filter;
 };
 
 const MeasureFilterView = ({
-  changeSelectedFilterAggregationFunction,
-  changeSelectedFilterExpression,
-  changeSelectedFilterInputType,
-  changeSelectedFilterDataScopeType,
+  changeFilterAggregationFunction,
+  changeFilterExpression,
+  changeFilterInputType,
+  changeFilterDataScopeType,
   chart,
-  removeSelectedFilter,
-  selectedFilter
+  removeFilter,
+  filter
 }: Props) => (
-  <List.Item className={styles.listItem} key={selectedFilter.measureOrDimension.name}>
+  <List.Item className={styles.listItem} key={filter.measureOrDimension.name}>
     <AggregationFunctionPickerView
       aggregationFunctions={chart.getSupportedAggregationFunctions()}
-      changeAggregationFunction={changeSelectedFilterAggregationFunction}
-      selectedAggregationFunction={selectedFilter.aggregationFunction}
+      changeAggregationFunction={changeFilterAggregationFunction}
+      selectedAggregationFunction={filter.aggregationFunction}
     />
-    <div className={styles.measureOrDimensionName}>{selectedFilter.measureOrDimension.name}</div>
-    <DataScopePickerView
-      changeDataScopeType={changeSelectedFilterDataScopeType}
-      selectedDataScopeType={selectedFilter.dataScopeType}
-    />
+    <div className={styles.measureOrDimensionName}>{filter.measureOrDimension.name}</div>
+    <DataScopePickerView changeDataScopeType={changeFilterDataScopeType} selectedDataScopeType={filter.dataScopeType} />
     <Dropdown className={styles.filterInputType} icon="setting">
       <Dropdown.Menu direction="left">
-        <Dropdown.Item
-          text="Input filter"
-          value="Input filter"
-          onClick={() => changeSelectedFilterInputType('Input filter')}
-        />
-        <Dropdown.Item
-          text="Range filter"
-          value="Range filter"
-          onClick={() => changeSelectedFilterInputType('Range filter')}
-        />
+        <Dropdown.Item text="Input filter" value="Input filter" onClick={() => changeFilterInputType('Input filter')} />
+        <Dropdown.Item text="Range filter" value="Range filter" onClick={() => changeFilterInputType('Range filter')} />
       </Dropdown.Menu>
     </Dropdown>
-    <Icon className={styles.icon} name="close" onClick={() => removeSelectedFilter()} />
-    {selectedFilter.getFilterInputView(styles.filterInput, chart.chartData, changeSelectedFilterExpression)}
+    <Icon className={styles.icon} name="close" onClick={() => removeFilter()} />
+    {filter.getFilterInputView(styles.filterInput, chart.chartData, changeFilterExpression)}
   </List.Item>
 );
 export default MeasureFilterView;

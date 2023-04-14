@@ -77,6 +77,10 @@ export default class ChartFiltersImpl implements ChartFilters {
 
     const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
     this.filters = Utils.replace(this.filters, filter, newFilter);
+
+    if (filter.dataScopeType === 'already fetched') {
+      this.chartData.filterChartData(this.filters);
+    }
   }
 
   changeFilterInputType(filter: Filter, filterInputType: FilterInputType): Filter {

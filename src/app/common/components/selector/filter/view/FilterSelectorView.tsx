@@ -64,19 +64,19 @@ const FilterSelectorView = ({
       return (
         <MeasureFilterView
           key={selectedFilter.measureOrDimension.name}
-          selectedFilter={selectedFilter}
+          filter={selectedFilter}
           chart={selectedChart}
-          removeSelectedFilter={() => removeFilterFromSelectedChart(selectedFilter)}
-          changeSelectedFilterAggregationFunction={(aggregationFunction: AggregationFunction) =>
+          removeFilter={() => removeFilterFromSelectedChart(selectedFilter)}
+          changeFilterAggregationFunction={(aggregationFunction: AggregationFunction) =>
             changeFilterAggregationFunctionForSelectedChart(selectedFilter, aggregationFunction)
           }
-          changeSelectedFilterExpression={(expression: string) =>
+          changeFilterExpression={(expression: string) =>
             changeFilterExpressionForSelectedChart(selectedFilter, expression)
           }
-          changeSelectedFilterInputType={(filterInputType: FilterInputType) =>
+          changeFilterInputType={(filterInputType: FilterInputType) =>
             changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
           }
-          changeSelectedFilterDataScopeType={(dataScopeType: DataScopeType) =>
+          changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
             changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
           }
         />
