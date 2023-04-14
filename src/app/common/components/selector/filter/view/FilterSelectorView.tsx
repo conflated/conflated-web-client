@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureFilterView from './MeasureFilterView';
-import DimensionSelectedFilterView from './DimensionFilterView';
+import DimensionFilterView from './DimensionFilterView';
 import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
@@ -84,18 +84,18 @@ const FilterSelectorView = ({
     }
 
     return (
-      <DimensionSelectedFilterView
+      <DimensionFilterView
         key={selectedFilter.measureOrDimension.name}
-        selectedFilter={selectedFilter}
+        filter={selectedFilter}
         chartData={selectedChart.chartData}
-        removeSelectedFilter={() => removeFilterFromSelectedChart(selectedFilter)}
-        changeSelectedFilterExpression={(expression: string) =>
+        removeFilter={() => removeFilterFromSelectedChart(selectedFilter)}
+        changeFilterExpression={(expression: string) =>
           changeFilterExpressionForSelectedChart(selectedFilter, expression)
         }
-        changeSelectedFilterInputType={(filterInputType: FilterInputType) =>
+        changeFilterInputType={(filterInputType: FilterInputType) =>
           changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
         }
-        changeSelectedFilterDataScopeType={(dataScopeType: DataScopeType) =>
+        changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
           changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
         }
       />
@@ -110,7 +110,12 @@ const FilterSelectorView = ({
     />
   ));
 
-  const dimensionListItems = shownDimensions.map((dimension: Dimension) => (
+  const dimensions = [
+    ...selectedChart.selectedDimensions.map((selectedDimension) => selectedDimension.dimension),
+    ...shownDimensions
+  ].sort();
+
+  const dimensionListItems = dimensions.map((dimension: Dimension) => (
     <DimensionListItemView
       key={dimension.name}
       item={dimension}

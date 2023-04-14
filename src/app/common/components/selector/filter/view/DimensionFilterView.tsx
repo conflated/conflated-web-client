@@ -8,52 +8,47 @@ import type { ChartData } from '../../../chartarea/chart/model/state/data/ChartD
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 
 type Props = {
-  changeSelectedFilterExpression: (expression: string) => void;
-  changeSelectedFilterInputType: (filterInputType: FilterInputType) => void;
-  changeSelectedFilterDataScopeType: (dataScopeType: DataScopeType) => void;
+  changeFilterExpression: (expression: string) => void;
+  changeFilterInputType: (filterInputType: FilterInputType) => void;
+  changeFilterDataScopeType: (dataScopeType: DataScopeType) => void;
   chartData: ChartData;
-  removeSelectedFilter: () => void;
-  selectedFilter: Filter;
+  removeFilter: () => void;
+  filter: Filter;
 };
 
 // noinspection FunctionWithMoreThanThreeNegationsJS
 const DimensionFilterView = ({
-  changeSelectedFilterDataScopeType,
-  changeSelectedFilterExpression,
-  changeSelectedFilterInputType,
+  changeFilterDataScopeType,
+  changeFilterExpression,
+  changeFilterInputType,
   chartData,
-  removeSelectedFilter,
-  selectedFilter
+  removeFilter,
+  filter
 }: Props) => {
-  const [dimensionFilterInputTypeDropdownItems, filterRemoveIcon] = (() => {
-    if (!selectedFilter.isDrillDownFilter && !selectedFilter.isSelectionFilter) {
-      return [
-        selectedFilter.allowedDimensionFilterInputTypes.map((filterInputType: FilterInputType) => (
-          <Dropdown.Item
-            text={filterInputType}
-            value={filterInputType}
-            onClick={() => changeSelectedFilterInputType(filterInputType)}
-          />
-        )),
-        <Icon className={styles.icon} name="close" onClick={() => removeSelectedFilter()} />
-      ];
-    }
+  let filterInputTypeDropdownItems;
 
-    return [undefined, undefined];
-  })();
+  if (!filter.isDrillDownFilter && !filter.isSelectionFilter) {
+    filterInputTypeDropdownItems = filter.allowedDimensionFilterInputTypes.map((filterInputType: FilterInputType) => (
+      <Dropdown.Item
+        text={filterInputType}
+        value={filterInputType}
+        onClick={() => changeFilterInputType(filterInputType)}
+      />
+    ));
+  }
 
   return (
-    <List.Item key={selectedFilter.measureOrDimension.name}>
-      <div className={styles.measureOrDimensionName}>{selectedFilter.measureOrDimension.name}</div>
+    <List.Item className={styles.listItem} key={filter.measureOrDimension.name}>
+      <div className={styles.measureOrDimensionName}>{filter.measureOrDimension.name}</div>
       <DataScopePickerView
-        changeDataScopeType={changeSelectedFilterDataScopeType}
-        selectedDataScopeType={selectedFilter.dataScopeType}
+        changeDataScopeType={changeFilterDataScopeType}
+        selectedDataScopeType={filter.dataScopeType}
       />
-      <Dropdown className={styles.icon} icon="setting">
-        <Dropdown.Menu direction="left">{dimensionFilterInputTypeDropdownItems}</Dropdown.Menu>
+      <Dropdown className={styles.filterInputType} icon="setting">
+        <Dropdown.Menu direction="left">{filterInputTypeDropdownItems}</Dropdown.Menu>
       </Dropdown>
-      {filterRemoveIcon}
-      {selectedFilter.getFilterInputView(styles.filterInput, chartData, changeSelectedFilterExpression)}
+      <Icon className={styles.icon} name="close" onClick={() => removeFilter()} />
+      {filter.getFilterInputView(styles.filterInput, chartData, changeFilterExpression)}
     </List.Item>
   );
 };
