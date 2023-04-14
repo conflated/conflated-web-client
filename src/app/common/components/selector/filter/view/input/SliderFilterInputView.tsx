@@ -17,11 +17,11 @@ const SliderFilterInputView = ({ changeFilterExpression, chartData, className, f
     changeFilterExpression(newFilterExpression);
   };
 
+  const [sliderMinValue, sliderMaxValue] = chartData.getMinAndMaxValueForSelectedFilter(filter);
+
   const { startValue: selectedMinValue, endValue: selectedMaxValue } = filter.filterExpression
     ? NumberRangesParser.parseNumberRange(filter.filterExpression)
-    : { startValue: NaN, endValue: NaN };
-
-  const [sliderMinValue, sliderMaxValue] = chartData.getMinAndMaxValueForSelectedFilter(filter);
+    : { startValue: sliderMinValue, endValue: sliderMaxValue };
 
   return (
     <SliderView

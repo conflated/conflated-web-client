@@ -39,7 +39,7 @@ const PagePaneView = ({
   });
 
   const currentWidth =
-    dragStartPosition >= 0 ? `${dragStartPosition}px` : `var(--${paneDefaultWidthCssVarName}) - 4rem`;
+    dragStartPosition >= 0 ? `${dragStartPosition}px` : `var(--${paneDefaultWidthCssVarName}) - 2rem`;
 
   const adjustedWidth = `calc(${currentWidth} ${pane === 'leftPane' ? '+' : '-'} ${paneGutterOffset}px)`;
 
