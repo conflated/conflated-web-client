@@ -38,7 +38,7 @@ export default class RangeFilter extends AbstractFilter {
         changeFilterExpression={changeFilterExpression}
         chartData={chartData}
         className={className}
-        selectedFilter={this}
+        filter={this}
       />
     );
   }

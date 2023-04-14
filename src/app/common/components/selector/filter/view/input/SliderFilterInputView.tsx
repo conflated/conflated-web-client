@@ -8,20 +8,20 @@ type Props = {
   changeFilterExpression: (filterExpression: string) => void;
   chartData: ChartData;
   className: string;
-  selectedFilter: Filter;
+  filter: Filter;
 };
 
-const SliderFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
+const SliderFilterInputView = ({ changeFilterExpression, chartData, className, filter }: Props) => {
   const changeSliderValues = (newSelectedMinValue: number, newSelectedMaxValue: number) => {
     const newFilterExpression = `${newSelectedMinValue}-${newSelectedMaxValue}`;
     changeFilterExpression(newFilterExpression);
   };
 
-  const { startValue: selectedMinValue, endValue: selectedMaxValue } = NumberRangesParser.parseNumberRange(
-    selectedFilter.filterExpression
-  );
+  const { startValue: selectedMinValue, endValue: selectedMaxValue } = filter.filterExpression
+    ? NumberRangesParser.parseNumberRange(filter.filterExpression)
+    : { startValue: NaN, endValue: NaN };
 
-  const [sliderMinValue, sliderMaxValue] = chartData.getMinAndMaxValueForSelectedFilter(selectedFilter);
+  const [sliderMinValue, sliderMaxValue] = chartData.getMinAndMaxValueForSelectedFilter(filter);
 
   return (
     <SliderView

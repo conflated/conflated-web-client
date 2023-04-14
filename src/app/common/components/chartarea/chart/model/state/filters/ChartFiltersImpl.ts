@@ -41,54 +41,56 @@ export default class ChartFiltersImpl implements ChartFilters {
 
   addSelectionFilter(chartId: string, selectedDimension: SelectedDimension, filterExpression: string) {
     const selectedFilter = FilterFactory.createSelectionFilter(chartId, selectedDimension, filterExpression);
-
     this.filters = [...this.filters, selectedFilter];
   }
 
-  changeFilterAggregationFunction(selectedFilter: Filter, aggregationFunction: AggregationFunction) {
-    this.filters = Utils.merge(this.filters, selectedFilter, {
+  changeFilterAggregationFunction(filter: Filter, aggregationFunction: AggregationFunction) {
+    const newFilterConfiguration = {
+      ...filter.getConfiguration(),
       aggregationFunction,
       sqlColumn: {
-        name: SqlUtils.getSqlColumnName(selectedFilter.measureOrDimension, aggregationFunction),
-        expression: SqlUtils.getSqlColumnExpression(selectedFilter.measureOrDimension, aggregationFunction)
+        name: SqlUtils.getSqlColumnName(filter.measureOrDimension, aggregationFunction),
+        expression: SqlUtils.getSqlColumnExpression(filter.measureOrDimension, aggregationFunction)
       }
-    });
+    };
 
-    this.chartData.filterChartData(this.filters, selectedFilter.dataScopeType);
+    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    this.filters = Utils.replace(this.filters, filter, newFilter);
+    this.chartData.filterChartData(this.filters, filter.dataScopeType);
   }
 
-  changeFilterDataScopeType(selectedFilter: Filter, dataScopeType: DataScopeType) {
-    const newSelectedFilterConfiguration = {
-      ...selectedFilter.getConfiguration(),
+  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScopeType) {
+    const newFilterConfiguration = {
+      ...filter.getConfiguration(),
       dataScopeType
     };
 
-    const newSelectedFilter = FilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
-    this.filters = Utils.replace(this.filters, selectedFilter, newSelectedFilter);
+    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    this.filters = Utils.replace(this.filters, filter, newFilter);
   }
 
-  changeFilterExpression(selectedFilter: Filter, filterExpression: string) {
-    const newSelectedFilterConfiguration = {
-      ...selectedFilter.getConfiguration(),
+  changeFilterExpression(filter: Filter, filterExpression: string) {
+    const newFilterConfiguration = {
+      ...filter.getConfiguration(),
       filterExpression
     };
 
-    const newSelectedFilter = FilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
-    this.filters = Utils.replace(this.filters, selectedFilter, newSelectedFilter);
+    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    this.filters = Utils.replace(this.filters, filter, newFilter);
   }
 
-  changeFilterInputType(selectedFilter: Filter, filterInputType: FilterInputType): Filter {
+  changeFilterInputType(filter: Filter, filterInputType: FilterInputType): Filter {
     const filterExpression = filterInputType === 'Relative time filter' ? ' Minutes' : '';
 
-    const newSelectedFilterConfiguration = {
-      ...selectedFilter.getConfiguration(),
+    const newFilterConfiguration = {
+      ...filter.getConfiguration(),
       filterExpression,
       filterInputType
     };
 
-    const newSelectedFilter = FilterFactory.createSelectedFilter(newSelectedFilterConfiguration);
-    this.filters = Utils.replace(this.filters, selectedFilter, newSelectedFilter);
-    return newSelectedFilter;
+    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    this.filters = Utils.replace(this.filters, filter, newFilter);
+    return newFilter;
   }
 
   getFilters(): Filter[] {
@@ -99,8 +101,8 @@ export default class ChartFiltersImpl implements ChartFilters {
     return Utils.findLastElem(this.filters, 'isDrillDownFilter');
   }
 
-  removeFilter(selectedFilter: Filter) {
-    this.filters = this.filters.filter(isNot(selectedFilter));
+  removeFilter(filter: Filter) {
+    this.filters = this.filters.filter(isNot(filter));
     this.chartData.filterChartData(this.filters);
   }
 

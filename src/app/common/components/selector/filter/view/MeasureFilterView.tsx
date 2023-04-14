@@ -57,5 +57,4 @@ const MeasureFilterView = ({
     {selectedFilter.getFilterInputView(styles.filterInput, chart.chartData, changeSelectedFilterExpression)}
   </List.Item>
 );
-
 export default MeasureFilterView;
