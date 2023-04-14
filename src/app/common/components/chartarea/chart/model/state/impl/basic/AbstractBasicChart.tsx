@@ -97,7 +97,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
         dataSeries.push({
           name: '',
           type: 'column',
-          data: [0]
+          data: []
         });
 
         return;
@@ -109,7 +109,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
           y: measureValues[valueIndex]
         }));
       } else if (measureValues.length === 1 && !this.supportsAllDimension()) {
-        measureValues = [0];
+        measureValues = [];
       }
 
       measureValues = this.sliceOrFillXAxisData(measureValues);
@@ -117,7 +117,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       dataSeries.push({
         name: selectedMeasure.measure.name,
         type: this.getDataSeriesType(selectedMeasure.visualizationType),
-        data: measureValues.length > 0 ? measureValues : [0]
+        data: measureValues.length > 0 ? measureValues : []
       });
     });
 
@@ -166,7 +166,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       {
         name: '',
         type: 'column',
-        data: [0]
+        data: []
       }
     ];
   }

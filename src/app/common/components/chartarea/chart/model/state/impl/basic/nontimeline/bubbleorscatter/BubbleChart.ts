@@ -53,7 +53,7 @@ export default class BubbleChart extends ScatterChart {
     } else {
       dataSeries.push({
         name: '',
-        data: [0, 0, 0]
+        data: []
       });
     }
 

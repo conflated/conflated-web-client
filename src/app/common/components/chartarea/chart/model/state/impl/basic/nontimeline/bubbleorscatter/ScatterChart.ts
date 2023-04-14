@@ -48,7 +48,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     } else {
       dataSeries.push({
         name: '',
-        data: [0, 0]
+        data: []
       });
     }
 
