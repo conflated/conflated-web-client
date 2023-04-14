@@ -107,7 +107,7 @@ const DataSourceSelectorView = ({
                       ]}
                       key={dataSource.name}
                       item={dataSource}
-                      iconName={dataSource.type === 'raw' ? 'table' : 'chart line'}
+                      iconName={dataSource.type === 'raw' ? 'table' : 'cube'}
                       selectedItem={selectedChart.dataSource}
                       onItemClick={() => handleDataSourceClick(dataSource)}
                       onItemDblClick={handleMaximizeIconClick}

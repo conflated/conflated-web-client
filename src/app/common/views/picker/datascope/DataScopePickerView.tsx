@@ -13,7 +13,7 @@ const DataScopePickerView = ({ changeDataScopeType, selectedDataScopeType }: Pro
   <Dropdown className={styles.icon} icon={selectedDataScopeType === 'all' ? 'database' : 'desktop'}>
     <Dropdown.Menu direction="left">
       <Dropdown.Item
-        text="Filter fetched data"
+        text="Filter only already fetched data"
         value="already fetched"
         onClick={(event: React.SyntheticEvent<HTMLElement>, { value: dataScopeType }: any) =>
           changeDataScopeType(dataScopeType)
