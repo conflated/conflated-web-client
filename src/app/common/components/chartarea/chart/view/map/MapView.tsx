@@ -11,10 +11,10 @@ type Props = {
   stateNamespace: ChartAreaStateNamespace;
 };
 
-const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
+const MapView = ({ chart, stateNamespace }: Props) => {
   const geometryOptions = MapGeometryOptionsFactory.createMapGeometryOptions();
 
-  return (
+  return chart.hasData() ? (
     <>
       <header className={styles.mapHeader}>
         <div className={styles.titles}>
@@ -35,7 +35,7 @@ const MapView = ({ chart, stateNamespace }: Props): JSX.Element => {
       </header>
       <LeafletMapView chart={chart} stateNamespace={stateNamespace} />
     </>
-  );
+  ) : null;
 };
 
 export default MapView;

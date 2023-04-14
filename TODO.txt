@@ -1,4 +1,3 @@
-- Map positioning only when data
 - Implement quick filter
 - Selection filter?
 - Drilldown
