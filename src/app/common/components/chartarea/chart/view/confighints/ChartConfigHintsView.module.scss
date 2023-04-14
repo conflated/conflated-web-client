@@ -25,6 +25,178 @@
     }
   }
 
+  .chartType {
+    align-items: center;
+    display: flex;
+
+    .columnChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/column_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .barChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/bar_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .areaChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/area_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .rangeAreaChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/corridor_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .lineChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/line_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .donutChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/donut_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .pieChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/pie_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .bubbleChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/bubble_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .scatterPlot {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/scatter_plot_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .candlestickChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/candlestick_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .boxPlot {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/box_plot_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .radarChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/radar_chart_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .heatmapChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/heatmap_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .dataTableChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/data_table_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .mapChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/map_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .sparklineChart {
+      background-image: url('../../../../../../../assets/images/icons/chart/lightmode/sparkline_icon.svg');
+      background-size: contain;
+      display: inline-block;
+      height: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+      width: 3rem;
+    }
+
+    .chartTypeName {
+      color: #c0c0c0;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+
   .uiHints {
     color: #c0c0c0;
     font-size: 2rem;
