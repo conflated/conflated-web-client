@@ -216,7 +216,11 @@ export default abstract class AbstractChart implements Chart {
   }
 
   getChartConfigHintSubtitle(): string {
-    if (this.selectedMeasures.length === 0 && this.selectedDimensions.length === 0) {
+    if (
+      this.dataSource !== emptyDataSource &&
+      this.selectedMeasures.length === 0 &&
+      this.selectedDimensions.length === 0
+    ) {
       return 'To add, click a measure or dimension name';
     }
 
@@ -224,7 +228,9 @@ export default abstract class AbstractChart implements Chart {
   }
 
   getChartConfigHintTitle(): string {
-    if (this.selectedMeasures.length === 0 && this.selectedDimensions.length === 0) {
+    if (this.dataSource === emptyDataSource) {
+      return 'Select a data source';
+    } else if (this.selectedMeasures.length === 0 && this.selectedDimensions.length === 0) {
       return 'Add a measure or dimension';
     } else if (this.selectedMeasures.length === 0) {
       return 'Add a measure';

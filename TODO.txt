@@ -1,4 +1,3 @@
-- Filters
 - Implement quick filter
 - Go through chart types
 
@@ -9,6 +8,7 @@ Dashboard edit mode:
 - Shift-Arrows will change selected data point in chart
 - Enter, Shift-Enter will drill-down/up chart
 - Download custom CSS from URL
+- Time slider input type for filter (reactcompundslider with time)
 
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
