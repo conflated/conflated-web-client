@@ -5,7 +5,6 @@ export default class NumberRangesParser {
     if (numberRangeStr.startsWith('<=')) {
       const number = parseInt(numberRangeStr.slice(2), 10);
 
-      console.log(number);
       return {
         startValue: Number.MIN_SAFE_INTEGER,
         endValue: number

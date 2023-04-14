@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from 'lodash';
 import React from 'react';
-import { Dropdown, Input } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import NumberInput from 'semantic-ui-react-numberinput';
 import styles from './RelativeTimeFilterInputView.module.scss';
 
 type Props = {
@@ -10,9 +13,7 @@ type Props = {
 };
 
 const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression }: Props) => {
-  const changeRelativeTimeValue = ({
-    currentTarget: { value: relativeTimeValueStr }
-  }: React.SyntheticEvent<HTMLInputElement>) => {
+  const changeRelativeTimeValue = (relativeTimeValueStr: any) => {
     const relativeTimeUnit = filterExpression.split(' ')[1];
     const relativeTimeValue = parseInt(relativeTimeValueStr, 10);
 
@@ -72,10 +73,12 @@ const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression 
   return (
     <div className={styles.relativeTimeSelector}>
       <span style={{ fontWeight: 'bold' }}>Last</span>
-      <Input
+      <NumberInput
+        buttonPlacement="right"
         className={styles.relativeTimeValueInput}
-        value={filterExpression.split(' ')[0]}
+        value={filterExpression.split(' ')[0] || '30'}
         maxLength={5}
+        maxValue={99999}
         onChange={changeRelativeTimeValue}
       />
       <Dropdown
