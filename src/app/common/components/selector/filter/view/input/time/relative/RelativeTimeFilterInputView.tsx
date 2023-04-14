@@ -43,6 +43,11 @@ const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression 
       value: 'Hours'
     },
     {
+      key: 'Weeks',
+      text: 'Weeks',
+      value: 'Weeks'
+    },
+    {
       key: 'Days',
       text: 'Days',
       value: 'Days'
@@ -53,6 +58,11 @@ const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression 
       value: 'Months'
     },
     {
+      key: 'Quarters',
+      text: 'Quarters',
+      value: 'Quarters'
+    },
+    {
       key: 'Years',
       text: 'Years',
       value: 'Years'
@@ -61,11 +71,11 @@ const RelativeTimeFilterInputView = ({ changeFilterExpression, filterExpression 
 
   return (
     <div className={styles.relativeTimeSelector}>
-      <span>Last</span>
+      <span style={{ fontWeight: 'bold' }}>Last</span>
       <Input
         className={styles.relativeTimeValueInput}
         value={filterExpression.split(' ')[0]}
-        maxLength={2}
+        maxLength={5}
         onChange={changeRelativeTimeValue}
       />
       <Dropdown

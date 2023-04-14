@@ -4,7 +4,7 @@ import moment from 'moment';
 import AbstractFilter from '../AbstractFilter';
 import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
 import type { ChartData } from '../../../../data/ChartData';
-import TimestampRangeFilterInputView from '../../../../../../../../selector/filter/view/input/time/TimestampRangeFilterInputView';
+import AbsoluteTimeFilterInputView from '../../../../../../../../selector/filter/view/input/time/absolute/AbsoluteTimeFilterInputView';
 
 export default class TimestampRangeFilter extends AbstractFilter {
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
@@ -46,7 +46,7 @@ export default class TimestampRangeFilter extends AbstractFilter {
     changeFilterExpression: (filterExpression: string) => void
   ): JSX.Element {
     return (
-      <TimestampRangeFilterInputView
+      <AbsoluteTimeFilterInputView
         changeFilterExpression={changeFilterExpression}
         className={className}
         filterExpression={this.filterExpression}

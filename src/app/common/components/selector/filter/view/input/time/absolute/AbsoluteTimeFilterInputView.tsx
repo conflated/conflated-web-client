@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback } from 'react';
 import { DateTimeInput } from 'semantic-ui-calendar-react';
-import styles from './TimestampRangeFilterInputView.module.scss';
+import styles from './AbsoluteTimeFilterInputView.module.scss';
 
 type Props = {
   changeFilterExpression: (filterExpression: string) => void;
@@ -9,7 +9,7 @@ type Props = {
   filterExpression: string;
 };
 
-const TimestampRangeFilterInputView = ({ changeFilterExpression, className, filterExpression }: Props) => {
+const AbsoluteTimeFilterInputView = ({ changeFilterExpression, className, filterExpression }: Props) => {
   const changeStartTimestamp = useCallback(
     (event: React.SyntheticEvent<HTMLElement>, { value: startTimestamp }: any) => {
       const timestamps = filterExpression.split(';');
@@ -74,4 +74,4 @@ const TimestampRangeFilterInputView = ({ changeFilterExpression, className, filt
   );
 };
 
-export default TimestampRangeFilterInputView;
+export default AbsoluteTimeFilterInputView;

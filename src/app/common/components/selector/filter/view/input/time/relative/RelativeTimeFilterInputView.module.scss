@@ -1,0 +1,17 @@
+.relativeTimeSelector {
+  align-items: center;
+  display: flex;
+  flex-basis: 100%;
+  margin-top: 0.2rem;
+
+  .relativeTimeValueInput {
+    flex-grow: 1;
+    margin-left: 0.3rem;
+    width: 3rem;
+  }
+
+  .relativeTimeUnitDropdown {
+    margin-left: 0.3rem;
+    width: 5rem;
+  }
+}
