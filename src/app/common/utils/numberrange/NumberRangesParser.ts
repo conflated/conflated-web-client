@@ -2,6 +2,16 @@ import type { NumberRange } from './NumberRange';
 
 export default class NumberRangesParser {
   static parseNumberRange(numberRangeStr: string): NumberRange {
+    if (numberRangeStr.startsWith('<=')) {
+      const number = parseInt(numberRangeStr.slice(2), 10);
+
+      console.log(number);
+      return {
+        startValue: Number.MIN_SAFE_INTEGER,
+        endValue: number
+      };
+    }
+
     if (numberRangeStr.startsWith('<')) {
       const number = parseInt(numberRangeStr.slice(1), 10);
 
@@ -12,12 +22,12 @@ export default class NumberRangesParser {
       };
     }
 
-    if (numberRangeStr.startsWith('<=')) {
+    if (numberRangeStr.startsWith('>=')) {
       const number = parseInt(numberRangeStr.slice(2), 10);
 
       return {
-        startValue: Number.MIN_SAFE_INTEGER,
-        endValue: number
+        startValue: number,
+        endValue: Number.MAX_SAFE_INTEGER
       };
     }
 
@@ -28,15 +38,6 @@ export default class NumberRangesParser {
         startValue: number,
         endValue: Number.MAX_SAFE_INTEGER,
         isStartValueExclusive: true
-      };
-    }
-
-    if (numberRangeStr.startsWith('>=')) {
-      const number = parseInt(numberRangeStr.slice(2), 10);
-
-      return {
-        startValue: number,
-        endValue: Number.MAX_SAFE_INTEGER
       };
     }
 
