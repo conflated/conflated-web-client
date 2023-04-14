@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { Radio } from 'semantic-ui-react';
-import { checkboxesSelector } from './checkboxes/CheckboxesFilterInputView.module.scss';
+import styles from './checkboxes/CheckboxesFilterInputView.module.scss';
 import type { ChartData } from '../../../../chartarea/chart/model/state/data/ChartData';
 import type { Filter } from '../../../../chartarea/chart/model/state/filters/filter/Filter';
 
@@ -27,7 +27,7 @@ const RadioButtonsFilterInputView = ({ changeFilterExpression, chartData, classN
     />
   ));
 
-  return <div className={`${className} ${checkboxesSelector} small-checkboxes`}>{radioButtons}</div>;
+  return <div className={`${className} ${styles.checkboxesSelector} small-checkboxes`}>{radioButtons}</div>;
 };
 
 export default RadioButtonsFilterInputView;

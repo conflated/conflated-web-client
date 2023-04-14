@@ -13,6 +13,7 @@ import TimestampRangeFilter from './impl/time/TimestampRangeFilter';
 import SqlUtils from '../../../../../../../utils/SqlUtils';
 import type { Filter } from './Filter';
 import type { DrillDown } from '../../types/DrillDown';
+import RadioButtonFilter from './impl/RadioButtonFilter';
 
 export default class FilterFactory {
   static createDimensionSelectedFilter(dimension: Measure | Dimension): Filter {
@@ -122,7 +123,7 @@ export default class FilterFactory {
       case 'Checkboxes filter':
         return new JsonFilter(selectedFilterConfiguration);
       case 'Radio buttons filter':
-        return new JsonFilter(selectedFilterConfiguration);
+        return new RadioButtonFilter(selectedFilterConfiguration);
       case 'Relative time filter':
         return new RelativeTimeFilter(selectedFilterConfiguration);
       case 'Date range filter':
