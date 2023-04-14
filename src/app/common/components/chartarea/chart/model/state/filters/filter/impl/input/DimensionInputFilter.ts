@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
-import InputFilter from './InputFilter';
+import AbstractInputFilter from './AbstractInputFilter';
 
-export default class DimensionInputFilter extends InputFilter {
+export default class DimensionInputFilter extends AbstractInputFilter {
+  getPlaceholder(): string {
+    return 'Enter dimension values/names, e.g. 1, 50, 1000-1200';
+  }
+
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
     if (!this.filterExpression) {
       return chartData;

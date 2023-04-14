@@ -3,7 +3,9 @@ import type { ChartData } from '../../../../data/ChartData';
 import InputFilterInputView from '../../../../../../../../selector/filter/view/input/InputFilterInputView';
 import AbstractFilter from '../AbstractFilter';
 
-export default abstract class InputFilter extends AbstractFilter {
+export default abstract class AbstractInputFilter extends AbstractFilter {
+  abstract getPlaceholder(): string;
+
   getFilterInputView(
     className: string,
     chartData: ChartData,
@@ -15,6 +17,7 @@ export default abstract class InputFilter extends AbstractFilter {
         className={className}
         filterExpression={this.filterExpression}
         isSelectionFilter={this.isSelectionFilter}
+        placeholder={this.getPlaceholder()}
       />
     );
   }

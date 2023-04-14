@@ -6,13 +6,20 @@ type Props = {
   className: string;
   filterExpression: string;
   isSelectionFilter: boolean | null | undefined;
+  placeholder: string;
 };
 
-const InputFilterInputView = ({ changeFilterExpression, className, filterExpression, isSelectionFilter }: Props) => (
+const InputFilterInputView = ({
+  changeFilterExpression,
+  className,
+  filterExpression,
+  isSelectionFilter,
+  placeholder
+}: Props) => (
   <Input
     className={className}
     disabled={isSelectionFilter === true}
-    placeholder="Enter filter, e.g. 1, 5, 10-15"
+    placeholder={placeholder}
     onChange={({ currentTarget: { value } }: React.SyntheticEvent<HTMLInputElement>) => changeFilterExpression(value)}
     size="small"
     value={filterExpression}
