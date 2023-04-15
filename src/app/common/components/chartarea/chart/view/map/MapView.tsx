@@ -25,8 +25,16 @@ const MapView = ({ chart, stateNamespace }: Props) => {
       const mapBoundsUpperLeftCorner = L.latLng(maxLatitude, minLongitude);
       const mapBoundsBottomRightCorner = L.latLng(minLatitude, maxLongitude);
       const mapBounds = new LatLngBounds(mapBoundsBottomRightCorner, mapBoundsUpperLeftCorner);
-      chart.map.fitBounds(mapBounds);
+      chart.map?.fitBounds(mapBounds);
     }
+  };
+
+  const zoomInMap = () => {
+    chart.map?.zoomIn();
+  };
+
+  const zoomOutMap = () => {
+    chart.map?.zoomOut();
   };
 
   const geometryOptions = MapGeometryOptionsFactory.createMapGeometryOptions();
@@ -45,8 +53,8 @@ const MapView = ({ chart, stateNamespace }: Props) => {
         <div className={styles.actionButtons}>
           <Icon className={styles.icon} inverted name="tint" size="large" />
           <Icon className={styles.icon} inverted name="home" size="large" onClick={resetMapBounds} />
-          <Icon className={styles.icon} inverted name="plus" size="large" />
-          <Icon className={styles.icon} inverted name="minus" size="large" />
+          <Icon className={styles.icon} inverted name="plus" size="large" onClick={zoomInMap} />
+          <Icon className={styles.icon} inverted name="minus" size="large" onClick={zoomOutMap} />
           <Icon className={styles.icon} inverted name="search" size="large" />
         </div>
       </header>
