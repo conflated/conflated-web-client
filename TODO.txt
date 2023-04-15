@@ -4,9 +4,8 @@
 - Go through chart types
 
 - Chart menu styles in dark mode
-Dashboard edit mode:
+- Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
-
 - Shift-Arrows will change selected data point in chart
 - Enter, Shift-Enter will drill-down/up chart
 - Download custom CSS from URL
