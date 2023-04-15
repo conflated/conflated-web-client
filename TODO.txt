@@ -1,4 +1,3 @@
-- Map layers
 - Implement quick filter
 - Selection filter?
 - Drilldown
@@ -14,6 +13,7 @@ Dashboard edit mode:
 - Absolute and relative time slider input type for filter (reactcompundslider with time)
 
 Add map color selection to map chart menu (color, grayscale light, dark)
+Multiple Map layers
 Implement StartFetchDataForChart should not start fetch data if config hints are still shown
 Implement short debounce before starting to fetch chart data
 Implement chart selection that changes data source, cache dimensions/measures for data sources, refresh button in accordion title bar to clear cache
