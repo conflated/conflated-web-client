@@ -11,12 +11,13 @@
   }
 
   .titles {
+    background-color: rgba(244, 127, 49, 0.4);
+    border-right: 1px solid #F47F31;
+    border-bottom: 1px solid #F47F31;
     display: flex;
     flex-direction: column;
     flex-shrink: 1;
-    margin-bottom: 0.2rem;
-    margin-top: 0.2rem;
-    margin-left: 0.5rem;
+    padding: 0.2rem;
 
     .title {
       font-size: 1.1rem;
@@ -33,8 +34,14 @@
     }
   }
 
-  .emptyArea {
-    flex-grow: 0;
+  .addIcon {
+    font-size: 1.2rem !important;
+    margin-left: 1rem;
+
+    &:hover {
+      color: var(--brand-color-2);
+      cursor: pointer;
+    }
   }
 
   .geometrySelector {

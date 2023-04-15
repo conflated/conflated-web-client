@@ -1,12 +1,11 @@
 import React from 'react';
-import { Dropdown, Icon } from 'semantic-ui-react';
+import { Checkbox, Icon, Popup } from 'semantic-ui-react';
 import L, { LatLngBounds } from 'leaflet';
 import _ from 'lodash';
 import styles from './MapView.module.scss';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import LeafletMapView from './leaflet/LeafletMapView';
 import type { Chart } from '../../model/state/Chart';
-import MapGeometryOptionsFactory from './factories/MapGeometryOptionsFactory';
 
 type Props = {
   chart: Chart;
@@ -37,24 +36,25 @@ const MapView = ({ chart, stateNamespace }: Props) => {
     chart.map?.zoomOut();
   };
 
-  const geometryOptions = MapGeometryOptionsFactory.createMapGeometryOptions();
-
   return chart.hasData() ? (
     <>
       <header className={styles.mapHeader}>
+        <Checkbox fitted />
         <div className={styles.titles}>
           <span className={styles.title}>{chart.getTitleText(stateNamespace)}</span>
           <span className={styles.subtitle}>Cell</span>
         </div>
-        <div className={styles.emptyArea} />
-        <div className={styles.geometrySelector}>
-          <Dropdown selection placeholder="Select geometry" options={geometryOptions} />
-        </div>
+        <Popup
+          content="Add new map layer"
+          inverted
+          trigger={<Icon className={styles.addIcon} name="plus" size="large" />}
+        />
         <div className={styles.actionButtons}>
           <Icon className={styles.icon} inverted name="tint" size="large" />
           <Icon className={styles.icon} inverted name="home" size="large" onClick={resetMapBounds} />
-          <Icon className={styles.icon} inverted name="plus" size="large" onClick={zoomInMap} />
-          <Icon className={styles.icon} inverted name="minus" size="large" onClick={zoomOutMap} />
+          <Icon className={styles.icon} inverted name="zoom-in" size="large" onClick={zoomInMap} />
+          <Icon className={styles.icon} inverted name="zoom-out" size="large" onClick={zoomOutMap} />
+          <Icon className={styles.icon} inverted name="filter" size="large" />
           <Icon className={styles.icon} inverted name="search" size="large" />
         </div>
       </header>
