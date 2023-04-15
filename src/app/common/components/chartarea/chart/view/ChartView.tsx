@@ -140,7 +140,9 @@ const ChartView: React.FC<Props> = ({
         stateNamespace={stateNamespace}
       />
       <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />
-      <ChartConfigHintsView chart={chart} heightInRows={heightInRows} widthInCols={widthInCols} />
+      {stateNamespace === 'dataExplorerPage' && (
+        <ChartConfigHintsView chart={chart} heightInRows={heightInRows} widthInCols={widthInCols} />
+      )}
     </div>
   );
 };

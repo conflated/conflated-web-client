@@ -200,13 +200,23 @@
       color: #c0c0c0;
       font-size: 1.5rem;
       margin-left: 0.5rem;
+      white-space: nowrap;
     }
+  }
+
+  .dataSource {
+    color: #c0c0c0;
+    font-size: 1.1rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    white-space: break-spaces;
   }
 
   .uiHints {
     color: #c0c0c0;
     font-size: 2rem;
     line-height: 1.7rem;
+    text-align: center;
     white-space: break-spaces;
 
     @media screen and (prefers-color-scheme: dark) {
@@ -219,6 +229,7 @@
     font-size: 1.1rem;
     line-height: 1rem;
     margin-top: 5px;
+    text-align: center;
     white-space: break-spaces;
 
     @media screen and (prefers-color-scheme: dark) {

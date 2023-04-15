@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ChartConfigHintsView.module.scss';
 import type { Chart } from '../../model/state/Chart';
+import emptyDataSource from '../../model/state/datasource/emptyDataSource';
 
 type Props = {
   chart: Chart;
@@ -77,7 +78,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
               {heightInRows}
             </div>
           )}
-          {(heightInRows === undefined || heightInRows >= 2) && (
+          {(heightInRows === undefined || heightInRows >= 2) && (widthInCols === undefined || widthInCols >= 2) && (
             <>
               <div className={styles.chartType}>
                 {chartIcon && <div className={chartIcon} />}
@@ -86,6 +87,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
                   {`${chart.chartType[0].toUpperCase() + chart.chartType.slice(1)} Chart`}
                 </span>
               </div>
+              {chart.dataSource !== emptyDataSource && <div className={styles.dataSource}>{chart.dataSource.name}</div>}
               <div className={styles.uiHints}>{chartConfigHintTitle}</div>
               {chartConfigHintSubtitle ? <div className={styles.smallText}>{chartConfigHintSubtitle}</div> : undefined}
             </>
