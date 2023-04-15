@@ -79,6 +79,8 @@ export default abstract class AbstractChart implements Chart {
 
   menuConfirmationType?: ChartMenuConfirmationType = undefined;
 
+  map: any;
+
   constructor(chartConfiguration?: ChartConfiguration) {
     if (chartConfiguration) {
       this.id = chartConfiguration.id;
@@ -703,6 +705,10 @@ export default abstract class AbstractChart implements Chart {
 
   supportsTooltipSelectedDimension(): boolean {
     throw new Error('Abstract method');
+  }
+
+  setMap(map: any) {
+    this.map = map;
   }
 
   getColumns(): Column[] {

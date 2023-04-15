@@ -46,6 +46,7 @@ export interface Chart {
   isExportMenuOpen?: boolean;
   exportMenuCloseTimeoutID?: ReturnType<typeof setTimeout> | 0;
   menuConfirmationType?: ChartMenuConfirmationType;
+  map: any;
 
   addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction): void;
 
@@ -271,4 +272,6 @@ export interface Chart {
   supportsSelectedDimensionVisualizationColor(): boolean;
 
   supportsSelectedMeasureVisualizationColor(): boolean;
+
+  setMap(map: any): void;
 }
