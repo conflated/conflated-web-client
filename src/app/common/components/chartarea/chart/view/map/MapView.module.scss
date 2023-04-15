@@ -10,27 +10,44 @@
     background: linear-gradient(rgba(0,0,0, 1), rgba(0, 0, 0, 0.5));
   }
 
-  .titles {
+  .mapLayer {
+    align-items: center;
     background-color: rgba(244, 127, 49, 0.4);
     border-right: 1px solid #F47F31;
     border-bottom: 1px solid #F47F31;
     display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    padding: 0.2rem;
 
-    .title {
-      font-size: 1.1rem;
-      font-weight: bold;
-
-      @media screen and (prefers-color-scheme: dark) {
-        color: #f2f2f2;
+    .checkbox {
+      margin-left: 0.2rem;
+      margin-right: 0.5rem;
+      input {
+        z-index: auto;
+        opacity: 1 !important;
+      }
+      label {
+        display: none;
       }
     }
 
-    .subtitle {
-      color: var(--small-font-color);
-      font-size: 1rem;
+    .titles {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 1;
+      padding: 0.2rem 0.3rem;
+
+      .title {
+        font-size: 1.1rem;
+        font-weight: bold;
+
+        @media screen and (prefers-color-scheme: dark) {
+          color: #f2f2f2;
+        }
+      }
+
+      .subtitle {
+        color: var(--small-font-color);
+        font-size: 1rem;
+      }
     }
   }
 

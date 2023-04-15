@@ -39,23 +39,55 @@ const MapView = ({ chart, stateNamespace }: Props) => {
   return chart.hasData() ? (
     <>
       <header className={styles.mapHeader}>
-        <Checkbox fitted />
-        <div className={styles.titles}>
-          <span className={styles.title}>{chart.getTitleText(stateNamespace)}</span>
-          <span className={styles.subtitle}>Cell</span>
+        <div className={styles.mapLayer}>
+          <Popup
+            content="Show/hide map layer 1"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Checkbox className={styles.checkbox} defaultChecked />}
+          />
+          <div className={styles.titles}>
+            <span className={styles.title}>{chart.getTitleText(stateNamespace)}</span>
+            <span className={styles.subtitle}>Cell</span>
+          </div>
         </div>
         <Popup
           content="Add new map layer"
           inverted
+          mouseEnterDelay={1250}
           trigger={<Icon className={styles.addIcon} name="plus" size="large" />}
         />
         <div className={styles.actionButtons}>
-          <Icon className={styles.icon} inverted name="tint" size="large" />
-          <Icon className={styles.icon} inverted name="home" size="large" onClick={resetMapBounds} />
-          <Icon className={styles.icon} inverted name="zoom-in" size="large" onClick={zoomInMap} />
-          <Icon className={styles.icon} inverted name="zoom-out" size="large" onClick={zoomOutMap} />
-          <Icon className={styles.icon} inverted name="filter" size="large" />
-          <Icon className={styles.icon} inverted name="search" size="large" />
+          <Popup
+            content="Reset map bounds"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Icon className={styles.icon} inverted name="home" size="large" onClick={resetMapBounds} />}
+          />
+          <Popup
+            content="Zoom in"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Icon className={styles.icon} inverted name="zoom-in" size="large" onClick={zoomInMap} />}
+          />
+          <Popup
+            content="Zoom out"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Icon className={styles.icon} inverted name="zoom-out" size="large" onClick={zoomOutMap} />}
+          />
+          <Popup
+            content="Show quick filter"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Icon className={styles.icon} inverted name="filter" size="large" />}
+          />
+          <Popup
+            content="Search place"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={<Icon className={styles.icon} inverted name="search" size="large" />}
+          />
         </div>
       </header>
       <LeafletMapView chart={chart} stateNamespace={stateNamespace} />
