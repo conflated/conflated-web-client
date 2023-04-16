@@ -38,16 +38,16 @@ export default class DimensionInputFilter extends AbstractInputFilter {
 
   // noinspection JSMethodCanBeStatic
   doesChartDataValueMatchTerm(chartDataValue: string, term: string): boolean {
-    if (term.length > 1 && (term.endsWith('%') || term.endsWith('*'))) {
-      return chartDataValue.startsWith(term.slice(0, -1));
-    } else if (term.length > 1 && (term.startsWith('%') || term.startsWith('*'))) {
-      return chartDataValue.endsWith(term.substring(1));
-    } else if (
+    if (
       term.length >= 3 &&
       (term.startsWith('%') || term.startsWith('*')) &&
       (term.endsWith('%') || term.endsWith('*'))
     ) {
-      return chartDataValue.includes(term.substring(1, term.length - 2));
+      return chartDataValue.includes(term.slice(1, -1));
+    } else if (term.length > 1 && (term.endsWith('%') || term.endsWith('*'))) {
+      return chartDataValue.startsWith(term.slice(0, -1));
+    } else if (term.length > 1 && (term.startsWith('%') || term.startsWith('*'))) {
+      return chartDataValue.endsWith(term.slice(1));
     }
 
     return chartDataValue === term;
