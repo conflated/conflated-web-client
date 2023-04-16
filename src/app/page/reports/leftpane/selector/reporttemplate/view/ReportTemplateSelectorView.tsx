@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
-import SelectorWithActionsView from '../../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import AllAndFavoritesTabView from '../../../../../../common/views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/reportTemplateSelectorController';
 import ReportTemplateSelectorListItemView from './listitem/ReportTemplateSelectorListItemView';

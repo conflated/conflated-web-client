@@ -1,20 +1,20 @@
-import AbstractSelectorWithActionsAction from './AbstractSelectorWithActionsAction';
-import type { SelectorWithActionsState } from '../state/SelectorWithActionsState';
+import AbstractSelectorWithTitleActionsAction from './AbstractSelectorWithTitleActionsAction';
+import type { SelectorWithTitleActionsState } from '../state/SelectorWithTitleActionsState';
 import Utils from '../../../../../utils/Utils';
 import { SelectorOpenStatus } from '../state/types/SelectorOpenStatus';
 import ToggleSelectorOpenAction from '../../../model/actions/ToggleSelectorOpenAction';
 import OpenSelectorAction from '../../../model/actions/OpenSelectorAction';
-import { SelectorWithActionsStateNamespace } from '../state/types/SelectorWithActionsStateNamespace';
+import { SelectorWithTitleActionsStateNamespace } from '../state/types/SelectorWithTitleActionsStateNamespace';
 
-export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithActionsAction {
+export default class ToggleMaximizeSelectorAction extends AbstractSelectorWithTitleActionsAction {
   constructor(
-    stateNamespace: SelectorWithActionsStateNamespace,
+    stateNamespace: SelectorWithTitleActionsStateNamespace,
     private readonly otherSelectorOpenStatuses: SelectorOpenStatus[]
   ) {
     super(stateNamespace);
   }
 
-  perform(currentState: SelectorWithActionsState): SelectorWithActionsState {
+  perform(currentState: SelectorWithTitleActionsState): SelectorWithTitleActionsState {
     const closedOtherSelectorsCount = Utils.pick(this.otherSelectorOpenStatuses, 'isOpen', false).length;
     const areAllOtherSelectorsClosed = closedOtherSelectorsCount === this.otherSelectorOpenStatuses.length;
 

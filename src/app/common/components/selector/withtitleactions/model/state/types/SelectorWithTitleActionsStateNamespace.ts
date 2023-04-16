@@ -18,6 +18,6 @@ const selectorWithActionsStateNamespaces = {
   goalsPageTriggerSelector: 'goalsPageTriggerSelector'
 } as Record<string, string>;
 
-export type SelectorWithActionsStateNamespace = keyof typeof selectorWithActionsStateNamespaces;
+export type SelectorWithTitleActionsStateNamespace = keyof typeof selectorWithActionsStateNamespaces;
 
 export default selectorWithActionsStateNamespaces;

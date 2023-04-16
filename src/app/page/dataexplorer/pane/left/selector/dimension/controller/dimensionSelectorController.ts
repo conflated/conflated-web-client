@@ -10,7 +10,7 @@ import store from '../../../../../../../../store/store';
 import { AppState } from '../../../../../../../../store/AppState';
 import selectShownMeasures from '../../measure/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from './selectors/createShownDimensionsSelector';
-import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import { DataSource } from '../../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import StartFetchMeasuresAction from '../../measure/model/actions/StartFetchMeasuresAction';
 import diContainer from '../../../../../../../../di/diContainer';

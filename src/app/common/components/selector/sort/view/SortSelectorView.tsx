@@ -7,7 +7,7 @@ import SortListItemView from './listitem/SortListItemView';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort';
-import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../withtitleactions/view/SelectorWithTitleActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
 import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/sort/types/TimeSortOption';
@@ -17,7 +17,7 @@ import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/s
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortSelectorController';
-import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import TimeSortOptionListItemView from './listitem/TimeSortOptionListItemView';
 
 export type OwnProps = { stateNamespace: SortSelectorStateNamespace };

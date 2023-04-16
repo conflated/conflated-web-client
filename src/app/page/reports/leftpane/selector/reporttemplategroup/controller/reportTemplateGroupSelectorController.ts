@@ -3,7 +3,7 @@ import ToggleShouldShowPagePanePermanentlyAction from '../../../../../../common/
 import store from '../../../../../../../store/store';
 import { PageStateNamespace } from '../../../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../../../store/AppState';
-import { controller as selectorWithDefaultActionsController } from '../../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import selectShownReportTemplateGroups from './selectors/selectShownReportTemplateGroups';
 import { ReportTemplateGroup } from '../../../../model/state/types/ReportTemplateGroup';
 import StartRenamingAction from '../model/actions/rename/StartRenamingAction';

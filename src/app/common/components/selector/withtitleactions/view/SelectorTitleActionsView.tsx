@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Icon, Popup } from 'semantic-ui-react';
-import stopEventPropagation from '../../../../../utils/stopEventPropagation';
+import stopEventPropagation from '../../../../utils/stopEventPropagation';
 
 type Props = {
   addIconTooltipText?: string;
@@ -17,7 +17,7 @@ type Props = {
   toggleMaximizeSelector: (...args: never[]) => void;
 };
 
-const SelectorActionsView: React.FC<Props> = ({
+const SelectorTitleActionsView: React.FC<Props> = ({
   addIconTooltipText,
   handlePinIconClick,
   handleReorderIconClick,
@@ -116,7 +116,7 @@ const SelectorActionsView: React.FC<Props> = ({
   );
 };
 
-SelectorActionsView.defaultProps = {
+SelectorTitleActionsView.defaultProps = {
   addIconTooltipText: '',
   handlePinIconClick: _.noop,
   handleSelectAllIconClick: undefined,
@@ -125,4 +125,4 @@ SelectorActionsView.defaultProps = {
   shouldShowPinIcon: false
 };
 
-export default SelectorActionsView;
+export default SelectorTitleActionsView;

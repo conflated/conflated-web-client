@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import styles2 from './SelectorWithActionsView.module.scss';
+import styles2 from './SelectorWithTitleActionsView.module.scss';
 import styles from '../../view/SelectorView.module.scss';
 import SearchInputView from '../../../../views/input/searchinput/SearchInputView';
-import SelectorActionsView from './actions/SelectorActionsView';
+import SelectorTitleActionsView from './SelectorTitleActionsView';
 import SelectorView from '../../view/SelectorView';
-import type { SelectorWithActionsStateNamespace } from '../model/state/types/SelectorWithActionsStateNamespace';
-import { ActionDispatchers, controller, State } from '../controller/selectorWithActionsController';
+import type { SelectorWithTitleActionsStateNamespace } from '../model/state/types/SelectorWithTitleActionsStateNamespace';
+import { ActionDispatchers, controller, State } from '../controller/selectorWithTitleActionsController';
 import stopEventPropagation from '../../../../utils/stopEventPropagation';
 
 export type OwnProps = {
@@ -22,13 +22,13 @@ export type OwnProps = {
   position: 'leftPane' | 'rightPane';
   reorderIconTooltipText?: string;
   selectedListItemsContent?: JSX.Element;
-  selectorStateNamespace: SelectorWithActionsStateNamespace;
+  selectorStateNamespace: SelectorWithTitleActionsStateNamespace;
   titleText: string;
 };
 
 type Props = OwnProps & ActionDispatchers & State;
 
-const SelectorWithActionsView: React.FC<Props> = ({
+const SelectorWithTitleActionsView: React.FC<Props> = ({
   addIconTooltipText,
   additionalContent,
   changeSelectorSearchedValue,
@@ -56,7 +56,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   }
 
   const titleContent = (
-    <SelectorActionsView
+    <SelectorTitleActionsView
       iconClassName={styles.actionIcon}
       position={position}
       toggleShowSearchInput={_.flow(stopEventPropagation, toggleShowSearchInput)}
@@ -99,7 +99,7 @@ const SelectorWithActionsView: React.FC<Props> = ({
   );
 };
 
-SelectorWithActionsView.defaultProps = {
+SelectorWithTitleActionsView.defaultProps = {
   addIconTooltipText: undefined,
   additionalContent: undefined,
   handlePinIconClick: undefined,
@@ -115,4 +115,4 @@ export default connect(
     (__, { selectorStateNamespace }: OwnProps) => controller.getActionDispatchers(selectorStateNamespace),
     (...args) => args[1].selectorStateNamespace
   )
-)(SelectorWithActionsView);
+)(SelectorWithTitleActionsView);

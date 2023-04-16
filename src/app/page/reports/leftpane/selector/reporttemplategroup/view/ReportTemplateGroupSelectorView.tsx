@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './ReportTemplateGroupSelectorView.module.scss';
-import SelectorWithActionsView from '../../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import AllAndFavoritesTabView from '../../../../../../common/views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import stopEventPropagation from '../../../../../../common/utils/stopEventPropagation';
 import { ActionDispatchers, controller, State } from '../controller/reportTemplateGroupSelectorController';

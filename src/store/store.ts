@@ -17,8 +17,8 @@ import createTriggerSelectorStateReducer from '../app/common/components/page/tri
 import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/createSelectorStateReducer';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
-import selectorWithActionsStateNamespaces from '../app/common/components/selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
-import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selector/withactions/model/state/createSelectorWithDefaultActionsStateReducer';
+import selectorWithActionsStateNamespaces from '../app/common/components/selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
+import createSelectorWithDefaultActionsStateReducer from '../app/common/components/selector/withtitleactions/model/state/createSelectorWithTitleActionsStateReducer';
 import dashboardsPageHeaderStateReducer from '../app/page/dashboards/header/model/state/dashboardsPageHeaderStateReducer';
 import createTriggersPageChartAreaStateReducer from '../app/common/components/page/triggers/chartarea/model/state/createTriggersPageChartAreaStateReducer';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';

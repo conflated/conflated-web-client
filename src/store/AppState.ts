@@ -14,8 +14,8 @@ import type { TriggerDataSourceSelectorState } from '../app/common/components/pa
 import type { PageState } from '../app/common/components/page/model/state/PageState';
 import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';
-import type { SelectorWithActionsState } from '../app/common/components/selector/withactions/model/state/SelectorWithActionsState';
-import selectorWithActionsStateNamespaces from '../app/common/components/selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
+import type { SelectorWithTitleActionsState } from '../app/common/components/selector/withtitleactions/model/state/SelectorWithTitleActionsState';
+import selectorWithActionsStateNamespaces from '../app/common/components/selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import type { DashboardsPageHeaderState } from '../app/page/dashboards/header/model/state/DashboardsPageHeaderState';
 import pageStateNamespaces from '../app/common/components/page/model/state/types/PageStateNamespace';
 import { DashboardGroupSelectorState } from '../app/page/dashboards/pane/left/selector/dashboardgroup/model/state/DashboardGroupSelectorState';
@@ -28,7 +28,7 @@ export type AppState = {
   common: {
     selectorStates: { [K in keyof typeof selectorStateNamespaces]: SelectorState };
     selectorWithDefaultActionsStates: {
-      [K in keyof typeof selectorWithActionsStateNamespaces]: SelectorWithActionsState;
+      [K in keyof typeof selectorWithActionsStateNamespaces]: SelectorWithTitleActionsState;
     };
     pageStates: { [K in keyof typeof pageStateNamespaces]: PageState };
   };

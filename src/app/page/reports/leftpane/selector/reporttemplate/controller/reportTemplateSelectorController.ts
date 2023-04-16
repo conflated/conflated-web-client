@@ -2,7 +2,7 @@ import { Controller } from 'oo-redux-utils2';
 import store from '../../../../../../../store/store';
 import { PageStateNamespace } from '../../../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../../../store/AppState';
-import { controller as selectorWithDefaultActionsController } from '../../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import selectShownReportTemplates from './selectors/selectShownReportTemplates';
 import OpenGenerateReportDialogAction from '../../../../generatereportdialog/model/actions/OpenGenerateReportDialogAction';
 

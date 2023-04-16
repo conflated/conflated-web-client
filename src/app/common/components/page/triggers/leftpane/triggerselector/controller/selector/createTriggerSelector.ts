@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 import type { Chart } from '../../../../../../chartarea/chart/model/state/Chart';
-import selectorWithActionsStateNamespaces from '../../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../../../selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import type { AppState } from '../../../../../../../../../store/AppState';
 import TriggerFactory from '../../model/state/factories/TriggerFactory';
 

@@ -6,7 +6,7 @@ import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../../../common/views/list/item/DimensionListItemView';
 import MeasureListItemView from '../../../../../../../common/views/list/item/MeasureListItemView';
-import SelectorWithDefaultActionsView from '../../../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
+import SelectorWithDefaultActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { SelectedMeasure } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Dimension } from '../../dimension/model/state/types/Dimension';
 import type { AggregationFunction } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';

@@ -4,7 +4,7 @@ import store from '../../../../../../../../store/store';
 import { PageStateNamespace } from '../../../../../../../common/components/page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../../../../store/AppState';
 import selectShownDashboardGroups from './selectors/selectShownDashboardGroups';
-import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import { controller as dashboardsPageController } from '../../../../../controller/dashboardsPageController';
 import { DashboardGroup } from '../../../../../model/state/types/DashboardGroup';
 import StartRenamingDashboardGroupAction from '../model/actions/rename/StartRenamingDashboardGroupAction';

@@ -13,14 +13,14 @@ import type { DataScopeType } from '../../../chartarea/chart/model/state/types/D
 import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddDimensionFilterToSelectedChartAction';
 import ChangeFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterExpressionForSelectedChartAction';
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
-import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
 import selectShownDimensions from '../../../../../page/dataexplorer/pane/left/selector/dimension/controller/selectors/createShownDimensionsSelector';
 import selectShownMeasures from '../../../../../page/dataexplorer/pane/left/selector/measure/controller/selectors/selectShownMeasures';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import store from '../../../../../../store/store';
-import { controller as selectorWithActionsController } from '../../withactions/controller/selectorWithActionsController';
+import { controller as selectorWithActionsController } from '../../withtitleactions/controller/selectorWithTitleActionsController';
 import { OwnProps } from '../view/FilterSelectorView';
 import { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
 

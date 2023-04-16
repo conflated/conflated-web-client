@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import FilterUtils from '../../../../../../../utils/FilterUtils';
 import type { AppState } from '../../../../../../../../../store/AppState';
 import type { DataSource } from '../../../../../../chartarea/chart/model/state/datasource/DataSource';
-import selectorWithActionsStateNamespaces from '../../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../../../selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import type { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
 
 export default function (stateNamespace: TriggersPageStateNamespace) {

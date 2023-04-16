@@ -5,24 +5,22 @@ import { List } from 'semantic-ui-react';
 import styles from './FilterSelectorView.module.scss';
 import MeasureFilterView from './MeasureFilterView';
 import DimensionFilterView from './DimensionFilterView';
-import SelectorWithActionsView from '../../withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../withtitleactions/view/SelectorWithTitleActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
-import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
 import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
-import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 import ChartListItemView from '../../../../views/list/item/ChartListItemView';
 
 export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
-
 type Props = OwnProps & ActionDispatchers & State;
 
 const FilterSelectorView = ({
@@ -62,7 +60,7 @@ const FilterSelectorView = ({
   const filterListItems = selectedChart
     .getFilters()
     .filter(({ filterInputType }) => filterInputType !== 'Quick filter')
-    .map((filter: Filter) => {
+    .map((filter) => {
       if (filter.type === 'measure') {
         return (
           <MeasureFilterView

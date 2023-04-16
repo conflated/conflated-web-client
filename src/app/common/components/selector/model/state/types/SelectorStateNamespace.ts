@@ -1,4 +1,4 @@
-import selectorWithActionsStateNamespaces from '../../../withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 
 const selectorStateNamespaces = {
   ...selectorWithActionsStateNamespaces,

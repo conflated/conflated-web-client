@@ -5,7 +5,7 @@ import { Button, Input, Modal } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './DashboardGroupSelectorView.module.scss';
 import DashboardGroupSelectorListItem from './listitem/DashboardGroupSelectorListItem';
-import SelectorWithActionsView from '../../../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { DashboardGroup } from '../../../../../model/state/types/DashboardGroup';
 import AllAndFavoritesTabView from '../../../../../../../common/views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import { ActionDispatchers, controller, State } from '../controller/dashboardGroupSelectorController';

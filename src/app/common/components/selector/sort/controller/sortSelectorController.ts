@@ -22,8 +22,8 @@ import selectorStateNamespaces from '../../model/state/types/SelectorStateNamesp
 import selectShownMeasures from '../../../../../page/dataexplorer/pane/left/selector/measure/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../../../../page/dataexplorer/pane/left/selector/dimension/controller/selectors/createShownDimensionsSelector';
 import store from '../../../../../../store/store';
-import selectorWithActionsStateNamespaces from '../../withactions/model/state/types/SelectorWithActionsStateNamespace';
-import { controller as selectorWithActionsController } from '../../withactions/controller/selectorWithActionsController';
+import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
+import { controller as selectorWithActionsController } from '../../withtitleactions/controller/selectorWithTitleActionsController';
 import { OwnProps } from '../view/SortSelectorView';
 import FlashSortsBrieflyAction from '../model/actions/FlashSortsBrieflyAction';
 

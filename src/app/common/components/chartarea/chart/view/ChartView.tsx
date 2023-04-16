@@ -27,7 +27,6 @@ type OwnProps = {
 
 const controller = new ChartController(store.dispatch);
 type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
-
 type Props = OwnProps & ActionDispatchers;
 
 const ChartView: React.FC<Props> = ({

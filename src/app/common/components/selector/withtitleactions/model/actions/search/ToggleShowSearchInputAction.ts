@@ -1,10 +1,10 @@
 import HideSelectorSearchInputAction from './HideSelectorSearchInputAction';
 import ShowSelectorSearchInputAction from './ShowSelectorSearchInputAction';
-import type { SelectorWithActionsState } from '../../state/SelectorWithActionsState';
-import AbstractSelectorWithActionsAction from '../AbstractSelectorWithActionsAction';
+import type { SelectorWithTitleActionsState } from '../../state/SelectorWithTitleActionsState';
+import AbstractSelectorWithTitleActionsAction from '../AbstractSelectorWithTitleActionsAction';
 
-export default class ToggleShowSearchInputAction extends AbstractSelectorWithActionsAction {
-  perform(currentState: SelectorWithActionsState): SelectorWithActionsState {
+export default class ToggleShowSearchInputAction extends AbstractSelectorWithTitleActionsAction {
+  perform(currentState: SelectorWithTitleActionsState): SelectorWithTitleActionsState {
     if (currentState.isSearchInputShown) {
       return this.performAction(new HideSelectorSearchInputAction(this.stateNamespace), currentState);
     } else {

@@ -3,11 +3,11 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import DataSourceListItem from '../../../../../../../page/dataexplorer/pane/left/selector/datasource/view/datasourcelistitem/DataSourceListItem';
-import SelectorWithActionsView from '../../../../../selector/withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { DataSource } from '../../../../../chartarea/chart/model/state/datasource/DataSource';
 import selectorStateNamespaces from '../../../../../selector/model/state/types/SelectorStateNamespace';
 import AllAndFavoritesTabView from '../../../../../../views/tab/selector/allandfavorites/AllAndFavoritesTabView';
-import selectorWithActionsStateNamespaces from '../../../../../selector/withactions/model/state/types/SelectorWithActionsStateNamespace';
+import selectorWithActionsStateNamespaces from '../../../../../selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/triggerDataSourceSelectorController';
 import { TriggersPageStateNamespace } from '../../../model/state/TriggersPageStateNamespace';
 

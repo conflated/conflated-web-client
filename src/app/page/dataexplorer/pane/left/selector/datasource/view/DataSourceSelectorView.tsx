@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Accordion, Confirm } from 'semantic-ui-react';
 import _ from 'lodash';
 import DataSourceListItem from './datasourcelistitem/DataSourceListItem';
-import SelectorWithActionsView from '../../../../../../../common/components/selector/withactions/view/SelectorWithActionsView';
+import SelectorWithActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { DataSource } from '../../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
 import emptyDataSource from '../../../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { ActionDispatchers, controller, State } from '../controller/dataSourceSelectorController';

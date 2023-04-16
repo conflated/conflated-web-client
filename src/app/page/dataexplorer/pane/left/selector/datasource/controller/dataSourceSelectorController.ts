@@ -8,7 +8,7 @@ import type { DataSource } from '../../../../../../../common/components/chartare
 import store from '../../../../../../../../store/store';
 import { AppState } from '../../../../../../../../store/AppState';
 import selectShownDataSources from './selectors/selectShownDataSources';
-import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withactions/controller/selectorWithActionsController';
+import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import { ChartAreaStateNamespace } from '../../../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 import { Chart } from '../../../../../../../common/components/chartarea/chart/model/state/Chart';
 
