@@ -32,14 +32,15 @@ type Props = OwnProps & ActionDispatchers;
 
 const ChartView: React.FC<Props> = ({
   chart,
+  changeQuickFilter,
   changeXAxisScrollPosition,
   height,
   heightInRows,
   isMaximized,
   isSelectedChart,
-  maximizeChartSize,
+  maximizeSize,
   restoreChartOriginalSize,
-  selectChart,
+  select,
   stateNamespace,
   width,
   widthInCols
@@ -53,7 +54,7 @@ const ChartView: React.FC<Props> = ({
     [styles.scrollable]: chart.isXAxisScrollable()
   });
 
-  const chartView = chart.createChartView(width, height, stateNamespace, { selectChart });
+  const chartView = chart.createChartView(width, height, stateNamespace, { selectChart: select });
 
   function onTouchStart(event: React.TouchEvent) {
     setTouchStartX(event.changedTouches[0].screenX);
@@ -76,11 +77,11 @@ const ChartView: React.FC<Props> = ({
     const now = Date.now();
 
     if (now - lastClickTimestampInMillis > 250) {
-      selectChart(chart);
+      select(chart);
     } else if (isMaximized) {
       restoreChartOriginalSize();
     } else {
-      maximizeChartSize(chart);
+      maximizeSize(chart);
     }
 
     setLastClickTimestampInMillis(now);
@@ -97,7 +98,13 @@ const ChartView: React.FC<Props> = ({
       {quickFilterIsShown && (
         <div className={styles.search}>
           <div className={styles.searchInputLabel}>Filter: </div>
-          <Input className={styles.searchInput} placeholder="Measure and/or dimension values..." />
+          <Input
+            className={styles.searchInput}
+            placeholder="Measure and/or dimension values..."
+            onChange={({ currentTarget: { value } }: React.SyntheticEvent<HTMLInputElement>) =>
+              changeQuickFilter(chart, value)
+            }
+          />
         </div>
       )}
       {chart.chartType !== 'map' && (
@@ -125,7 +132,7 @@ const ChartView: React.FC<Props> = ({
             name="window maximize outline"
             onClick={_.flow(
               stopEventPropagation,
-              isMaximized ? () => restoreChartOriginalSize() : () => maximizeChartSize(chart)
+              isMaximized ? () => restoreChartOriginalSize() : () => maximizeSize(chart)
             )}
           />
         }

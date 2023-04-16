@@ -17,24 +17,27 @@ import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions
 import { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import MaximizeChartSizeAction from '../../model/actions/chart/sizing/MaximizeChartSizeAction';
 import RestoreChartOriginalSizeAction from '../../model/actions/chart/sizing/RestoreChartOriginalSizeAction';
+import ChangeChartQuickFilterChartAction from '../../model/actions/chart/ChangeChartQuickFilterAction';
 
 export default class ChartController extends Controller<ChartAreaStateNamespace> {
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
-    selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
-
-    maximizeChartSize: (chart: Chart) => this.dispatch(new MaximizeChartSizeAction(stateNamespace, chart)),
+    select: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
+    maximizeSize: (chart: Chart) => this.dispatch(new MaximizeChartSizeAction(stateNamespace, chart)),
     restoreChartOriginalSize: () => this.dispatch(new RestoreChartOriginalSizeAction(stateNamespace)),
 
-    deselectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
+    changeQuickFilter: (chart: Chart, filterExpression: string) =>
+      this.dispatch(new ChangeChartQuickFilterChartAction(stateNamespace, chart, filterExpression)),
+
+    deselectDataPoint: (chart: Chart, dataPoint: DataPoint) =>
       this.dispatch(new DeselectChartDataPointAction(stateNamespace, chart, dataPoint)),
 
-    selectChartDataPoint: (chart: Chart, dataPoint: DataPoint) =>
+    selectDataPoint: (chart: Chart, dataPoint: DataPoint) =>
       this.dispatch(new SelectChartDataPointAction(stateNamespace, chart, dataPoint)),
 
-    setSelectedDataPointIndexForChart: (chart: Chart, selectedDataPointIndex: number | undefined) =>
+    setSelectedDataPointIndex: (chart: Chart, selectedDataPointIndex: number | undefined) =>
       this.dispatch(new SetSelectedDataPointIndexForChartAction(stateNamespace, chart, selectedDataPointIndex)),
 
-    drillDownChart: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
+    drillDown: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
       this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension));
     },
 
