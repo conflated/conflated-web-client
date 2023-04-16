@@ -1,4 +1,3 @@
-- Implement quick filter
 - Selection filter?
 - Drilldown
 - Go through chart types

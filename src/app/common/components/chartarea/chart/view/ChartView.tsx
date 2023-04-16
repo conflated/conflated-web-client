@@ -98,11 +98,18 @@ const ChartView: React.FC<Props> = ({
       {quickFilterIsShown && (
         <div className={styles.search}>
           <div className={styles.searchInputLabel}>Filter: </div>
-          <Input
-            className={styles.searchInput}
-            placeholder="Measure and/or dimension values..."
-            onChange={({ currentTarget: { value } }: React.SyntheticEvent<HTMLInputElement>) =>
-              changeQuickFilter(chart, value)
+          <Popup
+            content="To filter measure(s), enter e.g. >50, <=90, =50, =50-90. To filter dimension, enter e.g. 1000, 1000-5000. You can use * or % wild characters"
+            inverted
+            mouseEnterDelay={1250}
+            trigger={
+              <Input
+                className={styles.searchInput}
+                placeholder="Measure and/or dimension values..."
+                onChange={({ currentTarget: { value } }: React.SyntheticEvent<HTMLInputElement>) =>
+                  changeQuickFilter(chart, value)
+                }
+              />
             }
           />
         </div>
@@ -116,10 +123,14 @@ const ChartView: React.FC<Props> = ({
               className={styles.searchIcon}
               inverted
               name="filter"
-              onClick={_.flow(stopEventPropagation, () => setQuickFilterIsShown(!quickFilterIsShown))}
+              onClick={_.flow(
+                stopEventPropagation,
+                () => changeQuickFilter(chart, ''),
+                () => setQuickFilterIsShown(!quickFilterIsShown)
+              )}
             />
           }
-          content={quickFilterIsShown ? 'Hide quick filter' : 'Show quick filter'}
+          content={quickFilterIsShown ? 'Clear and hide quick filter' : 'Show quick filter'}
         />
       )}
       <Popup
