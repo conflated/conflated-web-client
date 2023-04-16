@@ -469,21 +469,21 @@ export default abstract class AbstractChart implements Chart {
     return [...(supportedMeasureVisualizationTypes || [])];
   }
 
-  getName(stateNamespace: ChartAreaStateNamespace): string {
+  getName(): string {
     let name = '';
 
-    if (this.getTitleText(stateNamespace)) {
+    if (this.getTitleText()) {
       if (this.getSubtitleText()) {
-        name = `${this.id}. ${this.getTitleText(stateNamespace)}, ${this.getSubtitleText()}`;
+        name = `${this.id}. ${this.getTitleText()}, ${this.getSubtitleText()}`;
       } else {
-        name = `${this.id}. ${this.getTitleText(stateNamespace)}`;
+        name = `${this.id}. ${this.getTitleText()}`;
       }
     }
 
     return name;
   }
 
-  getTitleText(stateNamespace: ChartAreaStateNamespace): string {
+  getTitleText(): string {
     const title = this.selectedMeasures.reduce(
       (accumulatedTitle: string, { measure: { name } }: SelectedMeasure): string => {
         if (accumulatedTitle === '') {
@@ -495,7 +495,7 @@ export default abstract class AbstractChart implements Chart {
       ''
     );
 
-    return stateNamespace === 'dataExplorerPage' && this.chartType !== 'sparkline' ? `${this.id}. ${title}` : title;
+    return title;
   }
 
   getApexYAxisTitleOptions(): object {
