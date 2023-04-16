@@ -237,7 +237,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     return null;
   }
 
-  handleDataPointSelection(
+  handleDataPointSelectionOrDrilldown(
     event: object,
     chartContext: object,
     params: object,
@@ -264,7 +264,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
         labelIndex: dataPointIndex
       };
 
-      this.dataPointSelectionTimeoutId = setTimeout(() => this.handleSelectDataPoint(params, actions), 450);
+      this.dataPointSelectionTimeoutId = setTimeout(() => this.handleSelectDataPoint(params, actions), 250);
     }
   }
 

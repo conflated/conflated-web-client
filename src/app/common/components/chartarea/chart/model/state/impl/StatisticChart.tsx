@@ -95,7 +95,7 @@ export default class StatisticChart extends AbstractDrillDownChart {
     return [];
   }
 
-  handleDataPointSelection(): void {}
+  handleDataPointSelectionOrDrilldown(): void {}
 
   sliceOrFillXAxisData(data: Array<any>): Array<any> {
     return data;

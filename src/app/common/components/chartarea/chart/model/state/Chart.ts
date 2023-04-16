@@ -181,7 +181,7 @@ export interface Chart {
 
   getColumns(): Column[];
 
-  handleDataPointSelection(
+  handleDataPointSelectionOrDrilldown(
     event: object,
     chartContext: object,
     params: object,

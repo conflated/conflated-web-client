@@ -10,7 +10,7 @@ export default class ApexChartEventOptionsFactory {
   ): object {
     return {
       dataPointSelection: (event: object, chartContext: object, params: object) =>
-        chart.handleDataPointSelection(event, chartContext, params, stateNamespace, actions)
+        chart.handleDataPointSelectionOrDrilldown(event, chartContext, params, stateNamespace, actions)
     };
   }
 }

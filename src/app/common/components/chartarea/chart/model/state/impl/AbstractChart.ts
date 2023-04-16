@@ -524,7 +524,7 @@ export default abstract class AbstractChart implements Chart {
     );
   }
 
-  abstract handleDataPointSelection(
+  abstract handleDataPointSelectionOrDrilldown(
     event: object,
     chartContext: object,
     params: object,
