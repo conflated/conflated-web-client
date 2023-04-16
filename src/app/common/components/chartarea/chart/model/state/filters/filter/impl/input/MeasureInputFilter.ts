@@ -7,7 +7,7 @@ import AbstractInputFilter from './AbstractInputFilter';
 
 export default class MeasureInputFilter extends AbstractInputFilter {
   getPlaceholder(): string {
-    return 'Enter measure values, e.g. >10, <=90, 50-100';
+    return 'Enter measure values, e.g. >10, <=90, =20, =50-100';
   }
 
   applyFilter(chartData: ColumnNameToValuesMap): ColumnNameToValuesMap {
@@ -17,7 +17,7 @@ export default class MeasureInputFilter extends AbstractInputFilter {
 
     const filteredInIndexes: number[] = [];
     const newChartData = chartData;
-    const filterNumberRanges = NumberRangesParser.parseNumberRanges(this.filterExpression);
+    const filterNumberRanges = NumberRangesParser.parseNumberRanges(this.filterExpression, false);
 
     if (chartData[this.sqlColumn.name]) {
       newChartData[this.sqlColumn.name] = (chartData as any)[this.sqlColumn.name].filter(
