@@ -31,6 +31,7 @@ type ActionDispatchers = ReturnType<typeof controller.getActionDispatchers>;
 type Props = OwnProps & ActionDispatchers;
 
 const ChartView: React.FC<Props> = ({
+  addSelectionFilterToNotSelectedChartsAction,
   chart,
   changeQuickFilter,
   changeXAxisScrollPosition,
@@ -39,6 +40,7 @@ const ChartView: React.FC<Props> = ({
   isMaximized,
   isSelectedChart,
   maximizeSize,
+  removeSelectionFilterFromNotSelectedCharts,
   restoreChartOriginalSize,
   select,
   stateNamespace,
@@ -54,7 +56,10 @@ const ChartView: React.FC<Props> = ({
     [styles.scrollable]: chart.isXAxisScrollable()
   });
 
-  const chartView = chart.createChartView(width, height, stateNamespace, { selectChart: select });
+  const chartView = chart.createChartView(width, height, stateNamespace, {
+    addSelectionFilterToNotSelectedChartsAction,
+    removeSelectionFilterFromNotSelectedCharts
+  });
 
   function onTouchStart(event: React.TouchEvent) {
     setTouchStartX(event.changedTouches[0].screenX);

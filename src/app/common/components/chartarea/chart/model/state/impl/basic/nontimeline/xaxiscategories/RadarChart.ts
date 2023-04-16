@@ -5,10 +5,6 @@ import { MeasureVisualizationType } from '../../../../selectedmeasure/types/Meas
 import { FillType } from '../../../../types/FillType';
 
 export default class RadarChart extends AbstractXAxisCategoriesChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override getFillOpacity(): number {
     return 0.8;
   }

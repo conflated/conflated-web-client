@@ -270,10 +270,6 @@ export default abstract class AbstractChart implements Chart {
     return this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, dimensionVisualizationType);
   }
 
-  getChartJsDataSetsAndLabels(): object {
-    return {};
-  }
-
   getColors(): string[] {
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
     const allColors = this.getAllColors();
@@ -526,21 +522,6 @@ export default abstract class AbstractChart implements Chart {
         )
       ) ?? 0
     );
-  }
-
-  handleChartJsClick(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    event: any,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    activeElements: any[],
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    data: object,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    stateNamespace: ChartAreaStateNamespace,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    actions: Record<string, (...args: any[]) => void>
-  ): void {
-    throw new Error('Not implemented');
   }
 
   abstract handleDataPointSelection(

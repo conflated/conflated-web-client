@@ -4,10 +4,6 @@ import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMea
 import Utils from '../../../../../../../../../../utils/Utils';
 
 export default class AbstractMixedChart extends AbstractXAxisCategoriesChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override getApexChartType(): string {
     if (this.selectedMeasures.length === 1) {
       return this.selectedMeasures[0].visualizationType === 'column'

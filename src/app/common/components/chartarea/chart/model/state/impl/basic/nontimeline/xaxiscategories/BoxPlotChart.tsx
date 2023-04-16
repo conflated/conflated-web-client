@@ -22,7 +22,7 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     return <ApexChartView chart={this} height={height} stateNamespace={stateNamespace} width={width} />;
   }
 
-  override getChartJsDataSetsAndLabels(): object {
+  getChartJsDataSetsAndLabels(): object {
     const labelSelectedDimension =
       this.currentDrillDownSelectedDimension ?? this.getSelectedDimensionOfType('X-axis categories');
 
@@ -144,7 +144,7 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     return ['NONE'];
   }
 
-  override handleChartJsClick(
+  handleChartJsClick(
     event: any,
     activeElements: any[],
     data: object,

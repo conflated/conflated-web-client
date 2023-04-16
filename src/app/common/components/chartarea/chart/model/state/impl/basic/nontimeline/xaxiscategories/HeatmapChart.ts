@@ -5,10 +5,6 @@ import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasur
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class HeatmapChart extends AbstractXAxisCategoriesChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override getApexChartDataSeries(): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0) {
       const dataSeries: DataSeries[] = [];

@@ -6,10 +6,6 @@ import { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisual
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 
 export default class StatisticChart extends AbstractDrillDownChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override createChartView(): JSX.Element {
     const statisticElements = this.selectedMeasures.map((selectedMeasure: SelectedMeasure): JSX.Element => {
       const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);

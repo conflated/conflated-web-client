@@ -4,10 +4,6 @@ import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../types/DataSeries';
 
 export default class CandlestickChart extends AbstractTimelineChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override getConvertSelectedMeasures(): SelectedMeasure[] {
     this.selectedMeasures = this.selectedMeasures.slice(0, 4);
     return super.getConvertSelectedMeasures();

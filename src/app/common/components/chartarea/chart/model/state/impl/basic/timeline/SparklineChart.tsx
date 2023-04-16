@@ -11,10 +11,6 @@ import type { ChartAreaStateNamespace } from '../../../../../../model/state/type
 import ApexChartView from '../../../../../view/basic/ApexChartView';
 
 export default class SparklineChart extends AbstractTimelineChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     super.addSelectedDimension(dimension, visualizationType);

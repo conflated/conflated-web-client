@@ -110,8 +110,6 @@ export interface Chart {
 
   getChartConfigHintTitle(): string;
 
-  getChartJsDataSetsAndLabels(): object;
-
   getColors(): string[];
 
   getDimensionDropZoneListItemViews(
@@ -189,14 +187,6 @@ export interface Chart {
     params: object,
     stateNamespace: ChartAreaStateNamespace,
     actions: Record<string, (...args: any[]) => void>
-  ): void;
-
-  handleChartJsClick(
-    event: any,
-    activeElements: object[],
-    data: object,
-    stateNamespace: ChartAreaStateNamespace,
-    actions: Record<string, (...args: any[]) => any>
   ): void;
 
   hasData(): boolean;

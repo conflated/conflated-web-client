@@ -11,10 +11,6 @@ import AbstractDrillDownChart from './AbstractDrillDownChart';
 import MapView from '../../../view/map/MapView';
 
 export default class MapChart extends AbstractDrillDownChart {
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   handleDataPointSelection(): void {
     throw new Error('Method not implemented.');
   }

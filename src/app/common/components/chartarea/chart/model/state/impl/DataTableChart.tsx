@@ -22,10 +22,6 @@ export default class DataTableChart extends AbstractDrillDownChart {
     return dimensionDropZoneListItemViews;
   }
 
-  override handleChartJsClick(): void {
-    throw new Error('Method not implemented.');
-  }
-
   handleDataPointSelection(): void {
     throw new Error('Method not implemented.');
   }
