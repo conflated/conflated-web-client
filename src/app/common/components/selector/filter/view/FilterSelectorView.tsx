@@ -59,48 +59,47 @@ const FilterSelectorView = ({
     ]);
   };
 
-  const selectedFilterListItems = selectedChart.getSelectedFilters().map((selectedFilter: Filter) => {
-    if (selectedFilter.type === 'measure') {
+  const filterListItems = selectedChart
+    .getSelectedFilters()
+    .filter(({ filterInputType }) => filterInputType !== 'Quick filter')
+    .map((filter: Filter) => {
+      if (filter.type === 'measure') {
+        return (
+          <MeasureFilterView
+            key={filter.measureOrDimension.name}
+            filter={filter}
+            chart={selectedChart}
+            removeFilter={() => removeFilterFromSelectedChart(filter)}
+            changeFilterAggregationFunction={(aggregationFunction: AggregationFunction) =>
+              changeFilterAggregationFunctionForSelectedChart(filter, aggregationFunction)
+            }
+            changeFilterExpression={(expression: string) => changeFilterExpressionForSelectedChart(filter, expression)}
+            changeFilterInputType={(filterInputType: FilterInputType) =>
+              changeFilterInputTypeForSelectedChart(filter, filterInputType)
+            }
+            changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
+              changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
+            }
+          />
+        );
+      }
+
       return (
-        <MeasureFilterView
-          key={selectedFilter.measureOrDimension.name}
-          filter={selectedFilter}
-          chart={selectedChart}
-          removeFilter={() => removeFilterFromSelectedChart(selectedFilter)}
-          changeFilterAggregationFunction={(aggregationFunction: AggregationFunction) =>
-            changeFilterAggregationFunctionForSelectedChart(selectedFilter, aggregationFunction)
-          }
-          changeFilterExpression={(expression: string) =>
-            changeFilterExpressionForSelectedChart(selectedFilter, expression)
-          }
+        <DimensionFilterView
+          key={filter.measureOrDimension.name}
+          filter={filter}
+          chartData={selectedChart.chartData}
+          removeFilter={() => removeFilterFromSelectedChart(filter)}
+          changeFilterExpression={(expression: string) => changeFilterExpressionForSelectedChart(filter, expression)}
           changeFilterInputType={(filterInputType: FilterInputType) =>
-            changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
+            changeFilterInputTypeForSelectedChart(filter, filterInputType)
           }
           changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
-            changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
+            changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
           }
         />
       );
-    }
-
-    return (
-      <DimensionFilterView
-        key={selectedFilter.measureOrDimension.name}
-        filter={selectedFilter}
-        chartData={selectedChart.chartData}
-        removeFilter={() => removeFilterFromSelectedChart(selectedFilter)}
-        changeFilterExpression={(expression: string) =>
-          changeFilterExpressionForSelectedChart(selectedFilter, expression)
-        }
-        changeFilterInputType={(filterInputType: FilterInputType) =>
-          changeFilterInputTypeForSelectedChart(selectedFilter, filterInputType)
-        }
-        changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
-          changeFilterDataScopeTypeForSelectedChart(selectedFilter, dataScopeType)
-        }
-      />
-    );
-  });
+    });
 
   const measureListItems = shownMeasures.map((measure: Measure) => (
     <MeasureListItemView
@@ -139,7 +138,7 @@ const FilterSelectorView = ({
       position="rightPane"
       selectedListItemsContent={
         <section className={styles.selectedFiltersSection}>
-          <List>{selectedFilterListItems}</List>
+          <List>{filterListItems}</List>
         </section>
       }
       listItemsContent={
