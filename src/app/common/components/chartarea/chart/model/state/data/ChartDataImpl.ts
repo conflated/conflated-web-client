@@ -21,18 +21,18 @@ export default class ChartDataImpl implements ChartData {
     this.columnNameToDataMap = columnNameToDataMap ?? {};
   }
 
-  filterChartData(selectedFilters: Filter[], dataScopeType: DataScopeType = 'already fetched') {
+  filterChartData(filters: Filter[], dataScopeType: DataScopeType = 'already fetched') {
     this.setUnfilteredChartData();
 
-    selectedFilters
-      .filter((selectedFilter: Filter) => selectedFilter.dataScopeType === dataScopeType)
-      .forEach((selectedFilter: Filter) => {
-        this.columnNameToDataMap = selectedFilter.applyFilter(this.columnNameToDataMap);
+    filters
+      .filter((filter) => filter.dataScopeType === dataScopeType)
+      .forEach((filter) => {
+        this.columnNameToDataMap = filter.applyFilter(this.columnNameToDataMap);
       });
   }
 
-  getAllValues(selectedFilter: Filter): Array<any> {
-    return this.columnNameToDataMap[`${selectedFilter.sqlColumn.name}___all___`] ?? [];
+  getAllValues(filter: Filter): Array<any> {
+    return this.columnNameToDataMap[`${filter.sqlColumn.name}___all___`] ?? [];
   }
 
   getBubbleChartData(
@@ -96,14 +96,14 @@ export default class ChartDataImpl implements ChartData {
     return selectedDimension ? this.getForSelectedDimension(selectedDimension) : [];
   }
 
-  getForSelectedFilter(selectedFilter: Filter | null): Array<any> {
-    if (selectedFilter) {
-      if (selectedFilter.dataScopeType === 'all') {
-        return this.columnNameToDataMap[`${selectedFilter.sqlColumn.name}___all___`] ?? [];
+  getForFilter(filter: Filter | null): Array<any> {
+    if (filter) {
+      if (filter.dataScopeType === 'all') {
+        return this.columnNameToDataMap[`${filter.sqlColumn.name}___all___`] ?? [];
       }
 
-      const unfilteredData = this.columnNameToDataMap[`${selectedFilter.sqlColumn.name}___unfiltered___`];
-      return unfilteredData ?? this.columnNameToDataMap[selectedFilter.sqlColumn.name] ?? [];
+      const unfilteredData = this.columnNameToDataMap[`${filter.sqlColumn.name}___unfiltered___`];
+      return unfilteredData ?? this.columnNameToDataMap[filter.sqlColumn.name] ?? [];
     }
 
     return [];
@@ -125,21 +125,21 @@ export default class ChartDataImpl implements ChartData {
     return selectedMeasure ? this.getForSelectedMeasure(selectedMeasure) : [];
   }
 
-  getForSelectedSortBy(selectedSortBy: Sort | null): Array<any> {
-    if (selectedSortBy) {
-      return this.columnNameToDataMap[selectedSortBy.sqlColumn.name] ?? [];
+  getForSort(sort: Sort | null): Array<any> {
+    if (sort) {
+      return this.columnNameToDataMap[sort.sqlColumn.name] ?? [];
     }
 
     return [];
   }
 
-  getMinAndMaxValueForSelectedFilter(selectedFilter: Filter): [number, number] {
+  getMinAndMaxValueForFilter(filter: Filter): [number, number] {
     let minValue = 0;
     let maxValue = Constants.SLIDER_MAX_VALUE;
-    const columnName = selectedFilter.sqlColumn.name;
+    const columnName = filter.sqlColumn.name;
 
-    const lowerCaseSqlColumnName = columnName.toLowerCase();
-    const isPercentColumn = lowerCaseSqlColumnName.includes('percent') || lowerCaseSqlColumnName.includes('%');
+    const lowerCaseColumnName = columnName.toLowerCase();
+    const isPercentColumn = lowerCaseColumnName.includes('percent') || lowerCaseColumnName.includes('%');
 
     if (isPercentColumn) {
       maxValue = Constants.PERCENT_SLIDER_MAX_VALUE;
@@ -150,10 +150,10 @@ export default class ChartDataImpl implements ChartData {
       const measureMinValue = this.columnNameToDataMap[`${columnName}___min___`]?.[0];
       const measureMaxValue = this.columnNameToDataMap[`${columnName}___max___`]?.[0];
 
-      if (measureValues && selectedFilter.dataScopeType === 'already fetched') {
+      if (measureValues && filter.dataScopeType === 'already fetched') {
         minValue = _.min(measureValues as number[]) ?? 0;
         maxValue = _.max(measureValues as number[]) ?? Constants.SLIDER_MAX_VALUE;
-      } else if (selectedFilter.dataScopeType === 'all' && measureMinValue != null && measureMaxValue != null) {
+      } else if (filter.dataScopeType === 'all' && measureMinValue != null && measureMaxValue != null) {
         minValue = (measureMinValue as number) ?? 0;
         maxValue = (measureMaxValue as number) ?? Constants.SLIDER_MAX_VALUE;
       }
@@ -196,7 +196,7 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, legendData];
   }
 
-  getAreaRangeChartData(
+  getRangeAreaChartData(
     selectedMeasures: SelectedMeasure[],
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selectedDimensions: SelectedDimension[]
@@ -235,23 +235,23 @@ export default class ChartDataImpl implements ChartData {
       });
   }
 
-  sort(selectedSortBys: Sort[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScopeType) {
-    Utils.pick(selectedSortBys, 'dataScopeType', dataScopeType).forEach(({ sqlColumn, sortDirection }: Sort) => {
+  sortChartData(sorts: Sort[], dataScopeType: DataScopeType = 'already fetched') {
+    if (_.isEmpty(sorts) || !Utils.has(sorts, 'dataScopeType', dataScopeType)) {
+      return;
+    }
+
+    const chartDataRows = this.getChartDataAsRows();
+    this.sort(sorts, chartDataRows, dataScopeType);
+    this.columnNameToDataMap = this.getChartDataRowsAsColumns(chartDataRows);
+  }
+
+  private sort(sorts: Sort[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScopeType) {
+    Utils.pick(sorts, 'dataScopeType', dataScopeType).forEach(({ sqlColumn, sortDirection }: Sort) => {
       if (chartDataRows.length > 0 && chartDataRows[0][sqlColumn.name]) {
         chartDataRows.sort((chartDataRow1: { [key: string]: any }, chartDataRow2: { [key: string]: any }) =>
           RowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
         );
       }
     });
-  }
-
-  sortChartData(selectedSortBys: Sort[], dataScopeType: DataScopeType = 'already fetched') {
-    if (_.isEmpty(selectedSortBys) || !Utils.has(selectedSortBys, 'dataScopeType', dataScopeType)) {
-      return;
-    }
-
-    const chartDataRows = this.getChartDataAsRows();
-    this.sort(selectedSortBys, chartDataRows, dataScopeType);
-    this.columnNameToDataMap = this.getChartDataRowsAsColumns(chartDataRows);
   }
 }

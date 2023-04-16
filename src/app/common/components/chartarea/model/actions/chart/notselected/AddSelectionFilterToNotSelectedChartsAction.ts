@@ -3,7 +3,7 @@ import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import { isNot } from '../../../../../../utils/Utils';
+import ChartFactory from '../../../../chart/model/state/ChartFactory';
 
 export default class AddSelectionFilterToNotSelectedChartsAction extends AbstractChartAreaAction {
   constructor(
@@ -27,13 +27,14 @@ export default class AddSelectionFilterToNotSelectedChartsAction extends Abstrac
 
     return {
       ...currentState,
-      charts: [
-        this.chart,
-        ...charts.filter(isNot(this.chart)).map((chart: Chart): Chart => {
+      charts: charts.map((chart) => {
+        if (chart !== this.chart) {
           chart.filters.addSelectionFilter(this.chart.id, this.selectedDimension, this.filterExpression);
+          return ChartFactory.createChart(chart.getChartConfiguration());
+        } else {
           return chart;
-        })
-      ]
+        }
+      })
     };
   }
 }

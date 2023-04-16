@@ -73,7 +73,7 @@ export default class FilterFactory {
       chartId,
       filterExpression,
       aggregationFunction: 'NONE',
-      dataScopeType: 'all',
+      dataScopeType: 'already fetched',
       filterInputType: 'Input filter',
       isDrillDownFilter: false,
       isSelectionFilter: true,

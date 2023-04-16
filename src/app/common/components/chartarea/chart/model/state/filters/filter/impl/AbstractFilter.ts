@@ -94,7 +94,7 @@ export default abstract class AbstractFilter implements Filter {
   }
 
   shouldFetchChartData(chartData: ChartData): boolean {
-    const filterValues = chartData.getForSelectedFilter(this);
+    const filterValues = chartData.getForFilter(this);
 
     return (
       (this.type === 'measure' &&
@@ -124,7 +124,7 @@ export default abstract class AbstractFilter implements Filter {
   }
 
   shouldFetchMeasureMinMaxValues(chartData: ChartData): boolean {
-    const [minValue, maxValue] = chartData.getMinAndMaxValueForSelectedFilter(this);
+    const [minValue, maxValue] = chartData.getMinAndMaxValueForFilter(this);
 
     return (
       this.type === 'measure' &&

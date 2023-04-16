@@ -32,7 +32,7 @@ const CheckboxesFilterInputView = ({
     changeFilterExpression(JSON.stringify(selectedFilterItems));
   };
 
-  const checkboxItems = _.uniq(chartData.getForSelectedFilter(selectedFilter));
+  const checkboxItems = _.uniq(chartData.getForFilter(selectedFilter));
   const checkedItems = filterExpression ? JSON.parse(filterExpression) : [];
 
   const checkboxes = checkboxItems.map((item: any) => (

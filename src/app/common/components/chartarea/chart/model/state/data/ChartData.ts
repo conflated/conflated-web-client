@@ -10,9 +10,9 @@ import type { TriggersPageStateNamespace } from '../../../../../page/triggers/mo
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 
 export interface ChartData {
-  filterChartData(selectedFilters: Filter[], dataScopeType?: DataScopeType): void;
+  filterChartData(filters: Filter[], dataScopeType?: DataScopeType): void;
 
-  getAllValues(selectedFilter: Filter): Array<any>;
+  getAllValues(filter: Filter): Array<any>;
 
   getBubbleChartData(
     selectedMeasures: SelectedMeasure[],
@@ -37,11 +37,11 @@ export interface ChartData {
     visualizationType: DimensionVisualizationType
   ): Array<any>;
 
-  getForSelectedFilter(selectedFilter: Filter | null | undefined): Array<any>;
+  getForFilter(filter: Filter | null | undefined): Array<any>;
 
-  getForSelectedSortBy(selectedSortBy: Sort | null | undefined): Array<any>;
+  getForSort(sort: Sort | null | undefined): Array<any>;
 
-  getMinAndMaxValueForSelectedFilter(selectedFilter: Filter): [number, number];
+  getMinAndMaxValueForFilter(filter: Filter): [number, number];
 
   getMapLocationData(selectedDimensions: SelectedDimension[]): [Array<any>, Array<any>];
 
@@ -50,7 +50,7 @@ export interface ChartData {
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[]];
 
-  getAreaRangeChartData(
+  getRangeAreaChartData(
     selectedMeasures: SelectedMeasure[],
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[], any[], any[]];
@@ -58,5 +58,5 @@ export interface ChartData {
   getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
   getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
 
-  sortChartData(selectedSortBys: Sort[], dataScopeType?: DataScopeType): void;
+  sortChartData(sorts: Sort[], dataScopeType?: DataScopeType): void;
 }

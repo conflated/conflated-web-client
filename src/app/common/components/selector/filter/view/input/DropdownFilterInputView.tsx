@@ -12,7 +12,7 @@ type Props = {
 };
 
 const DropdownFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
-  const dropdownItems = chartData.getForSelectedFilter(selectedFilter);
+  const dropdownItems = chartData.getForFilter(selectedFilter);
 
   const dropdownOptions = dropdownItems.map((value: any) => ({
     key: value,

@@ -61,7 +61,7 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
-      const [yAxisData, lowerBoundData, upperBoundData, xAxisData, legendData] = this.chartData.getAreaRangeChartData(
+      const [yAxisData, lowerBoundData, upperBoundData, xAxisData, legendData] = this.chartData.getRangeAreaChartData(
         this.selectedMeasures,
         this.selectedDimensions
       );

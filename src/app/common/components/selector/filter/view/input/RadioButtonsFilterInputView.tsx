@@ -14,7 +14,7 @@ type Props = {
 };
 
 const RadioButtonsFilterInputView = ({ changeFilterExpression, chartData, className, selectedFilter }: Props) => {
-  const radioButtonItems = _.uniq(chartData.getForSelectedFilter(selectedFilter));
+  const radioButtonItems = _.uniq(chartData.getForFilter(selectedFilter));
 
   const radioButtons = radioButtonItems.map((item: any) => (
     <Radio
