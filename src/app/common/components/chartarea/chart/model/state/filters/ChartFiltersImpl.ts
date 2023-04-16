@@ -42,6 +42,7 @@ export default class ChartFiltersImpl implements ChartFilters {
   addSelectionFilter(chartId: string, selectedDimension: SelectedDimension, filterExpression: string) {
     const selectedFilter = FilterFactory.createSelectionFilter(chartId, selectedDimension, filterExpression);
     this.filters = [...this.filters, selectedFilter];
+    this.chartData.filterChartData(this.filters);
   }
 
   changeFilterAggregationFunction(filter: Filter, aggregationFunction: AggregationFunction) {

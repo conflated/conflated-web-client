@@ -1,11 +1,9 @@
-import _ from 'lodash';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import StartFetchDataForOtherChartsAction from '../fetchdata/StartFetchDataForOtherChartsAction';
-import diContainer from '../../../../../../../../di/diContainer';
+import { isNot } from '../../../../../../utils/Utils';
 
 export default class AddSelectionFilterToNotSelectedChartsAction extends AbstractChartAreaAction {
   constructor(
@@ -18,24 +16,24 @@ export default class AddSelectionFilterToNotSelectedChartsAction extends Abstrac
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
-      chart: this.chart,
-      stateNamespace: this.stateNamespace
-    });
+    /* if (this.filter.dataScopeType === 'all') {
+      this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, {
+        chart: this.chart,
+        stateNamespace: this.stateNamespace
+      });
+    } */
 
     const { charts } = currentState;
 
-    const newState = {
+    return {
       ...currentState,
       charts: [
         this.chart,
-        ..._.without(charts, this.chart).map((chart: Chart): Chart => {
+        ...charts.filter(isNot(this.chart)).map((chart: Chart): Chart => {
           chart.filters.addSelectionFilter(this.chart.id, this.selectedDimension, this.filterExpression);
           return chart;
         })
       ]
     };
-
-    return newState;
   }
 }
