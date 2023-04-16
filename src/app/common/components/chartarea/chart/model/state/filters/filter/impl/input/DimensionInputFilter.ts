@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColumnNameToValuesMap } from '../../../../data/ColumnNameToValuesMap';
 import AbstractInputFilter from './AbstractInputFilter';
+import NumberRangesParser from '../../../../../../../../../utils/numberrange/NumberRangesParser';
 
 export default class DimensionInputFilter extends AbstractInputFilter {
   getPlaceholder(): string {
@@ -21,10 +22,27 @@ export default class DimensionInputFilter extends AbstractInputFilter {
       newChartData[this.sqlColumn.name] = (chartData as any)[this.sqlColumn.name].filter(
         (chartDataValue: string, index: number): boolean => {
           const matchedFilterTermForChartDataValue = trimmedFilterTerms.find((term: string): boolean => {
-            const chartDataValueMatchesTerm = this.doesChartDataValueMatchTerm(chartDataValue, term);
+            let chartDataValueMatchesTerm = false;
+
+            if (term.includes('-')) {
+              const numberRange = NumberRangesParser.parseNumberRange(term, true);
+              const chartDataValueAsNumber = parseInt(chartDataValue, 10);
+              if (
+                Number.isFinite(numberRange.startValue) &&
+                Number.isFinite(numberRange.endValue) &&
+                Number.isFinite(chartDataValueAsNumber)
+              ) {
+                chartDataValueMatchesTerm =
+                  chartDataValueAsNumber >= numberRange.startValue && chartDataValueAsNumber <= numberRange.endValue;
+              }
+            } else {
+              chartDataValueMatchesTerm = this.doesChartDataValueMatchTerm(chartDataValue, term);
+            }
+
             if (chartDataValueMatchesTerm) {
               filteredInIndexes.push(index);
             }
+
             return chartDataValueMatchesTerm;
           });
 

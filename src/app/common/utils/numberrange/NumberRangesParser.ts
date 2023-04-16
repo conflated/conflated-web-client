@@ -2,42 +2,44 @@ import type { NumberRange } from './NumberRange';
 
 export default class NumberRangesParser {
   static parseNumberRange(numberRangeStr: string, allowPlainRanges = true): NumberRange {
-    if (numberRangeStr.startsWith('<=')) {
-      const number = parseInt(numberRangeStr.slice(2), 10);
+    if (!allowPlainRanges) {
+      if (numberRangeStr.startsWith('<=')) {
+        const number = parseInt(numberRangeStr.slice(2), 10);
 
-      return {
-        startValue: Number.MIN_SAFE_INTEGER,
-        endValue: number
-      };
-    }
+        return {
+          startValue: Number.MIN_SAFE_INTEGER,
+          endValue: number
+        };
+      }
 
-    if (numberRangeStr[0] === '<') {
-      const number = parseInt(numberRangeStr.slice(1), 10);
+      if (numberRangeStr[0] === '<') {
+        const number = parseInt(numberRangeStr.slice(1), 10);
 
-      return {
-        startValue: Number.MIN_SAFE_INTEGER,
-        endValue: number,
-        isEndValueExclusive: true
-      };
-    }
+        return {
+          startValue: Number.MIN_SAFE_INTEGER,
+          endValue: number,
+          isEndValueExclusive: true
+        };
+      }
 
-    if (numberRangeStr.startsWith('>=')) {
-      const number = parseInt(numberRangeStr.slice(2), 10);
+      if (numberRangeStr.startsWith('>=')) {
+        const number = parseInt(numberRangeStr.slice(2), 10);
 
-      return {
-        startValue: number,
-        endValue: Number.MAX_SAFE_INTEGER
-      };
-    }
+        return {
+          startValue: number,
+          endValue: Number.MAX_SAFE_INTEGER
+        };
+      }
 
-    if (numberRangeStr[0] === '>') {
-      const number = parseInt(numberRangeStr.slice(1), 10);
+      if (numberRangeStr[0] === '>') {
+        const number = parseInt(numberRangeStr.slice(1), 10);
 
-      return {
-        startValue: number,
-        endValue: Number.MAX_SAFE_INTEGER,
-        isStartValueExclusive: true
-      };
+        return {
+          startValue: number,
+          endValue: Number.MAX_SAFE_INTEGER,
+          isStartValueExclusive: true
+        };
+      }
     }
 
     if (allowPlainRanges || (!allowPlainRanges && numberRangeStr[0] === '=')) {
