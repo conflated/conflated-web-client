@@ -155,7 +155,7 @@ const DimensionSelectorView = ({
   const chartListItems = useMemo(
     () =>
       charts
-        .filter((chart) => chart !== selectedChart)
+        .filter((chart) => chart !== selectedChart && chart.hasData())
         .map((chart) => (
           <DraggableChartListItemView
             key={chart.getName('dataExplorerPage')}
