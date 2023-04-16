@@ -20,7 +20,7 @@ export default class RemoveSortFromSelectedChartAction extends AbstractChartArea
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedSortBys.removeSelectedSortBy(this.selectedSortBy);
+    selectedChart.sorts.removeSelectedSortBy(this.selectedSortBy);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

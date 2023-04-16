@@ -17,7 +17,7 @@ export default class AddMeasureFilterToSelectedChartAction extends AbstractChart
     });
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.addMeasureFilter(this.measure);
+    selectedChart.filters.addMeasureFilter(this.measure);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

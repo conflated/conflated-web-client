@@ -14,7 +14,7 @@ export default class ChangeChartQuickFilterChartAction extends AbstractChartArea
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    this.chart.selectedFilters.removeQuickFilters();
+    this.chart.filters.removeQuickFilters();
 
     if (this.chart.selectedMeasures[0]) {
       const measureFilterExpression = this.filterExpression
@@ -24,12 +24,12 @@ export default class ChangeChartQuickFilterChartAction extends AbstractChartArea
         .join(',');
 
       if (measureFilterExpression) {
-        const measureFilter = this.chart.selectedFilters.addMeasureFilter(
+        const measureFilter = this.chart.filters.addMeasureFilter(
           this.chart.selectedMeasures[0].measure,
           'Quick filter'
         );
 
-        this.chart.selectedFilters.changeFilterExpression(measureFilter, measureFilterExpression);
+        this.chart.filters.changeFilterExpression(measureFilter, measureFilterExpression);
       }
     }
 
@@ -43,12 +43,12 @@ export default class ChangeChartQuickFilterChartAction extends AbstractChartArea
         .join(',');
 
       if (dimensionFilterExpression) {
-        const dimensionFilter = this.chart.selectedFilters.addDimensionFilter(
+        const dimensionFilter = this.chart.filters.addDimensionFilter(
           this.chart.selectedDimensions[0].dimension,
           'Quick filter'
         );
 
-        this.chart.selectedFilters.changeFilterExpression(dimensionFilter, dimensionFilterExpression);
+        this.chart.filters.changeFilterExpression(dimensionFilter, dimensionFilterExpression);
       }
     }
 

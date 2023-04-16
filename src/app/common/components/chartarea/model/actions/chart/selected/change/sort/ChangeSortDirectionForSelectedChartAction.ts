@@ -24,7 +24,7 @@ export default class ChangeSortDirectionForSelectedChartAction extends AbstractC
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedSortBys.changeSelectedSortByDirection(this.selectedSortBy, this.sortDirection);
+    selectedChart.sorts.changeSelectedSortByDirection(this.selectedSortBy, this.sortDirection);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

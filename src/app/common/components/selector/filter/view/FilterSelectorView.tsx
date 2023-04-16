@@ -60,7 +60,7 @@ const FilterSelectorView = ({
   };
 
   const filterListItems = selectedChart
-    .getSelectedFilters()
+    .getFilters()
     .filter(({ filterInputType }) => filterInputType !== 'Quick filter')
     .map((filter: Filter) => {
       if (filter.type === 'measure') {

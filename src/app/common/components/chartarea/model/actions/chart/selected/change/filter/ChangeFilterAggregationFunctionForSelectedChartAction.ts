@@ -25,7 +25,7 @@ export default class ChangeFilterAggregationFunctionForSelectedChartAction exten
 
     const { selectedChart } = currentState;
 
-    selectedChart.selectedFilters.changeFilterAggregationFunction(this.selectedFilter, this.aggregationFunction);
+    selectedChart.filters.changeFilterAggregationFunction(this.selectedFilter, this.aggregationFunction);
 
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }

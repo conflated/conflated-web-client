@@ -24,7 +24,7 @@ export default class ChangeSortDataScopeTypeForSelectedChartAction extends Abstr
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedSortBys.changeSelectedSortByDataScopeType(this.selectedSortBy, this.dataScopeType);
+    selectedChart.sorts.changeSelectedSortByDataScopeType(this.selectedSortBy, this.dataScopeType);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

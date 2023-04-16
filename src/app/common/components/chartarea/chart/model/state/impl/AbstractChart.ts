@@ -51,9 +51,9 @@ export default abstract class AbstractChart implements Chart {
 
   selectedDimensions: SelectedDimension[] = [];
 
-  selectedFilters: ChartFilters = new ChartFiltersImpl([], new ChartDataImpl());
+  filters: ChartFilters = new ChartFiltersImpl([], new ChartDataImpl());
 
-  selectedSortBys: ChartSorts = new ChartSortsImpl([]);
+  sorts: ChartSorts = new ChartSortsImpl([]);
 
   chartData: ChartData = new ChartDataImpl();
 
@@ -89,8 +89,8 @@ export default abstract class AbstractChart implements Chart {
       this.selectedMeasures = chartConfiguration.selectedMeasures;
       this.selectedDimensions = chartConfiguration.selectedDimensions;
       this.chartData = new ChartDataImpl(chartConfiguration.chartData);
-      this.selectedFilters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
-      this.selectedSortBys = new ChartSortsImpl(chartConfiguration.selectedSortBys);
+      this.filters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
+      this.sorts = new ChartSortsImpl(chartConfiguration.selectedSortBys);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
       this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;
@@ -144,7 +144,7 @@ export default abstract class AbstractChart implements Chart {
       }
     });
 
-    this.selectedSortBys.updateSelectedSortBysWhenChangingSelectedMeasureAggregationFunction(
+    this.sorts.updateSelectedSortBysWhenChangingSelectedMeasureAggregationFunction(
       aggregationFunction,
       this.selectedMeasures
     );
@@ -250,8 +250,8 @@ export default abstract class AbstractChart implements Chart {
       dataSource: this.dataSource,
       selectedMeasures: this.selectedMeasures,
       selectedDimensions: this.selectedDimensions,
-      selectedFilters: this.getSelectedFilters(),
-      selectedSortBys: this.getSelectedSortBys(),
+      selectedFilters: this.getFilters(),
+      selectedSortBys: this.getSorts(),
       chartData: this.chartData.getColumnNameToValuesMap(),
       xAxisCategoriesShownCount: this.xAxisCategoriesShownCount,
       fetchedRowCount: this.fetchedRowCount,
@@ -385,12 +385,10 @@ export default abstract class AbstractChart implements Chart {
 
     newChart.selectedMeasures = newChart.getConvertSelectedMeasures();
 
-    newChart.selectedSortBys = new ChartSortsImpl(
-      newChart.selectedSortBys.getConvertSelectedSortBys(this.selectedDimensions)
-    );
+    newChart.sorts = new ChartSortsImpl(newChart.sorts.getConvertSelectedSortBys(this.selectedDimensions));
 
-    if (newChart.selectedSortBys !== this.selectedSortBys) {
-      this.chartData.sortChartData(newChart.getSelectedSortBys(), 'all');
+    if (newChart.sorts !== this.sorts) {
+      this.chartData.sortChartData(newChart.getSorts(), 'all');
     }
 
     return newChart;
@@ -432,8 +430,8 @@ export default abstract class AbstractChart implements Chart {
     return Utils.findElem(this.selectedDimensions, 'visualizationType', visualizationType);
   }
 
-  getSelectedFilters(): Filter[] {
-    return this.selectedFilters.getFilters();
+  getFilters(): Filter[] {
+    return this.filters.getFilters();
   }
 
   getSelectedMeasureOfType(visualizationType: MeasureVisualizationType): SelectedMeasure | null | undefined {
@@ -444,8 +442,8 @@ export default abstract class AbstractChart implements Chart {
     return Utils.pick(this.selectedMeasures, 'visualizationType', visualizationType);
   }
 
-  getSelectedSortBys(): Sort[] {
-    return this.selectedSortBys.getSelectedSortBys();
+  getSorts(): Sort[] {
+    return this.sorts.getSelectedSortBys();
   }
 
   getStrokeWidth(): number | number[] {
@@ -645,8 +643,8 @@ export default abstract class AbstractChart implements Chart {
   setChartData(columnNameToValuesMap: ColumnNameToValuesMap) {
     this.isFetchingChartData = false;
     this.chartData = new ChartDataImpl(columnNameToValuesMap);
-    this.chartData.filterChartData(this.getSelectedFilters());
-    this.chartData.sortChartData(this.getSelectedSortBys());
+    this.chartData.filterChartData(this.getFilters());
+    this.chartData.sortChartData(this.getSorts());
   }
 
   setIsFetchingChartData(isFetchingCharData: boolean) {
@@ -728,7 +726,7 @@ export default abstract class AbstractChart implements Chart {
       })
     );
 
-    const selectedFilters = this.getSelectedFilters();
+    const selectedFilters = this.getFilters();
 
     const filterDimensionColumns: Column[] = selectedFilters
       .filter(
@@ -756,7 +754,7 @@ export default abstract class AbstractChart implements Chart {
         type: 'measure'
       }));
 
-    const selectedSortBys = this.getSelectedSortBys();
+    const selectedSortBys = this.getSorts();
 
     const sortByDimensionColumns: Column[] = selectedSortBys
       .filter(

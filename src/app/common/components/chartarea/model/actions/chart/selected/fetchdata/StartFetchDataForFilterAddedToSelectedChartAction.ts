@@ -22,7 +22,7 @@ class StartFetchDataForFilterAddedToSelectedChartAction extends AbstractChartAre
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
-    const lastSelectedFilter = _.last(selectedChart.getSelectedFilters());
+    const lastSelectedFilter = _.last(selectedChart.getFilters());
 
     if (selectedChart.chartData.getForSelectedFilter(lastSelectedFilter).length === 0) {
       return this.performAction(

@@ -23,7 +23,7 @@ export default class ChangeFilterInputTypeForSelectedChartAction extends Abstrac
     });
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.changeFilterInputType(this.selectedFilter, this.filterInputType);
+    selectedChart.filters.changeFilterInputType(this.selectedFilter, this.filterInputType);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

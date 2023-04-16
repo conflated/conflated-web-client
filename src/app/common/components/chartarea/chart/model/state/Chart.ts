@@ -33,8 +33,8 @@ export interface Chart {
   dataSource: DataSource;
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
-  selectedFilters: ChartFilters;
-  selectedSortBys: ChartSorts;
+  filters: ChartFilters;
+  sorts: ChartSorts;
   chartData: ChartData;
   xAxisCategoriesShownCount: number;
   fetchedRowCount: number;
@@ -166,9 +166,9 @@ export interface Chart {
 
   getPrimarySelectedDimensionType(): DimensionVisualizationType | null;
 
-  getSelectedFilters(): Filter[];
+  getFilters(): Filter[];
 
-  getSelectedSortBys(): Sort[];
+  getSorts(): Sort[];
 
   getSupportedAggregationFunctions(): AggregationFunction[];
 

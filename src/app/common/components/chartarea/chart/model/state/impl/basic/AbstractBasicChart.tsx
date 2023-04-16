@@ -348,13 +348,13 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
   }
 
   override removeSelectedDimension(selectedDimension: SelectedDimension) {
-    this.selectedSortBys.updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
+    this.sorts.updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
 
     super.removeSelectedDimension(selectedDimension);
   }
 
   override removeSelectedMeasure(selectedMeasure: SelectedMeasure) {
-    this.selectedSortBys.updateSelectedSortBysWhenRemovingSelectedMeasure(selectedMeasure, this.selectedMeasures);
+    this.sorts.updateSelectedSortBysWhenRemovingSelectedMeasure(selectedMeasure, this.selectedMeasures);
 
     super.removeSelectedMeasure(selectedMeasure);
   }

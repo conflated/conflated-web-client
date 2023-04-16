@@ -31,7 +31,7 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaAction {
 
     _.without(charts, this.chart).forEach((chart: Chart) =>
       this.chartDataService
-        .fetchChartData(chart.dataSource, chart.getColumns(), chart.getSelectedFilters(), chart.getSelectedSortBys())
+        .fetchChartData(chart.dataSource, chart.getColumns(), chart.getFilters(), chart.getSorts())
         .then((columnNameToValuesMap: ColumnNameToValuesMap) =>
           this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, chart.id))
         )

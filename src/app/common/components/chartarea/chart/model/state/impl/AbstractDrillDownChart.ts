@@ -7,17 +7,17 @@ export default abstract class AbstractDrillDownChart extends AbstractChart {
   drillDown(drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) {
     this.drillDowns?.push(drillDown);
     this.currentDrillDownSelectedDimension = newDrillDownSelectedDimension;
-    this.selectedFilters.addDrillDownFilter(drillDown);
+    this.filters.addDrillDownFilter(drillDown);
   }
 
   override drillUp(): boolean {
     const newDrillDownSelectedDimension = this.getPreviousDrillDownSelectedDimension();
 
     if (this.currentDrillDownSelectedDimension !== newDrillDownSelectedDimension) {
-      const lastDrillDownFilter = this.selectedFilters.getLastDrillDownFilter();
+      const lastDrillDownFilter = this.filters.getLastDrillDownFilter();
 
       if (lastDrillDownFilter != null) {
-        this.selectedFilters.removeFilter(lastDrillDownFilter);
+        this.filters.removeFilter(lastDrillDownFilter);
       }
 
       this.drillDowns = this.drillDowns?.slice(0, -1);

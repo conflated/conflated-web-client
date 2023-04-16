@@ -28,12 +28,7 @@ class StartFetchDataForChartAction extends AbstractChartAreaAction {
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chartDataService
-      .fetchChartData(
-        this.chart.dataSource,
-        this.chart.getColumns(),
-        this.chart.getSelectedFilters(),
-        this.chart.getSelectedSortBys()
-      )
+      .fetchChartData(this.chart.dataSource, this.chart.getColumns(), this.chart.getFilters(), this.chart.getSorts())
       .then((columnNameToValuesMap: ColumnNameToValuesMap) => {
         this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, this.chart.id));
       });

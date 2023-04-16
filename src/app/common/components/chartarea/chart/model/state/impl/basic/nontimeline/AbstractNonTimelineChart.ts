@@ -9,12 +9,12 @@ export default abstract class AbstractNonTimelineChart extends AbstractBasicChar
   constructor(chartConfiguration?: ChartConfiguration) {
     super(chartConfiguration);
     if (chartConfiguration) {
-      this.selectedSortBys = new NonTimelineChartSorts(chartConfiguration.selectedSortBys);
+      this.sorts = new NonTimelineChartSorts(chartConfiguration.selectedSortBys);
     }
   }
 
   override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
-    this.selectedSortBys.updateSelectedSortBysWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
+    this.sorts.updateSelectedSortBysWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }
 }

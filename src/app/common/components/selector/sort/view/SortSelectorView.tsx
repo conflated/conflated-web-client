@@ -67,7 +67,7 @@ const SortSelectorView = ({
   // flashSelectedSortBysBriefly();
 
   const selectedSortByListItems = selectedChart
-    .getSelectedSortBys()
+    .getSorts()
     .map((selectedSortBy: Sort) => (
       <SortListItemView
         key={selectedSortBy.measureOrDimension.name}

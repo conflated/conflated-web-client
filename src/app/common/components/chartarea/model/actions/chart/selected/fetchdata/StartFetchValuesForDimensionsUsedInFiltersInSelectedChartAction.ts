@@ -27,7 +27,7 @@ class StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction extends Ab
     const { selectedChart } = currentState;
 
     const dimensionColumns: Column[] = selectedChart
-      .getSelectedFilters()
+      .getFilters()
       .filter(
         ({ type, filterInputType }: Filter) =>
           (type === 'dimension' && filterInputType === 'Dropdown filter') ||

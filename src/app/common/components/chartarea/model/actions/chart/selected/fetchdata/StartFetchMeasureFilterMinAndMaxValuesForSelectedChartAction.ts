@@ -24,7 +24,7 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
-    const selectedFilters = selectedChart.getSelectedFilters();
+    const selectedFilters = selectedChart.getFilters();
 
     const minMaxMeasureColumns = selectedFilters
       .filter(({ type, filterInputType }: Filter) => type === 'measure' && filterInputType === 'Range filter')

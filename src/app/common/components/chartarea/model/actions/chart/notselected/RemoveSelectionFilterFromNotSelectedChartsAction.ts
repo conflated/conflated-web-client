@@ -19,7 +19,7 @@ export default class RemoveSelectionFilterFromNotSelectedChartsAction extends Ab
           this.selectedChart,
           ..._.without(charts, this.selectedChart).map((chart: Chart): Chart => {
             if (this.selectedChart != null) {
-              chart.selectedFilters.removeSelectionFilter(this.selectedChart.id);
+              chart.filters.removeSelectionFilter(this.selectedChart.id);
             }
 
             return chart;

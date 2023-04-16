@@ -25,10 +25,7 @@ export default class ChangeSortAggregationFunctionForSelectedChartAction extends
 
     const { selectedChart } = currentState;
 
-    selectedChart.selectedSortBys.changeSelectedSortByAggregationFunction(
-      this.selectedSortBy,
-      this.aggregationFunction
-    );
+    selectedChart.sorts.changeSelectedSortByAggregationFunction(this.selectedSortBy, this.aggregationFunction);
 
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
   }

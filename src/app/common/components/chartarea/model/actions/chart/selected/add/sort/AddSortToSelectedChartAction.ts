@@ -25,7 +25,7 @@ export default class AddSortToSelectedChartAction extends AbstractChartAreaActio
     });
 
     const { selectedChart } = currentState;
-    selectedChart.selectedSortBys.addSelectedSortBy(this.measureOrDimension, this.type, this.sortDirection);
+    selectedChart.sorts.addSelectedSortBy(this.measureOrDimension, this.type, this.sortDirection);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
   }
 }

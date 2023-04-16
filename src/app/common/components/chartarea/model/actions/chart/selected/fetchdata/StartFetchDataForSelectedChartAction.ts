@@ -28,8 +28,8 @@ class StartFetchDataForSelectedChartAction extends AbstractChartAreaAction {
       .fetchChartData(
         selectedChart.dataSource,
         selectedChart.getColumns(),
-        selectedChart.getSelectedFilters(),
-        selectedChart.getSelectedSortBys()
+        selectedChart.getFilters(),
+        selectedChart.getSorts()
       )
       .then((columnNameToValuesMap: ColumnNameToValuesMap) => {
         this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, selectedChart.id));
