@@ -8,11 +8,11 @@ import type { DrillDown } from '../types/DrillDown';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 
 export interface ChartFilters {
-  addDimensionFilter(dimension: Dimension): Filter;
+  addDimensionFilter(dimension: Dimension, filterInputType?: FilterInputType): Filter;
 
   addDrillDownFilter(drillDown: DrillDown): void;
 
-  addMeasureFilter(measure: Measure): Filter;
+  addMeasureFilter(measure: Measure, filterInputType?: FilterInputType): Filter;
 
   addSelectionFilter(chartId: string, selectedDimension: SelectedDimension, filterExpression: string): void;
 
@@ -31,4 +31,6 @@ export interface ChartFilters {
   removeFilter(selectedFilter: Filter): void;
 
   removeSelectionFilter(chartId: string): void;
+
+  removeQuickFilters(): void;
 }

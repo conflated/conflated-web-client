@@ -6,4 +6,5 @@ export type FilterInputType =
   | 'Date range filter'
   | 'Timestamp range filter'
   | 'Checkboxes filter'
-  | 'Radio buttons filter';
+  | 'Radio buttons filter'
+  | 'Quick filter';

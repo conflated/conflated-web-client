@@ -22,8 +22,8 @@ export default class ChartFiltersImpl implements ChartFilters {
     this.chartData = chartData;
   }
 
-  addDimensionFilter(dimension: Dimension): Filter {
-    const selectedFilter = FilterFactory.createDimensionSelectedFilter(dimension);
+  addDimensionFilter(dimension: Dimension, filterInputType?: FilterInputType): Filter {
+    const selectedFilter = FilterFactory.createDimensionFilter(dimension, filterInputType);
     this.filters = [...this.filters, selectedFilter];
     return selectedFilter;
   }
@@ -33,8 +33,8 @@ export default class ChartFiltersImpl implements ChartFilters {
     this.filters = [...this.filters, drillDownFilter];
   }
 
-  addMeasureFilter(measure: Measure): Filter {
-    const selectedFilter = FilterFactory.createMeasureSelectedFilter(measure);
+  addMeasureFilter(measure: Measure, filterInputType?: FilterInputType): Filter {
+    const selectedFilter = FilterFactory.createMeasureFilter(measure, filterInputType);
     this.filters = [...this.filters, selectedFilter];
     return selectedFilter;
   }
@@ -54,7 +54,7 @@ export default class ChartFiltersImpl implements ChartFilters {
       }
     };
 
-    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    const newFilter = FilterFactory.createFilter(newFilterConfiguration);
     this.filters = Utils.replace(this.filters, filter, newFilter);
     this.chartData.filterChartData(this.filters, filter.dataScopeType);
   }
@@ -65,7 +65,7 @@ export default class ChartFiltersImpl implements ChartFilters {
       dataScopeType
     };
 
-    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    const newFilter = FilterFactory.createFilter(newFilterConfiguration);
     this.filters = Utils.replace(this.filters, filter, newFilter);
   }
 
@@ -75,7 +75,7 @@ export default class ChartFiltersImpl implements ChartFilters {
       filterExpression
     };
 
-    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    const newFilter = FilterFactory.createFilter(newFilterConfiguration);
     this.filters = Utils.replace(this.filters, filter, newFilter);
 
     if (filter.dataScopeType === 'already fetched') {
@@ -92,7 +92,7 @@ export default class ChartFiltersImpl implements ChartFilters {
       filterInputType
     };
 
-    const newFilter = FilterFactory.createSelectedFilter(newFilterConfiguration);
+    const newFilter = FilterFactory.createFilter(newFilterConfiguration);
     this.filters = Utils.replace(this.filters, filter, newFilter);
     return newFilter;
   }
@@ -115,6 +115,11 @@ export default class ChartFiltersImpl implements ChartFilters {
       ({ chartId, isSelectionFilter }: Filter) => !isSelectionFilter || chartId !== selectionChartId
     );
 
+    this.chartData.filterChartData(this.filters);
+  }
+
+  removeQuickFilters() {
+    this.filters = this.filters.filter(({ filterInputType }: Filter) => filterInputType !== 'Quick filter');
     this.chartData.filterChartData(this.filters);
   }
 }

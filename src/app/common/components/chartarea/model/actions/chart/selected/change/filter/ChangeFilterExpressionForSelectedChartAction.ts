@@ -9,21 +9,21 @@ import diContainer from '../../../../../../../../../../di/diContainer';
 export default class ChangeFilterExpressionForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: Filter,
+    private readonly filter: Filter,
     private readonly expression: string
   ) {
     super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedFilter.dataScopeType === 'all') {
+    if (this.filter.dataScopeType === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });
     }
 
     const { selectedChart } = currentState;
-    selectedChart.selectedFilters.changeFilterExpression(this.selectedFilter, this.expression);
+    selectedChart.selectedFilters.changeFilterExpression(this.filter, this.expression);
     return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

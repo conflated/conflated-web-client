@@ -14,16 +14,17 @@ import SqlUtils from '../../../../../../../utils/SqlUtils';
 import type { Filter } from './Filter';
 import type { DrillDown } from '../../types/DrillDown';
 import RadioButtonFilter from './impl/RadioButtonFilter';
+import { FilterInputType } from './inputtype/FilterInputType';
 
 export default class FilterFactory {
-  static createDimensionSelectedFilter(dimension: Measure | Dimension): Filter {
-    const selectedFilterConfiguration: FilterConfiguration = {
+  static createDimensionFilter(dimension: Measure | Dimension, filterInputType?: FilterInputType): Filter {
+    const filterConfiguration: FilterConfiguration = {
       aggregationFunction: 'NONE',
       allowedDimensionFilterInputTypes: FilterInputTypeFactory.createAllowedFilterInputTypes(dimension),
       chartId: '',
       dataScopeType: 'already fetched',
       filterExpression: dimension.isTimestamp ? ' Minutes' : '',
-      filterInputType: FilterInputTypeFactory.createFilterInputType(dimension),
+      filterInputType: filterInputType ?? FilterInputTypeFactory.createFilterInputType(dimension),
       isDrillDownFilter: false,
       isSelectionFilter: false,
       measureOrDimension: dimension,
@@ -34,17 +35,17 @@ export default class FilterFactory {
       type: 'dimension'
     };
 
-    return FilterFactory.createSelectedFilter(selectedFilterConfiguration);
+    return FilterFactory.createFilter(filterConfiguration);
   }
 
-  static createMeasureSelectedFilter(measure: Measure | Dimension): Filter {
-    const selectedFilterConfiguration: FilterConfiguration = {
+  static createMeasureFilter(measure: Measure | Dimension, filterInputType?: FilterInputType): Filter {
+    const filterConfiguration: FilterConfiguration = {
       allowedDimensionFilterInputTypes: [],
       aggregationFunction: 'SUM',
       chartId: '',
       dataScopeType: 'already fetched',
       filterExpression: '',
-      filterInputType: 'Input filter',
+      filterInputType: filterInputType ?? 'Input filter',
       isDrillDownFilter: false,
       isSelectionFilter: false,
       measureOrDimension: measure,
@@ -55,7 +56,7 @@ export default class FilterFactory {
       type: 'measure'
     };
 
-    return FilterFactory.createSelectedFilter(selectedFilterConfiguration);
+    return FilterFactory.createFilter(filterConfiguration);
   }
 
   static createSelectionFilter(
@@ -67,7 +68,7 @@ export default class FilterFactory {
       selectedDimension.dimension
     );
 
-    const selectedFilterConfiguration: FilterConfiguration = {
+    const filterConfiguration: FilterConfiguration = {
       allowedDimensionFilterInputTypes,
       chartId,
       filterExpression,
@@ -84,7 +85,7 @@ export default class FilterFactory {
       type: 'dimension'
     };
 
-    return FilterFactory.createSelectedFilter(selectedFilterConfiguration);
+    return FilterFactory.createFilter(filterConfiguration);
   }
 
   static createDrillDownFilter(drillDown: DrillDown, filterExpression: string): Filter {
@@ -92,7 +93,7 @@ export default class FilterFactory {
       drillDown.selectedDimension.dimension
     );
 
-    const selectedFilterConfiguration: FilterConfiguration = {
+    const filterConfiguration: FilterConfiguration = {
       allowedDimensionFilterInputTypes,
       filterExpression,
       aggregationFunction: 'NONE',
@@ -109,41 +110,40 @@ export default class FilterFactory {
       type: 'dimension'
     };
 
-    return FilterFactory.createSelectedFilter(selectedFilterConfiguration);
+    return FilterFactory.createFilter(filterConfiguration);
   }
 
-  static createSelectedFilter(selectedFilterConfiguration: FilterConfiguration): Filter {
-    switch (selectedFilterConfiguration.filterInputType) {
+  static createFilter(filterConfiguration: FilterConfiguration): Filter {
+    switch (filterConfiguration.filterInputType) {
       case 'Input filter':
-        return FilterFactory.createInputSelectedFilter(selectedFilterConfiguration);
+        return FilterFactory.createInputFilter(filterConfiguration);
       case 'Range filter':
-        return new RangeFilter(selectedFilterConfiguration);
+        return new RangeFilter(filterConfiguration);
       case 'Dropdown filter':
-        return new JsonFilter(selectedFilterConfiguration);
+        return new JsonFilter(filterConfiguration);
       case 'Checkboxes filter':
-        return new JsonFilter(selectedFilterConfiguration);
+        return new JsonFilter(filterConfiguration);
       case 'Radio buttons filter':
-        return new RadioButtonFilter(selectedFilterConfiguration);
+        return new RadioButtonFilter(filterConfiguration);
       case 'Relative time filter':
-        return new RelativeTimeFilter(selectedFilterConfiguration);
+        return new RelativeTimeFilter(filterConfiguration);
       case 'Date range filter':
-        return new DateRangeFilter(selectedFilterConfiguration);
+        return new DateRangeFilter(filterConfiguration);
       case 'Timestamp range filter':
-        return new TimestampRangeFilter(selectedFilterConfiguration);
+        return new TimestampRangeFilter(filterConfiguration);
       default:
         throw new Error('Unsupported filter input type');
     }
   }
 
-  static createInputSelectedFilter(selectedFilterConfiguration: FilterConfiguration): Filter {
+  static createInputFilter(filterConfiguration: FilterConfiguration): Filter {
     if (
-      selectedFilterConfiguration.type === 'measure' ||
-      (selectedFilterConfiguration.type === 'dimension' &&
-        selectedFilterConfiguration.allowedDimensionFilterInputTypes.length === 1)
+      filterConfiguration.type === 'measure' ||
+      (filterConfiguration.type === 'dimension' && filterConfiguration.allowedDimensionFilterInputTypes.length === 1)
     ) {
-      return new MeasureInputFilter(selectedFilterConfiguration);
+      return new MeasureInputFilter(filterConfiguration);
     }
 
-    return new DimensionInputFilter(selectedFilterConfiguration);
+    return new DimensionInputFilter(filterConfiguration);
   }
 }

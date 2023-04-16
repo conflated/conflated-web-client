@@ -1,7 +1,7 @@
 import type { NumberRange } from './NumberRange';
 
 export default class NumberRangesParser {
-  static parseNumberRange(numberRangeStr: string): NumberRange {
+  static parseNumberRange(numberRangeStr: string, allowPlainRanges = true): NumberRange {
     if (numberRangeStr.startsWith('<=')) {
       const number = parseInt(numberRangeStr.slice(2), 10);
 
@@ -11,7 +11,7 @@ export default class NumberRangesParser {
       };
     }
 
-    if (numberRangeStr.startsWith('<')) {
+    if (numberRangeStr[0] === '<') {
       const number = parseInt(numberRangeStr.slice(1), 10);
 
       return {
@@ -30,7 +30,7 @@ export default class NumberRangesParser {
       };
     }
 
-    if (numberRangeStr.startsWith('>')) {
+    if (numberRangeStr[0] === '>') {
       const number = parseInt(numberRangeStr.slice(1), 10);
 
       return {
@@ -40,28 +40,32 @@ export default class NumberRangesParser {
       };
     }
 
-    if (/^-?\d+$/.test(numberRangeStr)) {
-      const number = parseInt(numberRangeStr, 10);
+    if (allowPlainRanges || (!allowPlainRanges && numberRangeStr[0] === '=')) {
+      const finalNumberRangeStr = allowPlainRanges ? numberRangeStr : numberRangeStr.slice(1);
 
-      return {
-        startValue: number,
-        endValue: number
-      };
-    }
-
-    const numberRangeParts = numberRangeStr.match(/^(-?\d+)(\s*-\s*)(-?\d+)$/);
-
-    if (numberRangeParts) {
-      const [, startValueStr, , endValueStr] = numberRangeParts;
-
-      if (startValueStr && endValueStr) {
-        const startValue = parseInt(startValueStr, 10);
-        const endValue = parseInt(endValueStr, 10);
+      if (/^-?\d+$/.test(finalNumberRangeStr)) {
+        const number = parseInt(finalNumberRangeStr, 10);
 
         return {
-          startValue,
-          endValue
+          startValue: number,
+          endValue: number
         };
+      }
+
+      const numberRangeParts = finalNumberRangeStr.match(/^(-?\d+)(\s*-\s*)(-?\d+)$/);
+
+      if (numberRangeParts) {
+        const [, startValueStr, , endValueStr] = numberRangeParts;
+
+        if (startValueStr && endValueStr) {
+          const startValue = parseInt(startValueStr, 10);
+          const endValue = parseInt(endValueStr, 10);
+
+          return {
+            startValue,
+            endValue
+          };
+        }
       }
     }
 
@@ -71,9 +75,9 @@ export default class NumberRangesParser {
     };
   }
 
-  static parseNumberRanges(numberRangesStr: string): NumberRange[] {
+  static parseNumberRanges(numberRangesStr: string, allowPlainRanges = true): NumberRange[] {
     const numberRanges = numberRangesStr.split(',');
     const trimmedNumberRanges = numberRanges.map((numberRange: string) => numberRange.trim());
-    return trimmedNumberRanges.map((numberRange: string) => this.parseNumberRange(numberRange));
+    return trimmedNumberRanges.map((numberRange: string) => this.parseNumberRange(numberRange, allowPlainRanges));
   }
 }
