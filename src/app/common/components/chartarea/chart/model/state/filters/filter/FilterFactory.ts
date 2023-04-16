@@ -116,6 +116,7 @@ export default class FilterFactory {
   static createFilter(filterConfiguration: FilterConfiguration): Filter {
     switch (filterConfiguration.filterInputType) {
       case 'Input filter':
+      case 'Quick filter':
         return FilterFactory.createInputFilter(filterConfiguration);
       case 'Range filter':
         return new RangeFilter(filterConfiguration);
