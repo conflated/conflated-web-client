@@ -25,6 +25,7 @@ export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 
 const FilterSelectorView = ({
+  addChartFilterToSelectedChart,
   addDimensionFilterToSelectedChart,
   addMeasureFilterToSelectedChart,
   changeFilterAggregationFunctionForSelectedChart,
@@ -139,7 +140,7 @@ const FilterSelectorView = ({
       <ChartListItemView
         key={chart.id}
         item={{ name: `Chart ${chart.getName(stateNamespace)}` }}
-        onItemClick={() => {}}
+        onItemClick={() => addChartFilterToSelectedChart(chart)}
       />
     ));
 

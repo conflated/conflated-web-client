@@ -23,6 +23,8 @@ import store from '../../../../../../store/store';
 import { controller as selectorWithActionsController } from '../../withtitleactions/controller/selectorWithTitleActionsController';
 import { OwnProps } from '../view/FilterSelectorView';
 import { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
+import { Chart } from '../../../chartarea/chart/model/state/Chart';
+import AddChartFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddChartFilterToSelectedChartAction';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
@@ -49,6 +51,9 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
     addMeasureFilterToSelectedChart: (measure: Measure) => {
       this.dispatch(new AddMeasureFilterToSelectedChartAction(stateNamespace, measure));
     },
+
+    addChartFilterToSelectedChart: (filteringChart: Chart) =>
+      this.dispatch(new AddChartFilterToSelectedChartAction(stateNamespace, filteringChart)),
 
     changeFilterAggregationFunctionForSelectedChart: (filter: Filter, aggregationFunction: AggregationFunction) => {
       this.dispatch(
