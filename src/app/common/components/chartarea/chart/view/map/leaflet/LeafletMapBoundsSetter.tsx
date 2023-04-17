@@ -11,7 +11,7 @@ type State = {
   maxLongitude?: number;
 };
 type Props = { chart: Chart };
-const MapBoundsSetter = ({ chart }: Props) => {
+const LeafletMapBoundsSetter = ({ chart }: Props) => {
   const [previousMapBounds, setPreviousMapBounds] = useState({} as State);
   const map = useMap();
   chart.setMap(map);
@@ -46,4 +46,4 @@ const MapBoundsSetter = ({ chart }: Props) => {
   return null;
 };
 
-export default MapBoundsSetter;
+export default LeafletMapBoundsSetter;

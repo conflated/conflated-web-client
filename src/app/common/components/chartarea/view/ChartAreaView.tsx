@@ -48,39 +48,39 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
   onKeyDown = (event: KeyboardEvent) => {
     if (event.shiftKey && event.key === 'Tab') {
-      const { charts, selectChart, selectedChart } = this.props;
+      const { charts, select, selectedChart } = this.props;
       const selectedChartIndex = charts.indexOf(selectedChart);
 
       if (selectedChartIndex > 0) {
-        selectChart(charts[selectedChartIndex - 1]);
+        select(charts[selectedChartIndex - 1]);
       } else {
-        selectChart(charts[charts.length - 1]);
+        select(charts[charts.length - 1]);
       }
 
       event.preventDefault();
       event.stopPropagation();
     } else if (event.key === 'Tab') {
-      const { charts, selectChart, selectedChart } = this.props;
+      const { charts, select, selectedChart } = this.props;
       const selectedChartIndex = charts.indexOf(selectedChart);
 
       if (selectedChartIndex === -1 || selectedChartIndex < charts.length - 1) {
-        selectChart(charts[selectedChartIndex + 1]);
+        select(charts[selectedChartIndex + 1]);
       } else {
-        selectChart(charts[0]);
+        select(charts[0]);
       }
 
       event.preventDefault();
       event.stopPropagation();
     } else if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
-      const { copyChart, selectedChart } = this.props;
-      copyChart(selectedChart);
+      const { copy, selectedChart } = this.props;
+      copy(selectedChart);
     } else if ((event.ctrlKey || event.metaKey) && event.key === 'v') {
-      const { pasteChart, selectedChart } = this.props;
-      pasteChart(selectedChart);
+      const { paste, selectedChart } = this.props;
+      paste(selectedChart);
     } else if ((event.ctrlKey || event.metaKey) && event.key === 'x') {
-      const { clearChart, copyChart, selectedChart } = this.props;
-      copyChart(selectedChart);
-      clearChart(selectedChart);
+      const { clear, copy, selectedChart } = this.props;
+      copy(selectedChart);
+      clear(selectedChart);
     }
   };
 

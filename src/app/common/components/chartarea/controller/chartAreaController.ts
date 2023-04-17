@@ -23,18 +23,18 @@ class ChartAreaController extends Controller<ChartAreaStateNamespace> {
   }
 
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
-    selectChart: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
+    select: (chart: Chart) => this.dispatch(new SelectChartAction(stateNamespace, chart)),
+    copy: (chart: Chart) => this.dispatch(new CopyChartAction(stateNamespace, chart)),
+    paste: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
+    clear: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
+
     dropChart: (newLayout: Layout, chartType: ChartType) =>
       this.dispatch(new DropChartAction(stateNamespace, newLayout, chartType)),
 
-    copyChart: (chart: Chart) => this.dispatch(new CopyChartAction(stateNamespace, chart)),
-    pasteChart: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
-    clearChart: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
-
-    changeLayout: (layout: Layout) =>
+    change: (layout: Layout) =>
       this.dispatch(new ChangeChartAreaLayoutAndStorePreviousLayoutAction(stateNamespace, layout)),
 
-    confirmDeleteChart: (chart: Chart) =>
+    confirmDelete: (chart: Chart) =>
       this.dispatch(new ShowDeleteChartConfirmationInChartMenuAction(stateNamespace, chart))
   });
 }
