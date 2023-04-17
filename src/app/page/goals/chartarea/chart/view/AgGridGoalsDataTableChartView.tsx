@@ -15,10 +15,10 @@ const statusNameToValueMap = {
 };
 
 const AgGridGoalsDataTableChartView = ({ chart, height, width }: Props) => {
-  const isMaxWidth1024px = window.matchMedia && window.matchMedia('screen and (max-width: 1024px)').matches;
-  const isMaxWidth480px = window.matchMedia && window.matchMedia('screen and (max-width: 480px)').matches;
-  const pointerIsCoarse = window.matchMedia && window.matchMedia('screen and (any-pointer: coarse)').matches;
-  const isLightModeActive = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const isMaxWidth1024px = window.matchMedia('screen and (max-width: 1024px)').matches;
+  const isMaxWidth480px = window.matchMedia('screen and (max-width: 480px)').matches;
+  const pointerIsCoarse = window.matchMedia('screen and (any-pointer: coarse)').matches;
+  const isLightModeActive = window.matchMedia('(prefers-color-scheme: light)').matches;
 
   const columnWidthWeights = useMemo(
     () => ({

@@ -79,9 +79,9 @@ const DimensionSelectorView = ({
     (event: React.DragEvent<HTMLDivElement>, visualizationType: DimensionVisualizationType) => {
       event.preventDefault();
       leaveDropZone(event);
-
       const droppedDimensionName = event.dataTransfer.getData('dimensionName');
       const dimension = dimensions.find(({ name }: Dimension) => name === droppedDimensionName);
+
       if (dimension) {
         addSelectedDimensionToSelectedChart(dimension, visualizationType);
       }
