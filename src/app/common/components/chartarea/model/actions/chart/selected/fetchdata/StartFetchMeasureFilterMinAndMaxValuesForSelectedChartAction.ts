@@ -28,10 +28,10 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
 
     const minMaxMeasureColumns = selectedFilters
       .filter(({ type, filterInputType }: Filter) => type === 'measure' && filterInputType === 'Range filter')
-      .map(({ dataScopeType, sqlColumn: { name, expression } }: Filter) => ({
+      .map(({ dataScope, sqlColumn: { name, expression } }: Filter) => ({
         name,
         expression,
-        fetchedRowCount: dataScopeType === 'already fetched' ? selectedChart.fetchedRowCount : 0
+        fetchedRowCount: dataScope === 'already fetched' ? selectedChart.fetchedRowCount : 0
       }));
 
     this.chartDataService

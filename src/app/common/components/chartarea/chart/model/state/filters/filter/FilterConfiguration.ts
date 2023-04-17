@@ -4,16 +4,16 @@ import type { AggregationFunction } from '../../selectedmeasure/types/Aggregatio
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { DataScope } from '../../types/DataScope';
+import { Chart } from '../../Chart';
 
 export type FilterConfiguration = {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
   readonly aggregationFunction: AggregationFunction;
-  readonly chartId: string;
+  readonly filteringChart: Chart | null;
   readonly dataScopeType: DataScope;
   readonly filterExpression: string;
   readonly filterInputType: FilterInputType;
   readonly isDrillDownFilter: boolean;
-  readonly isSelectionFilter: boolean;
   readonly measureOrDimension: Measure | Dimension;
   readonly sqlColumn: {
     readonly name: string;

@@ -19,6 +19,7 @@ import type { DataScope } from '../../../chartarea/chart/model/state/types/DataS
 import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 import ChartListItemView from '../../../../views/list/item/ChartListItemView';
+import ChartFilterView from './ChartFilterView';
 
 export type OwnProps = { stateNamespace: FilterSelectorStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -80,23 +81,35 @@ const FilterSelectorView = ({
             }
           />
         );
+      } else if (filter.type === 'dimension') {
+        return (
+          <DimensionFilterView
+            chartData={selectedChart.data}
+            key={filter.measureOrDimension.name}
+            filter={filter}
+            removeFilter={() => removeFilterFromSelectedChart(filter)}
+            changeFilterExpression={(expression: string) => changeFilterExpressionForSelectedChart(filter, expression)}
+            changeFilterInputType={(filterInputType: FilterInputType) =>
+              changeFilterInputTypeForSelectedChart(filter, filterInputType)
+            }
+            changeFilterDataScopeType={(dataScopeType: DataScope) =>
+              changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
+            }
+          />
+        );
+      } else {
+        return (
+          <ChartFilterView
+            key={filter.measureOrDimension.name}
+            filter={filter}
+            changeFilterDataScopeType={(dataScopeType: DataScope) =>
+              changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
+            }
+            removeFilter={() => removeFilterFromSelectedChart(filter)}
+            stateNamespace={stateNamespace}
+          />
+        );
       }
-
-      return (
-        <DimensionFilterView
-          key={filter.measureOrDimension.name}
-          filter={filter}
-          chartData={selectedChart.data}
-          removeFilter={() => removeFilterFromSelectedChart(filter)}
-          changeFilterExpression={(expression: string) => changeFilterExpressionForSelectedChart(filter, expression)}
-          changeFilterInputType={(filterInputType: FilterInputType) =>
-            changeFilterInputTypeForSelectedChart(filter, filterInputType)
-          }
-          changeFilterDataScopeType={(dataScopeType: DataScope) =>
-            changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
-          }
-        />
-      );
     });
 
   const measureListItems = shownMeasures.map((measure: Measure) => (

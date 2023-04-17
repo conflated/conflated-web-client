@@ -23,7 +23,7 @@ export default class ChangeFilterDataScopeTypeForSelectedChartAction extends Abs
     });
 
     const { selectedChart } = currentState;
-    selectedChart.filters.changeFilterDataScopeType(this.selectedFilter, this.dataScopeType);
+    selectedChart.filters.changeFilterDataScope(this.selectedFilter, this.dataScopeType);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

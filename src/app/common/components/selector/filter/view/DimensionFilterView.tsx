@@ -27,7 +27,7 @@ const DimensionFilterView = ({
 }: Props) => {
   let filterInputTypeDropdownItems;
 
-  if (!filter.isDrillDownFilter && !filter.isSelectionFilter) {
+  if (!filter.isDrillDownFilter && !filter.filteringChart) {
     filterInputTypeDropdownItems = filter.allowedDimensionFilterInputTypes.map((filterInputType: FilterInputType) => (
       <Dropdown.Item
         text={filterInputType}
@@ -43,7 +43,7 @@ const DimensionFilterView = ({
       <DataScopePickerView
         changeDataScopeType={changeFilterDataScopeType}
         className={styles.dataScopePicker}
-        selectedDataScopeType={filter.dataScopeType}
+        selectedDataScopeType={filter.dataScope}
       />
       <Dropdown className={styles.filterInputType} icon="setting">
         <Dropdown.Menu direction="left">{filterInputTypeDropdownItems}</Dropdown.Menu>

@@ -38,7 +38,7 @@ const MeasureFilterView = ({
     <DataScopePickerView
       changeDataScopeType={changeFilterDataScopeType}
       className={styles.dataScopePicker}
-      selectedDataScopeType={filter.dataScopeType}
+      selectedDataScopeType={filter.dataScope}
     />
     <Dropdown className={styles.filterInputType} icon="setting">
       <Dropdown.Menu direction="left">

@@ -10,16 +10,16 @@ import type { TriggersPageStateNamespace } from '../../../../../page/triggers/mo
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 
 export interface ChartData {
-  filterChartData(filters: Filter[], dataScopeType?: DataScope): void;
+  filter(filters: Filter[], dataScopeType?: DataScope): void;
 
   getAllValues(filter: Filter): Array<any>;
 
-  getBubbleChartData(
+  getForBubbleChart(
     selectedMeasures: SelectedMeasure[],
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[], any[]];
 
-  getChartDataAsRows(): Array<{ [key: string]: any }>;
+  getAsRows(): Array<{ [key: string]: any }>;
 
   getColumnNameToValuesMap(): ColumnNameToValuesMap;
 

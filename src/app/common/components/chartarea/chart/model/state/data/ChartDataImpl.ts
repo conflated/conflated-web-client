@@ -21,11 +21,11 @@ export default class ChartDataImpl implements ChartData {
     this.columnNameToDataMap = columnNameToDataMap ?? {};
   }
 
-  filterChartData(filters: Filter[], dataScopeType: DataScope = 'already fetched') {
+  filter(filters: Filter[], dataScopeType: DataScope = 'already fetched') {
     this.setUnfilteredChartData();
 
     filters
-      .filter((filter) => filter.dataScopeType === dataScopeType)
+      .filter((filter) => filter.dataScope === dataScopeType)
       .forEach((filter) => {
         this.columnNameToDataMap = filter.applyFilter(this.columnNameToDataMap);
       });
@@ -35,7 +35,7 @@ export default class ChartDataImpl implements ChartData {
     return this.columnNameToDataMap[`${filter.sqlColumn.name}___all___`] ?? [];
   }
 
-  getBubbleChartData(
+  getForBubbleChart(
     selectedMeasures: SelectedMeasure[],
     selectedDimensions: SelectedDimension[]
   ): [any[], any[], any[], any[]] {
@@ -47,7 +47,7 @@ export default class ChartDataImpl implements ChartData {
     return [xAxisData, yAxisData, radiusData, legendData];
   }
 
-  getChartDataAsRows(): Array<{ [key: string]: any }> {
+  getAsRows(): Array<{ [key: string]: any }> {
     const chartDataRowCount = this.getRowCount();
     const chartDataRows = [];
 
@@ -98,7 +98,7 @@ export default class ChartDataImpl implements ChartData {
 
   getForFilter(filter: Filter | null): Array<any> {
     if (filter) {
-      if (filter.dataScopeType === 'all') {
+      if (filter.dataScope === 'all') {
         return this.columnNameToDataMap[`${filter.sqlColumn.name}___all___`] ?? [];
       }
 
@@ -150,10 +150,10 @@ export default class ChartDataImpl implements ChartData {
       const measureMinValue = this.columnNameToDataMap[`${columnName}___min___`]?.[0];
       const measureMaxValue = this.columnNameToDataMap[`${columnName}___max___`]?.[0];
 
-      if (measureValues && filter.dataScopeType === 'already fetched') {
+      if (measureValues && filter.dataScope === 'already fetched') {
         minValue = _.min(measureValues as number[]) ?? 0;
         maxValue = _.max(measureValues as number[]) ?? Constants.SLIDER_MAX_VALUE;
-      } else if (filter.dataScopeType === 'all' && measureMinValue != null && measureMaxValue != null) {
+      } else if (filter.dataScope === 'all' && measureMinValue != null && measureMaxValue != null) {
         minValue = (measureMinValue as number) ?? 0;
         maxValue = (measureMaxValue as number) ?? Constants.SLIDER_MAX_VALUE;
       }
@@ -240,7 +240,7 @@ export default class ChartDataImpl implements ChartData {
       return;
     }
 
-    const chartDataRows = this.getChartDataAsRows();
+    const chartDataRows = this.getAsRows();
     this.sort(sorts, chartDataRows, dataScopeType);
     this.columnNameToDataMap = this.getChartDataRowsAsColumns(chartDataRows);
   }

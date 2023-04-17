@@ -2,7 +2,6 @@ import FilterInputTypeFactory from './inputtype/FilterInputTypeFactory';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { FilterConfiguration } from './FilterConfiguration';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 import MeasureInputFilter from './impl/input/MeasureInputFilter';
 import DimensionInputFilter from './impl/input/DimensionInputFilter';
 import RangeFilter from './impl/RangeFilter';
@@ -15,18 +14,18 @@ import type { Filter } from './Filter';
 import type { DrillDown } from '../../types/DrillDown';
 import RadioButtonFilter from './impl/RadioButtonFilter';
 import { FilterInputType } from './inputtype/FilterInputType';
+import { Chart } from '../../Chart';
 
 export default class FilterFactory {
   static createDimensionFilter(dimension: Measure | Dimension, filterInputType?: FilterInputType): Filter {
     const filterConfiguration: FilterConfiguration = {
       aggregationFunction: 'NONE',
       allowedDimensionFilterInputTypes: FilterInputTypeFactory.createAllowedFilterInputTypes(dimension),
-      chartId: '',
+      filteringChart: null,
       dataScopeType: 'already fetched',
       filterExpression: dimension.isTimestamp ? ' Minutes' : '',
       filterInputType: filterInputType ?? FilterInputTypeFactory.createFilterInputType(dimension),
       isDrillDownFilter: false,
-      isSelectionFilter: false,
       measureOrDimension: dimension,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(dimension),
@@ -42,12 +41,11 @@ export default class FilterFactory {
     const filterConfiguration: FilterConfiguration = {
       allowedDimensionFilterInputTypes: [],
       aggregationFunction: 'SUM',
-      chartId: '',
+      filteringChart: null,
       dataScopeType: 'already fetched',
       filterExpression: '',
       filterInputType: filterInputType ?? 'Input filter',
       isDrillDownFilter: false,
-      isSelectionFilter: false,
       measureOrDimension: measure,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(measure, 'SUM'),
@@ -59,33 +57,34 @@ export default class FilterFactory {
     return FilterFactory.createFilter(filterConfiguration);
   }
 
-  static createSelectionFilter(
-    chartId: string,
-    selectedDimension: SelectedDimension,
-    filterExpression: string
-  ): Filter {
-    const allowedDimensionFilterInputTypes = FilterInputTypeFactory.createAllowedFilterInputTypes(
-      selectedDimension.dimension
-    );
+  static createChartFilter(filteringChart: Chart): Filter | null {
+    const selectedDimension = filteringChart.selectedDimensions[0];
 
-    const filterConfiguration: FilterConfiguration = {
-      allowedDimensionFilterInputTypes,
-      chartId,
-      filterExpression,
-      aggregationFunction: 'NONE',
-      dataScopeType: 'already fetched',
-      filterInputType: 'Input filter',
-      isDrillDownFilter: false,
-      isSelectionFilter: true,
-      measureOrDimension: selectedDimension.dimension,
-      sqlColumn: {
-        name: SqlUtils.getSqlColumnName(selectedDimension.dimension),
-        expression: SqlUtils.getSqlColumnExpression(selectedDimension.dimension)
-      },
-      type: 'dimension'
-    };
+    if (selectedDimension) {
+      const allowedDimensionFilterInputTypes = FilterInputTypeFactory.createAllowedFilterInputTypes(
+        selectedDimension.dimension
+      );
 
-    return FilterFactory.createFilter(filterConfiguration);
+      const filterConfiguration: FilterConfiguration = {
+        allowedDimensionFilterInputTypes,
+        filteringChart,
+        filterExpression: '',
+        aggregationFunction: 'NONE',
+        dataScopeType: 'already fetched',
+        filterInputType: 'Input filter',
+        isDrillDownFilter: false,
+        measureOrDimension: selectedDimension.dimension,
+        sqlColumn: {
+          name: SqlUtils.getSqlColumnName(selectedDimension.dimension),
+          expression: SqlUtils.getSqlColumnExpression(selectedDimension.dimension)
+        },
+        type: 'dimension'
+      };
+
+      return FilterFactory.createFilter(filterConfiguration);
+    }
+
+    return null;
   }
 
   static createDrillDownFilter(drillDown: DrillDown, filterExpression: string): Filter {
@@ -97,11 +96,10 @@ export default class FilterFactory {
       allowedDimensionFilterInputTypes,
       filterExpression,
       aggregationFunction: 'NONE',
-      chartId: '',
+      filteringChart: null,
       dataScopeType: 'all',
       filterInputType: 'Input filter',
       isDrillDownFilter: true,
-      isSelectionFilter: false,
       measureOrDimension: drillDown.selectedDimension.dimension,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(drillDown.selectedDimension.dimension),

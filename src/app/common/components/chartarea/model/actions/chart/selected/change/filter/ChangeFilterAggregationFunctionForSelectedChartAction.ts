@@ -17,7 +17,7 @@ export default class ChangeFilterAggregationFunctionForSelectedChartAction exten
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedFilter.dataScopeType === 'all') {
+    if (this.selectedFilter.dataScope === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });

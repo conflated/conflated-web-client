@@ -10,6 +10,7 @@ import type { Filter } from '../Filter';
 import type { FilterConfiguration } from '../FilterConfiguration';
 import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
 import type { ChartData } from '../../../data/ChartData';
+import { Chart } from '../../../Chart';
 
 export default abstract class AbstractFilter implements Filter {
   readonly measureOrDimension: Measure | Dimension;
@@ -27,28 +28,25 @@ export default abstract class AbstractFilter implements Filter {
 
   readonly filterInputType: FilterInputType;
 
-  readonly dataScopeType: DataScope;
+  readonly dataScope: DataScope;
 
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
 
-  readonly chartId: string;
-
-  readonly isSelectionFilter: boolean;
+  readonly filteringChart: Chart | null;
 
   readonly isDrillDownFilter: boolean;
 
-  constructor(selectedFilterConfiguration: FilterConfiguration) {
-    this.measureOrDimension = selectedFilterConfiguration.measureOrDimension;
-    this.sqlColumn = selectedFilterConfiguration.sqlColumn;
-    this.aggregationFunction = selectedFilterConfiguration.aggregationFunction;
-    this.type = selectedFilterConfiguration.type;
-    this.filterExpression = selectedFilterConfiguration.filterExpression;
-    this.filterInputType = selectedFilterConfiguration.filterInputType;
-    this.dataScopeType = selectedFilterConfiguration.dataScopeType;
-    this.allowedDimensionFilterInputTypes = selectedFilterConfiguration.allowedDimensionFilterInputTypes;
-    this.chartId = selectedFilterConfiguration.chartId;
-    this.isSelectionFilter = selectedFilterConfiguration.isSelectionFilter;
-    this.isDrillDownFilter = selectedFilterConfiguration.isDrillDownFilter;
+  constructor(filterConfiguration: FilterConfiguration) {
+    this.measureOrDimension = filterConfiguration.measureOrDimension;
+    this.sqlColumn = filterConfiguration.sqlColumn;
+    this.aggregationFunction = filterConfiguration.aggregationFunction;
+    this.type = filterConfiguration.type;
+    this.filterExpression = filterConfiguration.filterExpression;
+    this.filterInputType = filterConfiguration.filterInputType;
+    this.dataScope = filterConfiguration.dataScopeType;
+    this.allowedDimensionFilterInputTypes = filterConfiguration.allowedDimensionFilterInputTypes;
+    this.filteringChart = filterConfiguration.filteringChart;
+    this.isDrillDownFilter = filterConfiguration.isDrillDownFilter;
   }
 
   getConfiguration(): FilterConfiguration {
@@ -59,10 +57,9 @@ export default abstract class AbstractFilter implements Filter {
       type: this.type,
       filterExpression: this.filterExpression,
       filterInputType: this.filterInputType,
-      dataScopeType: this.dataScopeType,
+      dataScopeType: this.dataScope,
       allowedDimensionFilterInputTypes: this.allowedDimensionFilterInputTypes,
-      chartId: this.chartId,
-      isSelectionFilter: this.isSelectionFilter,
+      filteringChart: this.filteringChart,
       isDrillDownFilter: this.isDrillDownFilter
     };
   }
@@ -99,10 +96,10 @@ export default abstract class AbstractFilter implements Filter {
     return (
       (this.type === 'measure' &&
         this.filterInputType === 'Range filter' &&
-        this.dataScopeType === 'already fetched' &&
+        this.dataScope === 'already fetched' &&
         !filterValues) ||
       (this.type === 'dimension' &&
-        this.dataScopeType === 'already fetched' &&
+        this.dataScope === 'already fetched' &&
         !filterValues &&
         (this.filterInputType === 'Dropdown filter' ||
           this.filterInputType === 'Checkboxes filter' ||
@@ -115,7 +112,7 @@ export default abstract class AbstractFilter implements Filter {
 
     return (
       this.type === 'dimension' &&
-      this.dataScopeType === 'all' &&
+      this.dataScope === 'all' &&
       !allFilterValues &&
       (this.filterInputType === 'Dropdown filter' ||
         this.filterInputType === 'Checkboxes filter' ||
@@ -129,7 +126,7 @@ export default abstract class AbstractFilter implements Filter {
     return (
       this.type === 'measure' &&
       this.filterInputType === 'Range filter' &&
-      this.dataScopeType === 'all' &&
+      this.dataScope === 'all' &&
       minValue == null &&
       maxValue == null
     );

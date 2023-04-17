@@ -620,7 +620,7 @@ export default abstract class AbstractChart implements Chart {
   setData(columnNameToValuesMap: ColumnNameToValuesMap) {
     this.isFetchingData = false;
     this.data = new ChartDataImpl(columnNameToValuesMap);
-    this.data.filterChartData(this.getFilters());
+    this.data.filter(this.getFilters());
     this.data.sortChartData(this.getSorts());
   }
 
@@ -707,9 +707,9 @@ export default abstract class AbstractChart implements Chart {
 
     const filterDimensionColumns: Column[] = selectedFilters
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: Filter) =>
+        ({ dataScope, measureOrDimension, type }: Filter) =>
           type === 'dimension' &&
-          dataScopeType === 'already fetched' &&
+          dataScope === 'already fetched' &&
           dimensionColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
       .map(({ sqlColumn: { name, expression } }: Filter) => ({
@@ -720,9 +720,9 @@ export default abstract class AbstractChart implements Chart {
 
     const filterMeasureColumns: Column[] = selectedFilters
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: Filter) =>
+        ({ dataScope, measureOrDimension, type }: Filter) =>
           type === 'measure' &&
-          dataScopeType === 'already fetched' &&
+          dataScope === 'already fetched' &&
           measureColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
       .map(({ sqlColumn: { name, expression } }: Filter) => ({

@@ -15,7 +15,7 @@ export default class BubbleChart extends ScatterChart {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
-      const [xAxisData, yAxisData, radiusData, legendData] = this.data.getBubbleChartData(
+      const [xAxisData, yAxisData, radiusData, legendData] = this.data.getForBubbleChart(
         this.selectedMeasures,
         this.selectedDimensions
       );
@@ -102,7 +102,7 @@ export default class BubbleChart extends ScatterChart {
   }
 
   override hasData(): boolean {
-    const [xAxisData, yAxisData, radiusData] = this.data.getBubbleChartData(
+    const [xAxisData, yAxisData, radiusData] = this.data.getForBubbleChart(
       this.selectedMeasures,
       this.selectedDimensions
     );

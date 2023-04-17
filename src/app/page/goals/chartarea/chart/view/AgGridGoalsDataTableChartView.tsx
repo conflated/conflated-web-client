@@ -140,7 +140,7 @@ const AgGridGoalsDataTableChartView = ({ chart, height, width }: Props) => {
   );
 
   columnDefs = [statusIndicatorColumnDef, ...columnDefs];
-  const dataRows = chart.data.getChartDataAsRows();
+  const dataRows = chart.data.getAsRows();
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return (

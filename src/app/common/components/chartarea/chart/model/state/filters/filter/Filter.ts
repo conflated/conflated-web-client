@@ -7,16 +7,16 @@ import type { DataScope } from '../../types/DataScope';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { FilterType } from './FilterType';
+import { Chart } from '../../Chart';
 
 export interface Filter {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
   readonly aggregationFunction: AggregationFunction;
-  readonly chartId: string;
-  readonly dataScopeType: DataScope;
+  readonly filteringChart: Chart | null;
+  readonly dataScope: DataScope;
   readonly filterExpression: string;
   readonly filterInputType: FilterInputType;
   readonly isDrillDownFilter: boolean;
-  readonly isSelectionFilter: boolean;
   readonly measureOrDimension: Measure | Dimension;
   readonly sqlColumn: {
     readonly name: string;

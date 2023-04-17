@@ -16,7 +16,7 @@ export default class ChangeFilterExpressionForSelectedChartAction extends Abstra
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.filter.dataScopeType === 'all') {
+    if (this.filter.dataScope === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });

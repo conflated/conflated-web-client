@@ -1,1 +1,1 @@
-export type FilterType = 'measure' | 'dimension';
+export type FilterType = 'measure' | 'dimension' | 'chart';
