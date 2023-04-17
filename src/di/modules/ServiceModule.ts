@@ -4,7 +4,7 @@ import FakeMeasureServiceImpl from '../../app/page/dataexplorer/pane/left/select
 import FakeDimensionServiceImpl from '../../app/page/dataexplorer/pane/left/selector/dimension/model/service/FakeDimensionService';
 import FakeChartDataService from '../../app/common/components/chartarea/chart/model/service/FakeChartDataService';
 import FakeDashboardGroupsService from '../../app/page/dashboards/model/service/FakeDashboardGroupsService';
-import FakeTriggerDataSourceService from '../../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/service/FakeTriggerDataSourceService';
+import FakeTriggerDataSourceService from '../../app/common/components/page/triggers/leftpane/selector/datasource/model/service/FakeTriggerDataSourceService';
 import FakeReportTemplateGroupsService from '../../app/page/reports/model/services/FakeReportTemplateGroupsService';
 import FakeAlertChartDataService from '../../app/page/alerts/chartarea/model/services/FakeAlertChartDataService';
 import FakeGoalChartDataService from '../../app/page/goals/chartarea/model/services/FakeGoalChartDataService';

@@ -1,13 +1,13 @@
 import { Controller } from 'oo-redux-utils2';
-import StartPaneGutterDragAction from '../model/actions/panesizing/StartPaneGutterDragAction';
-import ShowPagePaneAction from '../model/actions/panevisibility/ShowPagePaneAction';
-import PagePaneGutterDragAction from '../model/actions/panesizing/PagePaneGutterDragAction';
+import StartPaneGutterDragAction from '../model/actions/pane/sizing/StartPaneGutterDragAction';
+import ShowPagePaneAction from '../model/actions/pane/visibility/ShowPagePaneAction';
+import PagePaneGutterDragAction from '../model/actions/pane/sizing/PagePaneGutterDragAction';
 import { PageStateNamespace } from '../model/state/types/PageStateNamespace';
 import { Pane } from '../model/state/types/Pane';
 import store from '../../../../../store/store';
 import { AppState } from '../../../../../store/AppState';
 import { OwnProps } from '../view/PageView';
-import FlashBrieflyPaneActivatorHintsAction from '../model/actions/paneactivatorhints/FlashBrieflyPaneActivatorHintsAction';
+import FlashBrieflyPaneActivatorHintsAction from '../model/actions/pane/activatorhints/FlashBrieflyPaneActivatorHintsAction';
 
 class PageController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) => appState.common.pageStates[stateNamespace];

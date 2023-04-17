@@ -2,7 +2,7 @@ import { Controller } from 'oo-redux-utils2';
 import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddMeasureFilterToSelectedChartAction';
 import RemoveFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveFilterFromSelectedChartAction';
 import ChangeFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterAggregationFunctionForSelectedChartAction';
-import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
+import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actions/pane/visibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';

@@ -1,7 +1,7 @@
 import type { HeaderState } from '../app/header/model/state/HeaderState';
 import type { DataSourceSelectorState } from '../app/page/dataexplorer/pane/left/selector/datasource/model/state/DataSourceSelectorState';
 import type { SaveAsDashboardOrReportTemplateDialogState } from '../app/page/dataexplorer/dialog/saveasdashboardorreporttemplate/model/state/SaveAsDashboardOrReportTemplateDialogState';
-import type { TriggerLabelSelectorState } from '../app/common/components/page/triggers/leftpane/triggerlabelselector/model/state/TriggerLabelSelectorState';
+import type { TriggerLabelSelectorState } from '../app/common/components/page/triggers/leftpane/selector/triggerlabel/model/state/TriggerLabelSelectorState';
 import type { DashboardsPageState } from '../app/page/dashboards/model/state/DashboardsPageState';
 import type { LayoutSelectorState } from '../app/page/dataexplorer/pane/left/selector/layout/model/state/LayoutSelectorState';
 import type { MeasureSelectorState } from '../app/page/dataexplorer/pane/left/selector/measure/model/state/MeasureSelectorState';
@@ -9,8 +9,8 @@ import type { DimensionSelectorState } from '../app/page/dataexplorer/pane/left/
 import type { ChartAreaState } from '../app/common/components/chartarea/model/state/ChartAreaState';
 import type { SortBySelectorState } from '../app/common/components/selector/sort/model/state/SortBySelectorState';
 import type { DataExplorerState } from '../app/page/dataexplorer/model/state/DataExplorerState';
-import type { TriggerSelectorState } from '../app/common/components/page/triggers/leftpane/triggerselector/model/state/TriggerSelectorState';
-import type { TriggerDataSourceSelectorState } from '../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/state/TriggerDataSourceSelectorState';
+import type { TriggerSelectorState } from '../app/common/components/page/triggers/leftpane/selector/trigger/model/state/TriggerSelectorState';
+import type { TriggerDataSourceSelectorState } from '../app/common/components/page/triggers/leftpane/selector/datasource/model/state/TriggerDataSourceSelectorState';
 import type { PageState } from '../app/common/components/page/model/state/PageState';
 import type { SelectorState } from '../app/common/components/selector/model/state/SelectorState';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';

@@ -11,9 +11,9 @@ import dataExplorerSettingsStateReducer from '../app/page/dataexplorer/model/sta
 import saveAsDashboardOrReportTemplateDialogStateReducer from '../app/page/dataexplorer/dialog/saveasdashboardorreporttemplate/model/state/saveAsDashboardOrReportTemplateDialogStateReducer';
 import createSortBySelectorStateReducer from '../app/common/components/selector/sort/model/state/createSortSelectorStateReducer';
 import dashboardsPageStateReducer from '../app/page/dashboards/model/state/dashboardsPageStateReducer';
-import createTriggerDataSourceSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerdatasourceselector/model/state/createTriggerDataSourceSelectorStateReducer';
-import createTriggerGroupSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerlabelselector/model/state/createTriggerLabelSelectorStateReducer';
-import createTriggerSelectorStateReducer from '../app/common/components/page/triggers/leftpane/triggerselector/model/state/createTriggerSelectorStateReducer';
+import createTriggerDataSourceSelectorStateReducer from '../app/common/components/page/triggers/leftpane/selector/datasource/model/state/createTriggerDataSourceSelectorStateReducer';
+import createTriggerGroupSelectorStateReducer from '../app/common/components/page/triggers/leftpane/selector/triggerlabel/model/state/createTriggerLabelSelectorStateReducer';
+import createTriggerSelectorStateReducer from '../app/common/components/page/triggers/leftpane/selector/trigger/model/state/createTriggerSelectorStateReducer';
 import createPageStateReducer from '../app/common/components/page/model/state/createPageStateReducer';
 import createSelectorStateReducer from '../app/common/components/selector/model/state/createSelectorStateReducer';
 import selectorStateNamespaces from '../app/common/components/selector/model/state/types/SelectorStateNamespace';

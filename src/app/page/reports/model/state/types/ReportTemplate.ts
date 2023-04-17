@@ -1,8 +1,8 @@
-import type { GridItems } from '../../../../../common/components/chartarea/model/state/types/GridItems';
 import type { Chart } from '../../../../../common/components/chartarea/chart/model/state/Chart';
+import { GridItem } from '../../../../../common/components/chartarea/model/state/types/GridItem';
 
 export type ReportTemplate = {
   readonly name: string;
-  readonly layout: GridItems;
+  readonly layout: GridItem[];
   readonly charts: Chart[];
 };

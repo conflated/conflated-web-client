@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './LayoutIcons.module.scss';
-import type { GridItems } from '../../../../../../../../common/components/chartarea/model/state/types/GridItems';
+import { GridItem } from '../../../../../../../../common/components/chartarea/model/state/types/GridItem';
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   iconClassName: any;
-  layout: GridItems;
-  selectedLayout: GridItems;
-  selectLayout: (layout: GridItems) => void;
+  layout: GridItem[];
+  selectedLayout: GridItem[];
+  selectLayout: (layout: GridItem[]) => void;
 };
 
 const LayoutIcon = ({ iconClassName, layout, selectedLayout, selectLayout }: Props) => {

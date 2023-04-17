@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import type { TriggersPageStateNamespace } from '../../model/state/TriggersPageStateNamespace';
 import TriggersPageLeftPaneViewUtils from './TriggersPageLeftPaneViewUtils';
 import PagePaneView from '../../../../../views/pagepane/PagePaneView';
-import TriggerDataSourceSelectorView from '../triggerdatasourceselector/view/TriggerDataSourceSelectorView';
-import TriggerGroupSelectorView from '../triggerlabelselector/view/TriggerLabelSelectorView';
-import TriggerSelectorView from '../triggerselector/view/TriggerSelectorView';
+import TriggerDataSourceSelectorView from '../selector/datasource/view/TriggerDataSourceSelectorView';
+import TriggerGroupSelectorView from '../selector/triggerlabel/view/TriggerLabelSelectorView';
+import TriggerSelectorView from '../selector/trigger/view/TriggerSelectorView';
 import { ActionDispatchers, controller, State } from '../controller/triggersPageLeftPaneController';
 
 export type OwnProps = { stateNamespace: TriggersPageStateNamespace };

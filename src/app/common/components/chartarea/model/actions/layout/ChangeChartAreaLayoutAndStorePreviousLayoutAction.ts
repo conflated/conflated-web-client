@@ -1,10 +1,10 @@
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
-import type { GridItems } from '../../state/types/GridItems';
 import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
+import { GridItem } from '../../state/types/GridItem';
 
 export default class ChangeChartAreaLayoutAndStorePreviousLayoutAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaStateNamespace, private readonly layout: GridItems) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly layout: GridItem[]) {
     super(stateNamespace);
   }
 

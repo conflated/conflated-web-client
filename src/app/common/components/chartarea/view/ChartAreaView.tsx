@@ -86,11 +86,12 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
   showChartSizes = () => {
     const { charts, layout } = this.props;
-    const newState = charts.reduce((gridItems, chart) => {
+
+    const newState = charts.reduce((newGridItems, chart) => {
       const gridItem = Utils.findElem(layout, 'i', chart.id);
 
       return {
-        ...gridItems,
+        ...layout,
         [chart.id]: {
           heightInRows: gridItem?.h,
           widthInCols: gridItem?.w

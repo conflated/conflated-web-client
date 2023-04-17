@@ -24,8 +24,8 @@ import type { LegendPosition } from './types/LegendPosition';
 import type { Filter } from './filters/filter/Filter';
 import type { ColumnNameToValuesMap } from './data/ColumnNameToValuesMap';
 import type { Sort } from './sorts/sort/Sort';
-import type { GridItems } from '../../../model/state/types/GridItems';
 import type { Column } from './types/Column';
+import { GridItem } from '../../../model/state/types/GridItem';
 
 export interface Chart {
   id: string;
@@ -86,9 +86,9 @@ export interface Chart {
 
   drillUp(): boolean;
 
-  getHeight(layout: GridItems, chartAreaHeight: number): number;
+  getHeight(layout: GridItem[], chartAreaHeight: number): number;
 
-  getWidth(layout: GridItems, chartAreaWidth: number): number;
+  getWidth(layout: GridItem[], chartAreaWidth: number): number;
 
   exportToPng(): void;
 

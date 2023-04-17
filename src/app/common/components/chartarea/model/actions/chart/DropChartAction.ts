@@ -2,15 +2,15 @@ import _ from 'lodash';
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
-import { GridItems } from '../../state/types/GridItems';
 import { ChartType } from '../../../chart/model/state/types/ChartType';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 import { ChartConfiguration } from '../../../chart/model/state/ChartConfiguration';
+import { GridItem } from '../../state/types/GridItem';
 
 export default class DropChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly newLayout: GridItems,
+    private readonly newLayout: GridItem[],
     private readonly chartType: ChartType
   ) {
     super(stateNamespace);
