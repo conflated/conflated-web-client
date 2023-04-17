@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown, Icon, List } from 'semantic-ui-react';
 import styles from './FilterView.module.scss';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
-import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
 import DataScopePickerView from '../../../../views/picker/datascope/DataScopePickerView';
 import type { ChartData } from '../../../chartarea/chart/model/state/data/ChartData';
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
@@ -10,7 +10,7 @@ import type { Filter } from '../../../chartarea/chart/model/state/filters/filter
 type Props = {
   changeFilterExpression: (expression: string) => void;
   changeFilterInputType: (filterInputType: FilterInputType) => void;
-  changeFilterDataScopeType: (dataScopeType: DataScopeType) => void;
+  changeFilterDataScopeType: (dataScopeType: DataScope) => void;
   chartData: ChartData;
   removeFilter: () => void;
   filter: Filter;

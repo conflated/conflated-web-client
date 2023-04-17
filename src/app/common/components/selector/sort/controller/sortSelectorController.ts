@@ -8,11 +8,11 @@ import AddSortToSelectedChartAction from '../../../chartarea/model/actions/chart
 import ChangeSortAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/sort/ChangeSortAggregationFunctionForSelectedChartAction';
 import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import type { SelectedSortByType } from '../../../chartarea/chart/model/state/sorts/sort/types/SortType';
+import type { SortType } from '../../../chartarea/chart/model/state/sorts/sort/types/SortType';
 import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
 import ChangeSortDirectionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/sort/ChangeSortDirectionForSelectedChartAction';
 import ChangeSortDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/sort/ChangeSortDataScopeTypeForSelectedChartAction';
-import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
 import RemoveSortFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveSortFromSelectedChartAction';
 import type { Chart } from '../../../chartarea/chart/model/state/Chart';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
@@ -70,7 +70,7 @@ class SortSelectorController extends Controller<PageStateNamespace> {
 
     addSortByToSelectedChart: (
       dimensionOrMeasure: Dimension | Measure,
-      type: SelectedSortByType,
+      type: SortType,
       sortDirection: SortDirection
     ) => {
       this.dispatch(new AddSortToSelectedChartAction(stateNamespace, dimensionOrMeasure, type, sortDirection));
@@ -89,7 +89,7 @@ class SortSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(new ChangeSortDirectionForSelectedChartAction(stateNamespace, selectedSortBy, sortDirection));
     },
 
-    changeSelectedSortByDataScopeTypeForSelectedChart: (selectedSortBy: Sort, dataScopeType: DataScopeType) => {
+    changeSelectedSortByDataScopeTypeForSelectedChart: (selectedSortBy: Sort, dataScopeType: DataScope) => {
       this.dispatch(new ChangeSortDataScopeTypeForSelectedChartAction(stateNamespace, selectedSortBy, dataScopeType));
     },
 

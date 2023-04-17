@@ -84,13 +84,13 @@ export default abstract class AbstractChart implements Chart {
   constructor(chartConfiguration?: ChartConfiguration) {
     if (chartConfiguration) {
       this.id = chartConfiguration.id;
-      this.type = chartConfiguration.chartType;
+      this.type = chartConfiguration.type;
       this.dataSource = chartConfiguration.dataSource;
       this.selectedMeasures = chartConfiguration.selectedMeasures;
       this.selectedDimensions = chartConfiguration.selectedDimensions;
-      this.data = new ChartDataImpl(chartConfiguration.chartData);
-      this.filters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.data);
-      this.sorts = new ChartSortsImpl(chartConfiguration.selectedSortBys);
+      this.data = new ChartDataImpl(chartConfiguration.data);
+      this.filters = new ChartFiltersImpl(chartConfiguration.filters, this.data);
+      this.sorts = new ChartSortsImpl(chartConfiguration.sorts);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
       this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;
@@ -144,10 +144,7 @@ export default abstract class AbstractChart implements Chart {
       }
     });
 
-    this.sorts.updateSelectedSortBysWhenChangingSelectedMeasureAggregationFunction(
-      aggregationFunction,
-      this.selectedMeasures
-    );
+    this.sorts.updateSortsWhenChangingSelectedMeasureAggregationFunction(aggregationFunction, this.selectedMeasures);
   }
 
   changeSelectedMeasureColor(selectedMeasure: SelectedMeasure, color: string) {
@@ -246,13 +243,13 @@ export default abstract class AbstractChart implements Chart {
   getConfiguration(): ChartConfiguration {
     return {
       id: this.id,
-      chartType: this.type,
+      type: this.type,
       dataSource: this.dataSource,
       selectedMeasures: this.selectedMeasures,
       selectedDimensions: this.selectedDimensions,
-      selectedFilters: this.getFilters(),
-      selectedSortBys: this.getSorts(),
-      chartData: this.data.getColumnNameToValuesMap(),
+      filters: this.getFilters(),
+      sorts: this.getSorts(),
+      data: this.data.getColumnNameToValuesMap(),
       xAxisCategoriesShownCount: this.xAxisCategoriesShownCount,
       fetchedRowCount: this.fetchedRowCount,
       xAxisScrollPosition: this.xAxisScrollPosition,
@@ -370,7 +367,7 @@ export default abstract class AbstractChart implements Chart {
 
     const newChart = ChartFactory.createChart({
       ...this.getConfiguration(),
-      chartType: newChartType
+      type: newChartType
     });
 
     if (this.selectedDimensions.length === selectedDimensionsWithPreviousType.length) {
@@ -381,7 +378,7 @@ export default abstract class AbstractChart implements Chart {
 
     newChart.selectedMeasures = newChart.getConvertSelectedMeasures();
 
-    newChart.sorts = new ChartSortsImpl(newChart.sorts.getConvertSelectedSortBys(this.selectedDimensions));
+    newChart.sorts = new ChartSortsImpl(newChart.sorts.getConvertedSorts(this.selectedDimensions));
 
     if (newChart.sorts !== this.sorts) {
       this.data.sortChartData(newChart.getSorts(), 'all');
@@ -439,7 +436,7 @@ export default abstract class AbstractChart implements Chart {
   }
 
   getSorts(): Sort[] {
-    return this.sorts.getSelectedSortBys();
+    return this.sorts.getSorts();
   }
 
   getStrokeWidth(): number | number[] {
@@ -739,9 +736,9 @@ export default abstract class AbstractChart implements Chart {
 
     const sortByDimensionColumns: Column[] = selectedSortBys
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: Sort) =>
+        ({ dataScope, measureOrDimension, type }: Sort) =>
           type === 'dimension' &&
-          dataScopeType === 'already fetched' &&
+          dataScope === 'already fetched' &&
           dimensionColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
       .map(({ sqlColumn: { name, expression } }: Sort) => ({
@@ -752,9 +749,9 @@ export default abstract class AbstractChart implements Chart {
 
     const sortByMeasureColumns: Column[] = selectedSortBys
       .filter(
-        ({ dataScopeType, measureOrDimension, type }: Sort) =>
+        ({ dataScope, measureOrDimension, type }: Sort) =>
           type === 'measure' &&
-          dataScopeType === 'already fetched' &&
+          dataScope === 'already fetched' &&
           measureColumns.filter(({ name }: Column) => name === measureOrDimension.name).length === 0
       )
       .map(({ sqlColumn: { name, expression } }: Sort) => ({

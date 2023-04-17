@@ -3,12 +3,12 @@ import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/l
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 
 export default class TimelineChartSorts extends AbstractBasicChartSorts {
-  override updateSelectedSortBysWhenAddingSelectedDimension(measureOrDimension: Dimension | Measure) {
-    this.selectedSortBys = [];
-    this.addSelectedSortBy(measureOrDimension, 'dimension', 'ASC', 'x-axis categories');
+  override updateSortsWhenAddingSelectedDimension(measureOrDimension: Dimension | Measure) {
+    this.sorts = [];
+    this.addSort(measureOrDimension, 'dimension', 'ASC', 'x-axis categories');
   }
 
-  override updateSelectedSortBysWhenAddingSelectedMeasure(): void {
+  override updateSortsWhenAddingSelectedMeasure(): void {
     // Intentionally no operation
   }
 }

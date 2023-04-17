@@ -1,6 +1,6 @@
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
-import type { SelectedSortByType } from '../../../../../../chart/model/state/sorts/sort/types/SortType';
+import type { SortType } from '../../../../../../chart/model/state/sorts/sort/types/SortType';
 import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import type { SortDirection } from '../../../../../../chart/model/state/sorts/sort/types/SortDirection';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
@@ -13,7 +13,7 @@ export default class AddSortToSelectedChartAction extends AbstractChartAreaActio
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly measureOrDimension: Dimension | Measure,
-    private readonly type: SelectedSortByType,
+    private readonly type: SortType,
     private readonly sortDirection: SortDirection
   ) {
     super(stateNamespace);
@@ -25,7 +25,7 @@ export default class AddSortToSelectedChartAction extends AbstractChartAreaActio
     });
 
     const { selectedChart } = currentState;
-    selectedChart.sorts.addSelectedSortBy(this.measureOrDimension, this.type, this.sortDirection);
+    selectedChart.sorts.addSort(this.measureOrDimension, this.type, this.sortDirection);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

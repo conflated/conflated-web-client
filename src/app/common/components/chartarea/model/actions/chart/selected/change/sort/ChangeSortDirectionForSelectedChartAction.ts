@@ -17,14 +17,14 @@ export default class ChangeSortDirectionForSelectedChartAction extends AbstractC
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedSortBy.dataScopeType === 'all') {
+    if (this.selectedSortBy.dataScope === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });
     }
 
     const { selectedChart } = currentState;
-    selectedChart.sorts.changeSelectedSortByDirection(this.selectedSortBy, this.sortDirection);
+    selectedChart.sorts.changeSortDirection(this.selectedSortBy, this.sortDirection);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

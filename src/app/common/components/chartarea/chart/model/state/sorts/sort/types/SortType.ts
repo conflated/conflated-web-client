@@ -1,1 +1,1 @@
-export type SelectedSortByType = 'measure' | 'dimension' | 'time';
+export type SortType = 'measure' | 'dimension' | 'time';

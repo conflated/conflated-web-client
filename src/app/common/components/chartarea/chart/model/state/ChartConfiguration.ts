@@ -11,13 +11,13 @@ import type { Filter } from './filters/filter/Filter';
 
 export type ChartConfiguration = {
   id: string;
-  chartType: ChartType;
+  type: ChartType;
   dataSource: DataSource;
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
-  selectedFilters: Filter[];
-  selectedSortBys: Sort[];
-  chartData: ColumnNameToValuesMap;
+  filters: Filter[];
+  sorts: Sort[];
+  data: ColumnNameToValuesMap;
   xAxisCategoriesShownCount: number;
   fetchedRowCount: number;
   xAxisScrollPosition?: number;

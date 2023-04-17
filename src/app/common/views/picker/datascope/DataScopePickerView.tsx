@@ -2,12 +2,12 @@
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styles from './DataScopePickerView.module.scss';
-import type { DataScopeType } from '../../../components/chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../components/chartarea/chart/model/state/types/DataScope';
 
 type Props = {
-  changeDataScopeType: (dataScopeType: DataScopeType) => void;
+  changeDataScopeType: (dataScopeType: DataScope) => void;
   className: string;
-  selectedDataScopeType: DataScopeType;
+  selectedDataScopeType: DataScope;
 };
 
 const DataScopePickerView = ({ changeDataScopeType, className, selectedDataScopeType }: Props) => (

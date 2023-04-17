@@ -23,13 +23,13 @@ export default class DropChartAction extends AbstractChartAreaAction {
 
     const droppedChartConfig: ChartConfiguration = {
       id: newId,
-      chartType: this.chartType,
+      type: this.chartType,
       dataSource: selectedChart.dataSource,
       selectedMeasures: [],
       selectedDimensions: [],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };

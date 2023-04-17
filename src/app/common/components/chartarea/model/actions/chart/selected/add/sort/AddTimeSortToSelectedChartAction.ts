@@ -25,7 +25,7 @@ export default class AddTimeSortToSelectedChartAction extends AbstractChartAreaA
     });
 
     const { selectedChart } = currentState;
-    selectedChart.sorts.addSelectedSortByTime(this.dimension, this.timeSortOption, this.sortDirection);
+    selectedChart.sorts.addSortByTime(this.dimension, this.timeSortOption, this.sortDirection);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

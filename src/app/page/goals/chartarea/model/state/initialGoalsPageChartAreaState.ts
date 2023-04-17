@@ -5,7 +5,7 @@ import type { ChartAreaState } from '../../../../../common/components/chartarea/
 
 const dataTableChart = ChartFactory.createChart({
   id: '1',
-  chartType: 'goalsdatatable',
+  type: 'goalsdatatable',
   dataSource: {
     ...emptyDataSource,
     name: 'goalsdata'
@@ -103,16 +103,16 @@ const dataTableChart = ChartFactory.createChart({
       visualizationType: 'none'
     }
   ],
-  selectedFilters: [],
-  selectedSortBys: [],
-  chartData: {},
+  filters: [],
+  sorts: [],
+  data: {},
   xAxisCategoriesShownCount: 10,
   fetchedRowCount: 1000
 });
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  chartType: 'stepline',
+  type: 'stepline',
   dataSource: {
     ...emptyDataSource,
     name: 'goalstatistics'
@@ -153,9 +153,9 @@ const timelineChart = ChartFactory.createChart({
       visualizationType: 'X-axis categories'
     }
   ],
-  selectedFilters: [],
-  selectedSortBys: [],
-  chartData: {},
+  filters: [],
+  sorts: [],
+  data: {},
   xAxisCategoriesShownCount: 10,
   fetchedRowCount: 1000
 });

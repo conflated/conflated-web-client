@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../../../../../../chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../../../../chart/model/state/types/DataScope';
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
@@ -11,7 +11,7 @@ export default class ChangeFilterDataScopeTypeForSelectedChartAction extends Abs
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly selectedFilter: Filter,
-    private readonly dataScopeType: DataScopeType
+    private readonly dataScopeType: DataScope
   ) {
     super(stateNamespace);
   }

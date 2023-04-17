@@ -5,7 +5,7 @@ import type { ChartAreaState } from '../../../../../common/components/chartarea/
 
 const dataTableChart = ChartFactory.createChart({
   id: '1',
-  chartType: 'alertsdatatable',
+  type: 'alertsdatatable',
   dataSource: {
     ...emptyDataSource,
     name: 'alertsdata'
@@ -163,16 +163,16 @@ const dataTableChart = ChartFactory.createChart({
       visualizationType: 'none'
     }
   ],
-  selectedFilters: [],
-  selectedSortBys: [],
-  chartData: {},
+  filters: [],
+  sorts: [],
+  data: {},
   xAxisCategoriesShownCount: 0,
   fetchedRowCount: 0
 });
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  chartType: 'stepline',
+  type: 'stepline',
   dataSource: {
     ...emptyDataSource,
     name: 'alertstatistics'
@@ -213,9 +213,9 @@ const timelineChart = ChartFactory.createChart({
       visualizationType: 'X-axis categories'
     }
   ],
-  selectedFilters: [],
-  selectedSortBys: [],
-  chartData: {},
+  filters: [],
+  sorts: [],
+  data: {},
   xAxisCategoriesShownCount: 10,
   fetchedRowCount: 1000
 });

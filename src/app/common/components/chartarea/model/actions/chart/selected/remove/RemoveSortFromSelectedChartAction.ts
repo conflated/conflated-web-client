@@ -13,14 +13,14 @@ export default class RemoveSortFromSelectedChartAction extends AbstractChartArea
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedSortBy.dataScopeType === 'all') {
+    if (this.selectedSortBy.dataScope === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });
     }
 
     const { selectedChart } = currentState;
-    selectedChart.sorts.removeSelectedSortBy(this.selectedSortBy);
+    selectedChart.sorts.removeSort(this.selectedSortBy);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

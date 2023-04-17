@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../../types/DataScopeType';
+import type { DataScope } from '../../types/DataScope';
 import type { Sort } from './Sort';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { SortDirection } from './types/SortDirection';
@@ -6,24 +6,24 @@ import type { TimeSortOption } from './types/TimeSortOption';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
-import type { SelectedSortByType } from './types/SortType';
+import type { SortType } from './types/SortType';
 import type { DefaultSortType } from './types/DefaultSortType';
 import SqlUtils from '../../../../../../../utils/SqlUtils';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 
 export default class SortFactory {
-  static createSelectedSortBy(
+  static createSort(
     measureOrDimension: Measure | Dimension,
-    type: SelectedSortByType,
+    type: SortType,
     sortDirection: SortDirection,
-    dataScopeType: DataScopeType,
+    dataScopeType: DataScope,
     defaultType: DefaultSortType,
     aggregationFunction: AggregationFunction = 'SUM'
   ): Sort {
     if (type === 'measure') {
       return {
-        dataScopeType,
-        sortDirection,
+        dataScope: dataScopeType,
+        direction: sortDirection,
         measureOrDimension,
         aggregationFunction,
         sqlColumn: {
@@ -37,9 +37,9 @@ export default class SortFactory {
     } else {
       return {
         measureOrDimension,
-        dataScopeType,
+        dataScope: dataScopeType,
         defaultType,
-        sortDirection,
+        direction: sortDirection,
         sqlColumn: {
           name: SqlUtils.getSqlColumnName(measureOrDimension),
           expression: SqlUtils.getSqlColumnExpression(measureOrDimension)
@@ -68,8 +68,8 @@ export default class SortFactory {
       aggregationFunction: 'NONE',
       timeSortOption: 'none',
       type: 'measure',
-      sortDirection: 'DESC',
-      dataScopeType: 'all',
+      direction: 'DESC',
+      dataScope: 'all',
       defaultType: 'measure'
     };
   }
@@ -78,12 +78,12 @@ export default class SortFactory {
     dimension: Dimension | Measure,
     timeSortOption: TimeSortOption,
     sortDirection: SortDirection,
-    dataScopeType: DataScopeType
+    dataScopeType: DataScope
   ): Sort {
     return {
       timeSortOption,
-      sortDirection,
-      dataScopeType,
+      direction: sortDirection,
+      dataScope: dataScopeType,
       measureOrDimension: dimension,
       sqlColumn: {
         name: SqlUtils.getSqlColumnName(dimension),
@@ -116,8 +116,8 @@ export default class SortFactory {
       aggregationFunction: 'NONE',
       timeSortOption: 'none',
       type: 'measure',
-      sortDirection: 'DESC',
-      dataScopeType: 'all',
+      direction: 'DESC',
+      dataScope: 'all',
       defaultType: 'measure over legend'
     };
   }

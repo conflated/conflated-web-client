@@ -9,7 +9,7 @@ import type { AggregationFunction } from '../../../chartarea/chart/model/state/s
 import ChangeFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
 import ChangeFilterDataScopeTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterDataScopeTypeForSelectedChartAction';
-import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
 import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddDimensionFilterToSelectedChartAction';
 import ChangeFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterExpressionForSelectedChartAction';
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
@@ -64,7 +64,7 @@ class FilterSelectorController extends Controller<PageStateNamespace> {
       this.dispatch(new ChangeFilterInputTypeForSelectedChartAction(stateNamespace, selectedFilter, filterInputType));
     },
 
-    changeFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScopeType) => {
+    changeFilterDataScopeTypeForSelectedChart: (selectedFilter: Filter, dataScopeType: DataScope) => {
       this.dispatch(new ChangeFilterDataScopeTypeForSelectedChartAction(stateNamespace, selectedFilter, dataScopeType));
     },
 

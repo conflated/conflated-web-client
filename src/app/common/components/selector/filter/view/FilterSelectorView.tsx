@@ -15,7 +15,7 @@ import selectorWithActionsStateNamespaces from '../../withtitleactions/model/sta
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
-import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
 import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/filterSelectorController';
 import ChartListItemView from '../../../../views/list/item/ChartListItemView';
@@ -75,7 +75,7 @@ const FilterSelectorView = ({
             changeFilterInputType={(filterInputType: FilterInputType) =>
               changeFilterInputTypeForSelectedChart(filter, filterInputType)
             }
-            changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
+            changeFilterDataScopeType={(dataScopeType: DataScope) =>
               changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
             }
           />
@@ -92,7 +92,7 @@ const FilterSelectorView = ({
           changeFilterInputType={(filterInputType: FilterInputType) =>
             changeFilterInputTypeForSelectedChart(filter, filterInputType)
           }
-          changeFilterDataScopeType={(dataScopeType: DataScopeType) =>
+          changeFilterDataScopeType={(dataScopeType: DataScope) =>
             changeFilterDataScopeTypeForSelectedChart(filter, dataScopeType)
           }
         />

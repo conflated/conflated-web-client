@@ -20,51 +20,51 @@ import StatisticChart from './impl/StatisticChart';
 
 export default class ChartFactory {
   // noinspection OverlyComplexFunctionJS
-  static createChart(chartConfiguration?: ChartConfiguration): Chart {
-    if (!chartConfiguration) {
-      return new ColumnChart(chartConfiguration);
+  static createChart(configuration?: ChartConfiguration): Chart {
+    if (!configuration) {
+      return new ColumnChart(configuration);
     }
 
-    switch (chartConfiguration.chartType) {
+    switch (configuration.type) {
       case 'column':
-        return new ColumnChart(chartConfiguration);
+        return new ColumnChart(configuration);
       case 'bar':
-        return new BarChart(chartConfiguration);
+        return new BarChart(configuration);
       case 'area':
-        return new AreaChart(chartConfiguration);
+        return new AreaChart(configuration);
       case 'rangeArea':
-        return new RangeAreaChart(chartConfiguration);
+        return new RangeAreaChart(configuration);
       case 'line':
-        return new LineChart(chartConfiguration);
+        return new LineChart(configuration);
       case 'donut':
-        return new DonutChartImpl(chartConfiguration);
+        return new DonutChartImpl(configuration);
       case 'pie':
-        return new PieChartImpl(chartConfiguration);
+        return new PieChartImpl(configuration);
       case 'bubble':
-        return new BubbleChart(chartConfiguration);
+        return new BubbleChart(configuration);
       case 'scatter':
-        return new ScatterChart(chartConfiguration);
+        return new ScatterChart(configuration);
       case 'candlestick':
-        return new CandlestickChart(chartConfiguration);
+        return new CandlestickChart(configuration);
       case 'boxplot':
       case 'violin':
-        return new BoxPlotChart(chartConfiguration);
+        return new BoxPlotChart(configuration);
       case 'radar':
-        return new RadarChart(chartConfiguration);
+        return new RadarChart(configuration);
       case 'heatmap':
-        return new HeatmapChart(chartConfiguration);
+        return new HeatmapChart(configuration);
       case 'map':
-        return new MapChart(chartConfiguration);
+        return new MapChart(configuration);
       case 'sparkline':
-        return new SparklineChart(chartConfiguration);
+        return new SparklineChart(configuration);
       case 'statistic':
-        return new StatisticChart(chartConfiguration);
+        return new StatisticChart(configuration);
       case 'stepline':
-        return new LineChart(chartConfiguration);
+        return new LineChart(configuration);
       case 'alertsdatatable':
       case 'goalsdatatable':
       case 'datatable':
-        return new DataTableChart(chartConfiguration);
+        return new DataTableChart(configuration);
       default:
         throw new Error('Unsupported chart type');
     }

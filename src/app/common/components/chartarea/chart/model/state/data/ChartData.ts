@@ -5,12 +5,12 @@ import type { Filter } from '../filters/filter/Filter';
 import type { Sort } from '../sorts/sort/Sort';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
-import type { DataScopeType } from '../types/DataScopeType';
+import type { DataScope } from '../types/DataScope';
 import type { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 import type { ColumnNameToValuesMap } from './ColumnNameToValuesMap';
 
 export interface ChartData {
-  filterChartData(filters: Filter[], dataScopeType?: DataScopeType): void;
+  filterChartData(filters: Filter[], dataScopeType?: DataScope): void;
 
   getAllValues(filter: Filter): Array<any>;
 
@@ -58,5 +58,5 @@ export interface ChartData {
   getTriggerData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>, Array<any>];
   getTriggerGroupData(stateNamespace: TriggersPageStateNamespace): [Array<any>, Array<any>];
 
-  sortChartData(sorts: Sort[], dataScopeType?: DataScopeType): void;
+  sortChartData(sorts: Sort[], dataScopeType?: DataScope): void;
 }

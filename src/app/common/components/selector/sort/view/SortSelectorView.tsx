@@ -14,7 +14,7 @@ import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/
 import type { SortSelectorStateNamespace } from '../model/state/types/SortSelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
-import type { DataScopeType } from '../../../chartarea/chart/model/state/types/DataScopeType';
+import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
 import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortSelectorController';
 import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
@@ -80,7 +80,7 @@ const SortSelectorView = ({
         changeSelectedSortByDirection={(sortDirection: SortDirection) =>
           changeSelectedSortBySortDirectionForSelectedChart(selectedSortBy, sortDirection)
         }
-        changeSelectedSortByDataScopeType={(dataScopeType: DataScopeType) =>
+        changeSelectedSortByDataScopeType={(dataScopeType: DataScope) =>
           changeSelectedSortByDataScopeTypeForSelectedChart(selectedSortBy, dataScopeType)
         }
       />

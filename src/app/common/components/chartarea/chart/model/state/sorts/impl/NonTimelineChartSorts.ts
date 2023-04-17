@@ -4,19 +4,19 @@ import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 import AbstractBasicChartSorts from './AbstractBasicChartSorts';
 
 export default class NonTimelineChartSorts extends AbstractBasicChartSorts {
-  override updateSelectedSortBysWhenAddingSelectedMeasure(
+  override updateSortsWhenAddingSelectedMeasure(
     measureOrDimension: Measure | Dimension,
     selectedMeasures: SelectedMeasure[]
   ) {
-    if (this.selectedSortBys.length === 0 && selectedMeasures.length === 0) {
-      this.addSelectedSortBy(measureOrDimension, 'measure', 'DESC', 'measure');
-    } else if (this.selectedSortBys.length === 1 && this.selectedSortBys[0].defaultType === 'measure') {
-      this.selectedSortBys = [];
-      this.addSelectedSortByAverageOfMeasures(selectedMeasures);
+    if (this.sorts.length === 0 && selectedMeasures.length === 0) {
+      this.addSort(measureOrDimension, 'measure', 'DESC', 'measure');
+    } else if (this.sorts.length === 1 && this.sorts[0].defaultType === 'measure') {
+      this.sorts = [];
+      this.addSortByAverageOfMeasures(selectedMeasures);
     }
   }
 
-  override updateSelectedSortBysWhenAddingSelectedDimension(): void {
+  override updateSortsWhenAddingSelectedDimension(): void {
     // Intentionally no operation
   }
 }

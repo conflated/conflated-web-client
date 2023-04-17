@@ -1,4 +1,4 @@
-import type { DataScopeType } from '../types/DataScopeType';
+import type { DataScope } from '../types/DataScope';
 import type { Filter } from './filter/Filter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { FilterInputType } from './filter/inputtype/FilterInputType';
@@ -18,7 +18,7 @@ export interface ChartFilters {
 
   changeFilterAggregationFunction(filter: Filter, aggregationFunction: AggregationFunction): void;
 
-  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScopeType): void;
+  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScope): void;
 
   changeFilterExpression(filter: Filter, filterExpression: string): void;
 

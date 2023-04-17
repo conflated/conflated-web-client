@@ -15,13 +15,13 @@ export default abstract class AbstractTimelineChart extends AbstractBasicChart {
   constructor(chartConfiguration?: ChartConfiguration) {
     super(chartConfiguration);
     if (chartConfiguration) {
-      this.sorts = new TimelineChartSorts(chartConfiguration.selectedSortBys);
+      this.sorts = new TimelineChartSorts(chartConfiguration.sorts);
     }
   }
 
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     this.selectedDimensions = [];
-    this.sorts.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
+    this.sorts.updateSortsWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }
 

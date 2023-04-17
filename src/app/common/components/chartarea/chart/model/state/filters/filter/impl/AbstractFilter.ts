@@ -5,7 +5,7 @@ import type { Dimension } from '../../../../../../../../../page/dataexplorer/pan
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import type { FilterType } from '../FilterType';
 import type { FilterInputType } from '../inputtype/FilterInputType';
-import type { DataScopeType } from '../../../types/DataScopeType';
+import type { DataScope } from '../../../types/DataScope';
 import type { Filter } from '../Filter';
 import type { FilterConfiguration } from '../FilterConfiguration';
 import type { ColumnNameToValuesMap } from '../../../data/ColumnNameToValuesMap';
@@ -27,7 +27,7 @@ export default abstract class AbstractFilter implements Filter {
 
   readonly filterInputType: FilterInputType;
 
-  readonly dataScopeType: DataScopeType;
+  readonly dataScopeType: DataScope;
 
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
 

@@ -15,7 +15,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     super(chartConfiguration);
 
     if (chartConfiguration) {
-      this.sorts = new XAxisChartSorts(chartConfiguration.selectedSortBys);
+      this.sorts = new XAxisChartSorts(chartConfiguration.sorts);
     }
   }
 
@@ -24,7 +24,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       this.selectedMeasures = this.selectedMeasures.slice(0, 1);
     }
 
-    this.sorts.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
+    this.sorts.updateSortsWhenAddingSelectedDimension(dimension, visualizationType, this);
     super.addSelectedDimension(dimension, visualizationType);
   }
 
@@ -185,7 +185,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
   }
 
   override removeSelectedDimension(selectedDimension: SelectedDimension) {
-    this.sorts.updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
+    this.sorts.updateSortsWhenRemovingSelectedDimension(selectedDimension, this.selectedMeasures);
 
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
 

@@ -3,7 +3,7 @@ import type { ColumnNameToValuesMap } from '../../data/ColumnNameToValuesMap';
 import type { ChartData } from '../../data/ChartData';
 import type { FilterInputType } from './inputtype/FilterInputType';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
-import type { DataScopeType } from '../../types/DataScopeType';
+import type { DataScope } from '../../types/DataScope';
 import type { Measure } from '../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { FilterType } from './FilterType';
@@ -12,7 +12,7 @@ export interface Filter {
   readonly allowedDimensionFilterInputTypes: FilterInputType[];
   readonly aggregationFunction: AggregationFunction;
   readonly chartId: string;
-  readonly dataScopeType: DataScopeType;
+  readonly dataScopeType: DataScope;
   readonly filterExpression: string;
   readonly filterInputType: FilterInputType;
   readonly isDrillDownFilter: boolean;

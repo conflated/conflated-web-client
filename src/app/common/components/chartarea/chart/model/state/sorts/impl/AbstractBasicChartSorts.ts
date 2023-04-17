@@ -4,43 +4,37 @@ import type { SelectedDimension } from '../../selecteddimension/SelectedDimensio
 import type { SelectedMeasure } from '../../selectedmeasure/SelectedMeasure';
 
 export default abstract class AbstractBasicChartSorts extends ChartSortsImpl {
-  override updateSelectedSortBysWhenRemovingSelectedDimension(
+  override updateSortsWhenRemovingSelectedDimension(
     selectedDimension: SelectedDimension,
     selectedMeasures: SelectedMeasure[]
   ) {
-    const legendDefaultSortBy = this.getDefaultOfType('legend');
+    const legendDefaultSortBy = this.getDefaultSortOfType('legend');
 
     if (legendDefaultSortBy && selectedDimension.visualizationType === 'Legend') {
-      this.removeSelectedSortBy(legendDefaultSortBy);
+      this.removeSort(legendDefaultSortBy);
     } else if (
       selectedDimension.visualizationType === 'Legend' &&
-      this.selectedSortBys.length === 1 &&
-      this.selectedSortBys[0].defaultType === 'measure over legend' &&
+      this.sorts.length === 1 &&
+      this.sorts[0].defaultType === 'measure over legend' &&
       selectedMeasures.length === 1
     ) {
-      this.selectedSortBys = [];
-      this.addSelectedSortBy(
-        selectedMeasures[0].measure,
-        'measure',
-        'DESC',
-        'measure',
-        selectedMeasures[0].aggregationFunction
-      );
+      this.sorts = [];
+      this.addSort(selectedMeasures[0].measure, 'measure', 'DESC', 'measure', selectedMeasures[0].aggregationFunction);
     }
   }
 
-  override updateSelectedSortBysWhenRemovingSelectedMeasure(
+  override updateSortsWhenRemovingSelectedMeasure(
     selectedMeasure: SelectedMeasure,
     selectedMeasures: SelectedMeasure[]
   ) {
-    if (this.selectedSortBys.length === 1 && this.selectedSortBys[0].defaultType === 'measure') {
+    if (this.sorts.length === 1 && this.sorts[0].defaultType === 'measure') {
       if (selectedMeasures.length === 1) {
-        this.selectedSortBys = [];
+        this.sorts = [];
       } else if (selectedMeasures.length === 2) {
         const remainingSelectedMeasure = _.head(_.without(selectedMeasures, selectedMeasure));
 
         if (remainingSelectedMeasure) {
-          this.addSelectedSortBy(
+          this.addSort(
             remainingSelectedMeasure.measure,
             'measure',
             'DESC',
@@ -50,7 +44,7 @@ export default abstract class AbstractBasicChartSorts extends ChartSortsImpl {
         }
       } else if (selectedMeasures.length > 2) {
         const remainingSelectedMeasures = _.without(selectedMeasures, selectedMeasure);
-        this.addSelectedSortByAverageOfMeasures(remainingSelectedMeasures);
+        this.addSortByAverageOfMeasures(remainingSelectedMeasures);
       }
     }
   }

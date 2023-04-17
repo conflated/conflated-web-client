@@ -17,7 +17,7 @@ export default class ChangeSortAggregationFunctionForSelectedChartAction extends
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
-    if (this.selectedSortBy.dataScopeType === 'all') {
+    if (this.selectedSortBy.dataScope === 'all') {
       this.dispatchWithDi(StartFetchDataForSelectedChartAction, diContainer, {
         stateNamespace: this.stateNamespace
       });
@@ -25,7 +25,7 @@ export default class ChangeSortAggregationFunctionForSelectedChartAction extends
 
     const { selectedChart } = currentState;
 
-    selectedChart.sorts.changeSelectedSortByAggregationFunction(this.selectedSortBy, this.aggregationFunction);
+    selectedChart.sorts.changeSortAggregationFunction(this.selectedSortBy, this.aggregationFunction);
 
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, currentState.selectedChart);
   }

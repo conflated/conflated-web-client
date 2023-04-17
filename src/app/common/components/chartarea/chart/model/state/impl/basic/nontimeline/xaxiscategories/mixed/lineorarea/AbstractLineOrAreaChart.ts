@@ -10,13 +10,13 @@ export default class AbstractLineOrAreaChart extends AbstractMixedChart {
   constructor(chartConfiguration?: ChartConfiguration) {
     super(chartConfiguration);
     if (chartConfiguration) {
-      this.sorts = new LineOrAreaChartSorts(chartConfiguration.selectedSortBys);
+      this.sorts = new LineOrAreaChartSorts(chartConfiguration.sorts);
     }
   }
 
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
     if (this.hasTimestampXAxis()) {
-      this.sorts.updateSelectedSortBysWhenAddingSelectedDimension(dimension, visualizationType, this);
+      this.sorts.updateSortsWhenAddingSelectedDimension(dimension, visualizationType, this);
     }
 
     super.addSelectedDimension(dimension, visualizationType);

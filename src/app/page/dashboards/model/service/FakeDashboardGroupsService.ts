@@ -18,7 +18,7 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
 
     const chartConfig: ChartConfiguration = {
       id: '1',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -49,16 +49,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig2: ChartConfiguration = {
       id: '1',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -89,16 +89,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig3: ChartConfiguration = {
       id: '2',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -129,16 +129,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig4: ChartConfiguration = {
       id: '3',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -169,16 +169,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig5: ChartConfiguration = {
       id: '4',
-      chartType: 'line',
+      type: 'line',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -209,16 +209,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig6: ChartConfiguration = {
       id: '5',
-      chartType: 'area',
+      type: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -249,16 +249,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig8: ChartConfiguration = {
       id: '1',
-      chartType: 'area',
+      type: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -289,16 +289,16 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 5,
       fetchedRowCount: 5
     };
 
     const chartConfig7: ChartConfiguration = {
       id: '6',
-      chartType: 'area',
+      type: 'area',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -329,9 +329,9 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };

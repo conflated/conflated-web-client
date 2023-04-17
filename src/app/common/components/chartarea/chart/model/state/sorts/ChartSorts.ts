@@ -2,10 +2,10 @@ import type { Sort } from './sort/Sort';
 import type { DefaultSortType } from './sort/types/DefaultSortType';
 import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
-import type { SelectedSortByType } from './sort/types/SortType';
+import type { SortType } from './sort/types/SortType';
 import type { SortDirection } from './sort/types/SortDirection';
 import type { TimeSortOption } from './sort/types/TimeSortOption';
-import type { DataScopeType } from '../types/DataScopeType';
+import type { DataScope } from '../types/DataScope';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
@@ -13,64 +13,61 @@ import type { DimensionVisualizationType } from '../selecteddimension/DimensionV
 import type { Chart } from '../Chart';
 
 export interface ChartSorts {
-  addSelectedSortBy(
+  addSort(
     measureOrDimension: Measure | Dimension,
-    type: SelectedSortByType,
+    type: SortType,
     sortDirection: SortDirection,
-    defaultSortByType?: DefaultSortType,
+    defaultSortType?: DefaultSortType,
     aggregationFunction?: AggregationFunction
   ): Sort | null | undefined;
 
-  addSelectedSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): Sort | null | undefined;
+  addSortByAverageOfMeasures(selectedMeasures: SelectedMeasure[]): Sort | null | undefined;
 
-  addSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
+  addSortByMeasureOverLegendPartitionedByXAxisCategories(
     dimension: Dimension | Measure,
     xAxisCategoriesSelectedDimension: SelectedDimension
   ): Sort | null | undefined;
 
-  addSelectedSortByTime(
+  addSortByTime(
     dimension: Dimension | Measure,
     timeSortOption: TimeSortOption,
     sortDirection: SortDirection
   ): Sort | null | undefined;
 
-  changeSelectedSortByAggregationFunction(selectedSortBy: Sort, aggregationFunction: AggregationFunction): void;
+  changeSortAggregationFunction(sort: Sort, aggregationFunction: AggregationFunction): void;
 
-  changeSelectedSortByDataScopeType(selectedSortBy: Sort, dataScopeType: DataScopeType): void;
+  changeSortDataScope(sort: Sort, dataScope: DataScope): void;
 
-  changeSelectedSortByDirection(selectedSortBy: Sort, sortDirection: SortDirection): void;
+  changeSortDirection(sort: Sort, sortDirection: SortDirection): void;
 
-  getConvertSelectedSortBys(selectedDimensions: SelectedDimension[]): Sort[];
+  getConvertedSorts(selectedDimensions: SelectedDimension[]): Sort[];
 
-  getDefaultOfType(defaultType: DefaultSortType): Sort | null | undefined;
+  getDefaultSortOfType(defaultSortType: DefaultSortType): Sort | null | undefined;
 
-  getSelectedSortBys(): Sort[];
+  getSorts(): Sort[];
 
-  removeSelectedSortBy(selectedSortBy: Sort): void;
+  removeSort(sort: Sort): void;
 
-  updateSelectedSortBysWhenAddingSelectedDimension(
+  updateSortsWhenAddingSelectedDimension(
     measureOrDimension: Dimension | Measure,
     visualizationType: DimensionVisualizationType,
     chart: Chart
   ): void;
 
-  updateSelectedSortBysWhenAddingSelectedMeasure(
+  updateSortsWhenAddingSelectedMeasure(
     measureOrDimension: Measure | Dimension,
     selectedMeasures: SelectedMeasure[]
   ): void;
 
-  updateSelectedSortBysWhenChangingSelectedMeasureAggregationFunction(
+  updateSortsWhenChangingSelectedMeasureAggregationFunction(
     aggregationFunction: AggregationFunction,
     selectedMeasures: SelectedMeasure[]
   ): void;
 
-  updateSelectedSortBysWhenRemovingSelectedDimension(
+  updateSortsWhenRemovingSelectedDimension(
     selectedDimension: SelectedDimension,
     selectedMeasures: SelectedMeasure[]
   ): void;
 
-  updateSelectedSortBysWhenRemovingSelectedMeasure(
-    selectedMeasure: SelectedMeasure,
-    selectedMeasures: SelectedMeasure[]
-  ): void;
+  updateSortsWhenRemovingSelectedMeasure(selectedMeasure: SelectedMeasure, selectedMeasures: SelectedMeasure[]): void;
 }

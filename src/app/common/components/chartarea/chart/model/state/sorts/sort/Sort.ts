@@ -3,8 +3,8 @@ import type { Dimension } from '../../../../../../../../page/dataexplorer/pane/l
 import type { TimeSortOption } from './types/TimeSortOption';
 import type { SortDirection } from './types/SortDirection';
 import type { DefaultSortType } from './types/DefaultSortType';
-import type { SelectedSortByType } from './types/SortType';
-import type { DataScopeType } from '../../types/DataScopeType';
+import type { SortType } from './types/SortType';
+import type { DataScope } from '../../types/DataScope';
 import type { AggregationFunction } from '../../selectedmeasure/types/AggregationFunction';
 
 export type Sort = {
@@ -15,8 +15,8 @@ export type Sort = {
   };
   readonly aggregationFunction: AggregationFunction;
   readonly timeSortOption: TimeSortOption;
-  readonly type: SelectedSortByType;
-  readonly sortDirection: SortDirection;
-  readonly dataScopeType: DataScopeType;
+  readonly type: SortType;
+  readonly direction: SortDirection;
+  readonly dataScope: DataScope;
   readonly defaultType: DefaultSortType;
 };

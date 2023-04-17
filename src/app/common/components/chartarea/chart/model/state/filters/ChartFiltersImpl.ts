@@ -1,5 +1,5 @@
 import type { ChartFilters } from './ChartFilters';
-import type { DataScopeType } from '../types/DataScopeType';
+import type { DataScope } from '../types/DataScope';
 import type { Filter } from './filter/Filter';
 import type { AggregationFunction } from '../selectedmeasure/types/AggregationFunction';
 import Utils, { isNot } from '../../../../../../utils/Utils';
@@ -60,7 +60,7 @@ export default class ChartFiltersImpl implements ChartFilters {
     this.chartData.filterChartData(this.filters, filter.dataScopeType);
   }
 
-  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScopeType) {
+  changeFilterDataScopeType(filter: Filter, dataScopeType: DataScope) {
     const newFilterConfiguration = {
       ...filter.getConfiguration(),
       dataScopeType

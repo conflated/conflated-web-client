@@ -10,7 +10,7 @@ import type { MeasureVisualizationType } from '../selectedmeasure/types/MeasureV
 import Utils from '../../../../../../utils/Utils';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { Sort } from '../sorts/sort/Sort';
-import type { DataScopeType } from '../types/DataScopeType';
+import type { DataScope } from '../types/DataScope';
 import DataRowComparer from './DataRowComparer';
 import { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 
@@ -21,7 +21,7 @@ export default class ChartDataImpl implements ChartData {
     this.columnNameToDataMap = columnNameToDataMap ?? {};
   }
 
-  filterChartData(filters: Filter[], dataScopeType: DataScopeType = 'already fetched') {
+  filterChartData(filters: Filter[], dataScopeType: DataScope = 'already fetched') {
     this.setUnfilteredChartData();
 
     filters
@@ -235,8 +235,8 @@ export default class ChartDataImpl implements ChartData {
       });
   }
 
-  sortChartData(sorts: Sort[], dataScopeType: DataScopeType = 'already fetched') {
-    if (_.isEmpty(sorts) || !Utils.has(sorts, 'dataScopeType', dataScopeType)) {
+  sortChartData(sorts: Sort[], dataScopeType: DataScope = 'already fetched') {
+    if (_.isEmpty(sorts) || !Utils.has(sorts, 'dataScope', dataScopeType)) {
       return;
     }
 
@@ -245,11 +245,11 @@ export default class ChartDataImpl implements ChartData {
     this.columnNameToDataMap = this.getChartDataRowsAsColumns(chartDataRows);
   }
 
-  private sort(sorts: Sort[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScopeType) {
-    Utils.pick(sorts, 'dataScopeType', dataScopeType).forEach(({ sqlColumn, sortDirection }: Sort) => {
+  private sort(sorts: Sort[], chartDataRows: Array<{ [key: string]: any }>, dataScopeType: DataScope) {
+    Utils.pick(sorts, 'dataScope', dataScopeType).forEach(({ sqlColumn, direction }: Sort) => {
       if (chartDataRows.length > 0 && chartDataRows[0][sqlColumn.name]) {
         chartDataRows.sort((chartDataRow1: { [key: string]: any }, chartDataRow2: { [key: string]: any }) =>
-          DataRowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
+          DataRowComparer.compareRows(chartDataRow1, chartDataRow2, direction, sqlColumn.name)
         );
       }
     });

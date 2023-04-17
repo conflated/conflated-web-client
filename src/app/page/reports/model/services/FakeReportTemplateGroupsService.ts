@@ -16,7 +16,7 @@ export default class FakeReportTemplateGroupsService implements ReportTemplateGr
 
     const chartConfig: ChartConfiguration = {
       id: '1',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -46,16 +46,16 @@ export default class FakeReportTemplateGroupsService implements ReportTemplateGr
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };
 
     const chartConfig3: ChartConfiguration = {
       id: '2',
-      chartType: 'column',
+      type: 'column',
       dataSource: emptyDataSource,
       selectedMeasures: [
         {
@@ -85,9 +85,9 @@ export default class FakeReportTemplateGroupsService implements ReportTemplateGr
           visualizationType: 'X-axis categories'
         }
       ],
-      selectedFilters: [],
-      selectedSortBys: [],
-      chartData: {},
+      filters: [],
+      sorts: [],
+      data: {},
       xAxisCategoriesShownCount: 10,
       fetchedRowCount: 100
     };

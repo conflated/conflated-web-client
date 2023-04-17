@@ -6,48 +6,41 @@ import type { Chart } from '../../Chart';
 import type { SelectedDimension } from '../../selecteddimension/SelectedDimension';
 
 export default class XAxisChartSorts extends AbstractBasicChartSorts {
-  override updateSelectedSortBysWhenAddingSelectedDimension(
+  override updateSortsWhenAddingSelectedDimension(
     dimension: Dimension | Measure,
     visualizationType: DimensionVisualizationType,
     chart: Chart
   ) {
     const xAxisCategoriesSelectedDimension = chart.getSelectedDimensionOfType('X-axis categories');
 
-    if (this.selectedSortBys.length === 0 && visualizationType === 'X-axis categories') {
-      this.addSelectedSortBy(dimension, 'dimension', 'ASC', 'x-axis categories');
-    } else if (
-      this.selectedSortBys.length === 1 &&
-      xAxisCategoriesSelectedDimension != null &&
-      visualizationType === 'Legend'
-    ) {
-      if (this.selectedSortBys[0].defaultType === 'x-axis categories') {
-        this.addSelectedSortBy(dimension, 'dimension', 'ASC', 'legend');
-      } else if (this.selectedSortBys[0].defaultType === 'measure') {
-        this.selectedSortBys = [];
+    if (this.sorts.length === 0 && visualizationType === 'X-axis categories') {
+      this.addSort(dimension, 'dimension', 'ASC', 'x-axis categories');
+    } else if (this.sorts.length === 1 && xAxisCategoriesSelectedDimension != null && visualizationType === 'Legend') {
+      if (this.sorts[0].defaultType === 'x-axis categories') {
+        this.addSort(dimension, 'dimension', 'ASC', 'legend');
+      } else if (this.sorts[0].defaultType === 'measure') {
+        this.sorts = [];
 
         if (chart.hasTimestampXAxis()) {
-          this.addSelectedSortByTime(dimension, 'Latest value', 'DESC');
+          this.addSortByTime(dimension, 'Latest value', 'DESC');
         } else {
-          this.addSelectedSortByMeasureOverLegendPartitionedByXAxisCategories(
-            dimension,
-            xAxisCategoriesSelectedDimension
-          );
+          this.addSortByMeasureOverLegendPartitionedByXAxisCategories(dimension, xAxisCategoriesSelectedDimension);
         }
       }
     }
   }
 
-  override updateSelectedSortBysWhenRemovingSelectedDimension(selectedDimension: SelectedDimension) {
-    if (this.getDefaultOfType('x-axis categories') && selectedDimension.visualizationType === 'X-axis categories') {
-      this.selectedSortBys = [];
+  override updateSortsWhenRemovingSelectedDimension(selectedDimension: SelectedDimension) {
+    if (this.getDefaultSortOfType('x-axis categories') && selectedDimension.visualizationType === 'X-axis categories') {
+      this.sorts = [];
     }
   }
 
-  override updateSelectedSortBysWhenAddingSelectedMeasure(measure: Measure | Dimension): void {
+  override updateSortsWhenAddingSelectedMeasure(measure: Measure | Dimension): void {
     const sortDirection = 'DESC';
 
-    if (this.selectedSortBys.length === 0) {
-      this.addSelectedSortBy(measure, 'measure', sortDirection, 'measure');
+    if (this.sorts.length === 0) {
+      this.addSort(measure, 'measure', sortDirection, 'measure');
     }
   }
 }
