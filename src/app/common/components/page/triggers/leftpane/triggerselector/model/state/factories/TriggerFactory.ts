@@ -11,7 +11,7 @@ export default class TriggerFactory {
     stateNamespace: TriggersPageStateNamespace
   ): Trigger[] {
     const [triggerNames, triggerLabelsForTrigger, severitiesOrStatuses] =
-      triggersDataTableChart.chartData.getTriggerData(stateNamespace);
+      triggersDataTableChart.data.getTriggerData(stateNamespace);
 
     const triggerNamesWithSelectedTriggerLabels = triggerNames
       .filter((triggerName: string, index: number) =>

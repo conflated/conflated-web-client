@@ -10,11 +10,11 @@ type Props = {
 };
 
 const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCols }: Props) => {
-  const chartConfigHintTitle = chart.getChartConfigHintTitle();
-  const chartConfigHintSubtitle = chart.getChartConfigHintSubtitle();
+  const chartConfigHintTitle = chart.getConfigHintTitle();
+  const chartConfigHintSubtitle = chart.getConfigHintSubtitle();
   let chartIcon;
 
-  switch (chart.chartType) {
+  switch (chart.type) {
     case 'column':
       chartIcon = styles.columnChart;
       break;
@@ -84,7 +84,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
                 {chartIcon && <div className={chartIcon} />}
                 {!chartIcon && <div className={styles.statistic}>123</div>}
                 <span className={styles.chartTypeName}>
-                  {`${chart.chartType[0].toUpperCase() + chart.chartType.slice(1)} Chart`}
+                  {`${chart.type[0].toUpperCase() + chart.type.slice(1)} Chart`}
                 </span>
               </div>
               {chart.dataSource !== emptyDataSource && <div className={styles.dataSource}>{chart.dataSource.name}</div>}

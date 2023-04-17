@@ -27,7 +27,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
     return super.getConvertSelectedMeasures();
   }
 
-  override getApexChartType(): string {
+  override getApexType(): string {
     if (
       ((this.selectedMeasures.length === 1 && this.selectedMeasures[0].measure.unit === 'percent') ||
         this.selectedMeasures.length > 1) &&
@@ -36,7 +36,7 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
       return 'radialBar';
     }
 
-    return super.getApexChartType();
+    return super.getApexType();
   }
 
   override getTitleText(): string {

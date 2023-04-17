@@ -35,7 +35,7 @@ class StartFetchDataForSelectedChartAction extends AbstractChartAreaAction {
         this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, selectedChart.id));
       });
 
-    selectedChart.isFetchingChartData = true;
+    selectedChart.isFetchingData = true;
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

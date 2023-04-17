@@ -12,11 +12,11 @@ export default class LeafletCircleGeometriesFactory {
   static createCircleGeometries(chart: Chart): Array<JSX.Element> {
     const handledRadiusTypeSelectedMeasures: any[] = [];
 
-    const [latitudeValues, longitudeValues] = chart.chartData.getMapLocationData(chart.selectedDimensions);
+    const [latitudeValues, longitudeValues] = chart.data.getMapLocationData(chart.selectedDimensions);
 
     const filledCircles = Utils.pick(chart.selectedMeasures, 'visualizationType', 'color').map(
       (selectedMeasure: SelectedMeasure): Array<JSX.Element> =>
-        chart.chartData
+        chart.data
           .getForSelectedMeasure(selectedMeasure)
           .map((measureValue: number, valueIndex: number): JSX.Element => {
             const radiusTypeSelectedMeasure = chart.getRadiusTypeSelectedMeasureForColor(
@@ -37,7 +37,7 @@ export default class LeafletCircleGeometriesFactory {
                 center={[latitudeValues[valueIndex], longitudeValues[valueIndex]]}
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                radius={chart.chartData.getForSelectedMeasure(radiusTypeSelectedMeasure)[valueIndex] ?? 100}
+                radius={chart.data.getForSelectedMeasure(radiusTypeSelectedMeasure)[valueIndex] ?? 100}
                 fill
                 stroke
                 color={selectedMeasure.visualizationColor}
@@ -64,7 +64,7 @@ export default class LeafletCircleGeometriesFactory {
       .filter((selectedMeasure: SelectedMeasure) => !handledRadiusTypeSelectedMeasures.includes(selectedMeasure))
       .map(
         (selectedMeasure: SelectedMeasure): Array<JSX.Element> =>
-          chart.chartData.getForSelectedMeasure(selectedMeasure).map(
+          chart.data.getForSelectedMeasure(selectedMeasure).map(
             (measureValue: number, valueIndex: number): JSX.Element => (
               <Circle
                 key={HashValueCalculator.hashValues(

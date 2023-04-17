@@ -40,7 +40,7 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
         this.dispatch(new FinishFetchPartialDataForSelectedChartAction(this.stateNamespace, columnNameToValuesMap))
       );
 
-    selectedChart.isFetchingChartData = true;
+    selectedChart.isFetchingData = true;
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

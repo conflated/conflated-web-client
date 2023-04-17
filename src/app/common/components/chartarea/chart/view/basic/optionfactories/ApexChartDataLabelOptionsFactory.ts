@@ -15,16 +15,13 @@ export default class ApexChartDataLabelOptionsFactory {
       enabled: chart.shouldShowDataLabels(),
       textAnchor: 'middle',
       offsetX: 1,
-      offsetY: chart.chartType === 'bar' ? 5 : -5,
+      offsetY: chart.type === 'bar' ? 5 : -5,
       style: {
         fontSize: '0.8rem',
         fontFamily: 'Arimo, sans-serif',
         fontWeight: 'normal',
         colors:
-          chart.chartType !== 'line' &&
-          chart.chartType !== 'area' &&
-          chart.chartType !== 'radar' &&
-          chart.chartType !== 'heatmap'
+          chart.type !== 'line' && chart.type !== 'area' && chart.type !== 'radar' && chart.type !== 'heatmap'
             ? [color]
             : ['#000']
       }

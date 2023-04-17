@@ -29,17 +29,17 @@ import type { Column } from './types/Column';
 
 export interface Chart {
   id: string;
-  chartType: ChartType;
+  type: ChartType;
   dataSource: DataSource;
   selectedMeasures: SelectedMeasure[];
   selectedDimensions: SelectedDimension[];
   filters: ChartFilters;
   sorts: ChartSorts;
-  chartData: ChartData;
+  data: ChartData;
   xAxisCategoriesShownCount: number;
   fetchedRowCount: number;
   xAxisScrollPosition?: number;
-  isFetchingChartData?: boolean;
+  isFetchingData?: boolean;
   selectedDataPointIndex?: number;
   drillDowns?: DrillDown[];
   selectedDataPoints: DataPoint[];
@@ -67,7 +67,7 @@ export interface Chart {
     aggregationFunction: AggregationFunction
   ): void;
 
-  createChartView(
+  createView(
     width: number,
     height: number,
     stateNamespace: ChartAreaStateNamespace,
@@ -98,17 +98,17 @@ export interface Chart {
 
   getAllColors(theme: Theme): string[];
 
-  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[];
+  getApexDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[];
 
-  getApexChartType(): string;
+  getApexType(): string;
 
   getApexXAxisOptions(): object;
 
   getApexYAxisTitleOptions(): object;
 
-  getChartConfigHintSubtitle(): string;
+  getConfigHintSubtitle(): string;
 
-  getChartConfigHintTitle(): string;
+  getConfigHintTitle(): string;
 
   getColors(): string[];
 
@@ -148,9 +148,9 @@ export interface Chart {
 
   getValidAggregationFunction(aggregationFunction: AggregationFunction): AggregationFunction;
 
-  getChartConfiguration(): ChartConfiguration;
+  getConfiguration(): ChartConfiguration;
 
-  getChartDataForSelectedDimensionOfType(dimensionVisualizationType: DimensionVisualizationType): Array<any>;
+  getDataForSelectedDimensionOfType(dimensionVisualizationType: DimensionVisualizationType): Array<any>;
 
   getFillOpacity(): number;
 
@@ -223,7 +223,7 @@ export interface Chart {
 
   isTimelineChart(): boolean;
 
-  mergeChartData(columnNameToValuesMap: ColumnNameToValuesMap): void;
+  mergeData(columnNameToValuesMap: ColumnNameToValuesMap): void;
 
   removeSelectedDimension(selectedDimension: SelectedDimension): void;
 
@@ -231,9 +231,9 @@ export interface Chart {
 
   selectDataPoint(dataPoint: DataPoint): void;
 
-  setChartData(columnNameToValuesMap: ColumnNameToValuesMap): void;
+  setData(columnNameToValuesMap: ColumnNameToValuesMap): void;
 
-  setIsFetchingChartData(isFetchingCharData: boolean): void;
+  setIsFetchingData(isFetchingCharData: boolean): void;
 
   shouldShowAsSparkline(): boolean;
 

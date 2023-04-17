@@ -10,11 +10,11 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     return super.getConvertSelectedMeasures();
   }
 
-  override getApexChartDataSeries(): DataSeries[] {
+  override getApexDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
-      const [xAxisData, yAxisData, legendData] = this.chartData.getScatterChartData(
+      const [xAxisData, yAxisData, legendData] = this.data.getScatterChartData(
         this.selectedMeasures,
         this.selectedDimensions
       );
@@ -55,12 +55,12 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     return dataSeries;
   }
 
-  override getChartConfigHintTitle(): string {
+  override getConfigHintTitle(): string {
     if (this.selectedMeasures.length === 1) {
       return 'Add one more measure';
     }
 
-    return super.getChartConfigHintTitle();
+    return super.getConfigHintTitle();
   }
 
   override getNextMeasureVisualizationType(
@@ -86,7 +86,7 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
   }
 
   override hasData(): boolean {
-    const [xAxisData, yAxisData] = this.chartData.getScatterChartData(this.selectedMeasures, this.selectedDimensions);
+    const [xAxisData, yAxisData] = this.data.getScatterChartData(this.selectedMeasures, this.selectedDimensions);
 
     return (
       this.selectedDimensions.length > 0 &&

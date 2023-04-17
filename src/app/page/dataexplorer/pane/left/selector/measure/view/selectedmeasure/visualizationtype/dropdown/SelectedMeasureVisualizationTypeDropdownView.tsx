@@ -33,7 +33,7 @@ const SelectedMeasureVisualizationTypeDropdownView = ({ changeVisualizationType,
     chart.selectedDimensions.length === 0
   );
 
-  if (chart.chartType === 'candlestick') {
+  if (chart.type === 'candlestick') {
     return (
       <Dropdown
         className={styles.candlestickVisualizationTypeSelector}

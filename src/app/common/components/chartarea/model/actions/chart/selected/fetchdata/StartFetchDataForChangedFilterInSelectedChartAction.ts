@@ -30,11 +30,11 @@ class StartFetchDataForChangedFilterInSelectedChartAction extends AbstractChartA
     const { selectedChart } = currentState;
 
     const ActionClass = (() => {
-      if (this.selectedFilter.shouldFetchMeasureMinMaxValues(selectedChart.chartData)) {
+      if (this.selectedFilter.shouldFetchMeasureMinMaxValues(selectedChart.data)) {
         return StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction;
-      } else if (this.selectedFilter.shouldFetchChartData(selectedChart.chartData)) {
+      } else if (this.selectedFilter.shouldFetchChartData(selectedChart.data)) {
         return StartFetchDataForSelectedChartAction;
-      } else if (this.selectedFilter.shouldFetchDimensionValues(selectedChart.chartData)) {
+      } else if (this.selectedFilter.shouldFetchDimensionValues(selectedChart.data)) {
         return StartFetchValuesForDimensionsUsedInFiltersInSelectedChartAction;
       }
 

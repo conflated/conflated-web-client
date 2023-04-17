@@ -27,7 +27,7 @@ export default class ApexChartPlotOptionsFactory {
 
     return {
       bar: {
-        horizontal: chart.chartType === 'bar',
+        horizontal: chart.type === 'bar',
         dataLabels: {
           position: 'top'
         }

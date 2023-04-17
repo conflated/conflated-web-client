@@ -4,14 +4,14 @@ import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMea
 import Utils from '../../../../../../../../../../utils/Utils';
 
 export default class AbstractMixedChart extends AbstractXAxisCategoriesChart {
-  override getApexChartType(): string {
+  override getApexType(): string {
     if (this.selectedMeasures.length === 1) {
       return this.selectedMeasures[0].visualizationType === 'column'
         ? 'bar'
         : this.selectedMeasures[0].visualizationType;
     }
 
-    return super.getApexChartType();
+    return super.getApexType();
   }
 
   override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {

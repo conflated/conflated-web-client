@@ -43,7 +43,7 @@ import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartArea
 export default abstract class AbstractChart implements Chart {
   id = '1';
 
-  chartType: ChartType = 'column';
+  type: ChartType = 'column';
 
   dataSource: DataSource = emptyDataSource;
 
@@ -55,7 +55,7 @@ export default abstract class AbstractChart implements Chart {
 
   sorts: ChartSorts = new ChartSortsImpl([]);
 
-  chartData: ChartData = new ChartDataImpl();
+  data: ChartData = new ChartDataImpl();
 
   xAxisCategoriesShownCount = 10;
 
@@ -63,7 +63,7 @@ export default abstract class AbstractChart implements Chart {
 
   xAxisScrollPosition?: number = 0;
 
-  isFetchingChartData?: boolean = false;
+  isFetchingData?: boolean = false;
 
   selectedDataPointIndex?: number = undefined;
 
@@ -84,17 +84,17 @@ export default abstract class AbstractChart implements Chart {
   constructor(chartConfiguration?: ChartConfiguration) {
     if (chartConfiguration) {
       this.id = chartConfiguration.id;
-      this.chartType = chartConfiguration.chartType;
+      this.type = chartConfiguration.chartType;
       this.dataSource = chartConfiguration.dataSource;
       this.selectedMeasures = chartConfiguration.selectedMeasures;
       this.selectedDimensions = chartConfiguration.selectedDimensions;
-      this.chartData = new ChartDataImpl(chartConfiguration.chartData);
-      this.filters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.chartData);
+      this.data = new ChartDataImpl(chartConfiguration.chartData);
+      this.filters = new ChartFiltersImpl(chartConfiguration.selectedFilters, this.data);
       this.sorts = new ChartSortsImpl(chartConfiguration.selectedSortBys);
       this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
       this.fetchedRowCount = chartConfiguration.fetchedRowCount;
       this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;
-      this.isFetchingChartData = chartConfiguration.isFetchingChartData;
+      this.isFetchingData = chartConfiguration.isFetchingChartData;
       this.selectedDataPointIndex = chartConfiguration.selectedDataPointIndex;
       this.drillDowns = chartConfiguration.drillDowns ?? [];
       this.selectedDataPoints = chartConfiguration.selectedDataPoints ?? [];
@@ -167,7 +167,7 @@ export default abstract class AbstractChart implements Chart {
     });
   }
 
-  abstract createChartView(
+  abstract createView(
     width: number,
     height: number,
     stateNamespace: ChartAreaStateNamespace,
@@ -205,19 +205,19 @@ export default abstract class AbstractChart implements Chart {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
+  getApexDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     throw new Error('Abstract method called');
   }
 
-  getApexChartType(): string {
-    return this.chartType === 'column' ? 'bar' : this.chartType;
+  getApexType(): string {
+    return this.type === 'column' ? 'bar' : this.type;
   }
 
   getApexXAxisOptions(): object {
     return {};
   }
 
-  getChartConfigHintSubtitle(): string {
+  getConfigHintSubtitle(): string {
     if (
       this.dataSource !== emptyDataSource &&
       this.selectedMeasures.length === 0 &&
@@ -229,7 +229,7 @@ export default abstract class AbstractChart implements Chart {
     return '';
   }
 
-  getChartConfigHintTitle(): string {
+  getConfigHintTitle(): string {
     if (this.dataSource === emptyDataSource) {
       return 'Select a data source';
     } else if (this.selectedMeasures.length === 0 && this.selectedDimensions.length === 0) {
@@ -243,20 +243,20 @@ export default abstract class AbstractChart implements Chart {
     return '';
   }
 
-  getChartConfiguration(): ChartConfiguration {
+  getConfiguration(): ChartConfiguration {
     return {
       id: this.id,
-      chartType: this.chartType,
+      chartType: this.type,
       dataSource: this.dataSource,
       selectedMeasures: this.selectedMeasures,
       selectedDimensions: this.selectedDimensions,
       selectedFilters: this.getFilters(),
       selectedSortBys: this.getSorts(),
-      chartData: this.chartData.getColumnNameToValuesMap(),
+      chartData: this.data.getColumnNameToValuesMap(),
       xAxisCategoriesShownCount: this.xAxisCategoriesShownCount,
       fetchedRowCount: this.fetchedRowCount,
       xAxisScrollPosition: this.xAxisScrollPosition,
-      isFetchingChartData: this.isFetchingChartData,
+      isFetchingChartData: this.isFetchingData,
       selectedDataPointIndex: this.selectedDataPointIndex,
       drillDowns: this.drillDowns,
       selectedDataPoints: this.selectedDataPoints,
@@ -266,8 +266,8 @@ export default abstract class AbstractChart implements Chart {
     };
   }
 
-  getChartDataForSelectedDimensionOfType(dimensionVisualizationType: DimensionVisualizationType): Array<any> {
-    return this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, dimensionVisualizationType);
+  getDataForSelectedDimensionOfType(dimensionVisualizationType: DimensionVisualizationType): Array<any> {
+    return this.data.getForSelectedDimensionOfType(this.selectedDimensions, dimensionVisualizationType);
   }
 
   getColors(): string[] {
@@ -369,7 +369,7 @@ export default abstract class AbstractChart implements Chart {
       }));
 
     const newChart = ChartFactory.createChart({
-      ...this.getChartConfiguration(),
+      ...this.getConfiguration(),
       chartType: newChartType
     });
 
@@ -384,7 +384,7 @@ export default abstract class AbstractChart implements Chart {
     newChart.sorts = new ChartSortsImpl(newChart.sorts.getConvertSelectedSortBys(this.selectedDimensions));
 
     if (newChart.sorts !== this.sorts) {
-      this.chartData.sortChartData(newChart.getSorts(), 'all');
+      this.data.sortChartData(newChart.getSorts(), 'all');
     }
 
     return newChart;
@@ -600,8 +600,8 @@ export default abstract class AbstractChart implements Chart {
     return this.hasTimestampXAxis();
   }
 
-  mergeChartData(columnNameToValuesMap: ColumnNameToValuesMap) {
-    this.chartData = new ChartDataImpl(Object.assign(this.chartData.getColumnNameToValuesMap(), columnNameToValuesMap));
+  mergeData(columnNameToValuesMap: ColumnNameToValuesMap) {
+    this.data = new ChartDataImpl(Object.assign(this.data.getColumnNameToValuesMap(), columnNameToValuesMap));
   }
 
   removeSelectedDimension(selectedDimension: SelectedDimension) {
@@ -621,15 +621,15 @@ export default abstract class AbstractChart implements Chart {
     this.selectedDataPoints.push(dataPoint);
   }
 
-  setChartData(columnNameToValuesMap: ColumnNameToValuesMap) {
-    this.isFetchingChartData = false;
-    this.chartData = new ChartDataImpl(columnNameToValuesMap);
-    this.chartData.filterChartData(this.getFilters());
-    this.chartData.sortChartData(this.getSorts());
+  setData(columnNameToValuesMap: ColumnNameToValuesMap) {
+    this.isFetchingData = false;
+    this.data = new ChartDataImpl(columnNameToValuesMap);
+    this.data.filterChartData(this.getFilters());
+    this.data.sortChartData(this.getSorts());
   }
 
-  setIsFetchingChartData(isFetchingCharData: boolean) {
-    this.isFetchingChartData = isFetchingCharData;
+  setIsFetchingData(isFetchingCharData: boolean) {
+    this.isFetchingData = isFetchingCharData;
   }
 
   shouldShowAsSparkline(): boolean {

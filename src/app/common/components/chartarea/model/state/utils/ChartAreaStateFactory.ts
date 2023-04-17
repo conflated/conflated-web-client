@@ -5,7 +5,7 @@ import type { Chart } from '../../../chart/model/state/Chart';
 export default class ChartAreaStateFactory {
   static createNewStateForChangedChart(currentState: ChartAreaState, changedChart: Chart): ChartAreaState {
     const { charts, selectedChart } = currentState;
-    const newChart = ChartFactory.createChart(changedChart.getChartConfiguration());
+    const newChart = ChartFactory.createChart(changedChart.getConfiguration());
 
     const newState = {
       ...currentState,

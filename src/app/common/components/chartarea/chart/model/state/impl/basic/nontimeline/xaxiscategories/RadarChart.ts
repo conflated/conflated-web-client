@@ -13,7 +13,7 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
     const xAxisCategoriesSelectedDimension = this.getSelectedDimensionOfType('X-axis categories');
 
     if (xAxisCategoriesSelectedDimension && this.selectedMeasures.length > 0) {
-      const labelsData = this.chartData.getForSelectedDimension(
+      const labelsData = this.data.getForSelectedDimension(
         this.currentDrillDownSelectedDimension ?? xAxisCategoriesSelectedDimension
       );
 

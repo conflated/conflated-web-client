@@ -18,7 +18,7 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     labelIndex: -1
   };
 
-  override createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+  override createView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     return <ApexChartView chart={this} height={height} stateNamespace={stateNamespace} width={width} />;
   }
 
@@ -27,7 +27,7 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
       this.currentDrillDownSelectedDimension ?? this.getSelectedDimensionOfType('X-axis categories');
 
     const hasLegend = this.hasSelectedDimensionOfType('Legend');
-    const labelValues = this.chartData.getForSelectedDimension(labelSelectedDimension);
+    const labelValues = this.data.getForSelectedDimension(labelSelectedDimension);
     let uniqueLabels: any[] = [];
 
     if (labelSelectedDimension && !hasLegend && this.selectedMeasures.length > 0) {
@@ -41,7 +41,7 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     if (this.selectedMeasures.length > 0 && labelSelectedDimension && !hasLegend) {
       this.selectedMeasures.forEach((selectedMeasure: SelectedMeasure, selectedMeasureIndex: number) => {
         const measuresForUniqueLabels: any[] = [];
-        const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
+        const measureValues = this.data.getForSelectedMeasure(selectedMeasure);
 
         if (measureValues.length === labelValues.length && measureValues.length > 0) {
           labelValues.forEach((labelValue: any, index: number) => {
@@ -72,8 +72,8 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
         });
       });
     } else if (this.selectedMeasures.length === 1 && labelSelectedDimension && hasLegend) {
-      const legendValues = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Legend');
-      const measureValues = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
+      const legendValues = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'Legend');
+      const measureValues = this.data.getForSelectedMeasure(this.selectedMeasures[0]);
 
       if (
         legendValues.length === labelValues?.length &&

@@ -11,8 +11,8 @@ export default class FinishFetchPartialDataForSelectedChartAction extends Abstra
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { selectedChart } = currentState;
-    selectedChart.isFetchingChartData = false;
-    selectedChart.mergeChartData(this.chartData);
+    selectedChart.isFetchingData = false;
+    selectedChart.mergeData(this.chartData);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

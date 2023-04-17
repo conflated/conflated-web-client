@@ -7,6 +7,6 @@ export default class LineChart extends AbstractLineOrAreaChart {
   }
 
   override shouldShowDataLabels(): boolean {
-    return this.chartType === 'stepline' ? false : super.shouldShowDataLabels();
+    return this.type === 'stepline' ? false : super.shouldShowDataLabels();
   }
 }

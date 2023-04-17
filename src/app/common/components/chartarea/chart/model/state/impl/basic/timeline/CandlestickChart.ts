@@ -10,13 +10,13 @@ export default class CandlestickChart extends AbstractTimelineChart {
   }
 
   // eslint-disable-next-line no-unused-vars
-  override getApexChartDataSeries(): DataSeries[] {
+  override getApexDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
-    const openData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'open');
-    const highData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'high');
-    const lowData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'low');
-    const closeData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'close');
-    const timelineData = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Timeline');
+    const openData = this.data.getForSelectedMeasureOfType(this.selectedMeasures, 'open');
+    const highData = this.data.getForSelectedMeasureOfType(this.selectedMeasures, 'high');
+    const lowData = this.data.getForSelectedMeasureOfType(this.selectedMeasures, 'low');
+    const closeData = this.data.getForSelectedMeasureOfType(this.selectedMeasures, 'close');
+    const timelineData = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'Timeline');
 
     if (
       openData.length > 0 &&

@@ -18,7 +18,7 @@ export default class FinishFetchChartDataAction extends AbstractChartAreaAction 
     const chart = Utils.findElem(currentState.charts, 'id', this.chartId);
 
     if (chart) {
-      chart.setChartData(this.columnNameToValuesMap);
+      chart.setData(this.columnNameToValuesMap);
       return ChartAreaStateFactory.createNewStateForChangedChart(currentState, chart);
     }
 

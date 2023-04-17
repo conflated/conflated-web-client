@@ -15,7 +15,7 @@ export default class RemoveChartAction extends AbstractChartAreaAction {
     const { charts, layout } = currentState;
 
     const newCharts = _.without(charts, this.chart).map((chart, index) => {
-      const chartConfig = chart.getChartConfiguration();
+      const chartConfig = chart.getConfiguration();
       chartConfig.id = (index + 1).toString();
       return ChartFactory.createChart(chartConfig);
     });

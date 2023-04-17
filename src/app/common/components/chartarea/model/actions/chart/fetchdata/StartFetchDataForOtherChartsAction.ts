@@ -42,7 +42,7 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaAction {
       charts: [
         ...(this.chart ? [this.chart] : []),
         ..._.without(charts, this.chart).map((chart: Chart): Chart => {
-          chart.setIsFetchingChartData(true);
+          chart.setIsFetchingData(true);
           return chart;
         })
       ]

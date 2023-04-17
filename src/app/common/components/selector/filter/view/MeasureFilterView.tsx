@@ -47,7 +47,7 @@ const MeasureFilterView = ({
       </Dropdown.Menu>
     </Dropdown>
     <Icon className={styles.icon} name="close" onClick={() => removeFilter()} />
-    {filter.getFilterInputView(styles.filterInput, chart.chartData, changeFilterExpression)}
+    {filter.getFilterInputView(styles.filterInput, chart.data, changeFilterExpression)}
   </List.Item>
 );
 export default MeasureFilterView;

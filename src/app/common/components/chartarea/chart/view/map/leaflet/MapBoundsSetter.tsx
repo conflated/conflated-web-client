@@ -15,7 +15,7 @@ const MapBoundsSetter = ({ chart }: Props) => {
   const [previousMapBounds, setPreviousMapBounds] = useState({} as State);
   const map = useMap();
   chart.setMap(map);
-  const [latitudeValues, longitudeValues] = chart.chartData.getMapLocationData(chart.selectedDimensions);
+  const [latitudeValues, longitudeValues] = chart.data.getMapLocationData(chart.selectedDimensions);
 
   if (latitudeValues.length > 0 && longitudeValues.length > 0) {
     const maxLatitude = _.max(latitudeValues);

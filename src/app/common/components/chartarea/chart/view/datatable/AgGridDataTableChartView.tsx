@@ -47,7 +47,7 @@ const AgGridDataTableChartView = ({ chart }: Props) => {
   );
 
   const columnDefs = [...dimensionColumnDefs, ...measureColumnDefs];
-  const dataRows = chart.chartData.getChartDataAsRows();
+  const dataRows = chart.data.getChartDataAsRows();
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return columnDefs.length > 0 ? (

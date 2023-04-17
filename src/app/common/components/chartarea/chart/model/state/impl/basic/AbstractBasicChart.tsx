@@ -24,7 +24,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     labelIndex: 1
   };
 
-  createChartView(
+  createView(
     width: number,
     height: number,
     stateNamespace: ChartAreaStateNamespace,
@@ -77,7 +77,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
     }
   };
 
-  override getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
+  override getApexDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0 && !this.hasSelectedDimensionOfType('Legend')) {
       return this.getApexChartNonLegendDataSeries();
     } else if (this.selectedMeasures.length >= 1 && this.hasSelectedDimensionOfType('Legend')) {
@@ -89,10 +89,10 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
   getApexChartNonLegendDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
-    const xAxisValues = this.getChartDataForSelectedDimensionOfType('X-axis categories');
+    const xAxisValues = this.getDataForSelectedDimensionOfType('X-axis categories');
 
     this.selectedMeasures.forEach((selectedMeasure: SelectedMeasure) => {
-      let measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
+      let measureValues = this.data.getForSelectedMeasure(selectedMeasure);
       if (measureValues.length === 0) {
         dataSeries.push({
           name: '',
@@ -126,9 +126,9 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
   getApexChartLegendDataSeries(shownXAxisCategories: Array<any>): DataSeries[] {
     const dataSeries: DataSeries[] = [];
-    const xAxisValues = this.getChartDataForSelectedDimensionOfType('X-axis categories');
-    const measureValues = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
-    const legendValues = this.getChartDataForSelectedDimensionOfType('Legend');
+    const xAxisValues = this.getDataForSelectedDimensionOfType('X-axis categories');
+    const measureValues = this.data.getForSelectedMeasure(this.selectedMeasures[0]);
+    const legendValues = this.getDataForSelectedDimensionOfType('Legend');
 
     if (legendValues.length > 0) {
       legendValues.forEach((legendValue: any, valueIndex: number) => {
@@ -194,7 +194,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       return (value: any, { dataPointIndex }: any): string =>
         this.selectedMeasures.reduce(
           (tooltipYValue: string, selectedMeasure: SelectedMeasure, selectedMeasureIndex: number): string => {
-            const measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
+            const measureValues = this.data.getForSelectedMeasure(selectedMeasure);
 
             if (measureValues.length > 0) {
               if (selectedMeasureIndex === 0) {
@@ -218,7 +218,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       return (value: any, { dataPointIndex }: any): string =>
         this.selectedDimensions.reduce(
           (tooltipXValue: string, selectedDimension: SelectedDimension, selectedDimensionIndex: number): string => {
-            const dimensionValues = this.chartData.getForSelectedDimension(selectedDimension);
+            const dimensionValues = this.data.getForSelectedDimension(selectedDimension);
 
             if (dimensionValues.length > 0) {
               if (selectedDimensionIndex === 0) {
@@ -298,7 +298,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
         seriesSelectedDataPoints.forEach((index: number) => {
           if (dataPointsSelectedDimension) {
-            selectedLabels.push(this.chartData.getForSelectedDimension(labelSelectionDimension)[index]);
+            selectedLabels.push(this.data.getForSelectedDimension(labelSelectionDimension)[index]);
           } else {
             selectedLabels.push(w.globals.labels[index]);
           }
@@ -361,12 +361,12 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
   override shouldShowDataLabels(): boolean {
     const legendSelectedDimension = this.getSelectedDimensionOfType('Legend');
-    const uniqueLegendDataValues = _.uniq(this.chartData.getForSelectedDimension(legendSelectedDimension));
+    const uniqueLegendDataValues = _.uniq(this.data.getForSelectedDimension(legendSelectedDimension));
 
     return (
       this.selectedMeasures.length > 0 &&
       this.selectedMeasures.length < 6 &&
-      this.chartData.getForSelectedMeasure(this.selectedMeasures[0]).length > 0 &&
+      this.data.getForSelectedMeasure(this.selectedMeasures[0]).length > 0 &&
       this.selectedDimensions.length > 0 &&
       this.xAxisCategoriesShownCount * uniqueLegendDataValues.length <= 50
     );

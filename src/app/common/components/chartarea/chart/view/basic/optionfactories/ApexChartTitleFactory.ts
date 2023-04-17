@@ -7,7 +7,7 @@ export default class ApexChartTitleFactory {
 
     return {
       text:
-        stateNamespace === 'dataExplorerPage' && chart.chartType !== 'sparkline'
+        stateNamespace === 'dataExplorerPage' && chart.type !== 'sparkline'
           ? `${chart.id}. ${chart.getTitleText(stateNamespace)}`
           : chart.getTitleText(stateNamespace),
       floating: chart.hasFloatingTitle(),

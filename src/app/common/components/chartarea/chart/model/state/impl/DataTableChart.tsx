@@ -32,7 +32,7 @@ export default class DataTableChart extends AbstractDrillDownChart {
   }
 
   // eslint-disable-next-line no-unused-vars
-  createChartView(
+  createView(
     width: number,
     height: number,
     stateNamespace: ChartAreaStateNamespace,

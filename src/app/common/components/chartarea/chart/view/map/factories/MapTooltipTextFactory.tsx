@@ -10,7 +10,7 @@ export default class MapTooltipTextFactory {
     index: number
   ): JSX.Element | null => {
     if (radiusTypeSelectedMeasure != null) {
-      const measureValues = chart.chartData.getForSelectedMeasure(radiusTypeSelectedMeasure);
+      const measureValues = chart.data.getForSelectedMeasure(radiusTypeSelectedMeasure);
 
       if (measureValues.length > 0) {
         return (
@@ -36,7 +36,7 @@ export default class MapTooltipTextFactory {
           visualizationType === 'tooltip' && visualizationColor === wantedColor
       )
       .map((selectedMeasure: SelectedMeasure): JSX.Element | null => {
-        const measureValues = chart.chartData.getForSelectedMeasure(selectedMeasure);
+        const measureValues = chart.data.getForSelectedMeasure(selectedMeasure);
         if (measureValues.length > 0) {
           return (
             <>
@@ -52,7 +52,7 @@ export default class MapTooltipTextFactory {
     chart.selectedDimensions
       .filter(({ visualizationType }: SelectedDimension) => visualizationType === 'Tooltip')
       .map((selectedDimension: SelectedDimension): JSX.Element | null => {
-        const dimensionValues = chart.chartData.getForSelectedDimension(selectedDimension);
+        const dimensionValues = chart.data.getForSelectedDimension(selectedDimension);
         if (dimensionValues.length > 0) {
           return (
             <>

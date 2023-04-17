@@ -9,15 +9,15 @@ import type { MeasureVisualizationType } from '../../../../selectedmeasure/types
 import type { LegendPosition } from '../../../../types/LegendPosition';
 
 export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
-  override getApexChartDataSeries(): DataSeries[] | any[] {
+  override getApexDataSeries(): DataSeries[] | any[] {
     const emptyData: any[] = [0];
 
     if (this.selectedMeasures.length === 1) {
-      const measureData = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
+      const measureData = this.data.getForSelectedMeasure(this.selectedMeasures[0]);
       return measureData?.length > 0 ? measureData : emptyData;
     } else if (this.selectedMeasures.length > 1) {
       return this.selectedMeasures.map(
-        (selectedMeasure: SelectedMeasure) => this.chartData.getForSelectedMeasure(selectedMeasure)[0] ?? 0
+        (selectedMeasure: SelectedMeasure) => this.data.getForSelectedMeasure(selectedMeasure)[0] ?? 0
       );
     }
 
@@ -68,9 +68,7 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
         return this.selectedMeasures.map(({ measure: { name } }: SelectedMeasure) => name);
       }
     } else if (this.selectedMeasures.length === 1) {
-      return this.chartData.getForSelectedDimension(
-        this.currentDrillDownSelectedDimension ?? this.selectedDimensions[0]
-      );
+      return this.data.getForSelectedDimension(this.currentDrillDownSelectedDimension ?? this.selectedDimensions[0]);
     }
 
     return [''];

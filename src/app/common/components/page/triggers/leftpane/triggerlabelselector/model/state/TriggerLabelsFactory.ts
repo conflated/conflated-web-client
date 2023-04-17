@@ -10,7 +10,7 @@ export default class TriggerLabelsFactory {
     stateNamespace: TriggersPageStateNamespace
   ): TriggerLabel[] {
     const [triggerGroupNameData, severityOrStatusData] =
-      triggersDataTableChart.chartData.getTriggerGroupData(stateNamespace);
+      triggersDataTableChart.data.getTriggerGroupData(stateNamespace);
 
     return _.uniq(
       triggerGroupNameData.flatMap((triggerGroupName: string) => triggerGroupName.split(',').map((tgn) => tgn.trim()))

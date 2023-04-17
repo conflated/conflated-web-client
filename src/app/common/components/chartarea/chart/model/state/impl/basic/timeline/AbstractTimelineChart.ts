@@ -26,14 +26,14 @@ export default abstract class AbstractTimelineChart extends AbstractBasicChart {
   }
 
   // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
-  override getApexChartDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
-    const timeValues = this.getChartDataForSelectedDimensionOfType('Timeline');
+  override getApexDataSeries(shownXAxisCategories: Array<any>): DataSeries[] | any[] {
+    const timeValues = this.getDataForSelectedDimensionOfType('Timeline');
 
     if (this.selectedMeasures.length > 0) {
       const dataSeries: DataSeries[] = [];
 
       this.selectedMeasures.forEach((selectedMeasure: SelectedMeasure) => {
-        let measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
+        let measureValues = this.data.getForSelectedMeasure(selectedMeasure);
 
         measureValues = timeValues.map((timeValue: string, valueIndex: number) => ({
           x: timeValue,

@@ -17,7 +17,7 @@ export default class RemoveSelectionFilterFromNotSelectedChartsAction extends Ab
       charts: charts.map((chart) => {
         if (chart !== this.selectedChart && this.selectedChart) {
           chart.filters.removeSelectionFilter(this.selectedChart.id);
-          return ChartFactory.createChart(chart.getChartConfiguration());
+          return ChartFactory.createChart(chart.getConfiguration());
         }
 
         return chart;

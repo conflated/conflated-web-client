@@ -16,7 +16,7 @@ export default class PasteChartAction extends AbstractChartAreaAction {
       return currentState;
     }
 
-    const pastedChart = ChartFactory.createChart(copiedChart.getChartConfiguration());
+    const pastedChart = ChartFactory.createChart(copiedChart.getConfiguration());
     pastedChart.id = this.chart.id;
     const newCharts = charts.map((chart) => (chart === this.chart ? pastedChart : chart));
 

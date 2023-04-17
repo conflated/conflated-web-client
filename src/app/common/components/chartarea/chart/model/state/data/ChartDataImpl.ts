@@ -11,7 +11,7 @@ import Utils from '../../../../../../utils/Utils';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import type { Sort } from '../sorts/sort/Sort';
 import type { DataScopeType } from '../types/DataScopeType';
-import RowComparer from './RowComparer';
+import DataRowComparer from './DataRowComparer';
 import { TriggersPageStateNamespace } from '../../../../../page/triggers/model/state/TriggersPageStateNamespace';
 
 export default class ChartDataImpl implements ChartData {
@@ -249,7 +249,7 @@ export default class ChartDataImpl implements ChartData {
     Utils.pick(sorts, 'dataScopeType', dataScopeType).forEach(({ sqlColumn, sortDirection }: Sort) => {
       if (chartDataRows.length > 0 && chartDataRows[0][sqlColumn.name]) {
         chartDataRows.sort((chartDataRow1: { [key: string]: any }, chartDataRow2: { [key: string]: any }) =>
-          RowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
+          DataRowComparer.compareRows(chartDataRow1, chartDataRow2, sortDirection, sqlColumn.name)
         );
       }
     });

@@ -55,7 +55,7 @@ const ChartView: React.FC<Props> = ({
     [styles.scrollable]: chart.isXAxisScrollable()
   });
 
-  const chartView = chart.createChartView(width, height, stateNamespace, {
+  const chartView = chart.createView(width, height, stateNamespace, {
     addSelectionFilterToNotSelectedChartsAction,
     removeSelectionFilterFromNotSelectedCharts
   });
@@ -93,7 +93,7 @@ const ChartView: React.FC<Props> = ({
 
   return (
     <div
-      className={`${className} ${chart.chartType === 'statistic' ? styles.statistic : ''}`}
+      className={`${className} ${chart.type === 'statistic' ? styles.statistic : ''}`}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       onClick={handleClickEvent}
@@ -118,7 +118,7 @@ const ChartView: React.FC<Props> = ({
           />
         </div>
       )}
-      {chart.chartType !== 'map' && (
+      {chart.type !== 'map' && (
         <Popup
           inverted
           mouseEnterDelay={1000}
@@ -158,7 +158,7 @@ const ChartView: React.FC<Props> = ({
         allowKeyControls={isSelectedChart}
         chart={chart}
         className={`${styles.scrollbar} ${isSelectedChart ? styles.selected : ''}`}
-        orientation={chart.chartType === 'bar' ? 'vertical' : 'horizontal'}
+        orientation={chart.type === 'bar' ? 'vertical' : 'horizontal'}
         stateNamespace={stateNamespace}
       />
       <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />

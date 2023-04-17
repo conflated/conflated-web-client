@@ -24,7 +24,7 @@ export default class SparklineChart extends AbstractTimelineChart {
     super.addSelectedMeasure(measureOrDimension, aggregationFunction);
   }
 
-  override createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+  override createView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     if (this.selectedMeasures.length === 1 && this.selectedDimensions.length === 1) {
       return (
         <div key={this.id} style={{ height: '100%' }}>
@@ -36,7 +36,7 @@ export default class SparklineChart extends AbstractTimelineChart {
     return <div />;
   }
 
-  override getApexChartType(): string {
+  override getApexType(): string {
     if (this.selectedMeasures.length === 1) {
       const { visualizationType } = this.selectedMeasures[0];
       return visualizationType === 'column' ? 'bar' : visualizationType;
@@ -97,7 +97,7 @@ export default class SparklineChart extends AbstractTimelineChart {
 
   override getTitleText(): string {
     if (this.selectedMeasures.length === 1) {
-      const measureData = this.chartData.getForSelectedMeasure(this.selectedMeasures[0]);
+      const measureData = this.data.getForSelectedMeasure(this.selectedMeasures[0]);
       const title = measureData.length > 0 ? measureData[measureData.length - 1] : '';
 
       switch (this.selectedMeasures[0].measure.unit) {

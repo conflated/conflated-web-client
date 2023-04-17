@@ -32,7 +32,7 @@ const ChartTypeIconView: React.FC<Props> = ({
     notifyDragStart();
   }
 
-  const className = classNames(iconClassName, { [styles.selected]: chartType === selectedChart.chartType });
+  const className = classNames(iconClassName, { [styles.selected]: chartType === selectedChart.type });
 
   return (
     <Popup

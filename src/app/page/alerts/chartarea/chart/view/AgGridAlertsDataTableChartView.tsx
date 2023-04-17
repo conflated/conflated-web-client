@@ -154,7 +154,7 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
   );
 
   columnDefs = [severityIndicatorColumnDef, ...columnDefs];
-  const dataRows = chart.chartData.getChartDataAsRows();
+  const dataRows = chart.data.getChartDataAsRows();
   const key = HashValueCalculator.hashObject({ columnDefs, dataRows });
 
   return (

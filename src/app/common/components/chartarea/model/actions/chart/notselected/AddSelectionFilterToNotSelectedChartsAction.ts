@@ -30,7 +30,7 @@ export default class AddSelectionFilterToNotSelectedChartsAction extends Abstrac
       charts: charts.map((chart) => {
         if (chart !== this.chart) {
           chart.filters.addSelectionFilter(this.chart.id, this.selectedDimension, this.filterExpression);
-          return ChartFactory.createChart(chart.getChartConfiguration());
+          return ChartFactory.createChart(chart.getConfiguration());
         } else {
           return chart;
         }

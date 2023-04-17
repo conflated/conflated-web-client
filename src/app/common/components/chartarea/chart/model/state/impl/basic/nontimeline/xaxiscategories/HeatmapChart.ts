@@ -5,13 +5,13 @@ import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasur
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class HeatmapChart extends AbstractXAxisCategoriesChart {
-  override getApexChartDataSeries(): DataSeries[] | any[] {
+  override getApexDataSeries(): DataSeries[] | any[] {
     if (this.selectedMeasures.length > 0) {
       const dataSeries: DataSeries[] = [];
-      const xAxisValues = this.getChartDataForSelectedDimensionOfType('X-axis categories');
+      const xAxisValues = this.getDataForSelectedDimensionOfType('X-axis categories');
 
       this.selectedMeasures.forEach((selectedMeasure: SelectedMeasure) => {
-        let measureValues = this.chartData.getForSelectedMeasure(selectedMeasure);
+        let measureValues = this.data.getForSelectedMeasure(selectedMeasure);
 
         measureValues = xAxisValues.map((xValue: string, valueIndex: number) => ({
           x: xValue,

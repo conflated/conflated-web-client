@@ -43,7 +43,7 @@ const TriggersPageChartAreaView = ({
 
   const firstChart = (
     <div key="1">
-      {charts[0].createChartView(chartWidth, chartHeight, stateNamespace, {
+      {charts[0].createView(chartWidth, chartHeight, stateNamespace, {
         handleRowDoubleClick: openTriggerDetailsDialog
       })}
     </div>
@@ -88,7 +88,7 @@ const TriggersPageChartAreaView = ({
           width={triggersAreaWidth}
         >
           <div key="1">
-            {charts[0].createChartView(
+            {charts[0].createView(
               triggersAreaWidth,
               (layout[0].h / Constants.GRID_ROW_COUNT) * triggersAreaHeight,
               stateNamespace,

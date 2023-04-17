@@ -57,8 +57,8 @@ const ApexChartView = ({ chart, height, width, stateNamespace, ...actions }: Pro
     yaxis: ApexChartYAxisOptionsFactory.createYAxisOptions(chart)
   };
 
-  const apexChartType = chart.getApexChartType();
-  const dataSeries = chart.getApexChartDataSeries((chartOptions.xaxis as any)?.categories ?? []);
+  const apexChartType = chart.getApexType();
+  const dataSeries = chart.getApexDataSeries((chartOptions.xaxis as any)?.categories ?? []);
   const key = HashValueCalculator.calculateHash({ apexChartType, chartOptions, dataSeries, id: chart.id });
 
   return (

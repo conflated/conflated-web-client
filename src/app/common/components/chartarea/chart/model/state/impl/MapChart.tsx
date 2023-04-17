@@ -58,19 +58,19 @@ export default class MapChart extends AbstractDrillDownChart {
 
   override hasData(): boolean {
     return (
-      this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Latitude').length > 0 &&
-      this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Longitude').length > 0
+      this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'Latitude').length > 0 &&
+      this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'Longitude').length > 0
     );
   }
 
-  createChartView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
+  createView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
     return <MapView chart={this} stateNamespace={stateNamespace} />;
   }
 
   override getNewChartOfType(newChartType: ChartType): Chart {
-    this.chartType = newChartType;
+    this.type = newChartType;
     this.selectedDimensions = [];
-    return ChartFactory.createChart(this.getChartConfiguration());
+    return ChartFactory.createChart(this.getConfiguration());
   }
 
   override getNextMeasureVisualizationType(): MeasureVisualizationType {

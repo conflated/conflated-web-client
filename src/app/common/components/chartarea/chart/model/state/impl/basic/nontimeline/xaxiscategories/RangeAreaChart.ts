@@ -57,11 +57,11 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['line', 'lowerBound', 'upperBound']);
   }
 
-  override getApexChartDataSeries(): DataSeries[] {
+  override getApexDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
-      const [yAxisData, lowerBoundData, upperBoundData, xAxisData, legendData] = this.chartData.getRangeAreaChartData(
+      const [yAxisData, lowerBoundData, upperBoundData, xAxisData, legendData] = this.data.getRangeAreaChartData(
         this.selectedMeasures,
         this.selectedDimensions
       );

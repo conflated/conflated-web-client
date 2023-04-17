@@ -11,11 +11,11 @@ export default class BubbleChart extends ScatterChart {
     return super.getConvertSelectedMeasures();
   }
 
-  override getApexChartDataSeries(): DataSeries[] {
+  override getApexDataSeries(): DataSeries[] {
     const dataSeries: DataSeries[] = [];
 
     if (this.hasData()) {
-      const [xAxisData, yAxisData, radiusData, legendData] = this.chartData.getBubbleChartData(
+      const [xAxisData, yAxisData, radiusData, legendData] = this.data.getBubbleChartData(
         this.selectedMeasures,
         this.selectedDimensions
       );
@@ -60,14 +60,14 @@ export default class BubbleChart extends ScatterChart {
     return dataSeries;
   }
 
-  override getChartConfigHintTitle(): string {
+  override getConfigHintTitle(): string {
     if (this.selectedMeasures.length === 1) {
       return 'Add two more measures';
     } else if (this.selectedMeasures.length === 2) {
       return 'Add one more measure';
     }
 
-    return super.getChartConfigHintTitle();
+    return super.getConfigHintTitle();
   }
 
   override getDimensionDropZoneListItemViews(
@@ -102,7 +102,7 @@ export default class BubbleChart extends ScatterChart {
   }
 
   override hasData(): boolean {
-    const [xAxisData, yAxisData, radiusData] = this.chartData.getBubbleChartData(
+    const [xAxisData, yAxisData, radiusData] = this.data.getBubbleChartData(
       this.selectedMeasures,
       this.selectedDimensions
     );

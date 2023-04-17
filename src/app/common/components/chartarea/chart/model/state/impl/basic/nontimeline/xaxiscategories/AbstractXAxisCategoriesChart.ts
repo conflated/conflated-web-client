@@ -58,7 +58,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       }
     };
 
-    const xAxisValues = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
+    const xAxisValues = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
     if (xAxisValues.length > 0) {
       let categories = this.sliceOrFillXAxisData(_.uniq(xAxisValues));
@@ -149,7 +149,7 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
   }
 
   override getMaxScrollPosition(): number {
-    const xAxisValues = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
+    const xAxisValues = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
     return this.isXAxisScrollable() && xAxisValues.length > 0 ? _.uniq(xAxisValues).length - 1 : 0;
   }

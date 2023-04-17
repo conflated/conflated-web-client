@@ -86,7 +86,7 @@ const FilterSelectorView = ({
         <DimensionFilterView
           key={filter.measureOrDimension.name}
           filter={filter}
-          chartData={selectedChart.chartData}
+          chartData={selectedChart.data}
           removeFilter={() => removeFilterFromSelectedChart(filter)}
           changeFilterExpression={(expression: string) => changeFilterExpressionForSelectedChart(filter, expression)}
           changeFilterInputType={(filterInputType: FilterInputType) =>

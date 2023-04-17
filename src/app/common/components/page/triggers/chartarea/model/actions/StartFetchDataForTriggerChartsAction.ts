@@ -42,7 +42,7 @@ class StartFetchDataForTriggerChartsAction extends AbstractChartAreaAction {
     return {
       ...currentState,
       charts: charts.map((chart) => {
-        chart.setIsFetchingChartData(true);
+        chart.setIsFetchingData(true);
         return chart;
       })
     };

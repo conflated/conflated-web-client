@@ -107,7 +107,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
 
   override getTooltipXValueFormatter(): (value: any, params: object) => string {
     return (value: any, { dataPointIndex }: any): string => {
-      const dataPointsData = this.chartData.getForSelectedDimensionOfType(this.selectedDimensions, 'Data points');
+      const dataPointsData = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'Data points');
 
       if (dataPointsData.length >= dataPointIndex) {
         return dataPointsData[dataPointIndex];
@@ -119,7 +119,7 @@ export default class AbstractBubbleOrScatterChart extends AbstractNonTimelineCha
 
   override getTooltipYValueFormatter(): (value: any, params: object) => string {
     return (value: any, { dataPointIndex }: any): string => {
-      const xAxisData = this.chartData.getForSelectedMeasureOfType(this.selectedMeasures, 'x-axis');
+      const xAxisData = this.data.getForSelectedMeasureOfType(this.selectedMeasures, 'x-axis');
 
       if (xAxisData.length >= dataPointIndex) {
         return `x: ${xAxisData[dataPointIndex]}, y: ${value}`;

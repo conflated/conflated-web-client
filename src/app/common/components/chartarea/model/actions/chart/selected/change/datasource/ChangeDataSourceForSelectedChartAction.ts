@@ -14,7 +14,7 @@ export default class ChangeDataSourceForSelectedChartAction extends AbstractChar
     const { charts, selectedChart } = currentState;
 
     const newChart = ChartFactory.createChart({
-      ...selectedChart.getChartConfiguration(),
+      ...selectedChart.getConfiguration(),
       dataSource: this.dataSource,
       selectedMeasures: [],
       selectedDimensions: [],
