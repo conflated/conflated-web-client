@@ -4,7 +4,7 @@ import { ChartDataService } from '../../../../../chart/model/service/ChartDataSe
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from '../../fetchdata/FinishFetchChartDataAction';
-import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
@@ -36,7 +36,7 @@ class StartFetchDataForSelectedChartAction extends AbstractChartAreaAction {
       });
 
     selectedChart.isFetchingChartData = true;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }
 

@@ -16,26 +16,26 @@ import store from '../../../../../../../store/store';
 
 class ChartMenuController extends Controller<ChartAreaStateNamespace> {
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({
-    openChartExportMenu: (chart: Chart) => this.dispatch(new OpenChartExportMenuAction(stateNamespace, chart)),
-    closeChartExportMenu: (chart: Chart) => this.dispatch(new CloseChartExportMenuAction(stateNamespace, chart)),
-    copyChart: (chart: Chart) => this.dispatch(new CopyChartAction(stateNamespace, chart)),
-    pasteChart: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
-    clearChart: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
-    clearOrRemoveChart: (chart: Chart) => this.dispatch(new ClearOrRemoveChartAction(stateNamespace, chart)),
+    openExportMenu: (chart: Chart) => this.dispatch(new OpenChartExportMenuAction(stateNamespace, chart)),
+    closeExportMenu: (chart: Chart) => this.dispatch(new CloseChartExportMenuAction(stateNamespace, chart)),
+    copy: (chart: Chart) => this.dispatch(new CopyChartAction(stateNamespace, chart)),
+    paste: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
+    clear: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
+    clearOrRemove: (chart: Chart) => this.dispatch(new ClearOrRemoveChartAction(stateNamespace, chart)),
 
-    updateChartExportMenuCloseTimeoutId: (chart: Chart, timeoutID: ReturnType<typeof setTimeout>) =>
+    updateExportMenuCloseTimeoutId: (chart: Chart, timeoutID: ReturnType<typeof setTimeout>) =>
       this.dispatch(new UpdateChartExportMenuCloseTimeoutIdAction(stateNamespace, chart, timeoutID)),
 
-    showClearChartConfirmationInChartMenu: (chart: Chart) =>
+    showClearConfirmation: (chart: Chart) =>
       this.dispatch(new ShowClearChartConfirmationInChartMenuAction(stateNamespace, chart)),
 
-    showDeleteChartConfirmationInChartMenu: (chart: Chart) =>
+    showDeleteConfirmation: (chart: Chart) =>
       this.dispatch(new ShowDeleteChartConfirmationInChartMenuAction(stateNamespace, chart)),
 
-    hideChartMenuActionConfirmation: (chart: Chart) =>
+    hideConfirmation: (chart: Chart) =>
       this.dispatch(new HideChartMenuClearOrDeleteConfirmationAction(stateNamespace, chart)),
 
-    allowChartMenuToBeOpened: (chart: Chart) => this.dispatch(new AllowChartMenuToBeOpenedAction(stateNamespace, chart))
+    allowMenuToBeOpened: (chart: Chart) => this.dispatch(new AllowChartMenuToBeOpenedAction(stateNamespace, chart))
   });
 }
 

@@ -2,7 +2,7 @@ import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
 
 export default class SetSelectedDataPointIndexForChartAction extends AbstractChartAreaAction {
   constructor(
@@ -15,6 +15,6 @@ export default class SetSelectedDataPointIndexForChartAction extends AbstractCha
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.selectedDataPointIndex = this.selectedDataPointIndex;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

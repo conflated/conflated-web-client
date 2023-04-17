@@ -4,7 +4,7 @@ import type { SelectedDimension } from '../../../../chart/model/state/selecteddi
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { DrillDown } from '../../../../chart/model/state/types/DrillDown';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
 import StartFetchDataForChartAction from '../fetchdata/StartFetchDataForChartAction';
 import diContainer from '../../../../../../../../di/diContainer';
 
@@ -25,6 +25,6 @@ export default class DrillDownChartAction extends AbstractChartAreaAction {
     });
 
     this.chart.drillDown(this.drillDown, this.newDrillDownSelectedDimension);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

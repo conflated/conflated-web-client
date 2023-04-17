@@ -5,7 +5,7 @@ import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/dat
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
-import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
@@ -41,7 +41,7 @@ class StartFetchMeasureFilterMinAndMaxValuesForSelectedChartAction extends Abstr
       );
 
     selectedChart.isFetchingChartData = true;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }
 

@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
 import { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 
 export default class AllowChartMenuToBeOpenedAction extends AbstractChartAreaAction {
@@ -11,6 +11,6 @@ export default class AllowChartMenuToBeOpenedAction extends AbstractChartAreaAct
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.menuConfirmationType = undefined;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

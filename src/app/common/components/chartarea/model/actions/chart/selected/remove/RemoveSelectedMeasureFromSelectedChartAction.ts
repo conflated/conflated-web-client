@@ -1,7 +1,7 @@
 import type { SelectedMeasure } from '../../../../../chart/model/state/selectedmeasure/SelectedMeasure';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
-import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../di/diContainer';
@@ -20,6 +20,6 @@ export default class RemoveSelectedMeasureFromSelectedChartAction extends Abstra
     const { selectedChart } = currentState;
     selectedChart.removeSelectedMeasure(this.selectedMeasure);
     this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart });
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

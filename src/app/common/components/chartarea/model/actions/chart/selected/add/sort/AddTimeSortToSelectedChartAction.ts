@@ -1,6 +1,6 @@
 import type { TimeSortOption } from '../../../../../../chart/model/state/sorts/sort/types/TimeSortOption';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import type { SortDirection } from '../../../../../../chart/model/state/sorts/sort/types/SortDirection';
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
@@ -26,6 +26,6 @@ export default class AddTimeSortToSelectedChartAction extends AbstractChartAreaA
 
     const { selectedChart } = currentState;
     selectedChart.sorts.addSelectedSortByTime(this.dimension, this.timeSortOption, this.sortDirection);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

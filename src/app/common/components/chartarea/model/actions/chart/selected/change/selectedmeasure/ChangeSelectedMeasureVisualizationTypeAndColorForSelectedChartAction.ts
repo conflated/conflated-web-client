@@ -3,7 +3,7 @@ import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { SelectedMeasure } from '../../../../../../chart/model/state/selectedmeasure/SelectedMeasure';
 import type { MeasureVisualizationType } from '../../../../../../chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 
 export default class ChangeSelectedMeasureVisualizationTypeAndColorForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -23,6 +23,6 @@ export default class ChangeSelectedMeasureVisualizationTypeAndColorForSelectedCh
       selectedChart.getMeasureVisualizationColorFor(this.selectedMeasure, this.visualizationType)
     );
 
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

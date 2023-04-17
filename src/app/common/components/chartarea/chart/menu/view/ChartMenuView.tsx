@@ -12,46 +12,46 @@ type OwnProps = { chart: Chart; className: string; stateNamespace: ChartAreaStat
 type Props = OwnProps & ActionDispatchers;
 
 const ChartMenuView = ({
-  allowChartMenuToBeOpened,
+  allowMenuToBeOpened,
   chart,
   className,
-  clearChart,
-  clearOrRemoveChart,
-  closeChartExportMenu,
-  copyChart,
-  hideChartMenuActionConfirmation,
-  openChartExportMenu,
-  pasteChart,
-  showClearChartConfirmationInChartMenu,
-  showDeleteChartConfirmationInChartMenu,
-  updateChartExportMenuCloseTimeoutId
+  clear,
+  clearOrRemove,
+  closeExportMenu,
+  copy,
+  hideConfirmation,
+  openExportMenu,
+  paste,
+  showClearConfirmation,
+  showDeleteConfirmation,
+  updateExportMenuCloseTimeoutId
 }: Props) => {
   const handleEnterMenuExportItem = useCallback(() => {
     if (!chart.isExportMenuOpen) {
-      openChartExportMenu(chart);
+      openExportMenu(chart);
     }
-  }, [chart, openChartExportMenu]);
+  }, [chart, openExportMenu]);
 
   const handleLeaveMenuExportItem = useCallback(() => {
     const timeoutID = setTimeout(() => {
-      closeChartExportMenu(chart);
+      closeExportMenu(chart);
     }, 200);
 
-    updateChartExportMenuCloseTimeoutId(chart, timeoutID);
-  }, [chart, closeChartExportMenu, updateChartExportMenuCloseTimeoutId]);
+    updateExportMenuCloseTimeoutId(chart, timeoutID);
+  }, [chart, closeExportMenu, updateExportMenuCloseTimeoutId]);
 
   const cutChart = useCallback(() => {
-    copyChart(chart);
-    clearChart(chart);
-  }, [chart, clearChart, copyChart]);
+    copy(chart);
+    clear(chart);
+  }, [chart, clear, copy]);
 
   const handleCancelButtonClick = useCallback(() => {
-    hideChartMenuActionConfirmation(chart);
+    hideConfirmation(chart);
 
     setTimeout(() => {
-      allowChartMenuToBeOpened(chart);
+      allowMenuToBeOpened(chart);
     }, 0);
-  }, [allowChartMenuToBeOpened, chart, hideChartMenuActionConfirmation]);
+  }, [allowMenuToBeOpened, chart, hideConfirmation]);
 
   const hasConfirmAction = (() => {
     if (chart.menuConfirmationType === 'none') {
@@ -84,7 +84,7 @@ const ChartMenuView = ({
             className={styles.menuItemWithKeyboardShortcut}
             disabled={hasConfirmAction}
             value="copy"
-            onClick={() => copyChart(chart)}
+            onClick={() => copy(chart)}
           >
             <span>Copy</span>
             <span className={styles.keyboardShortcut}>Ctrl-C</span>
@@ -93,7 +93,7 @@ const ChartMenuView = ({
             className={styles.menuItemWithKeyboardShortcut}
             disabled={hasConfirmAction}
             value="paste"
-            onClick={() => pasteChart(chart)}
+            onClick={() => paste(chart)}
           >
             <span>Paste</span>
             <span className={styles.keyboardShortcut}>Ctrl-V</span>
@@ -131,7 +131,7 @@ const ChartMenuView = ({
             className={chart.menuConfirmationType === 'clear' ? styles.dangerItem : ''}
             text={`Clear chart${chart.menuConfirmationType === 'clear' ? '?' : ''}`}
             value="clear"
-            onClick={() => showClearChartConfirmationInChartMenu(chart)}
+            onClick={() => showClearConfirmation(chart)}
           />
           <Dropdown.Item
             disabled={chart.menuConfirmationType === 'clear'}
@@ -139,14 +139,14 @@ const ChartMenuView = ({
               chart.menuConfirmationType === 'delete' ? styles.dangerItem : ''
             }`}
             value="delete"
-            onClick={() => showDeleteChartConfirmationInChartMenu(chart)}
+            onClick={() => showDeleteConfirmation(chart)}
           >
             <span>{`Delete chart${chart.menuConfirmationType === 'delete' ? '?' : ''}`}</span>
             <span className={styles.keyboardShortcut}>Del</span>
           </Dropdown.Item>
           {chart.menuConfirmationType ? (
             <Dropdown.Item className={styles.buttonsArea}>
-              <Button size="tiny" color="red" onClick={() => clearOrRemoveChart(chart)}>
+              <Button size="tiny" color="red" onClick={() => clearOrRemove(chart)}>
                 {chart.menuConfirmationType.toUpperCase()}
               </Button>
               <Button size="tiny" secondary onClick={handleCancelButtonClick}>

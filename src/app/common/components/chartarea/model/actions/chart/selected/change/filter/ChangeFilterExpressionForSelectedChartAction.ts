@@ -1,6 +1,6 @@
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
@@ -24,6 +24,6 @@ export default class ChangeFilterExpressionForSelectedChartAction extends Abstra
 
     const { selectedChart } = currentState;
     selectedChart.filters.changeFilterExpression(this.filter, this.expression);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

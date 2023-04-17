@@ -2,8 +2,8 @@ import type { ChartAreaState } from '../ChartAreaState';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 import type { Chart } from '../../../chart/model/state/Chart';
 
-export default class ChartAreaStateUpdater {
-  static getNewStateForChangedChart(currentState: ChartAreaState, changedChart: Chart): ChartAreaState {
+export default class ChartAreaStateFactory {
+  static createNewStateForChangedChart(currentState: ChartAreaState, changedChart: Chart): ChartAreaState {
     const { charts, selectedChart } = currentState;
     const newChart = ChartFactory.createChart(changedChart.getChartConfiguration());
 

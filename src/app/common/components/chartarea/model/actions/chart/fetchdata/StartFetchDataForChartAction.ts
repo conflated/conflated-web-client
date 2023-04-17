@@ -3,7 +3,7 @@ import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStat
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
-import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/ColumnNameToValuesMap';
 import { ChartDataService } from '../../../../chart/model/service/ChartDataService';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
@@ -34,7 +34,7 @@ class StartFetchDataForChartAction extends AbstractChartAreaAction {
       });
 
     this.chart.isFetchingChartData = true;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }
 

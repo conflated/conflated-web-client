@@ -1,6 +1,6 @@
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
@@ -18,6 +18,6 @@ export default class AddMeasureFilterToSelectedChartAction extends AbstractChart
 
     const { selectedChart } = currentState;
     selectedChart.filters.addMeasureFilter(this.measure);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

@@ -2,7 +2,7 @@ import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateUpdater from '../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../state/utils/ChartAreaStateFactory';
 
 export default class ChangeChartQuickFilterChartAction extends AbstractChartAreaAction {
   constructor(
@@ -52,6 +52,6 @@ export default class ChangeChartQuickFilterChartAction extends AbstractChartArea
       }
     }
 
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

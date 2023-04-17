@@ -2,7 +2,7 @@ import type { Dimension } from '../../../../../../../../../page/dataexplorer/pan
 import type { DimensionVisualizationType } from '../../../../../../chart/model/state/selecteddimension/DimensionVisualizationType';
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
@@ -29,6 +29,6 @@ export default class AddSelectDimensionToSelectedChartAction extends AbstractCha
     selectedChart.addSelectedDimension(this.dimension, visualizationType);
     this.dispatchWithDi(StartFetchMeasuresAction, diContainer, { selectedChart });
     this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart });
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

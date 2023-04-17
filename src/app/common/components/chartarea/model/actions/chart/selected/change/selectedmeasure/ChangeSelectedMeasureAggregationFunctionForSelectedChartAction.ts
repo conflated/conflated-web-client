@@ -2,7 +2,7 @@ import type { SelectedMeasure } from '../../../../../../chart/model/state/select
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
@@ -23,7 +23,7 @@ export default class ChangeSelectedMeasureAggregationFunctionForSelectedChartAct
 
     const { selectedChart } = currentState;
     selectedChart.changeSelectedMeasureAggregationFunction(this.selectedMeasure, this.aggregationFunction);
-    const chart = ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    const chart = ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
     return chart;
   }
 }

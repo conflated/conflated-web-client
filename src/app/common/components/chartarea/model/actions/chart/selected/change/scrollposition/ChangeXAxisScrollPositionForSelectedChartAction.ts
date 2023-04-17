@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import { Chart } from '../../../../../../chart/model/state/Chart';
 
 export default class ChangeXAxisScrollPositionForSelectedChartAction extends AbstractChartAreaAction {
@@ -15,6 +15,6 @@ export default class ChangeXAxisScrollPositionForSelectedChartAction extends Abs
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.xAxisScrollPosition = this.xAxisScrollPosition;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

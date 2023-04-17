@@ -1,7 +1,7 @@
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
@@ -27,6 +27,6 @@ export default class ChangeFilterAggregationFunctionForSelectedChartAction exten
 
     selectedChart.filters.changeFilterAggregationFunction(this.selectedFilter, this.aggregationFunction);
 
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

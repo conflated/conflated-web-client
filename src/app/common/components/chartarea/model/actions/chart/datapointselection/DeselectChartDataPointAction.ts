@@ -3,7 +3,7 @@ import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { DataPoint } from '../../../../chart/model/state/types/DataPoint';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateUpdater from '../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
 
 export default class DeselectChartDataPointAction extends AbstractChartAreaAction {
   constructor(
@@ -16,6 +16,6 @@ export default class DeselectChartDataPointAction extends AbstractChartAreaActio
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.deselectDataPoint(this.dataPoint);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }

@@ -2,7 +2,7 @@ import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { SelectedMeasure } from '../../../../../../chart/model/state/selectedmeasure/SelectedMeasure';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateUpdater from '../../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
 
 export default class ChangeSelectedMeasureColorForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
@@ -15,6 +15,6 @@ export default class ChangeSelectedMeasureColorForSelectedChartAction extends Ab
 
   perform(currentState: ChartAreaState): ChartAreaState {
     currentState.selectedChart.changeSelectedMeasureColor(this.selectedMeasure, this.color);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

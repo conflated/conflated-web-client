@@ -1,4 +1,4 @@
-import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
 import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
@@ -20,6 +20,6 @@ export default class RemoveFilterFromSelectedChartAction extends AbstractChartAr
 
     const { selectedChart } = currentState;
     selectedChart.filters.removeFilter(this.selectedFilter);
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, currentState.selectedChart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

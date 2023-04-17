@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
 import type { Chart } from '../../../../../chart/model/state/Chart';
-import ChartAreaStateUpdater from '../../../../state/utils/ChartAreaStateUpdater';
+import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
 import { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 
 export default class UpdateChartExportMenuCloseTimeoutIdAction extends AbstractChartAreaAction {
@@ -15,6 +15,6 @@ export default class UpdateChartExportMenuCloseTimeoutIdAction extends AbstractC
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.chart.exportMenuCloseTimeoutID = this.timeoutId;
-    return ChartAreaStateUpdater.getNewStateForChangedChart(currentState, this.chart);
+    return ChartAreaStateFactory.createNewStateForChangedChart(currentState, this.chart);
   }
 }
