@@ -1,3 +1,3 @@
 import type { GridItem } from './GridItem';
 
-export type Layout = GridItem[];
+export type GridItems = GridItem[];

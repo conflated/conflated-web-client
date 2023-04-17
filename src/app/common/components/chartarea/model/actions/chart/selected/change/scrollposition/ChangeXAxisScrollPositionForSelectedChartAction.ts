@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import { Chart } from '../../../../../../chart/model/state/Chart';
 
 export default class ChangeXAxisScrollPositionForSelectedChartAction extends AbstractChartAreaAction {

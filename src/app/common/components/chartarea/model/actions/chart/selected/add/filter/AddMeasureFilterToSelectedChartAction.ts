@@ -1,6 +1,6 @@
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';

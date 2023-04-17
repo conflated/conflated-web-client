@@ -1,7 +1,7 @@
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 
 export default class AllowChartMenuToBeOpenedAction extends AbstractChartAreaAction {

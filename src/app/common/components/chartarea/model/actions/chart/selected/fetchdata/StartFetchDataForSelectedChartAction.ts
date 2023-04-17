@@ -4,7 +4,7 @@ import { ChartDataService } from '../../../../../chart/model/service/ChartDataSe
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import FinishFetchChartDataAction from '../../fetchdata/FinishFetchChartDataAction';
-import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../state/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {

@@ -2,7 +2,7 @@ import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 
 export default class SetSelectedDataPointIndexForChartAction extends AbstractChartAreaAction {
   constructor(

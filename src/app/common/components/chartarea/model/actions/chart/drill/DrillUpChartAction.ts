@@ -1,7 +1,7 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../../../chart/model/state/Chart';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import StartFetchDataForSelectedChartAction from '../selected/fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../di/diContainer';

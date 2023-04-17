@@ -2,7 +2,7 @@ import type { DataScope } from '../../../../../../chart/model/state/types/DataSc
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';

@@ -1,7 +1,7 @@
-import type { Layout } from '../../../../../../../../../common/components/chartarea/model/state/types/Layout';
+import type { GridItems } from '../../../../../../../../../common/components/chartarea/model/state/types/GridItems';
 import Constants from '../../../../../../../../../common/Constants';
 
-const layout2: Layout = [
+const layout2: GridItems = [
   {
     i: '1',
     x: 0,

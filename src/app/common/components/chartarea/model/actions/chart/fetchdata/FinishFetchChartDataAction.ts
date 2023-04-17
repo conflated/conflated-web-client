@@ -2,7 +2,7 @@ import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import Utils from '../../../../../../utils/Utils';
 
 export default class FinishFetchChartDataAction extends AbstractChartAreaAction {

@@ -1,7 +1,7 @@
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';

@@ -3,7 +3,7 @@ import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { DataPoint } from '../../../../chart/model/state/types/DataPoint';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 
 export default class DeselectChartDataPointAction extends AbstractChartAreaAction {
   constructor(

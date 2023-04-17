@@ -3,7 +3,7 @@ import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStat
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/ColumnNameToValuesMap';
 import { ChartDataService } from '../../../../chart/model/service/ChartDataService';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';

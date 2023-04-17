@@ -4,7 +4,7 @@ import type { SelectedDimension } from '../../../../chart/model/state/selecteddi
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import type { DrillDown } from '../../../../chart/model/state/types/DrillDown';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import StartFetchDataForChartAction from '../fetchdata/StartFetchDataForChartAction';
 import diContainer from '../../../../../../../../di/diContainer';
 

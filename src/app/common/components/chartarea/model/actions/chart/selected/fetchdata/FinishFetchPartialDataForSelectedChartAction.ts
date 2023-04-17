@@ -2,7 +2,7 @@ import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/data/ColumnNameToValuesMap';
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';
-import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../state/ChartAreaStateFactory';
 
 export default class FinishFetchPartialDataForSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly chartData: ColumnNameToValuesMap) {

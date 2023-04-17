@@ -2,7 +2,7 @@ import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import Utils from '../../../../../../../../utils/Utils';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 
 export default class ChangeXAxisCategoriesShownCountForSelectedChartAction extends AbstractChartAreaAction {
   constructor(stateNamespace: ChartAreaStateNamespace, private readonly xAxisCategoriesShownCountStr: string) {

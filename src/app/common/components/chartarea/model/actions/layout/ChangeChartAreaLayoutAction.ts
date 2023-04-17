@@ -2,12 +2,12 @@ import _ from 'lodash';
 import AbstractChartAreaAction from '../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../state/ChartAreaState';
 import type { Chart } from '../../../chart/model/state/Chart';
-import type { Layout } from '../../state/types/Layout';
+import type { GridItems } from '../../state/types/GridItems';
 import type { ChartAreaStateNamespace } from '../../state/types/ChartAreaStateNamespace';
 import ChartFactory from '../../../chart/model/state/ChartFactory';
 
 export default class ChangeChartAreaLayoutAction extends AbstractChartAreaAction {
-  constructor(stateNamespace: ChartAreaStateNamespace, private readonly newLayout: Layout) {
+  constructor(stateNamespace: ChartAreaStateNamespace, private readonly newLayout: GridItems) {
     super(stateNamespace);
   }
 

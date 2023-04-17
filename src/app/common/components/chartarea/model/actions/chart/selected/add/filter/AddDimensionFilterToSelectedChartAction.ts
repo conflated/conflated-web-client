@@ -1,7 +1,7 @@
 import type { Dimension } from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForFilterAddedToSelectedChartAction from '../../fetchdata/StartFetchDataForFilterAddedToSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';

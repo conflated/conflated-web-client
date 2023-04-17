@@ -16,12 +16,12 @@ import layout12 from '../../model/state/layouts/layout12';
 import layout13 from '../../model/state/layouts/layout13';
 import layout14 from '../../model/state/layouts/layout14';
 import layout15 from '../../model/state/layouts/layout15';
-import type { Layout } from '../../../../../../../../common/components/chartarea/model/state/types/Layout';
+import type { GridItems } from '../../../../../../../../common/components/chartarea/model/state/types/GridItems';
 import scrollingLayout from '../../model/state/layouts/scrollingLayout';
 
 type Props = {
-  selectedLayout: Layout;
-  selectLayout: (layout: Layout) => void;
+  selectedLayout: GridItems;
+  selectLayout: (layout: GridItems) => void;
 };
 
 const LayoutIconsView = (props: Props) => (

@@ -1,6 +1,6 @@
 import type { Filter } from '../../../../../../chart/model/state/filters/filter/Filter';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';

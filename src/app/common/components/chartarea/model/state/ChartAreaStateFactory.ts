@@ -1,6 +1,6 @@
-import type { ChartAreaState } from '../ChartAreaState';
-import ChartFactory from '../../../chart/model/state/ChartFactory';
-import type { Chart } from '../../../chart/model/state/Chart';
+import type { ChartAreaState } from './ChartAreaState';
+import ChartFactory from '../../chart/model/state/ChartFactory';
+import type { Chart } from '../../chart/model/state/Chart';
 
 export default class ChartAreaStateFactory {
   static createNewStateForChangedChart(currentState: ChartAreaState, changedChart: Chart): ChartAreaState {

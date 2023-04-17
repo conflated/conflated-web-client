@@ -1,7 +1,7 @@
 import OOReduxUtils, { Controller } from 'oo-redux-utils2';
 import ToggleLayoutLockedAction from '../model/actions/ToggleLayoutLockedAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../../../../../common/components/page/model/actions/panevisibility/ToggleShouldShowPagePanePermanentlyAction';
-import type { Layout } from '../../../../../../../common/components/chartarea/model/state/types/Layout';
+import type { GridItems } from '../../../../../../../common/components/chartarea/model/state/types/GridItems';
 import ChangeChartAreaLayoutAction from '../../../../../../../common/components/chartarea/model/actions/layout/ChangeChartAreaLayoutAction';
 import { PageStateNamespace } from '../../../../../../../common/components/page/model/state/types/PageStateNamespace';
 import store from '../../../../../../../../store/store';
@@ -18,7 +18,7 @@ export default class LayoutSelectorController extends Controller<PageStateNamesp
 
   actionDispatchers = {
     toggleLayoutLocked: () => this.dispatch(new ToggleLayoutLockedAction()),
-    selectLayout: (layout: Layout) => this.dispatch(new ChangeChartAreaLayoutAction('dataExplorerPage', layout)),
+    selectLayout: (layout: GridItems) => this.dispatch(new ChangeChartAreaLayoutAction('dataExplorerPage', layout)),
 
     toggleShouldShowDataExplorerPageLeftPanePermanently: () =>
       this.dispatch(new ToggleShouldShowPagePanePermanentlyAction('dataExplorerPage', 'leftPane'))

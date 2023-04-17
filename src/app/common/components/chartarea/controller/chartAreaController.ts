@@ -5,7 +5,7 @@ import PasteChartAction from '../model/actions/chart/copypaste/PasteChartAction'
 import ClearChartAction from '../model/actions/chart/ClearChartAction';
 import ChangeChartAreaLayoutAndStorePreviousLayoutAction from '../model/actions/layout/ChangeChartAreaLayoutAndStorePreviousLayoutAction';
 import type { ChartAreaStateNamespace } from '../model/state/types/ChartAreaStateNamespace';
-import type { Layout } from '../model/state/types/Layout';
+import type { GridItems } from '../model/state/types/GridItems';
 import DropChartAction from '../model/actions/chart/DropChartAction';
 import ShowDeleteChartConfirmationInChartMenuAction from '../model/actions/chart/menu/confirm/ShowDeleteChartConfirmationInChartMenuAction';
 import store from '../../../../../store/store';
@@ -28,10 +28,10 @@ class ChartAreaController extends Controller<ChartAreaStateNamespace> {
     paste: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
     clear: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
 
-    dropChart: (newLayout: Layout, chartType: ChartType) =>
+    dropChart: (newLayout: GridItems, chartType: ChartType) =>
       this.dispatch(new DropChartAction(stateNamespace, newLayout, chartType)),
 
-    change: (layout: Layout) =>
+    change: (layout: GridItems) =>
       this.dispatch(new ChangeChartAreaLayoutAndStorePreviousLayoutAction(stateNamespace, layout)),
 
     confirmDelete: (chart: Chart) =>

@@ -1,11 +1,11 @@
 import { Chart } from '../../chart/model/state/Chart';
-import type { Layout } from './types/Layout';
+import type { GridItems } from './types/GridItems';
 
 export type ChartAreaState = {
-  readonly layout: Layout;
+  readonly layout: GridItems;
   readonly selectedChart: Chart;
   readonly charts: Chart[];
-  readonly previousLayout?: Layout;
+  readonly previousLayout?: GridItems;
   readonly copiedChart?: Chart | null;
   readonly maximizedChart: Chart | null;
 };

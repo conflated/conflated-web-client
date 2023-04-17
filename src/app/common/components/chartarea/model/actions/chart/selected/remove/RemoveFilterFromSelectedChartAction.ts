@@ -1,4 +1,4 @@
-import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../state/ChartAreaStateFactory';
 import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../state/ChartAreaState';

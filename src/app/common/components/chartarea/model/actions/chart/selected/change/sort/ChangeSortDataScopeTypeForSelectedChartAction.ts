@@ -2,7 +2,7 @@ import type { Sort } from '../../../../../../chart/model/state/sorts/sort/Sort';
 import type { DataScope } from '../../../../../../chart/model/state/types/DataScope';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';

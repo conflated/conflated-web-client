@@ -2,7 +2,7 @@ import type { SelectedMeasure } from '../../../../../../chart/model/state/select
 import type { AggregationFunction } from '../../../../../../chart/model/state/selectedmeasure/types/AggregationFunction';
 import AbstractChartAreaAction from '../../../../AbstractChartAreaAction';
 import type { ChartAreaState } from '../../../../../state/ChartAreaState';
-import ChartAreaStateFactory from '../../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../../state/ChartAreaStateFactory';
 import StartFetchDataForSelectedChartAction from '../../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaStateNamespace';

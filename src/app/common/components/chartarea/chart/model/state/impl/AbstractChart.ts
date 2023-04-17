@@ -35,7 +35,7 @@ import type { Sort } from '../sorts/sort/Sort';
 import type { LegendPosition } from '../types/LegendPosition';
 import Constants from '../../../../../../Constants';
 import type { GridItem } from '../../../../model/state/types/GridItem';
-import type { Layout } from '../../../../model/state/types/Layout';
+import type { GridItems } from '../../../../model/state/types/GridItems';
 import type { Column } from '../types/Column';
 import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
 import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
@@ -320,7 +320,7 @@ export default abstract class AbstractChart implements Chart {
     return 'gradient';
   }
 
-  getHeight(layout: Layout, chartAreaHeight: number): number {
+  getHeight(layout: GridItems, chartAreaHeight: number): number {
     return (
       _.head(
         Utils.pick(layout, 'i', this.id).map(
@@ -511,7 +511,7 @@ export default abstract class AbstractChart implements Chart {
     return aggregationFunction === 'NONE' ? 'SUM' : aggregationFunction;
   }
 
-  getWidth(layout: Layout, chartAreaWidth: number): number {
+  getWidth(layout: GridItems, chartAreaWidth: number): number {
     return (
       _.head(
         Utils.pick(layout, 'i', this.id).map(

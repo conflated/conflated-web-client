@@ -5,7 +5,7 @@ import type { ColumnNameToValuesMap } from '../../../../../chart/model/state/dat
 import type { ChartAreaStateNamespace } from '../../../../state/types/ChartAreaStateNamespace';
 import type { Filter } from '../../../../../chart/model/state/filters/filter/Filter';
 import FinishFetchPartialDataForSelectedChartAction from './FinishFetchPartialDataForSelectedChartAction';
-import ChartAreaStateFactory from '../../../../state/utils/ChartAreaStateFactory';
+import ChartAreaStateFactory from '../../../../state/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../../AbstractChartAreaAction';
 
 type ConstructorArgs = {
