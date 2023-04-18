@@ -1,5 +1,3 @@
-- Selection filter?
-- Drilldown
 - Go through chart types
 
 - Chart menu styles in dark mode
