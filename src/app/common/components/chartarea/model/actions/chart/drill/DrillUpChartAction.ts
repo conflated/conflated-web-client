@@ -3,7 +3,7 @@ import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStat
 import type { Chart } from '../../../../chart/model/state/Chart';
 import ChartAreaStateFactory from '../../../state/ChartAreaStateFactory';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
-import StartFetchDataForSelectedChartAction from '../selected/fetchdata/StartFetchDataForSelectedChartAction';
+import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataForSelectedChartAction';
 import diContainer from '../../../../../../../../di/diContainer';
 
 export default class DrillUpChartAction extends AbstractChartAreaAction {

@@ -5,18 +5,18 @@ import SelectChartDataPointAction from '../../model/actions/chart/datapointselec
 import SetSelectedDataPointIndexForChartAction from '../../model/actions/chart/datapointselection/SetSelectedDataPointIndexForChartAction';
 import DrillDownChartAction from '../../model/actions/chart/drill/DrillDownChartAction';
 import type { SelectedDimension } from '../model/state/selecteddimension/SelectedDimension';
-import ChangeFilterExpressionForChartFiltersAction from '../../model/actions/chart/filter/ChangeFilterExpressionForChartFiltersAction';
+import ChangeFilterExpressionForChartFiltersAction from '../../model/actions/chart/filter/change/ChangeFilterExpressionForChartFiltersAction';
 import StartFetchDataForOtherChartsAction from '../../model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../../di/diContainer';
-import StartFetchDataForSelectedChartAction from '../../model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
+import StartFetchDataForSelectedChartAction from '../../model/actions/chart/fetchdata/StartFetchDataForSelectedChartAction';
 import type { DataPoint } from '../model/state/types/DataPoint';
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
-import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
+import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/xaxis/ChangeXAxisScrollPositionForSelectedChartAction';
 import { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import MaximizeChartSizeAction from '../../model/actions/chart/sizing/MaximizeChartSizeAction';
 import RestoreChartOriginalSizeAction from '../../model/actions/chart/sizing/RestoreChartOriginalSizeAction';
-import ChangeChartQuickFilterChartAction from '../../model/actions/chart/ChangeChartQuickFilterAction';
+import ChangeChartQuickFilterChartAction from '../../model/actions/chart/filter/change/ChangeChartQuickFilterAction';
 
 export default class ChartController extends Controller<ChartAreaStateNamespace> {
   getActionDispatchers = (stateNamespace: ChartAreaStateNamespace) => ({

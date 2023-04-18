@@ -1,7 +1,7 @@
 import type { DataSourceSelectorState } from '../state/DataSourceSelectorState';
 import AbstractDataSourceSelectorAction from './AbstractDataSourceSelectorAction';
 import { DataSource } from '../../../../../../../../common/components/chartarea/chart/model/state/datasource/DataSource';
-import ChangeDataSourceForSelectedChartAction from '../../../../../../../../common/components/chartarea/model/actions/chart/selected/change/datasource/ChangeDataSourceForSelectedChartAction';
+import ChangeDataSourceForSelectedChartAction from '../../../../../../../../common/components/chartarea/model/actions/chart/ChangeDataSourceForSelectedChartAction';
 import StartFetchDimensionsAction from '../../../dimension/model/actions/StartFetchDimensionsAction';
 import diContainer from '../../../../../../../../../di/diContainer';
 import StartFetchMeasuresAction from '../../../measure/model/actions/StartFetchMeasuresAction';

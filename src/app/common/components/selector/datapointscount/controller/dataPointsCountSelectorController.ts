@@ -1,7 +1,7 @@
 import { Controller } from 'oo-redux-utils2';
-import ChangeXAxisCategoriesShownCountForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeXAxisCategoriesShownCountForSelectedChartAction';
+import ChangeXAxisCategoriesShownCountForSelectedChartAction from '../../../chartarea/model/actions/chart/xaxis/ChangeXAxisCategoriesShownCountForSelectedChartAction';
 import type { ChartAreaStateNamespace } from '../../../chartarea/model/state/types/ChartAreaStateNamespace';
-import ChangeFetchedRowCountForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/datapointscount/ChangeFetchedRowCountForSelectedChartAction';
+import ChangeFetchedRowCountForSelectedChartAction from '../../../chartarea/model/actions/chart/fetchdata/ChangeFetchedRowCountForSelectedChartAction';
 import store from '../../../../../../store/store';
 import { AppState } from '../../../../../../store/AppState';
 import { OwnProps } from '../view/DataPointsCountSelectorView';

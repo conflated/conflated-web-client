@@ -1,17 +1,17 @@
 import { Controller } from 'oo-redux-utils2';
-import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddMeasureFilterToSelectedChartAction';
-import RemoveFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/selected/remove/RemoveFilterFromSelectedChartAction';
-import ChangeFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterAggregationFunctionForSelectedChartAction';
+import AddMeasureFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/filter/add/AddMeasureFilterToSelectedChartAction';
+import RemoveFilterFromSelectedChartAction from '../../../chartarea/model/actions/chart/filter/RemoveFilterFromSelectedChartAction';
+import ChangeFilterAggregationFunctionForSelectedChartAction from '../../../chartarea/model/actions/chart/filter/change/ChangeFilterAggregationFunctionForSelectedChartAction';
 import ToggleShouldShowPagePanePermanentlyAction from '../../../page/model/actions/pane/visibility/ToggleShouldShowPagePanePermanentlyAction';
 import type { Dimension } from '../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
-import ChangeFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterInputTypeForSelectedChartAction';
+import ChangeFilterInputTypeForSelectedChartAction from '../../../chartarea/model/actions/chart/filter/change/ChangeFilterInputTypeForSelectedChartAction';
 import type { FilterInputType } from '../../../chartarea/chart/model/state/filters/filter/inputtype/FilterInputType';
-import ChangeFilterDataScopeForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterDataScopeForSelectedChartAction';
+import ChangeFilterDataScopeForSelectedChartAction from '../../../chartarea/model/actions/chart/filter/change/ChangeFilterDataScopeForSelectedChartAction';
 import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
-import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddDimensionFilterToSelectedChartAction';
-import ChangeFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/selected/change/filter/ChangeFilterExpressionForSelectedChartAction';
+import AddDimensionFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/filter/add/AddDimensionFilterToSelectedChartAction';
+import ChangeFilterExpressionForSelectedChartAction from '../../../chartarea/model/actions/chart/filter/change/ChangeFilterExpressionForSelectedChartAction';
 import type { Filter } from '../../../chartarea/chart/model/state/filters/filter/Filter';
 import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
@@ -24,7 +24,7 @@ import { controller as selectorWithActionsController } from '../../withtitleacti
 import { OwnProps } from '../view/FilterSelectorView';
 import { FilterSelectorStateNamespace } from '../model/state/FilterSelectorStateNamespace';
 import { Chart } from '../../../chartarea/chart/model/state/Chart';
-import AddChartFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/selected/add/filter/AddChartFilterToSelectedChartAction';
+import AddChartFilterToSelectedChartAction from '../../../chartarea/model/actions/chart/filter/add/AddChartFilterToSelectedChartAction';
 
 class FilterSelectorController extends Controller<PageStateNamespace> {
   getState = (appState: AppState, { stateNamespace }: OwnProps) => ({
