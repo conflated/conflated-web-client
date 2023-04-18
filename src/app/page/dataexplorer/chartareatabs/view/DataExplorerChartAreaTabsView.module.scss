@@ -3,6 +3,7 @@
 
   :global(.menu) {
     align-items: center !important;
+    flex-wrap: wrap;
   }
 
   :global(.tab) {
@@ -12,6 +13,7 @@
   :global(.item) {
     font-size: 1rem;
     height: 2.4rem;
+    padding: 0.75rem !important;
 
     .closeIcon {
       display: none;
