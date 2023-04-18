@@ -1,5 +1,6 @@
 .tab {
   flex-grow: 1;
+  flex-basis: min-content;
 
   :global(.menu) {
     align-items: center !important;
