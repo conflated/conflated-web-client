@@ -16,7 +16,6 @@ export default abstract class AbstractInputFilter extends AbstractFilter {
         changeFilterExpression={changeFilterExpression}
         className={className}
         filterExpression={this.filterExpression}
-        isSelectionFilter={this.isSelectionFilter}
         placeholder={this.getPlaceholder()}
       />
     );

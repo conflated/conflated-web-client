@@ -10,7 +10,6 @@ import StartFetchDataForOtherChartsAction from '../../model/actions/chart/fetchd
 import diContainer from '../../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import type { DataPoint } from '../model/state/types/DataPoint';
-import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/actions/chart/filter/RemoveSelectionFilterFromNotSelectedChartsAction';
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
@@ -37,22 +36,11 @@ export default class ChartController extends Controller<ChartAreaStateNamespace>
     setSelectedDataPointIndex: (chart: Chart, selectedDataPointIndex: number | undefined) =>
       this.dispatch(new SetSelectedDataPointIndexForChartAction(stateNamespace, chart, selectedDataPointIndex)),
 
-    drillDown: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) => {
-      this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension));
-    },
+    drillDown: (chart: Chart, drillDown: DrillDown, newDrillDownSelectedDimension: SelectedDimension) =>
+      this.dispatch(new DrillDownChartAction(stateNamespace, chart, drillDown, newDrillDownSelectedDimension)),
 
-    removeSelectionFilterFromNotSelectedCharts: (chart: Chart) =>
-      this.dispatch(new RemoveSelectionFilterFromNotSelectedChartsAction(stateNamespace, chart)),
-
-    addSelectionFilterToNotSelectedChartsAction: (
-      chart: Chart,
-      selectedDimension: SelectedDimension,
-      filterExpression: string
-    ) => {
-      this.dispatch(
-        new ChangeFilterExpressionForChartFiltersAction(stateNamespace, chart, selectedDimension, filterExpression)
-      );
-    },
+    changeFilterExpressionForChartFilters: (filteringChart: Chart, filterExpression: string) =>
+      this.dispatch(new ChangeFilterExpressionForChartFiltersAction(stateNamespace, filteringChart, filterExpression)),
 
     startFetchDataForOtherCharts: (chart: Chart) =>
       this.dispatchWithDi(StartFetchDataForOtherChartsAction, diContainer, { chart, stateNamespace }),

@@ -1,7 +1,6 @@
 import type { ChartAreaState } from '../../../state/ChartAreaState';
 import type { Chart } from '../../../../chart/model/state/Chart';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
-import type { SelectedDimension } from '../../../../chart/model/state/selecteddimension/SelectedDimension';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
 import ChartFactory from '../../../../chart/model/state/ChartFactory';
 
@@ -9,7 +8,6 @@ export default class ChangeFilterExpressionForChartFiltersAction extends Abstrac
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly filteringChart: Chart,
-    private readonly selectedDimension: SelectedDimension,
     private readonly filterExpression: string
   ) {
     super(stateNamespace);

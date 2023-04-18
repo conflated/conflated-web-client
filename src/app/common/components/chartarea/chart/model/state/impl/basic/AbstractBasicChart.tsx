@@ -270,10 +270,7 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
 
   handleSelectDataPoint(
     { selectedDataPoints, w }: any,
-    {
-      addSelectionFilterToNotSelectedChartsAction,
-      removeSelectionFilterFromNotSelectedCharts
-    }: Record<string, (...args: any[]) => void>
+    { changeFilterExpressionForChartFilters }: Record<string, (...args: any[]) => void>
   ) {
     this.dataPointSelectionTimeoutId = 0;
     const xAxisCategoriesSelectedDimension = this.getSelectedDimensionOfType('X-axis categories');
@@ -287,7 +284,6 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       legendSelectedDimension;
 
     if (labelSelectionDimension) {
-      removeSelectionFilterFromNotSelectedCharts(this);
       const selectedLabels: any[] = [];
       const selectedLegends: any[] = [];
 
@@ -306,11 +302,11 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
       });
 
       if (selectedLabels.length > 0) {
-        addSelectionFilterToNotSelectedChartsAction(this, labelSelectionDimension, _.uniq(selectedLabels).toString());
+        changeFilterExpressionForChartFilters(this, _.uniq(selectedLabels).toString());
       }
 
       if (this.hasNonTimestampLegend() && legendSelectedDimension && selectedLegends.length > 0) {
-        addSelectionFilterToNotSelectedChartsAction(this, legendSelectedDimension, selectedLegends.toString());
+        changeFilterExpressionForChartFilters(this, selectedLegends.toString());
       }
     }
   }
