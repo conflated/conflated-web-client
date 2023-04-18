@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Icon, Popup } from 'semantic-ui-react';
+import { Dropdown, Icon, Popup } from 'semantic-ui-react';
 import styles from './DataExplorerActionIconsView.module.scss';
 import { ActionDispatchers, controller } from '../controller/dataExplorerActionIconsController';
 
@@ -11,8 +11,25 @@ const DataExplorerActionIconsView = ({ openSaveAsDashboardOrReportTemplateDialog
     <Popup
       mouseEnterDelay={1000}
       trigger={<Icon className={styles.actionIcon} name="refresh" size="large" />}
-      content="Refresh chart data"
+      content="Refresh chart data now"
       inverted
+    />
+    <Popup
+      content="Chart data refresh interval"
+      inverted
+      mouseEnterDelay={1250}
+      trigger={
+        <Dropdown className={styles.refreshInterval} text="Auto">
+          <Dropdown.Menu>
+            <Dropdown.Item text="Auto" />
+            <Dropdown.Item text="1 min" />
+            <Dropdown.Item text="5 min" />
+            <Dropdown.Item text="15 min" />
+            <Dropdown.Item text="30 min" />
+            <Dropdown.Item text="1 hour" />
+          </Dropdown.Menu>
+        </Dropdown>
+      }
     />
     <Popup
       mouseEnterDelay={1000}
