@@ -78,7 +78,7 @@ export default class FilterFactory {
           name: SqlUtils.getSqlColumnName(selectedDimension.dimension),
           expression: SqlUtils.getSqlColumnExpression(selectedDimension.dimension)
         },
-        type: 'dimension'
+        type: 'chart'
       };
 
       return FilterFactory.createFilter(filterConfiguration);

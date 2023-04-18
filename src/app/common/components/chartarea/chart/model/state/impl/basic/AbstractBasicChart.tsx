@@ -301,12 +301,12 @@ export default abstract class AbstractBasicChart extends AbstractDrillDownChart 
         });
       });
 
-      if (selectedLabels.length > 0) {
-        changeFilterExpressionForChartFilters(this, _.uniq(selectedLabels).toString());
-      }
-
       if (this.hasNonTimestampLegend() && legendSelectedDimension && selectedLegends.length > 0) {
         changeFilterExpressionForChartFilters(this, selectedLegends.toString());
+      } else if (selectedLabels.length > 0) {
+        changeFilterExpressionForChartFilters(this, _.uniq(selectedLabels).toString());
+      } else {
+        changeFilterExpressionForChartFilters(this, '');
       }
     }
   }

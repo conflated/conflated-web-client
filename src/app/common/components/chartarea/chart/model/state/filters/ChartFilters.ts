@@ -5,7 +5,6 @@ import type { FilterInputType } from './filter/inputtype/FilterInputType';
 import type { Dimension } from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/state/types/Dimension';
 import type { Measure } from '../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { DrillDown } from '../types/DrillDown';
-import type { SelectedDimension } from '../selecteddimension/SelectedDimension';
 import { Chart } from '../Chart';
 
 export interface ChartFilters {
