@@ -14,14 +14,14 @@ const DataScopePickerView = ({ changeDataScopeType, className, selectedDataScope
   <Dropdown className={`${styles.icon} ${className}`} icon={selectedDataScopeType === 'all' ? 'server' : 'desktop'}>
     <Dropdown.Menu direction="left">
       <Dropdown.Item
-        text="Filter already fetched data on client"
+        text="Client-side filter"
         value="already fetched"
         onClick={(event: React.SyntheticEvent<HTMLElement>, { value: dataScopeType }: any) =>
           changeDataScopeType(dataScopeType)
         }
       />
       <Dropdown.Item
-        text="Filter all data on server"
+        text="Server-side filter"
         value="all"
         onClick={(event: React.SyntheticEvent<HTMLElement>, { value: dataScopeType }: any) =>
           changeDataScopeType(dataScopeType)

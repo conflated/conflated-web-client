@@ -113,11 +113,25 @@ const FilterSelectorView = ({
       }
     });
 
+  const actions = [
+    {
+      iconName: 'server',
+      perform: () => {},
+      tooltipText: 'Add server-side filter'
+    },
+    {
+      iconName: 'desktop',
+      perform: () => {},
+      tooltipText: 'Add client-side filter'
+    }
+  ];
+
   const measureListItems = shownMeasures.map((measure: Measure) => (
     <MeasureListItemView
       key={measure.name}
       item={measure}
       onItemClick={() => addMeasureFilterToSelectedChart(measure)}
+      actions={actions}
     />
   ));
 
@@ -131,6 +145,7 @@ const FilterSelectorView = ({
       key={dimension.name}
       item={dimension}
       onItemClick={() => addDimensionFilterToSelectedChart(dimension)}
+      actions={actions}
     />
   ));
 
@@ -141,6 +156,7 @@ const FilterSelectorView = ({
         key={chart.id}
         item={{ name: `Chart ${chart.getName(stateNamespace)}` }}
         onItemClick={() => addChartFilterToSelectedChart(chart)}
+        actions={actions}
       />
     ));
 

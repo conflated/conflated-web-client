@@ -86,11 +86,25 @@ const SortSelectorView = ({
       />
     ));
 
+  const actions = [
+    {
+      iconName: 'server',
+      perform: () => {},
+      tooltipText: 'Add server-side filter'
+    },
+    {
+      iconName: 'desktop',
+      perform: () => {},
+      tooltipText: 'Add client-side filter'
+    }
+  ];
+
   const measureListItems = shownMeasures.map((measure: Measure) => (
     <MeasureListItemView
       key={measure.name}
       item={measure}
       onItemClick={() => addSortByToSelectedChart(measure, 'measure', lastUsedSortDirection)}
+      actions={actions}
     />
   ));
 
@@ -99,6 +113,7 @@ const SortSelectorView = ({
       key={dimension.name}
       item={dimension}
       onItemClick={() => addSortByToSelectedChart(dimension, 'dimension', lastUsedSortDirection)}
+      actions={actions}
     />
   ));
 
@@ -107,6 +122,7 @@ const SortSelectorView = ({
       key={timeSortOption}
       item={{ name: timeSortOption }}
       onItemClick={() => addSortByTimeToSelectedChart(selectedChart, timeSortOption, lastUsedSortDirection)}
+      actions={actions}
     />
   ));
 
