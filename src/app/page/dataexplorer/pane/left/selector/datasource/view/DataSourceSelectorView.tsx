@@ -68,11 +68,34 @@ const DataSourceSelectorView = ({
     startFetchDataSources();
   }, [startFetchDataSources]);
 
+  useEffect(() => {
+    toggleMaximizeSelector([
+      {
+        isOpen: false,
+        selectorStateNamespace: 'layoutSelector'
+      },
+      {
+        isOpen: false,
+        selectorStateNamespace: 'chartTypeSelector'
+      },
+      {
+        isOpen: true,
+        selectorStateNamespace: 'measureSelector'
+      },
+      {
+        isOpen: true,
+        selectorStateNamespace: 'dimensionSelector'
+      }
+    ]);
+  }, [toggleMaximizeSelector]);
+
   const dataSourceListItems = useMemo(() => {
     function handleDataSourceClick(dataSource: DataSource) {
       if (selectedChart.dataSource === emptyDataSource) {
         confirmDataSourceSelection(dataSource, selectedChart);
-        toggleSelectorOpen();
+        toggleSelectorOpen('dataSourceSelector');
+        toggleSelectorOpen('dimensionSelector');
+        toggleSelectorOpen('measureSelector');
       } else {
         selectDataSourceToBeConfirmed(dataSource);
       }
