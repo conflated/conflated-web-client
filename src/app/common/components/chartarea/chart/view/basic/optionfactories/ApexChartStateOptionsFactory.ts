@@ -10,8 +10,8 @@ export default class ApexChartStateOptionsFactory {
       active: {
         allowMultipleDataPointsSelection: true,
         filter: {
-          type: 'lighten',
-          value: 0.35
+          type: 'darken',
+          value: 0
         }
       }
     };
