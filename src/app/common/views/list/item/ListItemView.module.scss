@@ -1,55 +1,59 @@
-.listItem {
-  color: var(--list-item-color);
-  display: flex;
-  font-family: var(--brand-font-family) !important;
-  font-size: var(--body-font-size) !important;
-  overflow: hidden;
-  white-space: nowrap;
+.dragItem {
+  transform: translate(0, 0);
 
-  &.selected {
-    color: var(--selected-list-item-color);
-    font-weight: bold !important;
-  }
+  .listItem {
+    color: var(--list-item-color);
+    display: flex;
+    font-family: var(--brand-font-family) !important;
+    font-size: var(--body-font-size) !important;
+    overflow: hidden;
+    white-space: nowrap;
 
-  &:hover {
-    color: var(--selected-list-item-color);
-    cursor: pointer !important;
-    font-weight: bold !important;
-
-    .listItemActionIcon {
-      visibility: visible;
+    &.selected {
+      color: var(--selected-list-item-color);
+      font-weight: bold !important;
     }
-  }
 
-  .listItemActionIcon {
-    color: var(--small-font-color);
-    padding-top: 0;
-    transition: color 0.1s ease;
-    vertical-align: top;
-    visibility: hidden;
+    &:hover {
+      color: var(--selected-list-item-color);
+      cursor: pointer !important;
+      font-weight: bold !important;
 
-    @media (prefers-color-scheme: dark) {
-      color: var(--primary-text-color);
-
-      &:hover {
-        color: var(--brand-color-2);
+      .listItemActionIcon {
+        visibility: visible;
       }
     }
-  }
 
-  .listItemContent {
-    flex-grow: 1;
-    padding: 0;
-    overflow: clip;
-    text-overflow: ellipsis;
-    vertical-align: top;
-  }
+    .listItemActionIcon {
+      color: var(--small-font-color);
+      padding-top: 0;
+      transition: color 0.1s ease;
+      vertical-align: top;
+      visibility: hidden;
 
-  .actionIcons {
-    display: none;
-  }
+      @media (prefers-color-scheme: dark) {
+        color: var(--primary-text-color);
 
-  &:hover .actionIcons {
-    display: block;
+        &:hover {
+          color: var(--brand-color-2);
+        }
+      }
+    }
+
+    .listItemContent {
+      flex-grow: 1;
+      padding: 0;
+      overflow: clip;
+      text-overflow: ellipsis;
+      vertical-align: top;
+    }
+
+    .actionIcons {
+      display: none;
+    }
+
+    &:hover .actionIcons {
+      display: block;
+    }
   }
 }

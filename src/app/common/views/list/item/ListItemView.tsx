@@ -26,7 +26,7 @@ export type ListItemViewProps<T extends { readonly name: string }> = {
   actions?: ListItemAction[];
 };
 
-const { listItem, listItemContent, listItemActionIcon, selected } = styles;
+const { dragItem, listItem, listItemContent, listItemActionIcon, selected } = styles;
 
 const ListItemView = <T extends { readonly name: string }>({
   actions,
@@ -113,7 +113,7 @@ const ListItemView = <T extends { readonly name: string }>({
   }
 
   return item.name ? (
-    <div key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
+    <div className={dragItem} key={key} id={item.name} draggable={draggable} onDragStart={onDragStart}>
       <List.Item className={className} onClick={_.flow(stopEventPropagation, handleItemClick)}>
         {listIcon}
         <List.Content
