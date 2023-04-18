@@ -33,10 +33,10 @@
 
       @media (prefers-color-scheme: dark) {
         color: var(--primary-text-color);
+      }
 
-        &:hover {
-          color: var(--brand-color-2);
-        }
+      &:hover {
+        color: var(--selected-list-item-color);
       }
     }
 
