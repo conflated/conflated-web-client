@@ -27,7 +27,8 @@ const DataSourceSelectorView = ({
   selectedChart,
   shownDataSources,
   startFetchDataSources,
-  toggleMaximizeSelector
+  toggleMaximizeSelector,
+  toggleSelectorOpen
 }: Props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
@@ -71,6 +72,7 @@ const DataSourceSelectorView = ({
     function handleDataSourceClick(dataSource: DataSource) {
       if (selectedChart.dataSource === emptyDataSource) {
         confirmDataSourceSelection(dataSource, selectedChart);
+        toggleSelectorOpen();
       } else {
         selectDataSourceToBeConfirmed(dataSource);
       }
@@ -140,6 +142,7 @@ const DataSourceSelectorView = ({
     shownDataSources,
     selectedChart,
     confirmDataSourceSelection,
+    toggleSelectorOpen,
     selectDataSourceToBeConfirmed,
     handleMaximizeIconClick
   ]);

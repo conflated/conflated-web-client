@@ -11,6 +11,7 @@ import selectShownDataSources from './selectors/selectShownDataSources';
 import { controller as selectorWithDefaultActionsController } from '../../../../../../../common/components/selector/withtitleactions/controller/selectorWithTitleActionsController';
 import { ChartAreaStateNamespace } from '../../../../../../../common/components/chartarea/model/state/types/ChartAreaStateNamespace';
 import { Chart } from '../../../../../../../common/components/chartarea/chart/model/state/Chart';
+import ToggleSelectorOpenAction from '../../../../../../../common/components/selector/model/actions/ToggleSelectorOpenAction';
 
 class DataSourceSelectorController extends Controller<ChartAreaStateNamespace | ''> {
   getState = (appState: AppState) =>
@@ -26,6 +27,7 @@ class DataSourceSelectorController extends Controller<ChartAreaStateNamespace | 
   actionDispatchers = {
     startFetchDataSources: () => this.dispatchWithDi(StartFetchDataSourcesAction, diContainer, {}),
     hideDataSourceChangeConfirmation: () => this.dispatch(new HideDataSourceChangeConfirmationAction()),
+    toggleSelectorOpen: () => this.dispatch(new ToggleSelectorOpenAction('dataSourceSelector')),
 
     selectDataSourceToBeConfirmed: (dataSource: DataSource) =>
       this.dispatch(new SelectDataSourceToBeConfirmedAction(dataSource)),
