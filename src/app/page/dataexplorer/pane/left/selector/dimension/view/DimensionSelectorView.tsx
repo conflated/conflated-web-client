@@ -109,12 +109,13 @@ const DimensionSelectorView = ({
   const dimensionDropZoneListItems = useMemo(() => {
     function enterDropZone(event: React.DragEvent<HTMLDivElement>) {
       event.preventDefault();
-      if (event.dataTransfer.getData('dimensionName')) {
-        const targetStyle = event.currentTarget.style;
-        targetStyle.border = '2px dashed var(--brand-color-1)';
-        targetStyle.color = 'var(--brand-color-1)';
-        targetStyle.fontWeight = 'bold';
-      }
+
+      // if (event.dataTransfer.getData('dimensionName')) {
+      const targetStyle = event.currentTarget.style;
+      targetStyle.border = '2px dashed var(--brand-color-1)';
+      targetStyle.color = 'var(--brand-color-1)';
+      targetStyle.fontWeight = 'bold';
+      // }
     }
 
     const dimensionDropZoneListItemViewFactory = new DimensionDropZoneListItemViewFactory(

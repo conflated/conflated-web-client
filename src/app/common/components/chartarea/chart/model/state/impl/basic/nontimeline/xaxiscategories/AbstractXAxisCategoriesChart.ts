@@ -62,7 +62,6 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       ? this.data.getForSelectedDimension(this.currentDrillDownSelectedDimension)
       : this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
-    console.log(xAxisValues);
     if (xAxisValues.length > 0) {
       let categories = this.sliceOrFillXAxisData(_.uniq(xAxisValues));
 
