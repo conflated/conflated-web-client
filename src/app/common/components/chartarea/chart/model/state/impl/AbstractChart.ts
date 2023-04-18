@@ -101,6 +101,7 @@ export default abstract class AbstractChart implements Chart {
       this.isExportMenuOpen = configuration.isExportMenuOpen;
       this.exportMenuCloseTimeoutID = configuration.exportMenuCloseTimeoutID;
       this.menuConfirmationType = configuration.menuConfirmationType;
+      this.map = configuration.map;
     }
   }
 
@@ -259,7 +260,9 @@ export default abstract class AbstractChart implements Chart {
       selectedDataPoints: this.selectedDataPoints,
       isExportMenuOpen: this.isExportMenuOpen,
       exportMenuCloseTimeoutID: this.exportMenuCloseTimeoutID,
-      menuConfirmationType: this.menuConfirmationType
+      menuConfirmationType: this.menuConfirmationType,
+      currentDrillDownSelectedDimension: this.currentDrillDownSelectedDimension,
+      map: this.map
     };
   }
 

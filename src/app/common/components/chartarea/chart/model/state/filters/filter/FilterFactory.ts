@@ -97,7 +97,7 @@ export default class FilterFactory {
       filterExpression,
       aggregationFunction: 'NONE',
       filteringChart: null,
-      dataScopeType: 'all',
+      dataScopeType: 'already fetched',
       filterInputType: 'Input filter',
       isDrillDownFilter: true,
       measureOrDimension: drillDown.selectedDimension.dimension,

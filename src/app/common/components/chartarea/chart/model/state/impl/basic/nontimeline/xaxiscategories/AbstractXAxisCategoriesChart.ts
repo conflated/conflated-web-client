@@ -58,8 +58,11 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
       }
     };
 
-    const xAxisValues = this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
+    const xAxisValues = this.currentDrillDownSelectedDimension
+      ? this.data.getForSelectedDimension(this.currentDrillDownSelectedDimension)
+      : this.data.getForSelectedDimensionOfType(this.selectedDimensions, 'X-axis categories');
 
+    console.log(xAxisValues);
     if (xAxisValues.length > 0) {
       let categories = this.sliceOrFillXAxisData(_.uniq(xAxisValues));
 

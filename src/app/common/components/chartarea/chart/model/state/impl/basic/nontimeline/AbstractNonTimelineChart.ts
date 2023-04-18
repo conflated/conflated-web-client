@@ -6,10 +6,10 @@ import { ChartConfiguration } from '../../../ChartConfiguration';
 import NonTimelineChartSorts from '../../../sorts/impl/NonTimelineChartSorts';
 
 export default abstract class AbstractNonTimelineChart extends AbstractBasicChart {
-  constructor(chartConfiguration?: ChartConfiguration) {
-    super(chartConfiguration);
-    if (chartConfiguration) {
-      this.sorts = new NonTimelineChartSorts(chartConfiguration.sorts);
+  constructor(configuration?: ChartConfiguration) {
+    super(configuration);
+    if (configuration) {
+      this.sorts = new NonTimelineChartSorts(configuration.sorts);
     }
   }
 

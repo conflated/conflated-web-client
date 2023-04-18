@@ -160,6 +160,14 @@ export default class FakeChartDataService implements ChartDataService {
           });
 
         columns
+          .filter(({ name }: Column) => name.includes('Error cause'))
+          .forEach(({ name }: Column) => {
+            columnNameToValuesMap[name] = Array(20)
+              .fill(0)
+              .map((value, index) => `Error ${index.toString()}`);
+          });
+
+        columns
           .filter(({ name }: Column) => name.includes('Timestamp'))
           .forEach(({ name }: Column) => {
             if (hasCellDimension && hasTimestamp) {

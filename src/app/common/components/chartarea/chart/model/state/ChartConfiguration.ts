@@ -29,4 +29,6 @@ export type ChartConfiguration = {
   isExportMenuOpen?: boolean;
   exportMenuCloseTimeoutID?: ReturnType<typeof setTimeout> | 0;
   menuConfirmationType?: ChartMenuConfirmationType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  map?: any;
 };

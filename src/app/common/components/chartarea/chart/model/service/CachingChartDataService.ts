@@ -69,6 +69,7 @@ export default class CachingChartDataService implements ChartDataService {
           const firstChartDataKey = cachedChartDataKeys.shift();
           localStorage.removeItem(firstChartDataKey);
         }
+
         cacheUpdated = true;
       }
 
