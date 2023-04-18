@@ -4,14 +4,14 @@ export default class ApexChartStateOptionsFactory {
       hover: {
         filter: {
           type: 'lighten',
-          value: 0.1
+          value: 0.05
         }
       },
       active: {
         allowMultipleDataPointsSelection: true,
         filter: {
-          type: 'darken',
-          value: 0
+          type: 'lighten',
+          value: 0.5
         }
       }
     };
