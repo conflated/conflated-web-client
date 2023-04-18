@@ -5,12 +5,12 @@ import SelectChartDataPointAction from '../../model/actions/chart/datapointselec
 import SetSelectedDataPointIndexForChartAction from '../../model/actions/chart/datapointselection/SetSelectedDataPointIndexForChartAction';
 import DrillDownChartAction from '../../model/actions/chart/drill/DrillDownChartAction';
 import type { SelectedDimension } from '../model/state/selecteddimension/SelectedDimension';
-import AddSelectionFilterToNotSelectedChartsAction from '../../model/actions/chart/notselected/AddSelectionFilterToNotSelectedChartsAction';
+import ChangeFilterExpressionForChartFiltersAction from '../../model/actions/chart/filter/ChangeFilterExpressionForChartFiltersAction';
 import StartFetchDataForOtherChartsAction from '../../model/actions/chart/fetchdata/StartFetchDataForOtherChartsAction';
 import diContainer from '../../../../../../di/diContainer';
 import StartFetchDataForSelectedChartAction from '../../model/actions/chart/selected/fetchdata/StartFetchDataForSelectedChartAction';
 import type { DataPoint } from '../model/state/types/DataPoint';
-import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/actions/chart/notselected/RemoveSelectionFilterFromNotSelectedChartsAction';
+import RemoveSelectionFilterFromNotSelectedChartsAction from '../../model/actions/chart/filter/RemoveSelectionFilterFromNotSelectedChartsAction';
 import type { DrillDown } from '../model/state/types/DrillDown';
 import type { Chart } from '../model/state/Chart';
 import ChangeXAxisScrollPositionForSelectedChartAction from '../../model/actions/chart/selected/change/scrollposition/ChangeXAxisScrollPositionForSelectedChartAction';
@@ -50,7 +50,7 @@ export default class ChartController extends Controller<ChartAreaStateNamespace>
       filterExpression: string
     ) => {
       this.dispatch(
-        new AddSelectionFilterToNotSelectedChartsAction(stateNamespace, chart, selectedDimension, filterExpression)
+        new ChangeFilterExpressionForChartFiltersAction(stateNamespace, chart, selectedDimension, filterExpression)
       );
     },
 

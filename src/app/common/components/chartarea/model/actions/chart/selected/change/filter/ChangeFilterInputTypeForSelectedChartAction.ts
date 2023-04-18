@@ -10,7 +10,7 @@ import { ChartAreaStateNamespace } from '../../../../../state/types/ChartAreaSta
 export default class ChangeFilterInputTypeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: Filter,
+    private readonly filter: Filter,
     private readonly filterInputType: FilterInputType
   ) {
     super(stateNamespace);
@@ -18,12 +18,12 @@ export default class ChangeFilterInputTypeForSelectedChartAction extends Abstrac
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
-      selectedFilter: this.selectedFilter,
+      selectedFilter: this.filter,
       stateNamespace: this.stateNamespace
     });
 
     const { selectedChart } = currentState;
-    selectedChart.filters.changeFilterInputType(this.selectedFilter, this.filterInputType);
+    selectedChart.filters.changeFilterInputType(this.filter, this.filterInputType);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }

@@ -10,7 +10,7 @@ export default class ChangeFilterExpressionForSelectedChartAction extends Abstra
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly filter: Filter,
-    private readonly expression: string
+    private readonly filterExpression: string
   ) {
     super(stateNamespace);
   }
@@ -23,7 +23,7 @@ export default class ChangeFilterExpressionForSelectedChartAction extends Abstra
     }
 
     const { selectedChart } = currentState;
-    selectedChart.filters.changeFilterExpression(this.filter, this.expression);
+    selectedChart.filters.changeFilterExpression(this.filter, this.filterExpression);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, currentState.selectedChart);
   }
 }

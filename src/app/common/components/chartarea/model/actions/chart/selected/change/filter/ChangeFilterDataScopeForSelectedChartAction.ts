@@ -7,23 +7,23 @@ import type { ChartAreaStateNamespace } from '../../../../../state/types/ChartAr
 import StartFetchDataForChangedFilterInSelectedChartAction from '../../fetchdata/StartFetchDataForChangedFilterInSelectedChartAction';
 import diContainer from '../../../../../../../../../../di/diContainer';
 
-export default class ChangeFilterDataScopeTypeForSelectedChartAction extends AbstractChartAreaAction {
+export default class ChangeFilterDataScopeForSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
-    private readonly selectedFilter: Filter,
-    private readonly dataScopeType: DataScope
+    private readonly filter: Filter,
+    private readonly dataScope: DataScope
   ) {
     super(stateNamespace);
   }
 
   perform(currentState: ChartAreaState): ChartAreaState {
     this.dispatchWithDi(StartFetchDataForChangedFilterInSelectedChartAction, diContainer, {
-      selectedFilter: this.selectedFilter,
+      selectedFilter: this.filter,
       stateNamespace: this.stateNamespace
     });
 
     const { selectedChart } = currentState;
-    selectedChart.filters.changeFilterDataScope(this.selectedFilter, this.dataScopeType);
+    selectedChart.filters.changeFilterDataScope(this.filter, this.dataScope);
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }
 }
