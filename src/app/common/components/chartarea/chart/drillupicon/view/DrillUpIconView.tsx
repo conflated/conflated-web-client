@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Popup } from 'semantic-ui-react';
 import styles from './DrillUpIconView.module.scss';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import { ActionDispatchers, controller } from '../controller/drillUpIconController';
@@ -14,7 +14,12 @@ type Props = OwnProps & ActionDispatchers;
 const DrillUpIconView = ({ chart, drillUpChart }: Props) =>
   chart.drillDowns && chart.drillDowns.length > 0 ? (
     <div className={styles.drillUpIcon}>
-      <Icon name="arrow alternate circle left outline" size="large" onClick={() => drillUpChart(chart)} />
+      <Popup
+        content="Drill up"
+        inverted
+        mouseEnterDelay={1250}
+        trigger={<Icon name="arrow alternate circle up outline" size="large" onClick={() => drillUpChart(chart)} />}
+      />
     </div>
   ) : null;
 
