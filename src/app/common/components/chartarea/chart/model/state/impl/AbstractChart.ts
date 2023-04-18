@@ -80,26 +80,27 @@ export default abstract class AbstractChart implements Chart {
 
   map: any;
 
-  constructor(chartConfiguration?: ChartConfiguration) {
-    if (chartConfiguration) {
-      this.id = chartConfiguration.id;
-      this.type = chartConfiguration.type;
-      this.dataSource = chartConfiguration.dataSource;
-      this.selectedMeasures = chartConfiguration.selectedMeasures;
-      this.selectedDimensions = chartConfiguration.selectedDimensions;
-      this.data = new ChartDataImpl(chartConfiguration.data);
-      this.filters = new ChartFiltersImpl(chartConfiguration.filters, this.data);
-      this.sorts = new ChartSortsImpl(chartConfiguration.sorts);
-      this.xAxisCategoriesShownCount = chartConfiguration.xAxisCategoriesShownCount;
-      this.fetchedRowCount = chartConfiguration.fetchedRowCount;
-      this.xAxisScrollPosition = chartConfiguration.xAxisScrollPosition;
-      this.isFetchingData = chartConfiguration.isFetchingChartData;
-      this.selectedDataPointIndex = chartConfiguration.selectedDataPointIndex;
-      this.drillDowns = chartConfiguration.drillDowns ?? [];
-      this.selectedDataPoints = chartConfiguration.selectedDataPoints ?? [];
-      this.isExportMenuOpen = chartConfiguration.isExportMenuOpen;
-      this.exportMenuCloseTimeoutID = chartConfiguration.exportMenuCloseTimeoutID;
-      this.menuConfirmationType = chartConfiguration.menuConfirmationType;
+  constructor(configuration?: ChartConfiguration) {
+    if (configuration) {
+      this.id = configuration.id;
+      this.type = configuration.type;
+      this.dataSource = configuration.dataSource;
+      this.selectedMeasures = configuration.selectedMeasures;
+      this.selectedDimensions = configuration.selectedDimensions;
+      this.data = new ChartDataImpl(configuration.data);
+      this.filters = new ChartFiltersImpl(configuration.filters, this.data);
+      this.sorts = new ChartSortsImpl(configuration.sorts);
+      this.xAxisCategoriesShownCount = configuration.xAxisCategoriesShownCount;
+      this.fetchedRowCount = configuration.fetchedRowCount;
+      this.xAxisScrollPosition = configuration.xAxisScrollPosition;
+      this.isFetchingData = configuration.isFetchingChartData;
+      this.selectedDataPointIndex = configuration.selectedDataPointIndex;
+      this.drillDowns = configuration.drillDowns ?? [];
+      this.currentDrillDownSelectedDimension = configuration.currentDrillDownSelectedDimension;
+      this.selectedDataPoints = configuration.selectedDataPoints ?? [];
+      this.isExportMenuOpen = configuration.isExportMenuOpen;
+      this.exportMenuCloseTimeoutID = configuration.exportMenuCloseTimeoutID;
+      this.menuConfirmationType = configuration.menuConfirmationType;
     }
   }
 

@@ -34,6 +34,7 @@ const ChartView: React.FC<Props> = ({
   changeFilterExpressionForChartFilters,
   changeQuickFilter,
   changeXAxisScrollPosition,
+  drillDown,
   height,
   heightInRows,
   isMaximized,
@@ -55,7 +56,8 @@ const ChartView: React.FC<Props> = ({
   });
 
   const chartView = chart.createView(width, height, stateNamespace, {
-    changeFilterExpressionForChartFilters
+    changeFilterExpressionForChartFilters,
+    drillDownChart: drillDown
   });
 
   function onTouchStart(event: React.TouchEvent) {
