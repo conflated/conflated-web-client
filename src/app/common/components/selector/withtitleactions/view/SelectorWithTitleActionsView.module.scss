@@ -6,5 +6,20 @@
 .searchInput {
   & > input {
     border-radius: 0 !important;
+
+    @media screen and (prefers-color-scheme: dark) {
+      background-color: #555 !important;
+      color: #fff !important;
+    }
+
+    &:focus {
+      @media screen and (prefers-color-scheme: dark) {
+       border-color: #F47F31 !important;
+      }
+    }
+  }
+
+  :global(.icon) {
+    color: #fff !important;
   }
 }
