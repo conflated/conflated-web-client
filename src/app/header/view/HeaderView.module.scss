@@ -44,4 +44,15 @@
     vertical-align: text-bottom;
     width: 1rem;
   }
+
+  .gridIcon {
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+
+    &:hover,
+    &:focus {
+      color: var(--brand-color-1);
+      cursor: pointer;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
+import { Icon } from 'semantic-ui-react';
 import styles from './HeaderView.module.scss';
 import NavigationView from './navigation/NavigationView';
 import UserMenuView from './usermenu/UserMenuView';
@@ -91,6 +92,7 @@ const HeaderView = ({
         isFullScreenModeActive={isFullScreenModeActive}
         showFullScreenModeNotification={showFullScreenModeNotification}
       />
+      <Icon className={styles.gridIcon} name="grid layout" size="large" />
     </header>
   );
 };
