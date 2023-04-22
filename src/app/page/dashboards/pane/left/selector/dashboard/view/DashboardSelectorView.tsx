@@ -53,7 +53,7 @@ const DashboardSelectorView = ({
               perform: () => {},
               tooltipText: 'Add to favorites'
             },
-            { iconName: 'edit', perform: () => {}, tooltipText: 'Edit' },
+            { iconName: 'pencil', perform: () => {}, tooltipText: 'Edit' },
             { iconName: 'i cursor', perform: () => {}, tooltipText: 'Rename' },
             { iconName: 'trash alternate outline', perform: () => {}, tooltipText: 'Delete' }
           ]}
