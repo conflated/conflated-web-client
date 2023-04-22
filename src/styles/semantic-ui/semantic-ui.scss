@@ -43,12 +43,18 @@
   .ui.secondary.pointing.menu {
     border-bottom: 2px solid #333333;
 
+    .item.active {
+       color: #c0c0c0 !important;
+       font-weight: bold !important;
+    }
+
     .item:hover:not(.active) {
-      color: var(--selected-list-item-color) !important;
+      color: #f2f2f2 !important;
+      font-weight: bold;
     }
 
     .active.item {
-      border-color: #ffffff !important;
+      border-color: #c0c0c0 !important;
     }
   }
 }
