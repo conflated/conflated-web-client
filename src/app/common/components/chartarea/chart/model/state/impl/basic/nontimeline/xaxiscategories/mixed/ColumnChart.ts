@@ -8,7 +8,17 @@ export default class ColumnChart extends AbstractMixedChart {
 
     return this.selectedMeasures.map((selectedMeasure, index) => {
       if (selectedMeasure.measure.unit === 'percent') {
-        return (({ value }: any) => (value > 90 ? '#E23B3B' : colors[index])) as any;
+        return (({ value }: any) => {
+          if (value > 93) {
+            return '#E23B3B';
+          } else if (value > 88) {
+            return '#F47F31';
+          } else if (value > 84) {
+            return '#F7B737';
+          } else {
+            return colors[index];
+          }
+        }) as any;
       } else {
         return colors[index];
       }
