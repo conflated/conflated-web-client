@@ -1,18 +1,20 @@
 import React from 'react';
 import styles from './ChartConfigHintsView.module.scss';
 import type { Chart } from '../../model/state/Chart';
-import emptyDataSource from '../../model/state/datasource/emptyDataSource';
 
 type Props = {
   chart: Chart;
   heightInRows?: number;
+  isSizingChart?: boolean;
   widthInCols?: number;
 };
 
-const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCols }: Props) => {
+const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, isSizingChart, widthInCols }: Props) => {
   const chartConfigHintTitle = chart.getConfigHintTitle();
   const chartConfigHintSubtitle = chart.getConfigHintSubtitle();
   let chartIcon;
+
+  console.log(heightInRows, widthInCols);
 
   switch (chart.type) {
     case 'column':
@@ -71,14 +73,14 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
     return (
       <>
         <div className={styles.uiHintsContainer}>
-          {heightInRows && widthInCols && (
+          {isSizingChart && (
             <div className={styles.chartSize}>
               {widthInCols}
               <span className={styles.timesChar}>x</span>
               {heightInRows}
             </div>
           )}
-          {(heightInRows === undefined || heightInRows >= 2) && (widthInCols === undefined || widthInCols >= 2) && (
+          {(heightInRows === undefined || heightInRows >= 3) && (widthInCols === undefined || widthInCols >= 2) && (
             <>
               <div className={styles.chartType}>
                 {chartIcon && <div className={chartIcon} />}
@@ -87,7 +89,6 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
                   {`${chart.type[0].toUpperCase() + chart.type.slice(1)} Chart`}
                 </span>
               </div>
-              {chart.dataSource !== emptyDataSource && <div className={styles.dataSource}>{chart.dataSource.name}</div>}
               <div className={styles.uiHints}>{chartConfigHintTitle}</div>
               {chartConfigHintSubtitle ? <div className={styles.smallText}>{chartConfigHintSubtitle}</div> : undefined}
             </>
@@ -103,6 +104,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, widthInCol
 
 ChartConfigHintsView.defaultProps = {
   heightInRows: undefined,
+  isSizingChart: false,
   widthInCols: undefined
 };
 

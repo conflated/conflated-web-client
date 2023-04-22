@@ -20,6 +20,7 @@ type OwnProps = {
   heightInRows?: number;
   isMaximized?: boolean;
   isSelectedChart: boolean;
+  isSizingChart?: boolean;
   stateNamespace: ChartAreaStateNamespace;
   width: number;
   widthInCols?: number;
@@ -39,6 +40,7 @@ const ChartView: React.FC<Props> = ({
   heightInRows,
   isMaximized,
   isSelectedChart,
+  isSizingChart,
   maximizeSize,
   restoreChartOriginalSize,
   select,
@@ -163,7 +165,12 @@ const ChartView: React.FC<Props> = ({
       />
       <DrillUpIconView chart={chart} stateNamespace={stateNamespace} />
       {stateNamespace === 'dataExplorerPage' && (
-        <ChartConfigHintsView chart={chart} heightInRows={heightInRows} widthInCols={widthInCols} />
+        <ChartConfigHintsView
+          chart={chart}
+          heightInRows={heightInRows}
+          isSizingChart={isSizingChart}
+          widthInCols={widthInCols}
+        />
       )}
     </div>
   );
@@ -172,6 +179,7 @@ const ChartView: React.FC<Props> = ({
 ChartView.defaultProps = {
   heightInRows: undefined,
   isMaximized: false,
+  isSizingChart: false,
   widthInCols: undefined
 };
 
