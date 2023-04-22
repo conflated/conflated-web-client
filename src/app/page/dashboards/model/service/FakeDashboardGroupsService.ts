@@ -256,46 +256,6 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       fetchedRowCount: 100
     };
 
-    const chartConfig8: ChartConfiguration = {
-      id: '1',
-      type: 'area',
-      dataSource: emptyDataSource,
-      selectedMeasures: [
-        {
-          measure: {
-            name: 'Setup Failure %',
-            isDate: false,
-            unit: 'percent'
-          } as Measure,
-          sqlColumn: {
-            name: 'Setup Failure %',
-            expression: ''
-          },
-          visualizationColor: '#005AFF',
-          aggregationFunction: 'SUM',
-          visualizationType: 'area'
-        }
-      ],
-      selectedDimensions: [
-        {
-          dimension: {
-            name: 'eNB'
-          } as Dimension,
-          sqlColumn: {
-            name: 'dimension1',
-            expression: ''
-          },
-          visualizationColor: '',
-          visualizationType: 'X-axis categories'
-        }
-      ],
-      filters: [],
-      sorts: [],
-      data: {},
-      xAxisCategoriesShownCount: 5,
-      fetchedRowCount: 5
-    };
-
     const chartConfig7: ChartConfiguration = {
       id: '6',
       type: 'area',
@@ -336,6 +296,202 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
       fetchedRowCount: 100
     };
 
+    const chartConfig8: ChartConfiguration = {
+      id: '1',
+      type: 'area',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'Setup Failure %',
+            isDate: false,
+            unit: 'percent'
+          } as Measure,
+          sqlColumn: {
+            name: 'Setup Failure %',
+            expression: ''
+          },
+          visualizationColor: '#005AFF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'area'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'eNB'
+          } as Dimension,
+          sqlColumn: {
+            name: 'dimension1',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        }
+      ],
+      filters: [],
+      sorts: [],
+      data: {},
+      xAxisCategoriesShownCount: 5,
+      fetchedRowCount: 5
+    };
+
+    const chartConfig9: ChartConfiguration = {
+      id: '1',
+      type: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'Setup Failure %',
+            isDate: false,
+            unit: 'percent'
+          } as Measure,
+          sqlColumn: {
+            name: 'Setup Failure %',
+            expression: ''
+          },
+          visualizationColor: '#005AFF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'Cell'
+          } as Dimension,
+          sqlColumn: {
+            name: 'Cell',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        },
+        {
+          dimension: {
+            name: 'Timestamp',
+            isTimestamp: true
+          } as Dimension,
+          sqlColumn: {
+            name: 'Timestamp',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'Legend'
+        }
+      ],
+      filters: [],
+      sorts: [],
+      data: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 200
+    };
+
+    const chartConfig10: ChartConfiguration = {
+      id: '2',
+      type: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'Call Drop %',
+            isDate: false,
+            unit: 'percent'
+          } as Measure,
+          sqlColumn: {
+            name: 'Call Drop %',
+            expression: ''
+          },
+          visualizationColor: '#005AFF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'Cell'
+          } as Dimension,
+          sqlColumn: {
+            name: 'Cell',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        },
+        {
+          dimension: {
+            name: 'Timestamp',
+            isTimestamp: true
+          } as Dimension,
+          sqlColumn: {
+            name: 'Timestamp',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'Legend'
+        }
+      ],
+      filters: [],
+      sorts: [],
+      data: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 200
+    };
+
+    const chartConfig11: ChartConfiguration = {
+      id: '3',
+      type: 'column',
+      dataSource: emptyDataSource,
+      selectedMeasures: [
+        {
+          measure: {
+            name: 'Handover Failure %',
+            isDate: false,
+            unit: 'percent'
+          } as Measure,
+          sqlColumn: {
+            name: 'Handover Failure %',
+            expression: ''
+          },
+          visualizationColor: '#005AFF',
+          aggregationFunction: 'SUM',
+          visualizationType: 'column'
+        }
+      ],
+      selectedDimensions: [
+        {
+          dimension: {
+            name: 'Cell'
+          } as Dimension,
+          sqlColumn: {
+            name: 'Cell',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'X-axis categories'
+        },
+        {
+          dimension: {
+            name: 'Timestamp',
+            isTimestamp: true
+          } as Dimension,
+          sqlColumn: {
+            name: 'Timestamp',
+            expression: ''
+          },
+          visualizationColor: '',
+          visualizationType: 'Legend'
+        }
+      ],
+      filters: [],
+      sorts: [],
+      data: {},
+      xAxisCategoriesShownCount: 10,
+      fetchedRowCount: 200
+    };
+
     const chart1 = ChartFactory.createChart(chartConfig);
     const chart2 = ChartFactory.createChart(chartConfig2);
     const chart3 = ChartFactory.createChart(chartConfig3);
@@ -344,6 +500,9 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
     const chart6 = ChartFactory.createChart(chartConfig6);
     const chart7 = ChartFactory.createChart(chartConfig7);
     const chart8 = ChartFactory.createChart(chartConfig8);
+    const chart9 = ChartFactory.createChart(chartConfig9);
+    const chart10 = ChartFactory.createChart(chartConfig10);
+    const chart11 = ChartFactory.createChart(chartConfig11);
 
     return new Promise<DashboardGroup[]>((resolve) => {
       setTimeout(() => {
@@ -388,8 +547,8 @@ export default class FakeDashboardGroupsService implements DashboardGroupsServic
               },
               {
                 name: 'NOC Wall Screen Dashboard 2',
-                layout: layout1,
-                charts: [emptyChart]
+                layout: layout4,
+                charts: [chart9, chart10, chart11]
               },
               {
                 name: 'NOC Wall Screen Dashboard 3',
