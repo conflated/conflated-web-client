@@ -1,9 +1,13 @@
 .tab {
   flex-grow: 1;
 
-  :global(.menu) {
+  :global(.menu.tabular.attached) {
     align-items: center !important;
     border: none !important;
+
+    :global(.item.active) {
+      color: #F47F31 !important;
+    }
   }
 
   :global(.tab) {

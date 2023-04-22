@@ -2,7 +2,7 @@
   flex-grow: 1;
   flex-basis: min-content;
 
-  :global(.menu) {
+  :global(.menu.tabular) {
     align-items: center !important;
     border: none !important;
     flex-wrap: wrap;
