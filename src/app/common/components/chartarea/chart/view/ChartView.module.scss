@@ -9,7 +9,7 @@
 
   &:hover {
     @media (any-pointer: fine) {
-      border: 2px solid var(--brand-color-1);
+      border: 2px dotted var(--brand-color-1);
     }
   }
 

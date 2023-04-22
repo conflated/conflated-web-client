@@ -15,7 +15,7 @@ export default class ApexChartDataLabelOptionsFactory {
       enabled: chart.shouldShowDataLabels(),
       textAnchor: 'middle',
       offsetX: 1,
-      offsetY: chart.type === 'bar' ? 5 : -5,
+      offsetY: -5,
       style: {
         fontSize: '0.8rem',
         fontFamily: 'Arimo, sans-serif',
