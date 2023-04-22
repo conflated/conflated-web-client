@@ -1,6 +1,6 @@
 .actionIcon {
   align-items: center;
-  color: #000;
+  color: #f2f2f2;
   line-height: var(--body-font-size);
   margin-right: 0.65rem !important;
   visibility: hidden;
@@ -16,7 +16,7 @@
 
 .title {
   align-items: center !important;
-  color: #000 !important;
+  color: #f2f2f2 !important;
   display: flex !important;
   font-size: 1rem !important;
   font-weight: bold;
@@ -43,15 +43,15 @@
 
 .leftPaneSelector {
   .actionIcon:hover {
-    color: var(--secondary-text-color-on-hover) !important;
+    color: var(--brand-color-2) !important;
   }
 
   .title {
-    background-color: var(--brand-color-2);
+    background-color: #3a3a3a;
 
     &:hover,
     &:focus {
-      color: var(--secondary-text-color-on-hover) !important;
+      color: var(--brand-color-2) !important;
     }
   }
 }
@@ -66,8 +66,7 @@
   }
 
   .title {
-    background-color: var(--brand-color-1);
-    color: #fff !important;
+    background-color: #222;
 
     &:hover,
     &:focus {
