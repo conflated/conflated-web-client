@@ -30,10 +30,10 @@ const SelectorTitleActionsView: React.FC<Props> = ({
   toggleShowSearchInput,
   toggleMaximizeSelector
 }: Props) => {
-  let pinIconColor = '#000';
+  let pinIconColor = '#eee';
 
   if (isPinned && position === 'leftPane') {
-    pinIconColor = 'var(--secondary-text-color-on-hover)';
+    pinIconColor = 'var(--brand-color-2)';
   } else if (isPinned && position === 'rightPane') {
     pinIconColor = 'var(--brand-color-2)';
   }
