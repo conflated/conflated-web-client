@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import TriggerLabelSelectorListItemView from './listitem/TriggerLabelSelectorListItemView';
@@ -8,6 +8,7 @@ import selectorWithActionsStateNamespaces from '../../../../../../selector/witht
 import AllAndFavoritesTabView from '../../../../../../../views/tab/selector/allandfavorites/AllAndFavoritesTabView';
 import type { TriggerLabel } from '../model/state/types/TriggerLabel';
 import { ActionDispatchers, controller, State } from '../controller/triggerLabelSelectorController';
+import stopEventPropagation from '../../../../../../../utils/stopEventPropagation';
 
 export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -21,20 +22,22 @@ const TriggerLabelSelectorView = ({
   toggleMaximizeSelector,
   triggerGroups
 }: Props) => {
-  const handleMaximizeIconClick = (event: React.SyntheticEvent<HTMLElement>) => {
-    event.stopPropagation();
-
-    toggleMaximizeSelector([
-      {
-        isOpen: isTriggerDataSourceSelectorOpen,
-        selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
-      },
-      {
-        isOpen: isTriggerSelectorOpen,
-        selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerSelector`]
-      }
-    ]);
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleMaximizeIconClick = useCallback(
+    _.throttle(() => {
+      toggleMaximizeSelector([
+        {
+          isOpen: isTriggerDataSourceSelectorOpen,
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerDataSourceSelector`]
+        },
+        {
+          isOpen: isTriggerSelectorOpen,
+          selectorStateNamespace: selectorWithActionsStateNamespaces[`${stateNamespace}TriggerSelector`]
+        }
+      ]);
+    }, 150),
+    [toggleMaximizeSelector, isTriggerSelectorOpen, isTriggerDataSourceSelectorOpen, stateNamespace]
+  );
 
   const triggerGroupListItems = useMemo(
     () =>
@@ -63,7 +66,7 @@ const TriggerLabelSelectorView = ({
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={triggerGroupListItems} secondTabPaneListItems={[]} />
       }
-      handleMaximizeIconClick={handleMaximizeIconClick}
+      handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
       handleSelectAllIconClick={() => {}}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />

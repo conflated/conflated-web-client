@@ -10,6 +10,7 @@ import AllAndFavoritesTabView from '../../../../../../../views/tab/selector/alla
 import selectorWithActionsStateNamespaces from '../../../../../../selector/withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
 import { ActionDispatchers, controller, State } from '../controller/triggerDataSourceSelectorController';
 import { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
+import stopEventPropagation from '../../../../../../../utils/stopEventPropagation';
 
 export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -30,21 +31,22 @@ const TriggerDataSourceSelectorView = ({
     startFetchTriggerDataSources();
   }, [startFetchTriggerDataSources]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-
-      toggleMaximizeSelector([
-        {
-          isOpen: isTriggerGroupSelectorOpen,
-          selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
-        },
-        {
-          isOpen: isTriggerSelectorOpen,
-          selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerSelector`]
-        }
-      ]);
-    },
+    _.throttle(
+      () =>
+        toggleMaximizeSelector([
+          {
+            isOpen: isTriggerGroupSelectorOpen,
+            selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
+          },
+          {
+            isOpen: isTriggerSelectorOpen,
+            selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerSelector`]
+          }
+        ]),
+      150
+    ),
     [toggleMaximizeSelector, isTriggerGroupSelectorOpen, stateNamespace, isTriggerSelectorOpen]
   );
 
@@ -97,7 +99,7 @@ const TriggerDataSourceSelectorView = ({
       listItemsContent={
         <AllAndFavoritesTabView firstTabPaneListItems={dataSourceListItems} secondTabPaneListItems={[]} />
       }
-      handleMaximizeIconClick={handleMaximizeIconClick}
+      handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
       isPinned={shouldShowTriggersPageLeftPanePermanently}
       handlePinIconClick={handlePinIconClick}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}

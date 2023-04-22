@@ -9,6 +9,7 @@ import AllAndFavoritesTabView from '../../../../../../../views/tab/selector/alla
 import type { Trigger } from '../model/state/types/Trigger';
 import { ActionDispatchers, controller, State } from '../controller/triggerSelectorController';
 import { TriggersPageStateNamespace } from '../../../../model/state/TriggersPageStateNamespace';
+import stopEventPropagation from '../../../../../../../utils/stopEventPropagation';
 
 export type OwnProps = { stateNamespace: TriggersPageStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
@@ -22,10 +23,9 @@ const TriggerSelectorView = ({
   triggers,
   toggleMaximizeSelector
 }: Props) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMaximizeIconClick = useCallback(
-    () => (event: React.SyntheticEvent<HTMLElement>) => {
-      event.stopPropagation();
-
+    _.throttle(() => {
       toggleMaximizeSelector([
         {
           isOpen: isTriggerDataSourceSelectorOpen,
@@ -36,7 +36,7 @@ const TriggerSelectorView = ({
           selectorStateNamespace: selectorStateNamespaces[`${stateNamespace}TriggerGroupSelector`]
         }
       ]);
-    },
+    }, 150),
     [isTriggerDataSourceSelectorOpen, isTriggerGroupSelectorOpen, stateNamespace, toggleMaximizeSelector]
   );
 
@@ -64,7 +64,7 @@ const TriggerSelectorView = ({
       addIconTooltipText={stateNamespace === 'alertsPage' ? 'Add new alert' : 'Add new goal'}
       position="leftPane"
       listItemsContent={<AllAndFavoritesTabView firstTabPaneListItems={triggerListItems} secondTabPaneListItems={[]} />}
-      handleMaximizeIconClick={handleMaximizeIconClick}
+      handleMaximizeIconClick={_.flow(stopEventPropagation, handleMaximizeIconClick)}
       handleSelectAllIconClick={() => {}}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}
     />

@@ -4,12 +4,14 @@
 
   .triggerText {
     flex-grow: 1;
+    font-size: var(--body-font-size);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .actionIcon {
+    display: none;
     margin-right: 0.5rem !important;
   }
 

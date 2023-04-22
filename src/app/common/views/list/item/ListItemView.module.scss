@@ -1,59 +1,59 @@
 .dragItem {
   transform: translate(0, 0);
+}
 
-  .listItem {
-    color: var(--list-item-color);
-    display: flex;
-    font-family: var(--brand-font-family) !important;
-    font-size: var(--body-font-size) !important;
-    overflow: hidden;
-    white-space: nowrap;
+.listItem {
+  color: var(--list-item-color);
+  display: flex;
+  font-family: var(--brand-font-family) !important;
+  font-size: var(--body-font-size) !important;
+  overflow: hidden;
+  white-space: nowrap;
 
-    &.selected {
-      color: var(--selected-list-item-color);
-      font-weight: bold !important;
+  &.selected {
+    color: var(--selected-list-item-color);
+    font-weight: bold !important;
+  }
+
+  &:hover {
+    color: var(--selected-list-item-color);
+    cursor: pointer !important;
+    font-weight: bold !important;
+
+    .listItemActionIcon {
+      visibility: visible;
+    }
+  }
+
+  .listItemActionIcon {
+    color: var(--small-font-color);
+    padding-top: 0;
+    transition: color 0.1s ease;
+    vertical-align: top;
+    visibility: hidden;
+
+    @media (prefers-color-scheme: dark) {
+      color: #c0c0c0;
     }
 
     &:hover {
       color: var(--selected-list-item-color);
-      cursor: pointer !important;
-      font-weight: bold !important;
-
-      .listItemActionIcon {
-        visibility: visible;
-      }
     }
+  }
 
-    .listItemActionIcon {
-      color: var(--small-font-color);
-      padding-top: 0;
-      transition: color 0.1s ease;
-      vertical-align: top;
-      visibility: hidden;
+  .listItemContent {
+    flex-grow: 1;
+    padding: 0;
+    overflow: clip;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
 
-      @media (prefers-color-scheme: dark) {
-        color: #c0c0c0;
-      }
+  .actionIcons {
+    display: none;
+  }
 
-      &:hover {
-        color: var(--selected-list-item-color);
-      }
-    }
-
-    .listItemContent {
-      flex-grow: 1;
-      padding: 0;
-      overflow: clip;
-      text-overflow: ellipsis;
-      vertical-align: top;
-    }
-
-    .actionIcons {
-      display: none;
-    }
-
-    &:hover .actionIcons {
-      display: block;
-    }
+  &:hover .actionIcons {
+    display: block;
   }
 }
