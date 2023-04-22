@@ -3,6 +3,7 @@
 
   :global(.menu) {
     align-items: center !important;
+    border: none !important;
   }
 
   :global(.tab) {
@@ -10,9 +11,15 @@
   }
 
   :global(.item) {
+    border: none !important;
+
     .closeIcon {
       display: none;
       padding-left: 0.5rem;
+
+      &:hover {
+        color: #37CC73;
+      }
     }
 
     &:hover .closeIcon {
