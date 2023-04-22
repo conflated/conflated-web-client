@@ -1,15 +1,15 @@
 .chart {
-  border: 1px solid #e9e9e9;
+  border: 2px solid #e9e9e9;
 
   @media (prefers-color-scheme: dark) {
-    border: 1px solid #222;
+    border: 2px solid #222;
   }
 
   height: 100%;
 
   &:hover {
     @media (any-pointer: fine) {
-      border: 1px solid var(--brand-color-1);
+      border: 2px solid var(--brand-color-1);
     }
   }
 
@@ -71,7 +71,7 @@
   &.selectedChart {
     @media (any-pointer: fine) {
       background-color: var(--transparent-brand-color-1);
-      border: 1px solid var(--brand-color-1);
+      border: 2px solid var(--brand-color-1);
 
       @media (prefers-color-scheme: dark) {
         background-color: #131313;

@@ -14,8 +14,6 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, isSizingCh
   const chartConfigHintSubtitle = chart.getConfigHintSubtitle();
   let chartIcon;
 
-  console.log(heightInRows, widthInCols);
-
   switch (chart.type) {
     case 'column':
       chartIcon = styles.columnChart;

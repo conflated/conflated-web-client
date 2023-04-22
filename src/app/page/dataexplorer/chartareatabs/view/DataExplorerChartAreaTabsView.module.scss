@@ -4,6 +4,7 @@
 
   :global(.menu) {
     align-items: center !important;
+    border: none !important;
     flex-wrap: wrap;
   }
 
@@ -12,6 +13,7 @@
   }
 
   :global(.item) {
+    border: none !important;
     font-size: 1rem;
     height: 2.4rem;
     padding: 0.75rem !important;
