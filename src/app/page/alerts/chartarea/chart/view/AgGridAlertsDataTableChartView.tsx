@@ -47,6 +47,8 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
 
           if (name === 'Data source') {
             filter = 'agSetColumnFilter';
+          } else if (name === 'Number') {
+            filter = 'agNumberColumnFilter';
           } else if (isString) {
             filter = 'agTextColumnFilter';
           } else if (isDate || isTimestamp) {

@@ -11,6 +11,7 @@ export default class FakeAlertChartDataService implements TriggerChartDataServic
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
         columnNameToValuesMap.Severity = ['Critical', 'Critical', 'Major', 'Major', 'Minor', 'Info'];
+        columnNameToValuesMap.Number = ['200201', '200301', '200881', '200134', '200712', '200202'];
 
         columnNameToValuesMap['"Trigger time"'] = [
           '2019-04-01 12:00:00',
@@ -24,12 +25,12 @@ export default class FakeAlertChartDataService implements TriggerChartDataServic
         columnNameToValuesMap['"Active duration"'] = ['3 hours', '3 hours', '3 hours', '3 hours', '3 hours', ''];
 
         columnNameToValuesMap['"Labels"'] = [
-          '5G RAN, gNB 2345, Error: Signalling Congestion',
-          '5G RAN, gNB 2345',
-          '5G RAN, gNB 2366, Error: Signalling Congestion',
+          '5G RAN, gNB: 2345, Error: Signalling Congestion',
+          '5G RAN, gNB: 2345',
+          '5G RAN, gNB: 2366, Error: Signalling Congestion',
           'Label very long name very long name long long',
-          '4G RAN, eNB 4333',
-          'Core Network, AMF 3'
+          '4G RAN, eNB: 4333',
+          'Core Network, AMF: 3'
         ];
 
         columnNameToValuesMap['"Description"'] = [

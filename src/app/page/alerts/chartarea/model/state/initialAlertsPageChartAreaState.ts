@@ -32,7 +32,7 @@ const dataTableChart = ChartFactory.createChart({
         name: 'Number',
         expression: '',
         isTimestamp: false,
-        isString: true,
+        isString: false,
         isDate: false,
         unit: 'none'
       },
