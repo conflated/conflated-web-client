@@ -25,17 +25,16 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
 
   const columnWidthWeights = useMemo(
     () => ({
-      Severity: isMaxWidth1024px ? 0 : 0.05,
+      Severity: isMaxWidth1024px ? 0 : 0.07,
+      Number: isMaxWidth1024px ? 0.25 : 0.06,
+      // eslint-disable-next-line no-nested-ternary
+      Description: isMaxWidth480px ? 0.75 : isMaxWidth1024px ? 0.26 : 0.25,
+      'Data source': isMaxWidth480px ? 0.5 : 0.11,
       'Trigger time': isMaxWidth480px ? 0.5 : 0.09,
       'Active duration': isMaxWidth480px ? 0.25 : 0.05,
-      Labels: isMaxWidth480px ? 0.75 : 0.15,
-      // eslint-disable-next-line no-nested-ternary
-      Description: isMaxWidth480px ? 0.75 : isMaxWidth1024px ? 0.26 : 0.2,
-      'Data source': isMaxWidth480px ? 0.5 : 0.11,
-      'Trigger values': isMaxWidth480px ? 0.5 : 0.11,
-      Status: isMaxWidth480px ? 0.25 : 0.07,
-      Assignee: isMaxWidth480px ? 0.3 : 0.08,
-      'Status last modified': isMaxWidth480px ? 0.5 : 0.088
+      Labels: isMaxWidth480px ? 0.75 : 0.17,
+      'Trigger values': isMaxWidth480px ? 0.5 : 0.12,
+      Assignee: isMaxWidth480px ? 0.3 : 0.08
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );

@@ -29,6 +29,21 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
+        name: 'Number',
+        expression: '',
+        isTimestamp: false,
+        isString: true,
+        isDate: false,
+        unit: 'none'
+      },
+      sqlColumn: {
+        name: 'Number',
+        expression: 'Number'
+      },
+      visualizationType: 'none'
+    },
+    {
+      dimension: {
         name: 'Description',
         expression: '',
         isTimestamp: false,
@@ -119,21 +134,6 @@ const dataTableChart = ChartFactory.createChart({
     },
     {
       dimension: {
-        name: 'Status',
-        expression: '',
-        isTimestamp: false,
-        isString: true,
-        isDate: false,
-        unit: 'none'
-      },
-      sqlColumn: {
-        name: 'Status',
-        expression: 'Status'
-      },
-      visualizationType: 'none'
-    },
-    {
-      dimension: {
         name: 'Assignee',
         expression: '',
         isTimestamp: false,
@@ -144,21 +144,6 @@ const dataTableChart = ChartFactory.createChart({
       sqlColumn: {
         name: 'Assignee',
         expression: 'Assignee'
-      },
-      visualizationType: 'none'
-    },
-    {
-      dimension: {
-        name: 'Status last modified',
-        expression: '',
-        isTimestamp: true,
-        isString: false,
-        isDate: false,
-        unit: 'none'
-      },
-      sqlColumn: {
-        name: '"Status last modified"',
-        expression: '"Status last modified"'
       },
       visualizationType: 'none'
     }
