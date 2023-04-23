@@ -83,6 +83,11 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
         <Form>
           <Form.Field className={styles.formField}>
             <Form.Group>
+              <div className={styles.divider}>Report Name and Period</div>
+            </Form.Group>
+          </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Form.Group>
               <label>Report name</label>
               <input value="Subscriber {{Subscriber MSISDN}} Failures" />
             </Form.Group>
@@ -96,6 +101,11 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
                 onTabChange={changeActivePane}
                 panes={tabPanes}
               />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Form.Group>
+              <div className={styles.divider}>Parameters</div>
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>

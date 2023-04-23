@@ -2,12 +2,14 @@
   &.button {
     border-radius: 0;
     font-family: var(--brand-font-family);
+    font-size: 1.1rem;
 
-    &:focus {
+    &:focus,
+    &:hover {
       border: 1px solid #fff;
 
       @media (prefers-color-scheme: dark) {
-        border: px solid #fff;
+        border: 1px solid #fff;
       }
     }
 

@@ -17,8 +17,20 @@ label {
   margin-top: 5rem !important;
 }
 
+.divider {
+  border-bottom: 1px solid #666;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  padding-left: 0.2rem;
+  width: 100%;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #c0c0c0;
+  }
+}
+
 .tabPane {
-  padding: 0rem 0rem !important;
+  padding: 0rem 0.5rem !important;
 
   .formGroup {
     margin:  !important;
@@ -32,4 +44,3 @@ label {
     }
   }
 }
-
