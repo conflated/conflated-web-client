@@ -11,6 +11,10 @@
     @media (any-pointer: fine) {
       border: 2px dotted var(--brand-color-1);
     }
+
+    &.verizon {
+      border: 2px dotted #D52B1E;
+    }
   }
 
   &.statistic {
@@ -76,6 +80,10 @@
       @media (prefers-color-scheme: dark) {
         background-color: #131313;
       }
+    }
+
+    &.verizon {
+      border: 2px solid #D52B1E;
     }
   }
 

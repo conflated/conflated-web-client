@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Icon, Input, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
+import qs from 'qs';
 import type { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
 import styles from './ChartView.module.scss';
 import type { Chart } from '../model/state/Chart';
@@ -54,7 +55,8 @@ const ChartView: React.FC<Props> = ({
 
   const className = classNames(styles.chart, {
     [styles.selectedChart]: isSelectedChart,
-    [styles.scrollable]: chart.isXAxisScrollable()
+    [styles.scrollable]: chart.isXAxisScrollable(),
+    [styles.verizon]: qs.parse(document.location.href.split('?')[1]).verizon
   });
 
   const chartView = chart.createView(width, height, stateNamespace, {

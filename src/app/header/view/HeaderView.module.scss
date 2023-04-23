@@ -15,6 +15,10 @@
     overflow: hidden;
   }
 
+  &.verizon {
+    background: var(--dashboards-page-header-background-color);
+  }
+
   .appLogo {
     font-family: var(--brand-logo-font-family);
     font-size: var(--app-title-font-size);

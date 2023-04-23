@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { Icon } from 'semantic-ui-react';
+import qs from 'qs';
 import styles from './HeaderView.module.scss';
 import NavigationView from './navigation/NavigationView';
 import UserMenuView from './usermenu/UserMenuView';
@@ -71,14 +72,21 @@ const HeaderView = ({
     exitFullScreenMode();
   }, [exitFullScreenMode]);
 
-  const className = classNames(styles.appHeader, { [styles.hidden]: isFullScreenModeActive });
+  const isVerizon = qs.parse(document.location.href.split('?')[1]).verizon;
+
+  const className = classNames(styles.appHeader, {
+    [styles.hidden]: isFullScreenModeActive,
+    [styles.verizon]: isVerizon
+  });
+
+  const logoUrl = isVerizon ? '/images/verizon.svg' : '/images/nokia-logo.svg';
 
   return (
     <header className={className} onMouseOver={showDashboardsHeader} onFocus={showDashboardsHeader}>
       <MobileNavigationView />
-      <img className={styles.appLogo} height="60%" src="/images/nokia-logo.svg" alt="" />
+      <img className={styles.appLogo} height="60%" src={logoUrl} alt="" />
       <div className={styles.productName}>
-        <b>AVA</b> Real-Time Monitoring
+        <b>{isVerizon ? 'Wireless' : 'AVA'}</b> Real-Time Monitoring
       </div>
       <NavigationView selectPage={selectPage} />
       <UserMenuView />
