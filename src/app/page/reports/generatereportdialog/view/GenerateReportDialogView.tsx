@@ -83,12 +83,6 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
       <Modal.Header>GENERATE REPORT</Modal.Header>
       <Modal.Content>
         <Form>
-          <Form.Field>
-            <Form.Group>
-              <label>Report template name</label>
-              <input className="borderless large" value="Subscriber Failures" />
-            </Form.Group>
-          </Form.Field>
           <Form.Field className={styles.formField}>
             <Form.Group>
               <label>Report name</label>
@@ -124,16 +118,16 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
               <input value="" />
             </Form.Group>
           </Form.Field>
+          <Form.Field className={styles.formField}>
+            <Form.Group>
+              <label />
+              <Button secondary onClick={close} tabIndex="0">
+                GENERATE REPORT
+              </Button>
+            </Form.Group>
+          </Form.Field>
         </Form>
       </Modal.Content>
-      <Modal.Actions>
-        <Button secondary onClick={close} tabIndex="0">
-          CANCEL
-        </Button>
-        <Button primary positive onClick={close} tabIndex="0">
-          OK
-        </Button>
-      </Modal.Actions>
     </Modal>
   );
 };

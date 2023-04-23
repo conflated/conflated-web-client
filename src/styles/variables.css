@@ -70,7 +70,7 @@
     --dialog-footer-background-color: #191919;
     --dialog-content-background-color: #191919;
     --dialog-header-and-footer-border-color: #333;
-    --dialog-color: #DDD;
+    --dialog-color: #FFF;
 
     font-size: var(--base-font-size);
   }
