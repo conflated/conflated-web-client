@@ -120,7 +120,7 @@ const ChartView: React.FC<Props> = ({
           />
         </div>
       )}
-      {chart.type !== 'map' && (
+      {chart.type !== 'map' && chart.type !== 'stepline' && (
         <Popup
           inverted
           mouseEnterDelay={1000}
