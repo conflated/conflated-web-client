@@ -52,9 +52,7 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
               onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingRelativity(value)}
               value={reportingRelativity}
             />
-            {reportingRelativity === 'last' && (
-              <input className={`${styles.reportingPeriodValue} borderless`} value="15" />
-            )}
+            {reportingRelativity === 'last' && <input className={`${styles.reportingPeriodValue}`} value="15" />}
             <Form.Select
               fluid
               onChange={(_: React.SyntheticEvent<HTMLElement>, { value }: any) => setReportingTimeUnit(value)}
