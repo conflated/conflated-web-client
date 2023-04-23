@@ -36,13 +36,13 @@
 
       @media (prefers-color-scheme: dark) {
         background-color: #222;
-        color: #fff;
+        color: #c0c0c0;
         font-weight: normal;
       }
 
       .ag-icon {
         @media (prefers-color-scheme: dark) {
-          color: #fff;
+          color: #c0c0c0;
         }
       }
     }
@@ -84,7 +84,8 @@
 
       @media (prefers-color-scheme: dark) {
         background-color: #222 !important;
-        color: #fff;
+        border-color: #c0c0c0 !important;
+        color: #c0c0c0;
       }
     }
 
@@ -93,7 +94,7 @@
 
       @media (prefers-color-scheme: dark) {
         background-color: #222 !important;
-        color: #fff;
+        color: #c0c0c0;
       }
     }
   }
