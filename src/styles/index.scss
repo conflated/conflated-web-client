@@ -42,3 +42,9 @@ h1 {
     opacity: 1;
   }
 }
+
+@media screen and (prefers-color-scheme: dark) {
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
