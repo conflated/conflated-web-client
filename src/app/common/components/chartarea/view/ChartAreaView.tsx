@@ -161,7 +161,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
         const { isSizingChart } = this.state;
 
         return (
-          <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px` }}>
+          <div key={chart.id} style={{ height: `${chartHeight}px`, width: `${chartWidth}px`, position: 'relative' }}>
             <ChartView
               chart={chart}
               isMaximized={maximizedChart === chart}

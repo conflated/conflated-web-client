@@ -19,7 +19,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     overflow: hidden;
-    white-space: nowrap
+    white-space: nowrap;
   }
 
   &.scrollable {
@@ -141,9 +141,16 @@
       color: #f2f2f2 !important;
     }
 
+    @media screen and (max-width: 1024px) {
+      right: 0.4rem;
+      visibility: visible;
+    }
+
     &:hover {
-      color: var(--brand-color-2) !important;
-      cursor: pointer;
+      @media screen and (min-width: 1025px) {
+        color: var(--brand-color-2) !important;
+        cursor: pointer;
+      }
     }
   }
 
@@ -162,6 +169,10 @@
 
     @media (prefers-color-scheme: dark) {
       color: #f2f2f2 !important;
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
     }
 
     &:hover {
@@ -191,9 +202,14 @@
       color: #f2f2f2;
       top: 8px;
     }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &:hover .menu {
     visibility: visible;
+
   }
 }
