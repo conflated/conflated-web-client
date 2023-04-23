@@ -52,11 +52,11 @@ export default class FakeAlertChartDataService implements TriggerChartDataServic
         ];
 
         columnNameToValuesMap['"Trigger values"'] = [
-          'Setup Failure Rate: 18%',
-          'Drop Call Rate: 11%',
-          'Setup Failure Rate: 12%',
+          'Setup Failure %: 18',
+          'Call Drop %: 11',
+          'Setup Failure %: 12',
           'Measure1: 45.76',
-          'Handover Failure Rate: 25%',
+          'Handover Failure %: 25',
           ''
         ];
 

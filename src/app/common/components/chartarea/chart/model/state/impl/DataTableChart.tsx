@@ -39,7 +39,7 @@ export default class DataTableChart extends AbstractDrillDownChart {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     actions: Record<string, (...args: any[]) => void>
   ): JSX.Element {
-    if (stateNamespace === 'alertsPage') {
+    if (stateNamespace === 'alertsPage' || stateNamespace === 'alertDetailsDialog') {
       return <AgGridAlertsDataTableChartView actions={actions} chart={this} width={width} height={height} />;
     } else if (stateNamespace === 'goalsPage') {
       return <AgGridGoalsDataTableChartView chart={this} width={width} height={height} />;

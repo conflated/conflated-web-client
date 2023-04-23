@@ -63,6 +63,13 @@ export type AppState = {
     triggerSelectorState: TriggerSelectorState;
     chartAreaState: ChartAreaState;
   };
+  alertDetailsDialog: {
+    triggersPageState: TriggersPageState;
+    triggerDataSourceSelectorState: TriggerDataSourceSelectorState;
+    triggerGroupSelectorState: TriggerLabelSelectorState;
+    triggerSelectorState: TriggerSelectorState;
+    chartAreaState: ChartAreaState;
+  };
   goalsPage: {
     triggersPageState: TriggersPageState;
     triggerDataSourceSelectorState: TriggerDataSourceSelectorState;

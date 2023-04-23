@@ -37,7 +37,7 @@
         border: none !important;
         border-bottom: 1px solid #444 !important;
         border-radius: 0 !important;
-        color: #fff !important;
+        color: #c0c0c0 !important;
       }
 
       &:focus {
@@ -68,7 +68,7 @@
       white-space: nowrap;
 
       @media (prefers-color-scheme: dark) {
-        color: #888 !important;
+        color: #c0c0c0 !important;
       }
     }
 

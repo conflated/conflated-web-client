@@ -27,13 +27,19 @@ class StartFetchDataForTriggerChartsAction extends AbstractChartAreaAction {
   perform(currentState: ChartAreaState): ChartAreaState {
     const { charts } = currentState;
 
-    (this.stateNamespace === 'alertsPage' ? this.alertChartDataService : this.goalChartDataService)
+    (this.stateNamespace === 'alertsPage' || this.stateNamespace === 'alertDetailsDialog'
+      ? this.alertChartDataService
+      : this.goalChartDataService
+    )
       .fetchTriggerDataTableData()
       .then((columnNameToValuesMap: ColumnNameToValuesMap) =>
         this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, charts[0].id))
       );
 
-    (this.stateNamespace === 'alertsPage' ? this.alertChartDataService : this.goalChartDataService)
+    (this.stateNamespace === 'alertsPage' || this.stateNamespace === 'alertDetailsDialog'
+      ? this.alertChartDataService
+      : this.goalChartDataService
+    )
       .fetchTriggerStatisticsChartData()
       .then((columnNameToValuesMap: ColumnNameToValuesMap) =>
         this.dispatch(new FinishFetchChartDataAction(this.stateNamespace, columnNameToValuesMap, charts[1].id))

@@ -1,1 +1,1 @@
-export type TriggersPageStateNamespace = 'alertsPage' | 'goalsPage';
+export type TriggersPageStateNamespace = 'alertsPage' | 'goalsPage' | 'alertDetailsDialog';

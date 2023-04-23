@@ -68,6 +68,13 @@ const appStateReducer: Reducer<AppState> = combineReducers({
     triggerSelectorState: createTriggerSelectorStateReducer('alertsPage'),
     chartAreaState: createTriggersPageChartAreaStateReducer('alertsPage')
   }),
+  alertDetailsDialog: combineReducers({
+    triggersPageState: createTriggersPageStateReducer('alertDetailsDialog'),
+    triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('alertDetailsDialog'),
+    triggerGroupSelectorState: createTriggerGroupSelectorStateReducer('alertDetailsDialog'),
+    triggerSelectorState: createTriggerSelectorStateReducer('alertDetailsDialog'),
+    chartAreaState: createTriggersPageChartAreaStateReducer('alertDetailsDialog')
+  }),
   goalsPage: combineReducers({
     triggersPageState: createTriggersPageStateReducer('goalsPage'),
     triggerDataSourceSelectorState: createTriggerDataSourceSelectorStateReducer('goalsPage'),

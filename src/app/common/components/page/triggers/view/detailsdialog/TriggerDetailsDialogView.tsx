@@ -2,6 +2,7 @@ import { Form, Icon, Modal, TextArea } from 'semantic-ui-react';
 import React from 'react';
 import stopEventPropagation from '../../../../../utils/stopEventPropagation';
 import styles from './TriggerDetailsDialogView.module.scss';
+import TriggersPageChartAreaView from '../../chartarea/view/TriggersPageChartAreaView';
 
 type Props = {
   closeDialog: () => void;
@@ -20,70 +21,72 @@ const TriggerDetailsDialogView = ({ closeDialog }: Props) => (
       <div className={styles.text}> ALERT DETAILS</div>
     </Modal.Header>
     <Modal.Content>
-      <Form>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Severity</label>
-            <input className={styles.critical} value="Critical" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Description</label>
-            <input className="borderless large" value="Very High gNB Setup Failure Rate" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Data source</label>
-            <input className="borderless" value="Active CNI Alerts" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Trigger time</label>
-            <input className="borderless" value="2019-04-01 12:00:00" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Active duration</label>
-            <input className="borderless" value="3 hours" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Labels</label>
-            <input className="borderless" value="5G RAN, gNB 2345, Error: Signalling Congestion" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Trigger values</label>
-            <input className="borderless" value="Setup Failure Rate: 18%" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Status</label>
-            <input className="borderless" value="New" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Assignee</label>
-            <input className="borderless" value="Petri Silen" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Status last modified</label>
-            <input className="borderless" value="2019-04-01 12:00:00" />
-          </Form.Group>
-        </Form.Field>
-        <Form.Field>
-          <Form.Group>
-            <label className={styles.label}>Resolution instructions</label>
+      <div className={styles.forms}>
+        <Form className={styles.form}>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Severity</label>
+              <input className={styles.critical} value="Critical" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Description</label>
+              <input className="borderless large" value="Very High gNB Setup Failure Rate" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Data source</label>
+              <input className="borderless" value="Active CNI Alerts" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Trigger time</label>
+              <input className="borderless" value="2019-04-01 12:00:00" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Active duration</label>
+              <input className="borderless" value="3 hours" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Labels</label>
+              <input className="borderless" value="5G RAN, gNB 2345, Error: Signalling Congestion" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Trigger values</label>
+              <input className="borderless" value="Setup Failure Rate: 18%" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Status</label>
+              <input className="borderless" value="New" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Assignee</label>
+              <input className="borderless" value="Petri Silen" />
+            </Form.Group>
+          </Form.Field>
+          <Form.Field>
+            <Form.Group>
+              <label className={styles.label}>Status last modified</label>
+              <input className="borderless" value="2019-04-01 12:00:00" />
+            </Form.Group>
+          </Form.Field>
+        </Form>
+        <Form className={styles.form}>
+          <Form.Field>
+            <label>Resolution instructions</label>
             <TextArea className={styles.textArea}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Arcu odio ut sem nulla pharetra diam sit amet. In eu mi bibendum neque egestas
@@ -101,9 +104,13 @@ const TriggerDetailsDialogView = ({ closeDialog }: Props) => (
               velit. Arcu bibendum at varius vel pharetra. Magnis dis parturient montes nascetur ridiculus mus mauris
               vitae. Eleifend mi in nulla posuere
             </TextArea>
-          </Form.Group>
-        </Form.Field>
-      </Form>
+          </Form.Field>
+        </Form>
+      </div>
+      <span className={styles.label2}>Related Events</span>
+      <div className={styles.relatedEvents}>
+        <TriggersPageChartAreaView stateNamespace="alertDetailsDialog" />
+      </div>
     </Modal.Content>
   </Modal>
 );
