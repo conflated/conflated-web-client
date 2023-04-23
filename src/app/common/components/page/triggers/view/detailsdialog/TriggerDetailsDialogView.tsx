@@ -56,19 +56,13 @@ const TriggerDetailsDialogView = ({ closeDialog }: Props) => (
           <Form.Field>
             <Form.Group>
               <label className={styles.label}>Labels</label>
-              <input className="borderless" value="5G RAN, gNB 2345, Error: Signalling Congestion" />
+              <input className="borderless" value="5G RAN, gNB: 2345, Error: Signalling Congestion" />
             </Form.Group>
           </Form.Field>
           <Form.Field>
             <Form.Group>
               <label className={styles.label}>Trigger values</label>
-              <input className="borderless" value="Setup Failure Rate: 18%" />
-            </Form.Group>
-          </Form.Field>
-          <Form.Field>
-            <Form.Group>
-              <label className={styles.label}>Status</label>
-              <input className="borderless" value="New" />
+              <input className="borderless" value="Setup Failure %: 18" />
             </Form.Group>
           </Form.Field>
           <Form.Field>

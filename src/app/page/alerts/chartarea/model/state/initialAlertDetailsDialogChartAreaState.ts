@@ -212,14 +212,14 @@ const initialAlertDetailsDialogChartAreaState: ChartAreaState = {
       x: 0,
       y: 0,
       w: Constants.GRID_COLUMN_COUNT,
-      h: Constants.GRID_ROW_COUNT / 2
+      h: (2 * Constants.GRID_ROW_COUNT) / 3
     },
     {
       i: '2',
       x: 0,
-      y: Constants.GRID_ROW_COUNT / 2,
+      y: (2 * Constants.GRID_ROW_COUNT) / 3,
       w: Constants.GRID_COLUMN_COUNT,
-      h: Constants.GRID_ROW_COUNT / 2
+      h: Constants.GRID_ROW_COUNT / 3
     }
   ],
   charts: [dataTableChart, timelineChart],
