@@ -41,6 +41,25 @@
         font-size: 1.15rem !important;
       }
 
+      .menu {
+        @media (prefers-color-scheme: dark) {
+          border-color: #c0c0c0 !important;
+        }
+      }
+
+      .item {
+        @media (prefers-color-scheme: dark) {
+          color: #c0c0c0 !important;
+        }
+      }
+      .item:hover,
+      .item.active {
+        @media (prefers-color-scheme: dark) {
+         color: #ffffff !important;
+          font-weight: bold;
+        }
+      }
+
       .icon {
         color: #c0c0c0 !important;
       }
