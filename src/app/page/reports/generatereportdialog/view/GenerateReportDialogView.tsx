@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Form, Modal, Tab } from 'semantic-ui-react';
+import { Button, Form, Icon, Loader, Message, Modal, Tab } from 'semantic-ui-react';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
@@ -12,6 +12,8 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
   const [activePaneIndex, setActivePaneIndex] = useState(0);
   const [reportingRelativity, setReportingRelativity] = useState('last');
   const [reportingTimeUnit, setReportingTimeUnit] = useState('minutes');
+  const [loadingIndicatorShouldBeShown, setLoadingIndicatorShouldBeShown] = useState(false);
+  const [errorShouldBeShown, setErrorShouldBeShown] = useState(false);
   const changeActivePane = (_: React.SyntheticEvent, { activeIndex }: any) => setActivePaneIndex(activeIndex);
 
   const reportingPeriodRelativityOptions = [
@@ -78,7 +80,10 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
       onKeyDown={stopEventPropagation}
       open={isOpen}
     >
-      <Modal.Header>GENERATE REPORT</Modal.Header>
+      <Modal.Header className={styles.header}>
+        <Icon className={styles.closeIcon} name="angle left" onClick={close} size="large" />
+        <div className={styles.title}>GENERATE REPORT</div>
+      </Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Field className={styles.formField}>
@@ -86,7 +91,7 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
               <div className={styles.divider}>Report Name and Period</div>
             </Form.Group>
           </Form.Field>
-          <Form.Field className={styles.formField}>
+          <Form.Field className={styles.formField2}>
             <Form.Group>
               <label>Report name</label>
               <input value="Subscriber {{Subscriber MSISDN}} Failures" />
@@ -103,12 +108,12 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
               />
             </Form.Group>
           </Form.Field>
-          <Form.Field className={styles.formField}>
+          <Form.Field className={styles.formField3}>
             <Form.Group>
               <div className={styles.divider}>Parameters</div>
             </Form.Group>
           </Form.Field>
-          <Form.Field className={styles.formField}>
+          <Form.Field className={styles.formField2}>
             <Form.Group>
               <label>Subscriber MSISDN</label>
               <input value="0504877334" />
@@ -127,12 +132,34 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
-            <Form.Group>
-              <label />
-              <Button secondary onClick={close} tabIndex="0">
-                GENERATE REPORT
-              </Button>
-            </Form.Group>
+            {!loadingIndicatorShouldBeShown && !errorShouldBeShown && (
+              <Form.Group>
+                <label />
+                <Button secondary onClick={() => setLoadingIndicatorShouldBeShown(true)} tabIndex="0">
+                  GENERATE REPORT
+                </Button>
+              </Form.Group>
+            )}
+            {loadingIndicatorShouldBeShown && (
+              <Form.Group>
+                <label />
+                <Loader active inline />
+                <span className={styles.loaderText}>Generating report. Please wait.</span>
+              </Form.Group>
+            )}
+            {errorShouldBeShown && (
+              <Form.Group>
+                <label />
+                <Message error icon="exclamation">
+                  <Message.Header>Failed to generate report</Message.Header>
+                  list=
+                  {[
+                    'You must include both a upper and lower case letters in your password.',
+                    'You need to select your home country.'
+                  ]}
+                </Message>
+              </Form.Group>
+            )}
           </Form.Field>
         </Form>
       </Modal.Content>
