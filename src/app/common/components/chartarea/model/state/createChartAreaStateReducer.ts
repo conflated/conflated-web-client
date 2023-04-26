@@ -12,7 +12,8 @@ const initialChartAreaState: ChartAreaState = {
   selectedChart: nullChart,
   charts: [nullChart],
   copiedChart: null,
-  maximizedChart: null
+  maximizedChart: null,
+  isScrollingLayout: false
 };
 
 export default (stateNamespace: ChartAreaStateNamespace) =>

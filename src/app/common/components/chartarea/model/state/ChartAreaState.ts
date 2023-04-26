@@ -8,4 +8,5 @@ export type ChartAreaState = {
   readonly previousLayout?: GridItem[];
   readonly copiedChart?: Chart | null;
   readonly maximizedChart: Chart | null;
+  readonly isScrollingLayout: boolean;
 };

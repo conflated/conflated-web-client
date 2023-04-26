@@ -224,7 +224,8 @@ const initialAlertDetailsDialogChartAreaState: ChartAreaState = {
   ],
   charts: [dataTableChart, timelineChart],
   maximizedChart: null,
-  selectedChart: dataTableChart
+  selectedChart: dataTableChart,
+  isScrollingLayout: false
 };
 
 export default initialAlertDetailsDialogChartAreaState;

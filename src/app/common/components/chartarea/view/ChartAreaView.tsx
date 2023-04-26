@@ -132,6 +132,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
       className,
       dropChart,
       isLayoutLocked,
+      isScrollingLayout,
       layout,
       maximizedChart,
       stateNamespace,
@@ -203,7 +204,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
             onResize={this.updateChartSize}
             onResizeStop={this.hideChartSizes}
             rowHeight={chartAreaHeight / Constants.GRID_ROW_COUNT}
-            compactType={layout === scrollingLayout ? 'vertical' : undefined}
+            compactType={isScrollingLayout ? null : 'vertical'}
             width={chartAreaWidth}
           >
             {chartElements}
