@@ -9,7 +9,6 @@ import type { ChartAreaStateNamespace } from '../model/state/types/ChartAreaStat
 import Constants from '../../../Constants';
 import ChartView from '../chart/view/ChartView';
 import { ActionDispatchers, controller, State } from '../controller/chartAreaController';
-import scrollingLayout from '../../../../page/dataexplorer/pane/left/selector/layout/model/state/layouts/scrollingLayout';
 import Utils from '../../../utils/Utils';
 
 type SizeAwareComponent = {
