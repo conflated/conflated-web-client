@@ -86,7 +86,10 @@ const ChartMenuView = ({
             value="copy"
             onClick={() => copy(chart)}
           >
-            <span>Copy</span>
+            <div>
+              <Icon name="copy" />
+              <span>Copy</span>
+            </div>
             <span className={styles.keyboardShortcut}>Ctrl-C</span>
           </Dropdown.Item>
           <Dropdown.Item
@@ -95,7 +98,10 @@ const ChartMenuView = ({
             value="paste"
             onClick={() => paste(chart)}
           >
-            <span>Paste</span>
+            <div>
+              <Icon name="paste" />
+              <span>Paste</span>
+            </div>
             <span className={styles.keyboardShortcut}>Ctrl-V</span>
           </Dropdown.Item>
           <Dropdown.Item
@@ -104,16 +110,19 @@ const ChartMenuView = ({
             value="cut"
             onClick={cutChart}
           >
-            <span>Cut</span>
+            <div>
+              <Icon name="cut" />
+              <span>Cut</span>
+            </div>
             <span className={styles.keyboardShortcut}>Ctrl-X</span>
           </Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown
             disabled={hasConfirmAction}
             open={chart.isExportMenuOpen}
-            icon=""
             text="Export as"
             pointing="right"
+            icon
             item
             onMouseEnter={handleEnterMenuExportItem}
             onMouseLeave={handleLeaveMenuExportItem}
@@ -129,6 +138,7 @@ const ChartMenuView = ({
           <Dropdown.Item
             disabled={chart.menuConfirmationType === 'delete'}
             className={chart.menuConfirmationType === 'clear' ? styles.dangerItem : ''}
+            icon="erase"
             text={`Clear chart${chart.menuConfirmationType === 'clear' ? '?' : ''}`}
             value="clear"
             onClick={() => showClearConfirmation(chart)}
@@ -141,7 +151,10 @@ const ChartMenuView = ({
             value="delete"
             onClick={() => showDeleteConfirmation(chart)}
           >
-            <span>{`Delete chart${chart.menuConfirmationType === 'delete' ? '?' : ''}`}</span>
+            <div>
+              <Icon name="trash" />
+              <span>{`Delete chart${chart.menuConfirmationType === 'delete' ? '?' : ''}`}</span>
+            </div>
             <span className={styles.keyboardShortcut}>Del</span>
           </Dropdown.Item>
           {chart.menuConfirmationType ? (
