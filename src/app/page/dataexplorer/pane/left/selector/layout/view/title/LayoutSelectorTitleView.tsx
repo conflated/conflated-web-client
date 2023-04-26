@@ -25,7 +25,7 @@ const LayoutSelectorTitleView = ({
           name={isLayoutLocked ? 'lock' : 'lock open'}
           onClick={handleLockIconClick}
           style={{
-            color: isLayoutLocked ? 'var(--brand-color-2)' : '#000'
+            color: isLayoutLocked ? 'var(--pin-icon-color)' : '#000'
           }}
         />
       }
@@ -42,7 +42,7 @@ const LayoutSelectorTitleView = ({
         <Icon
           className={styles.actionIcon}
           style={{
-            color: shouldShowDataExplorerPageLeftPanePermanently ? 'var(--brand-color-2)' : '#000'
+            color: shouldShowDataExplorerPageLeftPanePermanently ? 'var(--pin-icon-color)' : '#000'
           }}
           name="pin"
           onClick={handlePinIconClick}

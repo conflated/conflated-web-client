@@ -1,9 +1,13 @@
 .actionIcon {
   align-items: center;
-  color: #f2f2f2;
+  color: #000;
   line-height: var(--body-font-size);
   margin-right: 0.65rem !important;
   visibility: hidden;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #f2f2f2 !important;
+  }
 
   &:last-child {
     margin-right: 1rem !important;
@@ -16,11 +20,15 @@
 
 .title {
   align-items: center !important;
-  color: #f2f2f2 !important;
+  color: #000 !important;
   display: flex !important;
   font-size: 1rem !important;
   font-weight: bold;
   white-space: nowrap;
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: #f2f2f2 !important;
+  }
 
   &:hover .actionIcon {
     visibility: visible;
@@ -43,15 +51,27 @@
 
 .leftPaneSelector {
   .actionIcon:hover {
-    color: var(--brand-color-2) !important;
+    color: var(--brand-color-1) !important;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: var(--brand-color-2) !important;
+    }
   }
 
   .title {
-    background-color: #333;
+    background-color: #ddd;
+
+    @media screen and (prefers-color-scheme: dark) {
+      background-color: #333;
+    }
 
     &:hover,
     &:focus {
-      color: var(--brand-color-2) !important;
+      color: var(--brand-color-1) !important;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: var(--brand-color-2) !important;
+      }
     }
   }
 }
@@ -62,15 +82,27 @@
   }
 
   .actionIcon:hover {
-    color: var(--brand-color-2) !important;
+    color: var(--brand-color-1) !important;
+
+    @media screen and (prefers-color-scheme: dark) {
+      color: var(--brand-color-2) !important;
+    }
   }
 
   .title {
-    background-color: #333;
+    background-color: #ddd;
+
+    @media screen and (prefers-color-scheme: dark) {
+      background-color: #333;
+    }
 
     &:hover,
     &:focus {
-      color: var(--brand-color-2) !important;
+      color: var(--brand-color-1) !important;
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: var(--brand-color-2) !important;
+      }
     }
   }
 }

@@ -10,7 +10,6 @@ type Props = {
   handleSelectAllIconClick?: () => void;
   iconClassName: string;
   isPinned?: boolean;
-  position: 'leftPane' | 'rightPane';
   reorderIconTooltipText?: string;
   shouldShowPinIcon?: boolean;
   toggleShowSearchInput: (...args: never[]) => void;
@@ -24,7 +23,6 @@ const SelectorTitleActionsView: React.FC<Props> = ({
   handleSelectAllIconClick,
   iconClassName,
   isPinned,
-  position,
   reorderIconTooltipText,
   shouldShowPinIcon,
   toggleShowSearchInput,
@@ -32,10 +30,8 @@ const SelectorTitleActionsView: React.FC<Props> = ({
 }: Props) => {
   let pinIconColor = '#eee';
 
-  if (isPinned && position === 'leftPane') {
-    pinIconColor = 'var(--brand-color-2)';
-  } else if (isPinned && position === 'rightPane') {
-    pinIconColor = 'var(--brand-color-2)';
+  if (isPinned) {
+    pinIconColor = 'var(--pin-icon-color)';
   }
 
   const addIcon = (

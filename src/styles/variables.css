@@ -32,6 +32,7 @@
     --dialog-header-background-color: var(--brand-color-1);
     --dialog-content-background-color: #fff;
     --dialog-color: #000;
+    --pin-icon-color: var(--brand-color-1);
 
     font-size: var(--base-font-size);
   }
@@ -72,6 +73,7 @@
     --dialog-content-background-color: #191919;
     --dialog-header-and-footer-border-color: #333;
     --dialog-color: #FFF;
+    --pin-icon-color: var(--brand-color-2);
 
     font-size: var(--base-font-size);
   }

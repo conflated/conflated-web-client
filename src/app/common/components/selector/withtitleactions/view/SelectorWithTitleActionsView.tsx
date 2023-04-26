@@ -58,7 +58,6 @@ const SelectorWithTitleActionsView: React.FC<Props> = ({
   const titleContent = (
     <SelectorTitleActionsView
       iconClassName={styles.actionIcon}
-      position={position}
       toggleShowSearchInput={_.flow(stopEventPropagation, toggleShowSearchInput)}
       toggleMaximizeSelector={handleMaximizeIconClick}
       shouldShowPinIcon={isPinned !== undefined}
