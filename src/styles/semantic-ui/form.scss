@@ -87,6 +87,10 @@
         }
       }
 
+      &.error {
+        border-bottom: 1px solid #e23b3b !important;
+      }
+
       &.borderless {
         padding: 0 0 !important;
         border-bottom: none !important;
@@ -152,6 +156,36 @@
           color: #c0c0c0 !important;
           border-bottom: 2px solid #999 !important;
           font-weight: normal !important;
+        }
+      }
+    }
+
+    .message {
+      display: flex !important;
+      width: 60rem;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #e23b3b !important;
+        box-shadow: none !important;
+        color: #000 !important;
+      }
+
+      .icon {
+        @media (prefers-color-scheme: dark) {
+        }
+      }
+
+      .header {
+        @media (prefers-color-scheme: dark) {
+          color: #000 !important;
+          font-family: var(--brand-font-family) !important;
+        }
+      }
+
+      .list {
+        .content {
+          font-family: var(--brand-font-family) !important;
+          font-weight: bold !important;
         }
       }
     }

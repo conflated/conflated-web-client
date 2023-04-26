@@ -14,6 +14,7 @@
   }
 
   .closeIcon:hover {
+    color: #F47F31!important;
     cursor: pointer;
   }
 }
@@ -64,11 +65,6 @@ label {
   }
 }
 
-.loaderText {
-  font-size: 1.5rem;
-  padding-left: 1rem;
-
-  @media screen and (prefers-color-scheme: dark) {
-    color: #37CC73;
-  }
+.errorIcon {
+  color: #e23b3b !important;
 }

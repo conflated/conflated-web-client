@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Form, Icon, Loader, Message, Modal, Tab } from 'semantic-ui-react';
+import { Button, Form, Icon, Message, Modal, Popup, Tab } from 'semantic-ui-react';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import stopEventPropagation from '../../../../common/utils/stopEventPropagation';
@@ -12,7 +12,6 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
   const [activePaneIndex, setActivePaneIndex] = useState(0);
   const [reportingRelativity, setReportingRelativity] = useState('last');
   const [reportingTimeUnit, setReportingTimeUnit] = useState('minutes');
-  const [loadingIndicatorShouldBeShown, setLoadingIndicatorShouldBeShown] = useState(false);
   const [errorShouldBeShown, setErrorShouldBeShown] = useState(false);
   const changeActivePane = (_: React.SyntheticEvent, { activeIndex }: any) => setActivePaneIndex(activeIndex);
 
@@ -81,7 +80,12 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
       open={isOpen}
     >
       <Modal.Header className={styles.header}>
-        <Icon className={styles.closeIcon} name="angle left" onClick={close} size="large" />
+        <Popup
+          content="Close (Esc)"
+          inverted
+          mouseEnterDelay={1250}
+          trigger={<Icon className={styles.closeIcon} name="angle left" onClick={close} size="large" />}
+        />
         <div className={styles.title}>GENERATE REPORT</div>
       </Modal.Header>
       <Modal.Content>
@@ -122,41 +126,38 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
           <Form.Field className={styles.formField}>
             <Form.Group>
               <label>Parameter 2</label>
-              <input value="" />
+              <input className={errorShouldBeShown ? 'error' : ''} value="" />
+              {errorShouldBeShown && <Icon className={styles.errorIcon} name="exclamation circle" size="large" />}
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
             <Form.Group>
               <label>Parameter 3</label>
-              <input value="" />
+              <input className={errorShouldBeShown ? 'error' : ''} value="" />
+              {errorShouldBeShown && <Icon className={styles.errorIcon} name="exclamation circle" size="large" />}
             </Form.Group>
           </Form.Field>
           <Form.Field className={styles.formField}>
-            {!loadingIndicatorShouldBeShown && !errorShouldBeShown && (
+            {!errorShouldBeShown && (
               <Form.Group>
                 <label />
-                <Button secondary onClick={() => setLoadingIndicatorShouldBeShown(true)} tabIndex="0">
+                <Button secondary onClick={() => setErrorShouldBeShown(true)} tabIndex="0">
                   GENERATE REPORT
                 </Button>
-              </Form.Group>
-            )}
-            {loadingIndicatorShouldBeShown && (
-              <Form.Group>
-                <label />
-                <Loader active inline />
-                <span className={styles.loaderText}>Generating report. Please wait.</span>
               </Form.Group>
             )}
             {errorShouldBeShown && (
               <Form.Group>
                 <label />
-                <Message error icon="exclamation">
-                  <Message.Header>Failed to generate report</Message.Header>
-                  list=
-                  {[
-                    'You must include both a upper and lower case letters in your password.',
-                    'You need to select your home country.'
-                  ]}
+                <Message error icon onDismiss={() => setErrorShouldBeShown(false)}>
+                  <Icon name="exclamation circle" />
+                  <Message.Content>
+                    <Message.Header>Following errors occurred:</Message.Header>
+                    <Message.List>
+                      <Message.Item>Parameter 2 cannot be empty</Message.Item>
+                      <Message.Item>Parameter 3 cannot be empty</Message.Item>
+                    </Message.List>
+                  </Message.Content>
                 </Message>
               </Form.Group>
             )}
