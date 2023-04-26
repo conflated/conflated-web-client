@@ -20,6 +20,8 @@
   }
 
   :global(.icon) {
-    color: #fff !important;
+    @media screen and (prefers-color-scheme: dark) {
+      color: #fff !important;
+    }
   }
 }
