@@ -109,12 +109,15 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
   };
 
   updateChartSize = (layout: Layout[], oldItem: Layout, newItem: Layout) => {
-    this.setState({
-      [newItem.i]: {
-        h: newItem.h,
-        w: newItem.w
+    this.setState((currentState) => ({
+      layout: {
+        ...currentState.layout,
+        [newItem.i]: {
+          h: newItem.h,
+          w: newItem.w
+        }
       }
-    });
+    }));
   };
 
   hideChartSizes = () => {
@@ -157,7 +160,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
         const chartWidth = isMaxWidth1024px ? document.body.clientWidth : chart.getWidth(layout, chartAreaWidth);
         // eslint-disable-next-line react/destructuring-assignment
-        const gridItem = this.state[chart.id];
+        const gridItem = this.state.layout[chart.id];
         const { isSizingChart } = this.state;
 
         return (
