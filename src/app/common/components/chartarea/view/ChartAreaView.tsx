@@ -183,7 +183,7 @@ class ChartAreaView extends React.Component<Props, Record<string, any>> {
 
     return (
       <section
-        className={`${styles.chartArea} ${className || ''} ${layout === scrollingLayout ? styles.scrollable : ''}`}
+        className={`${styles.chartArea} ${className || ''} ${isScrollingLayout ? styles.scrollable : ''}`}
         tabIndex={0}
       >
         {isMaxWidth1024px ? (
