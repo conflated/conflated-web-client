@@ -136,6 +136,6 @@ export default class BubbleChart extends ScatterChart {
       ''
     );
 
-    return `x: ${xAxisMeasureName}, y: ${yAxisMeasureName}, size: ${radiusAxisMeasureName}`;
+    return `X: ${xAxisMeasureName}, Y: ${yAxisMeasureName}, Size: ${radiusAxisMeasureName}`;
   }
 }

@@ -109,6 +109,6 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
       ''
     );
 
-    return `x: ${xAxisMeasureName}, y: ${yAxisMeasureName}`;
+    return `X: ${xAxisMeasureName}, Y: ${yAxisMeasureName}`;
   }
 }
