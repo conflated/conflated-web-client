@@ -87,11 +87,11 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
   }
 
   override hasFloatingSubtitle(): boolean {
-    return true;
+    return false;
   }
 
   override hasFloatingTitle(): boolean {
-    return true;
+    return false;
   }
 
   override isPieOrDonutWithMultipleMeasuresOnly(): boolean {
@@ -103,7 +103,7 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
   }
 
   override shouldShowDataLabelsDropShadow(): boolean {
-    return true;
+    return false;
   }
 
   override shouldShowLegend(): [boolean, LegendPosition] {
