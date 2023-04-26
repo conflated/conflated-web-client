@@ -23,8 +23,7 @@ const ChartMenuView = ({
   openExportMenu,
   paste,
   showClearConfirmation,
-  showDeleteConfirmation,
-  updateExportMenuCloseTimeoutId
+  showDeleteConfirmation
 }: Props) => {
   const handleEnterMenuExportItem = useCallback(() => {
     if (!chart.isExportMenuOpen) {
@@ -33,12 +32,8 @@ const ChartMenuView = ({
   }, [chart, openExportMenu]);
 
   const handleLeaveMenuExportItem = useCallback(() => {
-    const timeoutID = setTimeout(() => {
-      closeExportMenu(chart);
-    }, 200);
-
-    updateExportMenuCloseTimeoutId(chart, timeoutID);
-  }, [chart, closeExportMenu, updateExportMenuCloseTimeoutId]);
+    closeExportMenu(chart);
+  }, [chart, closeExportMenu]);
 
   const cutChart = useCallback(() => {
     copy(chart);

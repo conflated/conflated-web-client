@@ -7,12 +7,10 @@ export default class ChartAreaStateFactory {
     const { charts, selectedChart } = currentState;
     const newChart = ChartFactory.createChart(changedChart.getConfiguration());
 
-    const newState = {
+    return {
       ...currentState,
       charts: charts.map((chart) => (chart === changedChart ? newChart : chart)),
       selectedChart: changedChart === selectedChart ? newChart : selectedChart
     };
-
-    return newState;
   }
 }

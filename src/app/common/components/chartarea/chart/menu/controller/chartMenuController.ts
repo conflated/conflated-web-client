@@ -2,7 +2,6 @@ import { Controller } from 'oo-redux-utils2';
 import type { ChartAreaStateNamespace } from '../../../model/state/types/ChartAreaStateNamespace';
 import type { Chart } from '../../model/state/Chart';
 import OpenChartExportMenuAction from '../../../model/actions/chart/menu/export/OpenChartExportMenuAction';
-import UpdateChartExportMenuCloseTimeoutIdAction from '../../../model/actions/chart/menu/export/UpdateChartExportMenuCloseTimeoutIdAction';
 import CloseChartExportMenuAction from '../../../model/actions/chart/menu/export/CloseChartExportMenuAction';
 import CopyChartAction from '../../../model/actions/chart/copypaste/CopyChartAction';
 import PasteChartAction from '../../../model/actions/chart/copypaste/PasteChartAction';
@@ -22,9 +21,6 @@ class ChartMenuController extends Controller<ChartAreaStateNamespace> {
     paste: (chart: Chart) => this.dispatch(new PasteChartAction(stateNamespace, chart)),
     clear: (chart: Chart) => this.dispatch(new ClearChartAction(stateNamespace, chart)),
     clearOrRemove: (chart: Chart) => this.dispatch(new ClearOrRemoveChartAction(stateNamespace, chart)),
-
-    updateExportMenuCloseTimeoutId: (chart: Chart, timeoutID: ReturnType<typeof setTimeout>) =>
-      this.dispatch(new UpdateChartExportMenuCloseTimeoutIdAction(stateNamespace, chart, timeoutID)),
 
     showClearConfirmation: (chart: Chart) =>
       this.dispatch(new ShowClearChartConfirmationInChartMenuAction(stateNamespace, chart)),
