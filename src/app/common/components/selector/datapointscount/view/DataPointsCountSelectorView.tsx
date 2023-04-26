@@ -26,7 +26,7 @@ const DataPointsCountSelectorView = ({
   if (selectedChart.supportsDataPointsCount()) {
     xAxisCategoriesShownCountInput = (
       <div className={styles.xAxisCategoriesShownCount}>
-        <div className={styles.label}>Show X-axis categories</div>
+        <div className={styles.label}>Number of shown X-axis categories</div>
         <NumberInput
           buttonPlacement="right"
           className={styles.numberInput}
@@ -53,7 +53,7 @@ const DataPointsCountSelectorView = ({
         <>
           {xAxisCategoriesShownCountInput}
           <div className={styles.fetchedRowCount}>
-            <div className={styles.label}>Fetch database rows</div>
+            <div className={styles.label}>Max number of database rows to fetch</div>
             <NumberInput
               buttonPlacement="right"
               className={styles.numberInput}
