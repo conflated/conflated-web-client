@@ -19,6 +19,7 @@ export default class FinishFetchChartDataAction extends AbstractChartAreaAction 
 
     if (chart) {
       chart.setData(this.columnNameToValuesMap);
+      chart.setIsFetchingData(false);
       return ChartAreaStateFactory.createNewStateForChangedChart(currentState, chart);
     }
 

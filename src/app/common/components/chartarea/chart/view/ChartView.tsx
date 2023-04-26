@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Icon, Input, Popup } from 'semantic-ui-react';
+import { Icon, Input, Loader, Popup } from 'semantic-ui-react';
 import classNames from 'classnames';
 import qs from 'qs';
 import type { ChartAreaStateNamespace } from '../../model/state/types/ChartAreaStateNamespace';
@@ -173,6 +173,12 @@ const ChartView: React.FC<Props> = ({
           isSizingChart={isSizingChart}
           widthInCols={widthInCols}
         />
+      )}
+      {chart.isFetchingData && (
+        <div className={styles.loadingIndicator}>
+          <Loader active inline />
+          <span className={styles.text}>Loading data...</span>
+        </div>
       )}
     </div>
   );

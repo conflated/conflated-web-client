@@ -7,6 +7,7 @@ import type { ColumnNameToValuesMap } from '../../../../chart/model/state/data/C
 import FinishFetchChartDataAction from './FinishFetchChartDataAction';
 import type { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import AbstractChartAreaAction from '../../AbstractChartAreaAction';
+import ChartFactory from '../../../../chart/model/state/ChartFactory';
 
 type ConstructorArgs = {
   chartDataService: ChartDataService;
@@ -37,18 +38,16 @@ class StartFetchDataForOtherChartsAction extends AbstractChartAreaAction {
         )
     );
 
-    const newState = {
+    return {
       ...currentState,
       charts: [
         ...(this.chart ? [this.chart] : []),
-        ..._.without(charts, this.chart).map((chart: Chart): Chart => {
+        ..._.without(charts, this.chart).map((chart) => {
           chart.setIsFetchingData(true);
-          return chart;
+          return ChartFactory.createChart(chart.getConfiguration());
         })
       ]
     };
-
-    return newState;
   }
 }
 
