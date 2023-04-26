@@ -30,6 +30,7 @@
     --dashboards-page-right-pane-default-width: 28rem;
     --triggers-page-left-pane-default-width: 28rem;
     --dialog-header-background-color: var(--brand-color-1);
+    --dialog-content-background-color: #fff;
     --dialog-color: #000;
 
     font-size: var(--base-font-size);
