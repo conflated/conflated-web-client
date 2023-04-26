@@ -36,4 +36,8 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
   override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'area';
   }
+
+  override shouldShowGrid() {
+    return false;
+  }
 }

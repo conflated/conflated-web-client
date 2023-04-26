@@ -46,6 +46,13 @@ export default class ApexChartPlotOptionsFactory {
           minAngleToShowLabel: 10
         }
       },
+      radar: {
+        polygons: {
+          strokeColors: '#d0d0d0',
+          strokeWidth: 1,
+          connectorColors: '#d0d0d0'
+        }
+      },
       radialBar: {
         size: shouldShowRadialBarAsGauge ? 0.9 * height : 0.5 * Math.min(height, width),
         offsetY: shouldShowRadialBarAsGauge ? 0.2 * height : 0,
