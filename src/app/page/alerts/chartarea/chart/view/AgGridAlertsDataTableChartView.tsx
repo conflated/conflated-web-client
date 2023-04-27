@@ -34,7 +34,7 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
       'Active duration': isMaxWidth480px ? 0.25 : 0.05,
       Labels: isMaxWidth480px ? 0.75 : 0.17,
       'Trigger values': isMaxWidth480px ? 0.5 : 0.12,
-      Assignee: isMaxWidth480px ? 0.3 : 0.08
+      Assignee: isMaxWidth480px ? 0.3 : 0.078
     }),
     [isMaxWidth1024px, isMaxWidth480px]
   );
