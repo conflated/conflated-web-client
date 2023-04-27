@@ -38,6 +38,36 @@
     height: 52vh;
     margin-top: 1rem;
     width: 100%;
+
+    :global(.ag-root-wrapper) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--dialog-content-background-color) !important;
+      }
+    }
+
+    :global(.ag-header-row) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--dialog-content-background-color) !important;
+      }
+    }
+
+    :global(.ag-cell) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--dialog-content-background-color) !important;
+      }
+    }
+
+    :global(.ag-text-field-input) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--dialog-content-background-color) !important;
+      }
+    }
+
+    :global(.ag-number-field-input) {
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--dialog-content-background-color) !important;
+      }
+    }
   }
 
   .label2 {
