@@ -137,6 +137,12 @@ const DimensionSelectorView = ({
       shownDimensions
         .filter(
           (shownDimension) =>
+            !selectedChart.selectedDimensions.find(
+              (selectedDimension) => selectedDimension.dimension.name === shownDimension.name
+            )
+        )
+        .filter(
+          (shownDimension) =>
             selectedChart.type !== 'statistic' || (selectedChart.type === 'statistic' && shownDimension.name === 'All')
         )
         .map((dimension: Dimension) => (
@@ -147,7 +153,13 @@ const DimensionSelectorView = ({
             onItemDblClick={handleMaximizeIconClick}
           />
         )),
-    [addSelectedDimensionToSelectedChart, handleMaximizeIconClick, selectedChart.type, shownDimensions]
+    [
+      addSelectedDimensionToSelectedChart,
+      handleMaximizeIconClick,
+      selectedChart.selectedDimensions,
+      selectedChart.type,
+      shownDimensions
+    ]
   );
 
   const chartListItems = useMemo(
