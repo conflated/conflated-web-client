@@ -32,9 +32,26 @@ const SortListItemView = ({
   let aggregationFunctionPickerView;
 
   if (selectedSortBy.type === 'measure' && selectedSortBy.aggregationFunction !== 'NONE') {
+    const timeSortOptions: AggregationFunction[] = [
+      'LATEST',
+      'MEDIAN',
+      '5TH PCTL',
+      '25TH PCTL',
+      '75TH PCTL',
+      '95TH PCTL',
+      'INCREASE',
+      'DECREASE',
+      'LAST INCR',
+      'LAST DECR',
+      'INSTANT INCR',
+      'INSTANT DECR',
+      'MAX INCR',
+      'MAX DECR'
+    ];
+
     aggregationFunctionPickerView = (
       <AggregationFunctionPickerView
-        aggregationFunctions={chart.getSupportedAggregationFunctions()}
+        aggregationFunctions={[...chart.getSupportedAggregationFunctions(), ...timeSortOptions]}
         changeAggregationFunction={changeSelectedSortByAggregationFunction}
         selectedAggregationFunction={selectedSortBy.aggregationFunction}
       />

@@ -40,7 +40,7 @@ export default class XAxisChartSorts extends AbstractBasicChartSorts {
     const sortDirection = 'DESC';
 
     if (this.sorts.length === 0) {
-      this.addSort(measure, 'measure', sortDirection, 'measure');
+      this.addSort(measure, 'measure', sortDirection, 'measure', measure.unit === 'percent' ? 'AVG' : 'SUM');
     }
   }
 }

@@ -40,7 +40,7 @@ export default class FilterFactory {
   static createMeasureFilter(measure: Measure | Dimension, filterInputType?: FilterInputType): Filter {
     const filterConfiguration: FilterConfiguration = {
       allowedDimensionFilterInputTypes: [],
-      aggregationFunction: 'SUM',
+      aggregationFunction: measure.unit === 'percent' ? 'AVG' : 'SUM',
       filteringChart: null,
       dataScopeType: 'already fetched',
       filterExpression: '',
@@ -48,8 +48,8 @@ export default class FilterFactory {
       isDrillDownFilter: false,
       measureOrDimension: measure,
       sqlColumn: {
-        name: SqlUtils.getSqlColumnName(measure, 'SUM'),
-        expression: SqlUtils.getSqlColumnExpression(measure, 'SUM')
+        name: SqlUtils.getSqlColumnName(measure, measure.unit === 'percent' ? 'AVG' : 'SUM'),
+        expression: SqlUtils.getSqlColumnExpression(measure, measure.unit === 'percent' ? 'AVG' : 'SUM')
       },
       type: 'measure'
     };

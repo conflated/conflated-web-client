@@ -108,7 +108,7 @@ const MeasureSelectorView = ({
         <MeasureListItemView
           key={measure.name}
           item={measure}
-          onItemClick={() => addSelectedMeasureToSelectedChart(measure, 'SUM')}
+          onItemClick={() => addSelectedMeasureToSelectedChart(measure, measure.unit === 'percent' ? 'AVG' : 'SUM')}
           onItemDblClick={handleMaximizeIconClick}
         />
       ));
@@ -121,7 +121,7 @@ const MeasureSelectorView = ({
           key={dimension.name}
           iconClassName=""
           item={dimension}
-          onItemClick={() => addSelectedMeasureToSelectedChart(dimension, 'SUM')}
+          onItemClick={() => addSelectedMeasureToSelectedChart(dimension, dimension.unit === 'percent' ? 'AVG' : 'SUM')}
           onItemDblClick={handleMaximizeIconClick}
         />
       )),
