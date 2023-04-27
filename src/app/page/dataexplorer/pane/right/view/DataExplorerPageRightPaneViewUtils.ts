@@ -55,8 +55,8 @@ export default class DataExplorerPageRightPaneViewUtils {
           dataPointsCountSelectorTitleHeight);
 
       if (isFilterSelectorOpen && isSortBySelectorOpen && isDataPointsCountSelectorOpen) {
-        filterSelectorContentElem.style.height = `${0.6 * (availableHeight - dataPointsCountSelectorContentHeight)}px`;
-        sortBySelectorContentElem.style.height = `${0.4 * (availableHeight - dataPointsCountSelectorContentHeight)}px`;
+        filterSelectorContentElem.style.height = `${0.55 * (availableHeight - dataPointsCountSelectorContentHeight)}px`;
+        sortBySelectorContentElem.style.height = `${0.45 * (availableHeight - dataPointsCountSelectorContentHeight)}px`;
       } else if (isFilterSelectorOpen && isSortBySelectorOpen && !isDataPointsCountSelectorOpen) {
         filterSelectorContentElem.style.height = `${0.5 * availableHeight}px`;
         sortBySelectorContentElem.style.height = `${0.5 * availableHeight}px`;
