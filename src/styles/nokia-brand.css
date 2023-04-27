@@ -1,5 +1,6 @@
 :root {
   --brand-color-1: #005AFF;
+
   --transparent-brand-color-1: rgb(179, 209, 255, 0.25);
   --transparent-brand-color-1-on-hover: rgb(179, 209, 255, 0.2);
   --brand-color-2: #37CC73;

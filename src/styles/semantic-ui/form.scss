@@ -1,18 +1,6 @@
 .ui {
   &.form {
-    padding: 0rem 0.2rem;
-
-    .accordion .title {
-      padding: 0;
-
-      @media (prefers-color-scheme: dark) {
-        color: #999;
-      }
-
-      .icon {
-        color: #999;
-      }
-    }
+    padding: 0 0.2rem;
 
     .field {
       margin-bottom: -0.75rem;
@@ -138,6 +126,7 @@
       }
 
       .item {
+        color: #aaa !important;
         font-family: var(--brand-font-family) !important;
         font-size: 1.15rem !important;
         padding-left: 0;
@@ -162,10 +151,12 @@
       }
 
       .item.active {
+        color: rgba(0, 0, 0, .87) !important;
+        font-weight: normal !important;
+
         @media (prefers-color-scheme: dark) {
           color: #c0c0c0 !important;
           border-bottom: 2px solid #999 !important;
-          font-weight: normal !important;
         }
       }
     }
