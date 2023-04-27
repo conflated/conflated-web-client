@@ -1,6 +1,7 @@
 :root {
   --brand-color-1: #005AFF;
   --transparent-brand-color-1: rgb(179, 209, 255, 0.3);
+  --transparent-brand-color-1-on-hover: rgb(179, 209, 255, 0.4);
   --brand-color-2: #37CC73;
   --red-color: #E23B3B;
   --brand-font-family: 'Arimo', sans-serif;

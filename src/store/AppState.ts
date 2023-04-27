@@ -7,7 +7,7 @@ import type { LayoutSelectorState } from '../app/page/dataexplorer/pane/left/sel
 import type { MeasureSelectorState } from '../app/page/dataexplorer/pane/left/selector/measure/model/state/MeasureSelectorState';
 import type { DimensionSelectorState } from '../app/page/dataexplorer/pane/left/selector/dimension/model/state/DimensionSelectorState';
 import type { ChartAreaState } from '../app/common/components/chartarea/model/state/ChartAreaState';
-import type { SortBySelectorState } from '../app/common/components/selector/sort/model/state/SortBySelectorState';
+import type { SortSelectorState } from '../app/common/components/selector/sort/model/state/SortSelectorState';
 import type { DataExplorerState } from '../app/page/dataexplorer/model/state/DataExplorerState';
 import type { TriggerSelectorState } from '../app/common/components/page/triggers/leftpane/selector/trigger/model/state/TriggerSelectorState';
 import type { TriggerDataSourceSelectorState } from '../app/common/components/page/triggers/leftpane/selector/datasource/model/state/TriggerDataSourceSelectorState';
@@ -39,7 +39,7 @@ export type AppState = {
     measureSelectorState: MeasureSelectorState;
     dimensionSelectorState: DimensionSelectorState;
     chartAreaState: ChartAreaState;
-    sortBySelectorState: SortBySelectorState;
+    sortBySelectorState: SortSelectorState;
     settingsState: DataExplorerState;
     saveAsDashboardOrReportTemplateDialogState: SaveAsDashboardOrReportTemplateDialogState;
   };
@@ -48,7 +48,7 @@ export type AppState = {
     headerState: DashboardsPageHeaderState;
     dashboardGroupSelectorState: DashboardGroupSelectorState;
     chartAreaState: ChartAreaState;
-    sortBySelectorState: SortBySelectorState;
+    sortBySelectorState: SortSelectorState;
   };
   reportsPage: {
     reportsState: ReportsPageState;

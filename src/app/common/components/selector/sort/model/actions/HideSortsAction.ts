@@ -1,11 +1,11 @@
 import AbstractSortSelectorAction from './AbstractSortSelectorAction';
-import type { SortBySelectorState } from '../state/SortBySelectorState';
+import type { SortSelectorState } from '../state/SortSelectorState';
 
 export default class HideSortsAction extends AbstractSortSelectorAction {
-  perform(currentState: SortBySelectorState): SortBySelectorState {
+  perform(currentState: SortSelectorState): SortSelectorState {
     return {
       ...currentState,
-      areSelectedSortBysShown: false
+      sortsAreShown: false
     };
   }
 }

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import styles from './SortSelectorView.module.scss';
@@ -10,39 +10,37 @@ import type { Sort } from '../../../chartarea/chart/model/state/sorts/sort/Sort'
 import SelectorWithActionsView from '../../withtitleactions/view/SelectorWithTitleActionsView';
 import MeasureListItemView from '../../../../views/list/item/MeasureListItemView';
 import DimensionListItemView from '../../../../views/list/item/DimensionListItemView';
-import type { TimeSortOption } from '../../../chartarea/chart/model/state/sorts/sort/types/TimeSortOption';
 import type { SortSelectorStateNamespace } from '../model/state/types/SortSelectorStateNamespace';
 import type { AggregationFunction } from '../../../chartarea/chart/model/state/selectedmeasure/types/AggregationFunction';
 import type { SortDirection } from '../../../chartarea/chart/model/state/sorts/sort/types/SortDirection';
 import type { DataScope } from '../../../chartarea/chart/model/state/types/DataScope';
-import MeasuresDimensionsAndTimeSortOptionsTabView from './measuresdimensionsandtimesortoptionstabview/MeasuresDimensionsAndTimeSortOptionsTabView';
 import { ActionDispatchers, controller, State } from '../controller/sortSelectorController';
 import selectorWithActionsStateNamespaces from '../../withtitleactions/model/state/types/SelectorWithTitleActionsStateNamespace';
-import TimeSortOptionListItemView from './listitem/TimeSortOptionListItemView';
+import MeasuresAndDimensionsTabView from '../../../../views/tab/selector/measuresanddimensions/MeasuresAndDimensionsTabView';
 
 export type OwnProps = { stateNamespace: SortSelectorStateNamespace };
 type Props = OwnProps & ActionDispatchers & State;
 const { hidden, selectedSortBysSection, visible } = styles;
 
 const SortSelectorView = ({
-  addSortByToSelectedChart,
-  addSortByTimeToSelectedChart,
-  areSelectedSortBysShown,
+  addSortToSelectedChart,
+  sortsAreShown,
   changeSelectedSortByAggregationFunctionForSelectedChart,
-  changeSelectedSortBySortDirectionForSelectedChart,
-  changeSelectedSortByDataScopeTypeForSelectedChart,
-  // flashSelectedSortBysBriefly,
+  changeSortDirectionForSelectedChart,
+  changeSortDataScopeTypeForSelectedChart,
+  flashSortsBriefly,
   isDataPointsCountSelectorOpen,
   isFilterSelectorOpen,
   lastUsedSortDirection,
   stateNamespace,
-  removeSelectedSortByFromSelectedChart,
+  removeSortFromSelectedChart,
   selectedChart,
   shownDimensions,
   shownMeasures,
-  shownTimeSortOptions,
   toggleMaximizeSelector
 }: Props) => {
+  const [previousSorts, setPreviousSorts] = useState([] as Sort[]);
+
   const handleMaximizeIconClick = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -61,27 +59,27 @@ const SortSelectorView = ({
     [isDataPointsCountSelectorOpen, isFilterSelectorOpen, stateNamespace, toggleMaximizeSelector]
   );
 
-  // store previous selectedsortbys in state and compare to see if default selected sort by is changed
-  // if it is changed then flash sortbys briefly
+  if (previousSorts !== selectedChart.getSorts()) {
+    flashSortsBriefly();
+    setPreviousSorts(selectedChart.getSorts());
+  }
 
-  // flashSelectedSortBysBriefly();
-
-  const selectedSortByListItems = selectedChart
+  const SortListItems = selectedChart
     .getSorts()
     .map((selectedSortBy: Sort) => (
       <SortListItemView
         key={selectedSortBy.measureOrDimension.name}
         selectedSortBy={selectedSortBy}
         chart={selectedChart}
-        removeSelectedSortBy={() => removeSelectedSortByFromSelectedChart(selectedSortBy)}
+        removeSelectedSortBy={() => removeSortFromSelectedChart(selectedSortBy)}
         changeSelectedSortByAggregationFunction={(aggregationFunction: AggregationFunction) =>
           changeSelectedSortByAggregationFunctionForSelectedChart(selectedSortBy, aggregationFunction)
         }
         changeSelectedSortByDirection={(sortDirection: SortDirection) =>
-          changeSelectedSortBySortDirectionForSelectedChart(selectedSortBy, sortDirection)
+          changeSortDirectionForSelectedChart(selectedSortBy, sortDirection)
         }
         changeSelectedSortByDataScopeType={(dataScopeType: DataScope) =>
-          changeSelectedSortByDataScopeTypeForSelectedChart(selectedSortBy, dataScopeType)
+          changeSortDataScopeTypeForSelectedChart(selectedSortBy, dataScopeType)
         }
       />
     ));
@@ -103,7 +101,7 @@ const SortSelectorView = ({
     <MeasureListItemView
       key={measure.name}
       item={measure}
-      onItemClick={() => addSortByToSelectedChart(measure, 'measure', lastUsedSortDirection)}
+      onItemClick={() => addSortToSelectedChart(measure, 'measure', lastUsedSortDirection)}
       actions={actions}
     />
   ));
@@ -112,16 +110,7 @@ const SortSelectorView = ({
     <DimensionListItemView
       key={dimension.name}
       item={dimension}
-      onItemClick={() => addSortByToSelectedChart(dimension, 'dimension', lastUsedSortDirection)}
-      actions={actions}
-    />
-  ));
-
-  const timeSortOptionListItems = shownTimeSortOptions.map((timeSortOption: TimeSortOption) => (
-    <TimeSortOptionListItemView
-      key={timeSortOption}
-      item={{ name: timeSortOption }}
-      onItemClick={() => addSortByTimeToSelectedChart(selectedChart, timeSortOption, lastUsedSortDirection)}
+      onItemClick={() => addSortToSelectedChart(dimension, 'dimension', lastUsedSortDirection)}
       actions={actions}
     />
   ));
@@ -135,16 +124,12 @@ const SortSelectorView = ({
       addIconTooltipText="Add new sort definition"
       position="rightPane"
       selectedListItemsContent={
-        <section className={`${selectedSortBysSection} ${areSelectedSortBysShown ? visible : hidden}`}>
-          <List>{selectedSortByListItems}</List>
+        <section className={`${selectedSortBysSection} ${sortsAreShown ? visible : hidden}`}>
+          <List>{SortListItems}</List>
         </section>
       }
       listItemsContent={
-        <MeasuresDimensionsAndTimeSortOptionsTabView
-          measureListItems={measureListItems}
-          dimensionListItems={dimensionListItems}
-          timeSortOptionListItems={selectedChart.hasTimestampLegend() ? timeSortOptionListItems : undefined}
-        />
+        <MeasuresAndDimensionsTabView measureListItems={measureListItems} dimensionListItems={dimensionListItems} />
       }
       handleMaximizeIconClick={handleMaximizeIconClick}
       selectorStateNamespace={selectorWithActionsStateNamespaces[selectorStateNamespace]}

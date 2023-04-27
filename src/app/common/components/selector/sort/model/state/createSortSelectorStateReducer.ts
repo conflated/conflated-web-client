@@ -1,34 +1,15 @@
 import OOReduxUtils from 'oo-redux-utils2';
-import type { SortBySelectorState } from './SortBySelectorState';
+import type { SortSelectorState } from './SortSelectorState';
 import AbstractSortSelectorAction from '../actions/AbstractSortSelectorAction';
 import type { SortSelectorStateNamespace } from './types/SortSelectorStateNamespace';
 
-const initialSortSelectorState: SortBySelectorState = {
-  timeSortOptions: [
-    'Latest value',
-    'Latest increase',
-    'Latest decrease',
-    'Historical minimum',
-    'Historical maximum',
-    'Historical average',
-    'Historical median',
-    'Historical 5th percentile',
-    'Historical 25th percentile',
-    'Historical 75th percentile',
-    'Historical 95th percentile',
-    'Historical increase',
-    'Historical decrease',
-    'Historical max increase',
-    'Historical max decrease',
-    'Instantaneous increase in history',
-    'Instantaneous decrease in history'
-  ],
+const initialSortSelectorState: SortSelectorState = {
   lastUsedSortDirection: 'ASC',
-  areSelectedSortBysShown: true
+  sortsAreShown: true
 };
 
 export default (stateNamespace: SortSelectorStateNamespace) =>
-  OOReduxUtils.createNamespacedStateReducer<SortBySelectorState, SortSelectorStateNamespace>(
+  OOReduxUtils.createNamespacedStateReducer<SortSelectorState, SortSelectorStateNamespace>(
     initialSortSelectorState,
     AbstractSortSelectorAction,
     stateNamespace

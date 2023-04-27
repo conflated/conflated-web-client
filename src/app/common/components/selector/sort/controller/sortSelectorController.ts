@@ -17,7 +17,6 @@ import RemoveSortFromSelectedChartAction from '../../../chartarea/model/actions/
 import type { Chart } from '../../../chartarea/chart/model/state/Chart';
 import { PageStateNamespace } from '../../../page/model/state/types/PageStateNamespace';
 import { AppState } from '../../../../../../store/AppState';
-import createShownTimeSortOptionsSelector from './selectors/createShownTimeSortOptionsSelector';
 import selectorStateNamespaces from '../../model/state/types/SelectorStateNamespace';
 import selectShownMeasures from '../../../../../page/dataexplorer/pane/left/selector/measure/controller/selectors/selectShownMeasures';
 import createShownDimensionsSelector from '../../../../../page/dataexplorer/pane/left/selector/dimension/controller/selectors/createShownDimensionsSelector';
@@ -33,7 +32,6 @@ class SortSelectorController extends Controller<PageStateNamespace> {
       selectedChart: appState[stateNamespace].chartAreaState.selectedChart,
       shownDimensions: createShownDimensionsSelector(false)(appState),
       shownMeasures: selectShownMeasures(appState),
-      shownTimeSortOptions: createShownTimeSortOptionsSelector(stateNamespace)(appState),
 
       isFilterSelectorOpen:
         appState.common.selectorStates[selectorStateNamespaces[`${stateNamespace}FilterSelector`]].isSelectorOpen,
@@ -44,9 +42,7 @@ class SortSelectorController extends Controller<PageStateNamespace> {
     });
 
   getActionDispatchers = (stateNamespace: SortSelectorStateNamespace) => ({
-    flashSelectedSortBysBriefly: () => {
-      this.dispatch(new FlashSortsBrieflyAction(stateNamespace));
-    },
+    flashSortsBriefly: () => this.dispatch(new FlashSortsBrieflyAction(stateNamespace)),
 
     addSortByTimeToSelectedChart: (
       selectedChart: Chart,
@@ -68,11 +64,7 @@ class SortSelectorController extends Controller<PageStateNamespace> {
       }
     },
 
-    addSortByToSelectedChart: (
-      dimensionOrMeasure: Dimension | Measure,
-      type: SortType,
-      sortDirection: SortDirection
-    ) => {
+    addSortToSelectedChart: (dimensionOrMeasure: Dimension | Measure, type: SortType, sortDirection: SortDirection) => {
       this.dispatch(new AddSortToSelectedChartAction(stateNamespace, dimensionOrMeasure, type, sortDirection));
     },
 
@@ -85,15 +77,15 @@ class SortSelectorController extends Controller<PageStateNamespace> {
       );
     },
 
-    changeSelectedSortBySortDirectionForSelectedChart: (selectedSortBy: Sort, sortDirection: SortDirection) => {
-      this.dispatch(new ChangeSortDirectionForSelectedChartAction(stateNamespace, selectedSortBy, sortDirection));
+    changeSortDirectionForSelectedChart: (sort: Sort, sortDirection: SortDirection) => {
+      this.dispatch(new ChangeSortDirectionForSelectedChartAction(stateNamespace, sort, sortDirection));
     },
 
-    changeSelectedSortByDataScopeTypeForSelectedChart: (selectedSortBy: Sort, dataScopeType: DataScope) => {
+    changeSortDataScopeTypeForSelectedChart: (selectedSortBy: Sort, dataScopeType: DataScope) => {
       this.dispatch(new ChangeSortDataScopeTypeForSelectedChartAction(stateNamespace, selectedSortBy, dataScopeType));
     },
 
-    removeSelectedSortByFromSelectedChart: (selectedSortBy: Sort) => {
+    removeSortFromSelectedChart: (selectedSortBy: Sort) => {
       this.dispatch(new RemoveSortFromSelectedChartAction(stateNamespace, selectedSortBy));
     },
 
