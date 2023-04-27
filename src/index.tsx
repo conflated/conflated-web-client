@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import qs from 'qs';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import 'ag-grid-enterprise';
@@ -10,12 +9,6 @@ import './styles/index.scss';
 import diContainer from './di/diContainer';
 import AppView from './app/AppView';
 import reportWebVitals from './reportWebVitals';
-
-const isVerizon = qs.parse(document.location.href.split('?')[1]).verizon;
-
-if (isVerizon) {
-  document.body.style.backgroundColor = '#000';
-}
 
 diContainer.configure().then(() => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
