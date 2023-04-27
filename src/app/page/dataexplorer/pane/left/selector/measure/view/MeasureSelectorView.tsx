@@ -110,6 +110,22 @@ const MeasureSelectorView = ({
           item={measure}
           onItemClick={() => addSelectedMeasureToSelectedChart(measure, measure.unit === 'percent' ? 'AVG' : 'SUM')}
           onItemDblClick={handleMaximizeIconClick}
+          actions={
+            measure.unit === 'percent'
+              ? [
+                  {
+                    iconName: 'pencil',
+                    perform: () => {},
+                    tooltipText: 'Edit'
+                  },
+                  {
+                    iconName: 'trash alternate outline',
+                    perform: () => {},
+                    tooltipText: 'Delete'
+                  }
+                ]
+              : undefined
+          }
         />
       ));
   }, [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, selectedChart.selectedMeasures, shownMeasures]);
