@@ -10,12 +10,14 @@
   display: flex !important;
   padding: 0 !important;
 
-  .title {
-  }
-
   .closeIcon:hover {
     color: #F47F31!important;
     cursor: pointer;
+  }
+
+  .title {
+    flex-grow: 1;
+    text-align: center;
   }
 }
 

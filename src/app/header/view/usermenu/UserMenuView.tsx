@@ -9,14 +9,8 @@ const UserMenuView = () => {
     <section className={styles.userMenu}>
       <Icon name="user" />
       <span>Petri</span>
-      <Dropdown
-        open={menuIsOpen}
-        direction="left"
-        icon="dropdown"
-        onClick={() => setMenuIsOpen(!menuIsOpen)}
-        style={{ zIndex: 'calc(var(--topmost-z-index) + 2)' }}
-      >
-        <Dropdown.Menu>
+      <Dropdown open={menuIsOpen} direction="left" icon="dropdown" onClick={() => setMenuIsOpen(!menuIsOpen)}>
+        <Dropdown.Menu style={{ zIndex: 'calc(var(--topmost-z-index) + 2)' }}>
           <Dropdown.Item value="Admin settings">
             <div>
               <Icon name="setting" />

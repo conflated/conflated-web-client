@@ -84,7 +84,7 @@ const GenerateReportDialogView = ({ close, isOpen }: Props) => {
           content="Close (Esc)"
           inverted
           mouseEnterDelay={1250}
-          trigger={<Icon className={styles.closeIcon} name="angle left" onClick={close} size="large" />}
+          trigger={<Icon className={styles.closeIcon} name="angle left" onClick={close} size="big" />}
         />
         <div className={styles.title}>GENERATE REPORT</div>
       </Modal.Header>
