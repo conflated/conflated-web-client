@@ -91,6 +91,13 @@ const AgGridAlertsDataTableChartView = ({ actions, chart, height, width }: Props
                 : { fontWeight: 'bold' };
           }
 
+          if (name === 'Number') {
+            (colDef as any).cellStyle = (params: any) =>
+              params.data.Assignee || params.data.Severity === 'Info'
+                ? { color: '#999', fontWeight: 'normal' }
+                : { fontWeight: 'bold' };
+          }
+
           if (name === 'Severity') {
             (colDef as any).sort = 'desc';
 
