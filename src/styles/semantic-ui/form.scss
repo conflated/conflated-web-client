@@ -31,15 +31,20 @@
     }
 
     .dropdown {
+      border-color: #ccc !important;
+
       @media (prefers-color-scheme: dark) {
         background-color: transparent !important;
         border-color: #c0c0c0 !important;
       }
 
       .divider.text {
-        color: #c0c0c0 !important;
         font-family: var(--brand-font-family) !important;
         font-size: 1.15rem !important;
+
+        @media (prefers-color-scheme: dark) {
+          color: #c0c0c0 !important;
+        }
       }
 
       .menu {
@@ -53,6 +58,7 @@
           color: #c0c0c0 !important;
         }
       }
+
       .item:hover,
       .item.active {
         @media (prefers-color-scheme: dark) {
@@ -62,7 +68,9 @@
       }
 
       .icon {
-        color: #c0c0c0 !important;
+        @media (prefers-color-scheme: dark) {
+          color: #c0c0c0 !important;
+        }
       }
     }
 
