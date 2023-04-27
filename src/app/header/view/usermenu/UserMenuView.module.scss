@@ -2,6 +2,7 @@
   font-family: var(--brand-font-family);
   font-size: var(--app-navigation-font-size);
   padding-right: 30px;
+  z-index: var(--topmost-z-index + 1);
 }
 
 @media screen and (max-width: 1024px) {
