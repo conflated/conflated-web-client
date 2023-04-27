@@ -13,7 +13,7 @@
 
   &:hover,
   &:focus {
-    background-color: #e6e6e6;
+    background-color: var(--transparent-brand-color-1-on-hover);
     cursor: default;
 
     .removeIcon {
