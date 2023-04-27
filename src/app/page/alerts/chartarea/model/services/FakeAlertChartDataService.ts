@@ -11,7 +11,7 @@ export default class FakeAlertChartDataService implements TriggerChartDataServic
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
         columnNameToValuesMap.Severity = ['Critical', 'Critical', 'Major', 'Major', 'Minor', 'Info'];
-        columnNameToValuesMap.Number = ['200201', '200301', '200881', '200134', '200712', '200202'];
+        columnNameToValuesMap.Number = ['200201', '200301', '200881', '200134', '200712', ''];
 
         columnNameToValuesMap['"Trigger time"'] = [
           '2019-04-01 12:00:00',
