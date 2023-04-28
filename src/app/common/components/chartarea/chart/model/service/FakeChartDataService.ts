@@ -45,9 +45,16 @@ export default class FakeChartDataService implements ChartDataService {
               if (hasCellDimension && hasTimestamp) {
                 size = 200;
 
-                columnNameToValuesMap[name] = Array(size)
-                  .fill(0)
-                  .map((_, index) => Math.floor(100 - 0.4 * index - 5 * Math.random()));
+                console.log(name);
+                if (name.includes('SMS delivery failure %')) {
+                  columnNameToValuesMap[name] = Array(size)
+                    .fill(0)
+                    .map((_, index) => Math.floor(100 - 0.2 * index - 20 * Math.random()));
+                } else {
+                  columnNameToValuesMap[name] = Array(size)
+                    .fill(0)
+                    .map((_, index) => Math.floor(100 - 0.4 * index - 5 * Math.random()));
+                }
 
                 return;
               } else if (hasErrorCategory && !hasCellDimension) {

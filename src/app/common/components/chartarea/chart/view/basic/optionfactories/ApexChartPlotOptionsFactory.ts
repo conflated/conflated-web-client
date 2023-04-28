@@ -32,6 +32,12 @@ export default class ApexChartPlotOptionsFactory {
           position: 'top'
         }
       },
+      boxPlot: {
+        colors: {
+          upper: '#005AFF',
+          lower: '#37CC73'
+        }
+      },
       candlestick: {
         colors: {
           upward: '#57943a',

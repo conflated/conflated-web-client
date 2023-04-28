@@ -46,7 +46,7 @@ export default class ChartFactory {
         return new ScatterChart(chartConfiguration);
       case 'candlestick':
         return new CandlestickChart(chartConfiguration);
-      case 'boxplot':
+      case 'boxPlot':
       case 'violin':
         return new BoxPlotChart(chartConfiguration);
       case 'radar':

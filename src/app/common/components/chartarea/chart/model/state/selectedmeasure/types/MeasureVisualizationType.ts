@@ -15,4 +15,5 @@ export type MeasureVisualizationType =
   | 'open'
   | 'high'
   | 'low'
-  | 'close';
+  | 'close'
+  | 'boxPlot';

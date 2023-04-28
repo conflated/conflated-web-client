@@ -53,7 +53,7 @@ const ChartTypeIconsView = (props: Props) => (
       iconClassName={styles.candlestickChartIcon}
       tooltipText="Candlestick chart"
     />
-    <ChartTypeIconView {...props} chartType="boxplot" iconClassName={styles.boxPlotIcon} tooltipText="Box plot" />
+    <ChartTypeIconView {...props} chartType="boxPlot" iconClassName={styles.boxPlotIcon} tooltipText="Box plot" />
     <ChartTypeIconView {...props} chartType="radar" iconClassName={styles.radarChartIcon} tooltipText="Radar chart" />
     <ChartTypeIconView {...props} chartType="heatmap" iconClassName={styles.heatmapIcon} tooltipText="Heatmap" />
     <ChartTypeIconView {...props} chartType="datatable" iconClassName={styles.dataTableIcon} tooltipText="Data table" />

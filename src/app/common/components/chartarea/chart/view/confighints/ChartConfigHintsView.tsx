@@ -45,7 +45,7 @@ const ChartConfigHintsView: React.FC<Props> = ({ chart, heightInRows, isSizingCh
     case 'candlestick':
       chartIcon = styles.candlestickChart;
       break;
-    case 'boxplot':
+    case 'boxPlot':
       chartIcon = styles.boxPlot;
       break;
     case 'radar':

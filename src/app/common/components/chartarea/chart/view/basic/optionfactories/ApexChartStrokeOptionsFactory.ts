@@ -5,7 +5,8 @@ export default class ApexChartStrokeOptionsFactory {
     return {
       show: chart.shouldShowStroke(),
       curve: chart.type === 'stepline' ? 'stepline' : 'straight',
-      width: chart.getStrokeWidth()
+      width: chart.getStrokeWidth(),
+      colors: chart.type === 'boxPlot' ? ['#c0c0c0'] : undefined
     };
   }
 }

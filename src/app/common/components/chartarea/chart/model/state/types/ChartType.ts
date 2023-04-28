@@ -9,7 +9,7 @@ export type ChartType =
   | 'bubble'
   | 'scatter'
   | 'candlestick'
-  | 'boxplot'
+  | 'boxPlot'
   | 'violin'
   | 'radar'
   | 'heatmap'

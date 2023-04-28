@@ -14,17 +14,12 @@ export default class ChangeChartTypeForSelectedChartAction extends AbstractChart
 
   perform(currentState: ChartAreaState): ChartAreaState {
     const { charts, selectedChart } = currentState;
+    const newChart = selectedChart.getNewChartOfType(this.chartType);
 
-    const newChartType = selectedChart.type === 'boxplot' && this.chartType === 'boxplot' ? 'violin' : this.chartType;
-
-    const newChart = selectedChart.getNewChartOfType(newChartType);
-
-    const newState = {
+    return {
       ...currentState,
       charts: [..._.without(charts, selectedChart), newChart],
       selectedChart: newChart
     };
-
-    return newState;
   }
 }
