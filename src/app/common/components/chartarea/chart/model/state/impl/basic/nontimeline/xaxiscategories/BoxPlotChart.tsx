@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import percentile from 'percentile';
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import { DataSeries } from '../../../../types/DataSeries';
@@ -56,7 +57,31 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
           }
         });
 
-        dataSeries.data.forEach((dataPoint) => dataPoint.y.sort());
+        dataSeries.data.forEach((dataPoint) => {
+          // eslint-disable-next-line no-param-reassign
+          dataPoint.y = [
+            Math.min(...dataPoint.y),
+            percentile(25, dataPoint.y),
+            percentile(50, dataPoint.y),
+            percentile(75, dataPoint.y),
+            Math.max(...dataPoint.y)
+          ];
+        });
+
+        const scatterDataSeries: DataSeries = {
+          name: 'scatter',
+          data: [],
+          type: 'scatter'
+        };
+
+        legendValues.forEach((legendValue: any, valueIndex: number) => {
+          if (shownXAxisCategories.includes(xAxisValues[valueIndex])) {
+            scatterDataSeries.data.push({
+              x: xAxisValues[valueIndex],
+              y: [measureValues[valueIndex]]
+            });
+          }
+        });
 
         return [dataSeries];
       }

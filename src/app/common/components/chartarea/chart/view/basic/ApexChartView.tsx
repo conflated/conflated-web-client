@@ -61,6 +61,8 @@ const ApexChartView = ({ chart, height, width, stateNamespace, ...actions }: Pro
   const dataSeries = chart.getApexDataSeries((chartOptions.xaxis as any)?.categories ?? []);
   const key = HashValueCalculator.calculateHash({ apexChartType, chartOptions, dataSeries, id: chart.id });
 
+  console.log(chartOptions);
+
   return (
     <ApexChart
       key={key}
