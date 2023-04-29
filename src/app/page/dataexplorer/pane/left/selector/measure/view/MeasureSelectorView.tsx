@@ -5,7 +5,6 @@ import _ from 'lodash';
 import styles from './MeasureSelectorView.module.scss';
 import SelectedMeasureListItemView from './selected/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../../../common/views/list/item/DimensionListItemView';
-import MeasureListItemView from '../../../../../../../common/views/list/item/MeasureListItemView';
 import SelectorWithDefaultActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { SelectedMeasure } from '../../../../../../../common/components/chartarea/chart/model/state/selectedmeasure/SelectedMeasure';
 import type { Dimension } from '../../dimension/model/state/types/Dimension';
@@ -17,6 +16,7 @@ import emptyDataSource from '../../../../../../../common/components/chartarea/ch
 import { Measure } from '../model/state/types/Measure';
 import stopEventPropagation from '../../../../../../../common/utils/stopEventPropagation';
 import MeasureDropZoneListItemViewFactory from './MeasureDropZoneListItemViewFactory';
+import DraggableMeasureListItemView from './DraggableMeasureListItemView';
 
 type Props = ActionDispatchers & State;
 
@@ -148,7 +148,7 @@ const MeasureSelectorView = ({
     return shownMeasures
       .filter((measure: Measure) => !isSelectedMeasure(measure))
       .map((measure) => (
-        <MeasureListItemView
+        <DraggableMeasureListItemView
           key={measure.name}
           item={measure}
           onItemClick={() =>
