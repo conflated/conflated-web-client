@@ -4,6 +4,7 @@ import type { AggregationFunction } from '../../../../selectedmeasure/types/Aggr
 import type { DimensionVisualizationType } from '../../../../selecteddimension/DimensionVisualizationType';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import PieOrDonutChartImpl from './PieOrDonutChartImpl';
+import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default class DonutChartImpl extends PieOrDonutChartImpl {
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
@@ -11,12 +12,16 @@ export default class DonutChartImpl extends PieOrDonutChartImpl {
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    measureVisalizationType: MeasureVisualizationType
+  ) {
     if (this.selectedDimensions.length >= 1) {
       this.selectedMeasures = [];
     }
 
-    super.addSelectedMeasure(measureOrDimension, aggregationFunction);
+    super.addSelectedMeasure(measureOrDimension, aggregationFunction, measureVisalizationType);
   }
 
   override getConvertSelectedMeasures(): SelectedMeasure[] {

@@ -4,6 +4,7 @@ import type { AggregationFunction } from '../../../selectedmeasure/types/Aggrega
 import AbstractBasicChart from '../AbstractBasicChart';
 import { ChartConfiguration } from '../../../ChartConfiguration';
 import NonTimelineChartSorts from '../../../sorts/impl/NonTimelineChartSorts';
+import { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default abstract class AbstractNonTimelineChart extends AbstractBasicChart {
   constructor(configuration?: ChartConfiguration) {
@@ -13,8 +14,12 @@ export default abstract class AbstractNonTimelineChart extends AbstractBasicChar
     }
   }
 
-  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    measureVisualizationType: MeasureVisualizationType
+  ) {
     this.sorts.updateSortsWhenAddingSelectedMeasure(measureOrDimension, this.selectedMeasures);
-    super.addSelectedMeasure(measureOrDimension, aggregationFunction);
+    super.addSelectedMeasure(measureOrDimension, aggregationFunction, measureVisualizationType);
   }
 }

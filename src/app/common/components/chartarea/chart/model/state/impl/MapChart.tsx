@@ -5,10 +5,11 @@ import type { ChartType } from '../types/ChartType';
 import type { Chart } from '../Chart';
 import type { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import type { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import type { DimensionVisualizationType } from '../selecteddimension/DimensionVisualizationType';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 import MapView from '../../../view/map/MapView';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class MapChart extends AbstractDrillDownChart {
   handleDataPointSelectionOrDrilldown(): void {
@@ -84,5 +85,15 @@ export default class MapChart extends AbstractDrillDownChart {
   // noinspection JSMethodCanBeStatic
   supportsMeasureVisualizationColor(): boolean {
     return true;
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'color', 'color intensity'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'radius', 'circle radius'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('3', 'tooltip', 'tooltip value')
+    ];
   }
 }

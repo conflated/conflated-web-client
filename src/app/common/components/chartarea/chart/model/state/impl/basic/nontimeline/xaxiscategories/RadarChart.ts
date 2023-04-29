@@ -3,6 +3,7 @@
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 import { FillType } from '../../../../types/FillType';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class RadarChart extends AbstractXAxisCategoriesChart {
   override getFillOpacity(): number {
@@ -39,5 +40,11 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
 
   override shouldShowGrid() {
     return false;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'radius', 'radius')];
   }
 }

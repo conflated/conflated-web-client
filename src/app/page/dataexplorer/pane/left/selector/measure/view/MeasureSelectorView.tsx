@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './MeasureSelectorView.module.scss';
-import SelectedMeasureListItemView from './selectedmeasure/listitem/SelectedMeasureListItemView';
+import SelectedMeasureListItemView from './selected/listitem/SelectedMeasureListItemView';
 import DimensionListItemView from '../../../../../../../common/views/list/item/DimensionListItemView';
 import MeasureListItemView from '../../../../../../../common/views/list/item/MeasureListItemView';
 import SelectorWithDefaultActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
@@ -16,6 +16,7 @@ import { ActionDispatchers, controller, State } from '../controller/measureSelec
 import emptyDataSource from '../../../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
 import { Measure } from '../model/state/types/Measure';
 import stopEventPropagation from '../../../../../../../common/utils/stopEventPropagation';
+import MeasureDropZoneListItemViewFactory from './MeasureDropZoneListItemViewFactory';
 
 type Props = ActionDispatchers & State;
 
@@ -28,6 +29,7 @@ const MeasureSelectorView = ({
   isDataSourceSelectorOpen,
   isDimensionSelectorOpen,
   isLayoutSelectorOpen,
+  measures,
   removeSelectedMeasureFromSelectedChart,
   selectedChart,
   shownDimensions,
@@ -68,6 +70,27 @@ const MeasureSelectorView = ({
     ]
   );
 
+  const leaveDropZone = useCallback((event: React.DragEvent<HTMLDivElement>) => {
+    const targetStyle = event.currentTarget.style;
+    targetStyle.border = '';
+    targetStyle.color = '';
+    targetStyle.fontWeight = 'normal';
+  }, []);
+
+  const dropMeasure = useCallback(
+    (event: React.DragEvent<HTMLDivElement>, visualizationType: MeasureVisualizationType) => {
+      event.preventDefault();
+      leaveDropZone(event);
+      const droppedMeasureName = event.dataTransfer.getData('measureName');
+      const measure = measures.find(({ name }: Dimension) => name === droppedMeasureName);
+
+      if (measure) {
+        addSelectedMeasureToSelectedChart(measure, measure.unit === 'percent' ? 'AVG' : 'SUM', visualizationType);
+      }
+    },
+    [addSelectedMeasureToSelectedChart, measures, leaveDropZone]
+  );
+
   const selectedMeasureListItems = useMemo(
     () =>
       selectedChart.selectedMeasures.map((selectedMeasure: SelectedMeasure) => (
@@ -98,6 +121,26 @@ const MeasureSelectorView = ({
     ]
   );
 
+  const measureDropZoneListItems = useMemo(() => {
+    function enterDropZone(event: React.DragEvent<HTMLDivElement>) {
+      event.preventDefault();
+
+      const targetStyle = event.currentTarget.style;
+      targetStyle.border = '2px dashed var(--brand-color-1)';
+      targetStyle.color = 'var(--brand-color-1)';
+      targetStyle.fontWeight = 'bold';
+    }
+
+    const measureDropZoneListItemViewFactory = new MeasureDropZoneListItemViewFactory(
+      styles.measureDropZone,
+      enterDropZone,
+      leaveDropZone,
+      dropMeasure
+    );
+
+    return selectedChart.getMeasureDropZoneListItemViews(measureDropZoneListItemViewFactory);
+  }, [dropMeasure, leaveDropZone, selectedChart]);
+
   const measureListItems = useMemo(() => {
     const isSelectedMeasure = (measure: Measure) =>
       selectedChart.selectedMeasures.some((selectedMeasure) => selectedMeasure.measure === measure);
@@ -108,7 +151,13 @@ const MeasureSelectorView = ({
         <MeasureListItemView
           key={measure.name}
           item={measure}
-          onItemClick={() => addSelectedMeasureToSelectedChart(measure, measure.unit === 'percent' ? 'AVG' : 'SUM')}
+          onItemClick={() =>
+            addSelectedMeasureToSelectedChart(
+              measure,
+              measure.unit === 'percent' ? 'AVG' : 'SUM',
+              selectedChart.getNextMeasureVisualizationType()
+            )
+          }
           onItemDblClick={handleMaximizeIconClick}
           actions={
             measure.unit === 'percent'
@@ -128,7 +177,7 @@ const MeasureSelectorView = ({
           }
         />
       ));
-  }, [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, selectedChart.selectedMeasures, shownMeasures]);
+  }, [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, selectedChart, shownMeasures]);
 
   const dimensionListItems = useMemo(
     () =>
@@ -137,11 +186,17 @@ const MeasureSelectorView = ({
           key={dimension.name}
           iconClassName=""
           item={dimension}
-          onItemClick={() => addSelectedMeasureToSelectedChart(dimension, dimension.unit === 'percent' ? 'AVG' : 'SUM')}
+          onItemClick={() =>
+            addSelectedMeasureToSelectedChart(
+              dimension,
+              dimension.unit === 'percent' ? 'AVG' : 'SUM',
+              selectedChart.getNextMeasureVisualizationType()
+            )
+          }
           onItemDblClick={handleMaximizeIconClick}
         />
       )),
-    [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, shownDimensions]
+    [addSelectedMeasureToSelectedChart, handleMaximizeIconClick, selectedChart, shownDimensions]
   );
 
   return (
@@ -152,7 +207,8 @@ const MeasureSelectorView = ({
       position="leftPane"
       selectedListItemsContent={
         <section className={styles.selectedListItems}>
-          <List>{selectedMeasureListItems}</List>
+          <List className={styles.list}>{selectedMeasureListItems}</List>
+          <List className={styles.list}>{measureDropZoneListItems}</List>
         </section>
       }
       listItemsContent={

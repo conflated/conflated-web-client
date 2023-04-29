@@ -6,7 +6,7 @@ import AbstractMixedChart from '../AbstractMixedChart';
 import { ChartConfiguration } from '../../../../../../ChartConfiguration';
 import LineOrAreaChartSorts from '../../../../../../sorts/impl/LineOrAreaChartSorts';
 
-export default class AbstractLineOrAreaChart extends AbstractMixedChart {
+export default abstract class AbstractLineOrAreaChart extends AbstractMixedChart {
   constructor(chartConfiguration?: ChartConfiguration) {
     super(chartConfiguration);
     if (chartConfiguration) {

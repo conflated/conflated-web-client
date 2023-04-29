@@ -9,6 +9,7 @@ import type { DimensionVisualizationType } from '../../../selecteddimension/Dime
 import type { AggregationFunction } from '../../../selectedmeasure/types/AggregationFunction';
 import type { ChartAreaStateNamespace } from '../../../../../../model/state/types/ChartAreaStateNamespace';
 import ApexChartView from '../../../../../view/basic/ApexChartView';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class SparklineChart extends AbstractTimelineChart {
   override addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType) {
@@ -16,12 +17,16 @@ export default class SparklineChart extends AbstractTimelineChart {
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    measureVisualizationType: MeasureVisualizationType
+  ) {
     if (this.selectedDimensions.length >= 1) {
       this.selectedMeasures = [];
     }
 
-    super.addSelectedMeasure(measureOrDimension, aggregationFunction);
+    super.addSelectedMeasure(measureOrDimension, aggregationFunction, measureVisualizationType);
   }
 
   override createView(width: number, height: number, stateNamespace: ChartAreaStateNamespace): JSX.Element {
@@ -139,5 +144,11 @@ export default class SparklineChart extends AbstractTimelineChart {
 
   supportsMeasureVisualizationColor(): boolean {
     return this.selectedDimensions.length === 1;
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'column/line/area')];
   }
 }

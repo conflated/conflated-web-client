@@ -4,9 +4,10 @@ import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
 import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { LegendPosition } from '../../../../types/LegendPosition';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
   override getApexDataSeries(): DataSeries[] | any[] {
@@ -112,5 +113,11 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
 
   override supportsDataPointsCount(): boolean {
     return true;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'pieOrDonut', 'measure')];
   }
 }

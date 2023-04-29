@@ -7,7 +7,8 @@ import type { ChartAreaStateNamespace } from '../../../../model/state/types/Char
 import AbstractDrillDownChart from './AbstractDrillDownChart';
 import AgGridAlertsDataTableChartView from '../../../../../../../page/alerts/chartarea/chart/view/AgGridAlertsDataTableChartView';
 import AgGridGoalsDataTableChartView from '../../../../../../../page/goals/chartarea/chart/view/AgGridGoalsDataTableChartView';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class DataTableChart extends AbstractDrillDownChart {
   getDimensionDropZoneListItemViews(
@@ -62,5 +63,11 @@ export default class DataTableChart extends AbstractDrillDownChart {
 
   override getSupportedMeasureVisualizationTypes(selectedMeasure: SelectedMeasure): MeasureVisualizationType[] {
     return super.getSupportedMeasureVisualizationTypes(selectedMeasure, ['text']);
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'column')];
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import type { ListItemViewProps } from '../../../../../../../../common/views/list/item/ListItemView';
-import ListItemView from '../../../../../../../../common/views/list/item/ListItemView';
+import type { ListItemViewProps } from '../../../../../../../../../common/views/list/item/ListItemView';
+import ListItemView from '../../../../../../../../../common/views/list/item/ListItemView';
 
 type Named = {
   name: string;

@@ -8,12 +8,14 @@ import StartFetchDataForSelectedChartAction from '../fetchdata/StartFetchDataFor
 import diContainer from '../../../../../../../../di/diContainer';
 import { ChartAreaStateNamespace } from '../../../state/types/ChartAreaStateNamespace';
 import StartFetchDimensionsAction from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/model/actions/StartFetchDimensionsAction';
+import { MeasureVisualizationType } from '../../../../chart/model/state/selectedmeasure/types/MeasureVisualizationType';
 
 export default class AddSelectedMeasureToSelectedChartAction extends AbstractChartAreaAction {
   constructor(
     stateNamespace: ChartAreaStateNamespace,
     private readonly measureOrDimension: Measure | Dimension,
-    private readonly aggregationFunction: AggregationFunction
+    private readonly aggregationFunction: AggregationFunction,
+    private readonly visualizationType: MeasureVisualizationType
   ) {
     super(stateNamespace);
   }
@@ -24,7 +26,7 @@ export default class AddSelectedMeasureToSelectedChartAction extends AbstractCha
     });
 
     const { selectedChart } = currentState;
-    selectedChart.addSelectedMeasure(this.measureOrDimension, this.aggregationFunction);
+    selectedChart.addSelectedMeasure(this.measureOrDimension, this.aggregationFunction, this.visualizationType);
     this.dispatchWithDi(StartFetchDimensionsAction, diContainer, { selectedChart });
     return ChartAreaStateFactory.createNewStateForChangedChart(currentState, selectedChart);
   }

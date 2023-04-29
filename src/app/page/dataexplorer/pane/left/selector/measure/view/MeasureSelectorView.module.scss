@@ -4,13 +4,29 @@
   @media screen and (prefers-color-scheme: dark) {
     background-color: #222;
   }
-}
 
-.divider {
-  border-top: 1px solid #ddd;
-  padding-top: 0.4rem;
+  .list {
+    margin: 0;
 
-  @media screen and (prefers-color-scheme: dark) {
-    border-top: 1px solid #666;
+    .measureDropZone {
+      border: 1px dashed var(--drop-zone-font-color);
+      color: var(--drop-zone-font-color);
+      margin: 0 0.3rem;
+      padding: 0.3rem;
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .divider {
+    border-top: 1px solid #ddd;
+    padding-top: 0.4rem;
+
+    @media screen and (prefers-color-scheme: dark) {
+      border-top: 1px solid #666;
+    }
   }
 }
+

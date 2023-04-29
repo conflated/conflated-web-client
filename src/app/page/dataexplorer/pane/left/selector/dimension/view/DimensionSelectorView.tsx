@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import _ from 'lodash';
 import styles from './DimensionSelectorView.module.scss';
-import DraggableDimensionListItemView from './draggabledimensionlistitem/DraggableDimensionListItemView';
-import SelectedDimensionListItem from './selecteddimensionlistitem/SelectedDimensionListItem';
+import DraggableDimensionListItemView from './listitem/draggable/DraggableDimensionListItemView';
+import SelectedDimensionListItem from './listitem/selected/SelectedDimensionListItem';
 import SelectorWithActionsView from '../../../../../../../common/components/selector/withtitleactions/view/SelectorWithTitleActionsView';
 import type { Dimension } from '../model/state/types/Dimension';
 import type { SelectedDimension } from '../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/SelectedDimension';
 import type { DimensionVisualizationType } from '../../../../../../../common/components/chartarea/chart/model/state/selecteddimension/DimensionVisualizationType';
 import type { Measure } from '../../measure/model/state/types/Measure';
-import DraggableMeasureAsDimensionListItemView from './draggabledimensionlistitem/DraggableMeasureAsDimensionListItemView';
-import DimensionDropZoneListItemViewFactory from './dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DraggableMeasureAsDimensionListItemView from './listitem/draggable/DraggableMeasureAsDimensionListItemView';
+import DimensionDropZoneListItemViewFactory from './DimensionDropZoneListItemViewFactory';
 import ListView from '../../../../../../../common/views/list/ListView';
 import { ActionDispatchers, controller, State } from '../controller/dimensionSelectorController';
 import emptyDataSource from '../../../../../../../common/components/chartarea/chart/model/state/datasource/emptyDataSource';
-import DraggableChartListItemView from './draggabledimensionlistitem/DraggableChartListItemView';
+import DraggableChartListItemView from './listitem/draggable/DraggableChartListItemView';
 
 type Props = ActionDispatchers & State;
 

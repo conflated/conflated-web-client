@@ -3,6 +3,7 @@ import AbstractBubbleOrScatterChart from './AbstractBubbleOrScatterChart';
 import type { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../../types/DataSeries';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class ScatterChart extends AbstractBubbleOrScatterChart {
   override getConvertSelectedMeasures(): SelectedMeasure[] {
@@ -110,5 +111,14 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
     );
 
     return `X: ${xAxisMeasureName}, Y: ${yAxisMeasureName}`;
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'x-axis', 'x-axis'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'y-axis', 'y-axis')
+    ];
   }
 }

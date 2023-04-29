@@ -3,6 +3,7 @@ import { MeasureVisualizationType } from '../../../../selectedmeasure/types/Meas
 import { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import { FillType } from '../../../../types/FillType';
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
   override shouldShowDataLabels(): boolean {
@@ -108,5 +109,15 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
     }
 
     return dataSeries;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'line', 'line'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'lowerBound', 'min'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'lowerBound', 'max')
+    ];
   }
 }

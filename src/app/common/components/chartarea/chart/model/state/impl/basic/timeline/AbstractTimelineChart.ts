@@ -4,7 +4,7 @@ import type { Dimension } from '../../../../../../../../../page/dataexplorer/pan
 import type { Measure } from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { DimensionVisualizationType } from '../../../selecteddimension/DimensionVisualizationType';
 import type { SelectedDimension } from '../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import Utils from '../../../../../../../../utils/Utils';
 import type { DataSeries } from '../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';

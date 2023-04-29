@@ -4,6 +4,7 @@ import { Statistic } from 'semantic-ui-react';
 import { SelectedMeasure } from '../selectedmeasure/SelectedMeasure';
 import { MeasureVisualizationType } from '../selectedmeasure/types/MeasureVisualizationType';
 import AbstractDrillDownChart from './AbstractDrillDownChart';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class StatisticChart extends AbstractDrillDownChart {
   override createView(): JSX.Element {
@@ -99,5 +100,11 @@ export default class StatisticChart extends AbstractDrillDownChart {
 
   sliceOrFillXAxisData(data: Array<any>): Array<any> {
     return data;
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'text', 'statistic')];
   }
 }

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AbstractMixedChart from './AbstractMixedChart';
 import type { MeasureVisualizationType } from '../../../../../selectedmeasure/types/MeasureVisualizationType';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class ColumnChart extends AbstractMixedChart {
   override getColors(): string[] {
@@ -128,5 +129,11 @@ export default class ColumnChart extends AbstractMixedChart {
 
   override supportsAllDimension(): boolean {
     return true;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'column')];
   }
 }

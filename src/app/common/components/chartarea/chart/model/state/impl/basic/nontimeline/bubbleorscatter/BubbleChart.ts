@@ -3,7 +3,8 @@ import type { MeasureVisualizationType } from '../../../../selectedmeasure/types
 import ScatterChart from './ScatterChart';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../../types/DataSeries';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class BubbleChart extends ScatterChart {
   override getConvertSelectedMeasures(): SelectedMeasure[] {
@@ -137,5 +138,15 @@ export default class BubbleChart extends ScatterChart {
     );
 
     return `X: ${xAxisMeasureName}, Y: ${yAxisMeasureName}, Size: ${radiusAxisMeasureName}`;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'x-axis', 'x-axis'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'y-axis', 'y-axis'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'radius', 'bubble size')
+    ];
   }
 }

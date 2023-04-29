@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class BarChart extends AbstractXAxisCategoriesChart {
   override getColors(): string[] {
@@ -43,5 +44,11 @@ export default class BarChart extends AbstractXAxisCategoriesChart {
 
   override supportsAllDimension(): boolean {
     return true;
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'bar')];
   }
 }

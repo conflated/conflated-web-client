@@ -19,13 +19,14 @@ import type { Dimension } from '../../../../../../page/dataexplorer/pane/left/se
 import type { Theme } from '../../../../../../page/dataexplorer/model/state/types/Theme';
 import type { SelectedDimension } from './selecteddimension/SelectedDimension';
 import type { DataSeries } from './types/DataSeries';
-import DimensionDropZoneListItemViewFactory from '../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import type { LegendPosition } from './types/LegendPosition';
 import type { Filter } from './filters/filter/Filter';
 import type { ColumnNameToValuesMap } from './data/ColumnNameToValuesMap';
 import type { Sort } from './sorts/sort/Sort';
 import type { Column } from './types/Column';
 import { GridItem } from '../../../model/state/types/GridItem';
+import MeasureDropZoneListItemViewFactory from '../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export interface Chart {
   id: string;
@@ -48,7 +49,11 @@ export interface Chart {
   menuConfirmationType?: ChartMenuConfirmationType;
   map: any;
 
-  addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction): void;
+  addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    visualizationType: MeasureVisualizationType
+  ): void;
 
   addSelectedDimension(dimension: Dimension | Measure, visualizationType: DimensionVisualizationType): void;
 
@@ -114,6 +119,10 @@ export interface Chart {
 
   getDimensionDropZoneListItemViews(
     dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
+  ): Array<JSX.Element>;
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element>;
 
   getLabels(): any[] | null | undefined;

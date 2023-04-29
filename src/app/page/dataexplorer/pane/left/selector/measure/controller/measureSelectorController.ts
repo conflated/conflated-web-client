@@ -34,10 +34,16 @@ export default class MeasureSelectorController extends Controller {
   actionDispatchers = {
     addSelectedMeasureToSelectedChart: (
       measureOrDimension: Measure | Dimension,
-      aggregationFunction: AggregationFunction
+      aggregationFunction: AggregationFunction,
+      visualizationType: MeasureVisualizationType
     ) =>
       this.dispatch(
-        new AddSelectedMeasureToSelectedChartAction('dataExplorerPage', measureOrDimension, aggregationFunction)
+        new AddSelectedMeasureToSelectedChartAction(
+          'dataExplorerPage',
+          measureOrDimension,
+          aggregationFunction,
+          visualizationType
+        )
       ),
 
     startFetchDimensions: (dataSource: DataSource, measure: Measure) =>

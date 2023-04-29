@@ -36,8 +36,9 @@ import type { LegendPosition } from '../types/LegendPosition';
 import Constants from '../../../../../../Constants';
 import type { GridItem } from '../../../../model/state/types/GridItem';
 import type { Column } from '../types/Column';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import { ChartAreaStateNamespace } from '../../../../model/state/types/ChartAreaStateNamespace';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default abstract class AbstractChart implements Chart {
   id = '1';
@@ -115,9 +116,11 @@ export default abstract class AbstractChart implements Chart {
     this.selectedDimensions = [...this.selectedDimensions, newSelectedDimension];
   }
 
-  addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
-    const measureVisualizationType = this.getNextMeasureVisualizationType();
-
+  addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    measureVisualizationType: MeasureVisualizationType
+  ) {
     if (measureVisualizationType !== 'none') {
       const newSelectedMeasure = SelectedMeasureFactory.createSelectedMeasure(
         measureOrDimension,
@@ -303,6 +306,10 @@ export default abstract class AbstractChart implements Chart {
 
   abstract getDimensionDropZoneListItemViews(
     dimensionDropZoneListItemViewFactory: DimensionDropZoneListItemViewFactory
+  ): Array<JSX.Element>;
+
+  abstract getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element>;
 
   getFillOpacity(): number {

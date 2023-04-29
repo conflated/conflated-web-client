@@ -4,6 +4,7 @@ import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import { DataSeries } from '../../../../types/DataSeries';
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
   override getValidAggregationFunction(): AggregationFunction {
@@ -88,5 +89,11 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
     }
 
     return this.getEmptyDataSeries();
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'boxPlot', 'measure')];
   }
 }

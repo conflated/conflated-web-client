@@ -3,6 +3,7 @@ import AbstractXAxisCategoriesChart from './AbstractXAxisCategoriesChart';
 import type { DataSeries } from '../../../../types/DataSeries';
 import type { SelectedMeasure } from '../../../../selectedmeasure/SelectedMeasure';
 import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class HeatmapChart extends AbstractXAxisCategoriesChart {
   override getApexDataSeries(): DataSeries[] | any[] {
@@ -55,5 +56,11 @@ export default class HeatmapChart extends AbstractXAxisCategoriesChart {
 
   override getNextMeasureVisualizationType(): MeasureVisualizationType {
     return 'area';
+  }
+
+  override getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'row')];
   }
 }

@@ -3,7 +3,7 @@ import type { MeasureVisualizationType } from '../../../../../selectedmeasure/ty
 import type { SelectedMeasure } from '../../../../../selectedmeasure/SelectedMeasure';
 import Utils from '../../../../../../../../../../utils/Utils';
 
-export default class AbstractMixedChart extends AbstractXAxisCategoriesChart {
+export default abstract class AbstractMixedChart extends AbstractXAxisCategoriesChart {
   override getApexType(): string {
     if (this.selectedMeasures.length === 1) {
       return this.selectedMeasures[0].visualizationType === 'column'

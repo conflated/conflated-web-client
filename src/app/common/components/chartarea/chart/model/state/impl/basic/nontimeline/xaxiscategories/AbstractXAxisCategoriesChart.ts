@@ -5,10 +5,11 @@ import type { Dimension } from '../../../../../../../../../../page/dataexplorer/
 import type { Measure } from '../../../../../../../../../../page/dataexplorer/pane/left/selector/measure/model/state/types/Measure';
 import type { AggregationFunction } from '../../../../selectedmeasure/types/AggregationFunction';
 import type { SelectedDimension } from '../../../../selecteddimension/SelectedDimension';
-import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/dimensiondropzonelistitemviewfactory/DimensionDropZoneListItemViewFactory';
+import DimensionDropZoneListItemViewFactory from '../../../../../../../../../../page/dataexplorer/pane/left/selector/dimension/view/DimensionDropZoneListItemViewFactory';
 import AbstractNonTimelineChart from '../AbstractNonTimelineChart';
 import { ChartConfiguration } from '../../../../ChartConfiguration';
 import XAxisChartSorts from '../../../../sorts/impl/XAxisChartSorts';
+import { MeasureVisualizationType } from '../../../../selectedmeasure/types/MeasureVisualizationType';
 
 export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTimelineChart {
   constructor(chartConfiguration?: ChartConfiguration) {
@@ -28,9 +29,13 @@ export default abstract class AbstractXAxisCategoriesChart extends AbstractNonTi
     super.addSelectedDimension(dimension, visualizationType);
   }
 
-  override addSelectedMeasure(measureOrDimension: Measure | Dimension, aggregationFunction: AggregationFunction) {
+  override addSelectedMeasure(
+    measureOrDimension: Measure | Dimension,
+    aggregationFunction: AggregationFunction,
+    measureVisualizationType: MeasureVisualizationType
+  ) {
     const selectedMeasureCountBeforeAdd = this.selectedMeasures.length;
-    super.addSelectedMeasure(measureOrDimension, aggregationFunction);
+    super.addSelectedMeasure(measureOrDimension, aggregationFunction, measureVisualizationType);
 
     if (
       selectedMeasureCountBeforeAdd === this.selectedMeasures.length - 1 &&

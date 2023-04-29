@@ -2,6 +2,7 @@ import AbstractTimelineChart from './AbstractTimelineChart';
 import type { MeasureVisualizationType } from '../../../selectedmeasure/types/MeasureVisualizationType';
 import type { SelectedMeasure } from '../../../selectedmeasure/SelectedMeasure';
 import type { DataSeries } from '../../../types/DataSeries';
+import MeasureDropZoneListItemViewFactory from '../../../../../../../../../page/dataexplorer/pane/left/selector/measure/view/MeasureDropZoneListItemViewFactory';
 
 export default class CandlestickChart extends AbstractTimelineChart {
   override getConvertSelectedMeasures(): SelectedMeasure[] {
@@ -90,5 +91,16 @@ export default class CandlestickChart extends AbstractTimelineChart {
 
   override shouldShowYAxisTooltip(): boolean {
     return true;
+  }
+
+  getMeasureDropZoneListItemViews(
+    measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
+  ): Array<JSX.Element> {
+    return [
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'open', 'open'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'high', 'high'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('3', 'low', 'low'),
+      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('4', 'close', 'close')
+    ];
   }
 }
