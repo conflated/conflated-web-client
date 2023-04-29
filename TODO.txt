@@ -1,11 +1,8 @@
-- Go through chart types
-
 - Chart menu styles in dark mode
 - Dashboard edit mode:
  - header with buttons "Cancel" and "Complete"
 - Shift-Arrows will change selected data point in chart
 - Enter, Shift-Enter will drill-down/up chart
-- Download custom CSS from URL
 - Absolute and relative time slider input type for filter (reactcompundslider with time)
 
 Add map color selection to map chart menu (color, grayscale light, dark)
@@ -53,13 +50,11 @@ Implement multiple y-axis based on measure units
 Implement Data table support for sparkline columns
 Implement map tooltip text as html table
 Implement map zoom box
-Implement map zoom home
 Implement map drill down dimensions
 Implement map geometry support
 Implement scrolling for heatmap chart
 Implement ROLLUP/CUBE support for data table dimension columns
 Implement Reporting
-Localization
 If measure/dimension/filter/sortBy has expression, show the expression in tooltip on hovering the name
 Implement Login
 
