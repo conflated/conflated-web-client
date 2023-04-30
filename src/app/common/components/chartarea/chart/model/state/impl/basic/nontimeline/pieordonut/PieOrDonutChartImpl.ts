@@ -118,6 +118,10 @@ export default class PieOrDonutChartImpl extends AbstractNonTimelineChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'pieOrDonut', 'measure')];
+    if (this.hasSelectedMeasureOfType('pieOrDonut')) {
+      return [];
+    } else {
+      return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'pieOrDonut', 'measure')];
+    }
   }
 }

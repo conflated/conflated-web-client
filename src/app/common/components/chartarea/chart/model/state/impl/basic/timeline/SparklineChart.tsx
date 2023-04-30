@@ -149,6 +149,10 @@ export default class SparklineChart extends AbstractTimelineChart {
   getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'column/line/area')];
+    if (this.hasSelectedMeasureOfType('column')) {
+      return [];
+    } else {
+      return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'column/line/area')];
+    }
   }
 }
