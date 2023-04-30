@@ -25,6 +25,12 @@
     }
   }
 
+  &:active {
+    .listItemActionIcon {
+      visibility: hidden;
+    }
+  }
+
   .listItemActionIcon {
     color: var(--small-font-color);
     padding-top: 0;
