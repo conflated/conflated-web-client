@@ -94,6 +94,10 @@ export default class BoxPlotChart extends AbstractXAxisCategoriesChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'boxPlot', 'measure')];
+    if (this.hasSelectedMeasureOfType('boxPlot')) {
+      return [];
+    } else {
+      return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'boxPlot', 'measure')];
+    }
   }
 }

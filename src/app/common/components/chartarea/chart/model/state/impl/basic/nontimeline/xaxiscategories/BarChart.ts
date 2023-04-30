@@ -49,6 +49,14 @@ export default class BarChart extends AbstractXAxisCategoriesChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'bar')];
+    if (
+      this.selectedMeasures.length > 0 &&
+      this.hasSelectedDimensionOfType('X-axis categories') &&
+      this.hasSelectedDimensionOfType('Legend')
+    ) {
+      return [];
+    } else {
+      return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'column', 'bar')];
+    }
   }
 }
