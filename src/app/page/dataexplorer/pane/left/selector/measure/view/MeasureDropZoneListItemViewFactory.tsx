@@ -15,7 +15,7 @@ export default class MeasureDropZoneListItemViewFactory {
     visualizationType: MeasureVisualizationType,
     visualizationTypeUiText?: string
   ): JSX.Element {
-    const dropZoneTitle = `Drag ${visualizationTypeUiText || visualizationType} here`;
+    const dropZoneTitle = `Select or drag ${visualizationTypeUiText || visualizationType} here`;
 
     return (
       <div

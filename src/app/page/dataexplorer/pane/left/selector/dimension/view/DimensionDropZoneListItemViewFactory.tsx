@@ -18,7 +18,7 @@ export default class DimensionDropZoneListItemViewFactory {
     visualizationType: DimensionVisualizationType,
     visualizationTypeUiText?: string
   ): JSX.Element {
-    const dropZoneTitle = `Drag ${visualizationTypeUiText || visualizationType} here`;
+    const dropZoneTitle = `Select or drag ${visualizationTypeUiText || visualizationType} here`;
 
     return (
       <div
