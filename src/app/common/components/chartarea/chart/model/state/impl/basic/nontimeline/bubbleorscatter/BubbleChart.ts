@@ -143,10 +143,26 @@ export default class BubbleChart extends ScatterChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'x-axis', 'x-axis'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'y-axis', 'y-axis'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'radius', 'bubble size')
-    ];
+    const measureDropZoneListItemViews = [];
+
+    if (!this.hasSelectedMeasureOfType('x-axis')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('x-axis', 'x-axis', 'x-axis')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('y-axis')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('y-axis', 'y-axis', 'y-axis')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('radius')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('radius', 'radius', 'bubble size')
+      );
+    }
+
+    return measureDropZoneListItemViews;
   }
 }
