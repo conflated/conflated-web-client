@@ -90,10 +90,21 @@ export default class MapChart extends AbstractDrillDownChart {
   getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'color', 'color intensity'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'radius', 'circle radius'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('3', 'tooltip', 'tooltip value')
-    ];
+    const measureDropZoneListItemViews = [];
+
+    if (!this.hasSelectedMeasureOfType('color')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('color', 'color', 'color intensity')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('radius')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('radius', 'radius', 'circle radius')
+      );
+    }
+
+    measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('tooltip', 'tooltip', 'tooltip value');
+    return measureDropZoneListItemViews;
   }
 }
