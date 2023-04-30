@@ -96,11 +96,32 @@ export default class CandlestickChart extends AbstractTimelineChart {
   getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'open', 'open'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'high', 'high'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('3', 'low', 'low'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('4', 'close', 'close')
-    ];
+    const measureDropZoneListItemViews = [];
+
+    if (!this.hasSelectedMeasureOfType('open')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('open', 'open', 'open')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('high')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('high', 'high', 'high')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('low')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('low', 'low', 'low')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('close')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('close', 'close', 'close')
+      );
+    }
+
+    return measureDropZoneListItemViews;
   }
 }
