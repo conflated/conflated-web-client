@@ -45,6 +45,6 @@ export default class RadarChart extends AbstractXAxisCategoriesChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'radius', 'radius')];
+    return [measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'radius', 'measure')];
   }
 }
