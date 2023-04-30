@@ -116,9 +116,20 @@ export default class ScatterChart extends AbstractBubbleOrScatterChart {
   getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'x-axis', 'x-axis'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('2', 'y-axis', 'y-axis')
-    ];
+    const measureDropZoneListItemViews = [];
+
+    if (!this.hasSelectedMeasureOfType('x-axis')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('x-axis', 'x-axis', 'x-axis')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('y-axis')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('y-axis', 'y-axis', 'y-axis')
+      );
+    }
+
+    return measureDropZoneListItemViews;
   }
 }
