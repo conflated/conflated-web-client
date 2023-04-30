@@ -114,10 +114,26 @@ export default class RangeAreaChart extends AbstractXAxisCategoriesChart {
   override getMeasureDropZoneListItemViews(
     measureDropZoneListItemViewFactory: MeasureDropZoneListItemViewFactory
   ): Array<JSX.Element> {
-    return [
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'line', 'line'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'lowerBound', 'min'),
-      measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('1', 'lowerBound', 'max')
-    ];
+    const measureDropZoneListItemViews = [];
+
+    if (!this.hasSelectedMeasureOfType('line')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('line', 'line', 'line')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('lowerBound')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('lowerBound', 'lowerBound', 'min')
+      );
+    }
+
+    if (!this.hasSelectedMeasureOfType('upperBound')) {
+      measureDropZoneListItemViews.push(
+        measureDropZoneListItemViewFactory.createMeasureDropZoneListItem('upperBound', 'upperBound', 'max')
+      );
+    }
+
+    return measureDropZoneListItemViews;
   }
 }
