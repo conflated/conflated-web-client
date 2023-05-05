@@ -82,16 +82,9 @@ export default class FakeAlertChartDataService implements TriggerChartDataServic
     return new Promise<ColumnNameToValuesMap>((resolve) => {
       setTimeout(() => {
         const columnNameToValuesMap = {} as ColumnNameToValuesMap;
-        columnNameToValuesMap['"Trigger time COUNT"'] = [1, 0, 3, 0, 1, 0];
+        columnNameToValuesMap['"Trigger time COUNT"'] = [1, 3, 1];
 
-        columnNameToValuesMap['"Trigger time"'] = [
-          '2019-04-02T12:02:00',
-          '2019-04-02T12:02:00',
-          '2019-04-02T14:00:00',
-          '2019-04-02T14:00:00',
-          '2019-04-02T17:10:00',
-          '2019-04-02T17:10:00'
-        ];
+        columnNameToValuesMap['"Trigger time"'] = ['2019-04-02T12:02:00', '2019-04-02T14:00:00', '2019-04-02T17:10:00'];
 
         const chartData = new ChartDataImpl(columnNameToValuesMap);
         resolve(chartData.getColumnNameToValuesMap());

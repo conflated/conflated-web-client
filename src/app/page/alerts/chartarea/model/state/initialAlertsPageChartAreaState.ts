@@ -157,7 +157,7 @@ const dataTableChart = ChartFactory.createChart({
 
 const timelineChart = ChartFactory.createChart({
   id: '2',
-  type: 'stepline',
+  type: 'column',
   dataSource: {
     ...emptyDataSource,
     name: 'alertstatistics'
@@ -177,7 +177,7 @@ const timelineChart = ChartFactory.createChart({
         name: '"Trigger time COUNT"',
         expression: 'COUNT("Trigger time")'
       },
-      visualizationType: 'line',
+      visualizationType: 'column',
       visualizationColor: ''
     }
   ],
